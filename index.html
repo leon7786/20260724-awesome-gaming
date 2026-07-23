@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🎮 游戏榜单 - 口碑Top + 销量Top + 下载链接</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0f0f1a;color:#e0e0e0}
+
+/* 侧边栏 */
+.sidebar{position:fixed;left:0;top:0;width:260px;height:100vh;background:#16162a;padding:20px;overflow-y:auto;z-index:100}
+.sidebar h2{color:#7c3aed;font-size:18px;margin-bottom:20px}
+.sidebar a{display:block;color:#a0a0c0;padding:8px 12px;margin:4px 0;border-radius:6px;text-decoration:none;font-size:14px;transition:all .2s}
+.sidebar a:hover{background:#2a2a4a;color:#fff}
+.sidebar .cat{color:#7c3aed;font-size:12px;text-transform:uppercase;letter-spacing:1px;margin:16px 0 8px 12px}
+
+/* 主内容 */
+.main{margin-left:260px;padding:30px}
+.header{max-width:1400px;margin:0 auto 30px}
+.header h1{font-size:32px;background:linear-gradient(135deg,#7c3aed,#ff6b6b);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.header p{color:#888;margin-top:8px;font-size:14px}
+.stats{display:flex;gap:16px;margin:16px 0;flex-wrap:wrap}
+.stat-card{background:#1a1a30;padding:12px 20px;border-radius:10px;text-align:center;min-width:100px}
+.stat-card .num{font-size:24px;font-weight:700;color:#7c3aed}
+.stat-card .label{font-size:12px;color:#888;margin-top:2px}
+
+/* 游戏卡片网格 */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:20px;max-width:1400px;margin:0 auto}
+
+/* 游戏卡片 */
+.card{background:#1a1a30;border-radius:12px;overflow:hidden;transition:transform .2s,box-shadow .2s;border:1px solid #2a2a4a}
+.card:hover{transform:translateY(-4px);box-shadow:0 8px 30px rgba(124,58,237,.2)}
+.card-poster{height:140px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.card-poster .bg{position:absolute;inset:0;opacity:.3}
+.card-poster h3{position:relative;z-index:1;font-size:22px;text-align:center;padding:10px;text-shadow:0 2px 10px rgba(0,0,0,.8)}
+.card-body{padding:14px}
+.card-body .cn{font-size:16px;font-weight:600;margin-bottom:2px}
+.card-body .en{font-size:12px;color:#888;margin-bottom:8px}
+.card-body .meta{display:flex;gap:8px;margin-bottom:10px;flex-wrap:wrap}
+.tag{font-size:11px;padding:2px 8px;border-radius:4px;background:#2a2a4a;color:#a0a0c0}
+.tag.mc{background:#7c3aed33;color:#7c3aed}
+.tag.sales{background:#ff6b6b33;color:#ff6b6b}
+
+/* 下载按钮 */
+.dl-buttons{display:flex;flex-wrap:wrap;gap:5px;margin-top:8px}
+.dl-btn{display:inline-flex;align-items:center;gap:3px;padding:4px 10px;border-radius:5px;font-size:11px;text-decoration:none;color:#fff;transition:all .2s;cursor:pointer}
+.dl-btn:hover{filter:brightness(1.2);transform:translateY(-1px)}
+.dl-btn.gamer520{background:#10b981}
+.dl-btn.x6d{background:#3b82f6}
+.dl-btn.tianyi{background:#6366f1}
+.dl-btn.baidu{background:#2563eb}
+.dl-btn.magnet{background:#ef4444}
+.dl-btn.fitgirl{background:#f59e0b}
+.dl-btn.steamzg{background:#8b5cf6}
+.dl-btn.crotorrents{background:#ec4899}
+
+/* 搜索过滤 */
+.filters{max-width:1400px;margin:0 auto 20px;display:flex;gap:10px;flex-wrap:wrap}
+.filters input{flex:1;min-width:200px;padding:10px 16px;border-radius:8px;border:1px solid #2a2a4a;background:#1a1a30;color:#e0e0e0;font-size:14px}
+.filters input:focus{outline:none;border-color:#7c3aed}
+.filters select{padding:10px 16px;border-radius:8px;border:1px solid #2a2a4a;background:#1a1a30;color:#e0e0e0;font-size:14px;cursor:pointer}
+
+/* 响应式 */
+@media(max-width:768px){.sidebar{display:none}.main{margin-left:0;padding:16px}.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<div class="sidebar">
+  <h2>🎮 游戏榜单</h2>
+  <div class="cat">分类</div>
+  <a href="#all" onclick="filterGames('all')">🏠 全部游戏</a>
+  <a href="#koubei" onclick="filterGames('koubei')">⭐ 口碑Top</a>
+  <a href="#sales" onclick="filterGames('sales')">💰 销量Top</a>
+  <div class="cat">下载源</div>
+  <a href="https://www.gamer520.com/" target="_blank">🎮 gamer520.com</a>
+  <a href="https://www.x6d.com/html/96.html" target="_blank">📦 x6d.com</a>
+  <a href="https://fitgirl-repacks.site" target="_blank">🧲 FitGirl Repacks</a>
+  <a href="https://steamzg.com" target="_blank">🧲 steamzg.com</a>
+  <div class="cat">其他</div>
+  <a href="https://github.com/leon7786/20260724-awesome-gaming" target="_blank">📂 GitHub 仓库</a>
+</div>
+
+<div class="main">
+  <div class="header">
+    <h1>🎮 游戏榜单 + 下载导航</h1>
+    <p>Metacritic + OpenCritic + Steam 250 口碑Top &amp; 全球销量Top 100 | 附 gamer520 / x6d / 磁力链 下载地址</p>
+    <div class="stats">
+      <div class="stat-card"><div class="num">
+42
+</div><div class="label">游戏总数</div></div>
+      <div class="stat-card"><div class="num">7+</div><div class="label">磁力链</div></div>
+      <div class="stat-card"><div class="num">60+</div><div class="label">gamer520链接</div></div>
+      <div class="stat-card"><div class="num">120+</div><div class="label">x6d链接</div></div>
+    </div>
+  </div>
+
+  <div class="filters">
+    <input type="text" id="search" placeholder="搜索游戏名称..." oninput="filterGames()">
+    <select id="category" onchange="filterGames()">
+      <option value="all">全部</option>
+      <option value="koubei">口碑Top</option>
+      <option value="sales">销量Top</option>
+    </select>
+  </div>
+
+  <div class="grid" id="gameGrid">
+
+    <div class="card" data-tags="口碑Top,销量Top">
+      <div class="card-poster" style="background:linear-gradient(135deg,#7c3aed,#4f46e5)">
+        <div class="bg" style="background:linear-gradient(135deg,#7c3aed44,#4f46e544)"></div>
+        <h3>艾尔登法环</h3>
+      </div>
+      <div class="card-body">
+        <div class="cn">艾尔登法环</div>
+        <div class="en">Elden Ring</div>
+        <div class="meta">
+          <span class="tag">2022</span>
+          <span class="tag mc">评分 96</span>
+          <span class="tag mc">口碑Top</span><span class="tag sales">销量Top</span>
+        </div>
+        <div class="dl-buttons">
+          <a href="https://www.gamer520.com/98041.html" class="dl-btn gamer520" target="_blank" rel="noopener">🎮 gamer520</a>
+<a href="https://www.x6d.com/i-wz-18242.html" class="dl-btn x6d" target="_blank" rel="noopener">📦 x6d</a>
+<a href="https://steamzg.com/15351" class="dl-btn steamzg" target="_blank" rel="noopener">🧲 steamzg</a>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="card" data-tags="口碑Top,销量Top">
+      <div class="card-poster" style="background:linear-gradient(135deg,#ef4444,#f97316)">
+        <div class="bg" style="background:linear-gradient(135deg,#ef444444,#f9731644)"></div>
+        <h3>博德之门3</h3>
+      </div>
+      <div class="card-body">
+        <div class="cn">博德之门3</div>
+        <div class="en">Baldur's Gate 3</div>
+        <div class="meta">
+          <span class="tag">2023</span>
+          <span class="tag mc">评分 96</span>
+          <span class="tag mc">口碑Top</span><span class="tag sales">销量Top</span>
+        </div>
+        <div class="dl-buttons">
+          <a href="https://www.gamer520.com/62634.html" class="dl-btn gamer520" target="_blank" rel="noopener">🎮 gamer520</a>
+<a href="https://www.x6d.com/i-wz-12556.html" class="dl-btn x6d" target="_blank" rel="noopener">📦 x6d</a>
+<a href="https://steamzg.com/21659" class="dl-btn steamzg" target="_blank" rel="noopener">🧲 steamzg</a>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="card" data-tags="口碑Top,销量Top">
+      <div class="card-poster" style="background:linear-gradient(135deg,#10b981,#059669)">
+        <div class="bg" style="background:linear-gradient(135deg,#10b98144,#05966944)"></div>
+        <h3>荒野大镖客：救赎2</h3>
+      </div>
+      <div class="card-body">
+        <div class="cn">荒野大镖客：救赎2</div>
+        <div class="en">Red Dead Redemption 2</div>
+        <div class="meta">
+          <span class="tag">2018</span>
+          <span class="tag mc">评分 97</span>
+          <span class="tag mc">口碑Top</span><span class="tag sales">销量Top</span>
+        </div>
+        <div class="dl-buttons">
+          <a href="https://www.gamer520.com/15831.html" class="dl-btn gamer520" target="_blank" rel="noopener">🎮 gamer520</a>
+<a href="https://www.x6d.com/i-wz-32167.html" class="dl-btn x6d" target="_blank" rel="noopener">📦 x6d</a>
+<a href="magnet:?xt=urn:btih:2FC64B9E1D470CF434D98674AC39ADAD67CD858F" class="dl-btn magnet" target="_blank" rel="noopener">🧲 磁力链</a>
+<a href="https://crotorrents.com/7-red-dead-redemption-2-torrent-download" class="dl-btn crotorrents" target="_blank" rel="noopener">🧲 CroTorrents</a>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="card" data-tags="口碑Top,销量Top">
+      <div class="card-poster" style="background:linear-gradient(135deg,#3b82f6,#2563eb)">
+        <div class="bg" style="background:linear-gradient(135deg,#3b82f644,#2563eb44)"></div>
+        <h3>巫师3：狂猎</h3>
+      </div>
+      <div class="card-body">
+        <div class="cn">巫师3：狂猎</div>
+        <div class="en">The Witcher 3: Wild Hunt</div>
+        <div class="meta">
+          <span class="tag">2015</span>
+          <span class="tag mc">评分 96</span>
+          <span class="tag mc">口碑Top</span><span class="tag sales">销量Top</span>
+        </div>
+        <div class="dl-buttons">
+          <a href="https://www.gamer520.com/47649.html" class="dl-btn gamer520" target="_blank" rel="noopener">🎮 gamer520</a>
+<a href="https://www.x6d.com/i-wz-10131.html" class="dl-btn x6d" target="_blank" rel="noopener">📦 x6d</a>
+<a href="https://steamzg.com/24239" class="dl-btn steamzg" target="_blank" rel="noopener">🧲 steamzg</a>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="card" data-tags="口碑Top,销量Top">
+      <div class="card-poster" style="background:linear-gradient(135deg,#f59e0b,#d97706)">
+        <div class="bg" style="background:linear-gradient(135deg,#f59e0b44,#d9770644)"></div>
+        <h3>侠盗猎车手5</h3>
+      </div>
+      <div class="card-body">
+        <div class="cn">侠盗猎车手5</div>
+        <div class="en">Grand Theft Auto V</div>
+        <div class="meta">
+          <span class="tag">2013</span>
+          <span class="tag mc">评分 97</span>
+          <span class="tag mc">口碑Top</span><span class="tag sales">销量Top</span>
+        </div>
+        <div class="dl-buttons">
+          <a href="https://www.gamer520.com/40746.html" class="dl-btn gamer520" target="_blank" rel="noopener">🎮 gamer520</a>
+<a href="https://www.x6d.com/i-wz-17253.html" class="dl-btn x6d" target="_blank" rel="noopener">📦 x6d</a>
+<a href="https://steamzg.com/53181" class="dl-btn steamzg" target="_blank" rel="noopener">🧲 steamzg</a>
+<a href="https://fitgirlrepacks.org/lossless-repack/grand-theft-auto-v-enhanced-build-811-8-online-1-70" class="dl-btn fitgirl" target="_blank" rel="noopener">📀 FitGirl</a>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="card" data-tags="口碑Top,销量Top">
+      <div class="card-poster" style="background:linear-gradient(135deg,#ec4899,#db2777)">
+        <div class="bg" style="background:linear-gradient(135deg,#ec489944,#db277744)"></div>
+        <h3>赛博朋克2077</h3>
+      </div>
+      <div class="card-body">
+        <div class="cn">赛博朋克2077</div>
+        <div class="en">Cyberpunk 2077</div>
+        <div class="meta">
+          <span class="tag">2020</span>
+          <span class="tag mc">评分 96</span>
+          <span class="tag mc">口碑Top</span><span class="tag sales">销量Top</span>
+        </div>
+        <div class="dl-buttons">
+          <a href="https://www.gamer520.com/4121.html" class="dl-btn gamer520" target="_blank" rel="noopener">🎮 gamer520</a>
+<a href="https://www.x6d.com/i-wz-13285.html" class="dl-btn x6d" target="_blank" rel="noopener">📦 x6d</a>
+<a href="magnet:?xt=urn:btih:c6e4984179fbd8417ba1dfd85082297183c55c6c" class="dl-btn magnet" target="_blank" rel="noopener">🧲 磁力Steam</a>
+<a href="magnet:?xt=urn:btih:0456e08293e1bf7a9e173e573dfbe8dcd5fb0e3e" class="dl-btn magnet" target="_blank" rel="noopener">🧲 磁力GOG</a>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="card" data-tags="口碑Top,销量Top">
+      <div class="card-poster" style="background:linear-gradient(135deg,#14b8a6,#0d9488)">
+        <div class="bg" style="background:linear-gradient(135deg,#14b8a644,#0d948844)"></div>
+        <h3>战神</h3>
+      </div>
+      <div class="card-body">
+        <div class="cn">战神</div>
+        <div class="en">God of War</div>
+        <div class="meta">
+          <span class="tag">2018</span>
+          <span class="tag mc">评分 94</span>
+          <span class="tag mc">口碑Top</span><span class="tag sales">销量Top</span>
+        </div>
+        <div class="dl-buttons">
+          <a href="https://www.gamer520.com/26361.html" class="dl-btn gamer520" target="_blank" rel="noopener">🎮 gamer520</a>
+<a href="https://www.x6d.com/i-wz-17707.html" class="dl-btn x6d" target="_blank" rel="noopener">📦 x6d</a>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="card" data-tags="口碑Top,销量Top">
+      <div class="card-poster" style="background:linear-gradient(135deg,#8b5cf6,#7c3aed)">
+        <div class="bg" style="background:linear-gradient(135deg,#8b5cf644,#7c3aed44)"></div>
+        <h3>双人成行</h3>
+      </div>
+      <div class="card-body">
+        <div class="cn">双人成行</div>
+        <div class="en">It Takes Two</div>
+        <div class="meta">
+          <span class="tag">2021</span>
+          <span class="tag mc">评分 95</span>
+          <span class="tag mc">口碑Top</span><span class="tag sales">销量Top</span>
+        </div>
+        <div class="dl-buttons">
+          <a href="https://www.gamer520.com/14520.html" class="dl-btn gamer520" target="_blank" rel="noopener">🎮 gamer520</a>
+<a href="https://www.gamer520.com/44563.html" class="dl-btn gamer520" target="_blank" rel="noopener">🎮 gamer5202</a>
+<a href="https://www.x6d.com/i-wz-14533.html" class="dl-btn x6d" target="_blank" rel="noopener">📦 x6d</a>
+<a href="https://cloud.189.cn/t/6by6B3f67RFr" class="dl-btn tianyi" target="_blank" rel="noopener">☁️ 天翼云</a>
+<a href="https://pan.baidu.com/s/1cK12ABymJ87063oXhlyGFA" class="dl-btn baidu" target="_blank" rel="noopener">📀 百度云</a>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="card" data-tags="口碑Top">
+      <div class="card-poster" style="background:linear-gradient(135deg,#f43f5e,#e11d48)">
+        <div class="bg" style="background:linear-gradient(135deg,#f43f5e44,#e11d4844)"></div>
+        <h3>只狼：影逝二度</h3>
+      </div>
+      <div class="card-body">
+        <div class="cn">只狼：影逝二度</div>
+        <div class="en">Sekiro: Shadows Die Twice</div>
+        <div class="meta">
+          <span class="tag">2019</span>
+          <span class="tag mc">评分 95</span>
+          <span class="tag mc">口碑Top</span>
+        </div>
+        <div class="dl-buttons">
+          <a href="https://www.gamer520.com/60450.html" class="dl-btn gamer520" target="_blank" rel="noopener">🎮 gamer520</a>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="card" data-tags="销量Top">
+      <div class="card-poster" style="background:linear-gradient(135deg,#06b6d4,#0891b2)">
+        <div class="bg" style="background:linear-gradient(135deg,#06b6d444,#0891b244)"></div>
+        <h3>霍格沃茨之遗</h3>
+      </div>
+      <div class="card-body">
+        <div class="cn">霍格沃茨之遗</div>
+        <div class="en">Hogwarts Legacy</div>
+        <div class="meta">
+          <span class="tag">2023</span>
+          <span class="tag mc">评分 93</span>
+          <span class="tag sales">销量Top</span>
+        </div>
+        <div class="dl-buttons">
+          <a href="https://www.gamer520.com/67605.html" class="dl-btn gamer520" target="_blank" rel="noopener">🎮 gamer520</a>
+<a href="https://www.x6d.com/i-wz-22678.html" class="dl-btn x6d" target="_blank" rel="noopener">📦 x6d</a>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="card" data-tags="销量Top">
+      <div class="card-poster" style="background:linear-gradient(135deg,#84cc16,#65a30d)">
+        <div class="bg" style="background:linear-gradient(135deg,#84cc1644,#65a30d44)"></div>
+        <h3>怪物猎人：世界</h3>
+      </div>
+      <div class="card-body">
+        <div class="cn">怪物猎人：世界</div>
+        <div class="en">Monster Hunter: World</div>
+        <div class="meta">
+          <span class="tag">2018</span>
+          <span class="tag mc">评分 93</span>
+          <span class="tag sales">销量Top</span>
+        </div>
+        <div class="dl-buttons">
+          <a href="https://www.gamer520.com/10622.html" class="dl-btn gamer520" target="_blank" rel="noopener">🎮 gamer520</a>
+<a href="https://www.x6d.com/i-wz-10622.html" class="dl-btn x6d" target="_blank" rel="noopener">📦 x6d</a>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="card" data-tags="口碑Top">
+      <div class="card-poster" style="background:linear-gradient(135deg,#a855f7,#9333ea)">
+        <div class="bg" style="background:linear-gradient(135deg,#a855f744,#9333ea44)"></div>
+        <h3>最后生还者 第一部</h3>
+      </div>
+      <div class="card-body">
+        <div class="cn">最后生还者 第一部</div>
+        <div class="en">The Last of Us Part I</div>
+        <div class="meta">
+          <span class="tag">2023</span>
+          <span class="tag mc">评分 95</span>
+          <span class="tag mc">口碑Top</span>
+        </div>
+        <div class="dl-buttons">
+          <a href="https://www.gamer520.com/85342.html" class="dl-btn gamer520" target="_blank" rel="noopener">🎮 gamer520</a>
+<a href="https://www.x6d.com/i-wz-22692.html" class="dl-btn x6d" target="_blank" rel="noopener">📦 x6d</a>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="card" data-tags="口碑Top">
+      <div class="card-poster" style="background:linear-gradient(135deg,#7c3aed,#4f46e5)">
+        <div class="bg" style="background:linear-gradient(135deg,#7c3aed44,#4f46e544)"></div>
+        <h3>死亡搁浅</h3>
+      </div>
+      <div class="card-body">
+        <div class="cn">死亡搁浅</div>
+        <div class="en">Death Stranding</div>
+        <div class="meta">
+          <span class="tag">2019</span>
+          <span class="tag mc">评分 93</span>
+          <span class="tag mc">口碑Top</span>
+        </div>
+        <div class="dl-buttons">
+          <a href="https://www.gamer520.com/43694.html" class="dl-btn gamer520" target="_blank" rel="noopener">🎮 gamer520</a>
+<a href="https://www.x6d.com/i-wz-12673.html" class="dl-btn x6d" target="_blank" rel="noopener">📦 x6d</a>
+<a href="https://www.x6d.com/i-wz-18636.html" class="dl-btn x6d" target="_blank" rel="noopener">📦 x6d</a>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="card" data-tags="口碑Top">
+      <div class="card-poster" style="background:linear-gradient(135deg,#ef4444,#f97316)">
+        <div class="bg" style="background:linear-gradient(135deg,#ef444444,#f9731644)"></div>
+        <h3>对马岛之魂</h3>
+      </div>
+      <div class="card-body">
+        <div class="cn">对马岛之魂</div>
+        <div class="en">Ghost of Tsushima</div>
+        <div class="meta">
+          <span class="tag">2020</span>
+          <span class="tag mc">评分 93</span>
+          <span class="tag mc">口碑Top</span>
+        </div>
+        <div class="dl-buttons">
+          <a href="https://www.gamer520.com/76784.html" class="dl-btn gamer520" target="_blank" rel="noopener">🎮 gamer520</a>
+<a href="https://www.x6d.com/i-wz-26308.html" class="dl-btn x6d" target="_blank" rel="noopener">📦 x6d</a>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="card" data-tags="口碑Top">
+      <div class="card-poster" style="background:linear-gradient(135deg,#10b981,#059669)">
+        <div class="bg" style="background:linear-gradient(135deg,#10b98144,#05966944)"></div>
+        <h3>最终幻想7重制版</h3>
+      </div>
+      <div class="card-body">
+        <div class="cn">最终幻想7重制版</div>
+        <div class="en">FF7 Remake</div>
+        <div class="meta">
+          <span class="tag">2020</span>
+          <span class="tag mc">评分 93</span>
+          <span class="tag mc">口碑Top</span>
+        </div>
+        <div class="dl-buttons">
+          <a href="https://www.gamer520.com/25591.html" class="dl-btn gamer520" target="_blank" rel="noopener">🎮 gamer520</a>
+<a href="https://www.x6d.com/i-wz-17326.html" class="dl-btn x6d" target="_blank" rel="noopener">📦 x6d</a>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="card" data-tags="销量Top">
+      <div class="card-poster" style="background:linear-gradient(135deg,#3b82f6,#2563eb)">
+        <div class="bg" style="background:linear-gradient(135deg,#3b82f644,#2563eb44)"></div>
+        <h3>漫威蜘蛛侠2</h3>
+      </div>
+      <div class="card-body">
+        <div class="cn">漫威蜘蛛侠2</div>
+        <div class="en">Marvel's Spider-Man 2</div>
+        <div class="meta">
+          <span class="tag">2023</span>
+          <span class="tag mc">评分 93</span>
+          <span class="tag sales">销量Top</span>
+        </div>
+        <div class="dl-buttons">
+          <a href="https://www.gamer520.com/87941.html" class="dl-btn gamer520" target="_blank" rel="noopener">🎮 gamer520</a>
+<a href="https://www.x6d.com/i-wz-26226.html" class="dl-btn x6d" target="_blank" rel="noopener">📦 x6d</a>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="card" data-tags="口碑Top,销量Top">
+      <div class="card-poster" style="background:linear-gradient(135deg,#f59e0b,#d97706)">
+        <div class="bg" style="background:linear-gradient(135deg,#f59e0b44,#d9770644)"></div>
+        <h3>黑神话：悟空</h3>
+      </div>
+      <div class="card-body">
+        <div class="cn">黑神话：悟空</div>
+        <div class="en">Black Myth: Wukong</div>
+        <div class="meta">
+          <span class="tag">2024</span>
+          <span class="tag mc">评分 97</span>
+          <span class="tag mc">口碑Top</span><span class="tag sales">销量Top</span>
+        </div>
+        <div class="dl-buttons">
+          <a href="https://www.gamer520.com/15988.html" class="dl-btn gamer520" target="_blank" rel="noopener">🎮 gamer520</a>
+<a href="https://www.x6d.com/i-wz-31701.html" class="dl-btn x6d" target="_blank" rel="noopener">📦 x6d</a>
+<a href="https://crotorrents.com/black-myth-wukong-torrent-download" class="dl-btn crotorrents" target="_blank" rel="noopener">🧲 CroTorrents</a>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="card" data-tags="口碑Top,销量Top">
+      <div class="card-poster" style="background:linear-gradient(135deg,#ec4899,#db2777)">
+        <div class="bg" style="background:linear-gradient(135deg,#ec489944,#db277744)"></div>
+        <h3>塞尔达传说：旷野之息</h3>
+      </div>
+      <div class="card-body">
+        <div class="cn">塞尔达传说：旷野之息</div>
+        <div class="en">Zelda: Breath of the Wild</div>
+        <div class="meta">
+          <span class="tag">2017</span>
+          <span class="tag mc">评分 97</span>
+          <span class="tag mc">口碑Top</span><span class="tag sales">销量Top</span>
+        </div>
+        <div class="dl-buttons">
+          <a href="https://www.gamer520.com/59328.html" class="dl-btn gamer520" target="_blank" rel="noopener">🎮 gamer520</a>
+<a href="https://www.gamer520.com/108992.html" class="dl-btn gamer520" target="_blank" rel="noopener">🎮 gamer5202</a>
+<a href="https://www.x6d.com/i-wz-10231.html" class="dl-btn x6d" target="_blank" rel="noopener">📦 x6d</a>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="card" data-tags="口碑Top,销量Top">
+      <div class="card-poster" style="background:linear-gradient(135deg,#14b8a6,#0d9488)">
+        <div class="bg" style="background:linear-gradient(135deg,#14b8a644,#0d948844)"></div>
+        <h3>星露谷物语</h3>
+      </div>
+      <div class="card-body">
+        <div class="cn">星露谷物语</div>
+        <div class="en">Stardew Valley</div>
+        <div class="meta">
+          <span class="tag">2016</span>
+          <span class="tag mc">评分 98</span>
+          <span class="tag mc">口碑Top</span><span class="tag sales">销量Top</span>
+        </div>
+        <div class="dl-buttons">
+          <a href="https://www.gamer520.com/50152.html" class="dl-btn gamer520" target="_blank" rel="noopener">🎮 gamer520</a>
+<a href="https://www.x6d.com/i-wz-17482.html" class="dl-btn x6d" target="_blank" rel="noopener">📦 x6d</a>
+<a href="https://crotorrents.com/tag/stardew-valley-torrent" class="dl-btn crotorrents" target="_blank" rel="noopener">🧲 CroTorrents</a>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="card" data-tags="口碑Top">
+      <div class="card-poster" style="background:linear-gradient(135deg,#8b5cf6,#7c3aed)">
+        <div class="bg" style="background:linear-gradient(135deg,#8b5cf644,#7c3aed44)"></div>
+        <h3>黑帝斯2</h3>
+      </div>
+      <div class="card-body">
+        <div class="cn">黑帝斯2</div>
+        <div class="en">Hades II</div>
+        <div class="meta">
+          <span class="tag">2025</span>
+          <span class="tag mc">评分 95</span>
+          <span class="tag mc">口碑Top</span>
+        </div>
+        <div class="dl-buttons">
+          <a href="magnet:?xt=urn:btih:1159AD0F27A63EF7926CFFB6A60409D701DF18BB" class="dl-btn magnet" target="_blank" rel="noopener">🧲 磁力链</a>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="card" data-tags="口碑Top">
+      <div class="card-poster" style="background:linear-gradient(135deg,#f43f5e,#e11d48)">
+        <div class="bg" style="background:linear-gradient(135deg,#f43f5e44,#e11d4844)"></div>
+        <h3>生化危机4重制版</h3>
+      </div>
+      <div class="card-body">
+        <div class="cn">生化危机4重制版</div>
+        <div class="en">Resident Evil 4 Remake</div>
+        <div class="meta">
+          <span class="tag">2023</span>
+          <span class="tag mc">评分 96</span>
+          <span class="tag mc">口碑Top</span>
+        </div>
+        <div class="dl-buttons">
+          <a href="https://www.gamer520.com/57854.html" class="dl-btn gamer520" target="_blank" rel="noopener">🎮 gamer520</a>
+<a href="https://www.x6d.com/i-wz-23182.html" class="dl-btn x6d" target="_blank" rel="noopener">📦 x6d</a>
+<a href="https://fitgirl-repacks.site/resident-evil-4-2023/" class="dl-btn fitgirl" target="_blank" rel="noopener">📀 FitGirl</a>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="card" data-tags="口碑Top">
+      <div class="card-poster" style="background:linear-gradient(135deg,#06b6d4,#0891b2)">
+        <div class="bg" style="background:linear-gradient(135deg,#06b6d444,#0891b244)"></div>
+        <h3>传说之下</h3>
+      </div>
+      <div class="card-body">
+        <div class="cn">传说之下</div>
+        <div class="en">Undertale</div>
+        <div class="meta">
+          <span class="tag">2015</span>
+          <span class="tag mc">评分 97</span>
+          <span class="tag mc">口碑Top</span>
+        </div>
+        <div class="dl-buttons">
+          <a href="magnet:?xt=urn:btih:26987e9b3c2733f0d926de609e32dbde022c1250" class="dl-btn magnet" target="_blank" rel="noopener">🧲 磁力链</a>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="card" data-tags="口碑Top">
+      <div class="card-poster" style="background:linear-gradient(135deg,#84cc16,#65a30d)">
+        <div class="bg" style="background:linear-gradient(135deg,#84cc1644,#65a30d44)"></div>
+        <h3>小丑牌</h3>
+      </div>
+      <div class="card-body">
+        <div class="cn">小丑牌</div>
+        <div class="en">Balatro</div>
+        <div class="meta">
+          <span class="tag">2024</span>
+          <span class="tag mc">评分 98</span>
+          <span class="tag mc">口碑Top</span>
+        </div>
+        <div class="dl-buttons">
+          <a href="magnet:?xt=urn:btih:843e499f0c0a39017908c67da374fd481f47070b" class="dl-btn magnet" target="_blank" rel="noopener">🧲 磁力链</a>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="card" data-tags="口碑Top">
+      <div class="card-poster" style="background:linear-gradient(135deg,#a855f7,#9333ea)">
+        <div class="bg" style="background:linear-gradient(135deg,#a855f744,#9333ea44)"></div>
+        <h3>吸血鬼幸存者</h3>
+      </div>
+      <div class="card-body">
+        <div class="cn">吸血鬼幸存者</div>
+        <div class="en">Vampire Survivors</div>
+        <div class="meta">
+          <span class="tag">2022</span>
+          <span class="tag mc">评分 98</span>
+          <span class="tag mc">口碑Top</span>
+        </div>
+        <div class="dl-buttons">
+          <a href="magnet:?xt=urn:btih:CDCABBB8D2D496A3CB858ACB604463538711C7D7" class="dl-btn magnet" target="_blank" rel="noopener">🧲 磁力链</a>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="card" data-tags="口碑Top">
+      <div class="card-poster" style="background:linear-gradient(135deg,#7c3aed,#4f46e5)">
+        <div class="bg" style="background:linear-gradient(135deg,#7c3aed44,#4f46e544)"></div>
+        <h3>环世界</h3>
+      </div>
+      <div class="card-body">
+        <div class="cn">环世界</div>
+        <div class="en">RimWorld</div>
+        <div class="meta">
+          <span class="tag">2018</span>
+          <span class="tag mc">评分 98</span>
+          <span class="tag mc">口碑Top</span>
+        </div>
+        <div class="dl-buttons">
+          <a href="https://fitgirl-repacks.site" class="dl-btn fitgirl" target="_blank" rel="noopener">📀 FitGirl</a>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="card" data-tags="口碑Top">
+      <div class="card-poster" style="background:linear-gradient(135deg,#ef4444,#f97316)">
+        <div class="bg" style="background:linear-gradient(135deg,#ef444444,#f9731644)"></div>
+        <h3>深岩银河</h3>
+      </div>
+      <div class="card-body">
+        <div class="cn">深岩银河</div>
+        <div class="en">Deep Rock Galactic</div>
+        <div class="meta">
+          <span class="tag">2020</span>
+          <span class="tag mc">评分 97</span>
+          <span class="tag mc">口碑Top</span>
+        </div>
+        <div class="dl-buttons">
+          <a href="https://fitgirl-repacks.site" class="dl-btn fitgirl" target="_blank" rel="noopener">📀 FitGirl</a>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="card" data-tags="口碑Top">
+      <div class="card-poster" style="background:linear-gradient(135deg,#10b981,#059669)">
+        <div class="bg" style="background:linear-gradient(135deg,#10b98144,#05966944)"></div>
+        <h3>极限竞速：地平线5</h3>
+      </div>
+      <div class="card-body">
+        <div class="cn">极限竞速：地平线5</div>
+        <div class="en">Forza Horizon 5</div>
+        <div class="meta">
+          <span class="tag">2021</span>
+          <span class="tag mc">评分 92</span>
+          <span class="tag mc">口碑Top</span>
+        </div>
+        <div class="dl-buttons">
+          <a href="https://fitgirl-repacks.site" class="dl-btn fitgirl" target="_blank" rel="noopener">📀 FitGirl</a>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="card" data-tags="口碑Top">
+      <div class="card-poster" style="background:linear-gradient(135deg,#3b82f6,#2563eb)">
+        <div class="bg" style="background:linear-gradient(135deg,#3b82f644,#2563eb44)"></div>
+        <h3>寂静岭2重制版</h3>
+      </div>
+      <div class="card-body">
+        <div class="cn">寂静岭2重制版</div>
+        <div class="en">Silent Hill 2 Remake</div>
+        <div class="meta">
+          <span class="tag">2024</span>
+          <span class="tag mc">评分 95</span>
+          <span class="tag mc">口碑Top</span>
+        </div>
+        <div class="dl-buttons">
+          <a href="https://fitgirl-repacks.site/silent-hill-2-remake/" class="dl-btn fitgirl" target="_blank" rel="noopener">📀 FitGirl</a>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="card" data-tags="口碑Top">
+      <div class="card-poster" style="background:linear-gradient(135deg,#f59e0b,#d97706)">
+        <div class="bg" style="background:linear-gradient(135deg,#f59e0b44,#d9770644)"></div>
+        <h3>心灵杀手2</h3>
+      </div>
+      <div class="card-body">
+        <div class="cn">心灵杀手2</div>
+        <div class="en">Alan Wake 2</div>
+        <div class="meta">
+          <span class="tag">2023</span>
+          <span class="tag mc">评分 93</span>
+          <span class="tag mc">口碑Top</span>
+        </div>
+        <div class="dl-buttons">
+          <a href="https://steamverde.net/download/alan-wake-2-2023" class="dl-btn steamzg" target="_blank" rel="noopener">🧲 SteamVerde</a>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="card" data-tags="口碑Top">
+      <div class="card-poster" style="background:linear-gradient(135deg,#ec4899,#db2777)">
+        <div class="bg" style="background:linear-gradient(135deg,#ec489944,#db277744)"></div>
+        <h3>极乐迪斯科</h3>
+      </div>
+      <div class="card-body">
+        <div class="cn">极乐迪斯科</div>
+        <div class="en">Disco Elysium</div>
+        <div class="meta">
+          <span class="tag">2019</span>
+          <span class="tag mc">评分 96</span>
+          <span class="tag mc">口碑Top</span>
+        </div>
+        <div class="dl-buttons">
+          <a href="https://fitgirl-repacks.site/disco-elysium/" class="dl-btn fitgirl" target="_blank" rel="noopener">📀 FitGirl</a>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="card" data-tags="销量Top">
+      <div class="card-poster" style="background:linear-gradient(135deg,#14b8a6,#0d9488)">
+        <div class="bg" style="background:linear-gradient(135deg,#14b8a644,#0d948844)"></div>
+        <h3>幻兽帕鲁</h3>
+      </div>
+      <div class="card-body">
+        <div class="cn">幻兽帕鲁</div>
+        <div class="en">Palworld</div>
+        <div class="meta">
+          <span class="tag">2024</span>
+          <span class="tag mc">评分 93</span>
+          <span class="tag sales">销量Top</span>
+        </div>
+        <div class="dl-buttons">
+          <a href="https://www.x6d.com/i-wz-25381.html" class="dl-btn x6d" target="_blank" rel="noopener">📦 x6d</a>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="card" data-tags="口碑Top">
+      <div class="card-poster" style="background:linear-gradient(135deg,#8b5cf6,#7c3aed)">
+        <div class="bg" style="background:linear-gradient(135deg,#8b5cf644,#7c3aed44)"></div>
+        <h3>塞尔达传说：王国之泪</h3>
+      </div>
+      <div class="card-body">
+        <div class="cn">塞尔达传说：王国之泪</div>
+        <div class="en">Zelda: Tears of the Kingdom</div>
+        <div class="meta">
+          <span class="tag">2023</span>
+          <span class="tag mc">评分 96</span>
+          <span class="tag mc">口碑Top</span>
+        </div>
+        <div class="dl-buttons">
+          <span style="font-size:11px;color:#666">暂无下载链接</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" data-tags="口碑Top,销量Top">
+      <div class="card-poster" style="background:linear-gradient(135deg,#f43f5e,#e11d48)">
+        <div class="bg" style="background:linear-gradient(135deg,#f43f5e44,#e11d4844)"></div>
+        <h3>超级马力欧：奥德赛</h3>
+      </div>
+      <div class="card-body">
+        <div class="cn">超级马力欧：奥德赛</div>
+        <div class="en">Super Mario Odyssey</div>
+        <div class="meta">
+          <span class="tag">2017</span>
+          <span class="tag mc">评分 97</span>
+          <span class="tag mc">口碑Top</span><span class="tag sales">销量Top</span>
+        </div>
+        <div class="dl-buttons">
+          <span style="font-size:11px;color:#666">暂无下载链接</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" data-tags="口碑Top">
+      <div class="card-poster" style="background:linear-gradient(135deg,#06b6d4,#0891b2)">
+        <div class="bg" style="background:linear-gradient(135deg,#06b6d444,#0891b244)"></div>
+        <h3>街头霸王6</h3>
+      </div>
+      <div class="card-body">
+        <div class="cn">街头霸王6</div>
+        <div class="en">Street Fighter 6</div>
+        <div class="meta">
+          <span class="tag">2023</span>
+          <span class="tag mc">评分 93</span>
+          <span class="tag mc">口碑Top</span>
+        </div>
+        <div class="dl-buttons">
+          <span style="font-size:11px;color:#666">暂无下载链接</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" data-tags="口碑Top,销量Top">
+      <div class="card-poster" style="background:linear-gradient(135deg,#84cc16,#65a30d)">
+        <div class="bg" style="background:linear-gradient(135deg,#84cc1644,#65a30d44)"></div>
+        <h3>上古卷轴5：天际</h3>
+      </div>
+      <div class="card-body">
+        <div class="cn">上古卷轴5：天际</div>
+        <div class="en">Skyrim</div>
+        <div class="meta">
+          <span class="tag">2011</span>
+          <span class="tag mc">评分 96</span>
+          <span class="tag mc">口碑Top</span><span class="tag sales">销量Top</span>
+        </div>
+        <div class="dl-buttons">
+          <a href="https://www.gamer520.com/51997.html" class="dl-btn gamer520" target="_blank" rel="noopener">🎮 gamer520</a>
+<a href="https://www.x6d.com/i-wz-18207.html" class="dl-btn x6d" target="_blank" rel="noopener">📦 x6d</a>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="card" data-tags="口碑Top,销量Top">
+      <div class="card-poster" style="background:linear-gradient(135deg,#a855f7,#9333ea)">
+        <div class="bg" style="background:linear-gradient(135deg,#a855f744,#9333ea44)"></div>
+        <h3>泰拉瑞亚</h3>
+      </div>
+      <div class="card-body">
+        <div class="cn">泰拉瑞亚</div>
+        <div class="en">Terraria</div>
+        <div class="meta">
+          <span class="tag">2011</span>
+          <span class="tag mc">评分 97</span>
+          <span class="tag mc">口碑Top</span><span class="tag sales">销量Top</span>
+        </div>
+        <div class="dl-buttons">
+          <a href="https://www.gamer520.com/33630.html" class="dl-btn gamer520" target="_blank" rel="noopener">🎮 gamer520</a>
+<a href="https://crotorrents.com/terraria-free-torrent-download" class="dl-btn crotorrents" target="_blank" rel="noopener">🧲 CroTorrents</a>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="card" data-tags="口碑Top">
+      <div class="card-poster" style="background:linear-gradient(135deg,#7c3aed,#4f46e5)">
+        <div class="bg" style="background:linear-gradient(135deg,#7c3aed44,#4f46e544)"></div>
+        <h3>空洞骑士</h3>
+      </div>
+      <div class="card-body">
+        <div class="cn">空洞骑士</div>
+        <div class="en">Hollow Knight</div>
+        <div class="meta">
+          <span class="tag">2017</span>
+          <span class="tag mc">评分 97</span>
+          <span class="tag mc">口碑Top</span>
+        </div>
+        <div class="dl-buttons">
+          <a href="https://www.gamer520.com/" class="dl-btn gamer520" target="_blank" rel="noopener">🎮 gamer520</a>
+<a href="https://fitgirlrepacks.org/lossless-repack/hollow-knight-v1-5-68-11808-2-bonus-soundtracks" class="dl-btn fitgirl" target="_blank" rel="noopener">📀 FitGirl</a>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="card" data-tags="口碑Top">
+      <div class="card-poster" style="background:linear-gradient(135deg,#ef4444,#f97316)">
+        <div class="bg" style="background:linear-gradient(135deg,#ef444444,#f9731644)"></div>
+        <h3>传送门2</h3>
+      </div>
+      <div class="card-body">
+        <div class="cn">传送门2</div>
+        <div class="en">Portal 2</div>
+        <div class="meta">
+          <span class="tag">2011</span>
+          <span class="tag mc">评分 95</span>
+          <span class="tag mc">口碑Top</span>
+        </div>
+        <div class="dl-buttons">
+          <a href="https://www.gamer520.com/19896.html" class="dl-btn gamer520" target="_blank" rel="noopener">🎮 gamer520</a>
+<a href="https://www.x6d.com/i-wz-25279.html" class="dl-btn x6d" target="_blank" rel="noopener">📦 x6d</a>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="card" data-tags="口碑Top">
+      <div class="card-poster" style="background:linear-gradient(135deg,#10b981,#059669)">
+        <div class="bg" style="background:linear-gradient(135deg,#10b98144,#05966944)"></div>
+        <h3>半条命2</h3>
+      </div>
+      <div class="card-body">
+        <div class="cn">半条命2</div>
+        <div class="en">Half-Life 2</div>
+        <div class="meta">
+          <span class="tag">2004</span>
+          <span class="tag mc">评分 96</span>
+          <span class="tag mc">口碑Top</span>
+        </div>
+        <div class="dl-buttons">
+          <a href="https://www.gamer520.com/16811.html" class="dl-btn gamer520" target="_blank" rel="noopener">🎮 gamer520</a>
+<a href="https://www.x6d.com/i-wz-22848.html" class="dl-btn x6d" target="_blank" rel="noopener">📦 x6d</a>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="card" data-tags="口碑Top">
+      <div class="card-poster" style="background:linear-gradient(135deg,#3b82f6,#2563eb)">
+        <div class="bg" style="background:linear-gradient(135deg,#3b82f644,#2563eb44)"></div>
+        <h3>哈迪斯</h3>
+      </div>
+      <div class="card-body">
+        <div class="cn">哈迪斯</div>
+        <div class="en">Hades</div>
+        <div class="meta">
+          <span class="tag">2020</span>
+          <span class="tag mc">评分 94</span>
+          <span class="tag mc">口碑Top</span>
+        </div>
+        <div class="dl-buttons">
+          <a href="https://www.gamer520.com/15010.html" class="dl-btn gamer520" target="_blank" rel="noopener">🎮 gamer520</a>
+<a href="https://www.x6d.com/i-wz-26473.html" class="dl-btn x6d" target="_blank" rel="noopener">📦 x6d</a>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="card" data-tags="口碑Top">
+      <div class="card-poster" style="background:linear-gradient(135deg,#f59e0b,#d97706)">
+        <div class="bg" style="background:linear-gradient(135deg,#f59e0b44,#d9770644)"></div>
+        <h3>生化危机4</h3>
+      </div>
+      <div class="card-body">
+        <div class="cn">生化危机4</div>
+        <div class="en">Resident Evil 4</div>
+        <div class="meta">
+          <span class="tag">2005</span>
+          <span class="tag mc">评分 96</span>
+          <span class="tag mc">口碑Top</span>
+        </div>
+        <div class="dl-buttons">
+          <a href="https://www.gamer520.com/15203.html" class="dl-btn gamer520" target="_blank" rel="noopener">🎮 gamer520</a>
+<a href="https://www.x6d.com/i-wz-23182.html" class="dl-btn x6d" target="_blank" rel="noopener">📦 x6d</a>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="card" data-tags="口碑Top,销量Top">
+      <div class="card-poster" style="background:linear-gradient(135deg,#ec4899,#db2777)">
+        <div class="bg" style="background:linear-gradient(135deg,#ec489944,#db277744)"></div>
+        <h3>超级马力欧：奥德赛</h3>
+      </div>
+      <div class="card-body">
+        <div class="cn">超级马力欧：奥德赛</div>
+        <div class="en">Super Mario Odyssey</div>
+        <div class="meta">
+          <span class="tag">2017</span>
+          <span class="tag mc">评分 97</span>
+          <span class="tag mc">口碑Top</span><span class="tag sales">销量Top</span>
+        </div>
+        <div class="dl-buttons">
+          <span style="font-size:11px;color:#666">暂无下载链接</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+function filterGames(type) {
+  const search = document.getElementById('search').value.toLowerCase();
+  const cat = type || document.getElementById('category').value;
+  const cards = document.querySelectorAll('.card');
+  cards.forEach(card => {
+    const text = card.textContent.toLowerCase();
+    const tags = card.dataset.tags || '';
+    let show = true;
+    if (cat === 'koubei' && !tags.includes('口碑Top')) show = false;
+    if (cat === 'sales' && !tags.includes('销量Top')) show = false;
+    if (search && !text.includes(search)) show = false;
+    card.style.display = show ? '' : 'none';
+  });
+}
+</script>
+</body>
+</html>
