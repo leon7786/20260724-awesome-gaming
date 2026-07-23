@@ -7,44 +7,34 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0f0f1a;color:#e0e0e0}
-
-/* 侧边栏 */
 .sidebar{position:fixed;left:0;top:0;width:260px;height:100vh;background:#16162a;padding:20px;overflow-y:auto;z-index:100}
 .sidebar h2{color:#7c3aed;font-size:18px;margin-bottom:20px}
 .sidebar a{display:block;color:#a0a0c0;padding:8px 12px;margin:4px 0;border-radius:6px;text-decoration:none;font-size:14px;transition:all .2s}
 .sidebar a:hover{background:#2a2a4a;color:#fff}
 .sidebar .cat{color:#7c3aed;font-size:12px;text-transform:uppercase;letter-spacing:1px;margin:16px 0 8px 12px}
-
-/* 主内容 */
 .main{margin-left:260px;padding:30px}
-.header{max-width:1400px;margin:0 auto 30px}
+.header{max-width:1600px;margin:0 auto 30px}
 .header h1{font-size:32px;background:linear-gradient(135deg,#7c3aed,#ff6b6b);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
 .header p{color:#888;margin-top:8px;font-size:14px}
 .stats{display:flex;gap:16px;margin:16px 0;flex-wrap:wrap}
 .stat-card{background:#1a1a30;padding:12px 20px;border-radius:10px;text-align:center;min-width:100px}
 .stat-card .num{font-size:24px;font-weight:700;color:#7c3aed}
 .stat-card .label{font-size:12px;color:#888;margin-top:2px}
-
-/* 游戏卡片网格 */
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:20px;max-width:1400px;margin:0 auto}
-
-/* 游戏卡片 */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(380px,1fr));gap:16px;max-width:1600px;margin:0 auto}
 .card{background:#1a1a30;border-radius:12px;overflow:hidden;transition:transform .2s,box-shadow .2s;border:1px solid #2a2a4a}
 .card:hover{transform:translateY(-4px);box-shadow:0 8px 30px rgba(124,58,237,.2)}
-.card-poster{height:140px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
-.card-poster .bg{position:absolute;inset:0;opacity:.3}
-.card-poster h3{position:relative;z-index:1;font-size:22px;text-align:center;padding:10px;text-shadow:0 2px 10px rgba(0,0,0,.8)}
+.card-poster{height:180px;overflow:hidden;position:relative;background:#0a0a1a}
+.card-poster img{width:100%;height:100%;object-fit:cover}
+.card-poster .fallback{height:100%;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:700;text-shadow:0 2px 10px rgba(0,0,0,.8)}
 .card-body{padding:14px}
 .card-body .cn{font-size:16px;font-weight:600;margin-bottom:2px}
-.card-body .en{font-size:12px;color:#888;margin-bottom:8px}
-.card-body .meta{display:flex;gap:8px;margin-bottom:10px;flex-wrap:wrap}
+.card-body .en{font-size:12px;color:#888;margin-bottom:8px;display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden}
+.card-body .meta{display:flex;gap:6px;margin-bottom:10px;flex-wrap:wrap}
 .tag{font-size:11px;padding:2px 8px;border-radius:4px;background:#2a2a4a;color:#a0a0c0}
 .tag.mc{background:#7c3aed33;color:#7c3aed}
 .tag.sales{background:#ff6b6b33;color:#ff6b6b}
-
-/* 下载按钮 */
-.dl-buttons{display:flex;flex-wrap:wrap;gap:5px;margin-top:8px}
-.dl-btn{display:inline-flex;align-items:center;gap:3px;padding:4px 10px;border-radius:5px;font-size:11px;text-decoration:none;color:#fff;transition:all .2s;cursor:pointer}
+.dl-buttons{display:flex;flex-wrap:wrap;gap:4px;margin-top:8px}
+.dl-btn{display:inline-flex;align-items:center;gap:3px;padding:3px 8px;border-radius:4px;font-size:11px;text-decoration:none;color:#fff;transition:all .2s}
 .dl-btn:hover{filter:brightness(1.2);transform:translateY(-1px)}
 .dl-btn.gamer520{background:#10b981}
 .dl-btn.x6d{background:#3b82f6}
@@ -54,25 +44,21 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
 .dl-btn.fitgirl{background:#f59e0b}
 .dl-btn.steamzg{background:#8b5cf6}
 .dl-btn.crotorrents{background:#ec4899}
-
-/* 搜索过滤 */
-.filters{max-width:1400px;margin:0 auto 20px;display:flex;gap:10px;flex-wrap:wrap}
+.dl-btn.steam{background:#1a1a2e;border:1px solid #333}
+.filters{max-width:1600px;margin:0 auto 20px;display:flex;gap:10px;flex-wrap:wrap}
 .filters input{flex:1;min-width:200px;padding:10px 16px;border-radius:8px;border:1px solid #2a2a4a;background:#1a1a30;color:#e0e0e0;font-size:14px}
 .filters input:focus{outline:none;border-color:#7c3aed}
 .filters select{padding:10px 16px;border-radius:8px;border:1px solid #2a2a4a;background:#1a1a30;color:#e0e0e0;font-size:14px;cursor:pointer}
-
-/* 响应式 */
 @media(max-width:768px){.sidebar{display:none}.main{margin-left:0;padding:16px}.grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
-
 <div class="sidebar">
   <h2>🎮 游戏榜单</h2>
   <div class="cat">分类</div>
-  <a href="#all" onclick="filterGames('all')">🏠 全部游戏</a>
-  <a href="#koubei" onclick="filterGames('koubei')">⭐ 口碑Top</a>
-  <a href="#sales" onclick="filterGames('sales')">💰 销量Top</a>
+  <a href="#" onclick="filterGames('all')">🏠 全部游戏</a>
+  <a href="#" onclick="filterGames('koubei')">⭐ 口碑Top</a>
+  <a href="#" onclick="filterGames('sales')">💰 销量Top</a>
   <div class="cat">下载源</div>
   <a href="https://www.gamer520.com/" target="_blank">🎮 gamer520.com</a>
   <a href="https://www.x6d.com/html/96.html" target="_blank">📦 x6d.com</a>
@@ -81,37 +67,30 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
   <div class="cat">其他</div>
   <a href="https://github.com/leon7786/20260724-awesome-gaming" target="_blank">📂 GitHub 仓库</a>
 </div>
-
 <div class="main">
   <div class="header">
     <h1>🎮 游戏榜单 + 下载导航</h1>
-    <p>Metacritic + OpenCritic + Steam 250 口碑Top &amp; 全球销量Top 100 | 附 gamer520 / x6d / 磁力链 下载地址</p>
+    <p>Metacritic / OpenCritic / Steam 250 口碑Top &amp; 全球销量Top 100 | 附 gamer520 / x6d / 磁力链 下载地址</p>
     <div class="stats">
       <div class="stat-card"><div class="num">
-42
+89
 </div><div class="label">游戏总数</div></div>
-      <div class="stat-card"><div class="num">7+</div><div class="label">磁力链</div></div>
-      <div class="stat-card"><div class="num">60+</div><div class="label">gamer520链接</div></div>
+      <div class="stat-card"><div class="num">80+</div><div class="label">gamer520链接</div></div>
       <div class="stat-card"><div class="num">120+</div><div class="label">x6d链接</div></div>
     </div>
   </div>
-
   <div class="filters">
     <input type="text" id="search" placeholder="搜索游戏名称..." oninput="filterGames()">
     <select id="category" onchange="filterGames()">
       <option value="all">全部</option>
-      <option value="koubei">口碑Top</option>
-      <option value="sales">销量Top</option>
+      <option value="koubei">⭐ 口碑Top</option>
+      <option value="sales">💰 销量Top</option>
     </select>
   </div>
-
   <div class="grid" id="gameGrid">
 
     <div class="card" data-tags="口碑Top,销量Top">
-      <div class="card-poster" style="background:linear-gradient(135deg,#7c3aed,#4f46e5)">
-        <div class="bg" style="background:linear-gradient(135deg,#7c3aed44,#4f46e544)"></div>
-        <h3>艾尔登法环</h3>
-      </div>
+      <div class="card-poster"><img src="https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/1245620/library_600x900.jpg" alt="Elden Ring" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'fallback\\' style=\\'background:linear-gradient(135deg,#7c3aed,#4f46e5)\\'>艾尔</div>'"></div>
       <div class="card-body">
         <div class="cn">艾尔登法环</div>
         <div class="en">Elden Ring</div>
@@ -120,20 +99,16 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
           <span class="tag mc">评分 96</span>
           <span class="tag mc">口碑Top</span><span class="tag sales">销量Top</span>
         </div>
-        <div class="dl-buttons">
-          <a href="https://www.gamer520.com/98041.html" class="dl-btn gamer520" target="_blank" rel="noopener">🎮 gamer520</a>
-<a href="https://www.x6d.com/i-wz-18242.html" class="dl-btn x6d" target="_blank" rel="noopener">📦 x6d</a>
-<a href="https://steamzg.com/15351" class="dl-btn steamzg" target="_blank" rel="noopener">🧲 steamzg</a>
-
-        </div>
+        <div class="dl-buttons"><a href="https://www.gamer520.com/98041.html" class="dl-btn gamer520" target="_blank" rel="noopener">gamer520</a>
+<a href="https://www.x6d.com/i-wz-18242.html" class="dl-btn x6d" target="_blank" rel="noopener">x6d</a>
+<a href="https://steamzg.com/15351" class="dl-btn steamzg" target="_blank" rel="noopener">steamzg</a>
+<a href="magnet:?xt=urn:btih:2FC64B9E1D470CF434D98674AC39ADAD67CD858F" class="dl-btn magnet" target="_blank" rel="noopener">🧲磁力</a>
+<a href="https://store.steampowered.com/app/1245620" class="dl-btn steam" target="_blank">Steam</a></div>
       </div>
     </div>
 
     <div class="card" data-tags="口碑Top,销量Top">
-      <div class="card-poster" style="background:linear-gradient(135deg,#ef4444,#f97316)">
-        <div class="bg" style="background:linear-gradient(135deg,#ef444444,#f9731644)"></div>
-        <h3>博德之门3</h3>
-      </div>
+      <div class="card-poster"><img src="https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/1086940/library_600x900.jpg" alt="Baldur's Gate 3" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'fallback\\' style=\\'background:linear-gradient(135deg,#ef4444,#f97316)\\'>博德</div>'"></div>
       <div class="card-body">
         <div class="cn">博德之门3</div>
         <div class="en">Baldur's Gate 3</div>
@@ -142,20 +117,15 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
           <span class="tag mc">评分 96</span>
           <span class="tag mc">口碑Top</span><span class="tag sales">销量Top</span>
         </div>
-        <div class="dl-buttons">
-          <a href="https://www.gamer520.com/62634.html" class="dl-btn gamer520" target="_blank" rel="noopener">🎮 gamer520</a>
-<a href="https://www.x6d.com/i-wz-12556.html" class="dl-btn x6d" target="_blank" rel="noopener">📦 x6d</a>
-<a href="https://steamzg.com/21659" class="dl-btn steamzg" target="_blank" rel="noopener">🧲 steamzg</a>
-
-        </div>
+        <div class="dl-buttons"><a href="https://www.gamer520.com/62634.html" class="dl-btn gamer520" target="_blank" rel="noopener">gamer520</a>
+<a href="https://www.x6d.com/i-wz-12556.html" class="dl-btn x6d" target="_blank" rel="noopener">x6d</a>
+<a href="https://steamzg.com/21659" class="dl-btn steamzg" target="_blank" rel="noopener">steamzg</a>
+<a href="https://store.steampowered.com/app/1086940" class="dl-btn steam" target="_blank">Steam</a></div>
       </div>
     </div>
 
     <div class="card" data-tags="口碑Top,销量Top">
-      <div class="card-poster" style="background:linear-gradient(135deg,#10b981,#059669)">
-        <div class="bg" style="background:linear-gradient(135deg,#10b98144,#05966944)"></div>
-        <h3>荒野大镖客：救赎2</h3>
-      </div>
+      <div class="card-poster"><img src="https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/1174180/library_600x900.jpg" alt="Red Dead Redemption 2" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'fallback\\' style=\\'background:linear-gradient(135deg,#10b981,#059669)\\'>荒野</div>'"></div>
       <div class="card-body">
         <div class="cn">荒野大镖客：救赎2</div>
         <div class="en">Red Dead Redemption 2</div>
@@ -164,21 +134,15 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
           <span class="tag mc">评分 97</span>
           <span class="tag mc">口碑Top</span><span class="tag sales">销量Top</span>
         </div>
-        <div class="dl-buttons">
-          <a href="https://www.gamer520.com/15831.html" class="dl-btn gamer520" target="_blank" rel="noopener">🎮 gamer520</a>
-<a href="https://www.x6d.com/i-wz-32167.html" class="dl-btn x6d" target="_blank" rel="noopener">📦 x6d</a>
-<a href="magnet:?xt=urn:btih:2FC64B9E1D470CF434D98674AC39ADAD67CD858F" class="dl-btn magnet" target="_blank" rel="noopener">🧲 磁力链</a>
-<a href="https://crotorrents.com/7-red-dead-redemption-2-torrent-download" class="dl-btn crotorrents" target="_blank" rel="noopener">🧲 CroTorrents</a>
-
-        </div>
+        <div class="dl-buttons"><a href="https://www.gamer520.com/15831.html" class="dl-btn gamer520" target="_blank" rel="noopener">gamer520</a>
+<a href="https://www.x6d.com/i-wz-32167.html" class="dl-btn x6d" target="_blank" rel="noopener">x6d</a>
+<a href="https://crotorrents.com/7-red-dead-redemption-2-torrent-download" class="dl-btn crotorrents" target="_blank" rel="noopener">CroTorrents</a>
+<a href="https://store.steampowered.com/app/1174180" class="dl-btn steam" target="_blank">Steam</a></div>
       </div>
     </div>
 
     <div class="card" data-tags="口碑Top,销量Top">
-      <div class="card-poster" style="background:linear-gradient(135deg,#3b82f6,#2563eb)">
-        <div class="bg" style="background:linear-gradient(135deg,#3b82f644,#2563eb44)"></div>
-        <h3>巫师3：狂猎</h3>
-      </div>
+      <div class="card-poster"><img src="https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/292030/library_600x900.jpg" alt="The Witcher 3: Wild Hunt" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'fallback\\' style=\\'background:linear-gradient(135deg,#3b82f6,#2563eb)\\'>巫师</div>'"></div>
       <div class="card-body">
         <div class="cn">巫师3：狂猎</div>
         <div class="en">The Witcher 3: Wild Hunt</div>
@@ -187,20 +151,15 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
           <span class="tag mc">评分 96</span>
           <span class="tag mc">口碑Top</span><span class="tag sales">销量Top</span>
         </div>
-        <div class="dl-buttons">
-          <a href="https://www.gamer520.com/47649.html" class="dl-btn gamer520" target="_blank" rel="noopener">🎮 gamer520</a>
-<a href="https://www.x6d.com/i-wz-10131.html" class="dl-btn x6d" target="_blank" rel="noopener">📦 x6d</a>
-<a href="https://steamzg.com/24239" class="dl-btn steamzg" target="_blank" rel="noopener">🧲 steamzg</a>
-
-        </div>
+        <div class="dl-buttons"><a href="https://www.gamer520.com/47649.html" class="dl-btn gamer520" target="_blank" rel="noopener">gamer520</a>
+<a href="https://www.x6d.com/i-wz-10131.html" class="dl-btn x6d" target="_blank" rel="noopener">x6d</a>
+<a href="https://steamzg.com/24239" class="dl-btn steamzg" target="_blank" rel="noopener">steamzg</a>
+<a href="https://store.steampowered.com/app/292030" class="dl-btn steam" target="_blank">Steam</a></div>
       </div>
     </div>
 
     <div class="card" data-tags="口碑Top,销量Top">
-      <div class="card-poster" style="background:linear-gradient(135deg,#f59e0b,#d97706)">
-        <div class="bg" style="background:linear-gradient(135deg,#f59e0b44,#d9770644)"></div>
-        <h3>侠盗猎车手5</h3>
-      </div>
+      <div class="card-poster"><img src="https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/271590/library_600x900.jpg" alt="Grand Theft Auto V" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'fallback\\' style=\\'background:linear-gradient(135deg,#f59e0b,#d97706)\\'>侠盗</div>'"></div>
       <div class="card-body">
         <div class="cn">侠盗猎车手5</div>
         <div class="en">Grand Theft Auto V</div>
@@ -209,21 +168,15 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
           <span class="tag mc">评分 97</span>
           <span class="tag mc">口碑Top</span><span class="tag sales">销量Top</span>
         </div>
-        <div class="dl-buttons">
-          <a href="https://www.gamer520.com/40746.html" class="dl-btn gamer520" target="_blank" rel="noopener">🎮 gamer520</a>
-<a href="https://www.x6d.com/i-wz-17253.html" class="dl-btn x6d" target="_blank" rel="noopener">📦 x6d</a>
-<a href="https://steamzg.com/53181" class="dl-btn steamzg" target="_blank" rel="noopener">🧲 steamzg</a>
-<a href="https://fitgirlrepacks.org/lossless-repack/grand-theft-auto-v-enhanced-build-811-8-online-1-70" class="dl-btn fitgirl" target="_blank" rel="noopener">📀 FitGirl</a>
-
-        </div>
+        <div class="dl-buttons"><a href="https://www.gamer520.com/40746.html" class="dl-btn gamer520" target="_blank" rel="noopener">gamer520</a>
+<a href="https://www.x6d.com/i-wz-17253.html" class="dl-btn x6d" target="_blank" rel="noopener">x6d</a>
+<a href="https://steamzg.com/53181" class="dl-btn steamzg" target="_blank" rel="noopener">steamzg</a>
+<a href="https://store.steampowered.com/app/271590" class="dl-btn steam" target="_blank">Steam</a></div>
       </div>
     </div>
 
     <div class="card" data-tags="口碑Top,销量Top">
-      <div class="card-poster" style="background:linear-gradient(135deg,#ec4899,#db2777)">
-        <div class="bg" style="background:linear-gradient(135deg,#ec489944,#db277744)"></div>
-        <h3>赛博朋克2077</h3>
-      </div>
+      <div class="card-poster"><img src="https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/1091500/library_600x900.jpg" alt="Cyberpunk 2077" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'fallback\\' style=\\'background:linear-gradient(135deg,#ec4899,#db2777)\\'>赛博</div>'"></div>
       <div class="card-body">
         <div class="cn">赛博朋克2077</div>
         <div class="en">Cyberpunk 2077</div>
@@ -232,21 +185,16 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
           <span class="tag mc">评分 96</span>
           <span class="tag mc">口碑Top</span><span class="tag sales">销量Top</span>
         </div>
-        <div class="dl-buttons">
-          <a href="https://www.gamer520.com/4121.html" class="dl-btn gamer520" target="_blank" rel="noopener">🎮 gamer520</a>
-<a href="https://www.x6d.com/i-wz-13285.html" class="dl-btn x6d" target="_blank" rel="noopener">📦 x6d</a>
-<a href="magnet:?xt=urn:btih:c6e4984179fbd8417ba1dfd85082297183c55c6c" class="dl-btn magnet" target="_blank" rel="noopener">🧲 磁力Steam</a>
-<a href="magnet:?xt=urn:btih:0456e08293e1bf7a9e173e573dfbe8dcd5fb0e3e" class="dl-btn magnet" target="_blank" rel="noopener">🧲 磁力GOG</a>
-
-        </div>
+        <div class="dl-buttons"><a href="https://www.gamer520.com/4121.html" class="dl-btn gamer520" target="_blank" rel="noopener">gamer520</a>
+<a href="https://www.x6d.com/i-wz-13285.html" class="dl-btn x6d" target="_blank" rel="noopener">x6d</a>
+<a href="magnet:?xt=urn:btih:c6e4984179fbd8417ba1dfd85082297183c55c6c" class="dl-btn magnet" target="_blank" rel="noopener">🧲Steam</a>
+<a href="magnet:?xt=urn:btih:0456e08293e1bf7a9e173e573dfbe8dcd5fb0e3e" class="dl-btn magnet" target="_blank" rel="noopener">🧲GOG</a>
+<a href="https://store.steampowered.com/app/1091500" class="dl-btn steam" target="_blank">Steam</a></div>
       </div>
     </div>
 
     <div class="card" data-tags="口碑Top,销量Top">
-      <div class="card-poster" style="background:linear-gradient(135deg,#14b8a6,#0d9488)">
-        <div class="bg" style="background:linear-gradient(135deg,#14b8a644,#0d948844)"></div>
-        <h3>战神</h3>
-      </div>
+      <div class="card-poster"><img src="https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/1593500/library_600x900.jpg" alt="God of War" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'fallback\\' style=\\'background:linear-gradient(135deg,#14b8a6,#0d9488)\\'>战神</div>'"></div>
       <div class="card-body">
         <div class="cn">战神</div>
         <div class="en">God of War</div>
@@ -255,19 +203,14 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
           <span class="tag mc">评分 94</span>
           <span class="tag mc">口碑Top</span><span class="tag sales">销量Top</span>
         </div>
-        <div class="dl-buttons">
-          <a href="https://www.gamer520.com/26361.html" class="dl-btn gamer520" target="_blank" rel="noopener">🎮 gamer520</a>
-<a href="https://www.x6d.com/i-wz-17707.html" class="dl-btn x6d" target="_blank" rel="noopener">📦 x6d</a>
-
-        </div>
+        <div class="dl-buttons"><a href="https://www.gamer520.com/26361.html" class="dl-btn gamer520" target="_blank" rel="noopener">gamer520</a>
+<a href="https://www.x6d.com/i-wz-17707.html" class="dl-btn x6d" target="_blank" rel="noopener">x6d</a>
+<a href="https://store.steampowered.com/app/1593500" class="dl-btn steam" target="_blank">Steam</a></div>
       </div>
     </div>
 
     <div class="card" data-tags="口碑Top,销量Top">
-      <div class="card-poster" style="background:linear-gradient(135deg,#8b5cf6,#7c3aed)">
-        <div class="bg" style="background:linear-gradient(135deg,#8b5cf644,#7c3aed44)"></div>
-        <h3>双人成行</h3>
-      </div>
+      <div class="card-poster"><img src="https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/1426210/library_600x900.jpg" alt="It Takes Two" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'fallback\\' style=\\'background:linear-gradient(135deg,#8b5cf6,#7c3aed)\\'>双人</div>'"></div>
       <div class="card-body">
         <div class="cn">双人成行</div>
         <div class="en">It Takes Two</div>
@@ -276,22 +219,16 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
           <span class="tag mc">评分 95</span>
           <span class="tag mc">口碑Top</span><span class="tag sales">销量Top</span>
         </div>
-        <div class="dl-buttons">
-          <a href="https://www.gamer520.com/14520.html" class="dl-btn gamer520" target="_blank" rel="noopener">🎮 gamer520</a>
-<a href="https://www.gamer520.com/44563.html" class="dl-btn gamer520" target="_blank" rel="noopener">🎮 gamer5202</a>
-<a href="https://www.x6d.com/i-wz-14533.html" class="dl-btn x6d" target="_blank" rel="noopener">📦 x6d</a>
-<a href="https://cloud.189.cn/t/6by6B3f67RFr" class="dl-btn tianyi" target="_blank" rel="noopener">☁️ 天翼云</a>
-<a href="https://pan.baidu.com/s/1cK12ABymJ87063oXhlyGFA" class="dl-btn baidu" target="_blank" rel="noopener">📀 百度云</a>
-
-        </div>
+        <div class="dl-buttons"><a href="https://www.gamer520.com/14520.html" class="dl-btn gamer520" target="_blank" rel="noopener">gamer520</a>
+<a href="https://www.x6d.com/i-wz-14533.html" class="dl-btn x6d" target="_blank" rel="noopener">x6d</a>
+<a href="https://cloud.189.cn/t/6by6B3f67RFr" class="dl-btn tianyi" target="_blank" rel="noopener">天翼云</a>
+<a href="https://pan.baidu.com/s/1cK12ABymJ87063oXhlyGFA" class="dl-btn baidu" target="_blank" rel="noopener">百度云</a>
+<a href="https://store.steampowered.com/app/1426210" class="dl-btn steam" target="_blank">Steam</a></div>
       </div>
     </div>
 
     <div class="card" data-tags="口碑Top">
-      <div class="card-poster" style="background:linear-gradient(135deg,#f43f5e,#e11d48)">
-        <div class="bg" style="background:linear-gradient(135deg,#f43f5e44,#e11d4844)"></div>
-        <h3>只狼：影逝二度</h3>
-      </div>
+      <div class="card-poster"><img src="https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/814380/library_600x900.jpg" alt="Sekiro: Shadows Die Twice" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'fallback\\' style=\\'background:linear-gradient(135deg,#f43f5e,#e11d48)\\'>只狼</div>'"></div>
       <div class="card-body">
         <div class="cn">只狼：影逝二度</div>
         <div class="en">Sekiro: Shadows Die Twice</div>
@@ -300,18 +237,13 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
           <span class="tag mc">评分 95</span>
           <span class="tag mc">口碑Top</span>
         </div>
-        <div class="dl-buttons">
-          <a href="https://www.gamer520.com/60450.html" class="dl-btn gamer520" target="_blank" rel="noopener">🎮 gamer520</a>
-
-        </div>
+        <div class="dl-buttons"><a href="https://www.gamer520.com/60450.html" class="dl-btn gamer520" target="_blank" rel="noopener">gamer520</a>
+<a href="https://store.steampowered.com/app/814380" class="dl-btn steam" target="_blank">Steam</a></div>
       </div>
     </div>
 
     <div class="card" data-tags="销量Top">
-      <div class="card-poster" style="background:linear-gradient(135deg,#06b6d4,#0891b2)">
-        <div class="bg" style="background:linear-gradient(135deg,#06b6d444,#0891b244)"></div>
-        <h3>霍格沃茨之遗</h3>
-      </div>
+      <div class="card-poster"><img src="https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/990080/library_600x900.jpg" alt="Hogwarts Legacy" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'fallback\\' style=\\'background:linear-gradient(135deg,#06b6d4,#0891b2)\\'>霍格</div>'"></div>
       <div class="card-body">
         <div class="cn">霍格沃茨之遗</div>
         <div class="en">Hogwarts Legacy</div>
@@ -320,19 +252,14 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
           <span class="tag mc">评分 93</span>
           <span class="tag sales">销量Top</span>
         </div>
-        <div class="dl-buttons">
-          <a href="https://www.gamer520.com/67605.html" class="dl-btn gamer520" target="_blank" rel="noopener">🎮 gamer520</a>
-<a href="https://www.x6d.com/i-wz-22678.html" class="dl-btn x6d" target="_blank" rel="noopener">📦 x6d</a>
-
-        </div>
+        <div class="dl-buttons"><a href="https://www.gamer520.com/67605.html" class="dl-btn gamer520" target="_blank" rel="noopener">gamer520</a>
+<a href="https://www.x6d.com/i-wz-22678.html" class="dl-btn x6d" target="_blank" rel="noopener">x6d</a>
+<a href="https://store.steampowered.com/app/990080" class="dl-btn steam" target="_blank">Steam</a></div>
       </div>
     </div>
 
     <div class="card" data-tags="销量Top">
-      <div class="card-poster" style="background:linear-gradient(135deg,#84cc16,#65a30d)">
-        <div class="bg" style="background:linear-gradient(135deg,#84cc1644,#65a30d44)"></div>
-        <h3>怪物猎人：世界</h3>
-      </div>
+      <div class="card-poster"><img src="https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/582010/library_600x900.jpg" alt="Monster Hunter: World" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'fallback\\' style=\\'background:linear-gradient(135deg,#84cc16,#65a30d)\\'>怪物</div>'"></div>
       <div class="card-body">
         <div class="cn">怪物猎人：世界</div>
         <div class="en">Monster Hunter: World</div>
@@ -341,19 +268,14 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
           <span class="tag mc">评分 93</span>
           <span class="tag sales">销量Top</span>
         </div>
-        <div class="dl-buttons">
-          <a href="https://www.gamer520.com/10622.html" class="dl-btn gamer520" target="_blank" rel="noopener">🎮 gamer520</a>
-<a href="https://www.x6d.com/i-wz-10622.html" class="dl-btn x6d" target="_blank" rel="noopener">📦 x6d</a>
-
-        </div>
+        <div class="dl-buttons"><a href="https://www.gamer520.com/10622.html" class="dl-btn gamer520" target="_blank" rel="noopener">gamer520</a>
+<a href="https://www.x6d.com/i-wz-10622.html" class="dl-btn x6d" target="_blank" rel="noopener">x6d</a>
+<a href="https://store.steampowered.com/app/582010" class="dl-btn steam" target="_blank">Steam</a></div>
       </div>
     </div>
 
     <div class="card" data-tags="口碑Top">
-      <div class="card-poster" style="background:linear-gradient(135deg,#a855f7,#9333ea)">
-        <div class="bg" style="background:linear-gradient(135deg,#a855f744,#9333ea44)"></div>
-        <h3>最后生还者 第一部</h3>
-      </div>
+      <div class="card-poster"><img src="https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/1888930/library_600x900.jpg" alt="The Last of Us Part I" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'fallback\\' style=\\'background:linear-gradient(135deg,#a855f7,#9333ea)\\'>最后</div>'"></div>
       <div class="card-body">
         <div class="cn">最后生还者 第一部</div>
         <div class="en">The Last of Us Part I</div>
@@ -362,19 +284,14 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
           <span class="tag mc">评分 95</span>
           <span class="tag mc">口碑Top</span>
         </div>
-        <div class="dl-buttons">
-          <a href="https://www.gamer520.com/85342.html" class="dl-btn gamer520" target="_blank" rel="noopener">🎮 gamer520</a>
-<a href="https://www.x6d.com/i-wz-22692.html" class="dl-btn x6d" target="_blank" rel="noopener">📦 x6d</a>
-
-        </div>
+        <div class="dl-buttons"><a href="https://www.gamer520.com/85342.html" class="dl-btn gamer520" target="_blank" rel="noopener">gamer520</a>
+<a href="https://www.x6d.com/i-wz-22692.html" class="dl-btn x6d" target="_blank" rel="noopener">x6d</a>
+<a href="https://store.steampowered.com/app/1888930" class="dl-btn steam" target="_blank">Steam</a></div>
       </div>
     </div>
 
     <div class="card" data-tags="口碑Top">
-      <div class="card-poster" style="background:linear-gradient(135deg,#7c3aed,#4f46e5)">
-        <div class="bg" style="background:linear-gradient(135deg,#7c3aed44,#4f46e544)"></div>
-        <h3>死亡搁浅</h3>
-      </div>
+      <div class="card-poster"><img src="https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/1850570/library_600x900.jpg" alt="Death Stranding" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'fallback\\' style=\\'background:linear-gradient(135deg,#7c3aed,#4f46e5)\\'>死亡</div>'"></div>
       <div class="card-body">
         <div class="cn">死亡搁浅</div>
         <div class="en">Death Stranding</div>
@@ -383,20 +300,14 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
           <span class="tag mc">评分 93</span>
           <span class="tag mc">口碑Top</span>
         </div>
-        <div class="dl-buttons">
-          <a href="https://www.gamer520.com/43694.html" class="dl-btn gamer520" target="_blank" rel="noopener">🎮 gamer520</a>
-<a href="https://www.x6d.com/i-wz-12673.html" class="dl-btn x6d" target="_blank" rel="noopener">📦 x6d</a>
-<a href="https://www.x6d.com/i-wz-18636.html" class="dl-btn x6d" target="_blank" rel="noopener">📦 x6d</a>
-
-        </div>
+        <div class="dl-buttons"><a href="https://www.gamer520.com/43694.html" class="dl-btn gamer520" target="_blank" rel="noopener">gamer520</a>
+<a href="https://www.x6d.com/i-wz-18636.html" class="dl-btn x6d" target="_blank" rel="noopener">x6d</a>
+<a href="https://store.steampowered.com/app/1850570" class="dl-btn steam" target="_blank">Steam</a></div>
       </div>
     </div>
 
     <div class="card" data-tags="口碑Top">
-      <div class="card-poster" style="background:linear-gradient(135deg,#ef4444,#f97316)">
-        <div class="bg" style="background:linear-gradient(135deg,#ef444444,#f9731644)"></div>
-        <h3>对马岛之魂</h3>
-      </div>
+      <div class="card-poster"><img src="https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/3215430/library_600x900.jpg" alt="Ghost of Tsushima" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'fallback\\' style=\\'background:linear-gradient(135deg,#ef4444,#f97316)\\'>对马</div>'"></div>
       <div class="card-body">
         <div class="cn">对马岛之魂</div>
         <div class="en">Ghost of Tsushima</div>
@@ -405,40 +316,30 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
           <span class="tag mc">评分 93</span>
           <span class="tag mc">口碑Top</span>
         </div>
-        <div class="dl-buttons">
-          <a href="https://www.gamer520.com/76784.html" class="dl-btn gamer520" target="_blank" rel="noopener">🎮 gamer520</a>
-<a href="https://www.x6d.com/i-wz-26308.html" class="dl-btn x6d" target="_blank" rel="noopener">📦 x6d</a>
-
-        </div>
+        <div class="dl-buttons"><a href="https://www.gamer520.com/76784.html" class="dl-btn gamer520" target="_blank" rel="noopener">gamer520</a>
+<a href="https://www.x6d.com/i-wz-26308.html" class="dl-btn x6d" target="_blank" rel="noopener">x6d</a>
+<a href="https://store.steampowered.com/app/3215430" class="dl-btn steam" target="_blank">Steam</a></div>
       </div>
     </div>
 
     <div class="card" data-tags="口碑Top">
-      <div class="card-poster" style="background:linear-gradient(135deg,#10b981,#059669)">
-        <div class="bg" style="background:linear-gradient(135deg,#10b98144,#05966944)"></div>
-        <h3>最终幻想7重制版</h3>
-      </div>
+      <div class="card-poster"><img src="https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/1462040/library_600x900.jpg" alt="Final Fantasy VII Remake" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'fallback\\' style=\\'background:linear-gradient(135deg,#10b981,#059669)\\'>最终</div>'"></div>
       <div class="card-body">
         <div class="cn">最终幻想7重制版</div>
-        <div class="en">FF7 Remake</div>
+        <div class="en">Final Fantasy VII Remake</div>
         <div class="meta">
           <span class="tag">2020</span>
           <span class="tag mc">评分 93</span>
           <span class="tag mc">口碑Top</span>
         </div>
-        <div class="dl-buttons">
-          <a href="https://www.gamer520.com/25591.html" class="dl-btn gamer520" target="_blank" rel="noopener">🎮 gamer520</a>
-<a href="https://www.x6d.com/i-wz-17326.html" class="dl-btn x6d" target="_blank" rel="noopener">📦 x6d</a>
-
-        </div>
+        <div class="dl-buttons"><a href="https://www.gamer520.com/25591.html" class="dl-btn gamer520" target="_blank" rel="noopener">gamer520</a>
+<a href="https://www.x6d.com/i-wz-17326.html" class="dl-btn x6d" target="_blank" rel="noopener">x6d</a>
+<a href="https://store.steampowered.com/app/1462040" class="dl-btn steam" target="_blank">Steam</a></div>
       </div>
     </div>
 
     <div class="card" data-tags="销量Top">
-      <div class="card-poster" style="background:linear-gradient(135deg,#3b82f6,#2563eb)">
-        <div class="bg" style="background:linear-gradient(135deg,#3b82f644,#2563eb44)"></div>
-        <h3>漫威蜘蛛侠2</h3>
-      </div>
+      <div class="card-poster"><img src="https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/2651290/library_600x900.jpg" alt="Marvel's Spider-Man 2" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'fallback\\' style=\\'background:linear-gradient(135deg,#3b82f6,#2563eb)\\'>漫威</div>'"></div>
       <div class="card-body">
         <div class="cn">漫威蜘蛛侠2</div>
         <div class="en">Marvel's Spider-Man 2</div>
@@ -447,19 +348,14 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
           <span class="tag mc">评分 93</span>
           <span class="tag sales">销量Top</span>
         </div>
-        <div class="dl-buttons">
-          <a href="https://www.gamer520.com/87941.html" class="dl-btn gamer520" target="_blank" rel="noopener">🎮 gamer520</a>
-<a href="https://www.x6d.com/i-wz-26226.html" class="dl-btn x6d" target="_blank" rel="noopener">📦 x6d</a>
-
-        </div>
+        <div class="dl-buttons"><a href="https://www.gamer520.com/87941.html" class="dl-btn gamer520" target="_blank" rel="noopener">gamer520</a>
+<a href="https://www.x6d.com/i-wz-26226.html" class="dl-btn x6d" target="_blank" rel="noopener">x6d</a>
+<a href="https://store.steampowered.com/app/2651290" class="dl-btn steam" target="_blank">Steam</a></div>
       </div>
     </div>
 
     <div class="card" data-tags="口碑Top,销量Top">
-      <div class="card-poster" style="background:linear-gradient(135deg,#f59e0b,#d97706)">
-        <div class="bg" style="background:linear-gradient(135deg,#f59e0b44,#d9770644)"></div>
-        <h3>黑神话：悟空</h3>
-      </div>
+      <div class="card-poster"><img src="https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/2358720/library_600x900.jpg" alt="Black Myth: Wukong" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'fallback\\' style=\\'background:linear-gradient(135deg,#f59e0b,#d97706)\\'>黑神</div>'"></div>
       <div class="card-body">
         <div class="cn">黑神话：悟空</div>
         <div class="en">Black Myth: Wukong</div>
@@ -468,42 +364,15 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
           <span class="tag mc">评分 97</span>
           <span class="tag mc">口碑Top</span><span class="tag sales">销量Top</span>
         </div>
-        <div class="dl-buttons">
-          <a href="https://www.gamer520.com/15988.html" class="dl-btn gamer520" target="_blank" rel="noopener">🎮 gamer520</a>
-<a href="https://www.x6d.com/i-wz-31701.html" class="dl-btn x6d" target="_blank" rel="noopener">📦 x6d</a>
-<a href="https://crotorrents.com/black-myth-wukong-torrent-download" class="dl-btn crotorrents" target="_blank" rel="noopener">🧲 CroTorrents</a>
-
-        </div>
+        <div class="dl-buttons"><a href="https://www.gamer520.com/15988.html" class="dl-btn gamer520" target="_blank" rel="noopener">gamer520</a>
+<a href="https://www.x6d.com/i-wz-31701.html" class="dl-btn x6d" target="_blank" rel="noopener">x6d</a>
+<a href="https://crotorrents.com/black-myth-wukong-torrent-download" class="dl-btn crotorrents" target="_blank" rel="noopener">CroTorrents</a>
+<a href="https://store.steampowered.com/app/2358720" class="dl-btn steam" target="_blank">Steam</a></div>
       </div>
     </div>
 
     <div class="card" data-tags="口碑Top,销量Top">
-      <div class="card-poster" style="background:linear-gradient(135deg,#ec4899,#db2777)">
-        <div class="bg" style="background:linear-gradient(135deg,#ec489944,#db277744)"></div>
-        <h3>塞尔达传说：旷野之息</h3>
-      </div>
-      <div class="card-body">
-        <div class="cn">塞尔达传说：旷野之息</div>
-        <div class="en">Zelda: Breath of the Wild</div>
-        <div class="meta">
-          <span class="tag">2017</span>
-          <span class="tag mc">评分 97</span>
-          <span class="tag mc">口碑Top</span><span class="tag sales">销量Top</span>
-        </div>
-        <div class="dl-buttons">
-          <a href="https://www.gamer520.com/59328.html" class="dl-btn gamer520" target="_blank" rel="noopener">🎮 gamer520</a>
-<a href="https://www.gamer520.com/108992.html" class="dl-btn gamer520" target="_blank" rel="noopener">🎮 gamer5202</a>
-<a href="https://www.x6d.com/i-wz-10231.html" class="dl-btn x6d" target="_blank" rel="noopener">📦 x6d</a>
-
-        </div>
-      </div>
-    </div>
-
-    <div class="card" data-tags="口碑Top,销量Top">
-      <div class="card-poster" style="background:linear-gradient(135deg,#14b8a6,#0d9488)">
-        <div class="bg" style="background:linear-gradient(135deg,#14b8a644,#0d948844)"></div>
-        <h3>星露谷物语</h3>
-      </div>
+      <div class="card-poster"><img src="https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/413150/library_600x900.jpg" alt="Stardew Valley" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'fallback\\' style=\\'background:linear-gradient(135deg,#ec4899,#db2777)\\'>星露</div>'"></div>
       <div class="card-body">
         <div class="cn">星露谷物语</div>
         <div class="en">Stardew Valley</div>
@@ -512,424 +381,14 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
           <span class="tag mc">评分 98</span>
           <span class="tag mc">口碑Top</span><span class="tag sales">销量Top</span>
         </div>
-        <div class="dl-buttons">
-          <a href="https://www.gamer520.com/50152.html" class="dl-btn gamer520" target="_blank" rel="noopener">🎮 gamer520</a>
-<a href="https://www.x6d.com/i-wz-17482.html" class="dl-btn x6d" target="_blank" rel="noopener">📦 x6d</a>
-<a href="https://crotorrents.com/tag/stardew-valley-torrent" class="dl-btn crotorrents" target="_blank" rel="noopener">🧲 CroTorrents</a>
-
-        </div>
+        <div class="dl-buttons"><a href="https://www.gamer520.com/50152.html" class="dl-btn gamer520" target="_blank" rel="noopener">gamer520</a>
+<a href="https://www.x6d.com/i-wz-17482.html" class="dl-btn x6d" target="_blank" rel="noopener">x6d</a>
+<a href="https://store.steampowered.com/app/413150" class="dl-btn steam" target="_blank">Steam</a></div>
       </div>
     </div>
 
     <div class="card" data-tags="口碑Top">
-      <div class="card-poster" style="background:linear-gradient(135deg,#8b5cf6,#7c3aed)">
-        <div class="bg" style="background:linear-gradient(135deg,#8b5cf644,#7c3aed44)"></div>
-        <h3>黑帝斯2</h3>
-      </div>
-      <div class="card-body">
-        <div class="cn">黑帝斯2</div>
-        <div class="en">Hades II</div>
-        <div class="meta">
-          <span class="tag">2025</span>
-          <span class="tag mc">评分 95</span>
-          <span class="tag mc">口碑Top</span>
-        </div>
-        <div class="dl-buttons">
-          <a href="magnet:?xt=urn:btih:1159AD0F27A63EF7926CFFB6A60409D701DF18BB" class="dl-btn magnet" target="_blank" rel="noopener">🧲 磁力链</a>
-
-        </div>
-      </div>
-    </div>
-
-    <div class="card" data-tags="口碑Top">
-      <div class="card-poster" style="background:linear-gradient(135deg,#f43f5e,#e11d48)">
-        <div class="bg" style="background:linear-gradient(135deg,#f43f5e44,#e11d4844)"></div>
-        <h3>生化危机4重制版</h3>
-      </div>
-      <div class="card-body">
-        <div class="cn">生化危机4重制版</div>
-        <div class="en">Resident Evil 4 Remake</div>
-        <div class="meta">
-          <span class="tag">2023</span>
-          <span class="tag mc">评分 96</span>
-          <span class="tag mc">口碑Top</span>
-        </div>
-        <div class="dl-buttons">
-          <a href="https://www.gamer520.com/57854.html" class="dl-btn gamer520" target="_blank" rel="noopener">🎮 gamer520</a>
-<a href="https://www.x6d.com/i-wz-23182.html" class="dl-btn x6d" target="_blank" rel="noopener">📦 x6d</a>
-<a href="https://fitgirl-repacks.site/resident-evil-4-2023/" class="dl-btn fitgirl" target="_blank" rel="noopener">📀 FitGirl</a>
-
-        </div>
-      </div>
-    </div>
-
-    <div class="card" data-tags="口碑Top">
-      <div class="card-poster" style="background:linear-gradient(135deg,#06b6d4,#0891b2)">
-        <div class="bg" style="background:linear-gradient(135deg,#06b6d444,#0891b244)"></div>
-        <h3>传说之下</h3>
-      </div>
-      <div class="card-body">
-        <div class="cn">传说之下</div>
-        <div class="en">Undertale</div>
-        <div class="meta">
-          <span class="tag">2015</span>
-          <span class="tag mc">评分 97</span>
-          <span class="tag mc">口碑Top</span>
-        </div>
-        <div class="dl-buttons">
-          <a href="magnet:?xt=urn:btih:26987e9b3c2733f0d926de609e32dbde022c1250" class="dl-btn magnet" target="_blank" rel="noopener">🧲 磁力链</a>
-
-        </div>
-      </div>
-    </div>
-
-    <div class="card" data-tags="口碑Top">
-      <div class="card-poster" style="background:linear-gradient(135deg,#84cc16,#65a30d)">
-        <div class="bg" style="background:linear-gradient(135deg,#84cc1644,#65a30d44)"></div>
-        <h3>小丑牌</h3>
-      </div>
-      <div class="card-body">
-        <div class="cn">小丑牌</div>
-        <div class="en">Balatro</div>
-        <div class="meta">
-          <span class="tag">2024</span>
-          <span class="tag mc">评分 98</span>
-          <span class="tag mc">口碑Top</span>
-        </div>
-        <div class="dl-buttons">
-          <a href="magnet:?xt=urn:btih:843e499f0c0a39017908c67da374fd481f47070b" class="dl-btn magnet" target="_blank" rel="noopener">🧲 磁力链</a>
-
-        </div>
-      </div>
-    </div>
-
-    <div class="card" data-tags="口碑Top">
-      <div class="card-poster" style="background:linear-gradient(135deg,#a855f7,#9333ea)">
-        <div class="bg" style="background:linear-gradient(135deg,#a855f744,#9333ea44)"></div>
-        <h3>吸血鬼幸存者</h3>
-      </div>
-      <div class="card-body">
-        <div class="cn">吸血鬼幸存者</div>
-        <div class="en">Vampire Survivors</div>
-        <div class="meta">
-          <span class="tag">2022</span>
-          <span class="tag mc">评分 98</span>
-          <span class="tag mc">口碑Top</span>
-        </div>
-        <div class="dl-buttons">
-          <a href="magnet:?xt=urn:btih:CDCABBB8D2D496A3CB858ACB604463538711C7D7" class="dl-btn magnet" target="_blank" rel="noopener">🧲 磁力链</a>
-
-        </div>
-      </div>
-    </div>
-
-    <div class="card" data-tags="口碑Top">
-      <div class="card-poster" style="background:linear-gradient(135deg,#7c3aed,#4f46e5)">
-        <div class="bg" style="background:linear-gradient(135deg,#7c3aed44,#4f46e544)"></div>
-        <h3>环世界</h3>
-      </div>
-      <div class="card-body">
-        <div class="cn">环世界</div>
-        <div class="en">RimWorld</div>
-        <div class="meta">
-          <span class="tag">2018</span>
-          <span class="tag mc">评分 98</span>
-          <span class="tag mc">口碑Top</span>
-        </div>
-        <div class="dl-buttons">
-          <a href="https://fitgirl-repacks.site" class="dl-btn fitgirl" target="_blank" rel="noopener">📀 FitGirl</a>
-
-        </div>
-      </div>
-    </div>
-
-    <div class="card" data-tags="口碑Top">
-      <div class="card-poster" style="background:linear-gradient(135deg,#ef4444,#f97316)">
-        <div class="bg" style="background:linear-gradient(135deg,#ef444444,#f9731644)"></div>
-        <h3>深岩银河</h3>
-      </div>
-      <div class="card-body">
-        <div class="cn">深岩银河</div>
-        <div class="en">Deep Rock Galactic</div>
-        <div class="meta">
-          <span class="tag">2020</span>
-          <span class="tag mc">评分 97</span>
-          <span class="tag mc">口碑Top</span>
-        </div>
-        <div class="dl-buttons">
-          <a href="https://fitgirl-repacks.site" class="dl-btn fitgirl" target="_blank" rel="noopener">📀 FitGirl</a>
-
-        </div>
-      </div>
-    </div>
-
-    <div class="card" data-tags="口碑Top">
-      <div class="card-poster" style="background:linear-gradient(135deg,#10b981,#059669)">
-        <div class="bg" style="background:linear-gradient(135deg,#10b98144,#05966944)"></div>
-        <h3>极限竞速：地平线5</h3>
-      </div>
-      <div class="card-body">
-        <div class="cn">极限竞速：地平线5</div>
-        <div class="en">Forza Horizon 5</div>
-        <div class="meta">
-          <span class="tag">2021</span>
-          <span class="tag mc">评分 92</span>
-          <span class="tag mc">口碑Top</span>
-        </div>
-        <div class="dl-buttons">
-          <a href="https://fitgirl-repacks.site" class="dl-btn fitgirl" target="_blank" rel="noopener">📀 FitGirl</a>
-
-        </div>
-      </div>
-    </div>
-
-    <div class="card" data-tags="口碑Top">
-      <div class="card-poster" style="background:linear-gradient(135deg,#3b82f6,#2563eb)">
-        <div class="bg" style="background:linear-gradient(135deg,#3b82f644,#2563eb44)"></div>
-        <h3>寂静岭2重制版</h3>
-      </div>
-      <div class="card-body">
-        <div class="cn">寂静岭2重制版</div>
-        <div class="en">Silent Hill 2 Remake</div>
-        <div class="meta">
-          <span class="tag">2024</span>
-          <span class="tag mc">评分 95</span>
-          <span class="tag mc">口碑Top</span>
-        </div>
-        <div class="dl-buttons">
-          <a href="https://fitgirl-repacks.site/silent-hill-2-remake/" class="dl-btn fitgirl" target="_blank" rel="noopener">📀 FitGirl</a>
-
-        </div>
-      </div>
-    </div>
-
-    <div class="card" data-tags="口碑Top">
-      <div class="card-poster" style="background:linear-gradient(135deg,#f59e0b,#d97706)">
-        <div class="bg" style="background:linear-gradient(135deg,#f59e0b44,#d9770644)"></div>
-        <h3>心灵杀手2</h3>
-      </div>
-      <div class="card-body">
-        <div class="cn">心灵杀手2</div>
-        <div class="en">Alan Wake 2</div>
-        <div class="meta">
-          <span class="tag">2023</span>
-          <span class="tag mc">评分 93</span>
-          <span class="tag mc">口碑Top</span>
-        </div>
-        <div class="dl-buttons">
-          <a href="https://steamverde.net/download/alan-wake-2-2023" class="dl-btn steamzg" target="_blank" rel="noopener">🧲 SteamVerde</a>
-
-        </div>
-      </div>
-    </div>
-
-    <div class="card" data-tags="口碑Top">
-      <div class="card-poster" style="background:linear-gradient(135deg,#ec4899,#db2777)">
-        <div class="bg" style="background:linear-gradient(135deg,#ec489944,#db277744)"></div>
-        <h3>极乐迪斯科</h3>
-      </div>
-      <div class="card-body">
-        <div class="cn">极乐迪斯科</div>
-        <div class="en">Disco Elysium</div>
-        <div class="meta">
-          <span class="tag">2019</span>
-          <span class="tag mc">评分 96</span>
-          <span class="tag mc">口碑Top</span>
-        </div>
-        <div class="dl-buttons">
-          <a href="https://fitgirl-repacks.site/disco-elysium/" class="dl-btn fitgirl" target="_blank" rel="noopener">📀 FitGirl</a>
-
-        </div>
-      </div>
-    </div>
-
-    <div class="card" data-tags="销量Top">
-      <div class="card-poster" style="background:linear-gradient(135deg,#14b8a6,#0d9488)">
-        <div class="bg" style="background:linear-gradient(135deg,#14b8a644,#0d948844)"></div>
-        <h3>幻兽帕鲁</h3>
-      </div>
-      <div class="card-body">
-        <div class="cn">幻兽帕鲁</div>
-        <div class="en">Palworld</div>
-        <div class="meta">
-          <span class="tag">2024</span>
-          <span class="tag mc">评分 93</span>
-          <span class="tag sales">销量Top</span>
-        </div>
-        <div class="dl-buttons">
-          <a href="https://www.x6d.com/i-wz-25381.html" class="dl-btn x6d" target="_blank" rel="noopener">📦 x6d</a>
-
-        </div>
-      </div>
-    </div>
-
-    <div class="card" data-tags="口碑Top">
-      <div class="card-poster" style="background:linear-gradient(135deg,#8b5cf6,#7c3aed)">
-        <div class="bg" style="background:linear-gradient(135deg,#8b5cf644,#7c3aed44)"></div>
-        <h3>塞尔达传说：王国之泪</h3>
-      </div>
-      <div class="card-body">
-        <div class="cn">塞尔达传说：王国之泪</div>
-        <div class="en">Zelda: Tears of the Kingdom</div>
-        <div class="meta">
-          <span class="tag">2023</span>
-          <span class="tag mc">评分 96</span>
-          <span class="tag mc">口碑Top</span>
-        </div>
-        <div class="dl-buttons">
-          <span style="font-size:11px;color:#666">暂无下载链接</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="card" data-tags="口碑Top,销量Top">
-      <div class="card-poster" style="background:linear-gradient(135deg,#f43f5e,#e11d48)">
-        <div class="bg" style="background:linear-gradient(135deg,#f43f5e44,#e11d4844)"></div>
-        <h3>超级马力欧：奥德赛</h3>
-      </div>
-      <div class="card-body">
-        <div class="cn">超级马力欧：奥德赛</div>
-        <div class="en">Super Mario Odyssey</div>
-        <div class="meta">
-          <span class="tag">2017</span>
-          <span class="tag mc">评分 97</span>
-          <span class="tag mc">口碑Top</span><span class="tag sales">销量Top</span>
-        </div>
-        <div class="dl-buttons">
-          <span style="font-size:11px;color:#666">暂无下载链接</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="card" data-tags="口碑Top">
-      <div class="card-poster" style="background:linear-gradient(135deg,#06b6d4,#0891b2)">
-        <div class="bg" style="background:linear-gradient(135deg,#06b6d444,#0891b244)"></div>
-        <h3>街头霸王6</h3>
-      </div>
-      <div class="card-body">
-        <div class="cn">街头霸王6</div>
-        <div class="en">Street Fighter 6</div>
-        <div class="meta">
-          <span class="tag">2023</span>
-          <span class="tag mc">评分 93</span>
-          <span class="tag mc">口碑Top</span>
-        </div>
-        <div class="dl-buttons">
-          <span style="font-size:11px;color:#666">暂无下载链接</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="card" data-tags="口碑Top,销量Top">
-      <div class="card-poster" style="background:linear-gradient(135deg,#84cc16,#65a30d)">
-        <div class="bg" style="background:linear-gradient(135deg,#84cc1644,#65a30d44)"></div>
-        <h3>上古卷轴5：天际</h3>
-      </div>
-      <div class="card-body">
-        <div class="cn">上古卷轴5：天际</div>
-        <div class="en">Skyrim</div>
-        <div class="meta">
-          <span class="tag">2011</span>
-          <span class="tag mc">评分 96</span>
-          <span class="tag mc">口碑Top</span><span class="tag sales">销量Top</span>
-        </div>
-        <div class="dl-buttons">
-          <a href="https://www.gamer520.com/51997.html" class="dl-btn gamer520" target="_blank" rel="noopener">🎮 gamer520</a>
-<a href="https://www.x6d.com/i-wz-18207.html" class="dl-btn x6d" target="_blank" rel="noopener">📦 x6d</a>
-
-        </div>
-      </div>
-    </div>
-
-    <div class="card" data-tags="口碑Top,销量Top">
-      <div class="card-poster" style="background:linear-gradient(135deg,#a855f7,#9333ea)">
-        <div class="bg" style="background:linear-gradient(135deg,#a855f744,#9333ea44)"></div>
-        <h3>泰拉瑞亚</h3>
-      </div>
-      <div class="card-body">
-        <div class="cn">泰拉瑞亚</div>
-        <div class="en">Terraria</div>
-        <div class="meta">
-          <span class="tag">2011</span>
-          <span class="tag mc">评分 97</span>
-          <span class="tag mc">口碑Top</span><span class="tag sales">销量Top</span>
-        </div>
-        <div class="dl-buttons">
-          <a href="https://www.gamer520.com/33630.html" class="dl-btn gamer520" target="_blank" rel="noopener">🎮 gamer520</a>
-<a href="https://crotorrents.com/terraria-free-torrent-download" class="dl-btn crotorrents" target="_blank" rel="noopener">🧲 CroTorrents</a>
-
-        </div>
-      </div>
-    </div>
-
-    <div class="card" data-tags="口碑Top">
-      <div class="card-poster" style="background:linear-gradient(135deg,#7c3aed,#4f46e5)">
-        <div class="bg" style="background:linear-gradient(135deg,#7c3aed44,#4f46e544)"></div>
-        <h3>空洞骑士</h3>
-      </div>
-      <div class="card-body">
-        <div class="cn">空洞骑士</div>
-        <div class="en">Hollow Knight</div>
-        <div class="meta">
-          <span class="tag">2017</span>
-          <span class="tag mc">评分 97</span>
-          <span class="tag mc">口碑Top</span>
-        </div>
-        <div class="dl-buttons">
-          <a href="https://www.gamer520.com/" class="dl-btn gamer520" target="_blank" rel="noopener">🎮 gamer520</a>
-<a href="https://fitgirlrepacks.org/lossless-repack/hollow-knight-v1-5-68-11808-2-bonus-soundtracks" class="dl-btn fitgirl" target="_blank" rel="noopener">📀 FitGirl</a>
-
-        </div>
-      </div>
-    </div>
-
-    <div class="card" data-tags="口碑Top">
-      <div class="card-poster" style="background:linear-gradient(135deg,#ef4444,#f97316)">
-        <div class="bg" style="background:linear-gradient(135deg,#ef444444,#f9731644)"></div>
-        <h3>传送门2</h3>
-      </div>
-      <div class="card-body">
-        <div class="cn">传送门2</div>
-        <div class="en">Portal 2</div>
-        <div class="meta">
-          <span class="tag">2011</span>
-          <span class="tag mc">评分 95</span>
-          <span class="tag mc">口碑Top</span>
-        </div>
-        <div class="dl-buttons">
-          <a href="https://www.gamer520.com/19896.html" class="dl-btn gamer520" target="_blank" rel="noopener">🎮 gamer520</a>
-<a href="https://www.x6d.com/i-wz-25279.html" class="dl-btn x6d" target="_blank" rel="noopener">📦 x6d</a>
-
-        </div>
-      </div>
-    </div>
-
-    <div class="card" data-tags="口碑Top">
-      <div class="card-poster" style="background:linear-gradient(135deg,#10b981,#059669)">
-        <div class="bg" style="background:linear-gradient(135deg,#10b98144,#05966944)"></div>
-        <h3>半条命2</h3>
-      </div>
-      <div class="card-body">
-        <div class="cn">半条命2</div>
-        <div class="en">Half-Life 2</div>
-        <div class="meta">
-          <span class="tag">2004</span>
-          <span class="tag mc">评分 96</span>
-          <span class="tag mc">口碑Top</span>
-        </div>
-        <div class="dl-buttons">
-          <a href="https://www.gamer520.com/16811.html" class="dl-btn gamer520" target="_blank" rel="noopener">🎮 gamer520</a>
-<a href="https://www.x6d.com/i-wz-22848.html" class="dl-btn x6d" target="_blank" rel="noopener">📦 x6d</a>
-
-        </div>
-      </div>
-    </div>
-
-    <div class="card" data-tags="口碑Top">
-      <div class="card-poster" style="background:linear-gradient(135deg,#3b82f6,#2563eb)">
-        <div class="bg" style="background:linear-gradient(135deg,#3b82f644,#2563eb44)"></div>
-        <h3>哈迪斯</h3>
-      </div>
+      <div class="card-poster"><img src="https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/1145360/library_600x900.jpg" alt="Hades" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'fallback\\' style=\\'background:linear-gradient(135deg,#14b8a6,#0d9488)\\'>哈迪</div>'"></div>
       <div class="card-body">
         <div class="cn">哈迪斯</div>
         <div class="en">Hades</div>
@@ -938,19 +397,259 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
           <span class="tag mc">评分 94</span>
           <span class="tag mc">口碑Top</span>
         </div>
-        <div class="dl-buttons">
-          <a href="https://www.gamer520.com/15010.html" class="dl-btn gamer520" target="_blank" rel="noopener">🎮 gamer520</a>
-<a href="https://www.x6d.com/i-wz-26473.html" class="dl-btn x6d" target="_blank" rel="noopener">📦 x6d</a>
-
-        </div>
+        <div class="dl-buttons"><a href="https://www.gamer520.com/15010.html" class="dl-btn gamer520" target="_blank" rel="noopener">gamer520</a>
+<a href="https://www.x6d.com/i-wz-26473.html" class="dl-btn x6d" target="_blank" rel="noopener">x6d</a>
+<a href="https://store.steampowered.com/app/1145360" class="dl-btn steam" target="_blank">Steam</a></div>
       </div>
     </div>
 
     <div class="card" data-tags="口碑Top">
-      <div class="card-poster" style="background:linear-gradient(135deg,#f59e0b,#d97706)">
-        <div class="bg" style="background:linear-gradient(135deg,#f59e0b44,#d9770644)"></div>
-        <h3>生化危机4</h3>
+      <div class="card-poster"><img src="https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/1145350/library_600x900.jpg" alt="Hades II" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'fallback\\' style=\\'background:linear-gradient(135deg,#8b5cf6,#7c3aed)\\'>黑帝</div>'"></div>
+      <div class="card-body">
+        <div class="cn">黑帝斯2</div>
+        <div class="en">Hades II</div>
+        <div class="meta">
+          <span class="tag">2025</span>
+          <span class="tag mc">评分 95</span>
+          <span class="tag mc">口碑Top</span>
+        </div>
+        <div class="dl-buttons"><a href="magnet:?xt=urn:btih:1159AD0F27A63EF7926CFFB6A60409D701DF18BB" class="dl-btn magnet" target="_blank" rel="noopener">🧲磁力</a>
+<a href="https://store.steampowered.com/app/1145350" class="dl-btn steam" target="_blank">Steam</a></div>
       </div>
+    </div>
+
+    <div class="card" data-tags="口碑Top">
+      <div class="card-poster"><img src="https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/2050650/library_600x900.jpg" alt="Resident Evil 4 (2023)" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'fallback\\' style=\\'background:linear-gradient(135deg,#f43f5e,#e11d48)\\'>生化</div>'"></div>
+      <div class="card-body">
+        <div class="cn">生化危机4重制版</div>
+        <div class="en">Resident Evil 4 (2023)</div>
+        <div class="meta">
+          <span class="tag">2023</span>
+          <span class="tag mc">评分 96</span>
+          <span class="tag mc">口碑Top</span>
+        </div>
+        <div class="dl-buttons"><a href="https://www.gamer520.com/57854.html" class="dl-btn gamer520" target="_blank" rel="noopener">gamer520</a>
+<a href="https://www.x6d.com/i-wz-23182.html" class="dl-btn x6d" target="_blank" rel="noopener">x6d</a>
+<a href="https://fitgirl-repacks.site/resident-evil-4-2023/" class="dl-btn fitgirl" target="_blank" rel="noopener">FitGirl</a>
+<a href="https://store.steampowered.com/app/2050650" class="dl-btn steam" target="_blank">Steam</a></div>
+      </div>
+    </div>
+
+    <div class="card" data-tags="口碑Top">
+      <div class="card-poster"><img src="https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/391540/library_600x900.jpg" alt="Undertale" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'fallback\\' style=\\'background:linear-gradient(135deg,#06b6d4,#0891b2)\\'>传说</div>'"></div>
+      <div class="card-body">
+        <div class="cn">传说之下</div>
+        <div class="en">Undertale</div>
+        <div class="meta">
+          <span class="tag">2015</span>
+          <span class="tag mc">评分 97</span>
+          <span class="tag mc">口碑Top</span>
+        </div>
+        <div class="dl-buttons"><a href="magnet:?xt=urn:btih:26987e9b3c2733f0d926de609e32dbde022c1250" class="dl-btn magnet" target="_blank" rel="noopener">🧲磁力</a>
+<a href="https://store.steampowered.com/app/391540" class="dl-btn steam" target="_blank">Steam</a></div>
+      </div>
+    </div>
+
+    <div class="card" data-tags="口碑Top">
+      <div class="card-poster"><img src="https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/2379780/library_600x900.jpg" alt="Balatro" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'fallback\\' style=\\'background:linear-gradient(135deg,#84cc16,#65a30d)\\'>小丑</div>'"></div>
+      <div class="card-body">
+        <div class="cn">小丑牌</div>
+        <div class="en">Balatro</div>
+        <div class="meta">
+          <span class="tag">2024</span>
+          <span class="tag mc">评分 98</span>
+          <span class="tag mc">口碑Top</span>
+        </div>
+        <div class="dl-buttons"><a href="magnet:?xt=urn:btih:843e499f0c0a39017908c67da374fd481f47070b" class="dl-btn magnet" target="_blank" rel="noopener">🧲磁力</a>
+<a href="https://store.steampowered.com/app/2379780" class="dl-btn steam" target="_blank">Steam</a></div>
+      </div>
+    </div>
+
+    <div class="card" data-tags="口碑Top">
+      <div class="card-poster"><img src="https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/1794680/library_600x900.jpg" alt="Vampire Survivors" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'fallback\\' style=\\'background:linear-gradient(135deg,#a855f7,#9333ea)\\'>吸血</div>'"></div>
+      <div class="card-body">
+        <div class="cn">吸血鬼幸存者</div>
+        <div class="en">Vampire Survivors</div>
+        <div class="meta">
+          <span class="tag">2022</span>
+          <span class="tag mc">评分 98</span>
+          <span class="tag mc">口碑Top</span>
+        </div>
+        <div class="dl-buttons"><a href="magnet:?xt=urn:btih:CDCABBB8D2D496A3CB858ACB604463538711C7D7" class="dl-btn magnet" target="_blank" rel="noopener">🧲磁力</a>
+<a href="https://store.steampowered.com/app/1794680" class="dl-btn steam" target="_blank">Steam</a></div>
+      </div>
+    </div>
+
+    <div class="card" data-tags="口碑Top">
+      <div class="card-poster"><img src="https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/294100/library_600x900.jpg" alt="RimWorld" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'fallback\\' style=\\'background:linear-gradient(135deg,#7c3aed,#4f46e5)\\'>环世</div>'"></div>
+      <div class="card-body">
+        <div class="cn">环世界</div>
+        <div class="en">RimWorld</div>
+        <div class="meta">
+          <span class="tag">2018</span>
+          <span class="tag mc">评分 98</span>
+          <span class="tag mc">口碑Top</span>
+        </div>
+        <div class="dl-buttons"><a href="https://fitgirl-repacks.site" class="dl-btn fitgirl" target="_blank" rel="noopener">FitGirl</a>
+<a href="https://store.steampowered.com/app/294100" class="dl-btn steam" target="_blank">Steam</a></div>
+      </div>
+    </div>
+
+    <div class="card" data-tags="口碑Top">
+      <div class="card-poster"><img src="https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/548430/library_600x900.jpg" alt="Deep Rock Galactic" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'fallback\\' style=\\'background:linear-gradient(135deg,#ef4444,#f97316)\\'>深岩</div>'"></div>
+      <div class="card-body">
+        <div class="cn">深岩银河</div>
+        <div class="en">Deep Rock Galactic</div>
+        <div class="meta">
+          <span class="tag">2020</span>
+          <span class="tag mc">评分 97</span>
+          <span class="tag mc">口碑Top</span>
+        </div>
+        <div class="dl-buttons"><a href="https://fitgirl-repacks.site" class="dl-btn fitgirl" target="_blank" rel="noopener">FitGirl</a>
+<a href="https://store.steampowered.com/app/548430" class="dl-btn steam" target="_blank">Steam</a></div>
+      </div>
+    </div>
+
+    <div class="card" data-tags="口碑Top">
+      <div class="card-poster"><img src="https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/1551360/library_600x900.jpg" alt="Forza Horizon 5" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'fallback\\' style=\\'background:linear-gradient(135deg,#10b981,#059669)\\'>极限</div>'"></div>
+      <div class="card-body">
+        <div class="cn">极限竞速：地平线5</div>
+        <div class="en">Forza Horizon 5</div>
+        <div class="meta">
+          <span class="tag">2021</span>
+          <span class="tag mc">评分 92</span>
+          <span class="tag mc">口碑Top</span>
+        </div>
+        <div class="dl-buttons"><a href="https://fitgirl-repacks.site" class="dl-btn fitgirl" target="_blank" rel="noopener">FitGirl</a>
+<a href="https://store.steampowered.com/app/1551360" class="dl-btn steam" target="_blank">Steam</a></div>
+      </div>
+    </div>
+
+    <div class="card" data-tags="口碑Top">
+      <div class="card-poster"><img src="https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/2124490/library_600x900.jpg" alt="Silent Hill 2 Remake" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'fallback\\' style=\\'background:linear-gradient(135deg,#3b82f6,#2563eb)\\'>寂静</div>'"></div>
+      <div class="card-body">
+        <div class="cn">寂静岭2重制版</div>
+        <div class="en">Silent Hill 2 Remake</div>
+        <div class="meta">
+          <span class="tag">2024</span>
+          <span class="tag mc">评分 95</span>
+          <span class="tag mc">口碑Top</span>
+        </div>
+        <div class="dl-buttons"><a href="https://fitgirl-repacks.site/silent-hill-2-remake/" class="dl-btn fitgirl" target="_blank" rel="noopener">FitGirl</a>
+<a href="https://store.steampowered.com/app/2124490" class="dl-btn steam" target="_blank">Steam</a></div>
+      </div>
+    </div>
+
+    <div class="card" data-tags="口碑Top">
+      <div class="card-poster"><div class="fallback" style="background:linear-gradient(135deg,#f59e0b,#d97706)">心灵</div></div>
+      <div class="card-body">
+        <div class="cn">心灵杀手2</div>
+        <div class="en">Alan Wake 2</div>
+        <div class="meta">
+          <span class="tag">2023</span>
+          <span class="tag mc">评分 93</span>
+          <span class="tag mc">口碑Top</span>
+        </div>
+        <div class="dl-buttons"><a href="https://steamverde.net/download/alan-wake-2-2023" class="dl-btn steamzg" target="_blank" rel="noopener">SteamVerde</a>
+</div>
+      </div>
+    </div>
+
+    <div class="card" data-tags="口碑Top">
+      <div class="card-poster"><img src="https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/632470/library_600x900.jpg" alt="Disco Elysium" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'fallback\\' style=\\'background:linear-gradient(135deg,#ec4899,#db2777)\\'>极乐</div>'"></div>
+      <div class="card-body">
+        <div class="cn">极乐迪斯科</div>
+        <div class="en">Disco Elysium</div>
+        <div class="meta">
+          <span class="tag">2019</span>
+          <span class="tag mc">评分 96</span>
+          <span class="tag mc">口碑Top</span>
+        </div>
+        <div class="dl-buttons"><a href="https://fitgirl-repacks.site/disco-elysium/" class="dl-btn fitgirl" target="_blank" rel="noopener">FitGirl</a>
+<a href="https://store.steampowered.com/app/632470" class="dl-btn steam" target="_blank">Steam</a></div>
+      </div>
+    </div>
+
+    <div class="card" data-tags="口碑Top,销量Top">
+      <div class="card-poster"><img src="https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/489830/library_600x900.jpg" alt="Skyrim" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'fallback\\' style=\\'background:linear-gradient(135deg,#14b8a6,#0d9488)\\'>上古</div>'"></div>
+      <div class="card-body">
+        <div class="cn">上古卷轴5：天际</div>
+        <div class="en">Skyrim</div>
+        <div class="meta">
+          <span class="tag">2011</span>
+          <span class="tag mc">评分 96</span>
+          <span class="tag mc">口碑Top</span><span class="tag sales">销量Top</span>
+        </div>
+        <div class="dl-buttons"><a href="https://www.gamer520.com/51997.html" class="dl-btn gamer520" target="_blank" rel="noopener">gamer520</a>
+<a href="https://www.x6d.com/i-wz-18207.html" class="dl-btn x6d" target="_blank" rel="noopener">x6d</a>
+<a href="https://store.steampowered.com/app/489830" class="dl-btn steam" target="_blank">Steam</a></div>
+      </div>
+    </div>
+
+    <div class="card" data-tags="口碑Top,销量Top">
+      <div class="card-poster"><img src="https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/105600/library_600x900.jpg" alt="Terraria" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'fallback\\' style=\\'background:linear-gradient(135deg,#8b5cf6,#7c3aed)\\'>泰拉</div>'"></div>
+      <div class="card-body">
+        <div class="cn">泰拉瑞亚</div>
+        <div class="en">Terraria</div>
+        <div class="meta">
+          <span class="tag">2011</span>
+          <span class="tag mc">评分 97</span>
+          <span class="tag mc">口碑Top</span><span class="tag sales">销量Top</span>
+        </div>
+        <div class="dl-buttons"><a href="https://www.gamer520.com/33630.html" class="dl-btn gamer520" target="_blank" rel="noopener">gamer520</a>
+<a href="https://store.steampowered.com/app/105600" class="dl-btn steam" target="_blank">Steam</a></div>
+      </div>
+    </div>
+
+    <div class="card" data-tags="口碑Top">
+      <div class="card-poster"><img src="https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/367520/library_600x900.jpg" alt="Hollow Knight" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'fallback\\' style=\\'background:linear-gradient(135deg,#f43f5e,#e11d48)\\'>空洞</div>'"></div>
+      <div class="card-body">
+        <div class="cn">空洞骑士</div>
+        <div class="en">Hollow Knight</div>
+        <div class="meta">
+          <span class="tag">2017</span>
+          <span class="tag mc">评分 97</span>
+          <span class="tag mc">口碑Top</span>
+        </div>
+        <div class="dl-buttons"><a href="https://fitgirlrepacks.org/lossless-repack/hollow-knight" class="dl-btn fitgirl" target="_blank" rel="noopener">FitGirl</a>
+<a href="https://store.steampowered.com/app/367520" class="dl-btn steam" target="_blank">Steam</a></div>
+      </div>
+    </div>
+
+    <div class="card" data-tags="口碑Top">
+      <div class="card-poster"><img src="https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/620/library_600x900.jpg" alt="Portal 2" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'fallback\\' style=\\'background:linear-gradient(135deg,#06b6d4,#0891b2)\\'>传送</div>'"></div>
+      <div class="card-body">
+        <div class="cn">传送门2</div>
+        <div class="en">Portal 2</div>
+        <div class="meta">
+          <span class="tag">2011</span>
+          <span class="tag mc">评分 95</span>
+          <span class="tag mc">口碑Top</span>
+        </div>
+        <div class="dl-buttons"><a href="https://www.gamer520.com/19896.html" class="dl-btn gamer520" target="_blank" rel="noopener">gamer520</a>
+<a href="https://www.x6d.com/i-wz-25279.html" class="dl-btn x6d" target="_blank" rel="noopener">x6d</a>
+<a href="https://store.steampowered.com/app/620" class="dl-btn steam" target="_blank">Steam</a></div>
+      </div>
+    </div>
+
+    <div class="card" data-tags="口碑Top">
+      <div class="card-poster"><img src="https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/220/library_600x900.jpg" alt="Half-Life 2" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'fallback\\' style=\\'background:linear-gradient(135deg,#84cc16,#65a30d)\\'>半条</div>'"></div>
+      <div class="card-body">
+        <div class="cn">半条命2</div>
+        <div class="en">Half-Life 2</div>
+        <div class="meta">
+          <span class="tag">2004</span>
+          <span class="tag mc">评分 96</span>
+          <span class="tag mc">口碑Top</span>
+        </div>
+        <div class="dl-buttons"><a href="https://www.gamer520.com/16811.html" class="dl-btn gamer520" target="_blank" rel="noopener">gamer520</a>
+<a href="https://www.x6d.com/i-wz-22848.html" class="dl-btn x6d" target="_blank" rel="noopener">x6d</a>
+<a href="https://store.steampowered.com/app/220" class="dl-btn steam" target="_blank">Steam</a></div>
+      </div>
+    </div>
+
+    <div class="card" data-tags="口碑Top">
+      <div class="card-poster"><img src="https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/254700/library_600x900.jpg" alt="Resident Evil 4" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'fallback\\' style=\\'background:linear-gradient(135deg,#a855f7,#9333ea)\\'>生化</div>'"></div>
       <div class="card-body">
         <div class="cn">生化危机4</div>
         <div class="en">Resident Evil 4</div>
@@ -959,19 +658,476 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
           <span class="tag mc">评分 96</span>
           <span class="tag mc">口碑Top</span>
         </div>
-        <div class="dl-buttons">
-          <a href="https://www.gamer520.com/15203.html" class="dl-btn gamer520" target="_blank" rel="noopener">🎮 gamer520</a>
-<a href="https://www.x6d.com/i-wz-23182.html" class="dl-btn x6d" target="_blank" rel="noopener">📦 x6d</a>
+        <div class="dl-buttons"><a href="https://www.gamer520.com/15203.html" class="dl-btn gamer520" target="_blank" rel="noopener">gamer520</a>
+<a href="https://www.x6d.com/i-wz-23182.html" class="dl-btn x6d" target="_blank" rel="noopener">x6d</a>
+<a href="https://store.steampowered.com/app/254700" class="dl-btn steam" target="_blank">Steam</a></div>
+      </div>
+    </div>
 
+    <div class="card" data-tags="口碑Top">
+      <div class="card-poster"><img src="https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/400/library_600x900.jpg" alt="Portal" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'fallback\\' style=\\'background:linear-gradient(135deg,#7c3aed,#4f46e5)\\'>传送</div>'"></div>
+      <div class="card-body">
+        <div class="cn">传送门</div>
+        <div class="en">Portal</div>
+        <div class="meta">
+          <span class="tag">2007</span>
+          <span class="tag mc">评分 90</span>
+          <span class="tag mc">口碑Top</span>
         </div>
+        <div class="dl-buttons"><a href="https://store.steampowered.com/app/400" class="dl-btn steam" target="_blank">Steam</a></div>
+      </div>
+    </div>
+
+    <div class="card" data-tags="口碑Top">
+      <div class="card-poster"><img src="https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/70/library_600x900.jpg" alt="Half-Life" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'fallback\\' style=\\'background:linear-gradient(135deg,#ef4444,#f97316)\\'>半条</div>'"></div>
+      <div class="card-body">
+        <div class="cn">半条命</div>
+        <div class="en">Half-Life</div>
+        <div class="meta">
+          <span class="tag">1998</span>
+          <span class="tag mc">评分 96</span>
+          <span class="tag mc">口碑Top</span>
+        </div>
+        <div class="dl-buttons"><a href="https://store.steampowered.com/app/70" class="dl-btn steam" target="_blank">Steam</a></div>
+      </div>
+    </div>
+
+    <div class="card" data-tags="口碑Top">
+      <div class="card-poster"><img src="https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/550/library_600x900.jpg" alt="Left 4 Dead 2" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'fallback\\' style=\\'background:linear-gradient(135deg,#10b981,#059669)\\'>求生</div>'"></div>
+      <div class="card-body">
+        <div class="cn">求生之路2</div>
+        <div class="en">Left 4 Dead 2</div>
+        <div class="meta">
+          <span class="tag">2009</span>
+          <span class="tag mc">评分 98</span>
+          <span class="tag mc">口碑Top</span>
+        </div>
+        <div class="dl-buttons"><a href="https://store.steampowered.com/app/550" class="dl-btn steam" target="_blank">Steam</a></div>
       </div>
     </div>
 
     <div class="card" data-tags="口碑Top,销量Top">
-      <div class="card-poster" style="background:linear-gradient(135deg,#ec4899,#db2777)">
-        <div class="bg" style="background:linear-gradient(135deg,#ec489944,#db277744)"></div>
-        <h3>超级马力欧：奥德赛</h3>
+      <div class="card-poster"><img src="https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/4000/library_600x900.jpg" alt="Garry's Mod" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'fallback\\' style=\\'background:linear-gradient(135deg,#3b82f6,#2563eb)\\'>盖瑞</div>'"></div>
+      <div class="card-body">
+        <div class="cn">盖瑞模组</div>
+        <div class="en">Garry's Mod</div>
+        <div class="meta">
+          <span class="tag">2006</span>
+          <span class="tag mc">评分 97</span>
+          <span class="tag mc">口碑Top</span><span class="tag sales">销量Top</span>
+        </div>
+        <div class="dl-buttons"><a href="https://store.steampowered.com/app/4000" class="dl-btn steam" target="_blank">Steam</a></div>
       </div>
+    </div>
+
+    <div class="card" data-tags="口碑Top">
+      <div class="card-poster"><img src="https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/227300/library_600x900.jpg" alt="Euro Truck Simulator 2" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'fallback\\' style=\\'background:linear-gradient(135deg,#f59e0b,#d97706)\\'>欧洲</div>'"></div>
+      <div class="card-body">
+        <div class="cn">欧洲卡车模拟2</div>
+        <div class="en">Euro Truck Simulator 2</div>
+        <div class="meta">
+          <span class="tag">2012</span>
+          <span class="tag mc">评分 97</span>
+          <span class="tag mc">口碑Top</span>
+        </div>
+        <div class="dl-buttons"><a href="https://store.steampowered.com/app/227300" class="dl-btn steam" target="_blank">Steam</a></div>
+      </div>
+    </div>
+
+    <div class="card" data-tags="口碑Top,销量Top">
+      <div class="card-poster"><img src="https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/262060/library_600x900.jpg" alt="Phasmophobia" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'fallback\\' style=\\'background:linear-gradient(135deg,#ec4899,#db2777)\\'>恐鬼</div>'"></div>
+      <div class="card-body">
+        <div class="cn">恐鬼症</div>
+        <div class="en">Phasmophobia</div>
+        <div class="meta">
+          <span class="tag">2020</span>
+          <span class="tag mc">评分 96</span>
+          <span class="tag mc">口碑Top</span><span class="tag sales">销量Top</span>
+        </div>
+        <div class="dl-buttons"><a href="https://store.steampowered.com/app/262060" class="dl-btn steam" target="_blank">Steam</a></div>
+      </div>
+    </div>
+
+    <div class="card" data-tags="口碑Top">
+      <div class="card-poster"><img src="https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/526870/library_600x900.jpg" alt="Satisfactory" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'fallback\\' style=\\'background:linear-gradient(135deg,#14b8a6,#0d9488)\\'>幸福</div>'"></div>
+      <div class="card-body">
+        <div class="cn">幸福工厂</div>
+        <div class="en">Satisfactory</div>
+        <div class="meta">
+          <span class="tag">2024</span>
+          <span class="tag mc">评分 97</span>
+          <span class="tag mc">口碑Top</span>
+        </div>
+        <div class="dl-buttons"><a href="https://store.steampowered.com/app/526870" class="dl-btn steam" target="_blank">Steam</a></div>
+      </div>
+    </div>
+
+    <div class="card" data-tags="口碑Top">
+      <div class="card-poster"><img src="https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/10/library_600x900.jpg" alt="Counter-Strike" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'fallback\\' style=\\'background:linear-gradient(135deg,#8b5cf6,#7c3aed)\\'>反恐</div>'"></div>
+      <div class="card-body">
+        <div class="cn">反恐精英</div>
+        <div class="en">Counter-Strike</div>
+        <div class="meta">
+          <span class="tag">2000</span>
+          <span class="tag mc">评分 97</span>
+          <span class="tag mc">口碑Top</span>
+        </div>
+        <div class="dl-buttons"><a href="https://store.steampowered.com/app/10" class="dl-btn steam" target="_blank">Steam</a></div>
+      </div>
+    </div>
+
+    <div class="card" data-tags="口碑Top">
+      <div class="card-poster"><img src="https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/322330/library_600x900.jpg" alt="Don't Starve Together" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'fallback\\' style=\\'background:linear-gradient(135deg,#f43f5e,#e11d48)\\'>饥荒</div>'"></div>
+      <div class="card-body">
+        <div class="cn">饥荒联机版</div>
+        <div class="en">Don't Starve Together</div>
+        <div class="meta">
+          <span class="tag">2016</span>
+          <span class="tag mc">评分 95</span>
+          <span class="tag mc">口碑Top</span>
+        </div>
+        <div class="dl-buttons"><a href="https://store.steampowered.com/app/322330" class="dl-btn steam" target="_blank">Steam</a></div>
+      </div>
+    </div>
+
+    <div class="card" data-tags="口碑Top">
+      <div class="card-poster"><img src="https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/239140/library_600x900.jpg" alt="Dying Light" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'fallback\\' style=\\'background:linear-gradient(135deg,#06b6d4,#0891b2)\\'>消逝</div>'"></div>
+      <div class="card-body">
+        <div class="cn">消逝的光芒</div>
+        <div class="en">Dying Light</div>
+        <div class="meta">
+          <span class="tag">2015</span>
+          <span class="tag mc">评分 95</span>
+          <span class="tag mc">口碑Top</span>
+        </div>
+        <div class="dl-buttons"><a href="https://store.steampowered.com/app/239140" class="dl-btn steam" target="_blank">Steam</a></div>
+      </div>
+    </div>
+
+    <div class="card" data-tags="口碑Top">
+      <div class="card-poster"><img src="https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/433340/library_600x900.jpg" alt="Slime Rancher" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'fallback\\' style=\\'background:linear-gradient(135deg,#84cc16,#65a30d)\\'>史莱</div>'"></div>
+      <div class="card-body">
+        <div class="cn">史莱姆牧场</div>
+        <div class="en">Slime Rancher</div>
+        <div class="meta">
+          <span class="tag">2017</span>
+          <span class="tag mc">评分 98</span>
+          <span class="tag mc">口碑Top</span>
+        </div>
+        <div class="dl-buttons"><a href="https://store.steampowered.com/app/433340" class="dl-btn steam" target="_blank">Steam</a></div>
+      </div>
+    </div>
+
+    <div class="card" data-tags="口碑Top">
+      <div class="card-poster"><img src="https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/1222140/library_600x900.jpg" alt="Detroit: Become Human" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'fallback\\' style=\\'background:linear-gradient(135deg,#a855f7,#9333ea)\\'>底特</div>'"></div>
+      <div class="card-body">
+        <div class="cn">底特律：变人</div>
+        <div class="en">Detroit: Become Human</div>
+        <div class="meta">
+          <span class="tag">2020</span>
+          <span class="tag mc">评分 96</span>
+          <span class="tag mc">口碑Top</span>
+        </div>
+        <div class="dl-buttons"><a href="https://store.steampowered.com/app/1222140" class="dl-btn steam" target="_blank">Steam</a></div>
+      </div>
+    </div>
+
+    <div class="card" data-tags="口碑Top">
+      <div class="card-poster"><img src="https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/1332010/library_600x900.jpg" alt="Stray" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'fallback\\' style=\\'background:linear-gradient(135deg,#7c3aed,#4f46e5)\\'>流浪</div>'"></div>
+      <div class="card-body">
+        <div class="cn">流浪猫</div>
+        <div class="en">Stray</div>
+        <div class="meta">
+          <span class="tag">2022</span>
+          <span class="tag mc">评分 97</span>
+          <span class="tag mc">口碑Top</span>
+        </div>
+        <div class="dl-buttons"><a href="https://store.steampowered.com/app/1332010" class="dl-btn steam" target="_blank">Steam</a></div>
+      </div>
+    </div>
+
+    <div class="card" data-tags="口碑Top">
+      <div class="card-poster"><img src="https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/892970/library_600x900.jpg" alt="Valheim" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'fallback\\' style=\\'background:linear-gradient(135deg,#ef4444,#f97316)\\'>英灵</div>'"></div>
+      <div class="card-body">
+        <div class="cn">英灵神殿</div>
+        <div class="en">Valheim</div>
+        <div class="meta">
+          <span class="tag">2021</span>
+          <span class="tag mc">评分 94</span>
+          <span class="tag mc">口碑Top</span>
+        </div>
+        <div class="dl-buttons"><a href="https://store.steampowered.com/app/892970" class="dl-btn steam" target="_blank">Steam</a></div>
+      </div>
+    </div>
+
+    <div class="card" data-tags="口碑Top">
+      <div class="card-poster"><img src="https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/427520/library_600x900.jpg" alt="Factorio" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'fallback\\' style=\\'background:linear-gradient(135deg,#10b981,#059669)\\'>异星</div>'"></div>
+      <div class="card-body">
+        <div class="cn">异星工厂</div>
+        <div class="en">Factorio</div>
+        <div class="meta">
+          <span class="tag">2020</span>
+          <span class="tag mc">评分 97</span>
+          <span class="tag mc">口碑Top</span>
+        </div>
+        <div class="dl-buttons"><a href="https://store.steampowered.com/app/427520" class="dl-btn steam" target="_blank">Steam</a></div>
+      </div>
+    </div>
+
+    <div class="card" data-tags="口碑Top">
+      <div class="card-poster"><img src="https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/646570/library_600x900.jpg" alt="Slay the Spire" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'fallback\\' style=\\'background:linear-gradient(135deg,#3b82f6,#2563eb)\\'>杀戮</div>'"></div>
+      <div class="card-body">
+        <div class="cn">杀戮尖塔</div>
+        <div class="en">Slay the Spire</div>
+        <div class="meta">
+          <span class="tag">2019</span>
+          <span class="tag mc">评分 97</span>
+          <span class="tag mc">口碑Top</span>
+        </div>
+        <div class="dl-buttons"><a href="https://store.steampowered.com/app/646570" class="dl-btn steam" target="_blank">Steam</a></div>
+      </div>
+    </div>
+
+    <div class="card" data-tags="口碑Top">
+      <div class="card-poster"><img src="https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/250900/library_600x900.jpg" alt="The Binding of Isaac: Rebirth" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'fallback\\' style=\\'background:linear-gradient(135deg,#f59e0b,#d97706)\\'>以撒</div>'"></div>
+      <div class="card-body">
+        <div class="cn">以撒的结合：重生</div>
+        <div class="en">The Binding of Isaac: Rebirth</div>
+        <div class="meta">
+          <span class="tag">2014</span>
+          <span class="tag mc">评分 97</span>
+          <span class="tag mc">口碑Top</span>
+        </div>
+        <div class="dl-buttons"><a href="https://store.steampowered.com/app/250900" class="dl-btn steam" target="_blank">Steam</a></div>
+      </div>
+    </div>
+
+    <div class="card" data-tags="口碑Top">
+      <div class="card-poster"><img src="https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/504230/library_600x900.jpg" alt="Celeste" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'fallback\\' style=\\'background:linear-gradient(135deg,#ec4899,#db2777)\\'>蔚蓝</div>'"></div>
+      <div class="card-body">
+        <div class="cn">蔚蓝</div>
+        <div class="en">Celeste</div>
+        <div class="meta">
+          <span class="tag">2018</span>
+          <span class="tag mc">评分 97</span>
+          <span class="tag mc">口碑Top</span>
+        </div>
+        <div class="dl-buttons"><a href="https://store.steampowered.com/app/504230" class="dl-btn steam" target="_blank">Steam</a></div>
+      </div>
+    </div>
+
+    <div class="card" data-tags="口碑Top">
+      <div class="card-poster"><img src="https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/264710/library_600x900.jpg" alt="Subnautica" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'fallback\\' style=\\'background:linear-gradient(135deg,#14b8a6,#0d9488)\\'>深海</div>'"></div>
+      <div class="card-body">
+        <div class="cn">深海迷航</div>
+        <div class="en">Subnautica</div>
+        <div class="meta">
+          <span class="tag">2018</span>
+          <span class="tag mc">评分 97</span>
+          <span class="tag mc">口碑Top</span>
+        </div>
+        <div class="dl-buttons"><a href="https://store.steampowered.com/app/264710" class="dl-btn steam" target="_blank">Steam</a></div>
+      </div>
+    </div>
+
+    <div class="card" data-tags="口碑Top">
+      <div class="card-poster"><img src="https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/242760/library_600x900.jpg" alt="The Forest" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'fallback\\' style=\\'background:linear-gradient(135deg,#8b5cf6,#7c3aed)\\'>森林</div>'"></div>
+      <div class="card-body">
+        <div class="cn">森林</div>
+        <div class="en">The Forest</div>
+        <div class="meta">
+          <span class="tag">2018</span>
+          <span class="tag mc">评分 96</span>
+          <span class="tag mc">口碑Top</span>
+        </div>
+        <div class="dl-buttons"><a href="https://store.steampowered.com/app/242760" class="dl-btn steam" target="_blank">Steam</a></div>
+      </div>
+    </div>
+
+    <div class="card" data-tags="口碑Top">
+      <div class="card-poster"><img src="https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/1702330/library_600x900.jpg" alt="Persona 5 Royal" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'fallback\\' style=\\'background:linear-gradient(135deg,#f43f5e,#e11d48)\\'>女神</div>'"></div>
+      <div class="card-body">
+        <div class="cn">女神异闻录5皇家版</div>
+        <div class="en">Persona 5 Royal</div>
+        <div class="meta">
+          <span class="tag">2019</span>
+          <span class="tag mc">评分 94</span>
+          <span class="tag mc">口碑Top</span>
+        </div>
+        <div class="dl-buttons"><a href="https://store.steampowered.com/app/1702330" class="dl-btn steam" target="_blank">Steam</a></div>
+      </div>
+    </div>
+
+    <div class="card" data-tags="口碑Top">
+      <div class="card-poster"><img src="https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/435150/library_600x900.jpg" alt="Divinity: Original Sin 2" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'fallback\\' style=\\'background:linear-gradient(135deg,#06b6d4,#0891b2)\\'>神界</div>'"></div>
+      <div class="card-body">
+        <div class="cn">神界：原罪2</div>
+        <div class="en">Divinity: Original Sin 2</div>
+        <div class="meta">
+          <span class="tag">2017</span>
+          <span class="tag mc">评分 93</span>
+          <span class="tag mc">口碑Top</span>
+        </div>
+        <div class="dl-buttons"><a href="https://store.steampowered.com/app/435150" class="dl-btn steam" target="_blank">Steam</a></div>
+      </div>
+    </div>
+
+    <div class="card" data-tags="口碑Top">
+      <div class="card-poster"><img src="https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/638230/library_600x900.jpg" alt="Journey" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'fallback\\' style=\\'background:linear-gradient(135deg,#84cc16,#65a30d)\\'>旅途</div>'"></div>
+      <div class="card-body">
+        <div class="cn">旅途</div>
+        <div class="en">Journey</div>
+        <div class="meta">
+          <span class="tag">2015</span>
+          <span class="tag mc">评分 93</span>
+          <span class="tag mc">口碑Top</span>
+        </div>
+        <div class="dl-buttons"><a href="https://store.steampowered.com/app/638230" class="dl-btn steam" target="_blank">Steam</a></div>
+      </div>
+    </div>
+
+    <div class="card" data-tags="口碑Top">
+      <div class="card-poster"><img src="https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/546560/library_600x900.jpg" alt="Half-Life: Alyx" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'fallback\\' style=\\'background:linear-gradient(135deg,#a855f7,#9333ea)\\'>半条</div>'"></div>
+      <div class="card-body">
+        <div class="cn">半条命：艾利克斯</div>
+        <div class="en">Half-Life: Alyx</div>
+        <div class="meta">
+          <span class="tag">2020</span>
+          <span class="tag mc">评分 93</span>
+          <span class="tag mc">口碑Top</span>
+        </div>
+        <div class="dl-buttons"><a href="https://store.steampowered.com/app/546560" class="dl-btn steam" target="_blank">Steam</a></div>
+      </div>
+    </div>
+
+    <div class="card" data-tags="口碑Top">
+      <div class="card-poster"><img src="https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/1654930/library_600x900.jpg" alt="Uncharted 4" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'fallback\\' style=\\'background:linear-gradient(135deg,#7c3aed,#4f46e5)\\'>神秘</div>'"></div>
+      <div class="card-body">
+        <div class="cn">神秘海域4：盗贼末路</div>
+        <div class="en">Uncharted 4</div>
+        <div class="meta">
+          <span class="tag">2016</span>
+          <span class="tag mc">评分 93</span>
+          <span class="tag mc">口碑Top</span>
+        </div>
+        <div class="dl-buttons"><a href="https://store.steampowered.com/app/1654930" class="dl-btn steam" target="_blank">Steam</a></div>
+      </div>
+    </div>
+
+    <div class="card" data-tags="口碑Top">
+      <div class="card-poster"><img src="https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/24980/library_600x900.jpg" alt="Mass Effect 2" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'fallback\\' style=\\'background:linear-gradient(135deg,#ef4444,#f97316)\\'>质量</div>'"></div>
+      <div class="card-body">
+        <div class="cn">质量效应2</div>
+        <div class="en">Mass Effect 2</div>
+        <div class="meta">
+          <span class="tag">2010</span>
+          <span class="tag mc">评分 96</span>
+          <span class="tag mc">口碑Top</span>
+        </div>
+        <div class="dl-buttons"><a href="https://store.steampowered.com/app/24980" class="dl-btn steam" target="_blank">Steam</a></div>
+      </div>
+    </div>
+
+    <div class="card" data-tags="口碑Top">
+      <div class="card-poster"><img src="https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/287700/library_600x900.jpg" alt="Metal Gear Solid V: The Phantom Pain" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'fallback\\' style=\\'background:linear-gradient(135deg,#10b981,#059669)\\'>合金</div>'"></div>
+      <div class="card-body">
+        <div class="cn">合金装备5：幻痛</div>
+        <div class="en">Metal Gear Solid V: The Phantom Pain</div>
+        <div class="meta">
+          <span class="tag">2015</span>
+          <span class="tag mc">评分 95</span>
+          <span class="tag mc">口碑Top</span>
+        </div>
+        <div class="dl-buttons"><a href="https://store.steampowered.com/app/287700" class="dl-btn steam" target="_blank">Steam</a></div>
+      </div>
+    </div>
+
+    <div class="card" data-tags="口碑Top">
+      <div class="card-poster"><img src="https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/7670/library_600x900.jpg" alt="BioShock" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'fallback\\' style=\\'background:linear-gradient(135deg,#3b82f6,#2563eb)\\'>生化</div>'"></div>
+      <div class="card-body">
+        <div class="cn">生化奇兵</div>
+        <div class="en">BioShock</div>
+        <div class="meta">
+          <span class="tag">2007</span>
+          <span class="tag mc">评分 96</span>
+          <span class="tag mc">口碑Top</span>
+        </div>
+        <div class="dl-buttons"><a href="https://store.steampowered.com/app/7670" class="dl-btn steam" target="_blank">Steam</a></div>
+      </div>
+    </div>
+
+    <div class="card" data-tags="口碑Top,销量Top">
+      <div class="card-poster"><img src="https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/12210/library_600x900.jpg" alt="Grand Theft Auto IV" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'fallback\\' style=\\'background:linear-gradient(135deg,#f59e0b,#d97706)\\'>侠盗</div>'"></div>
+      <div class="card-body">
+        <div class="cn">侠盗猎车手4</div>
+        <div class="en">Grand Theft Auto IV</div>
+        <div class="meta">
+          <span class="tag">2008</span>
+          <span class="tag mc">评分 98</span>
+          <span class="tag mc">口碑Top</span><span class="tag sales">销量Top</span>
+        </div>
+        <div class="dl-buttons"><a href="https://store.steampowered.com/app/12210" class="dl-btn steam" target="_blank">Steam</a></div>
+      </div>
+    </div>
+
+    <div class="card" data-tags="口碑Top,销量Top">
+      <div class="card-poster"><img src="https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/15470/library_600x900.jpg" alt="Grand Theft Auto: San Andreas" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'fallback\\' style=\\'background:linear-gradient(135deg,#ec4899,#db2777)\\'>侠盗</div>'"></div>
+      <div class="card-body">
+        <div class="cn">侠盗猎车手：圣安地列斯</div>
+        <div class="en">Grand Theft Auto: San Andreas</div>
+        <div class="meta">
+          <span class="tag">2004</span>
+          <span class="tag mc">评分 95</span>
+          <span class="tag mc">口碑Top</span><span class="tag sales">销量Top</span>
+        </div>
+        <div class="dl-buttons"><a href="https://store.steampowered.com/app/15470" class="dl-btn steam" target="_blank">Steam</a></div>
+      </div>
+    </div>
+
+    <div class="card" data-tags="口碑Top">
+      <div class="card-poster"><img src="https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/12110/library_600x900.jpg" alt="Grand Theft Auto: Vice City" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'fallback\\' style=\\'background:linear-gradient(135deg,#14b8a6,#0d9488)\\'>侠盗</div>'"></div>
+      <div class="card-body">
+        <div class="cn">侠盗猎车手：罪恶都市</div>
+        <div class="en">Grand Theft Auto: Vice City</div>
+        <div class="meta">
+          <span class="tag">2002</span>
+          <span class="tag mc">评分 95</span>
+          <span class="tag mc">口碑Top</span>
+        </div>
+        <div class="dl-buttons"><a href="https://store.steampowered.com/app/12110" class="dl-btn steam" target="_blank">Steam</a></div>
+      </div>
+    </div>
+
+    <div class="card" data-tags="口碑Top">
+      <div class="card-poster"><img src="https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/569440/library_600x900.jpg" alt="Halo: Combat Evolved" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'fallback\\' style=\\'background:linear-gradient(135deg,#8b5cf6,#7c3aed)\\'>光环</div>'"></div>
+      <div class="card-body">
+        <div class="cn">光环：战斗进化</div>
+        <div class="en">Halo: Combat Evolved</div>
+        <div class="meta">
+          <span class="tag">2001</span>
+          <span class="tag mc">评分 97</span>
+          <span class="tag mc">口碑Top</span>
+        </div>
+        <div class="dl-buttons"><a href="https://store.steampowered.com/app/569440" class="dl-btn steam" target="_blank">Steam</a></div>
+      </div>
+    </div>
+
+    <div class="card" data-tags="口碑Top">
+      <div class="card-poster"><div class="fallback" style="background:linear-gradient(135deg,#f43f5e,#e11d48)">小小</div></div>
+      <div class="card-body">
+        <div class="cn">小小大星球</div>
+        <div class="en">LittleBigPlanet</div>
+        <div class="meta">
+          <span class="tag">2008</span>
+          <span class="tag mc">评分 95</span>
+          <span class="tag mc">口碑Top</span>
+        </div>
+        <div class="dl-buttons"><span style="font-size:11px;color:#666">暂无下载链接</span></div>
+      </div>
+    </div>
+
+    <div class="card" data-tags="口碑Top,销量Top">
+      <div class="card-poster"><div class="fallback" style="background:linear-gradient(135deg,#06b6d4,#0891b2)">超级</div></div>
       <div class="card-body">
         <div class="cn">超级马力欧：奥德赛</div>
         <div class="en">Super Mario Odyssey</div>
@@ -980,28 +1136,289 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
           <span class="tag mc">评分 97</span>
           <span class="tag mc">口碑Top</span><span class="tag sales">销量Top</span>
         </div>
-        <div class="dl-buttons">
-          <span style="font-size:11px;color:#666">暂无下载链接</span>
+        <div class="dl-buttons"><span style="font-size:11px;color:#666">暂无下载链接</span></div>
+      </div>
+    </div>
+
+    <div class="card" data-tags="口碑Top,销量Top">
+      <div class="card-poster"><div class="fallback" style="background:linear-gradient(135deg,#84cc16,#65a30d)">塞尔</div></div>
+      <div class="card-body">
+        <div class="cn">塞尔达传说：旷野之息</div>
+        <div class="en">The Legend of Zelda: Breath of the Wild</div>
+        <div class="meta">
+          <span class="tag">2017</span>
+          <span class="tag mc">评分 97</span>
+          <span class="tag mc">口碑Top</span><span class="tag sales">销量Top</span>
         </div>
+        <div class="dl-buttons"><span style="font-size:11px;color:#666">暂无下载链接</span></div>
+      </div>
+    </div>
+
+    <div class="card" data-tags="口碑Top">
+      <div class="card-poster"><div class="fallback" style="background:linear-gradient(135deg,#a855f7,#9333ea)">塞尔</div></div>
+      <div class="card-body">
+        <div class="cn">塞尔达传说：王国之泪</div>
+        <div class="en">The Legend of Zelda: Tears of the Kingdom</div>
+        <div class="meta">
+          <span class="tag">2023</span>
+          <span class="tag mc">评分 96</span>
+          <span class="tag mc">口碑Top</span>
+        </div>
+        <div class="dl-buttons"><span style="font-size:11px;color:#666">暂无下载链接</span></div>
+      </div>
+    </div>
+
+    <div class="card" data-tags="口碑Top">
+      <div class="card-poster"><div class="fallback" style="background:linear-gradient(135deg,#7c3aed,#4f46e5)">密特</div></div>
+      <div class="card-body">
+        <div class="cn">密特罗德Prime 重制版</div>
+        <div class="en">Metroid Prime Remastered</div>
+        <div class="meta">
+          <span class="tag">2023</span>
+          <span class="tag mc">评分 94</span>
+          <span class="tag mc">口碑Top</span>
+        </div>
+        <div class="dl-buttons"><span style="font-size:11px;color:#666">暂无下载链接</span></div>
+      </div>
+    </div>
+
+    <div class="card" data-tags="口碑Top,销量Top">
+      <div class="card-poster"><div class="fallback" style="background:linear-gradient(135deg,#ef4444,#f97316)">任天</div></div>
+      <div class="card-body">
+        <div class="cn">任天堂明星大乱斗 特别版</div>
+        <div class="en">Super Smash Bros. Ultimate</div>
+        <div class="meta">
+          <span class="tag">2018</span>
+          <span class="tag mc">评分 93</span>
+          <span class="tag mc">口碑Top</span><span class="tag sales">销量Top</span>
+        </div>
+        <div class="dl-buttons"><span style="font-size:11px;color:#666">暂无下载链接</span></div>
+      </div>
+    </div>
+
+    <div class="card" data-tags="口碑Top">
+      <div class="card-poster"><div class="fallback" style="background:linear-gradient(135deg,#10b981,#059669)">恶魔</div></div>
+      <div class="card-body">
+        <div class="cn">恶魔之魂 重制版</div>
+        <div class="en">Demon's Souls</div>
+        <div class="meta">
+          <span class="tag">2020</span>
+          <span class="tag mc">评分 93</span>
+          <span class="tag mc">口碑Top</span>
+        </div>
+        <div class="dl-buttons"><span style="font-size:11px;color:#666">暂无下载链接</span></div>
+      </div>
+    </div>
+
+    <div class="card" data-tags="口碑Top">
+      <div class="card-poster"><div class="fallback" style="background:linear-gradient(135deg,#3b82f6,#2563eb)">旺达</div></div>
+      <div class="card-body">
+        <div class="cn">旺达与巨像</div>
+        <div class="en">Shadow of the Colossus</div>
+        <div class="meta">
+          <span class="tag">2018</span>
+          <span class="tag mc">评分 92</span>
+          <span class="tag mc">口碑Top</span>
+        </div>
+        <div class="dl-buttons"><span style="font-size:11px;color:#666">暂无下载链接</span></div>
+      </div>
+    </div>
+
+    <div class="card" data-tags="口碑Top">
+      <div class="card-poster"><div class="fallback" style="background:linear-gradient(135deg,#f59e0b,#d97706)">超级</div></div>
+      <div class="card-body">
+        <div class="cn">超级马力欧3D世界</div>
+        <div class="en">Super Mario 3D World</div>
+        <div class="meta">
+          <span class="tag">2013</span>
+          <span class="tag mc">评分 93</span>
+          <span class="tag mc">口碑Top</span>
+        </div>
+        <div class="dl-buttons"><span style="font-size:11px;color:#666">暂无下载链接</span></div>
+      </div>
+    </div>
+
+    <div class="card" data-tags="口碑Top">
+      <div class="card-poster"><img src="https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/544750/library_600x900.jpg" alt="SoulCalibur VI" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'fallback\\' style=\\'background:linear-gradient(135deg,#ec4899,#db2777)\\'>灵魂</div>'"></div>
+      <div class="card-body">
+        <div class="cn">灵魂能力6</div>
+        <div class="en">SoulCalibur VI</div>
+        <div class="meta">
+          <span class="tag">2018</span>
+          <span class="tag mc">评分 93</span>
+          <span class="tag mc">口碑Top</span>
+        </div>
+        <div class="dl-buttons"><a href="https://store.steampowered.com/app/544750" class="dl-btn steam" target="_blank">Steam</a></div>
+      </div>
+    </div>
+
+    <div class="card" data-tags="口碑Top">
+      <div class="card-poster"><img src="https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/1364780/library_600x900.jpg" alt="Street Fighter 6" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'fallback\\' style=\\'background:linear-gradient(135deg,#14b8a6,#0d9488)\\'>街头</div>'"></div>
+      <div class="card-body">
+        <div class="cn">街头霸王6</div>
+        <div class="en">Street Fighter 6</div>
+        <div class="meta">
+          <span class="tag">2023</span>
+          <span class="tag mc">评分 93</span>
+          <span class="tag mc">口碑Top</span>
+        </div>
+        <div class="dl-buttons"><a href="https://store.steampowered.com/app/1364780" class="dl-btn steam" target="_blank">Steam</a></div>
+      </div>
+    </div>
+
+    <div class="card" data-tags="口碑Top">
+      <div class="card-poster"><img src="https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/1295510/library_600x900.jpg" alt="Dragon Quest XI S" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'fallback\\' style=\\'background:linear-gradient(135deg,#8b5cf6,#7c3aed)\\'>勇者</div>'"></div>
+      <div class="card-body">
+        <div class="cn">勇者斗恶龙11 S</div>
+        <div class="en">Dragon Quest XI S</div>
+        <div class="meta">
+          <span class="tag">2019</span>
+          <span class="tag mc">评分 92</span>
+          <span class="tag mc">口碑Top</span>
+        </div>
+        <div class="dl-buttons"><a href="https://store.steampowered.com/app/1295510" class="dl-btn steam" target="_blank">Steam</a></div>
+      </div>
+    </div>
+
+    <div class="card" data-tags="口碑Top">
+      <div class="card-poster"><img src="https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/1250410/library_600x900.jpg" alt="Microsoft Flight Simulator" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'fallback\\' style=\\'background:linear-gradient(135deg,#f43f5e,#e11d48)\\'>微软</div>'"></div>
+      <div class="card-body">
+        <div class="cn">微软模拟飞行</div>
+        <div class="en">Microsoft Flight Simulator</div>
+        <div class="meta">
+          <span class="tag">2020</span>
+          <span class="tag mc">评分 92</span>
+          <span class="tag mc">口碑Top</span>
+        </div>
+        <div class="dl-buttons"><a href="https://store.steampowered.com/app/1250410" class="dl-btn steam" target="_blank">Steam</a></div>
+      </div>
+    </div>
+
+    <div class="card" data-tags="口碑Top">
+      <div class="card-poster"><img src="https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/3153950/library_600x900.jpg" alt="Clair Obscur: Expedition 33" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'fallback\\' style=\\'background:linear-gradient(135deg,#06b6d4,#0891b2)\\'>光与</div>'"></div>
+      <div class="card-body">
+        <div class="cn">光与影：33号远征队</div>
+        <div class="en">Clair Obscur: Expedition 33</div>
+        <div class="meta">
+          <span class="tag">2025</span>
+          <span class="tag mc">评分 93</span>
+          <span class="tag mc">口碑Top</span>
+        </div>
+        <div class="dl-buttons"><a href="https://store.steampowered.com/app/3153950" class="dl-btn steam" target="_blank">Steam</a></div>
+      </div>
+    </div>
+
+    <div class="card" data-tags="口碑Top,销量Top">
+      <div class="card-poster"><img src="https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/2322010/library_600x900.jpg" alt="God of War Ragnarök" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'fallback\\' style=\\'background:linear-gradient(135deg,#84cc16,#65a30d)\\'>战神</div>'"></div>
+      <div class="card-body">
+        <div class="cn">战神：诸神黄昏</div>
+        <div class="en">God of War Ragnarök</div>
+        <div class="meta">
+          <span class="tag">2022</span>
+          <span class="tag mc">评分 93</span>
+          <span class="tag mc">口碑Top</span><span class="tag sales">销量Top</span>
+        </div>
+        <div class="dl-buttons"><a href="https://store.steampowered.com/app/2322010" class="dl-btn steam" target="_blank">Steam</a></div>
+      </div>
+    </div>
+
+    <div class="card" data-tags="口碑Top">
+      <div class="card-poster"><img src="https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/1293830/library_600x900.jpg" alt="Forza Horizon 4" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'fallback\\' style=\\'background:linear-gradient(135deg,#a855f7,#9333ea)\\'>极限</div>'"></div>
+      <div class="card-body">
+        <div class="cn">极限竞速：地平线4</div>
+        <div class="en">Forza Horizon 4</div>
+        <div class="meta">
+          <span class="tag">2018</span>
+          <span class="tag mc">评分 92</span>
+          <span class="tag mc">口碑Top</span>
+        </div>
+        <div class="dl-buttons"><a href="https://store.steampowered.com/app/1293830" class="dl-btn steam" target="_blank">Steam</a></div>
+      </div>
+    </div>
+
+    <div class="card" data-tags="销量Top">
+      <div class="card-poster"><img src="https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/1623730/library_600x900.jpg" alt="Palworld" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'fallback\\' style=\\'background:linear-gradient(135deg,#7c3aed,#4f46e5)\\'>幻兽</div>'"></div>
+      <div class="card-body">
+        <div class="cn">幻兽帕鲁</div>
+        <div class="en">Palworld</div>
+        <div class="meta">
+          <span class="tag">2024</span>
+          <span class="tag mc">评分 93</span>
+          <span class="tag sales">销量Top</span>
+        </div>
+        <div class="dl-buttons"><a href="https://store.steampowered.com/app/1623730" class="dl-btn steam" target="_blank">Steam</a></div>
+      </div>
+    </div>
+
+    <div class="card" data-tags="口碑Top">
+      <div class="card-poster"><img src="https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/883710/library_600x900.jpg" alt="Resident Evil 2" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'fallback\\' style=\\'background:linear-gradient(135deg,#ef4444,#f97316)\\'>生化</div>'"></div>
+      <div class="card-body">
+        <div class="cn">生化危机2 重制版</div>
+        <div class="en">Resident Evil 2</div>
+        <div class="meta">
+          <span class="tag">2019</span>
+          <span class="tag mc">评分 93</span>
+          <span class="tag mc">口碑Top</span>
+        </div>
+        <div class="dl-buttons"><a href="https://store.steampowered.com/app/883710" class="dl-btn steam" target="_blank">Steam</a></div>
+      </div>
+    </div>
+
+    <div class="card" data-tags="口碑Top">
+      <div class="card-poster"><img src="https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/3178500/library_600x900.jpg" alt="The House in Fata Morgana" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'fallback\\' style=\\'background:linear-gradient(135deg,#10b981,#059669)\\'>命运</div>'"></div>
+      <div class="card-body">
+        <div class="cn">命运石之门</div>
+        <div class="en">The House in Fata Morgana</div>
+        <div class="meta">
+          <span class="tag">2021</span>
+          <span class="tag mc">评分 93</span>
+          <span class="tag mc">口碑Top</span>
+        </div>
+        <div class="dl-buttons"><a href="https://store.steampowered.com/app/3178500" class="dl-btn steam" target="_blank">Steam</a></div>
+      </div>
+    </div>
+
+    <div class="card" data-tags="口碑Top">
+      <div class="card-poster"><div class="fallback" style="background:linear-gradient(135deg,#3b82f6,#2563eb)">女神</div></div>
+      <div class="card-body">
+        <div class="cn">女神异闻录5</div>
+        <div class="en">Persona 5</div>
+        <div class="meta">
+          <span class="tag">2017</span>
+          <span class="tag mc">评分 94</span>
+          <span class="tag mc">口碑Top</span>
+        </div>
+        <div class="dl-buttons"><span style="font-size:11px;color:#666">暂无下载链接</span></div>
+      </div>
+    </div>
+
+    <div class="card" data-tags="口碑Top">
+      <div class="card-poster"><img src="https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/2679460/library_600x900.jpg" alt="Metaphor: ReFantazio" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'fallback\\' style=\\'background:linear-gradient(135deg,#f59e0b,#d97706)\\'>暗喻</div>'"></div>
+      <div class="card-body">
+        <div class="cn">暗喻幻想</div>
+        <div class="en">Metaphor: ReFantazio</div>
+        <div class="meta">
+          <span class="tag">2024</span>
+          <span class="tag mc">评分 93</span>
+          <span class="tag mc">口碑Top</span>
+        </div>
+        <div class="dl-buttons"><a href="https://store.steampowered.com/app/2679460" class="dl-btn steam" target="_blank">Steam</a></div>
       </div>
     </div>
 
   </div>
 </div>
-
 <script>
 function filterGames(type) {
   const search = document.getElementById('search').value.toLowerCase();
   const cat = type || document.getElementById('category').value;
-  const cards = document.querySelectorAll('.card');
-  cards.forEach(card => {
-    const text = card.textContent.toLowerCase();
-    const tags = card.dataset.tags || '';
+  document.querySelectorAll('.card').forEach(c => {
+    const tags = c.dataset.tags || '';
     let show = true;
     if (cat === 'koubei' && !tags.includes('口碑Top')) show = false;
     if (cat === 'sales' && !tags.includes('销量Top')) show = false;
-    if (search && !text.includes(search)) show = false;
-    card.style.display = show ? '' : 'none';
+    if (search && !c.textContent.toLowerCase().includes(search)) show = false;
+    c.style.display = show ? '' : 'none';
   });
 }
 </script>
