@@ -204,6 +204,90 @@ body {
   text-decoration: underline;
 }
 
+/* 非Windows游戏卡片网格 */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.2rem;
+}
+.card {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 2px 8px var(--shadow);
+  transition: all 0.2s;
+  display: flex;
+  flex-direction: column;
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px var(--shadow);
+}
+.card-poster {
+  aspect-ratio: 3/4;
+  overflow: hidden;
+  background: linear-gradient(135deg, #e0e0e4, #f0f0f5);
+}
+.card-poster img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+.card:hover .card-poster img { transform: scale(1.05); }
+.card-body {
+  padding: 0.8rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.card-title {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.2rem;
+}
+.card-subtitle {
+  font-size: 0.8rem;
+  color: var(--text-light);
+  margin-bottom: 0.5rem;
+}
+.card-meta {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.5rem;
+}
+.tag {
+  font-size: 0.7rem;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: #f0f0f5;
+  color: var(--text-light);
+}
+.tag.score { background: rgba(109,40,217,0.1); color: var(--primary); font-weight: 600; }
+.tag.koubei { background: rgba(109,40,217,0.1); color: var(--primary); }
+.tag.sales { background: rgba(225,29,72,0.1); color: var(--accent); }
+.tag.platform { background: rgba(59,130,246,0.1); color: #2563eb; }
+.card-downloads {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: auto;
+}
+.dl-btn {
+  font-size: 0.7rem;
+  padding: 0.3rem 0.6rem;
+  border-radius: 5px;
+  text-decoration: none;
+  color: white;
+  transition: all 0.2s;
+}
+.dl-btn:hover { transform: translateY(-1px); box-shadow: 0 3px 8px rgba(0,0,0,0.15); }
+.dl-btn.gamer520 { background: linear-gradient(135deg, #10b981, #059669); }
+.dl-btn.x6d { background: linear-gradient(135deg, #3b82f6, #2563eb); }
+.dl-btn.tianyi { background: linear-gradient(135deg, #6366f1, #4f46e5); }
+.dl-btn.baidu { background: linear-gradient(135deg, #2563eb, #1d4ed8); }
+.dl-btn.magnet { background: linear-gradient(135deg, #ef4444, #dc2626); }
+
 /* 移动端 */
 @media (max-width: 900px) {
   .layout { flex-direction: column; }
@@ -246,6 +330,14 @@ body {
   <main class="main">
     <div class="md-content" id="content">
       <p style="text-align:center;color:#999;padding:2rem">加载中...</p>
+    </div>
+
+    <!-- 非Windows游戏专区 -->
+    <div id="nonWindowsSection" style="display:none; margin-top: 2rem;">
+      <h2 style="font-size: 1.5rem; color: var(--text); margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid var(--border);">
+        🎮 非 Windows 平台游戏
+      </h2>
+      <div class="grid" id="nonWindowsGrid"></div>
     </div>
   </main>
 </div>
@@ -388,6 +480,54 @@ function renderMarkdown(md) {
 // 初始化
 renderSidebar();
 loadMd('20260724-top250-by-release-date.md', document.querySelector('.sidebar-link.active'));
+
+// 加载游戏数据并渲染非Windows专区
+fetch('games.json')
+  .then(r => r.json())
+  .then(games => {
+    // 分离 Windows 和非 Windows 游戏（已按年份降序排列）
+    const windowsGames = games.filter(g => g.is_windows !== false);
+    const nonWindowsGames = games.filter(g => g.is_windows === false);
+    
+    // 渲染非Windows游戏
+    renderNonWindowsGames(nonWindowsGames);
+  })
+  .catch(e => console.error('加载游戏数据失败:', e));
+
+function renderNonWindowsGames(games) {
+  const section = document.getElementById('nonWindowsSection');
+  const grid = document.getElementById('nonWindowsGrid');
+  
+  if (games.length === 0) {
+    section.style.display = 'none';
+    return;
+  }
+  
+  section.style.display = 'block';
+  grid.innerHTML = games.map(game => `
+    <div class="card">
+      <a href="${game.detail}" class="card-poster">
+        <img src="${game.cover}" alt="${game.en_name}" loading="lazy">
+      </a>
+      <div class="card-body">
+        <div class="card-title">${game.cn_name}</div>
+        <div class="card-subtitle">${game.en_name}</div>
+        <div class="card-meta">
+          <span class="tag">${game.year}</span>
+          <span class="tag score">评分 ${game.score}</span>
+          ${game.tags.includes('口碑Top') ? '<span class="tag koubei">口碑Top</span>' : ''}
+          ${game.tags.includes('销量Top') ? '<span class="tag sales">销量Top</span>' : ''}
+          <span class="tag platform">非Windows</span>
+        </div>
+        <div class="card-downloads">
+          ${game.downloads.map(dl => `
+            <a href="${dl.url}" class="dl-btn ${dl.type}" target="_blank">${dl.name}</a>
+          `).join('')}
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
 </script>
 
 </body>
