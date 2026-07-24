@@ -3,28 +3,45 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>深海迷航 (Subnautica) - 游戏详情</title>
+<title>深海迷航 - Subnautica - 游戏详情</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0f0f1a;color:#e0e0e0;line-height:1.6}
-.container{max-width:1000px;margin:0 auto;padding:20px}
-.back{display:inline-block;color:#7c3aed;text-decoration:none;margin-bottom:20px;font-size:14px}
+body{font-family:'Segoe UI','Microsoft YaHei',sans-serif;background:#f5f5f7;color:#1a1a2e;line-height:1.6}
+.topbar{background:#ffffff;border-bottom:1px solid #e0e0e4;padding:12px 0;position:sticky;top:0;z-index:100}
+.topbar .container{display:flex;align-items:center;gap:16px}
+.container{max-width:1200px;margin:0 auto;padding:0 20px}
+.back{color:#6d28d9;text-decoration:none;font-size:14px;font-weight:500;display:flex;align-items:center;gap:4px}
 .back:hover{text-decoration:underline}
-.header{display:flex;gap:30px;margin-bottom:30px;flex-wrap:wrap}
-.header-info{flex:1;min-width:280px}
-.header-info h1{font-size:28px;margin-bottom:4px}
-.header-info .en{color:#888;font-size:16px;margin-bottom:12px}
-.header-info .meta{display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap}
-.tag{font-size:12px;padding:3px 10px;border-radius:5px;background:#2a2a4a;color:#a0a0c0}
-.tag.mc{background:#7c3aed33;color:#7c3aed}
-.tag.sales{background:#ff6b6b33;color:#ff6b6b}
-.header-img{width:460px;max-width:100%;border-radius:10px;flex-shrink:0}
-.desc{background:#1a1a30;padding:20px;border-radius:10px;margin-bottom:24px;border-left:3px solid #7c3aed;font-size:15px;color:#c0c0d0}
-.dl-section{background:#1a1a30;padding:20px;border-radius:10px;margin-bottom:24px}
-.dl-section h2{color:#7c3aed;font-size:18px;margin-bottom:12px}
+.back-btn{background:#6d28d9;color:#fff;padding:6px 14px;border-radius:4px;text-decoration:none;font-size:13px}
+.back-btn:hover{background:#5b21b6}
+
+/* Steam风格头部 */
+.hero{background:linear-gradient(180deg,#1a1a2e 0%,#2a2a4e 100%);color:#fff;padding:30px 0 0}
+.hero .container{display:flex;gap:30px;flex-wrap:wrap}
+.hero-info{flex:1;min-width:280px}
+.hero-info h1{font-size:26px;margin-bottom:4px}
+.hero-info .en{color:#a0a0c0;font-size:14px;margin-bottom:12px}
+.hero-info .meta{display:flex;gap:6px;margin-bottom:14px;flex-wrap:wrap}
+.hero .tag{font-size:12px;padding:3px 10px;border-radius:4px;background:rgba(255,255,255,0.1);color:#ccc}
+.hero .tag.mc{background:rgba(109,40,217,0.4);color:#c4b5fd}
+.hero .tag.sales{background:rgba(225,29,72,0.4);color:#fca5a5}
+.hero-img{width:460px;max-width:100%;border-radius:8px;flex-shrink:0;box-shadow:0 4px 20px rgba(0,0,0,0.3)}
+
+/* Steam风格内容区 */
+.content{padding:24px 0}
+.section{background:#fff;border-radius:8px;border:1px solid #e0e0e4;padding:24px;margin-bottom:16px}
+.section h2{font-size:18px;color:#1a1a2e;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid #e0e0e4}
+
+/* 简介 */
+.desc{font-size:15px;color:#444;line-height:1.7}
+.desc a{color:#6d28d9}
+
+/* 下载区 */
+.dl-section{background:#fff;border-radius:8px;border:1px solid #e0e0e4;padding:24px;margin-bottom:16px}
+.dl-section h2{font-size:18px;color:#1a1a2e;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid #e0e0e4}
 .dl-buttons{display:flex;flex-wrap:wrap;gap:8px}
-.dl-btn{display:inline-flex;align-items:center;gap:5px;padding:8px 16px;border-radius:6px;font-size:13px;text-decoration:none;color:#fff;transition:all .2s}
-.dl-btn:hover{filter:brightness(1.2);transform:translateY(-2px)}
+.dl-btn{display:inline-flex;align-items:center;gap:5px;padding:8px 16px;border-radius:6px;font-size:13px;text-decoration:none;color:#fff;transition:all .2s;font-weight:500}
+.dl-btn:hover{filter:brightness(1.1);transform:translateY(-1px)}
 .dl-btn.gamer520{background:#10b981}
 .dl-btn.x6d{background:#3b82f6}
 .dl-btn.tianyi{background:#6366f1}
@@ -33,61 +50,110 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
 .dl-btn.fitgirl{background:#f59e0b}
 .dl-btn.steamzg{background:#8b5cf6}
 .dl-btn.crotorrents{background:#ec4899}
-.info-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin-bottom:24px;background:#1a1a30;padding:20px;border-radius:10px}
-.info-grid .item{}
-.info-grid .label{color:#888;font-size:12px}
-.info-grid .value{font-size:14px;color:#e0e0e0}
-.screenshots{margin-bottom:24px;background:#1a1a30;padding:20px;border-radius:10px}
-.screenshots h2{color:#7c3aed;font-size:18px;margin-bottom:12px}
-.screenshots img{width:100%;border-radius:8px;margin-bottom:8px}
-.reqs{background:#1a1a30;padding:20px;border-radius:10px;margin-bottom:24px;font-size:13px;color:#a0a0c0}
-.reqs h2{color:#7c3aed;font-size:18px;margin-bottom:12px}
-.reqs pre{white-space:pre-wrap;font-family:inherit}
-@media(max-width:768px){.header-img{width:100%}}
+
+/* Steam信息网格 */
+.info-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:16px}
+.info-item{}
+.info-item .label{font-size:12px;color:#888;text-transform:uppercase;letter-spacing:0.5px}
+.info-item .value{font-size:14px;color:#1a1a2e;margin-top:2px}
+.info-item .value a{color:#6d28d9;text-decoration:none}
+.info-item .value a:hover{text-decoration:underline}
+
+/* 截图 */
+.ss-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:8px}
+.ss-grid img{width:100%;border-radius:6px;cursor:pointer;transition:transform .2s}
+.ss-grid img:hover{transform:scale(1.02)}
+
+/* 配置要求 */
+.reqs{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media(max-width:768px){.reqs{grid-template-columns:1fr}}
+.req-item{}
+.req-item h3{font-size:14px;color:#1a1a2e;margin-bottom:8px;padding-bottom:4px;border-bottom:1px solid #e0e0e4}
+.req-text{font-size:13px;color:#555;line-height:1.6}
+.req-text ul{list-style:none;padding:0}
+.req-text li{padding:2px 0}
+.req-text strong{color:#1a1a2e}
+
+@media(max-width:768px){.hero-img{width:100%}.ss-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
-<div class="container">
-<a href="../index.html" class="back">← 返回游戏榜单</a>
-<div class="header">
-  <div class="header-info">
-    <h1>深海迷航</h1>
-    <div class="en">Subnautica</div>
-    <div class="meta">
-      <span class="tag">2018</span>
-      <span class="tag mc">评分 </span>
-      <span class="tag mc">口碑Top</span>
-    </div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/264710/header_schinese.jpg?t=1777456112" alt="Subnautica" class="header-img" style="display:none">
-  </div>
-  <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/264710/header_schinese.jpg?t=1777456112" alt="Subnautica" class="header-img" onerror="this.style.display='none'">
-</div>
 
-<div class="desc">Descend into the depths of an alien underwater world filled with wonder and peril. Craft equipment, pilot submarines and out-smart wildlife to explore lush coral reefs, volcanoes, cave systems, and more - all while trying to survive.</div>
-
-<div class="dl-section">
-  <h2>📥 下载链接</h2>
-  <div class="dl-buttons">
-<p style="color:#666;font-size:13px">暂无下载链接</p>
+<div class="topbar">
+  <div class="container">
+    <a href="../index.html" class="back">← 返回游戏榜单</a>
+    <a href="https://store.steampowered.com/app/264710" target="_blank" class="back-btn" style="margin-left:auto">Steam 商店页</a>
   </div>
 </div>
 
-<div class="info-grid">
-  <div class="item"><div class="label">🏢 开发商</div><div class="value">Unknown Worlds Entertainment</div></div>
-  <div class="item"><div class="label">📢 发行商</div><div class="value">Unknown Worlds Entertainment</div></div>
-  <div class="item"><div class="label">📅 发行日期</div><div class="value">2018 年 1 月 23 日</div></div>
-  <div class="item"><div class="label">🏷️ 类型</div><div class="value">冒险, 独立</div></div>
-  <div class="item"><div class="label">⭐ Metacritic</div><div class="value">87</div></div><div class="item"><div class="label">🎮 Steam</div><div class="value"><a href="https://store.steampowered.com/app/264710" target="_blank" style="color:#7c3aed">查看商店页</a></div></div></div>
-<div class="screenshots">
-  <h2>📸 游戏截图</h2>
-  <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/264710/ss_e182b6b20bb797500f9f63c561586d920d44e37c.1920x1080.jpg?t=1777456112" alt="" loading="lazy">
+<div class="hero">
+  <div class="container">
+    <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/264710/library_600x900.jpg" alt="Subnautica" class="hero-img" onerror="this.style.display='none'">
+    <div class="hero-info">
+      <h1>深海迷航</h1>
+      <div class="en">Subnautica</div>
+      <div class="meta">
+        <span class="tag">2018</span>
+        <span class="tag mc">评分 </span>
+        <span class="tag mc">口碑Top</span>
+        <span class="tag">冒险, 独立</span>
+      </div>
+      <div class="desc">Descend into the depths of an alien underwater world filled with wonder and peril. Craft equipment, pilot submarines and out-smart wildlife to explore lush coral reefs, volcanoes, cave systems, and more - all while trying to survive.</div>
+    </div>
+  </div>
+</div>
+
+<div class="content">
+  <div class="container">
+
+    <div class="dl-section">
+      <h2>📥 下载链接</h2>
+      <div class="dl-buttons">
+<p style="color:#999;font-size:13px">暂无下载链接</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>📋 游戏信息</h2>
+      <div class="info-grid">
+        <div class="info-item"><div class="label">开发商</div><div class="value">Unknown Worlds Entertainment</div></div>
+        <div class="info-item"><div class="label">发行商</div><div class="value">Unknown Worlds Entertainment</div></div>
+        <div class="info-item"><div class="label">发行日期</div><div class="value">2018 年 1 月 23 日</div></div>
+        <div class="info-item"><div class="label">类型</div><div class="value">冒险, 独立</div></div>
+        <div class="info-item"><div class="label">Metacritic</div><div class="value">87</div></div>
+        <div class="info-item"><div class="label">Steam</div><div class="value"><a href="https://store.steampowered.com/app/264710" target="_blank">查看商店页 →</a></div></div>
+      </div>
+    </div>
+
+    
+    <div class="section">
+      <h2>📖 关于这款游戏</h2>
+      <div class="desc">深海迷航是一款以外星海洋星球为背景的水下冒险游戏。一个充满奇迹和危险的广阔世界等着你！潜入广袤的水下世界你坠入了一个陌生的海洋世界，唯一的出路就是潜入水下。从阳光普照的浅海珊瑚礁到险恶的深海海沟、熔岩田和生物发光的水下河流，深海迷航的海洋无所不包。当你探索海带森林、高原、珊瑚礁和蜿蜒的洞穴系统时，要管理好氧气供应。水中充满了生命：有些是有益的，许多是有害的。觅食，制作和生存在你的救生舱坠毁着陆后，时钟就会滴答作响，寻找水、食物，并开发你需要探索的设备。从你周围的海洋收集资源。制作刀、灯、潜水用具和个人潜水艇。不断深入地探索，寻找更稀有的资源，让你可以制作更高级的物品。建造水下栖息地在海底建造基地。选择布局和组件，并随着深度和压力的增加管理船体完整性。当你探索浩瀚的海洋时，利用你的基地储存资源，停放交通工具，和补充氧气。解开谜团这个星球怎么了？种种迹象表明有些事情不对。是什么导致你坠毁的？什么在感染海洋生物？是谁建造了散布在海洋周围的神秘建筑？你能找到办法让它活着离开这个星球吗？破坏食物链海洋充满了生命：利用生态系统来帮助你。用一条新鲜的鱼引诱和分散一个有威胁的生物的注意力，或者简单地游得尽可能快，以避免进入游荡掠食者的嘴里。处理压力建造一个防水纳米衣，或海虾号，并探索极端的深度和热量。用采矿钻、鱼雷发射器、推进炮、抓钩等来改装这套装备。害怕黑夜太阳下山时，掠食者就出来了。大海对那些在黑暗中措手不及的人是无情的。白天可以安全探索的区域在晚上变得危险，但同样的，那些躲在黑暗中的人永远见不到白天的美丽。潜入到海底之下洞穴系统在海床下蜿蜒，从幽闭恐怖的黑暗通道到生物发光生命和炽热熔岩流照亮的洞穴。探索海底的世界，但要注意你的氧气含量，并注意避免潜伏在黑暗中的威胁。关于游戏开发团队深海迷航由未知世界娱乐创建, 未知世界娱乐是由 Charlie Cleveland 和 Max McGu</div>
+    </div>
+
+    
+    <div class="section">
+      <h2>📸 游戏截图</h2>
+      <div class="ss-grid">
+        <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/264710/ss_e182b6b20bb797500f9f63c561586d920d44e37c.1920x1080.jpg?t=1777456112" alt="" loading="lazy">
 <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/264710/ss_970a13f246e33e0df26d93baf9f8e975732adb4b.1920x1080.jpg?t=1777456112" alt="" loading="lazy">
 <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/264710/ss_5f2f2ea498cdc632cbffd6cf37c1a09670eb3272.1920x1080.jpg?t=1777456112" alt="" loading="lazy">
 <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/264710/ss_cebc378d2f7bc78978c21db4e3c5e12ccd067349.1920x1080.jpg?t=1777456112" alt="" loading="lazy">
 <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/264710/ss_0ace7f8b4350b8fbdd16345a76bc30545256e918.1920x1080.jpg?t=1777456112" alt="" loading="lazy">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/264710/ss_f0eeabe108c2bc2b3e370b9828fb280035b50db2.1920x1080.jpg?t=1777456112" alt="" loading="lazy">
 
-</div>
-<div class="reqs">
-  <h2>💻 系统配置要求</h2><h3 style='color:#888;font-size:14px;margin:8px 0'>最低配置</h3><pre>最低配置:需要 64 位处理器和操作系统操作系统 *: Windows Vista SP2 or newer, 64-bit处理器: Intel Haswell 2 cores / 4 threads @ 2.5Ghz or equivalent内存: 4 GB RAM显卡: Intel HD 4600 or equivalent - This includes most GPUs scoring greater than 950 points in the 3DMark Fire Strike benchmarkDirectX 版本: 11存储空间: 需要 20 GB 可用空间支持 VR: SteamVR. Keyboard or gamepad required</pre><h3 style='color:#888;font-size:14px;margin:8px 0'>推荐配置</h3><pre>推荐配置:需要 64 位处理器和操作系统操作系统 *: Windows Vista SP2 or newer, 64-bit处理器: Intel Haswell 4 cores / 4 threads @ 3.2Ghz or equivalent内存: 8 GB RAM显卡: Nvidia GTX 550 Ti or equivalent, 2GB VRAMDirectX 版本: 11存储空间: 需要 20 GB 可用空间</pre></div>
+      </div>
+    </div>
+
+    
+    <div class="section">
+      <h2>💻 系统配置要求</h2>
+      <div class="reqs">
+        <div class="req-item"><h3>最低配置</h3><div class="req-text"><strong>最低配置:</strong><br><ul class="bb_ul"><li>需要 64 位处理器和操作系统<br></li><li><strong>操作系统 *:</strong> Windows Vista SP2 or newer, 64-bit<br></li><li><strong>处理器:</strong> Intel Haswell 2 cores / 4 threads @ 2.5Ghz or equivalent<br></li><li><strong>内存:</strong> 4 GB RAM<br></li><li><strong>显卡:</strong> Intel HD 4600 or equivalent - This includes most GPUs scoring greater than 950 points in the 3DMark Fire Strike benchmark<br></li><li><strong>DirectX 版本:</strong> 11<br></li><li><strong>存储空间:</strong> 需要 20 GB 可用空间<br></li><li><strong>支持 VR:</strong> SteamVR. Keyboard or gamepad required</li></ul></div></div><div class="req-item"><h3>推荐配置</h3><div class="req-text"><strong>推荐配置:</strong><br><ul class="bb_ul"><li>需要 64 位处理器和操作系统<br></li><li><strong>操作系统 *:</strong> Windows Vista SP2 or newer, 64-bit<br></li><li><strong>处理器:</strong> Intel Haswell 4 cores / 4 threads @ 3.2Ghz or equivalent<br></li><li><strong>内存:</strong> 8 GB RAM<br></li><li><strong>显卡:</strong> Nvidia GTX 550 Ti or equivalent, 2GB VRAM<br></li><li><strong>DirectX 版本:</strong> 11<br></li><li><strong>存储空间:</strong> 需要 20 GB 可用空间</li></ul></div></div>
+      </div>
+    </div>
+
+  </div>
 </div>
 </body>
 </html>

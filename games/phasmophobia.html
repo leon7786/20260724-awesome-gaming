@@ -3,28 +3,45 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>恐鬼症 (Phasmophobia) - 游戏详情</title>
+<title>恐鬼症 - Phasmophobia - 游戏详情</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0f0f1a;color:#e0e0e0;line-height:1.6}
-.container{max-width:1000px;margin:0 auto;padding:20px}
-.back{display:inline-block;color:#7c3aed;text-decoration:none;margin-bottom:20px;font-size:14px}
+body{font-family:'Segoe UI','Microsoft YaHei',sans-serif;background:#f5f5f7;color:#1a1a2e;line-height:1.6}
+.topbar{background:#ffffff;border-bottom:1px solid #e0e0e4;padding:12px 0;position:sticky;top:0;z-index:100}
+.topbar .container{display:flex;align-items:center;gap:16px}
+.container{max-width:1200px;margin:0 auto;padding:0 20px}
+.back{color:#6d28d9;text-decoration:none;font-size:14px;font-weight:500;display:flex;align-items:center;gap:4px}
 .back:hover{text-decoration:underline}
-.header{display:flex;gap:30px;margin-bottom:30px;flex-wrap:wrap}
-.header-info{flex:1;min-width:280px}
-.header-info h1{font-size:28px;margin-bottom:4px}
-.header-info .en{color:#888;font-size:16px;margin-bottom:12px}
-.header-info .meta{display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap}
-.tag{font-size:12px;padding:3px 10px;border-radius:5px;background:#2a2a4a;color:#a0a0c0}
-.tag.mc{background:#7c3aed33;color:#7c3aed}
-.tag.sales{background:#ff6b6b33;color:#ff6b6b}
-.header-img{width:460px;max-width:100%;border-radius:10px;flex-shrink:0}
-.desc{background:#1a1a30;padding:20px;border-radius:10px;margin-bottom:24px;border-left:3px solid #7c3aed;font-size:15px;color:#c0c0d0}
-.dl-section{background:#1a1a30;padding:20px;border-radius:10px;margin-bottom:24px}
-.dl-section h2{color:#7c3aed;font-size:18px;margin-bottom:12px}
+.back-btn{background:#6d28d9;color:#fff;padding:6px 14px;border-radius:4px;text-decoration:none;font-size:13px}
+.back-btn:hover{background:#5b21b6}
+
+/* Steam风格头部 */
+.hero{background:linear-gradient(180deg,#1a1a2e 0%,#2a2a4e 100%);color:#fff;padding:30px 0 0}
+.hero .container{display:flex;gap:30px;flex-wrap:wrap}
+.hero-info{flex:1;min-width:280px}
+.hero-info h1{font-size:26px;margin-bottom:4px}
+.hero-info .en{color:#a0a0c0;font-size:14px;margin-bottom:12px}
+.hero-info .meta{display:flex;gap:6px;margin-bottom:14px;flex-wrap:wrap}
+.hero .tag{font-size:12px;padding:3px 10px;border-radius:4px;background:rgba(255,255,255,0.1);color:#ccc}
+.hero .tag.mc{background:rgba(109,40,217,0.4);color:#c4b5fd}
+.hero .tag.sales{background:rgba(225,29,72,0.4);color:#fca5a5}
+.hero-img{width:460px;max-width:100%;border-radius:8px;flex-shrink:0;box-shadow:0 4px 20px rgba(0,0,0,0.3)}
+
+/* Steam风格内容区 */
+.content{padding:24px 0}
+.section{background:#fff;border-radius:8px;border:1px solid #e0e0e4;padding:24px;margin-bottom:16px}
+.section h2{font-size:18px;color:#1a1a2e;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid #e0e0e4}
+
+/* 简介 */
+.desc{font-size:15px;color:#444;line-height:1.7}
+.desc a{color:#6d28d9}
+
+/* 下载区 */
+.dl-section{background:#fff;border-radius:8px;border:1px solid #e0e0e4;padding:24px;margin-bottom:16px}
+.dl-section h2{font-size:18px;color:#1a1a2e;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid #e0e0e4}
 .dl-buttons{display:flex;flex-wrap:wrap;gap:8px}
-.dl-btn{display:inline-flex;align-items:center;gap:5px;padding:8px 16px;border-radius:6px;font-size:13px;text-decoration:none;color:#fff;transition:all .2s}
-.dl-btn:hover{filter:brightness(1.2);transform:translateY(-2px)}
+.dl-btn{display:inline-flex;align-items:center;gap:5px;padding:8px 16px;border-radius:6px;font-size:13px;text-decoration:none;color:#fff;transition:all .2s;font-weight:500}
+.dl-btn:hover{filter:brightness(1.1);transform:translateY(-1px)}
 .dl-btn.gamer520{background:#10b981}
 .dl-btn.x6d{background:#3b82f6}
 .dl-btn.tianyi{background:#6366f1}
@@ -33,61 +50,110 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
 .dl-btn.fitgirl{background:#f59e0b}
 .dl-btn.steamzg{background:#8b5cf6}
 .dl-btn.crotorrents{background:#ec4899}
-.info-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin-bottom:24px;background:#1a1a30;padding:20px;border-radius:10px}
-.info-grid .item{}
-.info-grid .label{color:#888;font-size:12px}
-.info-grid .value{font-size:14px;color:#e0e0e0}
-.screenshots{margin-bottom:24px;background:#1a1a30;padding:20px;border-radius:10px}
-.screenshots h2{color:#7c3aed;font-size:18px;margin-bottom:12px}
-.screenshots img{width:100%;border-radius:8px;margin-bottom:8px}
-.reqs{background:#1a1a30;padding:20px;border-radius:10px;margin-bottom:24px;font-size:13px;color:#a0a0c0}
-.reqs h2{color:#7c3aed;font-size:18px;margin-bottom:12px}
-.reqs pre{white-space:pre-wrap;font-family:inherit}
-@media(max-width:768px){.header-img{width:100%}}
+
+/* Steam信息网格 */
+.info-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:16px}
+.info-item{}
+.info-item .label{font-size:12px;color:#888;text-transform:uppercase;letter-spacing:0.5px}
+.info-item .value{font-size:14px;color:#1a1a2e;margin-top:2px}
+.info-item .value a{color:#6d28d9;text-decoration:none}
+.info-item .value a:hover{text-decoration:underline}
+
+/* 截图 */
+.ss-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:8px}
+.ss-grid img{width:100%;border-radius:6px;cursor:pointer;transition:transform .2s}
+.ss-grid img:hover{transform:scale(1.02)}
+
+/* 配置要求 */
+.reqs{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media(max-width:768px){.reqs{grid-template-columns:1fr}}
+.req-item{}
+.req-item h3{font-size:14px;color:#1a1a2e;margin-bottom:8px;padding-bottom:4px;border-bottom:1px solid #e0e0e4}
+.req-text{font-size:13px;color:#555;line-height:1.6}
+.req-text ul{list-style:none;padding:0}
+.req-text li{padding:2px 0}
+.req-text strong{color:#1a1a2e}
+
+@media(max-width:768px){.hero-img{width:100%}.ss-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
-<div class="container">
-<a href="../index.html" class="back">← 返回游戏榜单</a>
-<div class="header">
-  <div class="header-info">
-    <h1>恐鬼症</h1>
-    <div class="en">Phasmophobia</div>
-    <div class="meta">
-      <span class="tag">2020</span>
-      <span class="tag mc">评分 </span>
-      <span class="tag mc">口碑Top</span><span class="tag sales">销量Top</span>
-    </div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/262060/header.jpg?t=1769780578" alt="Phasmophobia" class="header-img" style="display:none">
-  </div>
-  <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/262060/header.jpg?t=1769780578" alt="Phasmophobia" class="header-img" onerror="this.style.display='none'">
-</div>
 
-<div class="desc">《Darkest Dungeon》是一个极具挑战性的哥特式类 Rogue 回合制 RPG，聚焦冒险的心理压力。招募、训练和领导一队有缺点的英雄，对抗难以想象的恐怖、压力、饥荒、疾病和不断侵蚀的黑暗。当失去了所有的希望，你是否还能将你的英雄团结在一起？</div>
-
-<div class="dl-section">
-  <h2>📥 下载链接</h2>
-  <div class="dl-buttons">
-<p style="color:#666;font-size:13px">暂无下载链接</p>
+<div class="topbar">
+  <div class="container">
+    <a href="../index.html" class="back">← 返回游戏榜单</a>
+    <a href="https://store.steampowered.com/app/262060" target="_blank" class="back-btn" style="margin-left:auto">Steam 商店页</a>
   </div>
 </div>
 
-<div class="info-grid">
-  <div class="item"><div class="label">🏢 开发商</div><div class="value">Red Hook Studios</div></div>
-  <div class="item"><div class="label">📢 发行商</div><div class="value">Red Hook Studios</div></div>
-  <div class="item"><div class="label">📅 发行日期</div><div class="value">2016 年 1 月 19 日</div></div>
-  <div class="item"><div class="label">🏷️ 类型</div><div class="value">独立, 角色扮演, 策略</div></div>
-  <div class="item"><div class="label">⭐ Metacritic</div><div class="value">84</div></div><div class="item"><div class="label">🎮 Steam</div><div class="value"><a href="https://store.steampowered.com/app/262060" target="_blank" style="color:#7c3aed">查看商店页</a></div></div></div>
-<div class="screenshots">
-  <h2>📸 游戏截图</h2>
-  <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/262060/ss_04572edc979601b038756f87861c6f8c6c337806.1920x1080.jpg?t=1769780578" alt="" loading="lazy">
+<div class="hero">
+  <div class="container">
+    <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/262060/library_600x900.jpg" alt="Phasmophobia" class="hero-img" onerror="this.style.display='none'">
+    <div class="hero-info">
+      <h1>恐鬼症</h1>
+      <div class="en">Phasmophobia</div>
+      <div class="meta">
+        <span class="tag">2020</span>
+        <span class="tag mc">评分 </span>
+        <span class="tag mc">口碑Top</span><span class="tag sales">销量Top</span>
+        <span class="tag">独立, 角色扮演, 策略</span>
+      </div>
+      <div class="desc">《Darkest Dungeon》是一个极具挑战性的哥特式类 Rogue 回合制 RPG，聚焦冒险的心理压力。招募、训练和领导一队有缺点的英雄，对抗难以想象的恐怖、压力、饥荒、疾病和不断侵蚀的黑暗。当失去了所有的希望，你是否还能将你的英雄团结在一起？</div>
+    </div>
+  </div>
+</div>
+
+<div class="content">
+  <div class="container">
+
+    <div class="dl-section">
+      <h2>📥 下载链接</h2>
+      <div class="dl-buttons">
+<p style="color:#999;font-size:13px">暂无下载链接</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>📋 游戏信息</h2>
+      <div class="info-grid">
+        <div class="info-item"><div class="label">开发商</div><div class="value">Red Hook Studios</div></div>
+        <div class="info-item"><div class="label">发行商</div><div class="value">Red Hook Studios</div></div>
+        <div class="info-item"><div class="label">发行日期</div><div class="value">2016 年 1 月 19 日</div></div>
+        <div class="info-item"><div class="label">类型</div><div class="value">独立, 角色扮演, 策略</div></div>
+        <div class="info-item"><div class="label">Metacritic</div><div class="value">84</div></div>
+        <div class="info-item"><div class="label">Steam</div><div class="value"><a href="https://store.steampowered.com/app/262060" target="_blank">查看商店页 →</a></div></div>
+      </div>
+    </div>
+
+    
+    <div class="section">
+      <h2>📖 关于这款游戏</h2>
+      <div class="desc">《Darkest Dungeon》是一个极具挑战性的哥特式类 Rogue 回合制 RPG，聚焦冒险的心理压力。招募、训练和领导一队有缺点的英雄，穿行扭曲的森林、被遗忘的巢穴、毁坏的地窟等地。你不仅将与不可想象的敌人作战，而且还要面对压力、饥荒、疾病和不断侵蚀的黑暗。揭开奇怪的神秘事件，在创新的战略回合制战斗系统中，让英雄与一群可怕的怪物作战。 3 种游戏模式以及 80 小时以上的游戏时间 Steam 创意工坊 mod 整合痛苦系统 — 不仅要与怪物战斗，还要与压力作战！与偏执狂、受虐狂、恐惧、非理性和许多和游戏有关的怪癖斗争！惊人的手绘哥特式钢笔画风格 创新的基于回合制的战斗，让你与一大群的邪恶的怪物作战 叙事系统，为你庆祝成功…也缅怀你的失败15 个（还在不断增加！）可玩的英雄职业，包括瘟疫医生、淘气鬼，甚至麻风病人！ 扎营以疗伤或进行动员演讲。 在酒馆或修道院让你疲惫而惊恐的人物得到休息，以保持他们的压力不超过限度。 经典 CRPG 和类 Rogue 功能，包括人物永久死亡、程序生成的地下城，还有惊人的重玩性你能制止怪异的恐慌席卷你家族的古老土地吗？冒险前进吧！奖励与荣誉PC Gamer：2016 年最佳 RPGGame Informer - 2016 年最佳 RPG：3 项获奖IGN - 2016 最佳：2 项提名IGF 2016 - 3 项提名Rock Paper Shotgun - 史上 50 大最佳 RPGPAX 10 - 2015Game Debate 2016 最佳独立游戏SXSW 2015 玩家选择奖提名MMORPG - 最佳独立 RPG (Pax East 2014)、最佳 RPG 提名 PAX Prime 2014Indie Megabooth Selection - PAX East 2014, PAX Prime 2015</div>
+    </div>
+
+    
+    <div class="section">
+      <h2>📸 游戏截图</h2>
+      <div class="ss-grid">
+        <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/262060/ss_04572edc979601b038756f87861c6f8c6c337806.1920x1080.jpg?t=1769780578" alt="" loading="lazy">
 <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/262060/ss_799c78932c87f2be0cbd45dd1b80ebd0a355e575.1920x1080.jpg?t=1769780578" alt="" loading="lazy">
 <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/262060/ss_a967c2d7344433cdf72a53ef1922586b0d7cce69.1920x1080.jpg?t=1769780578" alt="" loading="lazy">
 <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/262060/ss_c9d41e74d574f6fa9bf53c0cf74f8430c2072cc2.1920x1080.jpg?t=1769780578" alt="" loading="lazy">
 <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/262060/ss_b78c562dc67379f42691dcc8522b40d5385bb32e.1920x1080.jpg?t=1769780578" alt="" loading="lazy">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/262060/ss_ac1f594bf8128e376ca95ff266d400d404b639bf.1920x1080.jpg?t=1769780578" alt="" loading="lazy">
 
-</div>
-<div class="reqs">
-  <h2>💻 系统配置要求</h2><h3 style='color:#888;font-size:14px;margin:8px 0'>最低配置</h3><pre>最低配置:操作系统 *: Windows XP内存: 2 GB RAM显卡: Open GL 3.2+ Compliant存储空间: 需要 2 GB 可用空间附注事项: 1080p, 16:9 recommended</pre><h3 style='color:#888;font-size:14px;margin:8px 0'>推荐配置</h3><pre>推荐配置:操作系统 *: Windows 7+内存: 4 GB RAM显卡: Open GL 3.2+ Compliant存储空间: 需要 2 GB 可用空间附注事项: 1080p, 16:9 recommended</pre></div>
+      </div>
+    </div>
+
+    
+    <div class="section">
+      <h2>💻 系统配置要求</h2>
+      <div class="reqs">
+        <div class="req-item"><h3>最低配置</h3><div class="req-text"><strong>最低配置:</strong><br><ul class="bb_ul"><li><strong>操作系统 *:</strong> Windows XP<br></li><li><strong>内存:</strong> 2 GB RAM<br></li><li><strong>显卡:</strong> Open GL 3.2+ Compliant<br></li><li><strong>存储空间:</strong> 需要 2 GB 可用空间<br></li><li><strong>附注事项:</strong> 1080p, 16:9 recommended</li></ul></div></div><div class="req-item"><h3>推荐配置</h3><div class="req-text"><strong>推荐配置:</strong><br><ul class="bb_ul"><li><strong>操作系统 *:</strong> Windows 7+<br></li><li><strong>内存:</strong> 4 GB RAM<br></li><li><strong>显卡:</strong> Open GL 3.2+ Compliant<br></li><li><strong>存储空间:</strong> 需要 2 GB 可用空间<br></li><li><strong>附注事项:</strong> 1080p, 16:9 recommended</li></ul></div></div>
+      </div>
+    </div>
+
+  </div>
 </div>
 </body>
 </html>

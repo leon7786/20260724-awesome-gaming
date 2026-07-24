@@ -3,28 +3,45 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>最终幻想16 (Final Fantasy XVI) - 游戏详情</title>
+<title>最终幻想16 - Final Fantasy XVI - 游戏详情</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0f0f1a;color:#e0e0e0;line-height:1.6}
-.container{max-width:1000px;margin:0 auto;padding:20px}
-.back{display:inline-block;color:#7c3aed;text-decoration:none;margin-bottom:20px;font-size:14px}
+body{font-family:'Segoe UI','Microsoft YaHei',sans-serif;background:#f5f5f7;color:#1a1a2e;line-height:1.6}
+.topbar{background:#ffffff;border-bottom:1px solid #e0e0e4;padding:12px 0;position:sticky;top:0;z-index:100}
+.topbar .container{display:flex;align-items:center;gap:16px}
+.container{max-width:1200px;margin:0 auto;padding:0 20px}
+.back{color:#6d28d9;text-decoration:none;font-size:14px;font-weight:500;display:flex;align-items:center;gap:4px}
 .back:hover{text-decoration:underline}
-.header{display:flex;gap:30px;margin-bottom:30px;flex-wrap:wrap}
-.header-info{flex:1;min-width:280px}
-.header-info h1{font-size:28px;margin-bottom:4px}
-.header-info .en{color:#888;font-size:16px;margin-bottom:12px}
-.header-info .meta{display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap}
-.tag{font-size:12px;padding:3px 10px;border-radius:5px;background:#2a2a4a;color:#a0a0c0}
-.tag.mc{background:#7c3aed33;color:#7c3aed}
-.tag.sales{background:#ff6b6b33;color:#ff6b6b}
-.header-img{width:460px;max-width:100%;border-radius:10px;flex-shrink:0}
-.desc{background:#1a1a30;padding:20px;border-radius:10px;margin-bottom:24px;border-left:3px solid #7c3aed;font-size:15px;color:#c0c0d0}
-.dl-section{background:#1a1a30;padding:20px;border-radius:10px;margin-bottom:24px}
-.dl-section h2{color:#7c3aed;font-size:18px;margin-bottom:12px}
+.back-btn{background:#6d28d9;color:#fff;padding:6px 14px;border-radius:4px;text-decoration:none;font-size:13px}
+.back-btn:hover{background:#5b21b6}
+
+/* Steam风格头部 */
+.hero{background:linear-gradient(180deg,#1a1a2e 0%,#2a2a4e 100%);color:#fff;padding:30px 0 0}
+.hero .container{display:flex;gap:30px;flex-wrap:wrap}
+.hero-info{flex:1;min-width:280px}
+.hero-info h1{font-size:26px;margin-bottom:4px}
+.hero-info .en{color:#a0a0c0;font-size:14px;margin-bottom:12px}
+.hero-info .meta{display:flex;gap:6px;margin-bottom:14px;flex-wrap:wrap}
+.hero .tag{font-size:12px;padding:3px 10px;border-radius:4px;background:rgba(255,255,255,0.1);color:#ccc}
+.hero .tag.mc{background:rgba(109,40,217,0.4);color:#c4b5fd}
+.hero .tag.sales{background:rgba(225,29,72,0.4);color:#fca5a5}
+.hero-img{width:460px;max-width:100%;border-radius:8px;flex-shrink:0;box-shadow:0 4px 20px rgba(0,0,0,0.3)}
+
+/* Steam风格内容区 */
+.content{padding:24px 0}
+.section{background:#fff;border-radius:8px;border:1px solid #e0e0e4;padding:24px;margin-bottom:16px}
+.section h2{font-size:18px;color:#1a1a2e;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid #e0e0e4}
+
+/* 简介 */
+.desc{font-size:15px;color:#444;line-height:1.7}
+.desc a{color:#6d28d9}
+
+/* 下载区 */
+.dl-section{background:#fff;border-radius:8px;border:1px solid #e0e0e4;padding:24px;margin-bottom:16px}
+.dl-section h2{font-size:18px;color:#1a1a2e;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid #e0e0e4}
 .dl-buttons{display:flex;flex-wrap:wrap;gap:8px}
-.dl-btn{display:inline-flex;align-items:center;gap:5px;padding:8px 16px;border-radius:6px;font-size:13px;text-decoration:none;color:#fff;transition:all .2s}
-.dl-btn:hover{filter:brightness(1.2);transform:translateY(-2px)}
+.dl-btn{display:inline-flex;align-items:center;gap:5px;padding:8px 16px;border-radius:6px;font-size:13px;text-decoration:none;color:#fff;transition:all .2s;font-weight:500}
+.dl-btn:hover{filter:brightness(1.1);transform:translateY(-1px)}
 .dl-btn.gamer520{background:#10b981}
 .dl-btn.x6d{background:#3b82f6}
 .dl-btn.tianyi{background:#6366f1}
@@ -33,61 +50,110 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
 .dl-btn.fitgirl{background:#f59e0b}
 .dl-btn.steamzg{background:#8b5cf6}
 .dl-btn.crotorrents{background:#ec4899}
-.info-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin-bottom:24px;background:#1a1a30;padding:20px;border-radius:10px}
-.info-grid .item{}
-.info-grid .label{color:#888;font-size:12px}
-.info-grid .value{font-size:14px;color:#e0e0e0}
-.screenshots{margin-bottom:24px;background:#1a1a30;padding:20px;border-radius:10px}
-.screenshots h2{color:#7c3aed;font-size:18px;margin-bottom:12px}
-.screenshots img{width:100%;border-radius:8px;margin-bottom:8px}
-.reqs{background:#1a1a30;padding:20px;border-radius:10px;margin-bottom:24px;font-size:13px;color:#a0a0c0}
-.reqs h2{color:#7c3aed;font-size:18px;margin-bottom:12px}
-.reqs pre{white-space:pre-wrap;font-family:inherit}
-@media(max-width:768px){.header-img{width:100%}}
+
+/* Steam信息网格 */
+.info-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:16px}
+.info-item{}
+.info-item .label{font-size:12px;color:#888;text-transform:uppercase;letter-spacing:0.5px}
+.info-item .value{font-size:14px;color:#1a1a2e;margin-top:2px}
+.info-item .value a{color:#6d28d9;text-decoration:none}
+.info-item .value a:hover{text-decoration:underline}
+
+/* 截图 */
+.ss-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:8px}
+.ss-grid img{width:100%;border-radius:6px;cursor:pointer;transition:transform .2s}
+.ss-grid img:hover{transform:scale(1.02)}
+
+/* 配置要求 */
+.reqs{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media(max-width:768px){.reqs{grid-template-columns:1fr}}
+.req-item{}
+.req-item h3{font-size:14px;color:#1a1a2e;margin-bottom:8px;padding-bottom:4px;border-bottom:1px solid #e0e0e4}
+.req-text{font-size:13px;color:#555;line-height:1.6}
+.req-text ul{list-style:none;padding:0}
+.req-text li{padding:2px 0}
+.req-text strong{color:#1a1a2e}
+
+@media(max-width:768px){.hero-img{width:100%}.ss-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
-<div class="container">
-<a href="../index.html" class="back">← 返回游戏榜单</a>
-<div class="header">
-  <div class="header-info">
-    <h1>最终幻想16</h1>
-    <div class="en">Final Fantasy XVI</div>
-    <div class="meta">
-      <span class="tag">2023</span>
-      <span class="tag mc">评分 92</span>
-      <span class="tag sales">销量Top</span>
-    </div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2515020/header.jpg?t=1773294537" alt="Final Fantasy XVI" class="header-img" style="display:none">
-  </div>
-  <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2515020/header.jpg?t=1773294537" alt="Final Fantasy XVI" class="header-img" onerror="this.style.display='none'">
-</div>
 
-<div class="desc">本作描绘了因拥有强大召唤兽力量的“显化者”而引发战乱的时代，营造出沉重且宏伟壮阔的奇幻世界。追朔主角克莱夫·罗兹菲尔德的一生，在残酷的命运中寻找正义，逼近世界的真相……</div>
-
-<div class="dl-section">
-  <h2>📥 下载链接</h2>
-  <div class="dl-buttons">
-<p style="color:#666;font-size:13px">暂无下载链接</p>
+<div class="topbar">
+  <div class="container">
+    <a href="../index.html" class="back">← 返回游戏榜单</a>
+    <a href="https://store.steampowered.com/app/2515020" target="_blank" class="back-btn" style="margin-left:auto">Steam 商店页</a>
   </div>
 </div>
 
-<div class="info-grid">
-  <div class="item"><div class="label">🏢 开发商</div><div class="value">Square Enix</div></div>
-  <div class="item"><div class="label">📢 发行商</div><div class="value">Square Enix</div></div>
-  <div class="item"><div class="label">📅 发行日期</div><div class="value">2024 年 9 月 17 日</div></div>
-  <div class="item"><div class="label">🏷️ 类型</div><div class="value">动作, 角色扮演</div></div>
-  <div class="item"><div class="label">⭐ Metacritic</div><div class="value">待补充</div></div><div class="item"><div class="label">🎮 Steam</div><div class="value"><a href="https://store.steampowered.com/app/2515020" target="_blank" style="color:#7c3aed">查看商店页</a></div></div></div>
-<div class="screenshots">
-  <h2>📸 游戏截图</h2>
-  <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2515020/ss_99530c1f839832ceeab2cf3450d5c0905312de47.1920x1080.jpg?t=1773294537" alt="" loading="lazy">
+<div class="hero">
+  <div class="container">
+    <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2515020/library_600x900.jpg" alt="Final Fantasy XVI" class="hero-img" onerror="this.style.display='none'">
+    <div class="hero-info">
+      <h1>最终幻想16</h1>
+      <div class="en">Final Fantasy XVI</div>
+      <div class="meta">
+        <span class="tag">2023</span>
+        <span class="tag mc">评分 92</span>
+        <span class="tag sales">销量Top</span>
+        <span class="tag">动作, 角色扮演</span>
+      </div>
+      <div class="desc">本作描绘了因拥有强大召唤兽力量的“显化者”而引发战乱的时代，营造出沉重且宏伟壮阔的奇幻世界。追朔主角克莱夫·罗兹菲尔德的一生，在残酷的命运中寻找正义，逼近世界的真相……</div>
+    </div>
+  </div>
+</div>
+
+<div class="content">
+  <div class="container">
+
+    <div class="dl-section">
+      <h2>📥 下载链接</h2>
+      <div class="dl-buttons">
+<p style="color:#999;font-size:13px">暂无下载链接</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>📋 游戏信息</h2>
+      <div class="info-grid">
+        <div class="info-item"><div class="label">开发商</div><div class="value">Square Enix</div></div>
+        <div class="info-item"><div class="label">发行商</div><div class="value">Square Enix</div></div>
+        <div class="info-item"><div class="label">发行日期</div><div class="value">2024 年 9 月 17 日</div></div>
+        <div class="info-item"><div class="label">类型</div><div class="value">动作, 角色扮演</div></div>
+        <div class="info-item"><div class="label">Metacritic</div><div class="value">待补充</div></div>
+        <div class="info-item"><div class="label">Steam</div><div class="value"><a href="https://store.steampowered.com/app/2515020" target="_blank">查看商店页 →</a></div></div>
+      </div>
+    </div>
+
+    
+    <div class="section">
+      <h2>📖 关于这款游戏</h2>
+      <div class="desc">这是――――断绝水晶加护的故事。相互争夺母水晶的五个国家。当暂时的平衡被打破时，身上宿有召唤兽的“显化者”的命运开始失控。顶级的故事体验主角“克莱夫·罗兹菲尔德”受到战火波及，失去了祖国与弟弟。他踏上战场，决定只为复仇而活，在即将迎来死亡的垂暮世界中面对残酷的命运。令人惊艳的战斗系统本作是《FINAL FANTASY》系列第一款正宗动作RPG。体验主角克莱夫·罗兹菲尔德精炼的战斗动作和超大规模的召唤兽激烈对决！“召唤兽大战”让召唤兽显化于自身的显化者之间的激战。以宏大规模描绘召唤兽vs召唤兽的大型战斗！“召唤兽动作”切换寄宿在克莱夫身上的多个召唤兽力量，进行高速战斗！“聚焦剧情”模式能够以简单的操作来轻松享受正宗动作战斗！游戏充满各种辅助功能，让故事的沉浸感更上一层楼！！推荐想要深入体验故事的玩家选择“聚焦剧情”模式。只需简单的操作就能发动召唤兽能力或自动闪避敌方攻击，所有人都能在体验畅快战斗的同时，全心沉浸于故事中。当然游戏中也准备了需由玩家亲手完成所有操作的“聚焦动作”模式。可以按照自身喜好自由切换两种模式。■本商品包含以下内容《FINAL FANTASY XVI》游戏本篇武器“洋葱剑”　※主线剧情需推进至章节《邂逅》。（达成条件后，购入特典将会送至主菜单“系统”的“道具收件箱”。）</div>
+    </div>
+
+    
+    <div class="section">
+      <h2>📸 游戏截图</h2>
+      <div class="ss-grid">
+        <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2515020/ss_99530c1f839832ceeab2cf3450d5c0905312de47.1920x1080.jpg?t=1773294537" alt="" loading="lazy">
 <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2515020/ss_7620e893321e1661bdf821617f349196c2b0019f.1920x1080.jpg?t=1773294537" alt="" loading="lazy">
 <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2515020/ss_04ef537e3123d4a8dcbbadccc190cf87dee67783.1920x1080.jpg?t=1773294537" alt="" loading="lazy">
 <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2515020/ss_d3aea73c0bea755c7152ee339ebb7f7dfefe8f91.1920x1080.jpg?t=1773294537" alt="" loading="lazy">
 <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2515020/ss_90a7849fb556c73db88ac37afb1cce44ac39bfab.1920x1080.jpg?t=1773294537" alt="" loading="lazy">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2515020/ss_656229eb5e6846753160378c748d7d32143cf55a.1920x1080.jpg?t=1773294537" alt="" loading="lazy">
 
-</div>
-<div class="reqs">
-  <h2>💻 系统配置要求</h2><h3 style='color:#888;font-size:14px;margin:8px 0'>最低配置</h3><pre>最低配置:需要 64 位处理器和操作系统操作系统: Windows® 10 / 11 64-bit处理器: AMD Ryzen™ 5 1600 / Intel® Core™ i5-8400内存: 16 GB RAM显卡: AMD Radeon™ RX 5700 / Intel® Arc™ A580 / NVIDIA® GeForce® GTX 1070DirectX 版本: 12存储空间: 需要 170 GB 可用空间附注事项: 30FPS at 720p expected. SSD required. VRAM 8GB or above.</pre><h3 style='color:#888;font-size:14px;margin:8px 0'>推荐配置</h3><pre>推荐配置:需要 64 位处理器和操作系统操作系统: Windows® 10 / 11 64-bit处理器: AMD Ryzen™ 7 5700X / Intel® Core™ i7-10700内存: 16 GB RAM显卡: AMD Radeon™ RX 6700 XT / NVIDIA® GeForce® RTX 2080DirectX 版本: 12存储空间: 需要 170 GB 可用空间附注事项: 60FPS at 1080p expected. SSD required. VRAM 8GB or above.</pre></div>
+      </div>
+    </div>
+
+    
+    <div class="section">
+      <h2>💻 系统配置要求</h2>
+      <div class="reqs">
+        <div class="req-item"><h3>最低配置</h3><div class="req-text"><strong>最低配置:</strong><br><ul class="bb_ul"><li>需要 64 位处理器和操作系统<br></li><li><strong>操作系统:</strong> Windows® 10 / 11 64-bit<br></li><li><strong>处理器:</strong> AMD Ryzen™ 5 1600 / Intel® Core™ i5-8400<br></li><li><strong>内存:</strong> 16 GB RAM<br></li><li><strong>显卡:</strong> AMD Radeon™ RX 5700 / Intel® Arc™ A580 / NVIDIA® GeForce® GTX 1070<br></li><li><strong>DirectX 版本:</strong> 12<br></li><li><strong>存储空间:</strong> 需要 170 GB 可用空间<br></li><li><strong>附注事项:</strong> 30FPS at 720p expected. SSD required. VRAM 8GB or above.</li></ul></div></div><div class="req-item"><h3>推荐配置</h3><div class="req-text"><strong>推荐配置:</strong><br><ul class="bb_ul"><li>需要 64 位处理器和操作系统<br></li><li><strong>操作系统:</strong> Windows® 10 / 11 64-bit<br></li><li><strong>处理器:</strong> AMD Ryzen™ 7 5700X / Intel® Core™ i7-10700<br></li><li><strong>内存:</strong> 16 GB RAM<br></li><li><strong>显卡:</strong> AMD Radeon™ RX 6700 XT / NVIDIA® GeForce® RTX 2080<br></li><li><strong>DirectX 版本:</strong> 12<br></li><li><strong>存储空间:</strong> 需要 170 GB 可用空间<br></li><li><strong>附注事项:</strong> 60FPS at 1080p expected. SSD required. VRAM 8GB or above.</li></ul></div></div>
+      </div>
+    </div>
+
+  </div>
 </div>
 </body>
 </html>
