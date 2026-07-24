@@ -4,6 +4,8 @@
 
 | 来源 | 链接 | 说明 |
 |------|------|------|
+| 🧲 磁力链 | `magnet:?xt=urn:btih:1CA45780D16A896C842C00D3903C786A40BC3210` | 最新版BT下载 |
+
 
 ## 解压密码
 - gamer520.com: `laoquzhang.com`
