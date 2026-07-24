@@ -110,10 +110,10 @@ body {
   padding: 2rem;
 }
 
-/* 游戏卡片网格 */
+/* 游戏卡片网格 - 固定4列 */
 .games-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   gap: 1.5rem;
 }
 .game-card {
@@ -124,14 +124,15 @@ body {
   transition: all 0.2s;
   text-decoration: none;
   color: inherit;
-  display: block;
+  display: flex;
+  flex-direction: column;
 }
 .game-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 8px 20px var(--shadow);
 }
 .game-cover {
-  aspect-ratio: 2/3;
+  aspect-ratio: 3/4;
   background: linear-gradient(135deg, #e0e0e4, #f0f0f5);
   overflow: hidden;
 }
@@ -143,6 +144,9 @@ body {
 .game-card:hover .game-cover img { transform: scale(1.05); }
 .game-info {
   padding: 0.8rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 .game-title {
   font-size: 0.95rem;
@@ -164,6 +168,7 @@ body {
   display: flex;
   gap: 0.4rem;
   flex-wrap: wrap;
+  margin-bottom: 0.5rem;
 }
 .tag {
   font-size: 0.7rem;
@@ -174,6 +179,35 @@ body {
 }
 .tag.score { background: rgba(109,40,217,0.1); color: var(--primary); font-weight: 600; }
 .tag.year { background: rgba(225,29,72,0.1); color: var(--accent); }
+
+/* 下载按钮 */
+.game-downloads {
+  display: flex;
+  gap: 0.3rem;
+  flex-wrap: wrap;
+  margin-top: auto;
+}
+.dl-btn {
+  font-size: 0.7rem;
+  padding: 0.3rem 0.5rem;
+  border-radius: 4px;
+  text-decoration: none;
+  color: white;
+  transition: all 0.2s;
+  cursor: pointer;
+  border: none;
+  display: inline-block;
+}
+.dl-btn:hover { transform: translateY(-1px); filter: brightness(1.1); }
+.dl-btn.gamer520 { background: linear-gradient(135deg, #10b981, #059669); }
+.dl-btn.x6d { background: linear-gradient(135deg, #3b82f6, #2563eb); }
+.dl-btn.tianyi { background: linear-gradient(135deg, #6366f1, #4f46e5); }
+.dl-btn.baidu { background: linear-gradient(135deg, #2563eb, #1d4ed8); }
+.dl-btn.magnet { background: linear-gradient(135deg, #ef4444, #dc2626); }
+.dl-btn.fitgirl { background: linear-gradient(135deg, #f59e0b, #d97706); }
+.dl-btn.steamzg { background: linear-gradient(135deg, #8b5cf6, #7c3aed); }
+.dl-btn.crotorrents { background: linear-gradient(135deg, #ec4899, #db2777); }
+.dl-btn.detail { background: linear-gradient(135deg, #6d28d9, #5b21b6); }
 
 /* Markdown 渲染样式 */
 .md-content {
@@ -417,21 +451,40 @@ async function loadGames() {
     games.sort((a, b) => parseInt(b.year) - parseInt(a.year));
     
     const grid = document.getElementById('gamesGrid');
-    grid.innerHTML = games.map(game => `
-      <a href="${game.detail}" class="game-card">
-        <div class="game-cover">
-          <img src="${game.cover}" alt="${game.en_name}" loading="lazy" onerror="this.style.display='none'">
-        </div>
-        <div class="game-info">
-          <div class="game-title">${game.cn_name}</div>
-          <div class="game-subtitle">${game.en_name}</div>
-          <div class="game-meta">
-            <span class="tag year">${game.year}</span>
-            ${game.score ? `<span class="tag score">评分 ${game.score}</span>` : ''}
+    grid.innerHTML = games.map(game => {
+      // 生成下载按钮
+      const downloads = game.downloads || [];
+      const dlBtns = downloads.map(dl => {
+        const type = dl.type || 'detail';
+        const name = dl.name || type;
+        return `<a href="${dl.url}" class="dl-btn ${type}" target="_blank" onclick="event.stopPropagation()">${name}</a>`;
+      }).join('');
+      
+      // 添加详情页按钮
+      const detailBtn = game.detail ? `<a href="${game.detail}" class="dl-btn detail">详情</a>` : '';
+      
+      return `
+        <div class="game-card">
+          <a href="${game.detail || '#'}" style="text-decoration:none;color:inherit;display:block">
+            <div class="game-cover">
+              <img src="${game.cover}" alt="${game.en_name}" loading="lazy" onerror="this.style.display='none'">
+            </div>
+          </a>
+          <div class="game-info">
+            <div class="game-title">${game.cn_name}</div>
+            <div class="game-subtitle">${game.en_name}</div>
+            <div class="game-meta">
+              <span class="tag year">${game.year}</span>
+              ${game.score ? `<span class="tag score">评分 ${game.score}</span>` : ''}
+            </div>
+            <div class="game-downloads">
+              ${dlBtns}
+              ${detailBtn}
+            </div>
           </div>
         </div>
-      </a>
-    `).join('');
+      `;
+    }).join('');
   } catch (e) {
     console.error('加载游戏数据失败:', e);
   }
