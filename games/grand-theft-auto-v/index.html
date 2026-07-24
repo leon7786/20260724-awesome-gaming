@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>侠盗猎车手5 - Grand Theft Auto V - 游戏详情</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Segoe UI','Microsoft YaHei',sans-serif;background:#f5f5f7;color:#1a1a2e;line-height:1.6}
+.topbar{background:#ffffff;border-bottom:1px solid #e0e0e4;padding:12px 0;position:sticky;top:0;z-index:100}
+.topbar .container{display:flex;align-items:center;gap:16px}
+.container{max-width:1200px;margin:0 auto;padding:0 20px}
+.back{color:#6d28d9;text-decoration:none;font-size:14px;font-weight:500;display:flex;align-items:center;gap:4px}
+.back:hover{text-decoration:underline}
+.back-btn{background:#6d28d9;color:#fff;padding:6px 14px;border-radius:4px;text-decoration:none;font-size:13px}
+.back-btn:hover{background:#5b21b6}
+
+/* Steam风格头部 */
+.hero{background:linear-gradient(180deg,#f0f0f5 0%,#e8e8f0 100%);color:#1a1a2e;padding:30px 0 0;border-bottom:1px solid #e0e0e4}
+.hero .container{display:flex;gap:30px;flex-wrap:wrap}
+.hero-info{flex:1;min-width:280px}
+.hero-info h1{font-size:26px;margin-bottom:4px}
+.hero-info .en{color:#888;font-size:14px;margin-bottom:12px}
+.hero-info .meta{display:flex;gap:6px;margin-bottom:14px;flex-wrap:wrap}
+.hero .tag{font-size:12px;padding:3px 10px;border-radius:4px;background:#e8e8ec;color:#555}
+.hero .tag.mc{background:#6d28d922;color:#6d28d9}
+.hero .tag.sales{background:#e11d4822;color:#e11d48}
+.hero-img{width:460px;max-width:100%;border-radius:8px;flex-shrink:0;box-shadow:0 2px 12px rgba(0,0,0,0.08)}
+
+/* Steam风格内容区 */
+.content{padding:24px 0}
+.section{background:#fff;border-radius:8px;border:1px solid #e0e0e4;padding:24px;margin-bottom:16px}
+.section h2{font-size:18px;color:#1a1a2e;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid #e0e0e4}
+
+/* 简介 */
+.desc{font-size:15px;color:#444;line-height:1.7}
+.desc a{color:#6d28d9}
+
+/* 下载区 */
+.dl-section{background:#fff;border-radius:8px;border:1px solid #e0e0e4;padding:24px;margin-bottom:16px}
+.dl-section h2{font-size:18px;color:#1a1a2e;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid #e0e0e4}
+.dl-buttons{display:flex;flex-wrap:wrap;gap:8px}
+.dl-btn{display:inline-flex;align-items:center;gap:5px;padding:8px 16px;border-radius:6px;font-size:13px;text-decoration:none;color:#fff;transition:all .2s;font-weight:500}
+.dl-btn:hover{filter:brightness(1.1);transform:translateY(-1px)}
+.dl-btn.gamer520{background:#10b981}
+.dl-btn.x6d{background:#3b82f6}
+.dl-btn.tianyi{background:#6366f1}
+.dl-btn.baidu{background:#2563eb}
+.dl-btn.magnet{background:#ef4444}
+.dl-btn.fitgirl{background:#f59e0b}
+.dl-btn.steamzg{background:#8b5cf6}
+.dl-btn.crotorrents{background:#ec4899}
+
+/* Steam信息网格 */
+.info-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:16px}
+.info-item{}
+.info-item .label{font-size:12px;color:#888;text-transform:uppercase;letter-spacing:0.5px}
+.info-item .value{font-size:14px;color:#1a1a2e;margin-top:2px}
+.info-item .value a{color:#6d28d9;text-decoration:none}
+.info-item .value a:hover{text-decoration:underline}
+
+/* 截图 */
+.ss-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:8px}
+.ss-grid img{width:100%;border-radius:6px;cursor:pointer;transition:transform .2s}
+.ss-grid img:hover{transform:scale(1.02)}
+
+/* 配置要求 */
+.reqs{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media(max-width:768px){.reqs{grid-template-columns:1fr}}
+.req-item{}
+.req-item h3{font-size:14px;color:#1a1a2e;margin-bottom:8px;padding-bottom:4px;border-bottom:1px solid #e0e0e4}
+.req-text{font-size:13px;color:#555;line-height:1.6}
+.req-text ul{list-style:none;padding:0}
+.req-text li{padding:2px 0}
+.req-text strong{color:#1a1a2e}
+
+@media(max-width:768px){.hero-img{width:100%}.ss-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="container">
+    <a href="../index.html" class="back">← 返回游戏榜单</a>
+    <a href="https://store.steampowered.com/app/271590" target="_blank" class="back-btn" style="margin-left:auto">Steam 商店页</a>
+  </div>
+</div>
+
+<div class="hero">
+  <div class="container">
+    <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/271590/library_600x900.jpg" alt="Grand Theft Auto V" class="hero-img" onerror="this.style.display='none'">
+    <div class="hero-info">
+      <h1>侠盗猎车手5</h1>
+      <div class="en">Grand Theft Auto V</div>
+      <div class="meta">
+        <span class="tag">2013</span>
+        <span class="tag mc">评分 </span>
+        <span class="tag mc">口碑Top</span><span class="tag sales">销量Top</span>
+        <span class="tag">动作, 冒险</span>
+      </div>
+      <div class="desc">PC 版Grand Theft Auto V 能够以超越 4K 的最高分辨率和 60 帧每秒的帧率，为您呈现屡获殊荣、令人痴迷的游戏世界——洛桑托斯市和布雷恩郡。</div>
+    </div>
+  </div>
+</div>
+
+<div class="content">
+  <div class="container">
+
+    <div class="dl-section">
+      <h2>📥 下载链接</h2>
+      <div class="dl-buttons">
+<a href="https://www.gamer520.com/40746.html" class="dl-btn gamer520" target="_blank">🎮 gamer520</a>
+<a href="https://www.x6d.com/i-wz-17253.html" class="dl-btn x6d" target="_blank">📦 x6d</a>
+<a href="https://steamzg.com/53181" class="dl-btn steamzg" target="_blank">🧲 steamzg</a>
+
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>📋 游戏信息</h2>
+      <div class="info-grid">
+        <div class="info-item"><div class="label">开发商</div><div class="value">Rockstar North</div></div>
+        <div class="info-item"><div class="label">发行商</div><div class="value">Rockstar Games</div></div>
+        <div class="info-item"><div class="label">发行日期</div><div class="value">2015 年 4 月 13 日</div></div>
+        <div class="info-item"><div class="label">类型</div><div class="value">动作, 冒险</div></div>
+        <div class="info-item"><div class="label">Metacritic</div><div class="value">96</div></div>
+        <div class="info-item"><div class="label">Steam</div><div class="value"><a href="https://store.steampowered.com/app/271590" target="_blank">查看商店页 →</a></div></div>
+      </div>
+    </div>
+
+    
+    <div class="section">
+      <h2>📖 关于这款游戏</h2>
+      <div class="desc">一个初涉江湖的街头新丁、一个洗手多年的银行劫匪和一个丧心病狂的杀人狂魔，误打误撞中深陷犯罪集团、美国政府和娱乐产业之间盘根错杂的恐怖困境。他们必须齐心协力，接连完成九死一生的惊天劫案，才能在这个冷血无情的城市中苟延残喘。不要相信任何人，尤其是你的同伙！ 
+
+PC 版Grand Theft Auto V 能够以超越 4K 的最高分辨率和 60 帧每秒的帧率，为您呈现屡获殊荣、令人痴迷的游戏世界——洛桑托斯市和布雷恩郡。 
+
+游戏为 PC 玩家提供了巨细无遗的独享自定义选项，包括纹理质量、着色器、曲面细分、反锯齿等超过 25 种不同设定，还有支持键鼠操控的广泛自定义功能。其他选项包括可控制车辆和行人流量的人口密度滑杆，以及对双屏、三屏、3D 和即插即用手柄的支持。
+
+Grand Theft Auto V 同时包含 Grand Theft Auto 在线模式，这个活力四射、瞬息万变的联网世界支持多达 30 位玩家同时进行游戏，并且囊括了自发布以来的所有游戏升级以及内容更新。您可以凭借非法贸易发家致富，以 CEO 的身份一手打造自己的犯罪帝国；创立摩托车会以称霸街头；携手好友上演逆天抢劫任务；体验命悬一线的特技竞速；在独特的竞争模式中一展身手；更可以信马由缰，亲手为游戏创作新内容，并与全世界的 GTA 玩家共享。
+
+PC 版 Grand Theft Auto V 和 GTA 在线模式同时提供第一视角模式，让玩家能够以全新方式探索游戏中洛桑托斯市和布雷恩郡细腻逼真、令人惊艳的种种细节。 
+
+随着 PC 版 Grand Theft Auto V 的推出，Rockstar 编辑器也一并登场。作为一套功能强大的创作工具，它能让玩家快速轻松地录制、编辑和分享在 Grand Theft Auto V 及 GTA 在线模式中的游戏影像。Rockstar 编辑器的导演模式能让玩</div>
+    </div>
+
+    
+    <div class="section">
+      <h2>📸 游戏截图</h2>
+      <div class="ss-grid">
+        <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/271590/ss_32aa18ab3175e3002217862dd5917646d298ab6b.1920x1080.jpg?t=1765387725" alt="" loading="lazy">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/271590/ss_2744f112fa060320d191a50e8b3a92441a648a56.1920x1080.jpg?t=1765387725" alt="" loading="lazy">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/271590/ss_da39c16db175f6973770bae6b91d411251763152.1920x1080.jpg?t=1765387725" alt="" loading="lazy">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/271590/ss_bd5db78286be0a7c6b2c62519099a9e27e6b06f3.1920x1080.jpg?t=1765387725" alt="" loading="lazy">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/271590/ss_b1a1cb7959d6a0e6fcb2d06ebf97a66c9055cef3.1920x1080.jpg?t=1765387725" alt="" loading="lazy">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/271590/ss_bc5fc79d3366c837372327717249a4887aa46d63.1920x1080.jpg?t=1765387725" alt="" loading="lazy">
+
+      </div>
+    </div>
+
+    
+    <div class="section">
+      <h2>💻 系统配置要求</h2>
+      <div class="reqs">
+        <div class="req-item"><h3>最低配置</h3><div class="req-text"><strong>最低配置:</strong><br><ul class="bb_ul"><li>需要 64 位处理器和操作系统<br></li><li><strong>操作系统:</strong> Windows 10 64 位<br></li><li><strong>处理器:</strong> Intel Core 2 Quad CPU Q6600 @ 2.40GHz (4 个 CPU) / AMD Phenom 9850 Quad-Core 处理器 (4 个 CPU) @ 2.5GHz<br></li><li><strong>内存:</strong> 4 GB RAM<br></li><li><strong>显卡:</strong> NVIDIA 9800 GT 1GB / AMD HD 4870 1GB (DX 10、10.1、11) 声卡：100% DirectX 10 兼容<br></li><li><strong>存储空间:</strong> 需要 125 GB 可用空间<br></li><li><strong>声卡:</strong> 100% DirectX 10 兼容<br></li><li><strong>附注事项:</strong> 系统需求会因为陆续推出之下载内容与提供的程序变更而有所改变。如需最新兼容性信息，请洽硬件制造商和参阅  AGP 显示适配器等可能不兼容。未于上方列出的规格，游戏发行商可能不支持。  其他需求：安装游戏和进行在线游戏时需登入至 Rockstar Games Social Club (需年满十三岁) 网络；启动游戏、进行在线游戏和定期资格验证需有因特网联机；需安装的软件包括 Rockstar Games Social Club 平台、DirectX、Chromium 和 Microsoft Visual C++ 2008 sp1 可转散发套件，以及可辨识资格、数字权利管理、系统和可供其他支持用途使用的验证软件。  需透过因特网使用限单次使用的序码注册；每组序码限一个 ROCKSTAR GAMES SOCIAL CLUB 账户 (需年满十三岁) 注册使用；每个 SOCIAL CLUB 账户仅限使用一组 PC 登入数据；序码一经使用即不可转让；SOCIAL CLUB 账户为不可转让之账户。  合作伙伴需求：购买此软件前，请先查看本网站的服务条款。</li></ul></div></div><div class="req-item"><h3>推荐配置</h3><div class="req-text"><strong>推荐配置:</strong><br><ul class="bb_ul"><li>需要 64 位处理器和操作系统<br></li><li><strong>操作系统:</strong> Windows 10 64 位<br></li><li><strong>处理器:</strong> Intel Core i5 3470 @ 3.2GHZ (4 个 CPU) / AMD X8 FX-8350 @ 4GHZ (8 个 CPU)<br></li><li><strong>内存:</strong> 8 GB RAM<br></li><li><strong>显卡:</strong> NVIDIA GTX 660 2GB / AMD HD7870 2GB<br></li><li><strong>存储空间:</strong> 需要 125 GB 可用空间<br></li><li><strong>声卡:</strong> 100% DirectX 10 兼容</li></ul></div></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>

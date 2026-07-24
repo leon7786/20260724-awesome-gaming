@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>双人成行 - It Takes Two - 游戏详情</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Segoe UI','Microsoft YaHei',sans-serif;background:#f5f5f7;color:#1a1a2e;line-height:1.6}
+.topbar{background:#ffffff;border-bottom:1px solid #e0e0e4;padding:12px 0;position:sticky;top:0;z-index:100}
+.topbar .container{display:flex;align-items:center;gap:16px}
+.container{max-width:1200px;margin:0 auto;padding:0 20px}
+.back{color:#6d28d9;text-decoration:none;font-size:14px;font-weight:500;display:flex;align-items:center;gap:4px}
+.back:hover{text-decoration:underline}
+.back-btn{background:#6d28d9;color:#fff;padding:6px 14px;border-radius:4px;text-decoration:none;font-size:13px}
+.back-btn:hover{background:#5b21b6}
+
+/* Steam风格头部 */
+.hero{background:linear-gradient(180deg,#f0f0f5 0%,#e8e8f0 100%);color:#1a1a2e;padding:30px 0 0;border-bottom:1px solid #e0e0e4}
+.hero .container{display:flex;gap:30px;flex-wrap:wrap}
+.hero-info{flex:1;min-width:280px}
+.hero-info h1{font-size:26px;margin-bottom:4px}
+.hero-info .en{color:#888;font-size:14px;margin-bottom:12px}
+.hero-info .meta{display:flex;gap:6px;margin-bottom:14px;flex-wrap:wrap}
+.hero .tag{font-size:12px;padding:3px 10px;border-radius:4px;background:#e8e8ec;color:#555}
+.hero .tag.mc{background:#6d28d922;color:#6d28d9}
+.hero .tag.sales{background:#e11d4822;color:#e11d48}
+.hero-img{width:460px;max-width:100%;border-radius:8px;flex-shrink:0;box-shadow:0 2px 12px rgba(0,0,0,0.08)}
+
+/* Steam风格内容区 */
+.content{padding:24px 0}
+.section{background:#fff;border-radius:8px;border:1px solid #e0e0e4;padding:24px;margin-bottom:16px}
+.section h2{font-size:18px;color:#1a1a2e;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid #e0e0e4}
+
+/* 简介 */
+.desc{font-size:15px;color:#444;line-height:1.7}
+.desc a{color:#6d28d9}
+
+/* 下载区 */
+.dl-section{background:#fff;border-radius:8px;border:1px solid #e0e0e4;padding:24px;margin-bottom:16px}
+.dl-section h2{font-size:18px;color:#1a1a2e;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid #e0e0e4}
+.dl-buttons{display:flex;flex-wrap:wrap;gap:8px}
+.dl-btn{display:inline-flex;align-items:center;gap:5px;padding:8px 16px;border-radius:6px;font-size:13px;text-decoration:none;color:#fff;transition:all .2s;font-weight:500}
+.dl-btn:hover{filter:brightness(1.1);transform:translateY(-1px)}
+.dl-btn.gamer520{background:#10b981}
+.dl-btn.x6d{background:#3b82f6}
+.dl-btn.tianyi{background:#6366f1}
+.dl-btn.baidu{background:#2563eb}
+.dl-btn.magnet{background:#ef4444}
+.dl-btn.fitgirl{background:#f59e0b}
+.dl-btn.steamzg{background:#8b5cf6}
+.dl-btn.crotorrents{background:#ec4899}
+
+/* Steam信息网格 */
+.info-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:16px}
+.info-item{}
+.info-item .label{font-size:12px;color:#888;text-transform:uppercase;letter-spacing:0.5px}
+.info-item .value{font-size:14px;color:#1a1a2e;margin-top:2px}
+.info-item .value a{color:#6d28d9;text-decoration:none}
+.info-item .value a:hover{text-decoration:underline}
+
+/* 截图 */
+.ss-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:8px}
+.ss-grid img{width:100%;border-radius:6px;cursor:pointer;transition:transform .2s}
+.ss-grid img:hover{transform:scale(1.02)}
+
+/* 配置要求 */
+.reqs{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media(max-width:768px){.reqs{grid-template-columns:1fr}}
+.req-item{}
+.req-item h3{font-size:14px;color:#1a1a2e;margin-bottom:8px;padding-bottom:4px;border-bottom:1px solid #e0e0e4}
+.req-text{font-size:13px;color:#555;line-height:1.6}
+.req-text ul{list-style:none;padding:0}
+.req-text li{padding:2px 0}
+.req-text strong{color:#1a1a2e}
+
+@media(max-width:768px){.hero-img{width:100%}.ss-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="container">
+    <a href="../index.html" class="back">← 返回游戏榜单</a>
+    <a href="https://store.steampowered.com/app/1426210" target="_blank" class="back-btn" style="margin-left:auto">Steam 商店页</a>
+  </div>
+</div>
+
+<div class="hero">
+  <div class="container">
+    <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1426210/library_600x900.jpg" alt="It Takes Two" class="hero-img" onerror="this.style.display='none'">
+    <div class="hero-info">
+      <h1>双人成行</h1>
+      <div class="en">It Takes Two</div>
+      <div class="meta">
+        <span class="tag">2021</span>
+        <span class="tag mc">评分 </span>
+        <span class="tag mc">口碑Top</span><span class="tag sales">销量Top</span>
+        <span class="tag">动作, 冒险</span>
+      </div>
+      <div class="desc">游玩《双人成行》，踏上生命中最疯狂的旅程。利用好友通行证*邀请一位好友免费游玩，共同体验多种多样的乐趣，享受颠覆性的玩法挑战。</div>
+    </div>
+  </div>
+</div>
+
+<div class="content">
+  <div class="container">
+
+    <div class="dl-section">
+      <h2>📥 下载链接</h2>
+      <div class="dl-buttons">
+<a href="https://www.gamer520.com/14520.html" class="dl-btn gamer520" target="_blank">🎮 gamer520</a>
+<a href="https://www.x6d.com/i-wz-14533.html" class="dl-btn x6d" target="_blank">📦 x6d</a>
+<a href="https://cloud.189.cn/t/6by6B3f67RFr" class="dl-btn tianyi" target="_blank">☁️ 天翼云</a>
+<a href="https://pan.baidu.com/s/1cK12ABymJ87063oXhlyGFA" class="dl-btn baidu" target="_blank">📀 百度网盘</a>
+
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>📋 游戏信息</h2>
+      <div class="info-grid">
+        <div class="info-item"><div class="label">开发商</div><div class="value">Hazelight Studios</div></div>
+        <div class="info-item"><div class="label">发行商</div><div class="value">Electronic Arts</div></div>
+        <div class="info-item"><div class="label">发行日期</div><div class="value">2021 年 3 月 25 日</div></div>
+        <div class="info-item"><div class="label">类型</div><div class="value">动作, 冒险</div></div>
+        <div class="info-item"><div class="label">Metacritic</div><div class="value">89</div></div>
+        <div class="info-item"><div class="label">Steam</div><div class="value"><a href="https://store.steampowered.com/app/1426210" target="_blank">查看商店页 →</a></div></div>
+      </div>
+    </div>
+
+    
+    <div class="section">
+      <h2>📖 关于这款游戏</h2>
+      <div class="desc">游玩《双人成行》，踏上生命中最疯狂的旅程，这是一款别开生面的平台冒险游戏，完全为合作模式而设计。利用好友通行证*邀请一位好友免费游玩，共同体验多种多样的乐趣，享受颠覆性的玩法挑战。扮演相互看不顺眼的科迪和小梅夫妇，这两个人被魔咒变成了玩偶。他们一起被困在一个奇幻世界里，每个角落都隐藏着意想不到的东西，他们不得不一起克服挑战，同时挽救他们破裂的关系。在每个新关卡中，掌握角色独特且与对方息息相关的能力。一定要互相帮助，克服大量出乎意料的障碍，共度搞笑欢乐的时刻。用力踢流氓松鼠毛茸茸的尾巴，绕过一条内裤，在热闹的夜店里开舞会，坐雪橇穿过神奇的雪花玻璃球。一个真挚又搞笑的故事在游戏中徐徐展开，交织成独特的隐喻体验。《双人成行》由业界合作游戏领导者且屡获殊荣的工作室 Hazelight 开发。他们即将带您踏上狂野而奇妙的旅程，只有一件事是确定的：二人同心，其利断金。主要特色纯粹而完美的合作模式——通过远程同乐**邀请好友免费畅玩，体验一场纯粹为两位玩家打造的惊奇冒险。体验分屏显示模式，选择本地合作或在线联机，面对不断变化的挑战，团结一致是前进的唯一途径。搞笑又颠覆想像的游戏——从暴走的真空吸尘器到走心的爱情大师，您永远不会知道接下来会遇到什么。每个关卡都有大量别开生面的挑战和需要掌握的全新角色技能，体验故事和游戏交织的隐喻风格，推动互动式故事徐徐展开。关于人际关系的故事——在克服挑战的相处中发现真挚情感。帮助科迪和小梅学习如何克服他们之间的分歧。结识各种奇特和可爱的角色。团结一致，一起踏上冒险之旅！关于 HAZELIGHTHazelight 位于瑞典斯德哥尔摩，是一家屡获殊荣的独立游戏开发工作室。在 2014 年由 Josef Fares（影片导演和获奖游戏《兄弟：双子传说》的创作者）创办，Hazelight 致力于推动游戏的创意界限。在 2018 年，Hazelight 发布了荣获</div>
+    </div>
+
+    
+    <div class="section">
+      <h2>📸 游戏截图</h2>
+      <div class="ss-grid">
+        <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1426210/ss_3e59753eefaba9a7704a18e902b48e8d38e95e0b.1920x1080.jpg?t=1777395376" alt="" loading="lazy">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1426210/ss_6e987a0678b013bfd0073a9ac4703e1f04ca4dea.1920x1080.jpg?t=1777395376" alt="" loading="lazy">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1426210/ss_fdac523e3ea4d2f32a44449bb8c224857563bd7d.1920x1080.jpg?t=1777395376" alt="" loading="lazy">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1426210/ss_4a62bc8fa398fc5b2094a6225dc5ecff9485f824.1920x1080.jpg?t=1777395376" alt="" loading="lazy">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1426210/ss_a15164ddd357ab3c0b2aff575a6b215b2d91b406.1920x1080.jpg?t=1777395376" alt="" loading="lazy">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1426210/ss_d7a931229cbf1cc25975bb5860cbde5b9bbc826a.1920x1080.jpg?t=1777395376" alt="" loading="lazy">
+
+      </div>
+    </div>
+
+    
+    <div class="section">
+      <h2>💻 系统配置要求</h2>
+      <div class="reqs">
+        <div class="req-item"><h3>最低配置</h3><div class="req-text"><strong>最低配置:</strong><br><ul class="bb_ul"><li>需要 64 位处理器和操作系统<br></li><li><strong>操作系统 *:</strong> Windows 8.1 64-bit or Windows 10 64-bit<br></li><li><strong>处理器:</strong> Intel Core i3-2100T or AMD FX 6100<br></li><li><strong>内存:</strong> 8 GB RAM<br></li><li><strong>显卡:</strong> Nvidia GeForce GTX 660 or AMD R7 260x<br></li><li><strong>DirectX 版本:</strong> 11<br></li><li><strong>网络:</strong> 宽带互联网连接<br></li><li><strong>存储空间:</strong> 需要 50 GB 可用空间</li></ul></div></div><div class="req-item"><h3>推荐配置</h3><div class="req-text"><strong>推荐配置:</strong><br><ul class="bb_ul"><li>需要 64 位处理器和操作系统<br></li><li><strong>操作系统 *:</strong> Windows 8.1 64-bit or Windows 10 64-bit<br></li><li><strong>处理器:</strong> Intel Core i5 3570K or AMD Ryzen 3 1300x<br></li><li><strong>内存:</strong> 16 GB RAM<br></li><li><strong>显卡:</strong> Nvidia GeForce GTX 980 or AMD R9 290X<br></li><li><strong>DirectX 版本:</strong> 11<br></li><li><strong>网络:</strong> 宽带互联网连接<br></li><li><strong>存储空间:</strong> 需要 50 GB 可用空间</li></ul></div></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>

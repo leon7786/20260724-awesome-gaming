@@ -1,0 +1,158 @@
+1|<!DOCTYPE html>
+2|<html lang="zh-CN">
+3|<head>
+4|<meta charset="UTF-8">
+5|<meta name="viewport" content="width=device-width, initial-scale=1.0">
+6|<title>光与影：33号远征队 - Clair Obscur: Expedition 33 - 游戏详情</title>
+7|<style>
+8|*{margin:0;padding:0;box-sizing:border-box}
+9|body{font-family:'Segoe UI','Microsoft YaHei',sans-serif;background:#f5f5f7;color:#1a1a2e;line-height:1.6}
+10|.topbar{background:#ffffff;border-bottom:1px solid #e0e0e4;padding:12px 0;position:sticky;top:0;z-index:100}
+11|.topbar .container{display:flex;align-items:center;gap:16px}
+12|.container{max-width:1200px;margin:0 auto;padding:0 20px}
+13|.back{color:#6d28d9;text-decoration:none;font-size:14px;font-weight:500;display:flex;align-items:center;gap:4px}
+14|.back:hover{text-decoration:underline}
+15|.back-btn{background:#6d28d9;color:#fff;padding:6px 14px;border-radius:4px;text-decoration:none;font-size:13px}
+16|.back-btn:hover{background:#5b21b6}
+17|
+18|/* Steam风格头部 */
+19|.hero{background:linear-gradient(180deg,#f0f0f5 0%,#e8e8f0 100%);color:#1a1a2e;padding:30px 0 0;border-bottom:1px solid #e0e0e4}
+20|.hero .container{display:flex;gap:30px;flex-wrap:wrap}
+21|.hero-info{flex:1;min-width:280px}
+22|.hero-info h1{font-size:26px;margin-bottom:4px}
+23|.hero-info .en{color:#888;font-size:14px;margin-bottom:12px}
+24|.hero-info .meta{display:flex;gap:6px;margin-bottom:14px;flex-wrap:wrap}
+25|.hero .tag{font-size:12px;padding:3px 10px;border-radius:4px;background:#e8e8ec;color:#555}
+26|.hero .tag.mc{background:#6d28d922;color:#6d28d9}
+27|.hero .tag.sales{background:#e11d4822;color:#e11d48}
+28|.hero-img{width:460px;max-width:100%;border-radius:8px;flex-shrink:0;box-shadow:0 2px 12px rgba(0,0,0,0.08)}
+29|
+30|/* Steam风格内容区 */
+31|.content{padding:24px 0}
+32|.section{background:#fff;border-radius:8px;border:1px solid #e0e0e4;padding:24px;margin-bottom:16px}
+33|.section h2{font-size:18px;color:#1a1a2e;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid #e0e0e4}
+34|
+35|/* 简介 */
+36|.desc{font-size:15px;color:#444;line-height:1.7}
+37|.desc a{color:#6d28d9}
+38|
+39|/* 下载区 */
+40|.dl-section{background:#fff;border-radius:8px;border:1px solid #e0e0e4;padding:24px;margin-bottom:16px}
+41|.dl-section h2{font-size:18px;color:#1a1a2e;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid #e0e0e4}
+42|.dl-buttons{display:flex;flex-wrap:wrap;gap:8px}
+43|.dl-btn{display:inline-flex;align-items:center;gap:5px;padding:8px 16px;border-radius:6px;font-size:13px;text-decoration:none;color:#fff;transition:all .2s;font-weight:500}
+44|.dl-btn:hover{filter:brightness(1.1);transform:translateY(-1px)}
+45|.dl-btn.gamer520{background:#10b981}
+46|.dl-btn.x6d{background:#3b82f6}
+47|.dl-btn.tianyi{background:#6366f1}
+48|.dl-btn.baidu{background:#2563eb}
+49|.dl-btn.magnet{background:#ef4444}
+50|.dl-btn.fitgirl{background:#f59e0b}
+51|.dl-btn.steamzg{background:#8b5cf6}
+52|.dl-btn.crotorrents{background:#ec4899}
+53|
+54|/* Steam信息网格 */
+55|.info-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:16px}
+56|.info-item{}
+57|.info-item .label{font-size:12px;color:#888;text-transform:uppercase;letter-spacing:0.5px}
+58|.info-item .value{font-size:14px;color:#1a1a2e;margin-top:2px}
+59|.info-item .value a{color:#6d28d9;text-decoration:none}
+60|.info-item .value a:hover{text-decoration:underline}
+61|
+62|/* 截图 */
+63|.ss-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:8px}
+64|.ss-grid img{width:100%;border-radius:6px;cursor:pointer;transition:transform .2s}
+65|.ss-grid img:hover{transform:scale(1.02)}
+66|
+67|/* 配置要求 */
+68|.reqs{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+69|@media(max-width:768px){.reqs{grid-template-columns:1fr}}
+70|.req-item{}
+71|.req-item h3{font-size:14px;color:#1a1a2e;margin-bottom:8px;padding-bottom:4px;border-bottom:1px solid #e0e0e4}
+72|.req-text{font-size:13px;color:#555;line-height:1.6}
+73|.req-text ul{list-style:none;padding:0}
+74|.req-text li{padding:2px 0}
+75|.req-text strong{color:#1a1a2e}
+76|
+77|@media(max-width:768px){.hero-img{width:100%}.ss-grid{grid-template-columns:1fr}}
+78|</style>
+79|</head>
+80|<body>
+81|
+82|<div class="topbar">
+83|  <div class="container">
+84|    <a href="../index.html" class="back">← 返回游戏榜单</a>
+85|    <a href="https://store.steampowered.com/app/3153950" target="_blank" class="back-btn" style="margin-left:auto">Steam 商店页</a>
+86|  </div>
+87|</div>
+88|
+89|<div class="hero">
+90|  <div class="container">
+91|    <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3153950/library_600x900.jpg" alt="Clair Obscur: Expedition 33" class="hero-img" onerror="this.style.display='none'">
+92|    <div class="hero-info">
+93|      <h1>光与影：33号远征队</h1>
+94|      <div class="en">Clair Obscur: Expedition 33</div>
+95|      <div class="meta">
+96|        <span class="tag">2025</span>
+97|        <span class="tag mc">评分 </span>
+98|        <span class="tag mc">口碑Top</span>
+99|        <span class="tag">休闲, 独立, 模拟, 免费开玩</span>
+100|      </div>
+101|      <div class="desc">《光与影：33号远征队》是一款回合制角色扮演游戏，融合了即时动作元素。故事设定在一个被神秘诅咒笼罩的世界，每年都会有一位画师被选中，踏上远征以拯救世界。</div>
+102|    </div>
+103|  </div>
+104|</div>
+105|
+106|<div class="content">
+107|  <div class="container">
+108|
+109|    <div class="dl-section">
+110|      <h2>📥 下载链接</h2>
+111|      <div class="dl-buttons">
+112|<p style="color:#999;font-size:13px">暂无下载链接</p>
+113|      </div>
+114|    </div>
+115|
+116|    <div class="section">
+117|      <h2>📋 游戏信息</h2>
+118|      <div class="info-grid">
+119|        <div class="info-item"><div class="label">开发商</div><div class="value">Tuples</div></div>
+120|        <div class="info-item"><div class="label">发行商</div><div class="value">Tuples</div></div>
+121|        <div class="info-item"><div class="label">发行日期</div><div class="value">即将推出</div></div>
+122|        <div class="info-item"><div class="label">类型</div><div class="value">休闲, 独立, 模拟, 免费开玩</div></div>
+123|        <div class="info-item"><div class="label">Metacritic</div><div class="value">待补充</div></div>
+124|        <div class="info-item"><div class="label">Steam</div><div class="value"><a href="https://store.steampowered.com/app/3153950" target="_blank">查看商店页 →</a></div></div>
+125|      </div>
+126|    </div>
+127|
+128|    
+129|    <div class="section">
+130|      <h2>📖 关于这款游戏</h2>
+131|      <div class="desc">在《光与影：33号远征队》中，你将扮演第33位被选中的画师，探索一个充满艺术与魔法的世界。独特的回合制战斗系统与即时反应机制相结合，带来全新的RPG体验。探索美丽的场景，揭开隐藏的秘密，拯救被诅咒的世界。</div>
+163|    </div>
+164|
+165|    
+166|    <div class="section">
+167|      <h2>📸 游戏截图</h2>
+168|      <div class="ss-grid">
+169|        <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3153950/ss_282ca48382de1589f3292d2176c849f8b5a807fe.1920x1080.jpg?t=1727107624" alt="" loading="lazy">
+170|<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3153950/ss_17c1e617f8c2fe86e73d9f427e730101278f72f2.1920x1080.jpg?t=1727107624" alt="" loading="lazy">
+171|<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3153950/ss_09e9f2af8b85be69accb3e6bb9df54a132a5e411.1920x1080.jpg?t=1727107624" alt="" loading="lazy">
+172|<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3153950/ss_5c1c0c2d95eee0d56c18ce45958d6dd87355e0f8.1920x1080.jpg?t=1727107624" alt="" loading="lazy">
+173|<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3153950/ss_4b0e55e93e7267d0db96b36c5baa80beb5f72280.1920x1080.jpg?t=1727107624" alt="" loading="lazy">
+174|
+175|      </div>
+176|    </div>
+177|
+178|    
+179|    <div class="section">
+180|      <h2>💻 系统配置要求</h2>
+181|      <div class="reqs">
+182|        <div class="req-item"><h3>最低配置</h3><div class="req-text"><strong>最低配置:</strong><br><ul class="bb_ul"><li><strong>操作系统:</strong> Windows 10</li></ul></div></div>
+183|      </div>
+184|    </div>
+185|
+186|  </div>
+187|</div>
+188|</body>
+189|</html>

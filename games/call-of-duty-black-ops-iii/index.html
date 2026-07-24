@@ -1,0 +1,159 @@
+1|<!DOCTYPE html>
+2|<html lang="zh-CN">
+3|<head>
+4|<meta charset="UTF-8">
+5|<meta name="viewport" content="width=device-width, initial-scale=1.0">
+6|<title>使命召唤：黑色行动3 - Call of Duty: Black Ops III - 游戏详情</title>
+7|<style>
+8|*{margin:0;padding:0;box-sizing:border-box}
+9|body{font-family:'Segoe UI','Microsoft YaHei',sans-serif;background:#f5f5f7;color:#1a1a2e;line-height:1.6}
+10|.topbar{background:#ffffff;border-bottom:1px solid #e0e0e4;padding:12px 0;position:sticky;top:0;z-index:100}
+11|.topbar .container{display:flex;align-items:center;gap:16px}
+12|.container{max-width:1200px;margin:0 auto;padding:0 20px}
+13|.back{color:#6d28d9;text-decoration:none;font-size:14px;font-weight:500;display:flex;align-items:center;gap:4px}
+14|.back:hover{text-decoration:underline}
+15|.back-btn{background:#6d28d9;color:#fff;padding:6px 14px;border-radius:4px;text-decoration:none;font-size:13px}
+16|.back-btn:hover{background:#5b21b6}
+17|
+18|/* Steam风格头部 */
+19|.hero{background:linear-gradient(180deg,#f0f0f5 0%,#e8e8f0 100%);color:#1a1a2e;padding:30px 0 0;border-bottom:1px solid #e0e0e4}
+20|.hero .container{display:flex;gap:30px;flex-wrap:wrap}
+21|.hero-info{flex:1;min-width:280px}
+22|.hero-info h1{font-size:26px;margin-bottom:4px}
+23|.hero-info .en{color:#888;font-size:14px;margin-bottom:12px}
+24|.hero-info .meta{display:flex;gap:6px;margin-bottom:14px;flex-wrap:wrap}
+25|.hero .tag{font-size:12px;padding:3px 10px;border-radius:4px;background:#e8e8ec;color:#555}
+26|.hero .tag.mc{background:#6d28d922;color:#6d28d9}
+27|.hero .tag.sales{background:#e11d4822;color:#e11d48}
+28|.hero-img{width:460px;max-width:100%;border-radius:8px;flex-shrink:0;box-shadow:0 2px 12px rgba(0,0,0,0.08)}
+29|
+30|/* Steam风格内容区 */
+31|.content{padding:24px 0}
+32|.section{background:#fff;border-radius:8px;border:1px solid #e0e0e4;padding:24px;margin-bottom:16px}
+33|.section h2{font-size:18px;color:#1a1a2e;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid #e0e0e4}
+34|
+35|/* 简介 */
+36|.desc{font-size:15px;color:#444;line-height:1.7}
+37|.desc a{color:#6d28d9}
+38|
+39|/* 下载区 */
+40|.dl-section{background:#fff;border-radius:8px;border:1px solid #e0e0e4;padding:24px;margin-bottom:16px}
+41|.dl-section h2{font-size:18px;color:#1a1a2e;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid #e0e0e4}
+42|.dl-buttons{display:flex;flex-wrap:wrap;gap:8px}
+43|.dl-btn{display:inline-flex;align-items:center;gap:5px;padding:8px 16px;border-radius:6px;font-size:13px;text-decoration:none;color:#fff;transition:all .2s;font-weight:500}
+44|.dl-btn:hover{filter:brightness(1.1);transform:translateY(-1px)}
+45|.dl-btn.gamer520{background:#10b981}
+46|.dl-btn.x6d{background:#3b82f6}
+47|.dl-btn.tianyi{background:#6366f1}
+48|.dl-btn.baidu{background:#2563eb}
+49|.dl-btn.magnet{background:#ef4444}
+50|.dl-btn.fitgirl{background:#f59e0b}
+51|.dl-btn.steamzg{background:#8b5cf6}
+52|.dl-btn.crotorrents{background:#ec4899}
+53|
+54|/* Steam信息网格 */
+55|.info-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:16px}
+56|.info-item{}
+57|.info-item .label{font-size:12px;color:#888;text-transform:uppercase;letter-spacing:0.5px}
+58|.info-item .value{font-size:14px;color:#1a1a2e;margin-top:2px}
+59|.info-item .value a{color:#6d28d9;text-decoration:none}
+60|.info-item .value a:hover{text-decoration:underline}
+61|
+62|/* 截图 */
+63|.ss-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:8px}
+64|.ss-grid img{width:100%;border-radius:6px;cursor:pointer;transition:transform .2s}
+65|.ss-grid img:hover{transform:scale(1.02)}
+66|
+67|/* 配置要求 */
+68|.reqs{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+69|@media(max-width:768px){.reqs{grid-template-columns:1fr}}
+70|.req-item{}
+71|.req-item h3{font-size:14px;color:#1a1a2e;margin-bottom:8px;padding-bottom:4px;border-bottom:1px solid #e0e0e4}
+72|.req-text{font-size:13px;color:#555;line-height:1.6}
+73|.req-text ul{list-style:none;padding:0}
+74|.req-text li{padding:2px 0}
+75|.req-text strong{color:#1a1a2e}
+76|
+77|@media(max-width:768px){.hero-img{width:100%}.ss-grid{grid-template-columns:1fr}}
+78|</style>
+79|</head>
+80|<body>
+81|
+82|<div class="topbar">
+83|  <div class="container">
+84|    <a href="../index.html" class="back">← 返回游戏榜单</a>
+85|    <a href="https://store.steampowered.com/app/311210" target="_blank" class="back-btn" style="margin-left:auto">Steam 商店页</a>
+86|  </div>
+87|</div>
+88|
+89|<div class="hero">
+90|  <div class="container">
+91|    <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/311210/library_600x900.jpg" alt="Call of Duty: Black Ops III" class="hero-img" onerror="this.style.display='none'">
+92|    <div class="hero-info">
+93|      <h1>使命召唤：黑色行动3</h1>
+94|      <div class="en">Call of Duty: Black Ops III</div>
+95|      <div class="meta">
+96|        <span class="tag">2015</span>
+97|        <span class="tag mc">评分 91</span>
+98|        <span class="tag sales">销量Top</span>
+99|        <span class="tag">动作, 冒险</span>
+100|      </div>
+101|      <div class="desc">《使命召唤：黑色行动3》是一款第一人称射击游戏，背景设定在 dystopian 未来世界。玩家将扮演一名增强型士兵，拥有先进的战斗能力和装备。游戏包含单人战役、多人模式和僵尸模式。</div>
+102|    </div>
+103|  </div>
+104|</div>
+105|
+106|<div class="content">
+107|  <div class="container">
+108|
+109|    <div class="dl-section">
+110|      <h2>📥 下载链接</h2>
+111|      <div class="dl-buttons">
+112|<p style="color:#999;font-size:13px">暂无下载链接</p>
+113|      </div>
+114|    </div>
+115|
+116|    <div class="section">
+117|      <h2>📋 游戏信息</h2>
+118|      <div class="info-grid">
+119|        <div class="info-item"><div class="label">开发商</div><div class="value">Treyarch, Aspyr (Mac)</div></div>
+120|        <div class="info-item"><div class="label">发行商</div><div class="value">Activision, Aspyr (Mac)</div></div>
+121|        <div class="info-item"><div class="label">发行日期</div><div class="value">2015 年 11 月 5 日</div></div>
+122|        <div class="info-item"><div class="label">类型</div><div class="value">动作, 冒险</div></div>
+123|        <div class="info-item"><div class="label">Metacritic</div><div class="value">73</div></div>
+124|        <div class="info-item"><div class="label">Steam</div><div class="value"><a href="https://store.steampowered.com/app/311210" target="_blank">查看商店页 →</a></div></div>
+125|      </div>
+126|    </div>
+127|
+128|    
+129|    <div class="section">
+130|      <h2>📖 关于这款游戏</h2>
+131|      <div class="desc">《使命召唤：黑色行动3》将玩家带入一个黑暗扭曲的未来世界。单人战役支持四人合作，引入了全新的角色定制系统。多人模式提供了全新的移动系统和专业能力。僵尸模式带来了完整的原创剧情体验。</div>
+136|    </div>
+137|
+138|    
+139|    <div class="section">
+140|      <h2>📸 游戏截图</h2>
+141|      <div class="ss-grid">
+142|        <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/311210/ss_ca7376d838d5714f916936f0070824c27c4c5641.1920x1080.jpg?t=1780963650" alt="" loading="lazy">
+143|<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/311210/ss_150874824f4fff0915e63ea2ade5410e576a2b70.1920x1080.jpg?t=1780963650" alt="" loading="lazy">
+144|<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/311210/ss_4b270e7a32d3a93a8119e7bcc3d8dcaa784f84f1.1920x1080.jpg?t=1780963650" alt="" loading="lazy">
+145|<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/311210/ss_c4f8101a3529e2e430641af1e061926b1f57e4e7.1920x1080.jpg?t=1780963650" alt="" loading="lazy">
+146|<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/311210/ss_5f7f870196c956da97f37b066310e963643a63a8.1920x1080.jpg?t=1780963650" alt="" loading="lazy">
+147|<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/311210/ss_3a84113daacead987f549fbc3bd95fa9e66a833b.1920x1080.jpg?t=1780963650" alt="" loading="lazy">
+148|
+149|      </div>
+150|    </div>
+151|
+152|    
+153|    <div class="section">
+154|      <h2>💻 系统配置要求</h2>
+155|      <div class="reqs">
+156|        <div class="req-item"><h3>最低配置</h3><div class="req-text"><strong>最低配置:</strong><br><ul class="bb_ul"><li><strong>操作系统 *:</strong> Windows 7 64-Bit / Windows 8 64-Bit / Windows 8.1 64-Bit<br></li><li><strong>处理器:</strong> Intel® Core™ i3-530 @ 2.93 GHz / AMD Phenom™ II X4 810 @ 2.60 GHz<br></li><li><strong>内存:</strong> 6 GB RAM<br></li><li><strong>显卡:</strong> NVIDIA® GeForce® GTX 470 @ 1GB / ATI® Radeon™ HD 6970 @ 1GB<br></li><li><strong>DirectX 版本:</strong> 11<br></li><li><strong>网络:</strong> 宽带互联网连接<br></li><li><strong>存储空间:</strong> 需要 100 GB 可用空间<br></li><li><strong>声卡:</strong> DirectX Compatible</li></ul></div></div>
+157|      </div>
+158|    </div>
+159|
+160|  </div>
+161|</div>
+162|</body>
+163|</html>

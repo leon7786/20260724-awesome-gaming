@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>博德之门3 - Baldur's Gate 3 - 游戏详情</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Segoe UI','Microsoft YaHei',sans-serif;background:#f5f5f7;color:#1a1a2e;line-height:1.6}
+.topbar{background:#ffffff;border-bottom:1px solid #e0e0e4;padding:12px 0;position:sticky;top:0;z-index:100}
+.topbar .container{display:flex;align-items:center;gap:16px}
+.container{max-width:1200px;margin:0 auto;padding:0 20px}
+.back{color:#6d28d9;text-decoration:none;font-size:14px;font-weight:500;display:flex;align-items:center;gap:4px}
+.back:hover{text-decoration:underline}
+.back-btn{background:#6d28d9;color:#fff;padding:6px 14px;border-radius:4px;text-decoration:none;font-size:13px}
+.back-btn:hover{background:#5b21b6}
+
+/* Steam风格头部 */
+.hero{background:linear-gradient(180deg,#f0f0f5 0%,#e8e8f0 100%);color:#1a1a2e;padding:30px 0 0;border-bottom:1px solid #e0e0e4}
+.hero .container{display:flex;gap:30px;flex-wrap:wrap}
+.hero-info{flex:1;min-width:280px}
+.hero-info h1{font-size:26px;margin-bottom:4px}
+.hero-info .en{color:#888;font-size:14px;margin-bottom:12px}
+.hero-info .meta{display:flex;gap:6px;margin-bottom:14px;flex-wrap:wrap}
+.hero .tag{font-size:12px;padding:3px 10px;border-radius:4px;background:#e8e8ec;color:#555}
+.hero .tag.mc{background:#6d28d922;color:#6d28d9}
+.hero .tag.sales{background:#e11d4822;color:#e11d48}
+.hero-img{width:460px;max-width:100%;border-radius:8px;flex-shrink:0;box-shadow:0 2px 12px rgba(0,0,0,0.08)}
+
+/* Steam风格内容区 */
+.content{padding:24px 0}
+.section{background:#fff;border-radius:8px;border:1px solid #e0e0e4;padding:24px;margin-bottom:16px}
+.section h2{font-size:18px;color:#1a1a2e;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid #e0e0e4}
+
+/* 简介 */
+.desc{font-size:15px;color:#444;line-height:1.7}
+.desc a{color:#6d28d9}
+
+/* 下载区 */
+.dl-section{background:#fff;border-radius:8px;border:1px solid #e0e0e4;padding:24px;margin-bottom:16px}
+.dl-section h2{font-size:18px;color:#1a1a2e;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid #e0e0e4}
+.dl-buttons{display:flex;flex-wrap:wrap;gap:8px}
+.dl-btn{display:inline-flex;align-items:center;gap:5px;padding:8px 16px;border-radius:6px;font-size:13px;text-decoration:none;color:#fff;transition:all .2s;font-weight:500}
+.dl-btn:hover{filter:brightness(1.1);transform:translateY(-1px)}
+.dl-btn.gamer520{background:#10b981}
+.dl-btn.x6d{background:#3b82f6}
+.dl-btn.tianyi{background:#6366f1}
+.dl-btn.baidu{background:#2563eb}
+.dl-btn.magnet{background:#ef4444}
+.dl-btn.fitgirl{background:#f59e0b}
+.dl-btn.steamzg{background:#8b5cf6}
+.dl-btn.crotorrents{background:#ec4899}
+
+/* Steam信息网格 */
+.info-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:16px}
+.info-item{}
+.info-item .label{font-size:12px;color:#888;text-transform:uppercase;letter-spacing:0.5px}
+.info-item .value{font-size:14px;color:#1a1a2e;margin-top:2px}
+.info-item .value a{color:#6d28d9;text-decoration:none}
+.info-item .value a:hover{text-decoration:underline}
+
+/* 截图 */
+.ss-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:8px}
+.ss-grid img{width:100%;border-radius:6px;cursor:pointer;transition:transform .2s}
+.ss-grid img:hover{transform:scale(1.02)}
+
+/* 配置要求 */
+.reqs{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media(max-width:768px){.reqs{grid-template-columns:1fr}}
+.req-item{}
+.req-item h3{font-size:14px;color:#1a1a2e;margin-bottom:8px;padding-bottom:4px;border-bottom:1px solid #e0e0e4}
+.req-text{font-size:13px;color:#555;line-height:1.6}
+.req-text ul{list-style:none;padding:0}
+.req-text li{padding:2px 0}
+.req-text strong{color:#1a1a2e}
+
+@media(max-width:768px){.hero-img{width:100%}.ss-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="container">
+    <a href="../index.html" class="back">← 返回游戏榜单</a>
+    <a href="https://store.steampowered.com/app/1086940" target="_blank" class="back-btn" style="margin-left:auto">Steam 商店页</a>
+  </div>
+</div>
+
+<div class="hero">
+  <div class="container">
+    <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1086940/library_600x900.jpg" alt="Baldur's Gate 3" class="hero-img" onerror="this.style.display='none'">
+    <div class="hero-info">
+      <h1>博德之门3</h1>
+      <div class="en">Baldur's Gate 3</div>
+      <div class="meta">
+        <span class="tag">2023</span>
+        <span class="tag mc">评分 </span>
+        <span class="tag mc">口碑Top</span><span class="tag sales">销量Top</span>
+        <span class="tag">冒险, 角色扮演, 策略</span>
+      </div>
+      <div class="desc">《博德之门3》是一款以“龙与地下城”世界为背景的、强调故事与队伍冒险体验的角色扮演游戏。你的每一个选择，都会编织出一段关于同伴与背叛、生存与牺牲，以及至上力量诱惑的故事。</div>
+    </div>
+  </div>
+</div>
+
+<div class="content">
+  <div class="container">
+
+    <div class="dl-section">
+      <h2>📥 下载链接</h2>
+      <div class="dl-buttons">
+<a href="https://www.gamer520.com/62634.html" class="dl-btn gamer520" target="_blank">🎮 gamer520</a>
+<a href="https://www.x6d.com/i-wz-12556.html" class="dl-btn x6d" target="_blank">📦 x6d</a>
+<a href="https://steamzg.com/21659" class="dl-btn steamzg" target="_blank">🧲 steamzg</a>
+
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>📋 游戏信息</h2>
+      <div class="info-grid">
+        <div class="info-item"><div class="label">开发商</div><div class="value">Larian Studios</div></div>
+        <div class="info-item"><div class="label">发行商</div><div class="value">Larian Studios</div></div>
+        <div class="info-item"><div class="label">发行日期</div><div class="value">2023 年 8 月 3 日</div></div>
+        <div class="info-item"><div class="label">类型</div><div class="value">冒险, 角色扮演, 策略</div></div>
+        <div class="info-item"><div class="label">Metacritic</div><div class="value">96</div></div>
+        <div class="info-item"><div class="label">Steam</div><div class="value"><a href="https://store.steampowered.com/app/1086940" target="_blank">查看商店页 →</a></div></div>
+      </div>
+    </div>
+
+    
+    <div class="section">
+      <h2>📖 关于这款游戏</h2>
+      <div class="desc">召集你的队伍，重返被遗忘的国度。这里有友情与背叛，牺牲与求生，还有那股让人难以抗拒的——至上力量的诱惑。 神秘的力量正在你体内苏醒，而这一切都来源于夺心魔种在你大脑里的寄生虫。反抗吧，将黑暗的力量转为己用；你也可以任由腐化蔓延，亲手把自己塑造成终极邪恶。 由《神界：原罪2》原班人马倾力打造，这款基于《龙与地下城》规则的次世代 RPG 巨作，等你来战。你可以从《龙与地下城玩家手册》中的12个职业与11个种族中进行选择，或者直接扮演一位拥有量身打造背景故事的“起源英雄”。如果你渴望更深层的挣扎，那就化身“邪念”——一个完全可定制的起源英雄，拥有独一无二的机制和黑暗故事线，去与你内心的腐化欲望纠缠。无论你选择成为谁，你都可以在“被遗忘的国度”及更广阔的世界中冒险、搜刮、战斗，甚至谈一场轰轰烈烈的恋爱。召集你的队伍，既可以独自上路，也支持最多四人在线联机。被劫持，被感染，陷入迷失。你正在变成一个怪物，但随着你体内腐化力量的增长，你的力量也在增强。这力量或许能助你幸存下来，但在接受它的同时，你必将付出某种代价。然而，超越任何异能，你与队友之间建立的信任纽带可能会成为你最大的力量。在恶魔、诸神以及种种不可名状的异界力量交织的冲突中，你们将一起决定“被遗忘的国度”的最终命运。利用全新的Divinity4.0引擎打造，《博德之门3》将为你提供前所未有的自由度，让在这个充满角色、危险和欺诈的鲜活世界中探索、尝试、互动，并获取即时的反馈。宏大的电影级叙事将拉近你与角色的距离。从幽影诅咒笼罩的森林，到幽暗地域的魔法洞穴，再到博德之门熙攘的街头——你的行动定义了这段冒险，而你的选择将定义你的传奇。你，终将被世人铭记。“被遗忘的国度”是一个宏大、细节繁多、充满丰富多样性的世界，到处都有等待被你发现的秘密——你可以潜行、通过蘸取借力、推击敌人、攀爬高地、极限跳跃。这些行动会贯穿你的整个旅途，从大地深处</div>
+    </div>
+
+    
+    <div class="section">
+      <h2>📸 游戏截图</h2>
+      <div class="ss-grid">
+        <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1086940/ss_c73bc54415178c07fef85f54ee26621728c77504.1920x1080.jpg?t=1777363040" alt="" loading="lazy">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1086940/ss_73d93bea842b93914d966622104dcb8c0f42972b.1920x1080.jpg?t=1777363040" alt="" loading="lazy">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1086940/ss_cf936d31061b58e98e0c646aee00e6030c410cda.1920x1080.jpg?t=1777363040" alt="" loading="lazy">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1086940/ss_b6a6ee6e046426d08ceea7a4506a1b5f44181543.1920x1080.jpg?t=1777363040" alt="" loading="lazy">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1086940/ss_6b8faba0f6831a406ce015648958da9612d14dbb.1920x1080.jpg?t=1777363040" alt="" loading="lazy">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1086940/ss_8fc5eba770b4a1639b31666908bdd2bbc1aa2ae4.1920x1080.jpg?t=1777363040" alt="" loading="lazy">
+
+      </div>
+    </div>
+
+    
+    <div class="section">
+      <h2>💻 系统配置要求</h2>
+      <div class="reqs">
+        <div class="req-item"><h3>最低配置</h3><div class="req-text"><strong>最低配置:</strong><br><ul class="bb_ul"><li>需要 64 位处理器和操作系统<br></li><li><strong>操作系统:</strong> Windows 10 64-bit<br></li><li><strong>处理器:</strong> Intel I5 4690 / AMD FX 8350 / Snapdragon X Elite<br></li><li><strong>内存:</strong> 8 GB RAM<br></li><li><strong>显卡:</strong> Nvidia GTX 970 / RX 480 / Intel Arc A380 / Qualcomm Adreno X1 (4GB+ of VRAM)<br></li><li><strong>DirectX 版本:</strong> 11<br></li><li><strong>存储空间:</strong> 需要 150 GB 可用空间<br></li><li><strong>附注事项:</strong> SSD required</li></ul></div></div><div class="req-item"><h3>推荐配置</h3><div class="req-text"><strong>推荐配置:</strong><br><ul class="bb_ul"><li>需要 64 位处理器和操作系统<br></li><li><strong>操作系统:</strong> Windows 10 64-bit<br></li><li><strong>处理器:</strong> Intel i7 8700K / AMD r5 3600<br></li><li><strong>内存:</strong> 16 GB RAM<br></li><li><strong>显卡:</strong> Nvidia 2060 Super / RX 5700 XT / Intel Arc A580 (8GB+ of VRAM)<br></li><li><strong>DirectX 版本:</strong> 11<br></li><li><strong>存储空间:</strong> 需要 150 GB 可用空间<br></li><li><strong>附注事项:</strong> SSD required</li></ul></div></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>
