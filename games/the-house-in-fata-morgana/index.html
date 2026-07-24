@@ -3,122 +3,452 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>命运石之门 - The House in Fata Morgana - 游戏详情</title>
+<title>命运石之门 - 游戏详情</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Segoe UI','Microsoft YaHei',sans-serif;background:#f5f5f7;color:#1a1a2e;line-height:1.6}
-.topbar{background:#ffffff;border-bottom:1px solid #e0e0e4;padding:12px 0;position:sticky;top:0;z-index:100}
-.topbar .container{display:flex;align-items:center;gap:16px}
-.container{max-width:1200px;margin:0 auto;padding:0 20px}
-.back{color:#6d28d9;text-decoration:none;font-size:14px;font-weight:500;display:flex;align-items:center;gap:4px}
-.back:hover{text-decoration:underline}
-.back-btn{background:#6d28d9;color:#fff;padding:6px 14px;border-radius:4px;text-decoration:none;font-size:13px}
-.back-btn:hover{background:#5b21b6}
-.hero{background:linear-gradient(180deg,#f0f0f5 0%,#e8e8f0 100%);color:#1a1a2e;padding:30px 0 0;border-bottom:1px solid #e0e0e4}
-.hero .container{display:flex;gap:30px;flex-wrap:wrap}
-.hero-info{flex:1;min-width:280px}
-.hero-info h1{font-size:26px;margin-bottom:4px}
-.hero-info .en{color:#888;font-size:14px;margin-bottom:12px}
-.hero-info .meta{display:flex;gap:6px;margin-bottom:14px;flex-wrap:wrap}
-.hero .tag{font-size:12px;padding:3px 10px;border-radius:4px;background:#e8e8ec;color:#555}
-.hero .tag.mc{background:#6d28d922;color:#6d28d9}
-.hero .tag.sales{background:#e11d4822;color:#e11d48}
-.hero-img{width:460px;max-width:100%;border-radius:8px;flex-shrink:0;box-shadow:0 2px 12px rgba(0,0,0,0.08)}
-.content{padding:24px 0}
-.section{background:#fff;border-radius:8px;border:1px solid #e0e0e4;padding:24px;margin-bottom:16px}
-.section h2{font-size:18px;color:#1a1a2e;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid #e0e0e4}
-.desc{font-size:15px;color:#444;line-height:1.7}
-.dl-section{background:#fff;border-radius:8px;border:1px solid #e0e0e4;padding:24px;margin-bottom:16px}
-.dl-section h2{font-size:18px;color:#1a1a2e;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid #e0e0e4}
-.dl-buttons{display:flex;flex-wrap:wrap;gap:8px}
-.dl-btn{display:inline-flex;align-items:center;gap:5px;padding:8px 16px;border-radius:6px;font-size:13px;text-decoration:none;color:#fff;transition:all .2s;font-weight:500}
-.dl-btn:hover{filter:brightness(1.1);transform:translateY(-1px)}
-.dl-btn.gamer520{background:#10b981}
-.dl-btn.x6d{background:#3b82f6}
-.dl-btn.tianyi{background:#6366f1}
-.dl-btn.baidu{background:#2563eb}
-.dl-btn.magnet{background:#ef4444}
-.dl-btn.fitgirl{background:#f59e0b}
-.info-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:16px}
-.info-item .label{font-size:12px;color:#888;text-transform:uppercase;letter-spacing:0.5px}
-.info-item .value{font-size:14px;color:#1a1a2e;margin-top:2px}
-.ss-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:8px}
-.ss-grid img{width:100%;border-radius:6px;cursor:pointer;transition:transform .2s}
-.ss-grid img:hover{transform:scale(1.02)}
-@media(max-width:768px){.hero-img{width:100%}.ss-grid{grid-template-columns:1fr}}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: "Microsoft YaHei", "Segoe UI", sans-serif;
+  background: #1b2838;
+  color: #c7d5e0;
+  line-height: 1.6;
+}
+
+/* 顶部导航 */
+.top-nav {
+  background: #171a21;
+  padding: 8px 0;
+  border-bottom: 1px solid #000;
+}
+.top-nav .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.breadcrumb {
+  font-size: 12px;
+  color: #666;
+}
+.breadcrumb a {
+  color: #666;
+  text-decoration: none;
+}
+.breadcrumb a:hover {
+  color: #fff;
+}
+.back-link {
+  color: #67c1f5;
+  text-decoration: none;
+  font-size: 13px;
+}
+.back-link:hover {
+  color: #fff;
+}
+
+/* 主容器 */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* 游戏头部 - Steam风格左右布局 */
+.game-header {
+  background: linear-gradient(180deg, #1b2838 0%, #2a475e 100%);
+  padding: 30px 0;
+}
+.game-header .container {
+  display: grid;
+  grid-template-columns: 460px 1fr;
+  gap: 30px;
+}
+
+/* 左侧媒体区域 */
+.media-section {
+  background: #000;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.media-tabs {
+  display: flex;
+  background: #1b2838;
+}
+.media-tab {
+  background: transparent;
+  border: none;
+  color: #67c1f5;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 13px;
+  border-bottom: 2px solid transparent;
+}
+.media-tab.active {
+  border-bottom-color: #67c1f5;
+  color: #fff;
+}
+.media-player {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/9;
+  background: #000;
+}
+.media-player video,
+.media-player img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.screenshots-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4px;
+  padding: 4px;
+  background: #1b2838;
+}
+.screenshots-grid img {
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+.screenshots-grid img:hover {
+  opacity: 0.8;
+}
+
+/* 右侧信息面板 */
+.game-info {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.game-title {
+  font-size: 32px;
+  font-weight: 300;
+  color: #fff;
+}
+.game-subtitle {
+  font-size: 14px;
+  color: #8f98a0;
+}
+.game-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.meta-item {
+  background: rgba(0,0,0,0.3);
+  padding: 6px 12px;
+  border-radius: 3px;
+  font-size: 13px;
+  color: #c7d5e0;
+}
+.meta-item.score {
+  background: #66c0f4;
+  color: #1b2838;
+  font-weight: 600;
+}
+.info-block {
+  background: rgba(0,0,0,0.2);
+  padding: 12px;
+  border-radius: 4px;
+}
+.info-block .label {
+  font-size: 11px;
+  color: #8f98a0;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.info-block .value {
+  font-size: 14px;
+  color: #67c1f5;
+}
+.game-desc {
+  font-size: 14px;
+  color: #acb2b8;
+  line-height: 1.7;
+}
+
+/* 内容区域 */
+.content-section {
+  background: #1b2838;
+  padding: 30px 0;
+}
+.content-block {
+  background: rgba(0,0,0,0.3);
+  padding: 24px;
+  border-radius: 4px;
+}
+.content-block h2 {
+  color: #fff;
+  font-size: 20px;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #2a475e;
+}
+.content-block p {
+  color: #acb2b8;
+  font-size: 14px;
+  line-height: 1.8;
+  margin-bottom: 12px;
+}
+.content-block h2.bb_tag {
+  color: #67c1f5;
+  font-size: 16px;
+  margin: 20px 0 10px 0;
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+/* 下载区域 */
+.download-section {
+  background: #1b2838;
+  padding: 30px 0;
+}
+.download-block {
+  background: rgba(0,0,0,0.3);
+  padding: 24px;
+  border-radius: 4px;
+}
+.download-block h2 {
+  color: #fff;
+  font-size: 20px;
+  margin-bottom: 16px;
+}
+.download-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: 4px;
+  text-decoration: none;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+.download-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+.download-btn.gamer520 { background: linear-gradient(135deg, #10b981, #059669); }
+.download-btn.x6d { background: linear-gradient(135deg, #3b82f6, #2563eb); }
+.download-btn.magnet { background: linear-gradient(135deg, #ef4444, #dc2626); }
+.download-btn.fitgirl { background: linear-gradient(135deg, #f59e0b, #d97706); }
+.download-btn.tianyi { background: linear-gradient(135deg, #6366f1, #4f46e5); }
+.download-btn.baidu { background: linear-gradient(135deg, #2563eb, #1d4ed8); }
+
+/* 系统需求 */
+.sys-req {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.sys-req-col h4 {
+  color: #67c1f5;
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+.sys-req-col ul {
+  list-style: none;
+  margin: 0;
+}
+.sys-req-col li {
+  font-size: 13px;
+  color: #acb2b8;
+  margin-bottom: 8px;
+  padding-left: 16px;
+  position: relative;
+}
+.sys-req-col li:before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #67c1f5;
+}
+
+/* 响应式 */
+@media (max-width: 900px) {
+  .game-header .container {
+    grid-template-columns: 1fr;
+  }
+  .media-section {
+    max-width: 100%;
+  }
+  .sys-req {
+    grid-template-columns: 1fr;
+  }
+}
 </style>
 </head>
 <body>
 
-<div class="topbar">
+<!-- 顶部导航 -->
+<nav class="top-nav">
   <div class="container">
-    <a href="../../index.html" class="back">← 返回游戏榜单</a>
-    <a href="https://store.steampowered.com/app/303310" target="_blank" class="back-btn" style="margin-left:auto">Steam 商店页</a>
+    <div class="breadcrumb">
+      <a href="../../index.html">← 返回游戏榜单</a>
+    </div>
+    <a href="https://store.steampowered.com/app/303310/" target="_blank" class="back-link">Steam 商店页 →</a>
   </div>
-</div>
+</nav>
 
-<div class="hero">
+<!-- 游戏头部 -->
+<section class="game-header">
   <div class="container">
-    <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/303310/library_600x900.jpg" alt="The House in Fata Morgana" class="hero-img" onerror="this.style.display='none'">
-    <div class="hero-info">
-      <h1>命运石之门</h1>
-      <div class="en">The House in Fata Morgana</div>
-      <div class="meta">
-        <span class="tag">2021</span>
-        <span class="tag mc">评分 93</span>
-        <span class="tag mc">口碑Top</span>
-        <span class="tag">冒险</span>
+    <!-- 左侧媒体区域 -->
+    <div class="media-section">
+      <div class="media-tabs">
+        
+        <button class="media-tab active" onclick="showScreenshots()">截图</button>
       </div>
-      <div class="desc">这是一个以被诅咒的洋馆为背景的哥特式悬疑故事。「海市蜃楼之馆」是一部讲述跨越千年的悲剧、人性及狂乱的长篇视觉小说。</div>
+      
+      
+      
+      
+      <div id="screenshots-container" class="screenshots-grid" {{#if VIDEO_HTML}}style="display:none;">
+        <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/303310/ss_2ddb5a4d33cd114b95fb6b81089d3948bf096fd7.1920x1080.jpg?t=1770054048" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/303310/ss_3862acfe790bcad2538d59be31a6f8c2cf4fde1a.1920x1080.jpg?t=1770054048" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/303310/ss_ef7919b076eafe3a8ab9620b5db719b83d076ad3.1920x1080.jpg?t=1770054048" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/303310/ss_ffc10ea7a466aebb1127c470800c74a88c796750.1920x1080.jpg?t=1770054048" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/303310/ss_2acbbeba5f1fd15a083f0ec657bf18e0d4250392.1920x1080.jpg?t=1770054048" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/303310/ss_3a5f2aa9ff2fa72ed3ef262b356db0456e9b3b6f.1920x1080.jpg?t=1770054048" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/303310/ss_4f143abb626dcfa990aeea3e652237f9ce10f7c0.1920x1080.jpg?t=1770054048" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/303310/ss_e6b77867746fe3c341f261bc2ab2ba9d26997839.1920x1080.jpg?t=1770054048" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/303310/ss_92193a671baeb9bb6e3653d8d3ca64652f729668.1920x1080.jpg?t=1770054048" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/303310/ss_189b5a72dd99f54fc85b9311885f1f0377994cb8.1920x1080.jpg?t=1770054048" alt="Screenshot" onclick="window.open(this.src)">
+      </div>
+      {{/if}}
+    </div>
+    
+    <!-- 右侧信息面板 -->
+    <div class="game-info">
+      <h1 class="game-title">命运石之门</h1>
+      <div class="game-subtitle">The House in Fata Morgana</div>
+      
+      <div class="game-meta">
+        <div class="meta-item">2016 年 5 月 13 日</div>
+        <div class="meta-item">冒险</div>
+        <div class="meta-item score">评分 93</div>
+      </div>
+      
+      
+      <div class="info-block">
+        <div class="label">开发者</div>
+        <div class="value">NOVECT</div>
+      </div>
+      
+      
+      
+      <div class="info-block">
+        <div class="label">发行商</div>
+        <div class="value">MangaGamer</div>
+      </div>
+      
+      
+      
+      <div class="game-desc">
+        这是一个以被诅咒的洋馆为背景的哥特式悬疑故事。「海市蜃楼之馆」是一部讲述跨越千年的悲剧、人性及狂乱的长篇视觉小说。
+      </div>
+      
     </div>
   </div>
-</div>
+</section>
 
-<div class="content">
+<!-- 关于此游戏 -->
+
+<section class="content-section">
   <div class="container">
+    <div class="content-block">
+      <h2>关于此游戏</h2>
+      <div>当「你」回过神时，发现自己身处在一座破旧的古宅。<br />
+眼前有一位将「你」当作老爷敬慕的翡翠色瞳的女仆。<br />
+可是「你」没有记忆，不知道自己是何人。<br />
+就连自己是否还活着，都无从知晓。<br />
+为了取回「你」的记忆，女仆提议带「你」一览曾在这座古宅里所发生的悲剧。<br />
+在那里，也许会有关于「你」的线索……<br />
+<br />
+最初的门扉发生在1603年。<br />
+身处在那个齐聚了各色各异的蔷薇，美丽富饶的年代里的是一对相处和睦的罗兹兄妹。<br />
+从他们身上看不到一丝不安与不幸的阴影，两人的未来本不该有任何不幸……<br />
+<br />
+第二扇门扉发生在1707年。<br />
+在那个年代，宅邸已是一栋荒宅。居住在这座宅邸里的野兽，虽渴望着平稳的世界，<br />
+却无法抑制住自身的暴力冲动，最终走向了虐杀的道路。<br />
+<br />
+第三扇门扉发生在1869年。<br />
+那个年代里，人们因为文明的发展而过着急促的生活。<br />
+投身于铁道事业的资产家的青年，<br />
+在追求金钱与权力的途中，开始逐渐冷落自己的妻子。<br />
+<br />
+第四扇门扉发生在1099年。<br />
+女仆告诉「你」，这便是最后一扇门扉。<br />
+身处在那个时代的是自称「被诅咒」的青年，<br />
+与被烙下了魔女的烙印的白发少女&quot;吉赛儿&quot;。<br />
+<br />
+「你」跨越时代与场所，目睹了这四个悲剧。<br />
+将这些悲剧作为故事完结，抑或继续追求更为前方的真相……<br />
+这一切都由「你」来裁夺。<br />
+<br />
+可是，有人曾这么说过。<br />
+<br />
+「正因为是别人的悲剧，所以才能承受。」</div>
+    </div>
+  </div>
+</section>
 
-    <div class="dl-section">
+
+<!-- 下载区域 -->
+<section class="download-section">
+  <div class="container">
+    <div class="download-block">
       <h2>📥 下载链接</h2>
-      <div class="dl-buttons">
-<a href="https://www.gamer520.com/5460.html" class="dl-btn gamer520" target="_blank">🎮 gamer520</a>
-<a href="https://www.x6d.com/i-wz-29806.html" class="dl-btn x6d" target="_blank">📦 x6d</a>
+      <div class="download-buttons">
+        <a href="https://www.gamer520.com/5460.html" class="download-btn gamer520" target="_blank">gamer520</a>
+<a href="https://www.x6d.com/i-wz-29806.html" class="download-btn x6d" target="_blank">x6d</a>
 
       </div>
     </div>
-
-    <div class="section">
-      <h2>📋 游戏信息</h2>
-      <div class="info-grid">
-        <div class="info-item"><div class="label">开发商</div><div class="value">NOVECT</div></div>
-        <div class="info-item"><div class="label">发行商</div><div class="value">MangaGamer</div></div>
-        <div class="info-item"><div class="label">发行日期</div><div class="value">2016 年 5 月 13 日</div></div>
-        <div class="info-item"><div class="label">类型</div><div class="value">冒险</div></div>
-        <div class="info-item"><div class="label">Metacritic</div><div class="value">93</div></div>
-        <div class="info-item"><div class="label">Steam</div><div class="value"><a href="https://store.steampowered.com/app/303310" target="_blank">查看商店页 →</a></div></div>
-      </div>
-    </div>
-
-    
-    <div class="section">
-      <h2>📖 关于这款游戏</h2>
-      <div class="desc">这是一个以被诅咒的洋馆为背景的哥特式悬疑故事。「海市蜃楼之馆」是一部讲述跨越千年的悲剧、人性及狂乱的长篇视觉小说。</div>
-    </div>
-
-    
-    <div class="section">
-      <h2>📸 游戏截图</h2>
-      <div class="ss-grid">
-        <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/303310/ss_2ddb5a4d33cd114b95fb6b81089d3948bf096fd7.1920x1080.jpg?t=1770054048" alt="" loading="lazy">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/303310/ss_3862acfe790bcad2538d59be31a6f8c2cf4fde1a.1920x1080.jpg?t=1770054048" alt="" loading="lazy">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/303310/ss_ef7919b076eafe3a8ab9620b5db719b83d076ad3.1920x1080.jpg?t=1770054048" alt="" loading="lazy">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/303310/ss_ffc10ea7a466aebb1127c470800c74a88c796750.1920x1080.jpg?t=1770054048" alt="" loading="lazy">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/303310/ss_2acbbeba5f1fd15a083f0ec657bf18e0d4250392.1920x1080.jpg?t=1770054048" alt="" loading="lazy">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/303310/ss_3a5f2aa9ff2fa72ed3ef262b356db0456e9b3b6f.1920x1080.jpg?t=1770054048" alt="" loading="lazy">
-
-      </div>
-    </div>
-
   </div>
-</div>
+</section>
+
+<!-- 系统需求 -->
+
+<section class="content-section">
+  <div class="container">
+    <div class="content-block">
+      <h2>系统需求</h2>
+      <div class="sys-req">
+        <div class="sys-req-col"><h4>最低配置</h4><div><strong>最低配置:</strong><br><ul class="bb_ul"><li><strong>操作系统:</strong> 2000 and newer<br></li><li><strong>处理器:</strong> Pentium<br></li><li><strong>内存:</strong> 128 MB RAM<br></li><li><strong>显卡:</strong> 800×600<br></li><li><strong>DirectX 版本:</strong> 9.0<br></li><li><strong>存储空间:</strong> 需要 1 GB 可用空间</li></ul></div></div>
+        
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+function showVideo() {
+  document.getElementById('video-container').style.display = 'block';
+  document.getElementById('screenshots-container').style.display = 'none';
+  document.querySelectorAll('.media-tab').forEach(t => t.classList.remove('active'));
+  event.target.classList.add('active');
+}
+
+function showScreenshots() {
+  const videoContainer = document.getElementById('video-container');
+  if (videoContainer) videoContainer.style.display = 'none';
+  document.getElementById('screenshots-container').style.display = 'grid';
+  document.querySelectorAll('.media-tab').forEach(t => t.classList.remove('active'));
+  event.target.classList.add('active');
+}
+</script>
+
 </body>
 </html>

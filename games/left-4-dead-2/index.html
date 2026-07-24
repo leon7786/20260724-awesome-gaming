@@ -3,122 +3,428 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>求生之路2 - Left 4 Dead 2 - 游戏详情</title>
+<title>求生之路2 - 游戏详情</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Segoe UI','Microsoft YaHei',sans-serif;background:#f5f5f7;color:#1a1a2e;line-height:1.6}
-.topbar{background:#ffffff;border-bottom:1px solid #e0e0e4;padding:12px 0;position:sticky;top:0;z-index:100}
-.topbar .container{display:flex;align-items:center;gap:16px}
-.container{max-width:1200px;margin:0 auto;padding:0 20px}
-.back{color:#6d28d9;text-decoration:none;font-size:14px;font-weight:500;display:flex;align-items:center;gap:4px}
-.back:hover{text-decoration:underline}
-.back-btn{background:#6d28d9;color:#fff;padding:6px 14px;border-radius:4px;text-decoration:none;font-size:13px}
-.back-btn:hover{background:#5b21b6}
-.hero{background:linear-gradient(180deg,#f0f0f5 0%,#e8e8f0 100%);color:#1a1a2e;padding:30px 0 0;border-bottom:1px solid #e0e0e4}
-.hero .container{display:flex;gap:30px;flex-wrap:wrap}
-.hero-info{flex:1;min-width:280px}
-.hero-info h1{font-size:26px;margin-bottom:4px}
-.hero-info .en{color:#888;font-size:14px;margin-bottom:12px}
-.hero-info .meta{display:flex;gap:6px;margin-bottom:14px;flex-wrap:wrap}
-.hero .tag{font-size:12px;padding:3px 10px;border-radius:4px;background:#e8e8ec;color:#555}
-.hero .tag.mc{background:#6d28d922;color:#6d28d9}
-.hero .tag.sales{background:#e11d4822;color:#e11d48}
-.hero-img{width:460px;max-width:100%;border-radius:8px;flex-shrink:0;box-shadow:0 2px 12px rgba(0,0,0,0.08)}
-.content{padding:24px 0}
-.section{background:#fff;border-radius:8px;border:1px solid #e0e0e4;padding:24px;margin-bottom:16px}
-.section h2{font-size:18px;color:#1a1a2e;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid #e0e0e4}
-.desc{font-size:15px;color:#444;line-height:1.7}
-.dl-section{background:#fff;border-radius:8px;border:1px solid #e0e0e4;padding:24px;margin-bottom:16px}
-.dl-section h2{font-size:18px;color:#1a1a2e;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid #e0e0e4}
-.dl-buttons{display:flex;flex-wrap:wrap;gap:8px}
-.dl-btn{display:inline-flex;align-items:center;gap:5px;padding:8px 16px;border-radius:6px;font-size:13px;text-decoration:none;color:#fff;transition:all .2s;font-weight:500}
-.dl-btn:hover{filter:brightness(1.1);transform:translateY(-1px)}
-.dl-btn.gamer520{background:#10b981}
-.dl-btn.x6d{background:#3b82f6}
-.dl-btn.tianyi{background:#6366f1}
-.dl-btn.baidu{background:#2563eb}
-.dl-btn.magnet{background:#ef4444}
-.dl-btn.fitgirl{background:#f59e0b}
-.info-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:16px}
-.info-item .label{font-size:12px;color:#888;text-transform:uppercase;letter-spacing:0.5px}
-.info-item .value{font-size:14px;color:#1a1a2e;margin-top:2px}
-.ss-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:8px}
-.ss-grid img{width:100%;border-radius:6px;cursor:pointer;transition:transform .2s}
-.ss-grid img:hover{transform:scale(1.02)}
-@media(max-width:768px){.hero-img{width:100%}.ss-grid{grid-template-columns:1fr}}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: "Microsoft YaHei", "Segoe UI", sans-serif;
+  background: #1b2838;
+  color: #c7d5e0;
+  line-height: 1.6;
+}
+
+/* 顶部导航 */
+.top-nav {
+  background: #171a21;
+  padding: 8px 0;
+  border-bottom: 1px solid #000;
+}
+.top-nav .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.breadcrumb {
+  font-size: 12px;
+  color: #666;
+}
+.breadcrumb a {
+  color: #666;
+  text-decoration: none;
+}
+.breadcrumb a:hover {
+  color: #fff;
+}
+.back-link {
+  color: #67c1f5;
+  text-decoration: none;
+  font-size: 13px;
+}
+.back-link:hover {
+  color: #fff;
+}
+
+/* 主容器 */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* 游戏头部 - Steam风格左右布局 */
+.game-header {
+  background: linear-gradient(180deg, #1b2838 0%, #2a475e 100%);
+  padding: 30px 0;
+}
+.game-header .container {
+  display: grid;
+  grid-template-columns: 460px 1fr;
+  gap: 30px;
+}
+
+/* 左侧媒体区域 */
+.media-section {
+  background: #000;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.media-tabs {
+  display: flex;
+  background: #1b2838;
+}
+.media-tab {
+  background: transparent;
+  border: none;
+  color: #67c1f5;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 13px;
+  border-bottom: 2px solid transparent;
+}
+.media-tab.active {
+  border-bottom-color: #67c1f5;
+  color: #fff;
+}
+.media-player {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/9;
+  background: #000;
+}
+.media-player video,
+.media-player img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.screenshots-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4px;
+  padding: 4px;
+  background: #1b2838;
+}
+.screenshots-grid img {
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+.screenshots-grid img:hover {
+  opacity: 0.8;
+}
+
+/* 右侧信息面板 */
+.game-info {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.game-title {
+  font-size: 32px;
+  font-weight: 300;
+  color: #fff;
+}
+.game-subtitle {
+  font-size: 14px;
+  color: #8f98a0;
+}
+.game-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.meta-item {
+  background: rgba(0,0,0,0.3);
+  padding: 6px 12px;
+  border-radius: 3px;
+  font-size: 13px;
+  color: #c7d5e0;
+}
+.meta-item.score {
+  background: #66c0f4;
+  color: #1b2838;
+  font-weight: 600;
+}
+.info-block {
+  background: rgba(0,0,0,0.2);
+  padding: 12px;
+  border-radius: 4px;
+}
+.info-block .label {
+  font-size: 11px;
+  color: #8f98a0;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.info-block .value {
+  font-size: 14px;
+  color: #67c1f5;
+}
+.game-desc {
+  font-size: 14px;
+  color: #acb2b8;
+  line-height: 1.7;
+}
+
+/* 内容区域 */
+.content-section {
+  background: #1b2838;
+  padding: 30px 0;
+}
+.content-block {
+  background: rgba(0,0,0,0.3);
+  padding: 24px;
+  border-radius: 4px;
+}
+.content-block h2 {
+  color: #fff;
+  font-size: 20px;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #2a475e;
+}
+.content-block p {
+  color: #acb2b8;
+  font-size: 14px;
+  line-height: 1.8;
+  margin-bottom: 12px;
+}
+.content-block h2.bb_tag {
+  color: #67c1f5;
+  font-size: 16px;
+  margin: 20px 0 10px 0;
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+/* 下载区域 */
+.download-section {
+  background: #1b2838;
+  padding: 30px 0;
+}
+.download-block {
+  background: rgba(0,0,0,0.3);
+  padding: 24px;
+  border-radius: 4px;
+}
+.download-block h2 {
+  color: #fff;
+  font-size: 20px;
+  margin-bottom: 16px;
+}
+.download-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: 4px;
+  text-decoration: none;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+.download-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+.download-btn.gamer520 { background: linear-gradient(135deg, #10b981, #059669); }
+.download-btn.x6d { background: linear-gradient(135deg, #3b82f6, #2563eb); }
+.download-btn.magnet { background: linear-gradient(135deg, #ef4444, #dc2626); }
+.download-btn.fitgirl { background: linear-gradient(135deg, #f59e0b, #d97706); }
+.download-btn.tianyi { background: linear-gradient(135deg, #6366f1, #4f46e5); }
+.download-btn.baidu { background: linear-gradient(135deg, #2563eb, #1d4ed8); }
+
+/* 系统需求 */
+.sys-req {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.sys-req-col h4 {
+  color: #67c1f5;
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+.sys-req-col ul {
+  list-style: none;
+  margin: 0;
+}
+.sys-req-col li {
+  font-size: 13px;
+  color: #acb2b8;
+  margin-bottom: 8px;
+  padding-left: 16px;
+  position: relative;
+}
+.sys-req-col li:before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #67c1f5;
+}
+
+/* 响应式 */
+@media (max-width: 900px) {
+  .game-header .container {
+    grid-template-columns: 1fr;
+  }
+  .media-section {
+    max-width: 100%;
+  }
+  .sys-req {
+    grid-template-columns: 1fr;
+  }
+}
 </style>
 </head>
 <body>
 
-<div class="topbar">
+<!-- 顶部导航 -->
+<nav class="top-nav">
   <div class="container">
-    <a href="../../index.html" class="back">← 返回游戏榜单</a>
-    <a href="https://store.steampowered.com/app/550" target="_blank" class="back-btn" style="margin-left:auto">Steam 商店页</a>
+    <div class="breadcrumb">
+      <a href="../../index.html">← 返回游戏榜单</a>
+    </div>
+    <a href="https://store.steampowered.com/app/550/" target="_blank" class="back-link">Steam 商店页 →</a>
   </div>
-</div>
+</nav>
 
-<div class="hero">
+<!-- 游戏头部 -->
+<section class="game-header">
   <div class="container">
-    <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/550/library_600x900.jpg" alt="Left 4 Dead 2" class="hero-img" onerror="this.style.display='none'">
-    <div class="hero-info">
-      <h1>求生之路2</h1>
-      <div class="en">Left 4 Dead 2</div>
-      <div class="meta">
-        <span class="tag">2009</span>
-        <span class="tag mc">评分 89</span>
-        <span class="tag mc">口碑Top</span>
-        <span class="tag">动作</span>
+    <!-- 左侧媒体区域 -->
+    <div class="media-section">
+      <div class="media-tabs">
+        
+        <button class="media-tab active" onclick="showScreenshots()">截图</button>
       </div>
-      <div class="desc">Set in the zombie apocalypse, Left 4 Dead 2 is a co-operative action horror FPS takes you and your friends through the cities, swamps and cemeteries of the Deep South, from Savannah to New Orleans across five expansive campaigns.</div>
+      
+      
+      
+      
+      <div id="screenshots-container" class="screenshots-grid" {{#if VIDEO_HTML}}style="display:none;">
+        <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/550/ss_2eae29fbdfe8e5e8999b96d8bb28c5db70507968.1920x1080.jpg?t=1772742214" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/550/ss_29b3b4f2a3994c889f6fc12e0781d9d4726ef33f.1920x1080.jpg?t=1772742214" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/550/ss_9488e329bb42d792a059fb44cb7135d25b6262f5.1920x1080.jpg?t=1772742214" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/550/ss_6ec4ee04d4924b099e25ce79f3d6571c3b623b3b.1920x1080.jpg?t=1772742214" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/550/ss_73ad69168a263ce585e4823d9607d901719ca3c5.1920x1080.jpg?t=1772742214" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/550/ss_a9c1227ffe8a1968e234b3ebda08e773fc619e37.1920x1080.jpg?t=1772742214" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/550/ss_ba2ea2eda245f89626277457ae2ab76ba997f46a.1920x1080.jpg?t=1772742214" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/550/ss_7098be159cfe3cc524fb68b2585f643324cc1078.1920x1080.jpg?t=1772742214" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/550/ss_67275710127ce20b62015718dbf84147fde7fc17.1920x1080.jpg?t=1772742214" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/550/ss_d97ee8bd9a512f350bd9433730db26da76ff7a29.1920x1080.jpg?t=1772742214" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/550/ss_6d2a44e590caa0cc2946d8397d4dd160cbd3f6ed.1920x1080.jpg?t=1772742214" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/550/ss_b7e72ed4d0af894a61d8c6bb5def3d169f56c702.1920x1080.jpg?t=1772742214" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/550/ss_b8bcf2ebdb67a32b4a1e7273a4e9eae92243ed64.1920x1080.jpg?t=1772742214" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/550/ss_40c3f02a01ce435ea776b07fde7710c66532e6b6.1920x1080.jpg?t=1772742214" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/550/ss_13912b20f591bfde622fc87174b3265a579bd9c9.1920x1080.jpg?t=1772742214" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/550/ss_2b06e1786598ab033411c27600de1868f023c663.1920x1080.jpg?t=1772742214" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/550/ss_1d9d6e638c8ad4b04fac0f49ca32947b31396f24.1920x1080.jpg?t=1772742214" alt="Screenshot" onclick="window.open(this.src)">
+      </div>
+      {{/if}}
+    </div>
+    
+    <!-- 右侧信息面板 -->
+    <div class="game-info">
+      <h1 class="game-title">求生之路2</h1>
+      <div class="game-subtitle">Left 4 Dead 2</div>
+      
+      <div class="game-meta">
+        <div class="meta-item">2009 年 11 月 16 日</div>
+        <div class="meta-item">动作</div>
+        <div class="meta-item score">评分 98</div>
+      </div>
+      
+      
+      <div class="info-block">
+        <div class="label">开发者</div>
+        <div class="value">Valve</div>
+      </div>
+      
+      
+      
+      <div class="info-block">
+        <div class="label">发行商</div>
+        <div class="value">Valve</div>
+      </div>
+      
+      
+      
+      <div class="game-desc">
+        Set in the zombie apocalypse, Left 4 Dead 2 is a co-operative action horror FPS takes you and your friends through the cities, swamps and cemeteries of the Deep South, from Savannah to New Orleans across five expansive campaigns.
+      </div>
+      
     </div>
   </div>
-</div>
+</section>
 
-<div class="content">
+<!-- 关于此游戏 -->
+
+<section class="content-section">
   <div class="container">
+    <div class="content-block">
+      <h2>关于此游戏</h2>
+      <div>让大家翘首以盼的的《求生之路 2》（L4D2）以僵尸大灾难为背景，是 2008 年最受欢迎且屡获殊荣的合作游戏《求生之路》的续集。<br>这个第一人称射击恐怖合作动作游戏将带领玩家和好友穿过美国南部的城市、沼泽和墓地，从萨凡纳到新奥尔良，沿途经过五个漫长的战役。<br>玩家将扮演四名新生还者中的一名，装备有种类繁多、数量惊人的经典及先进武器。 除了枪支之外，玩家还有机会用各种可制造屠杀的近战武器在感染者上泄愤，例如电锯、斧头、甚至是致命的平底锅。<br>玩家将在对抗三种恐怖无比、令人生畏的新特殊感染者（或者在对抗模式中扮演这些新的特殊感染者）时，考验这些武器的威力， 还会遭遇五种“不寻常”的普通感染者，包括可怕的泥人。<br>正是 AI 总监 2.0 将《求生之路》那疯狂无比、动作场面连续不断的游戏玩法推上了新的高度。 优化后的总监系统能程序化地改变沿途天气和玩家行走的路径，还可以根据玩家的表现调整敌人的数量、效果和音效。 《求生之路 2》保证每次游戏都会带来令人满意、充满独特挑战的体验，符合玩家各自的游戏风格。<br><ul class="bb_ul"><li>来自《半衰期》、《传送门》、《军团要塞》和《反恐精英》制作者的下一代合作动作游戏。<br></li><li>超过 20 种新武器和物品，超过 10 种近战武器——斧头、电锯、平底锅、棒球棍——让玩家和僵尸亲密接触。<br></li><li>全新生还者。 全新故事。 全新对白。 <br></li><li>五个辽阔的战役，可以在合作、对抗和生还者模式中进行。<br></li><li>全新多人游戏模式。<br></li><li>“不寻常”的普通感染者。 五个新战役的每一个都至少有一种该战役专属的“不寻常”普通感染者。 <br></li><li>AI 总监 2.0：被称为“AI 总监”的先进技术，推进了《求生之路》独特的游戏玩法， 根据玩家的表现自定义敌人的数量、效果和音乐。 《求生之路 2》则以 AI 总监 2.0 为特点，扩展了总监系统的能力，可以自定义关卡布局、游戏世界内的物体、天气和照明来反映一天中的不同时间。<br></li><li>统计、排名和奖励系统促使玩家们合作游戏。</li></ul></div>
+    </div>
+  </div>
+</section>
 
-    <div class="dl-section">
+
+<!-- 下载区域 -->
+<section class="download-section">
+  <div class="container">
+    <div class="download-block">
       <h2>📥 下载链接</h2>
-      <div class="dl-buttons">
-<a href="https://www.gamer520.com/58309.html" class="dl-btn gamer520" target="_blank">🎮 gamer520</a>
-<a href="https://www.x6d.com/i-wz-12507.html" class="dl-btn x6d" target="_blank">📦 x6d</a>
+      <div class="download-buttons">
+        <a href="https://www.gamer520.com/58309.html" class="download-btn gamer520" target="_blank">gamer520</a>
+<a href="https://www.x6d.com/i-wz-12507.html" class="download-btn x6d" target="_blank">x6d</a>
 
       </div>
     </div>
-
-    <div class="section">
-      <h2>📋 游戏信息</h2>
-      <div class="info-grid">
-        <div class="info-item"><div class="label">开发商</div><div class="value">Valve</div></div>
-        <div class="info-item"><div class="label">发行商</div><div class="value">Valve</div></div>
-        <div class="info-item"><div class="label">发行日期</div><div class="value">2009 年 11 月 16 日</div></div>
-        <div class="info-item"><div class="label">类型</div><div class="value">动作</div></div>
-        <div class="info-item"><div class="label">Metacritic</div><div class="value">89</div></div>
-        <div class="info-item"><div class="label">Steam</div><div class="value"><a href="https://store.steampowered.com/app/550" target="_blank">查看商店页 →</a></div></div>
-      </div>
-    </div>
-
-    
-    <div class="section">
-      <h2>📖 关于这款游戏</h2>
-      <div class="desc">Set in the zombie apocalypse, Left 4 Dead 2 is a co-operative action horror FPS takes you and your friends through the cities, swamps and cemeteries of the Deep South, from Savannah to New Orleans across five expansive campaigns.</div>
-    </div>
-
-    
-    <div class="section">
-      <h2>📸 游戏截图</h2>
-      <div class="ss-grid">
-        <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/550/ss_2eae29fbdfe8e5e8999b96d8bb28c5db70507968.1920x1080.jpg?t=1772742214" alt="" loading="lazy">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/550/ss_29b3b4f2a3994c889f6fc12e0781d9d4726ef33f.1920x1080.jpg?t=1772742214" alt="" loading="lazy">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/550/ss_9488e329bb42d792a059fb44cb7135d25b6262f5.1920x1080.jpg?t=1772742214" alt="" loading="lazy">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/550/ss_6ec4ee04d4924b099e25ce79f3d6571c3b623b3b.1920x1080.jpg?t=1772742214" alt="" loading="lazy">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/550/ss_73ad69168a263ce585e4823d9607d901719ca3c5.1920x1080.jpg?t=1772742214" alt="" loading="lazy">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/550/ss_a9c1227ffe8a1968e234b3ebda08e773fc619e37.1920x1080.jpg?t=1772742214" alt="" loading="lazy">
-
-      </div>
-    </div>
-
   </div>
-</div>
+</section>
+
+<!-- 系统需求 -->
+
+<section class="content-section">
+  <div class="container">
+    <div class="content-block">
+      <h2>系统需求</h2>
+      <div class="sys-req">
+        <div class="sys-req-col"><h4>最低配置</h4><div><strong>最低配置:</strong><br><ul class="bb_ul"><li><strong>操作系统 *:</strong> Windows® 7 32/64-bit / Vista 32/64 / XP<br></li><li><strong>处理器:</strong> Pentium 4 3.0GHz<br></li><li><strong>内存:</strong> 2 GB RAM<br></li><li><strong>显卡:</strong> Video card with 128 MB, Shader model 2.0. ATI X800, NVidia 6600 or better<br></li><li><strong>DirectX 版本:</strong> 9.0c<br></li><li><strong>存储空间:</strong> 需要 13 GB 可用空间<br></li><li><strong>声卡:</strong> DirectX 9.0c compatible sound card</li></ul></div></div>
+        <div class="sys-req-col"><h4>推荐配置</h4><div><strong>推荐配置:</strong><br><ul class="bb_ul"><li><strong>操作系统 *:</strong> Windows® 7 32/64-bit / Vista 32/64 / XP<br></li><li><strong>处理器:</strong> Intel core 2 duo 2.4GHz<br></li><li><strong>内存:</strong> 2 GB RAM<br></li><li><strong>显卡:</strong> Video Card Shader model 3.0. NVidia 7600, ATI X1600 or better<br></li><li><strong>DirectX 版本:</strong> 9.0c<br></li><li><strong>存储空间:</strong> 需要 13 GB 可用空间<br></li><li><strong>声卡:</strong> DirectX 9.0c compatible sound card</li></ul></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+function showVideo() {
+  document.getElementById('video-container').style.display = 'block';
+  document.getElementById('screenshots-container').style.display = 'none';
+  document.querySelectorAll('.media-tab').forEach(t => t.classList.remove('active'));
+  event.target.classList.add('active');
+}
+
+function showScreenshots() {
+  const videoContainer = document.getElementById('video-container');
+  if (videoContainer) videoContainer.style.display = 'none';
+  document.getElementById('screenshots-container').style.display = 'grid';
+  document.querySelectorAll('.media-tab').forEach(t => t.classList.remove('active'));
+  event.target.classList.add('active');
+}
+</script>
+
 </body>
 </html>

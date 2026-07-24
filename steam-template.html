@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{GAME_NAME}} - 游戏详情</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: "Microsoft YaHei", "Segoe UI", sans-serif;
+  background: #1b2838;
+  color: #c7d5e0;
+  line-height: 1.6;
+}
+
+/* 顶部导航 */
+.top-nav {
+  background: #171a21;
+  padding: 8px 0;
+  border-bottom: 1px solid #000;
+}
+.top-nav .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.breadcrumb {
+  font-size: 12px;
+  color: #666;
+}
+.breadcrumb a {
+  color: #666;
+  text-decoration: none;
+}
+.breadcrumb a:hover {
+  color: #fff;
+}
+.back-link {
+  color: #67c1f5;
+  text-decoration: none;
+  font-size: 13px;
+}
+.back-link:hover {
+  color: #fff;
+}
+
+/* 主容器 */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* 游戏头部 */
+.game-header {
+  background: linear-gradient(180deg, #1b2838 0%, #2a475e 100%);
+  padding: 30px 0;
+}
+.game-header .container {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+.game-cover {
+  width: 300px;
+  flex-shrink: 0;
+}
+.game-cover img {
+  width: 100%;
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+}
+.game-info {
+  flex: 1;
+  min-width: 300px;
+}
+.game-title {
+  font-size: 32px;
+  font-weight: 300;
+  color: #fff;
+  margin-bottom: 8px;
+}
+.game-subtitle {
+  font-size: 14px;
+  color: #8f98a0;
+  margin-bottom: 16px;
+}
+.game-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+.meta-item {
+  background: rgba(0,0,0,0.3);
+  padding: 6px 12px;
+  border-radius: 3px;
+  font-size: 13px;
+}
+.meta-item.score {
+  background: #66c0f4;
+  color: #1b2838;
+  font-weight: 600;
+}
+.game-desc {
+  font-size: 14px;
+  color: #acb2b8;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+.review-summary {
+  background: rgba(0,0,0,0.2);
+  padding: 12px;
+  border-radius: 4px;
+  margin-bottom: 16px;
+}
+.review-summary .label {
+  font-size: 12px;
+  color: #8f98a0;
+  margin-bottom: 4px;
+}
+.review-summary .value {
+  font-size: 14px;
+  color: #66c0f4;
+  font-weight: 600;
+}
+
+/* 媒体区域 */
+.media-section {
+  background: #1b2838;
+  padding: 30px 0;
+}
+.media-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+.media-tab {
+  background: #2a475e;
+  border: none;
+  color: #67c1f5;
+  padding: 8px 16px;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 13px;
+}
+.media-tab.active {
+  background: #67c1f5;
+  color: #1b2838;
+}
+.media-player {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  background: #000;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.media-player video,
+.media-player img {
+  width: 100%;
+  display: block;
+}
+.screenshots-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 8px;
+  margin-top: 16px;
+}
+.screenshots-grid img {
+  width: 100%;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+.screenshots-grid img:hover {
+  transform: scale(1.05);
+}
+
+/* 内容区域 */
+.content-section {
+  background: #1b2838;
+  padding: 30px 0;
+}
+.content-block {
+  background: #2a475e;
+  padding: 24px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+.content-block h2 {
+  color: #fff;
+  font-size: 20px;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #1b2838;
+}
+.content-block h3 {
+  color: #67c1f5;
+  font-size: 16px;
+  margin: 16px 0 8px 0;
+}
+.content-block p {
+  color: #acb2b8;
+  font-size: 14px;
+  line-height: 1.8;
+  margin-bottom: 12px;
+}
+.content-block ul {
+  margin-left: 20px;
+  color: #acb2b8;
+  font-size: 14px;
+}
+.content-block li {
+  margin-bottom: 6px;
+}
+
+/* 下载区域 */
+.download-section {
+  background: #1b2838;
+  padding: 30px 0;
+}
+.download-block {
+  background: #2a475e;
+  padding: 24px;
+  border-radius: 4px;
+}
+.download-block h2 {
+  color: #fff;
+  font-size: 20px;
+  margin-bottom: 16px;
+}
+.download-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: 4px;
+  text-decoration: none;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+.download-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+.download-btn.gamer520 { background: linear-gradient(135deg, #10b981, #059669); }
+.download-btn.x6d { background: linear-gradient(135deg, #3b82f6, #2563eb); }
+.download-btn.magnet { background: linear-gradient(135deg, #ef4444, #dc2626); }
+.download-btn.fitgirl { background: linear-gradient(135deg, #f59e0b, #d97706); }
+.download-btn.tianyi { background: linear-gradient(135deg, #6366f1, #4f46e5); }
+.download-btn.baidu { background: linear-gradient(135deg, #2563eb, #1d4ed8); }
+
+/* 系统需求 */
+.sys-req {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.sys-req-col h4 {
+  color: #67c1f5;
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+.sys-req-col ul {
+  list-style: none;
+  margin: 0;
+}
+.sys-req-col li {
+  font-size: 13px;
+  color: #acb2b8;
+  margin-bottom: 8px;
+  padding-left: 16px;
+  position: relative;
+}
+.sys-req-col li:before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #67c1f5;
+}
+
+/* 响应式 */
+@media (max-width: 768px) {
+  .game-header .container {
+    flex-direction: column;
+  }
+  .game-cover {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+  .game-title {
+    font-size: 24px;
+  }
+  .sys-req {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- 顶部导航 -->
+<nav class="top-nav">
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="../../index.html">← 返回游戏榜单</a>
+    </div>
+    <a href="https://store.steampowered.com/app/{{STEAM_APPID}}/" target="_blank" class="back-link">Steam 商店页 →</a>
+  </div>
+</nav>
+
+<!-- 游戏头部 -->
+<section class="game-header">
+  <div class="container">
+    <div class="game-cover">
+      <img src="{{COVER_IMAGE}}" alt="{{GAME_NAME}}">
+    </div>
+    <div class="game-info">
+      <h1 class="game-title">{{GAME_NAME}}</h1>
+      <div class="game-subtitle">{{GAME_NAME_EN}}</div>
+      
+      <div class="game-meta">
+        <div class="meta-item">{{RELEASE_DATE}}</div>
+        <div class="meta-item">{{GENRES}}</div>
+        {{#if SCORE}}<div class="meta-item score">评分 {{SCORE}}</div>{{/if}}
+      </div>
+      
+      <div class="game-desc">
+        {{SHORT_DESCRIPTION}}
+      </div>
+      
+      <div class="review-summary">
+        <div class="label">开发者</div>
+        <div class="value">{{DEVELOPERS}}</div>
+      </div>
+      
+      <div class="review-summary">
+        <div class="label">发行商</div>
+        <div class="value">{{PUBLISHERS}}</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 媒体区域 -->
+<section class="media-section">
+  <div class="container">
+    <div class="media-tabs">
+      <button class="media-tab active" onclick="showVideo()">视频</button>
+      <button class="media-tab" onclick="showScreenshots()">截图</button>
+    </div>
+    
+    <div id="video-container" class="media-player">
+      {{#if VIDEO_URL}}
+      <video controls poster="{{COVER_IMAGE}}">
+        <source src="{{VIDEO_URL}}" type="video/mp4">
+      </video>
+      {{else}}
+      <img src="{{SCREENSHOTS.[0]}}" alt="Screenshot">
+      {{/if}}
+    </div>
+    
+    <div id="screenshots-container" class="screenshots-grid" style="display:none;">
+      {{#each SCREENSHOTS}}
+      <img src="{{this}}" alt="Screenshot" onclick="window.open(this.src)">
+      {{/each}}
+    </div>
+  </div>
+</section>
+
+<!-- 关于此游戏 -->
+<section class="content-section">
+  <div class="container">
+    <div class="content-block">
+      <h2>关于此游戏</h2>
+      <div>{{ABOUT_GAME}}</div>
+    </div>
+  </div>
+</section>
+
+<!-- 下载区域 -->
+<section class="download-section">
+  <div class="container">
+    <div class="download-block">
+      <h2>📥 下载链接</h2>
+      <div class="download-buttons">
+        {{#each DOWNLOADS}}
+        <a href="{{this.url}}" class="download-btn {{this.type}}" target="_blank">
+          {{this.name}}
+        </a>
+        {{/each}}
+        {{#unless DOWNLOADS.length}}
+        <p style="color:#8f98a0;">暂无下载链接</p>
+        {{/unless}}
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 系统需求 -->
+{{#if PC_REQUIREMENTS}}
+<section class="content-section">
+  <div class="container">
+    <div class="content-block">
+      <h2>系统需求</h2>
+      <div class="sys-req">
+        <div class="sys-req-col">
+          <h4>最低配置</h4>
+          <div>{{{PC_REQUIREMENTS.minimum}}}</div>
+        </div>
+        {{#if PC_REQUIREMENTS.recommended}}
+        <div class="sys-req-col">
+          <h4>推荐配置</h4>
+          <div>{{{PC_REQUIREMENTS.recommended}}}</div>
+        </div>
+        {{/if}}
+      </div>
+    </div>
+  </div>
+</section>
+{{/if}}
+
+<script>
+function showVideo() {
+  document.getElementById('video-container').style.display = 'block';
+  document.getElementById('screenshots-container').style.display = 'none';
+  document.querySelectorAll('.media-tab').forEach(t => t.classList.remove('active'));
+  event.target.classList.add('active');
+}
+
+function showScreenshots() {
+  document.getElementById('video-container').style.display = 'none';
+  document.getElementById('screenshots-container').style.display = 'grid';
+  document.querySelectorAll('.media-tab').forEach(t => t.classList.remove('active'));
+  event.target.classList.add('active');
+}
+</script>
+
+</body>
+</html>

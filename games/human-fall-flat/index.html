@@ -3,122 +3,478 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>人类：一败涂地 - Human: Fall Flat - 游戏详情</title>
+<title>人类：一败涂地 - 游戏详情</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Segoe UI','Microsoft YaHei',sans-serif;background:#f5f5f7;color:#1a1a2e;line-height:1.6}
-.topbar{background:#ffffff;border-bottom:1px solid #e0e0e4;padding:12px 0;position:sticky;top:0;z-index:100}
-.topbar .container{display:flex;align-items:center;gap:16px}
-.container{max-width:1200px;margin:0 auto;padding:0 20px}
-.back{color:#6d28d9;text-decoration:none;font-size:14px;font-weight:500;display:flex;align-items:center;gap:4px}
-.back:hover{text-decoration:underline}
-.back-btn{background:#6d28d9;color:#fff;padding:6px 14px;border-radius:4px;text-decoration:none;font-size:13px}
-.back-btn:hover{background:#5b21b6}
-.hero{background:linear-gradient(180deg,#f0f0f5 0%,#e8e8f0 100%);color:#1a1a2e;padding:30px 0 0;border-bottom:1px solid #e0e0e4}
-.hero .container{display:flex;gap:30px;flex-wrap:wrap}
-.hero-info{flex:1;min-width:280px}
-.hero-info h1{font-size:26px;margin-bottom:4px}
-.hero-info .en{color:#888;font-size:14px;margin-bottom:12px}
-.hero-info .meta{display:flex;gap:6px;margin-bottom:14px;flex-wrap:wrap}
-.hero .tag{font-size:12px;padding:3px 10px;border-radius:4px;background:#e8e8ec;color:#555}
-.hero .tag.mc{background:#6d28d922;color:#6d28d9}
-.hero .tag.sales{background:#e11d4822;color:#e11d48}
-.hero-img{width:460px;max-width:100%;border-radius:8px;flex-shrink:0;box-shadow:0 2px 12px rgba(0,0,0,0.08)}
-.content{padding:24px 0}
-.section{background:#fff;border-radius:8px;border:1px solid #e0e0e4;padding:24px;margin-bottom:16px}
-.section h2{font-size:18px;color:#1a1a2e;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid #e0e0e4}
-.desc{font-size:15px;color:#444;line-height:1.7}
-.dl-section{background:#fff;border-radius:8px;border:1px solid #e0e0e4;padding:24px;margin-bottom:16px}
-.dl-section h2{font-size:18px;color:#1a1a2e;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid #e0e0e4}
-.dl-buttons{display:flex;flex-wrap:wrap;gap:8px}
-.dl-btn{display:inline-flex;align-items:center;gap:5px;padding:8px 16px;border-radius:6px;font-size:13px;text-decoration:none;color:#fff;transition:all .2s;font-weight:500}
-.dl-btn:hover{filter:brightness(1.1);transform:translateY(-1px)}
-.dl-btn.gamer520{background:#10b981}
-.dl-btn.x6d{background:#3b82f6}
-.dl-btn.tianyi{background:#6366f1}
-.dl-btn.baidu{background:#2563eb}
-.dl-btn.magnet{background:#ef4444}
-.dl-btn.fitgirl{background:#f59e0b}
-.info-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:16px}
-.info-item .label{font-size:12px;color:#888;text-transform:uppercase;letter-spacing:0.5px}
-.info-item .value{font-size:14px;color:#1a1a2e;margin-top:2px}
-.ss-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:8px}
-.ss-grid img{width:100%;border-radius:6px;cursor:pointer;transition:transform .2s}
-.ss-grid img:hover{transform:scale(1.02)}
-@media(max-width:768px){.hero-img{width:100%}.ss-grid{grid-template-columns:1fr}}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: "Microsoft YaHei", "Segoe UI", sans-serif;
+  background: #1b2838;
+  color: #c7d5e0;
+  line-height: 1.6;
+}
+
+/* 顶部导航 */
+.top-nav {
+  background: #171a21;
+  padding: 8px 0;
+  border-bottom: 1px solid #000;
+}
+.top-nav .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.breadcrumb {
+  font-size: 12px;
+  color: #666;
+}
+.breadcrumb a {
+  color: #666;
+  text-decoration: none;
+}
+.breadcrumb a:hover {
+  color: #fff;
+}
+.back-link {
+  color: #67c1f5;
+  text-decoration: none;
+  font-size: 13px;
+}
+.back-link:hover {
+  color: #fff;
+}
+
+/* 主容器 */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* 游戏头部 - Steam风格左右布局 */
+.game-header {
+  background: linear-gradient(180deg, #1b2838 0%, #2a475e 100%);
+  padding: 30px 0;
+}
+.game-header .container {
+  display: grid;
+  grid-template-columns: 460px 1fr;
+  gap: 30px;
+}
+
+/* 左侧媒体区域 */
+.media-section {
+  background: #000;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.media-tabs {
+  display: flex;
+  background: #1b2838;
+}
+.media-tab {
+  background: transparent;
+  border: none;
+  color: #67c1f5;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 13px;
+  border-bottom: 2px solid transparent;
+}
+.media-tab.active {
+  border-bottom-color: #67c1f5;
+  color: #fff;
+}
+.media-player {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/9;
+  background: #000;
+}
+.media-player video,
+.media-player img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.screenshots-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4px;
+  padding: 4px;
+  background: #1b2838;
+}
+.screenshots-grid img {
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+.screenshots-grid img:hover {
+  opacity: 0.8;
+}
+
+/* 右侧信息面板 */
+.game-info {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.game-title {
+  font-size: 32px;
+  font-weight: 300;
+  color: #fff;
+}
+.game-subtitle {
+  font-size: 14px;
+  color: #8f98a0;
+}
+.game-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.meta-item {
+  background: rgba(0,0,0,0.3);
+  padding: 6px 12px;
+  border-radius: 3px;
+  font-size: 13px;
+  color: #c7d5e0;
+}
+.meta-item.score {
+  background: #66c0f4;
+  color: #1b2838;
+  font-weight: 600;
+}
+.info-block {
+  background: rgba(0,0,0,0.2);
+  padding: 12px;
+  border-radius: 4px;
+}
+.info-block .label {
+  font-size: 11px;
+  color: #8f98a0;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.info-block .value {
+  font-size: 14px;
+  color: #67c1f5;
+}
+.game-desc {
+  font-size: 14px;
+  color: #acb2b8;
+  line-height: 1.7;
+}
+
+/* 内容区域 */
+.content-section {
+  background: #1b2838;
+  padding: 30px 0;
+}
+.content-block {
+  background: rgba(0,0,0,0.3);
+  padding: 24px;
+  border-radius: 4px;
+}
+.content-block h2 {
+  color: #fff;
+  font-size: 20px;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #2a475e;
+}
+.content-block p {
+  color: #acb2b8;
+  font-size: 14px;
+  line-height: 1.8;
+  margin-bottom: 12px;
+}
+.content-block h2.bb_tag {
+  color: #67c1f5;
+  font-size: 16px;
+  margin: 20px 0 10px 0;
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+/* 下载区域 */
+.download-section {
+  background: #1b2838;
+  padding: 30px 0;
+}
+.download-block {
+  background: rgba(0,0,0,0.3);
+  padding: 24px;
+  border-radius: 4px;
+}
+.download-block h2 {
+  color: #fff;
+  font-size: 20px;
+  margin-bottom: 16px;
+}
+.download-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: 4px;
+  text-decoration: none;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+.download-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+.download-btn.gamer520 { background: linear-gradient(135deg, #10b981, #059669); }
+.download-btn.x6d { background: linear-gradient(135deg, #3b82f6, #2563eb); }
+.download-btn.magnet { background: linear-gradient(135deg, #ef4444, #dc2626); }
+.download-btn.fitgirl { background: linear-gradient(135deg, #f59e0b, #d97706); }
+.download-btn.tianyi { background: linear-gradient(135deg, #6366f1, #4f46e5); }
+.download-btn.baidu { background: linear-gradient(135deg, #2563eb, #1d4ed8); }
+
+/* 系统需求 */
+.sys-req {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.sys-req-col h4 {
+  color: #67c1f5;
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+.sys-req-col ul {
+  list-style: none;
+  margin: 0;
+}
+.sys-req-col li {
+  font-size: 13px;
+  color: #acb2b8;
+  margin-bottom: 8px;
+  padding-left: 16px;
+  position: relative;
+}
+.sys-req-col li:before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #67c1f5;
+}
+
+/* 响应式 */
+@media (max-width: 900px) {
+  .game-header .container {
+    grid-template-columns: 1fr;
+  }
+  .media-section {
+    max-width: 100%;
+  }
+  .sys-req {
+    grid-template-columns: 1fr;
+  }
+}
 </style>
 </head>
 <body>
 
-<div class="topbar">
+<!-- 顶部导航 -->
+<nav class="top-nav">
   <div class="container">
-    <a href="../../index.html" class="back">← 返回游戏榜单</a>
-    <a href="https://store.steampowered.com/app/477160" target="_blank" class="back-btn" style="margin-left:auto">Steam 商店页</a>
+    <div class="breadcrumb">
+      <a href="../../index.html">← 返回游戏榜单</a>
+    </div>
+    <a href="https://store.steampowered.com/app/477160/" target="_blank" class="back-link">Steam 商店页 →</a>
   </div>
-</div>
+</nav>
 
-<div class="hero">
+<!-- 游戏头部 -->
+<section class="game-header">
   <div class="container">
-    <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/477160/library_600x900.jpg" alt="Human: Fall Flat" class="hero-img" onerror="this.style.display='none'">
-    <div class="hero-info">
-      <h1>人类：一败涂地</h1>
-      <div class="en">Human: Fall Flat</div>
-      <div class="meta">
-        <span class="tag">2016</span>
-        <span class="tag mc">评分 70</span>
-        <span class="tag sales">销量Top</span>
-        <span class="tag">冒险, 休闲, 独立, 模拟</span>
+    <!-- 左侧媒体区域 -->
+    <div class="media-section">
+      <div class="media-tabs">
+        
+        <button class="media-tab active" onclick="showScreenshots()">截图</button>
       </div>
-      <div class="desc">《人类一败涂地》是一款轻松搞笑的沙雕游戏，游戏的场景发生在飘渺的梦境之中。玩家既可以单机自闭，也可以最多八人联机一起欢畅。游戏支持的创意工坊，还可以让大家免费玩到不计其数的高质量玩家关卡和皮肤。游戏支持中文。</div>
+      
+      
+      
+      
+      <div id="screenshots-container" class="screenshots-grid" {{#if VIDEO_HTML}}style="display:none;">
+        <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/477160/299e16818eb89c82e7829e9a0ca6b611756bbcfa/ss_299e16818eb89c82e7829e9a0ca6b611756bbcfa.1920x1080.jpg?t=1784801515" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/477160/3b3caabfc7f64ce487c2e1bde5714190804b7d42/ss_3b3caabfc7f64ce487c2e1bde5714190804b7d42.1920x1080.jpg?t=1784801515" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/477160/2a2d0adbca68043d7a51c2f7308d2acf4259c92a/ss_2a2d0adbca68043d7a51c2f7308d2acf4259c92a.1920x1080.jpg?t=1784801515" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/477160/c5fae1d22ddaac40ebfad8fbaa36e30ccb6e9b6b/ss_c5fae1d22ddaac40ebfad8fbaa36e30ccb6e9b6b.1920x1080.jpg?t=1784801515" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/477160/0a262780e3e3d4f5d0c59fce34bc71e311821f4a/ss_0a262780e3e3d4f5d0c59fce34bc71e311821f4a.1920x1080.jpg?t=1784801515" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/477160/d4332d8ef7be5e5013ac1a274eb8832c0f8c8482/ss_d4332d8ef7be5e5013ac1a274eb8832c0f8c8482.1920x1080.jpg?t=1784801515" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/477160/925abe4319c0ca82feb320539845bc174a5a6f9b/ss_925abe4319c0ca82feb320539845bc174a5a6f9b.1920x1080.jpg?t=1784801515" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/477160/aa77de75b6ca4ddb78011d92c0385cec3e4a5312/ss_aa77de75b6ca4ddb78011d92c0385cec3e4a5312.1920x1080.jpg?t=1784801515" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/477160/255ce652883cdb8fc0dc4dac6697db71aa535f3f/ss_255ce652883cdb8fc0dc4dac6697db71aa535f3f.1920x1080.jpg?t=1784801515" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/477160/94f4e124f87b033d985f3ff542ac8d2d7195d106/ss_94f4e124f87b033d985f3ff542ac8d2d7195d106.1920x1080.jpg?t=1784801515" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/477160/eca0a2596d4b9e746154ee95571eb19db622e25e/ss_eca0a2596d4b9e746154ee95571eb19db622e25e.1920x1080.jpg?t=1784801515" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/477160/045dbf6a11c00886d9b1fee5bd818686680463f9/ss_045dbf6a11c00886d9b1fee5bd818686680463f9.1920x1080.jpg?t=1784801515" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/477160/87e8bf9beb25953b9b3a2e729c628ff5147d23e1/ss_87e8bf9beb25953b9b3a2e729c628ff5147d23e1.1920x1080.jpg?t=1784801515" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/477160/2a8989f6bcf031931544f3e39073e0ad8f753f20/ss_2a8989f6bcf031931544f3e39073e0ad8f753f20.1920x1080.jpg?t=1784801515" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/477160/3fea2bfe67e9d6a91b734a54f4cb85221e75d100/ss_3fea2bfe67e9d6a91b734a54f4cb85221e75d100.1920x1080.jpg?t=1784801515" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/477160/cee82b41a6b4434d7d2d777d2551e1e88da0bf27/ss_cee82b41a6b4434d7d2d777d2551e1e88da0bf27.1920x1080.jpg?t=1784801515" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/477160/324ea457c102d5223bb4e0d3fc1128922534e681/ss_324ea457c102d5223bb4e0d3fc1128922534e681.1920x1080.jpg?t=1784801515" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/477160/1ddd4abd210d3ad839e419d004d22bdd48213438/ss_1ddd4abd210d3ad839e419d004d22bdd48213438.1920x1080.jpg?t=1784801515" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/477160/72fb001dad4b56fe9f1df4428f85cb14bbdb0b34/ss_72fb001dad4b56fe9f1df4428f85cb14bbdb0b34.1920x1080.jpg?t=1784801515" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/477160/3ca72e526942c4f966941c8b7206efc3a28f0a4b/ss_3ca72e526942c4f966941c8b7206efc3a28f0a4b.1920x1080.jpg?t=1784801515" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/477160/3256acf966f1038b43855f7251757d4dbfa3b605/ss_3256acf966f1038b43855f7251757d4dbfa3b605.1920x1080.jpg?t=1784801515" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/477160/6f99911633261c0523031c0fcee2f751631adb00/ss_6f99911633261c0523031c0fcee2f751631adb00.1920x1080.jpg?t=1784801515" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/477160/ss_340932f424cd3f3b7e93b846ab3877cab20f47a4.1920x1080.jpg?t=1784801515" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/477160/ss_47970a9a11c4fa66327dc33ef785df80f6226474.1920x1080.jpg?t=1784801515" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/477160/ss_4d5ec3ff44b994cb7da800ec0574857bfe5def9c.1920x1080.jpg?t=1784801515" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/477160/ss_9bbf8423e8c65699b46b54e194553cf84dc39870.1920x1080.jpg?t=1784801515" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/477160/ss_52fdb52dfa05455d2e3bcf21eb08a699b6d802af.1920x1080.jpg?t=1784801515" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/477160/ss_649770022cd037f234196e444a762202686fead0.1920x1080.jpg?t=1784801515" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/477160/ss_45f5c0ae17e2e4a09a6a7966d19779b7a2f88d9f.1920x1080.jpg?t=1784801515" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/477160/ss_56e2f54bc55f4c925955e8e58c52922699244dd5.1920x1080.jpg?t=1784801515" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/477160/ss_4ca11d7e4c30a27d5aaad05aa2492b52db3f2f66.1920x1080.jpg?t=1784801515" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/477160/ss_500e7048243a5366a7737d40ee846245ac4e02e9.1920x1080.jpg?t=1784801515" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/477160/ss_ba6cb467797e550e68e28c438335a7970bf2a1aa.1920x1080.jpg?t=1784801515" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/477160/ss_ffb63e922b64c32eadebdc59bb08e9007ebdf976.1920x1080.jpg?t=1784801515" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/477160/ss_f02669c421a6a99cd8df1cd9337ce80b306be998.1920x1080.jpg?t=1784801515" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/477160/ss_bec20576bf085dd0ccdd5e18a090c35b63f26194.1920x1080.jpg?t=1784801515" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/477160/ss_a4add96e26388447858b439b9144f504d1db062e.1920x1080.jpg?t=1784801515" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/477160/ss_288cab2cc0d277aa9b4d9bdcd0c958db414954f2.1920x1080.jpg?t=1784801515" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/477160/ss_24826d2bdaba8a264cec8089a33f971ec9f1ced5.1920x1080.jpg?t=1784801515" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/477160/ss_e2d6afe6bd372a22232f9fa9dfcdf9fe26e0c034.1920x1080.jpg?t=1784801515" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/477160/ss_06a913d8f75a9893f6de5ed625a93d5b7d5b2578.1920x1080.jpg?t=1784801515" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/477160/ss_197e6521dcdb44c2aee9b017bd9063fe12431c6c.1920x1080.jpg?t=1784801515" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/477160/ss_b27d9aedf0b73e2f90d21b7a9dd6e94cd8ed84cb.1920x1080.jpg?t=1784801515" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/477160/ss_a4c737ed340b4ca91e0a40cd75dd1f6d7dad9233.1920x1080.jpg?t=1784801515" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/477160/ss_9877120102e7d5f94dacf53e3aa99fce80e19118.1920x1080.jpg?t=1784801515" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/477160/ss_5c0963777890fa7e4713d00cc48b935af8e6d13b.1920x1080.jpg?t=1784801515" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/477160/ss_f991250b524335587a832b337e77f3f44d5eb737.1920x1080.jpg?t=1784801515" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/477160/ss_c27febd8f45810824a463e5213db354b4d74e526.1920x1080.jpg?t=1784801515" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/477160/ss_12fed5f40ff0f489613b78b21ecce916daaff1a8.1920x1080.jpg?t=1784801515" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/477160/ss_a27165948f3c9a111ac4c5b96eb81667ea662480.1920x1080.jpg?t=1784801515" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/477160/ss_a5a60e90a81f923dd3a523034ecb694b0790859e.1920x1080.jpg?t=1784801515" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/477160/ss_7877e0dab58970e4caf1954654807bf4f6b47e9c.1920x1080.jpg?t=1784801515" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/477160/ss_fb607acc2dfb9d2ed8b8ac905b037e33aa8fc980.1920x1080.jpg?t=1784801515" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/477160/ss_087a731844fa4dcd079c6c7dcf5bcd702b490871.1920x1080.jpg?t=1784801515" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/477160/ss_e7d09cf77c2ad0f6fb1435567b3ad2c13adbc78f.1920x1080.jpg?t=1784801515" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/477160/ss_1624931bb8a7194728bf70eba310ca0818716861.1920x1080.jpg?t=1784801515" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/477160/ss_54160144b863b8dc968686c434d79227df881bd9.1920x1080.jpg?t=1784801515" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/477160/ss_5421db9e423accdb850cfd05b74da3770d120911.1920x1080.jpg?t=1784801515" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/477160/ss_3e8b410b91671c9c1e43c210d800733419462c2b.1920x1080.jpg?t=1784801515" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/477160/ss_b2245c244709a195cf9f354fc9e5e81c0f38baf2.1920x1080.jpg?t=1784801515" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/477160/ss_d03aa9f71595467226bb36a76530885c3d9d7b30.1920x1080.jpg?t=1784801515" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/477160/ss_be7a8b73ce06e4bf807008c3a7163208dd68a430.1920x1080.jpg?t=1784801515" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/477160/ss_c4b7a4dbd6edd12467409bad522ceda10ca2814d.1920x1080.jpg?t=1784801515" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/477160/ss_329d92357f24121d5b111cef65ee66f1bbb50f9c.1920x1080.jpg?t=1784801515" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/477160/ss_54d51aeba62973c72d77bf2fa48e26971db80344.1920x1080.jpg?t=1784801515" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/477160/ss_3db408ca89aa96d4914c877ebba59165c6358a24.1920x1080.jpg?t=1784801515" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/477160/ss_ae83227506e0434942c6b9eacf1b771342c9705d.1920x1080.jpg?t=1784801515" alt="Screenshot" onclick="window.open(this.src)">
+      </div>
+      {{/if}}
+    </div>
+    
+    <!-- 右侧信息面板 -->
+    <div class="game-info">
+      <h1 class="game-title">人类：一败涂地</h1>
+      <div class="game-subtitle">Human: Fall Flat</div>
+      
+      <div class="game-meta">
+        <div class="meta-item">2016 年 7 月 22 日</div>
+        <div class="meta-item">冒险, 休闲, 独立, 模拟</div>
+        <div class="meta-item score">评分 70</div>
+      </div>
+      
+      
+      <div class="info-block">
+        <div class="label">开发者</div>
+        <div class="value">No Brakes Games</div>
+      </div>
+      
+      
+      
+      <div class="info-block">
+        <div class="label">发行商</div>
+        <div class="value">Curve Games</div>
+      </div>
+      
+      
+      
+      <div class="game-desc">
+        《人类一败涂地》是一款轻松搞笑的沙雕游戏，游戏的场景发生在飘渺的梦境之中。玩家既可以单机自闭，也可以最多八人联机一起欢畅。游戏支持的创意工坊，还可以让大家免费玩到不计其数的高质量玩家关卡和皮肤。游戏支持中文。
+      </div>
+      
     </div>
   </div>
-</div>
+</section>
 
-<div class="content">
+<!-- 关于此游戏 -->
+
+<section class="content-section">
   <div class="container">
+    <div class="content-block">
+      <h2>关于此游戏</h2>
+      <div><p class="bb_paragraph" ><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/477160/extras/8618c630e9762d4959dbaf642da890ee.avif?t=1784801515" width=1280 height=109 /></span></p><h2 class="bb_tag" ><strong>***全新“十周年”纪念关卡现已发布***</strong></h2><p class="bb_paragraph" >《人类一败涂地》已经晃晃悠悠走过十年啦！现在，全新十周年关卡已免费上线，里面满是回忆杀与隐藏彩蛋——不仅有从未公开过的制作人视频彩蛋，还复刻了豪宅、雪山、拆除、城堡、水、发电厂、阿芝特克等经典关卡名场面。加入全球超过5500万玩家的大家庭，一起探索社区创作者打造的 5000 多个关卡吧！</p><p class="bb_paragraph" ><strong>加入全球超过5500万玩家的大家庭，一起探索社区创作者打造的 5000 多个关卡吧！</strong></p><p class="bb_paragraph" ><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/477160/extras/5b594b3668efab44ba5920480560c901.poster.avif?t=1784801515" width=1170 height=658 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/477160/extras/5b594b3668efab44ba5920480560c901.webm?t=1784801515" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/477160/extras/5b594b3668efab44ba5920480560c901.mp4?t=1784801515" type="video/mp4"></video></span> </p><p class="bb_paragraph" > </p><h2 class="bb_tag" ><strong>《人类一败涂地》是一款轻松搞笑的沙雕游戏，游戏的场景发生在飘渺的梦境之中。</strong></h2><p class="bb_paragraph" ></p><p class="bb_paragraph" >每个梦境关卡会提供一个全新的环境让玩家探索，从豪宅、城堡和阿兹台克到雪山、光怪陆离的夜景和工业区。每关都贯穿有多条路线和完美设置的谜题，确保热衷探索和聪明的玩家能得到奖励。 </p><p class="bb_paragraph" ></p><p class="bb_paragraph" ><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/477160/extras/39abecea824dee9947f17953d229250c.avif?t=1784801515" width=1280 height=109 /></span></p><p class="bb_paragraph" ></p><p class="bb_paragraph" ><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/477160/extras/445e027a309d222ed059ffd20926d6e9.poster.avif?t=1784801515" width=640 height=208 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/477160/extras/445e027a309d222ed059ffd20926d6e9.webm?t=1784801515" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/477160/extras/445e027a309d222ed059ffd20926d6e9.mp4?t=1784801515" type="video/mp4"></video></span></p><p class="bb_paragraph" >需要帮忙把巨石装上投石器，或者需要有人来打破那堵墙？最多8名玩家的在线多人模式会改变《人类一败涂地》的游戏方式。</p><p class="bb_paragraph" ><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/477160/extras/b21c68a141f0d801fdb5f6f1d15f713c.avif?t=1784801515" width=1280 height=109 /></span></p><p class="bb_paragraph" ><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/477160/extras/7f680201dd84757d405a8ade5b6adb5e.poster.avif?t=1784801515" width=640 height=208 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/477160/extras/7f680201dd84757d405a8ade5b6adb5e.webm?t=1784801515" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/477160/extras/7f680201dd84757d405a8ade5b6adb5e.mp4?t=1784801515" type="video/mp4"></video></span></p><p class="bb_paragraph" >你的软趴趴小人由你自己来定制。可以选择建筑工人、大厨、跳伞员、矿工、宇航员或忍者的服装。还可以分别打扮你的脑袋、上半身和下半身，并且用脑洞让一切变得创意十足！ </p><p class="bb_paragraph" ><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/477160/extras/c2b8972ab9330102bfab91fbea6a7d60.avif?t=1784801515" width=1280 height=109 /></span></p><p class="bb_paragraph" ><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/477160/extras/0ecdd7c2fa45fb187d2f6d51594d3045.poster.avif?t=1784801515" width=600 height=200 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/477160/extras/0ecdd7c2fa45fb187d2f6d51594d3045.webm?t=1784801515" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/477160/extras/0ecdd7c2fa45fb187d2f6d51594d3045.mp4?t=1784801515" type="video/mp4"></video></span></p><p class="bb_paragraph" >仅在Steam平台上发布的《人类一败涂地》创意工坊，是一个绝佳的工具，与Unity一起使用，可以让玩家打造自己的《人类一败涂地》内容，并和全世界的玩家分享。对自己打造关卡、大厅或皮肤不感兴趣？你还可以在Steam上直接下载和探索超过5000个别人的创意关卡！ </p><p class="bb_paragraph" ></p><p class="bb_paragraph" ><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/477160/extras/5a3c03eb7aebfdf75c159e8669bf4ac2.avif?t=1784801515" width=1280 height=109 /></span></p><p class="bb_paragraph" ><strong>生机勃勃的玩家社群</strong> </p><p class="bb_paragraph" ><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/477160/extras/72f28d1421041bd61cec9710dedaf37c.poster.avif?t=1784801515" width=600 height=200 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/477160/extras/72f28d1421041bd61cec9710dedaf37c.webm?t=1784801515" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/477160/extras/72f28d1421041bd61cec9710dedaf37c.mp4?t=1784801515" type="video/mp4"></video></span></p><p class="bb_paragraph" >主播和UP主们对《人类一败涂地》尤为青睐，就因为其独特搞笑的游戏方式。这些视频的综合播放量已多达6亿！</p></div>
+    </div>
+  </div>
+</section>
 
-    <div class="dl-section">
+
+<!-- 下载区域 -->
+<section class="download-section">
+  <div class="container">
+    <div class="download-block">
       <h2>📥 下载链接</h2>
-      <div class="dl-buttons">
-<a href="magnet:?xt=urn:btih:433A20CE473E4E0760728BA8A0E2E8680FA6D9F1" class="dl-btn magnet" target="_blank">🧲 磁力链</a>
-<a href="https://fitgirl-repacks.site/human-fall-flat/" class="dl-btn fitgirl" target="_blank">📀 FitGirl</a>
+      <div class="download-buttons">
+        <a href="magnet:?xt=urn:btih:433A20CE473E4E0760728BA8A0E2E8680FA6D9F1" class="download-btn magnet" target="_blank">🧲磁力</a>
+<a href="https://fitgirl-repacks.site/human-fall-flat/" class="download-btn fitgirl" target="_blank">FitGirl</a>
 
       </div>
     </div>
-
-    <div class="section">
-      <h2>📋 游戏信息</h2>
-      <div class="info-grid">
-        <div class="info-item"><div class="label">开发商</div><div class="value">No Brakes Games</div></div>
-        <div class="info-item"><div class="label">发行商</div><div class="value">Curve Games</div></div>
-        <div class="info-item"><div class="label">发行日期</div><div class="value">2016 年 7 月 22 日</div></div>
-        <div class="info-item"><div class="label">类型</div><div class="value">冒险, 休闲, 独立, 模拟</div></div>
-        <div class="info-item"><div class="label">Metacritic</div><div class="value">70</div></div>
-        <div class="info-item"><div class="label">Steam</div><div class="value"><a href="https://store.steampowered.com/app/477160" target="_blank">查看商店页 →</a></div></div>
-      </div>
-    </div>
-
-    
-    <div class="section">
-      <h2>📖 关于这款游戏</h2>
-      <div class="desc">《人类一败涂地》是一款轻松搞笑的沙雕游戏，游戏的场景发生在飘渺的梦境之中。玩家既可以单机自闭，也可以最多八人联机一起欢畅。游戏支持的创意工坊，还可以让大家免费玩到不计其数的高质量玩家关卡和皮肤。游戏支持中文。</div>
-    </div>
-
-    
-    <div class="section">
-      <h2>📸 游戏截图</h2>
-      <div class="ss-grid">
-        <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/477160/299e16818eb89c82e7829e9a0ca6b611756bbcfa/ss_299e16818eb89c82e7829e9a0ca6b611756bbcfa.1920x1080.jpg?t=1784801515" alt="" loading="lazy">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/477160/3b3caabfc7f64ce487c2e1bde5714190804b7d42/ss_3b3caabfc7f64ce487c2e1bde5714190804b7d42.1920x1080.jpg?t=1784801515" alt="" loading="lazy">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/477160/2a2d0adbca68043d7a51c2f7308d2acf4259c92a/ss_2a2d0adbca68043d7a51c2f7308d2acf4259c92a.1920x1080.jpg?t=1784801515" alt="" loading="lazy">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/477160/c5fae1d22ddaac40ebfad8fbaa36e30ccb6e9b6b/ss_c5fae1d22ddaac40ebfad8fbaa36e30ccb6e9b6b.1920x1080.jpg?t=1784801515" alt="" loading="lazy">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/477160/0a262780e3e3d4f5d0c59fce34bc71e311821f4a/ss_0a262780e3e3d4f5d0c59fce34bc71e311821f4a.1920x1080.jpg?t=1784801515" alt="" loading="lazy">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/477160/d4332d8ef7be5e5013ac1a274eb8832c0f8c8482/ss_d4332d8ef7be5e5013ac1a274eb8832c0f8c8482.1920x1080.jpg?t=1784801515" alt="" loading="lazy">
-
-      </div>
-    </div>
-
   </div>
-</div>
+</section>
+
+<!-- 系统需求 -->
+
+<section class="content-section">
+  <div class="container">
+    <div class="content-block">
+      <h2>系统需求</h2>
+      <div class="sys-req">
+        <div class="sys-req-col"><h4>最低配置</h4><div><strong>最低配置:</strong><br><ul class="bb_ul"><li><strong>操作系统 *:</strong> Windows XP/Vista/7/8/8.1/10 x86 and x64<br></li><li><strong>处理器:</strong> Intel Core2 Duo E6750 (2 * 2660) or equivalent | AMD Athlon 64 X2 Dual Core 6000+ (2 * 3000) or equivalent<br></li><li><strong>内存:</strong> 1024 MB RAM<br></li><li><strong>显卡:</strong> GeForce GT 740 (2048 MB) or equivalent | Radeon HD 5770 (1024 MB)<br></li><li><strong>存储空间:</strong> 需要 500 MB 可用空间</li></ul></div></div>
+        <div class="sys-req-col"><h4>推荐配置</h4><div><strong>推荐配置:</strong><br><ul class="bb_ul"><li><strong>操作系统 *:</strong> Windows XP/Vista/7/8/8.1/10 x86 and x64<br></li><li><strong>处理器:</strong> Intel Core2 Quad Q9300 (4 * 2500) or equivalent | AMD A10-5800K APU (4*3800) or equivalent<br></li><li><strong>内存:</strong> 2048 MB RAM<br></li><li><strong>显卡:</strong> GeForce GTX 460 (1024 MB) or equivalent | Radeon HD 7770 (1024 MB)<br></li><li><strong>存储空间:</strong> 需要 500 MB 可用空间</li></ul></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+function showVideo() {
+  document.getElementById('video-container').style.display = 'block';
+  document.getElementById('screenshots-container').style.display = 'none';
+  document.querySelectorAll('.media-tab').forEach(t => t.classList.remove('active'));
+  event.target.classList.add('active');
+}
+
+function showScreenshots() {
+  const videoContainer = document.getElementById('video-container');
+  if (videoContainer) videoContainer.style.display = 'none';
+  document.getElementById('screenshots-container').style.display = 'grid';
+  document.querySelectorAll('.media-tab').forEach(t => t.classList.remove('active'));
+  event.target.classList.add('active');
+}
+</script>
+
 </body>
 </html>

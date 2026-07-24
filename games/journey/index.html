@@ -3,122 +3,420 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>旅途 - Journey - 游戏详情</title>
+<title>旅途 - 游戏详情</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Segoe UI','Microsoft YaHei',sans-serif;background:#f5f5f7;color:#1a1a2e;line-height:1.6}
-.topbar{background:#ffffff;border-bottom:1px solid #e0e0e4;padding:12px 0;position:sticky;top:0;z-index:100}
-.topbar .container{display:flex;align-items:center;gap:16px}
-.container{max-width:1200px;margin:0 auto;padding:0 20px}
-.back{color:#6d28d9;text-decoration:none;font-size:14px;font-weight:500;display:flex;align-items:center;gap:4px}
-.back:hover{text-decoration:underline}
-.back-btn{background:#6d28d9;color:#fff;padding:6px 14px;border-radius:4px;text-decoration:none;font-size:13px}
-.back-btn:hover{background:#5b21b6}
-.hero{background:linear-gradient(180deg,#f0f0f5 0%,#e8e8f0 100%);color:#1a1a2e;padding:30px 0 0;border-bottom:1px solid #e0e0e4}
-.hero .container{display:flex;gap:30px;flex-wrap:wrap}
-.hero-info{flex:1;min-width:280px}
-.hero-info h1{font-size:26px;margin-bottom:4px}
-.hero-info .en{color:#888;font-size:14px;margin-bottom:12px}
-.hero-info .meta{display:flex;gap:6px;margin-bottom:14px;flex-wrap:wrap}
-.hero .tag{font-size:12px;padding:3px 10px;border-radius:4px;background:#e8e8ec;color:#555}
-.hero .tag.mc{background:#6d28d922;color:#6d28d9}
-.hero .tag.sales{background:#e11d4822;color:#e11d48}
-.hero-img{width:460px;max-width:100%;border-radius:8px;flex-shrink:0;box-shadow:0 2px 12px rgba(0,0,0,0.08)}
-.content{padding:24px 0}
-.section{background:#fff;border-radius:8px;border:1px solid #e0e0e4;padding:24px;margin-bottom:16px}
-.section h2{font-size:18px;color:#1a1a2e;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid #e0e0e4}
-.desc{font-size:15px;color:#444;line-height:1.7}
-.dl-section{background:#fff;border-radius:8px;border:1px solid #e0e0e4;padding:24px;margin-bottom:16px}
-.dl-section h2{font-size:18px;color:#1a1a2e;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid #e0e0e4}
-.dl-buttons{display:flex;flex-wrap:wrap;gap:8px}
-.dl-btn{display:inline-flex;align-items:center;gap:5px;padding:8px 16px;border-radius:6px;font-size:13px;text-decoration:none;color:#fff;transition:all .2s;font-weight:500}
-.dl-btn:hover{filter:brightness(1.1);transform:translateY(-1px)}
-.dl-btn.gamer520{background:#10b981}
-.dl-btn.x6d{background:#3b82f6}
-.dl-btn.tianyi{background:#6366f1}
-.dl-btn.baidu{background:#2563eb}
-.dl-btn.magnet{background:#ef4444}
-.dl-btn.fitgirl{background:#f59e0b}
-.info-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:16px}
-.info-item .label{font-size:12px;color:#888;text-transform:uppercase;letter-spacing:0.5px}
-.info-item .value{font-size:14px;color:#1a1a2e;margin-top:2px}
-.ss-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:8px}
-.ss-grid img{width:100%;border-radius:6px;cursor:pointer;transition:transform .2s}
-.ss-grid img:hover{transform:scale(1.02)}
-@media(max-width:768px){.hero-img{width:100%}.ss-grid{grid-template-columns:1fr}}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: "Microsoft YaHei", "Segoe UI", sans-serif;
+  background: #1b2838;
+  color: #c7d5e0;
+  line-height: 1.6;
+}
+
+/* 顶部导航 */
+.top-nav {
+  background: #171a21;
+  padding: 8px 0;
+  border-bottom: 1px solid #000;
+}
+.top-nav .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.breadcrumb {
+  font-size: 12px;
+  color: #666;
+}
+.breadcrumb a {
+  color: #666;
+  text-decoration: none;
+}
+.breadcrumb a:hover {
+  color: #fff;
+}
+.back-link {
+  color: #67c1f5;
+  text-decoration: none;
+  font-size: 13px;
+}
+.back-link:hover {
+  color: #fff;
+}
+
+/* 主容器 */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* 游戏头部 - Steam风格左右布局 */
+.game-header {
+  background: linear-gradient(180deg, #1b2838 0%, #2a475e 100%);
+  padding: 30px 0;
+}
+.game-header .container {
+  display: grid;
+  grid-template-columns: 460px 1fr;
+  gap: 30px;
+}
+
+/* 左侧媒体区域 */
+.media-section {
+  background: #000;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.media-tabs {
+  display: flex;
+  background: #1b2838;
+}
+.media-tab {
+  background: transparent;
+  border: none;
+  color: #67c1f5;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 13px;
+  border-bottom: 2px solid transparent;
+}
+.media-tab.active {
+  border-bottom-color: #67c1f5;
+  color: #fff;
+}
+.media-player {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/9;
+  background: #000;
+}
+.media-player video,
+.media-player img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.screenshots-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4px;
+  padding: 4px;
+  background: #1b2838;
+}
+.screenshots-grid img {
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+.screenshots-grid img:hover {
+  opacity: 0.8;
+}
+
+/* 右侧信息面板 */
+.game-info {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.game-title {
+  font-size: 32px;
+  font-weight: 300;
+  color: #fff;
+}
+.game-subtitle {
+  font-size: 14px;
+  color: #8f98a0;
+}
+.game-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.meta-item {
+  background: rgba(0,0,0,0.3);
+  padding: 6px 12px;
+  border-radius: 3px;
+  font-size: 13px;
+  color: #c7d5e0;
+}
+.meta-item.score {
+  background: #66c0f4;
+  color: #1b2838;
+  font-weight: 600;
+}
+.info-block {
+  background: rgba(0,0,0,0.2);
+  padding: 12px;
+  border-radius: 4px;
+}
+.info-block .label {
+  font-size: 11px;
+  color: #8f98a0;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.info-block .value {
+  font-size: 14px;
+  color: #67c1f5;
+}
+.game-desc {
+  font-size: 14px;
+  color: #acb2b8;
+  line-height: 1.7;
+}
+
+/* 内容区域 */
+.content-section {
+  background: #1b2838;
+  padding: 30px 0;
+}
+.content-block {
+  background: rgba(0,0,0,0.3);
+  padding: 24px;
+  border-radius: 4px;
+}
+.content-block h2 {
+  color: #fff;
+  font-size: 20px;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #2a475e;
+}
+.content-block p {
+  color: #acb2b8;
+  font-size: 14px;
+  line-height: 1.8;
+  margin-bottom: 12px;
+}
+.content-block h2.bb_tag {
+  color: #67c1f5;
+  font-size: 16px;
+  margin: 20px 0 10px 0;
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+/* 下载区域 */
+.download-section {
+  background: #1b2838;
+  padding: 30px 0;
+}
+.download-block {
+  background: rgba(0,0,0,0.3);
+  padding: 24px;
+  border-radius: 4px;
+}
+.download-block h2 {
+  color: #fff;
+  font-size: 20px;
+  margin-bottom: 16px;
+}
+.download-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: 4px;
+  text-decoration: none;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+.download-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+.download-btn.gamer520 { background: linear-gradient(135deg, #10b981, #059669); }
+.download-btn.x6d { background: linear-gradient(135deg, #3b82f6, #2563eb); }
+.download-btn.magnet { background: linear-gradient(135deg, #ef4444, #dc2626); }
+.download-btn.fitgirl { background: linear-gradient(135deg, #f59e0b, #d97706); }
+.download-btn.tianyi { background: linear-gradient(135deg, #6366f1, #4f46e5); }
+.download-btn.baidu { background: linear-gradient(135deg, #2563eb, #1d4ed8); }
+
+/* 系统需求 */
+.sys-req {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.sys-req-col h4 {
+  color: #67c1f5;
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+.sys-req-col ul {
+  list-style: none;
+  margin: 0;
+}
+.sys-req-col li {
+  font-size: 13px;
+  color: #acb2b8;
+  margin-bottom: 8px;
+  padding-left: 16px;
+  position: relative;
+}
+.sys-req-col li:before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #67c1f5;
+}
+
+/* 响应式 */
+@media (max-width: 900px) {
+  .game-header .container {
+    grid-template-columns: 1fr;
+  }
+  .media-section {
+    max-width: 100%;
+  }
+  .sys-req {
+    grid-template-columns: 1fr;
+  }
+}
 </style>
 </head>
 <body>
 
-<div class="topbar">
+<!-- 顶部导航 -->
+<nav class="top-nav">
   <div class="container">
-    <a href="../../index.html" class="back">← 返回游戏榜单</a>
-    <a href="https://store.steampowered.com/app/3709430" target="_blank" class="back-btn" style="margin-left:auto">Steam 商店页</a>
+    <div class="breadcrumb">
+      <a href="../../index.html">← 返回游戏榜单</a>
+    </div>
+    <a href="https://store.steampowered.com/app/3709430/" target="_blank" class="back-link">Steam 商店页 →</a>
   </div>
-</div>
+</nav>
 
-<div class="hero">
+<!-- 游戏头部 -->
+<section class="game-header">
   <div class="container">
-    <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/library_600x900.jpg" alt="Journey" class="hero-img" onerror="this.style.display='none'">
-    <div class="hero-info">
-      <h1>旅途</h1>
-      <div class="en">Journey</div>
-      <div class="meta">
-        <span class="tag">2015</span>
-        <span class="tag mc">评分 93</span>
-        <span class="tag mc">口碑Top</span>
-        <span class="tag">独立, 角色扮演, 策略</span>
+    <!-- 左侧媒体区域 -->
+    <div class="media-section">
+      <div class="media-tabs">
+        
+        <button class="media-tab active" onclick="showScreenshots()">截图</button>
       </div>
-      <div class="desc">深渊已经腐坏，象征着终焉的魔女们将在奥尔德林苏醒。你将执掌每位魔女的命运轨迹，以卡组构筑无限可能。创造属于你独一无二的卡牌，自定义魔女们的日程，在策略交锋的战场中，每一次精心构筑，都是在重塑世界的轨迹——是携手寻找希望，还是为世界献上终焉？结局，由你来改写...</div>
+      
+      
+      
+      
+      <div id="screenshots-container" class="screenshots-grid" {{#if VIDEO_HTML}}style="display:none;">
+        <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/3da24d5f26bfc7456c092c74f2d34931c1f1ce8e/ss_3da24d5f26bfc7456c092c74f2d34931c1f1ce8e.1920x1080.jpg?t=1782281729" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/0a64f625389e0fcbbd068eabe0f2961edfa5a4b4/ss_0a64f625389e0fcbbd068eabe0f2961edfa5a4b4.1920x1080.jpg?t=1782281729" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/37f3e67a5718ac0562829ee51ced8984ddd83ca9/ss_37f3e67a5718ac0562829ee51ced8984ddd83ca9.1920x1080.jpg?t=1782281729" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/bb9296ea7bfcfdb849cb86469d4e2abd1ff3bbec/ss_bb9296ea7bfcfdb849cb86469d4e2abd1ff3bbec.1920x1080.jpg?t=1782281729" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/236817dcfd784180962a24ded1c4a7652f28ddb8/ss_236817dcfd784180962a24ded1c4a7652f28ddb8.1920x1080.jpg?t=1782281729" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/a0228a733d7859a6794e3fe1b68f238fe73cea6a/ss_a0228a733d7859a6794e3fe1b68f238fe73cea6a.1920x1080.jpg?t=1782281729" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/5da0e98620ded277d4fe5b47a1d6413d07831292/ss_5da0e98620ded277d4fe5b47a1d6413d07831292.1920x1080.jpg?t=1782281729" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/79fe3d68f8db0cd1997b2c782f53e1f2f9d48ff3/ss_79fe3d68f8db0cd1997b2c782f53e1f2f9d48ff3.1920x1080.jpg?t=1782281729" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/d20e5bad0440f5dcc76fa6d589595fe54aaa566d/ss_d20e5bad0440f5dcc76fa6d589595fe54aaa566d.1920x1080.jpg?t=1782281729" alt="Screenshot" onclick="window.open(this.src)">
+      </div>
+      {{/if}}
+    </div>
+    
+    <!-- 右侧信息面板 -->
+    <div class="game-info">
+      <h1 class="game-title">旅途</h1>
+      <div class="game-subtitle">Journey</div>
+      
+      <div class="game-meta">
+        <div class="meta-item">2026 年 6 月 4 日</div>
+        <div class="meta-item">独立, 角色扮演, 策略</div>
+        <div class="meta-item score">评分 93</div>
+      </div>
+      
+      
+      <div class="info-block">
+        <div class="label">开发者</div>
+        <div class="value">MeowAlive</div>
+      </div>
+      
+      
+      
+      <div class="info-block">
+        <div class="label">发行商</div>
+        <div class="value">MeowAlive, Solo Game</div>
+      </div>
+      
+      
+      
+      <div class="game-desc">
+        深渊已经腐坏，象征着终焉的魔女们将在奥尔德林苏醒。你将执掌每位魔女的命运轨迹，以卡组构筑无限可能。创造属于你独一无二的卡牌，自定义魔女们的日程，在策略交锋的战场中，每一次精心构筑，都是在重塑世界的轨迹——是携手寻找希望，还是为世界献上终焉？结局，由你来改写...
+      </div>
+      
     </div>
   </div>
-</div>
+</section>
 
-<div class="content">
+<!-- 关于此游戏 -->
+
+<section class="content-section">
   <div class="container">
+    <div class="content-block">
+      <h2>关于此游戏</h2>
+      <div><p class="bb_paragraph" ><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/extras/60efd4d7fd442b658bc8d33a6940ac97.avif?t=1782281729" width=918 height=282 /></span></p><h2 class="bb_tag" >《魔女：终末旅途》反馈及玩家讨论群</h2><p class="bb_paragraph" >2/3/4群已满，请加1群：</p><p class="bb_paragraph" >1群（未满）：1002550671 </p><p class="bb_paragraph" ><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/extras/b524ceca1185a09b719138e6906ec509.avif?t=1782281729" width=1280 height=300 /></span></p><p class="bb_paragraph" style="text-align: center"><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/extras/0080ca1a30c439e33cf09c32538ee630.avif?t=1782281729" width=1200 height=97 /></span></p><h2 class="bb_tag" >《魔女：终末旅途》是一款带有角色扮演要素的多人合作卡牌Roguelite游戏，你可以自定义魔女们每一天的行程，还可以创造属于自己独一无二的【超级卡牌】！与小伙伴们一起组成魔女小队，来将这个世界摧毁殆尽吧~！</h2><p class="bb_paragraph" ><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/extras/004f1aba08333cd31d5ccbb773c41cb5.poster.avif?t=1782281729" width=1170 height=656 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/extras/004f1aba08333cd31d5ccbb773c41cb5.webm?t=1782281729" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/extras/004f1aba08333cd31d5ccbb773c41cb5.mp4?t=1782281729" type="video/mp4"></video></span></p><p class="bb_paragraph" ><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/extras/b88a69e5923454b8c0772e25ef644d21.avif?t=1782281729" width=17 height=21 /></span> 作为不祥之物的象征，魔女们是名副其实的灾厄之星，在奥尔德林，她们的出现只意味着一件事：世界即将走到尽头。</p><p class="bb_paragraph" ><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/extras/b88a69e5923454b8c0772e25ef644d21.avif?t=1782281729" width=17 height=21 /></span> 她们既是刽子手，也是入殓师，引领魔女的脚步，为世界送上最后一程！</p><p class="bb_paragraph" ><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/extras/eb123a19c199dcc8af5b394a21e72d63.avif?t=1782281729" width=1200 height=188 /></span></p><p class="bb_paragraph" ><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/extras/811fd1ddd7c36bc055d1834d188c5aed.avif?t=1782281729" data-big-src=https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/extras_big/811fd1ddd7c36bc055d1834d188c5aed.avif?t=1782281729 width=800 height=297 /></span></p><p class="bb_paragraph" ><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/extras/b88a69e5923454b8c0772e25ef644d21.avif?t=1782281729" width=17 height=21 /></span> 组建属于你的魔女小队，体验策略卡牌的乐趣~</p><p class="bb_paragraph" ></p><p class="bb_paragraph" ><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/extras/0f63e343ba794a427a7d1c5f68c0708e.avif?t=1782281729" width=1200 height=188 /></span></p><p class="bb_paragraph" ><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/extras/b5040a2a13a29f8a0beda1e648a8a172.poster.avif?t=1782281729" width=1170 height=656 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/extras/b5040a2a13a29f8a0beda1e648a8a172.webm?t=1782281729" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/extras/b5040a2a13a29f8a0beda1e648a8a172.mp4?t=1782281729" type="video/mp4"></video></span></p><p class="bb_paragraph" ><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/extras/b88a69e5923454b8c0772e25ef644d21.avif?t=1782281729" width=17 height=21 /></span> 满足一定条件后，花费一定真理之晶生成合你心意的卡牌</p><p class="bb_paragraph" ><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/extras/b88a69e5923454b8c0772e25ef644d21.avif?t=1782281729" width=17 height=21 /></span> 不希望某张卡牌在游戏中出现……？用属于你自己的卡牌替换它！</p><p class="bb_paragraph" ><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/extras/5b344f848c31a498d7730f4a048fe5a1.avif?t=1782281729" width=1200 height=188 /></span></p><p class="bb_paragraph" ><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/extras/3bac59b5df93c78a585b53912320b040.poster.avif?t=1782281729" width=1170 height=656 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/extras/3bac59b5df93c78a585b53912320b040.webm?t=1782281729" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/extras/3bac59b5df93c78a585b53912320b040.mp4?t=1782281729" type="video/mp4"></video></span></p><p class="bb_paragraph" ><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/extras/b88a69e5923454b8c0772e25ef644d21.avif?t=1782281729" width=17 height=21 /></span> 魔女们无法逆转时间，却可操纵因果。</p><p class="bb_paragraph" ><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/extras/b88a69e5923454b8c0772e25ef644d21.avif?t=1782281729" width=17 height=21 /></span> 你可以自定义魔女们遭遇的事件，在地图界面抽取一定数量的命运牌，并按照自己的心意将他们排列在时间轴上。</p><p class="bb_paragraph" ><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/extras/b88a69e5923454b8c0772e25ef644d21.avif?t=1782281729" width=17 height=21 /></span> 一旦决定好了路线，接下来便会按照你设想的那样行动，一些巧妙的组合或许会让旅途出现更多未知。</p><p class="bb_paragraph" ></p><p class="bb_paragraph" ><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/extras/6f656f90acb73bbd0d1521b03693739f.avif?t=1782281729" width=1200 height=188 /></span></p><p class="bb_paragraph" ></p><p class="bb_paragraph" ><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/extras/1afbf25d8ae5e086f181785bb6670e11.poster.avif?t=1782281729" width=1170 height=656 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/extras/1afbf25d8ae5e086f181785bb6670e11.webm?t=1782281729" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/extras/1afbf25d8ae5e086f181785bb6670e11.mp4?t=1782281729" type="video/mp4"></video></span></p><p class="bb_paragraph" ><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/extras/b88a69e5923454b8c0772e25ef644d21.avif?t=1782281729" width=17 height=21 /></span> 在游戏中，你能获得各种各样的强化魔女的资源</p><p class="bb_paragraph" ><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/extras/b88a69e5923454b8c0772e25ef644d21.avif?t=1782281729" width=17 height=21 /></span> 用卡牌来构筑你的基本卡组，用遗物来建立你的流派，用祝福来强化你的属性。</p><p class="bb_paragraph" ><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/extras/b88a69e5923454b8c0772e25ef644d21.avif?t=1782281729" width=17 height=21 /></span> 你将遭遇具有不同特殊能力的敌人，克制或者被克制，取决于你的选择。</p><p class="bb_paragraph" ></p><h2 class="bb_tag" ><strong>MOD和创意工坊</strong></h2><p class="bb_paragraph" >我们计划在游戏上线后开启创意工坊功能，让玩家们体验各种各样的魔女世界，加入新的卡牌，为魔女们定制新的形象，设计更多的任务，不断给魔女们的世界注入更多活力！</p><p class="bb_paragraph" >B站：@魔女终末旅途</p><p class="bb_paragraph" >小黑盒：@MeowAlive</p><p class="bb_paragraph" >微博：@魔女终末旅途</p><p class="bb_paragraph" >小红书：@MeowAlive</p><p class="bb_paragraph" >抖音：@MeowAlive</p><p class="bb_paragraph" ></p><p class="bb_paragraph" >【加入愿望单！和魔女们一起冒险！】</p><p class="bb_paragraph" ></p></div>
+    </div>
+  </div>
+</section>
 
-    <div class="dl-section">
+
+<!-- 下载区域 -->
+<section class="download-section">
+  <div class="container">
+    <div class="download-block">
       <h2>📥 下载链接</h2>
-      <div class="dl-buttons">
-<a href="https://www.gamer520.com/114890.html" class="dl-btn gamer520" target="_blank">🎮 gamer520</a>
-<a href="https://www.x6d.com/i-wz-32016.html" class="dl-btn x6d" target="_blank">📦 x6d</a>
+      <div class="download-buttons">
+        <a href="https://www.gamer520.com/114890.html" class="download-btn gamer520" target="_blank">gamer520</a>
+<a href="https://www.x6d.com/i-wz-32016.html" class="download-btn x6d" target="_blank">x6d</a>
 
       </div>
     </div>
-
-    <div class="section">
-      <h2>📋 游戏信息</h2>
-      <div class="info-grid">
-        <div class="info-item"><div class="label">开发商</div><div class="value">MeowAlive</div></div>
-        <div class="info-item"><div class="label">发行商</div><div class="value">MeowAlive, Solo Game</div></div>
-        <div class="info-item"><div class="label">发行日期</div><div class="value">2026 年 6 月 4 日</div></div>
-        <div class="info-item"><div class="label">类型</div><div class="value">独立, 角色扮演, 策略</div></div>
-        <div class="info-item"><div class="label">Metacritic</div><div class="value">93</div></div>
-        <div class="info-item"><div class="label">Steam</div><div class="value"><a href="https://store.steampowered.com/app/3709430" target="_blank">查看商店页 →</a></div></div>
-      </div>
-    </div>
-
-    
-    <div class="section">
-      <h2>📖 关于这款游戏</h2>
-      <div class="desc">深渊已经腐坏，象征着终焉的魔女们将在奥尔德林苏醒。你将执掌每位魔女的命运轨迹，以卡组构筑无限可能。创造属于你独一无二的卡牌，自定义魔女们的日程，在策略交锋的战场中，每一次精心构筑，都是在重塑世界的轨迹——是携手寻找希望，还是为世界献上终焉？结局，由你来改写...</div>
-    </div>
-
-    
-    <div class="section">
-      <h2>📸 游戏截图</h2>
-      <div class="ss-grid">
-        <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/3da24d5f26bfc7456c092c74f2d34931c1f1ce8e/ss_3da24d5f26bfc7456c092c74f2d34931c1f1ce8e.1920x1080.jpg?t=1782281729" alt="" loading="lazy">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/0a64f625389e0fcbbd068eabe0f2961edfa5a4b4/ss_0a64f625389e0fcbbd068eabe0f2961edfa5a4b4.1920x1080.jpg?t=1782281729" alt="" loading="lazy">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/37f3e67a5718ac0562829ee51ced8984ddd83ca9/ss_37f3e67a5718ac0562829ee51ced8984ddd83ca9.1920x1080.jpg?t=1782281729" alt="" loading="lazy">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/bb9296ea7bfcfdb849cb86469d4e2abd1ff3bbec/ss_bb9296ea7bfcfdb849cb86469d4e2abd1ff3bbec.1920x1080.jpg?t=1782281729" alt="" loading="lazy">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/236817dcfd784180962a24ded1c4a7652f28ddb8/ss_236817dcfd784180962a24ded1c4a7652f28ddb8.1920x1080.jpg?t=1782281729" alt="" loading="lazy">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/a0228a733d7859a6794e3fe1b68f238fe73cea6a/ss_a0228a733d7859a6794e3fe1b68f238fe73cea6a.1920x1080.jpg?t=1782281729" alt="" loading="lazy">
-
-      </div>
-    </div>
-
   </div>
-</div>
+</section>
+
+<!-- 系统需求 -->
+
+<section class="content-section">
+  <div class="container">
+    <div class="content-block">
+      <h2>系统需求</h2>
+      <div class="sys-req">
+        <div class="sys-req-col"><h4>最低配置</h4><div><strong>最低配置:</strong><br><ul class="bb_ul"><li><strong>操作系统:</strong> Windows 10/11<br></li><li><strong>处理器:</strong> 2.0 Ghz<br></li><li><strong>内存:</strong> 2 GB RAM<br></li><li><strong>显卡:</strong> 1Gb<br></li><li><strong>DirectX 版本:</strong> 11<br></li><li><strong>存储空间:</strong> 需要 2 GB 可用空间</li></ul></div></div>
+        <div class="sys-req-col"><h4>推荐配置</h4><div><strong>推荐配置:</strong><br><ul class="bb_ul"><li><strong>操作系统:</strong> Windows 10/11<br></li><li><strong>处理器:</strong> 2.4 GHz<br></li><li><strong>内存:</strong> 4 GB RAM<br></li><li><strong>显卡:</strong> 2Gb<br></li><li><strong>存储空间:</strong> 需要 4 GB 可用空间</li></ul></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+function showVideo() {
+  document.getElementById('video-container').style.display = 'block';
+  document.getElementById('screenshots-container').style.display = 'none';
+  document.querySelectorAll('.media-tab').forEach(t => t.classList.remove('active'));
+  event.target.classList.add('active');
+}
+
+function showScreenshots() {
+  const videoContainer = document.getElementById('video-container');
+  if (videoContainer) videoContainer.style.display = 'none';
+  document.getElementById('screenshots-container').style.display = 'grid';
+  document.querySelectorAll('.media-tab').forEach(t => t.classList.remove('active'));
+  event.target.classList.add('active');
+}
+</script>
+
 </body>
 </html>

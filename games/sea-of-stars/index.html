@@ -3,122 +3,438 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>星之海 - Sea of Stars - 游戏详情</title>
+<title>星之海 - 游戏详情</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Segoe UI','Microsoft YaHei',sans-serif;background:#f5f5f7;color:#1a1a2e;line-height:1.6}
-.topbar{background:#ffffff;border-bottom:1px solid #e0e0e4;padding:12px 0;position:sticky;top:0;z-index:100}
-.topbar .container{display:flex;align-items:center;gap:16px}
-.container{max-width:1200px;margin:0 auto;padding:0 20px}
-.back{color:#6d28d9;text-decoration:none;font-size:14px;font-weight:500;display:flex;align-items:center;gap:4px}
-.back:hover{text-decoration:underline}
-.back-btn{background:#6d28d9;color:#fff;padding:6px 14px;border-radius:4px;text-decoration:none;font-size:13px}
-.back-btn:hover{background:#5b21b6}
-.hero{background:linear-gradient(180deg,#f0f0f5 0%,#e8e8f0 100%);color:#1a1a2e;padding:30px 0 0;border-bottom:1px solid #e0e0e4}
-.hero .container{display:flex;gap:30px;flex-wrap:wrap}
-.hero-info{flex:1;min-width:280px}
-.hero-info h1{font-size:26px;margin-bottom:4px}
-.hero-info .en{color:#888;font-size:14px;margin-bottom:12px}
-.hero-info .meta{display:flex;gap:6px;margin-bottom:14px;flex-wrap:wrap}
-.hero .tag{font-size:12px;padding:3px 10px;border-radius:4px;background:#e8e8ec;color:#555}
-.hero .tag.mc{background:#6d28d922;color:#6d28d9}
-.hero .tag.sales{background:#e11d4822;color:#e11d48}
-.hero-img{width:460px;max-width:100%;border-radius:8px;flex-shrink:0;box-shadow:0 2px 12px rgba(0,0,0,0.08)}
-.content{padding:24px 0}
-.section{background:#fff;border-radius:8px;border:1px solid #e0e0e4;padding:24px;margin-bottom:16px}
-.section h2{font-size:18px;color:#1a1a2e;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid #e0e0e4}
-.desc{font-size:15px;color:#444;line-height:1.7}
-.dl-section{background:#fff;border-radius:8px;border:1px solid #e0e0e4;padding:24px;margin-bottom:16px}
-.dl-section h2{font-size:18px;color:#1a1a2e;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid #e0e0e4}
-.dl-buttons{display:flex;flex-wrap:wrap;gap:8px}
-.dl-btn{display:inline-flex;align-items:center;gap:5px;padding:8px 16px;border-radius:6px;font-size:13px;text-decoration:none;color:#fff;transition:all .2s;font-weight:500}
-.dl-btn:hover{filter:brightness(1.1);transform:translateY(-1px)}
-.dl-btn.gamer520{background:#10b981}
-.dl-btn.x6d{background:#3b82f6}
-.dl-btn.tianyi{background:#6366f1}
-.dl-btn.baidu{background:#2563eb}
-.dl-btn.magnet{background:#ef4444}
-.dl-btn.fitgirl{background:#f59e0b}
-.info-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:16px}
-.info-item .label{font-size:12px;color:#888;text-transform:uppercase;letter-spacing:0.5px}
-.info-item .value{font-size:14px;color:#1a1a2e;margin-top:2px}
-.ss-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:8px}
-.ss-grid img{width:100%;border-radius:6px;cursor:pointer;transition:transform .2s}
-.ss-grid img:hover{transform:scale(1.02)}
-@media(max-width:768px){.hero-img{width:100%}.ss-grid{grid-template-columns:1fr}}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: "Microsoft YaHei", "Segoe UI", sans-serif;
+  background: #1b2838;
+  color: #c7d5e0;
+  line-height: 1.6;
+}
+
+/* 顶部导航 */
+.top-nav {
+  background: #171a21;
+  padding: 8px 0;
+  border-bottom: 1px solid #000;
+}
+.top-nav .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.breadcrumb {
+  font-size: 12px;
+  color: #666;
+}
+.breadcrumb a {
+  color: #666;
+  text-decoration: none;
+}
+.breadcrumb a:hover {
+  color: #fff;
+}
+.back-link {
+  color: #67c1f5;
+  text-decoration: none;
+  font-size: 13px;
+}
+.back-link:hover {
+  color: #fff;
+}
+
+/* 主容器 */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* 游戏头部 - Steam风格左右布局 */
+.game-header {
+  background: linear-gradient(180deg, #1b2838 0%, #2a475e 100%);
+  padding: 30px 0;
+}
+.game-header .container {
+  display: grid;
+  grid-template-columns: 460px 1fr;
+  gap: 30px;
+}
+
+/* 左侧媒体区域 */
+.media-section {
+  background: #000;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.media-tabs {
+  display: flex;
+  background: #1b2838;
+}
+.media-tab {
+  background: transparent;
+  border: none;
+  color: #67c1f5;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 13px;
+  border-bottom: 2px solid transparent;
+}
+.media-tab.active {
+  border-bottom-color: #67c1f5;
+  color: #fff;
+}
+.media-player {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/9;
+  background: #000;
+}
+.media-player video,
+.media-player img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.screenshots-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4px;
+  padding: 4px;
+  background: #1b2838;
+}
+.screenshots-grid img {
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+.screenshots-grid img:hover {
+  opacity: 0.8;
+}
+
+/* 右侧信息面板 */
+.game-info {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.game-title {
+  font-size: 32px;
+  font-weight: 300;
+  color: #fff;
+}
+.game-subtitle {
+  font-size: 14px;
+  color: #8f98a0;
+}
+.game-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.meta-item {
+  background: rgba(0,0,0,0.3);
+  padding: 6px 12px;
+  border-radius: 3px;
+  font-size: 13px;
+  color: #c7d5e0;
+}
+.meta-item.score {
+  background: #66c0f4;
+  color: #1b2838;
+  font-weight: 600;
+}
+.info-block {
+  background: rgba(0,0,0,0.2);
+  padding: 12px;
+  border-radius: 4px;
+}
+.info-block .label {
+  font-size: 11px;
+  color: #8f98a0;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.info-block .value {
+  font-size: 14px;
+  color: #67c1f5;
+}
+.game-desc {
+  font-size: 14px;
+  color: #acb2b8;
+  line-height: 1.7;
+}
+
+/* 内容区域 */
+.content-section {
+  background: #1b2838;
+  padding: 30px 0;
+}
+.content-block {
+  background: rgba(0,0,0,0.3);
+  padding: 24px;
+  border-radius: 4px;
+}
+.content-block h2 {
+  color: #fff;
+  font-size: 20px;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #2a475e;
+}
+.content-block p {
+  color: #acb2b8;
+  font-size: 14px;
+  line-height: 1.8;
+  margin-bottom: 12px;
+}
+.content-block h2.bb_tag {
+  color: #67c1f5;
+  font-size: 16px;
+  margin: 20px 0 10px 0;
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+/* 下载区域 */
+.download-section {
+  background: #1b2838;
+  padding: 30px 0;
+}
+.download-block {
+  background: rgba(0,0,0,0.3);
+  padding: 24px;
+  border-radius: 4px;
+}
+.download-block h2 {
+  color: #fff;
+  font-size: 20px;
+  margin-bottom: 16px;
+}
+.download-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: 4px;
+  text-decoration: none;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+.download-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+.download-btn.gamer520 { background: linear-gradient(135deg, #10b981, #059669); }
+.download-btn.x6d { background: linear-gradient(135deg, #3b82f6, #2563eb); }
+.download-btn.magnet { background: linear-gradient(135deg, #ef4444, #dc2626); }
+.download-btn.fitgirl { background: linear-gradient(135deg, #f59e0b, #d97706); }
+.download-btn.tianyi { background: linear-gradient(135deg, #6366f1, #4f46e5); }
+.download-btn.baidu { background: linear-gradient(135deg, #2563eb, #1d4ed8); }
+
+/* 系统需求 */
+.sys-req {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.sys-req-col h4 {
+  color: #67c1f5;
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+.sys-req-col ul {
+  list-style: none;
+  margin: 0;
+}
+.sys-req-col li {
+  font-size: 13px;
+  color: #acb2b8;
+  margin-bottom: 8px;
+  padding-left: 16px;
+  position: relative;
+}
+.sys-req-col li:before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #67c1f5;
+}
+
+/* 响应式 */
+@media (max-width: 900px) {
+  .game-header .container {
+    grid-template-columns: 1fr;
+  }
+  .media-section {
+    max-width: 100%;
+  }
+  .sys-req {
+    grid-template-columns: 1fr;
+  }
+}
 </style>
 </head>
 <body>
 
-<div class="topbar">
+<!-- 顶部导航 -->
+<nav class="top-nav">
   <div class="container">
-    <a href="../../index.html" class="back">← 返回游戏榜单</a>
-    <a href="https://store.steampowered.com/app/1244090" target="_blank" class="back-btn" style="margin-left:auto">Steam 商店页</a>
+    <div class="breadcrumb">
+      <a href="../../index.html">← 返回游戏榜单</a>
+    </div>
+    <a href="https://store.steampowered.com/app/1244090/" target="_blank" class="back-link">Steam 商店页 →</a>
   </div>
-</div>
+</nav>
 
-<div class="hero">
+<!-- 游戏头部 -->
+<section class="game-header">
   <div class="container">
-    <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1244090/library_600x900.jpg" alt="Sea of Stars" class="hero-img" onerror="this.style.display='none'">
-    <div class="hero-info">
-      <h1>星之海</h1>
-      <div class="en">Sea of Stars</div>
-      <div class="meta">
-        <span class="tag">2023</span>
-        <span class="tag mc">评分 87</span>
-        <span class="tag sales">殿堂级 Top 250</span>
-        <span class="tag">冒险, 独立, 角色扮演</span>
+    <!-- 左侧媒体区域 -->
+    <div class="media-section">
+      <div class="media-tabs">
+        
+        <button class="media-tab active" onclick="showScreenshots()">截图</button>
       </div>
-      <div class="desc">《星之海》是一款向经典致敬的回合制角色扮演游戏。玩家将扮演两位至日之子，集日月之力施展星蚀魔法，以此对抗造物术士的邪恶爪牙。</div>
+      
+      
+      
+      
+      <div id="screenshots-container" class="screenshots-grid" {{#if VIDEO_HTML}}style="display:none;">
+        <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1244090/ss_f756ff477590284c7192ffcef99237de056e4aeb.1920x1080.jpg?t=1780931183" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1244090/ss_c250a7fd789b3cbab5ca8e99e3530cf933656ad1.1920x1080.jpg?t=1780931183" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1244090/ss_889d4ddea7d0884d9d370dd280878570824e68fe.1920x1080.jpg?t=1780931183" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1244090/ss_cb9259d083c9d42db9b1f1197e030f8f85d42198.1920x1080.jpg?t=1780931183" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1244090/ss_e7ac3a6e5ebe5f4561fc46d116c33678cf4ba811.1920x1080.jpg?t=1780931183" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1244090/ss_3fe41c00a7122c63aa05b4ea331c6f995e356788.1920x1080.jpg?t=1780931183" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1244090/3fe79321f425c071dc91de0f54bcbea94cd91558/ss_3fe79321f425c071dc91de0f54bcbea94cd91558.1920x1080.jpg?t=1780931183" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1244090/ss_3444baf45a5dc2b27d0c7d385dbcad7e4b121791.1920x1080.jpg?t=1780931183" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1244090/ss_f7015170b296a1429e1ccdf28243887300853277.1920x1080.jpg?t=1780931183" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1244090/ss_b8b0f1cd2c75f18436f6344a075ea97b31de72b8.1920x1080.jpg?t=1780931183" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1244090/ss_ac7d1a4a9fb207bc59637aeb24698758e4e847ad.1920x1080.jpg?t=1780931183" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1244090/ss_6c1428488a9c2aeecea2afe5f5e906be488b4dc0.1920x1080.jpg?t=1780931183" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1244090/ss_43e28fa21170630f99d85d87e5331a727d33c216.1920x1080.jpg?t=1780931183" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1244090/ss_8063f8cf3a548f934c71546f2c52cc497b73a746.1920x1080.jpg?t=1780931183" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1244090/ss_2f011be3599c238ff5d240bdb2bb2879e27271f1.1920x1080.jpg?t=1780931183" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1244090/ss_d344c2da6f682651283020df43dfd2cd62443f62.1920x1080.jpg?t=1780931183" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1244090/ss_8a196c4fc247a083a9580873d2c81a336c2543a3.1920x1080.jpg?t=1780931183" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1244090/ss_a6f3360f36a9a17bd7eb4c490988943db75cdf38.1920x1080.jpg?t=1780931183" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1244090/ss_fde8785c643e0386e63cdb8057ff8c6d9cf24fe0.1920x1080.jpg?t=1780931183" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1244090/ss_a08a4bead1988c5026f80b94228d9d87aa7be093.1920x1080.jpg?t=1780931183" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1244090/ss_ff5ab5e197dd2440d00b79fb9d87b7e14cd883ed.1920x1080.jpg?t=1780931183" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1244090/ss_c32cd2abffb25e65ce5b5eb01716dc52a7167630.1920x1080.jpg?t=1780931183" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1244090/ss_edc55d230d64161bcbd2bed3195b260027d3b46e.1920x1080.jpg?t=1780931183" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1244090/ss_b1e28ca1b57123358ae4e0857e69eb313a54504d.1920x1080.jpg?t=1780931183" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1244090/ss_0140b6f7c40495edcafe54b1dbe1883db1fe7862.1920x1080.jpg?t=1780931183" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1244090/ss_dd8fbf1f96e8a67b57e854f12ff9f48d55f5ca73.1920x1080.jpg?t=1780931183" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1244090/ss_67b4864389c826d0c307083e8393c50f6f68f837.1920x1080.jpg?t=1780931183" alt="Screenshot" onclick="window.open(this.src)">
+      </div>
+      {{/if}}
+    </div>
+    
+    <!-- 右侧信息面板 -->
+    <div class="game-info">
+      <h1 class="game-title">星之海</h1>
+      <div class="game-subtitle">Sea of Stars</div>
+      
+      <div class="game-meta">
+        <div class="meta-item">2023 年 8 月 28 日</div>
+        <div class="meta-item">冒险, 独立, 角色扮演</div>
+        <div class="meta-item score">评分 87</div>
+      </div>
+      
+      
+      <div class="info-block">
+        <div class="label">开发者</div>
+        <div class="value">Sabotage Studio</div>
+      </div>
+      
+      
+      
+      <div class="info-block">
+        <div class="label">发行商</div>
+        <div class="value">Sabotage Studio</div>
+      </div>
+      
+      
+      
+      <div class="game-desc">
+        《星之海》是一款向经典致敬的回合制角色扮演游戏。玩家将扮演两位至日之子，集日月之力施展星蚀魔法，以此对抗造物术士的邪恶爪牙。
+      </div>
+      
     </div>
   </div>
-</div>
+</section>
 
-<div class="content">
+<!-- 关于此游戏 -->
+
+<section class="content-section">
   <div class="container">
+    <div class="content-block">
+      <h2>关于此游戏</h2>
+      <div><p class="bb_paragraph" ></p><p class="bb_paragraph" ><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1244090/extras/4acbb413e9b7b733caa48fadebe9a8ad.avif?t=1780931183" width=1232 height=834 /></span></p><p class="bb_paragraph" ><strong>《星之海》承载着Sabotage工作室的目标</strong>——用现代的方式重现经典角色扮演游戏：从回合制战斗到跌宕起伏的故事，从世界探索到细腻的环境交互，让大家重回独属怀旧游戏的美好旧时光。 </p><p class="bb_paragraph" > </p><p class="bb_paragraph" ><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline crossorigin="anonymous" poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1244090/extras/ac2e8094f0a946d39077cf5dd730e230.poster.avif?t=1780931183" width=1170 height=798 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1244090/extras/ac2e8094f0a946d39077cf5dd730e230.webm?t=1780931183" type="video/webm; codecs=vp9"></video></span></p><p class="bb_paragraph" > </p><p class="bb_paragraph" ></p><p class="bb_paragraph" ><strong>掌控战斗的时机</strong> - 看准时机按下交互键可以提升造成的伤害，或减少受到的伤害。 </p><p class="bb_paragraph" ><strong>灵活的战斗方式</strong> - 在战斗中使用多人组合技，充能攻击以及纳入战术考量的“破锁”系统，通过组合这些不同的攻击，甚至能够打断敌人正在准备的蓄力攻击或强大法术。 </p><p class="bb_paragraph" ><strong>全身心地投入这款复古之作</strong> - 不会有随机乏味的遭遇战，也不会有战场之间的频繁转换，更不会有无休无止打不完的敌人！ </p><p class="bb_paragraph" ><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline crossorigin="anonymous" poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1244090/extras/2215d9ee245ab2b84930b0e573af5b43.poster.avif?t=1780931183" width=1170 height=798 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1244090/extras/2215d9ee245ab2b84930b0e573af5b43.webm?t=1780931183" type="video/webm; codecs=vp9"></video></span></p><p class="bb_paragraph" ></p><p class="bb_paragraph" >我们潜心研究平台游戏多年，打造了一套独特的移动系统! </p><p class="bb_paragraph" >您将不再受到传统的网格束缚，畅快地在世界中穿梭！ </p><p class="bb_paragraph" >无论您想<strong>在池水中游弋，还是在岩壁上攀爬，或是轻快地从石阶上纵身跳下</strong>，都可尽情体验。 </p><p class="bb_paragraph" ></p><p class="bb_paragraph" ><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline crossorigin="anonymous" poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1244090/extras/357e768a5441a072f5141162c393948e.poster.avif?t=1780931183" width=1170 height=798 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1244090/extras/357e768a5441a072f5141162c393948e.webm?t=1780931183" type="video/webm; codecs=vp9"></video></span></p><p class="bb_paragraph" ></p><p class="bb_paragraph" >我们为游戏研发了一套独特的渲染管线!</p><p class="bb_paragraph" >《星之海》因此突破了2D像素美术游戏的限制，它让游戏充满了色彩，并且处处体现出优雅的细节！让你感受到一个更加真实、令人惊叹的游戏世界。 </p><p class="bb_paragraph" > </p><p class="bb_paragraph" ><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline crossorigin="anonymous" poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1244090/extras/843d67315453fa03cc4c6935a7668c88.poster.avif?t=1780931183" width=1170 height=798 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1244090/extras/843d67315453fa03cc4c6935a7668c88.webm?t=1780931183" type="video/webm; codecs=vp9"></video></span></p><p class="bb_paragraph" ></p><p class="bb_paragraph" >这就是从Sabotage工作室的角色扮演游戏中可以期待的一切——经典的冒险与友谊故事。 </p><p class="bb_paragraph" ></p><p class="bb_paragraph" >您可以与数十个原创角色一起踏上这段迷人的旅程： </p><p class="bb_paragraph" ><strong>时而波澜壮阔，犹如史诗长歌；</strong></p><p class="bb_paragraph" ><strong>时而轻松诙谐，让人忍俊不禁。</strong></p><p class="bb_paragraph" >充满着意想不到的曲折与反转，让人心绪久久不能平复。 </p><p class="bb_paragraph" > </p><p class="bb_paragraph" ></p><p class="bb_paragraph" > <span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline crossorigin="anonymous" poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1244090/extras/7c7bb66b6f34cf17158c8a58abd36a41.poster.avif?t=1780931183" width=1170 height=798 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1244090/extras/7c7bb66b6f34cf17158c8a58abd36a41.webm?t=1780931183" type="video/webm; codecs=vp9"></video></span></p><p class="bb_paragraph" >想试试停下冒险的脚步，在《星之海》的世界中打发打发时间？</p><p class="bb_paragraph" >去试试扬起帆出海！</p><p class="bb_paragraph" >或是生起篝火研究食谱？</p><p class="bb_paragraph" >还是拿出鱼竿甩两杆？</p><p class="bb_paragraph" >路过一家小酒馆进去听会儿歌，或者玩两把桌游...</p><p class="bb_paragraph" >每个系统的设计都是在尊重经典复古游戏的前提下，加入了崭新且独一无二的新体验。</p><p class="bb_paragraph" ></p><h2 class="bb_tag" ><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline crossorigin="anonymous" poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1244090/extras/381aaf76700c7bd462df4cfc56403896.poster.avif?t=1780931183" width=1170 height=798 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1244090/extras/381aaf76700c7bd462df4cfc56403896.webm?t=1780931183" type="video/webm; codecs=vp9"></video></span></h2><p class="bb_paragraph" ></p><p class="bb_paragraph" >在《星之海》的冒险旅程中，最多可支持三名玩家全程参与（支持本地和远程同乐）。队友可以随时加入或退出，共同探索世界，并掌握合作模式下的“精准打击”战斗机制。</p></div>
+    </div>
+  </div>
+</section>
 
-    <div class="dl-section">
+
+<!-- 下载区域 -->
+<section class="download-section">
+  <div class="container">
+    <div class="download-block">
       <h2>📥 下载链接</h2>
-      <div class="dl-buttons">
-<a href="https://www.gamer520.com/118344.html" class="dl-btn gamer520" target="_blank">🎮 gamer520</a>
-<a href="https://www.x6d.com/i-wz-26210.html" class="dl-btn x6d" target="_blank">📦 x6d</a>
+      <div class="download-buttons">
+        <a href="https://www.gamer520.com/118344.html" class="download-btn gamer520" target="_blank">gamer520</a>
+<a href="https://www.x6d.com/i-wz-26210.html" class="download-btn x6d" target="_blank">x6d</a>
 
       </div>
     </div>
-
-    <div class="section">
-      <h2>📋 游戏信息</h2>
-      <div class="info-grid">
-        <div class="info-item"><div class="label">开发商</div><div class="value">Sabotage Studio</div></div>
-        <div class="info-item"><div class="label">发行商</div><div class="value">Sabotage Studio</div></div>
-        <div class="info-item"><div class="label">发行日期</div><div class="value">2023 年 8 月 28 日</div></div>
-        <div class="info-item"><div class="label">类型</div><div class="value">冒险, 独立, 角色扮演</div></div>
-        <div class="info-item"><div class="label">Metacritic</div><div class="value">87</div></div>
-        <div class="info-item"><div class="label">Steam</div><div class="value"><a href="https://store.steampowered.com/app/1244090" target="_blank">查看商店页 →</a></div></div>
-      </div>
-    </div>
-
-    
-    <div class="section">
-      <h2>📖 关于这款游戏</h2>
-      <div class="desc">《星之海》是一款向经典致敬的回合制角色扮演游戏。玩家将扮演两位至日之子，集日月之力施展星蚀魔法，以此对抗造物术士的邪恶爪牙。</div>
-    </div>
-
-    
-    <div class="section">
-      <h2>📸 游戏截图</h2>
-      <div class="ss-grid">
-        <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1244090/ss_f756ff477590284c7192ffcef99237de056e4aeb.1920x1080.jpg?t=1780931183" alt="" loading="lazy">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1244090/ss_c250a7fd789b3cbab5ca8e99e3530cf933656ad1.1920x1080.jpg?t=1780931183" alt="" loading="lazy">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1244090/ss_889d4ddea7d0884d9d370dd280878570824e68fe.1920x1080.jpg?t=1780931183" alt="" loading="lazy">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1244090/ss_cb9259d083c9d42db9b1f1197e030f8f85d42198.1920x1080.jpg?t=1780931183" alt="" loading="lazy">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1244090/ss_e7ac3a6e5ebe5f4561fc46d116c33678cf4ba811.1920x1080.jpg?t=1780931183" alt="" loading="lazy">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1244090/ss_3fe41c00a7122c63aa05b4ea331c6f995e356788.1920x1080.jpg?t=1780931183" alt="" loading="lazy">
-
-      </div>
-    </div>
-
   </div>
-</div>
+</section>
+
+<!-- 系统需求 -->
+
+<section class="content-section">
+  <div class="container">
+    <div class="content-block">
+      <h2>系统需求</h2>
+      <div class="sys-req">
+        <div class="sys-req-col"><h4>最低配置</h4><div><strong>最低配置:</strong><br><ul class="bb_ul"><li><strong>操作系统 *:</strong> Windows 7<br></li><li><strong>处理器:</strong> i7-4700HQ 2.40 Ghz<br></li><li><strong>内存:</strong> 4 GB RAM<br></li><li><strong>显卡:</strong> GTX 860m<br></li><li><strong>DirectX 版本:</strong> 11<br></li><li><strong>存储空间:</strong> 需要 5 GB 可用空间</li></ul></div></div>
+        <div class="sys-req-col"><h4>推荐配置</h4><div><strong>推荐配置:</strong><br><ul class="bb_ul"><li><strong>操作系统 *:</strong> Windows 7, Windows 10<br></li><li><strong>处理器:</strong> AMD FX 4300 or Intel Core i3 2120<br></li><li><strong>内存:</strong> 8 GB RAM<br></li><li><strong>显卡:</strong> AMD Radeon R5 340X or Nvidia GeForce GTS 450<br></li><li><strong>DirectX 版本:</strong> 11<br></li><li><strong>存储空间:</strong> 需要 5 GB 可用空间</li></ul></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+function showVideo() {
+  document.getElementById('video-container').style.display = 'block';
+  document.getElementById('screenshots-container').style.display = 'none';
+  document.querySelectorAll('.media-tab').forEach(t => t.classList.remove('active'));
+  event.target.classList.add('active');
+}
+
+function showScreenshots() {
+  const videoContainer = document.getElementById('video-container');
+  if (videoContainer) videoContainer.style.display = 'none';
+  document.getElementById('screenshots-container').style.display = 'grid';
+  document.querySelectorAll('.media-tab').forEach(t => t.classList.remove('active'));
+  event.target.classList.add('active');
+}
+</script>
+
 </body>
 </html>

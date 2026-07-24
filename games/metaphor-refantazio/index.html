@@ -3,124 +3,434 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>暗喻幻想 - Metaphor: ReFantazio - 游戏详情</title>
+<title>暗喻幻想 - 游戏详情</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Segoe UI','Microsoft YaHei',sans-serif;background:#f5f5f7;color:#1a1a2e;line-height:1.6}
-.topbar{background:#ffffff;border-bottom:1px solid #e0e0e4;padding:12px 0;position:sticky;top:0;z-index:100}
-.topbar .container{display:flex;align-items:center;gap:16px}
-.container{max-width:1200px;margin:0 auto;padding:0 20px}
-.back{color:#6d28d9;text-decoration:none;font-size:14px;font-weight:500;display:flex;align-items:center;gap:4px}
-.back:hover{text-decoration:underline}
-.back-btn{background:#6d28d9;color:#fff;padding:6px 14px;border-radius:4px;text-decoration:none;font-size:13px}
-.back-btn:hover{background:#5b21b6}
-.hero{background:linear-gradient(180deg,#f0f0f5 0%,#e8e8f0 100%);color:#1a1a2e;padding:30px 0 0;border-bottom:1px solid #e0e0e4}
-.hero .container{display:flex;gap:30px;flex-wrap:wrap}
-.hero-info{flex:1;min-width:280px}
-.hero-info h1{font-size:26px;margin-bottom:4px}
-.hero-info .en{color:#888;font-size:14px;margin-bottom:12px}
-.hero-info .meta{display:flex;gap:6px;margin-bottom:14px;flex-wrap:wrap}
-.hero .tag{font-size:12px;padding:3px 10px;border-radius:4px;background:#e8e8ec;color:#555}
-.hero .tag.mc{background:#6d28d922;color:#6d28d9}
-.hero .tag.sales{background:#e11d4822;color:#e11d48}
-.hero-img{width:460px;max-width:100%;border-radius:8px;flex-shrink:0;box-shadow:0 2px 12px rgba(0,0,0,0.08)}
-.content{padding:24px 0}
-.section{background:#fff;border-radius:8px;border:1px solid #e0e0e4;padding:24px;margin-bottom:16px}
-.section h2{font-size:18px;color:#1a1a2e;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid #e0e0e4}
-.desc{font-size:15px;color:#444;line-height:1.7}
-.dl-section{background:#fff;border-radius:8px;border:1px solid #e0e0e4;padding:24px;margin-bottom:16px}
-.dl-section h2{font-size:18px;color:#1a1a2e;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid #e0e0e4}
-.dl-buttons{display:flex;flex-wrap:wrap;gap:8px}
-.dl-btn{display:inline-flex;align-items:center;gap:5px;padding:8px 16px;border-radius:6px;font-size:13px;text-decoration:none;color:#fff;transition:all .2s;font-weight:500}
-.dl-btn:hover{filter:brightness(1.1);transform:translateY(-1px)}
-.dl-btn.gamer520{background:#10b981}
-.dl-btn.x6d{background:#3b82f6}
-.dl-btn.tianyi{background:#6366f1}
-.dl-btn.baidu{background:#2563eb}
-.dl-btn.magnet{background:#ef4444}
-.dl-btn.fitgirl{background:#f59e0b}
-.info-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:16px}
-.info-item .label{font-size:12px;color:#888;text-transform:uppercase;letter-spacing:0.5px}
-.info-item .value{font-size:14px;color:#1a1a2e;margin-top:2px}
-.ss-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:8px}
-.ss-grid img{width:100%;border-radius:6px;cursor:pointer;transition:transform .2s}
-.ss-grid img:hover{transform:scale(1.02)}
-@media(max-width:768px){.hero-img{width:100%}.ss-grid{grid-template-columns:1fr}}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: "Microsoft YaHei", "Segoe UI", sans-serif;
+  background: #1b2838;
+  color: #c7d5e0;
+  line-height: 1.6;
+}
+
+/* 顶部导航 */
+.top-nav {
+  background: #171a21;
+  padding: 8px 0;
+  border-bottom: 1px solid #000;
+}
+.top-nav .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.breadcrumb {
+  font-size: 12px;
+  color: #666;
+}
+.breadcrumb a {
+  color: #666;
+  text-decoration: none;
+}
+.breadcrumb a:hover {
+  color: #fff;
+}
+.back-link {
+  color: #67c1f5;
+  text-decoration: none;
+  font-size: 13px;
+}
+.back-link:hover {
+  color: #fff;
+}
+
+/* 主容器 */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* 游戏头部 - Steam风格左右布局 */
+.game-header {
+  background: linear-gradient(180deg, #1b2838 0%, #2a475e 100%);
+  padding: 30px 0;
+}
+.game-header .container {
+  display: grid;
+  grid-template-columns: 460px 1fr;
+  gap: 30px;
+}
+
+/* 左侧媒体区域 */
+.media-section {
+  background: #000;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.media-tabs {
+  display: flex;
+  background: #1b2838;
+}
+.media-tab {
+  background: transparent;
+  border: none;
+  color: #67c1f5;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 13px;
+  border-bottom: 2px solid transparent;
+}
+.media-tab.active {
+  border-bottom-color: #67c1f5;
+  color: #fff;
+}
+.media-player {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/9;
+  background: #000;
+}
+.media-player video,
+.media-player img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.screenshots-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4px;
+  padding: 4px;
+  background: #1b2838;
+}
+.screenshots-grid img {
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+.screenshots-grid img:hover {
+  opacity: 0.8;
+}
+
+/* 右侧信息面板 */
+.game-info {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.game-title {
+  font-size: 32px;
+  font-weight: 300;
+  color: #fff;
+}
+.game-subtitle {
+  font-size: 14px;
+  color: #8f98a0;
+}
+.game-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.meta-item {
+  background: rgba(0,0,0,0.3);
+  padding: 6px 12px;
+  border-radius: 3px;
+  font-size: 13px;
+  color: #c7d5e0;
+}
+.meta-item.score {
+  background: #66c0f4;
+  color: #1b2838;
+  font-weight: 600;
+}
+.info-block {
+  background: rgba(0,0,0,0.2);
+  padding: 12px;
+  border-radius: 4px;
+}
+.info-block .label {
+  font-size: 11px;
+  color: #8f98a0;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.info-block .value {
+  font-size: 14px;
+  color: #67c1f5;
+}
+.game-desc {
+  font-size: 14px;
+  color: #acb2b8;
+  line-height: 1.7;
+}
+
+/* 内容区域 */
+.content-section {
+  background: #1b2838;
+  padding: 30px 0;
+}
+.content-block {
+  background: rgba(0,0,0,0.3);
+  padding: 24px;
+  border-radius: 4px;
+}
+.content-block h2 {
+  color: #fff;
+  font-size: 20px;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #2a475e;
+}
+.content-block p {
+  color: #acb2b8;
+  font-size: 14px;
+  line-height: 1.8;
+  margin-bottom: 12px;
+}
+.content-block h2.bb_tag {
+  color: #67c1f5;
+  font-size: 16px;
+  margin: 20px 0 10px 0;
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+/* 下载区域 */
+.download-section {
+  background: #1b2838;
+  padding: 30px 0;
+}
+.download-block {
+  background: rgba(0,0,0,0.3);
+  padding: 24px;
+  border-radius: 4px;
+}
+.download-block h2 {
+  color: #fff;
+  font-size: 20px;
+  margin-bottom: 16px;
+}
+.download-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: 4px;
+  text-decoration: none;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+.download-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+.download-btn.gamer520 { background: linear-gradient(135deg, #10b981, #059669); }
+.download-btn.x6d { background: linear-gradient(135deg, #3b82f6, #2563eb); }
+.download-btn.magnet { background: linear-gradient(135deg, #ef4444, #dc2626); }
+.download-btn.fitgirl { background: linear-gradient(135deg, #f59e0b, #d97706); }
+.download-btn.tianyi { background: linear-gradient(135deg, #6366f1, #4f46e5); }
+.download-btn.baidu { background: linear-gradient(135deg, #2563eb, #1d4ed8); }
+
+/* 系统需求 */
+.sys-req {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.sys-req-col h4 {
+  color: #67c1f5;
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+.sys-req-col ul {
+  list-style: none;
+  margin: 0;
+}
+.sys-req-col li {
+  font-size: 13px;
+  color: #acb2b8;
+  margin-bottom: 8px;
+  padding-left: 16px;
+  position: relative;
+}
+.sys-req-col li:before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #67c1f5;
+}
+
+/* 响应式 */
+@media (max-width: 900px) {
+  .game-header .container {
+    grid-template-columns: 1fr;
+  }
+  .media-section {
+    max-width: 100%;
+  }
+  .sys-req {
+    grid-template-columns: 1fr;
+  }
+}
 </style>
 </head>
 <body>
 
-<div class="topbar">
+<!-- 顶部导航 -->
+<nav class="top-nav">
   <div class="container">
-    <a href="../../index.html" class="back">← 返回游戏榜单</a>
-    <a href="https://store.steampowered.com/app/2679460" target="_blank" class="back-btn" style="margin-left:auto">Steam 商店页</a>
+    <div class="breadcrumb">
+      <a href="../../index.html">← 返回游戏榜单</a>
+    </div>
+    <a href="https://store.steampowered.com/app/2679460/" target="_blank" class="back-link">Steam 商店页 →</a>
   </div>
-</div>
+</nav>
 
-<div class="hero">
+<!-- 游戏头部 -->
+<section class="game-header">
   <div class="container">
-    <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2679460/library_600x900.jpg" alt="Metaphor: ReFantazio" class="hero-img" onerror="this.style.display='none'">
-    <div class="hero-info">
-      <h1>暗喻幻想</h1>
-      <div class="en">Metaphor: ReFantazio</div>
-      <div class="meta">
-        <span class="tag">2024</span>
-        <span class="tag mc">评分 92</span>
-        <span class="tag mc">口碑Top</span>
-        <span class="tag">动作, 冒险, 角色扮演</span>
+    <!-- 左侧媒体区域 -->
+    <div class="media-section">
+      <div class="media-tabs">
+        
+        <button class="media-tab active" onclick="showScreenshots()">截图</button>
       </div>
-      <div class="desc">《暗喻幻想：ReFantazio》是一款幻想风格RPG游戏，描绘了一位少年被卷入国王遭遇暗杀后突然开始的选举中，成为了新王候选人的命运。您可以自由选择如何度过巡游这个世界的日子，还将利用各种职业和队伍对抗强敌。现在，就让我们开始一场“只能在幻想中实现的现实之旅”吧。</div>
+      
+      
+      
+      
+      <div id="screenshots-container" class="screenshots-grid" {{#if VIDEO_HTML}}style="display:none;">
+        <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2679460/ss_17221b17662b373d5c727eb842a44285cffb351d.1920x1080.jpg?t=1764776325" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2679460/ss_7c56132d19facdb84940f50afd9ef45af665968b.1920x1080.jpg?t=1764776325" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2679460/ss_20b595b979ff6caedecb31f8969a739ce8e865a9.1920x1080.jpg?t=1764776325" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2679460/ss_cc5086a18c343c8c617f30f078361c2b9631d4a1.1920x1080.jpg?t=1764776325" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2679460/ss_38fa1516cd8781f29c06f333b1ff8db28df523e4.1920x1080.jpg?t=1764776325" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2679460/ss_962172c80e35ebdb0edfed70aec55b7a174f9c7a.1920x1080.jpg?t=1764776325" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2679460/ss_dc9fc344847268e5f6a7173f1a53dfab0811f22b.1920x1080.jpg?t=1764776325" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2679460/ss_123433fe8bf060c5c531b49b24a84e6637b34452.1920x1080.jpg?t=1764776325" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2679460/ss_b6055bd20f6a8c72bbed9c3551173ff68017cf95.1920x1080.jpg?t=1764776325" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2679460/ss_c461778fbdb7b2409df45bc008037999c41c038d.1920x1080.jpg?t=1764776325" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2679460/ss_0d5c10735321ef0c36317dc91aa03e4027b41701.1920x1080.jpg?t=1764776325" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2679460/ss_44a5e2f0361edf83d702e7e9ba57578100a2290a.1920x1080.jpg?t=1764776325" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2679460/ss_ef22d3684cc12013bea8a3c0ca1b3e50dda51b3e.1920x1080.jpg?t=1764776325" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2679460/ss_dda964531d3e5639c7d0016462a1f8c559cf929a.1920x1080.jpg?t=1764776325" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2679460/ss_a4bb3eca4026fe10a5ddfd45089c07951e158f95.1920x1080.jpg?t=1764776325" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2679460/ss_d0106273af8a5acd59f71831a10797067032df1f.1920x1080.jpg?t=1764776325" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2679460/ss_bac744446a1954fc9cb649a406981bc9fc015538.1920x1080.jpg?t=1764776325" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2679460/ss_527790d51f418e98fb04819221a348103c85a69b.1920x1080.jpg?t=1764776325" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2679460/ss_c9e4dccebbccff0ab2f3471078132ad36be82e5f.1920x1080.jpg?t=1764776325" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2679460/ss_b8ba2772afa8af010c0311a84af32c7755e28b4f.1920x1080.jpg?t=1764776325" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2679460/ss_b77724e6905569f793b1c02fa36f7ddb52516a63.1920x1080.jpg?t=1764776325" alt="Screenshot" onclick="window.open(this.src)">
+      </div>
+      {{/if}}
+    </div>
+    
+    <!-- 右侧信息面板 -->
+    <div class="game-info">
+      <h1 class="game-title">暗喻幻想</h1>
+      <div class="game-subtitle">Metaphor: ReFantazio</div>
+      
+      <div class="game-meta">
+        <div class="meta-item">2024 年 10 月 10 日</div>
+        <div class="meta-item">动作, 冒险, 角色扮演</div>
+        <div class="meta-item score">评分 93</div>
+      </div>
+      
+      
+      <div class="info-block">
+        <div class="label">开发者</div>
+        <div class="value">ATLUS</div>
+      </div>
+      
+      
+      
+      <div class="info-block">
+        <div class="label">发行商</div>
+        <div class="value">SEGA</div>
+      </div>
+      
+      
+      
+      <div class="game-desc">
+        《暗喻幻想：ReFantazio》是一款幻想风格RPG游戏，描绘了一位少年被卷入国王遭遇暗杀后突然开始的选举中，成为了新王候选人的命运。您可以自由选择如何度过巡游这个世界的日子，还将利用各种职业和队伍对抗强敌。现在，就让我们开始一场“只能在幻想中实现的现实之旅”吧。
+      </div>
+      
     </div>
   </div>
-</div>
+</section>
 
-<div class="content">
+<!-- 关于此游戏 -->
+
+<section class="content-section">
   <div class="container">
+    <div class="content-block">
+      <h2>关于此游戏</h2>
+      <div><h2 class="bb_tag" >ABOUT 暗喻幻想：ReFantazio</h2><p class="bb_paragraph" ><strong>▽成为新王候选人，踏上改变世界的旅途</strong>。</p><p class="bb_paragraph" style="text-align: center"><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline crossorigin="anonymous" poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2679460/extras/723f84d56ea262860677b12b44da8e38.poster.avif?t=1764776325" width=616 height=348 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2679460/extras/723f84d56ea262860677b12b44da8e38.webm?t=1764776325" type="video/webm; codecs=vp9"></video></span></p><p class="bb_paragraph" >本作是《女神异闻录３》《女神异闻录４》《女神异闻录5》 制作班底带来的最新幻想风格RPG游戏。</p><p class="bb_paragraph" > </p><p class="bb_paragraph" >为了解开自儿时起的好友王子身上的“死亡诅咒”，玩家将化身为“旅行的少年”与同伴妖精“加莉卡”一同漂泊于世界各地。玩家和同伴将被卷入在王国发生的大事件中，挑战等待在前方的命运。</p><p class="bb_paragraph" > </p><p class="bb_paragraph" >主角因某个契机唤醒了“阿基态（职业）”的力量。它有着战士、魔法师等各式能力。</p><p class="bb_paragraph" >唤醒独具特色的各种阿基态，与同伴一起组成最强的队伍，与无数强敌一决高下吧。</p><p class="bb_paragraph" > </p><p class="bb_paragraph" >敬请畅享新生的幻想世界之旅。</p><p class="bb_paragraph" > </p><p class="bb_paragraph" > </p><p class="bb_paragraph" ><strong>▽旅程中可尽情体验广阔幻想世界中的日常与冒险。</strong></p><p class="bb_paragraph" style="text-align: center"><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline crossorigin="anonymous" poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2679460/extras/5d663f70a7069aca668dbfba779a7738.poster.avif?t=1764776325" width=616 height=348 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2679460/extras/5d663f70a7069aca668dbfba779a7738.webm?t=1764776325" type="video/webm; codecs=vp9"></video></span></p><p class="bb_paragraph" >在环游世界的旅途中，做出行动会耗费时间，您可自由决定要做什么，有时也需要为达成目标而有计划地进行选择。</p><p class="bb_paragraph" >白天可以帮城镇里的居民解决烦恼、潜入迷宫寻找宝物、搜寻困扰着人们的悬赏目标等，</p><p class="bb_paragraph" >而夜晚可选择与同伴一同度过，或锻炼自身的“资质”等。打造一段只属于你的“旅程”吧。</p><p class="bb_paragraph" > </p><p class="bb_paragraph" > </p><p class="bb_paragraph" ><strong>▽乘坐移动据点“铁甲战车”踏上旅途</strong></p><p class="bb_paragraph" style="text-align: center"><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline crossorigin="anonymous" poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2679460/extras/a03b56861b96483bf97d786fd2470496.poster.avif?t=1764776325" width=616 height=348 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2679460/extras/a03b56861b96483bf97d786fd2470496.webm?t=1764776325" type="video/webm; codecs=vp9"></video></span></p><p class="bb_paragraph" >主角一行将乘坐铁甲战车前往较远的迷宫或城镇。</p><p class="bb_paragraph" >在“铁甲战车”中可选择如何度过路上的时间。</p><p class="bb_paragraph" >可以与同伴对话加深情谊、通过锻炼提高能力、为探索迷宫做准备，有时也可眺望窗外的景色等。</p><p class="bb_paragraph" >这样的“铁甲战车”可称得上是移动据点，在其中度过充实的旅行时光吧。</p><p class="bb_paragraph" > </p><p class="bb_paragraph" > </p><p class="bb_paragraph" ><strong>▽活用职业制服强敌，一击歼灭弱小的敌人，体验紧张与爽快并存的战斗系统</strong></p><p class="bb_paragraph" style="text-align: center"><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline crossorigin="anonymous" poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2679460/extras/58eac9deb7f79aef748d0d01bc62df12.poster.avif?t=1764776325" width=616 height=348 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2679460/extras/58eac9deb7f79aef748d0d01bc62df12.webm?t=1764776325" type="video/webm; codecs=vp9"></video></span></p><p class="bb_paragraph" >迷宫中出现的敌人很是棘手，他们会用各式各样的攻击考验主角一行。</p><p class="bb_paragraph" >主角和同伴们需要使用不同阿基态的能力来击败这些强敌。</p><p class="bb_paragraph" >与强敌的战斗为回合制指令战斗，在激烈的战斗中思考策略，攻击敌人的弱点，将其击败时会获得巨大的成就感。</p><p class="bb_paragraph" >主角一行成长之后，实力也会超越曾经的强敌。</p><p class="bb_paragraph" >届时可以在场地上发起攻击动作，一击扫灭弱小的敌人，在迷宫中体验爽快的战斗。</p><p class="bb_paragraph" >按照自己的想法编制队伍，朝着强敌遍布的迷宫前进吧。</p><p class="bb_paragraph" > </p><p class="bb_paragraph" > </p><p class="bb_paragraph" ><strong>▽ATLUS品牌35周年纪念作品</strong></p><p class="bb_paragraph" style="text-align: center"><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2679460/extras/6f83254a53e783c77634b6e0150da88e.avif?t=1764776325" width=616 height=314 /></span></p><p class="bb_paragraph" >ATLUS此前推出了《真·女神转生》《女神异闻录》等多部现代题材的游戏。</p><p class="bb_paragraph" >而在本作中，在迎来品牌创立35周年之际，ATLUS吸取了以往制作现代题材RPG的经验，向幻想题材发起挑战。这部RPG可谓是ATLUS的集大成之作。</p><p class="bb_paragraph" >敬请期待一段与“真·女神转生”“女神异闻录”有所不同的全新幻想世界之旅。<br><br>※本商品仅包含游戏正篇。除本商品外，还存在囊括了游戏正篇和追加内容的套装商品，请避免重复购买。</p></div>
+    </div>
+  </div>
+</section>
 
-    <div class="dl-section">
+
+<!-- 下载区域 -->
+<section class="download-section">
+  <div class="container">
+    <div class="download-block">
       <h2>📥 下载链接</h2>
-      <div class="dl-buttons">
-<a href="magnet:?xt=urn:btih:1D15BD27B1D5053471634205E768C1B9AD73D176" class="dl-btn magnet" target="_blank">🧲 磁力链</a>
-<a href="https://fitgirl-repacks.site/metaphor-refantazio/" class="dl-btn fitgirl" target="_blank">📀 FitGirl</a>
-<a href="https://www.gamer520.com/107256.html" class="dl-btn gamer520" target="_blank">🎮 gamer520</a>
-<a href="https://www.x6d.com/i-wz-27659.html" class="dl-btn x6d" target="_blank">📦 x6d</a>
+      <div class="download-buttons">
+        <a href="magnet:?xt=urn:btih:1D15BD27B1D5053471634205E768C1B9AD73D176" class="download-btn magnet" target="_blank">🧲磁力</a>
+<a href="https://fitgirl-repacks.site/metaphor-refantazio/" class="download-btn fitgirl" target="_blank">FitGirl</a>
+<a href="https://www.gamer520.com/107256.html" class="download-btn gamer520" target="_blank">gamer520</a>
+<a href="https://www.x6d.com/i-wz-27659.html" class="download-btn x6d" target="_blank">x6d</a>
 
       </div>
     </div>
-
-    <div class="section">
-      <h2>📋 游戏信息</h2>
-      <div class="info-grid">
-        <div class="info-item"><div class="label">开发商</div><div class="value">ATLUS</div></div>
-        <div class="info-item"><div class="label">发行商</div><div class="value">SEGA</div></div>
-        <div class="info-item"><div class="label">发行日期</div><div class="value">2024 年 10 月 10 日</div></div>
-        <div class="info-item"><div class="label">类型</div><div class="value">动作, 冒险, 角色扮演</div></div>
-        <div class="info-item"><div class="label">Metacritic</div><div class="value">92</div></div>
-        <div class="info-item"><div class="label">Steam</div><div class="value"><a href="https://store.steampowered.com/app/2679460" target="_blank">查看商店页 →</a></div></div>
-      </div>
-    </div>
-
-    
-    <div class="section">
-      <h2>📖 关于这款游戏</h2>
-      <div class="desc">《暗喻幻想：ReFantazio》是一款幻想风格RPG游戏，描绘了一位少年被卷入国王遭遇暗杀后突然开始的选举中，成为了新王候选人的命运。您可以自由选择如何度过巡游这个世界的日子，还将利用各种职业和队伍对抗强敌。现在，就让我们开始一场“只能在幻想中实现的现实之旅”吧。</div>
-    </div>
-
-    
-    <div class="section">
-      <h2>📸 游戏截图</h2>
-      <div class="ss-grid">
-        <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2679460/ss_17221b17662b373d5c727eb842a44285cffb351d.1920x1080.jpg?t=1764776325" alt="" loading="lazy">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2679460/ss_7c56132d19facdb84940f50afd9ef45af665968b.1920x1080.jpg?t=1764776325" alt="" loading="lazy">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2679460/ss_20b595b979ff6caedecb31f8969a739ce8e865a9.1920x1080.jpg?t=1764776325" alt="" loading="lazy">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2679460/ss_cc5086a18c343c8c617f30f078361c2b9631d4a1.1920x1080.jpg?t=1764776325" alt="" loading="lazy">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2679460/ss_38fa1516cd8781f29c06f333b1ff8db28df523e4.1920x1080.jpg?t=1764776325" alt="" loading="lazy">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2679460/ss_962172c80e35ebdb0edfed70aec55b7a174f9c7a.1920x1080.jpg?t=1764776325" alt="" loading="lazy">
-
-      </div>
-    </div>
-
   </div>
-</div>
+</section>
+
+<!-- 系统需求 -->
+
+<section class="content-section">
+  <div class="container">
+    <div class="content-block">
+      <h2>系统需求</h2>
+      <div class="sys-req">
+        <div class="sys-req-col"><h4>最低配置</h4><div><strong>最低配置:</strong><br><ul class="bb_ul"><li>需要 64 位处理器和操作系统<br></li><li><strong>操作系统:</strong> Windows 10<br></li><li><strong>处理器:</strong> Intel Core i5-3470 or AMD FX-6300<br></li><li><strong>内存:</strong> 6 GB RAM<br></li><li><strong>显卡:</strong> NVIDIA GeForce GTX 750 Ti, 4GB or AMD Radeon R7 360, 4GB or Intel Arc A310, 4GB<br></li><li><strong>DirectX 版本:</strong> 11<br></li><li><strong>存储空间:</strong> 需要 93 GB 可用空间<br></li><li><strong>附注事项:</strong> 720p @ 30 FPS. A CPU with AVX support is required. Microsoft no longer supports Windows 10 or older versions.</li></ul></div></div>
+        <div class="sys-req-col"><h4>推荐配置</h4><div><strong>推荐配置:</strong><br><ul class="bb_ul"><li>需要 64 位处理器和操作系统<br></li><li><strong>操作系统:</strong> Windows 10<br></li><li><strong>处理器:</strong> Intel Core i5-7600 or Ryzen 5 2600<br></li><li><strong>内存:</strong> 8 GB RAM<br></li><li><strong>显卡:</strong> NVIDIA GeForce GTX 970, 4GB or AMD Radeon RX 480, 4GB or Intel Arc A380, 6GB<br></li><li><strong>DirectX 版本:</strong> 11<br></li><li><strong>存储空间:</strong> 需要 93 GB 可用空间<br></li><li><strong>附注事项:</strong> 1080p @ 60 FPS. A CPU with AVX support is required. Microsoft no longer supports Windows 10 or older versions.</li></ul></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+function showVideo() {
+  document.getElementById('video-container').style.display = 'block';
+  document.getElementById('screenshots-container').style.display = 'none';
+  document.querySelectorAll('.media-tab').forEach(t => t.classList.remove('active'));
+  event.target.classList.add('active');
+}
+
+function showScreenshots() {
+  const videoContainer = document.getElementById('video-container');
+  if (videoContainer) videoContainer.style.display = 'none';
+  document.getElementById('screenshots-container').style.display = 'grid';
+  document.querySelectorAll('.media-tab').forEach(t => t.classList.remove('active'));
+  event.target.classList.add('active');
+}
+</script>
+
 </body>
 </html>

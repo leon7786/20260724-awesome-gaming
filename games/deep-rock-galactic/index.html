@@ -3,123 +3,488 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>深岩银河 - Deep Rock Galactic - 游戏详情</title>
+<title>深岩银河 - 游戏详情</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Segoe UI','Microsoft YaHei',sans-serif;background:#f5f5f7;color:#1a1a2e;line-height:1.6}
-.topbar{background:#ffffff;border-bottom:1px solid #e0e0e4;padding:12px 0;position:sticky;top:0;z-index:100}
-.topbar .container{display:flex;align-items:center;gap:16px}
-.container{max-width:1200px;margin:0 auto;padding:0 20px}
-.back{color:#6d28d9;text-decoration:none;font-size:14px;font-weight:500;display:flex;align-items:center;gap:4px}
-.back:hover{text-decoration:underline}
-.back-btn{background:#6d28d9;color:#fff;padding:6px 14px;border-radius:4px;text-decoration:none;font-size:13px}
-.back-btn:hover{background:#5b21b6}
-.hero{background:linear-gradient(180deg,#f0f0f5 0%,#e8e8f0 100%);color:#1a1a2e;padding:30px 0 0;border-bottom:1px solid #e0e0e4}
-.hero .container{display:flex;gap:30px;flex-wrap:wrap}
-.hero-info{flex:1;min-width:280px}
-.hero-info h1{font-size:26px;margin-bottom:4px}
-.hero-info .en{color:#888;font-size:14px;margin-bottom:12px}
-.hero-info .meta{display:flex;gap:6px;margin-bottom:14px;flex-wrap:wrap}
-.hero .tag{font-size:12px;padding:3px 10px;border-radius:4px;background:#e8e8ec;color:#555}
-.hero .tag.mc{background:#6d28d922;color:#6d28d9}
-.hero .tag.sales{background:#e11d4822;color:#e11d48}
-.hero-img{width:460px;max-width:100%;border-radius:8px;flex-shrink:0;box-shadow:0 2px 12px rgba(0,0,0,0.08)}
-.content{padding:24px 0}
-.section{background:#fff;border-radius:8px;border:1px solid #e0e0e4;padding:24px;margin-bottom:16px}
-.section h2{font-size:18px;color:#1a1a2e;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid #e0e0e4}
-.desc{font-size:15px;color:#444;line-height:1.7}
-.dl-section{background:#fff;border-radius:8px;border:1px solid #e0e0e4;padding:24px;margin-bottom:16px}
-.dl-section h2{font-size:18px;color:#1a1a2e;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid #e0e0e4}
-.dl-buttons{display:flex;flex-wrap:wrap;gap:8px}
-.dl-btn{display:inline-flex;align-items:center;gap:5px;padding:8px 16px;border-radius:6px;font-size:13px;text-decoration:none;color:#fff;transition:all .2s;font-weight:500}
-.dl-btn:hover{filter:brightness(1.1);transform:translateY(-1px)}
-.dl-btn.gamer520{background:#10b981}
-.dl-btn.x6d{background:#3b82f6}
-.dl-btn.tianyi{background:#6366f1}
-.dl-btn.baidu{background:#2563eb}
-.dl-btn.magnet{background:#ef4444}
-.dl-btn.fitgirl{background:#f59e0b}
-.info-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:16px}
-.info-item .label{font-size:12px;color:#888;text-transform:uppercase;letter-spacing:0.5px}
-.info-item .value{font-size:14px;color:#1a1a2e;margin-top:2px}
-.ss-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:8px}
-.ss-grid img{width:100%;border-radius:6px;cursor:pointer;transition:transform .2s}
-.ss-grid img:hover{transform:scale(1.02)}
-@media(max-width:768px){.hero-img{width:100%}.ss-grid{grid-template-columns:1fr}}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: "Microsoft YaHei", "Segoe UI", sans-serif;
+  background: #1b2838;
+  color: #c7d5e0;
+  line-height: 1.6;
+}
+
+/* 顶部导航 */
+.top-nav {
+  background: #171a21;
+  padding: 8px 0;
+  border-bottom: 1px solid #000;
+}
+.top-nav .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.breadcrumb {
+  font-size: 12px;
+  color: #666;
+}
+.breadcrumb a {
+  color: #666;
+  text-decoration: none;
+}
+.breadcrumb a:hover {
+  color: #fff;
+}
+.back-link {
+  color: #67c1f5;
+  text-decoration: none;
+  font-size: 13px;
+}
+.back-link:hover {
+  color: #fff;
+}
+
+/* 主容器 */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* 游戏头部 - Steam风格左右布局 */
+.game-header {
+  background: linear-gradient(180deg, #1b2838 0%, #2a475e 100%);
+  padding: 30px 0;
+}
+.game-header .container {
+  display: grid;
+  grid-template-columns: 460px 1fr;
+  gap: 30px;
+}
+
+/* 左侧媒体区域 */
+.media-section {
+  background: #000;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.media-tabs {
+  display: flex;
+  background: #1b2838;
+}
+.media-tab {
+  background: transparent;
+  border: none;
+  color: #67c1f5;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 13px;
+  border-bottom: 2px solid transparent;
+}
+.media-tab.active {
+  border-bottom-color: #67c1f5;
+  color: #fff;
+}
+.media-player {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/9;
+  background: #000;
+}
+.media-player video,
+.media-player img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.screenshots-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4px;
+  padding: 4px;
+  background: #1b2838;
+}
+.screenshots-grid img {
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+.screenshots-grid img:hover {
+  opacity: 0.8;
+}
+
+/* 右侧信息面板 */
+.game-info {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.game-title {
+  font-size: 32px;
+  font-weight: 300;
+  color: #fff;
+}
+.game-subtitle {
+  font-size: 14px;
+  color: #8f98a0;
+}
+.game-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.meta-item {
+  background: rgba(0,0,0,0.3);
+  padding: 6px 12px;
+  border-radius: 3px;
+  font-size: 13px;
+  color: #c7d5e0;
+}
+.meta-item.score {
+  background: #66c0f4;
+  color: #1b2838;
+  font-weight: 600;
+}
+.info-block {
+  background: rgba(0,0,0,0.2);
+  padding: 12px;
+  border-radius: 4px;
+}
+.info-block .label {
+  font-size: 11px;
+  color: #8f98a0;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.info-block .value {
+  font-size: 14px;
+  color: #67c1f5;
+}
+.game-desc {
+  font-size: 14px;
+  color: #acb2b8;
+  line-height: 1.7;
+}
+
+/* 内容区域 */
+.content-section {
+  background: #1b2838;
+  padding: 30px 0;
+}
+.content-block {
+  background: rgba(0,0,0,0.3);
+  padding: 24px;
+  border-radius: 4px;
+}
+.content-block h2 {
+  color: #fff;
+  font-size: 20px;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #2a475e;
+}
+.content-block p {
+  color: #acb2b8;
+  font-size: 14px;
+  line-height: 1.8;
+  margin-bottom: 12px;
+}
+.content-block h2.bb_tag {
+  color: #67c1f5;
+  font-size: 16px;
+  margin: 20px 0 10px 0;
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+/* 下载区域 */
+.download-section {
+  background: #1b2838;
+  padding: 30px 0;
+}
+.download-block {
+  background: rgba(0,0,0,0.3);
+  padding: 24px;
+  border-radius: 4px;
+}
+.download-block h2 {
+  color: #fff;
+  font-size: 20px;
+  margin-bottom: 16px;
+}
+.download-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: 4px;
+  text-decoration: none;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+.download-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+.download-btn.gamer520 { background: linear-gradient(135deg, #10b981, #059669); }
+.download-btn.x6d { background: linear-gradient(135deg, #3b82f6, #2563eb); }
+.download-btn.magnet { background: linear-gradient(135deg, #ef4444, #dc2626); }
+.download-btn.fitgirl { background: linear-gradient(135deg, #f59e0b, #d97706); }
+.download-btn.tianyi { background: linear-gradient(135deg, #6366f1, #4f46e5); }
+.download-btn.baidu { background: linear-gradient(135deg, #2563eb, #1d4ed8); }
+
+/* 系统需求 */
+.sys-req {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.sys-req-col h4 {
+  color: #67c1f5;
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+.sys-req-col ul {
+  list-style: none;
+  margin: 0;
+}
+.sys-req-col li {
+  font-size: 13px;
+  color: #acb2b8;
+  margin-bottom: 8px;
+  padding-left: 16px;
+  position: relative;
+}
+.sys-req-col li:before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #67c1f5;
+}
+
+/* 响应式 */
+@media (max-width: 900px) {
+  .game-header .container {
+    grid-template-columns: 1fr;
+  }
+  .media-section {
+    max-width: 100%;
+  }
+  .sys-req {
+    grid-template-columns: 1fr;
+  }
+}
 </style>
 </head>
 <body>
 
-<div class="topbar">
+<!-- 顶部导航 -->
+<nav class="top-nav">
   <div class="container">
-    <a href="../../index.html" class="back">← 返回游戏榜单</a>
-    <a href="https://store.steampowered.com/app/548430" target="_blank" class="back-btn" style="margin-left:auto">Steam 商店页</a>
+    <div class="breadcrumb">
+      <a href="../../index.html">← 返回游戏榜单</a>
+    </div>
+    <a href="https://store.steampowered.com/app/548430/" target="_blank" class="back-link">Steam 商店页 →</a>
   </div>
-</div>
+</nav>
 
-<div class="hero">
+<!-- 游戏头部 -->
+<section class="game-header">
   <div class="container">
-    <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/548430/library_600x900.jpg" alt="Deep Rock Galactic" class="hero-img" onerror="this.style.display='none'">
-    <div class="hero-info">
-      <h1>深岩银河</h1>
-      <div class="en">Deep Rock Galactic</div>
-      <div class="meta">
-        <span class="tag">2020</span>
-        <span class="tag mc">评分 85</span>
-        <span class="tag mc">口碑Top</span>
-        <span class="tag">动作</span>
+    <!-- 左侧媒体区域 -->
+    <div class="media-section">
+      <div class="media-tabs">
+        
+        <button class="media-tab active" onclick="showScreenshots()">截图</button>
       </div>
-      <div class="desc">《深岩银河》是一款多人合作类第一人称射击游戏，有着了不起的矮人、100% 可破坏的地形、由程序生成的洞穴以及无数的外星怪物。</div>
+      
+      
+      
+      
+      <div id="screenshots-container" class="screenshots-grid" {{#if VIDEO_HTML}}style="display:none;">
+        <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/548430/49a57d16c55b74a6f835c590421d299d417af4f8/ss_49a57d16c55b74a6f835c590421d299d417af4f8.1920x1080.jpg?t=1782116973" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/548430/5ffa803484da48da16db9006d7f4313db8999c2a/ss_5ffa803484da48da16db9006d7f4313db8999c2a.1920x1080.jpg?t=1782116973" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/548430/cf8c347fac940f99a9a256730aca3cb647cb563f/ss_cf8c347fac940f99a9a256730aca3cb647cb563f.1920x1080.jpg?t=1782116973" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/548430/9fad579c755e0c3ed249f581537da3c634d141bb/ss_9fad579c755e0c3ed249f581537da3c634d141bb.1920x1080.jpg?t=1782116973" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/548430/5de4ec4baa28c5df1cecb676be0f399f470beb75/ss_5de4ec4baa28c5df1cecb676be0f399f470beb75.1920x1080.jpg?t=1782116973" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/548430/03ac295f55defe10866d07a6f81329751c5abfb7/ss_03ac295f55defe10866d07a6f81329751c5abfb7.1920x1080.jpg?t=1782116973" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/548430/16b75c6d2a231b45b56328abe335fde8cee9ebe4/ss_16b75c6d2a231b45b56328abe335fde8cee9ebe4.1920x1080.jpg?t=1782116973" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/548430/5be477305106e6849cd4dab968fa38f87f5cb46c/ss_5be477305106e6849cd4dab968fa38f87f5cb46c.1920x1080.jpg?t=1782116973" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/548430/28d7b3cf3cfa15081a5b71849ba82e001f94db3d/ss_28d7b3cf3cfa15081a5b71849ba82e001f94db3d.1920x1080.jpg?t=1782116973" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/548430/19e8e5d9434de9de3343a8273833cf40e22e4239/ss_19e8e5d9434de9de3343a8273833cf40e22e4239.1920x1080.jpg?t=1782116973" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/548430/97de4f0997deec98bd6ba05c2a98fda3c0c09efc/ss_97de4f0997deec98bd6ba05c2a98fda3c0c09efc.1920x1080.jpg?t=1782116973" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/548430/01a5988bf2d486e4ce0300c88654fcb3601bbd5c/ss_01a5988bf2d486e4ce0300c88654fcb3601bbd5c.1920x1080.jpg?t=1782116973" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/548430/0dce67e3e3fa9d6a39f692d2fc3e0d34058a3876/ss_0dce67e3e3fa9d6a39f692d2fc3e0d34058a3876.1920x1080.jpg?t=1782116973" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/548430/913b717769f73ef0a72fc67599f1e26ed5ae35a2/ss_913b717769f73ef0a72fc67599f1e26ed5ae35a2.1920x1080.jpg?t=1782116973" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/548430/a4d79e50fbb47f3fb30bd4a40e180de6704965d9/ss_a4d79e50fbb47f3fb30bd4a40e180de6704965d9.1920x1080.jpg?t=1782116973" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/548430/ss_6f3428f0225ab1568e6d02f203dfa283d1f92257.1920x1080.jpg?t=1782116973" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/548430/ss_2441f382d8eca3dd652494d2dde000879eeb3f8f.1920x1080.jpg?t=1782116973" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/548430/ss_cd02d27565f44fed132f96ceebb76755dd7f9363.1920x1080.jpg?t=1782116973" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/548430/ss_c11c8e34b6b6a175e3f102aacc8500af86a6878b.1920x1080.jpg?t=1782116973" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/548430/ss_09fd19c37d50c03632dff09ec34f1ec93a68bdb8.1920x1080.jpg?t=1782116973" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/548430/ss_1bc5367dbc85a91a08ec2846508c65a960dbd479.1920x1080.jpg?t=1782116973" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/548430/ss_2a51e8670de7cb0358d0a1d2c866446cbc3778c5.1920x1080.jpg?t=1782116973" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/548430/ss_6e61e97a8b5d198491bbc244613d7a75d5f64c0b.1920x1080.jpg?t=1782116973" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/548430/ss_5d41a7c4b219d60ab4463721352bd019adfb396c.1920x1080.jpg?t=1782116973" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/548430/ss_b11afc39875ac894b5730b93f84c094cc0a276ac.1920x1080.jpg?t=1782116973" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/548430/ss_32dee8467e457e1c347dae117ac497170e5bf803.1920x1080.jpg?t=1782116973" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/548430/ss_fa0c98eeec32a837d97052755355dccbaf1b7b0c.1920x1080.jpg?t=1782116973" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/548430/ss_7147719ab8d23032c3db20161bb7edc3927c68d0.1920x1080.jpg?t=1782116973" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/548430/ss_123a3f452ce026213270cafba02dad7eb8ac5d60.1920x1080.jpg?t=1782116973" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/548430/ss_12b8e517120caeb3198103e8fb6880dc05a05959.1920x1080.jpg?t=1782116973" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/548430/ss_d5a9335cb1c95b512723c2b0bd4b38b98f0693f7.1920x1080.jpg?t=1782116973" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/548430/ss_15ad99b647b0b237e9e24547403940cf42a10207.1920x1080.jpg?t=1782116973" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/548430/ss_922f02c039dff6d61dcc3680621d6129d6ff974f.1920x1080.jpg?t=1782116973" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/548430/ss_b093791894a05cb26d4098d06cace1630d2c2bc7.1920x1080.jpg?t=1782116973" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/548430/ss_9b5878a2bb648c3af543f595580dca8898d7a409.1920x1080.jpg?t=1782116973" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/548430/ss_9d9c504ccfa6c5c19105a2b1a1deaf40d1135717.1920x1080.jpg?t=1782116973" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/548430/ss_26b2cccd46ccad8ef27ab8bac041011b30b7c514.1920x1080.jpg?t=1782116973" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/548430/ss_c01ce5571294903b6e3489b6f7ca5f7745b2c6e0.1920x1080.jpg?t=1782116973" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/548430/ss_c64b9f592d54fe69f75f73d9e69602c048c62554.1920x1080.jpg?t=1782116973" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/548430/ss_59c9a51206ea4bc22e24e8235cee28d55d6bac05.1920x1080.jpg?t=1782116973" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/548430/ss_060da7d24ad594da3ddb1dccfa7ea7e728966b4d.1920x1080.jpg?t=1782116973" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/548430/ss_5aed8cee16e98552f4a36cc079e1387e158662a5.1920x1080.jpg?t=1782116973" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/548430/ss_841a0b91ec00596fed5e44c5e269d203b5101b93.1920x1080.jpg?t=1782116973" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/548430/ss_a7db62883008aa5cd239efcab1cb717e6f7f8642.1920x1080.jpg?t=1782116973" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/548430/ss_dd922c52202b1d3b2f988952f4b556f5a3af0b68.1920x1080.jpg?t=1782116973" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/548430/ss_3deee0ea62581f47e67f87528c7ad38a5225b88d.1920x1080.jpg?t=1782116973" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/548430/ss_26cf4171270888160d98dc4c63ba839c19e62161.1920x1080.jpg?t=1782116973" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/548430/ss_d4a11ef3f45634e9260c379a8770714827a0a245.1920x1080.jpg?t=1782116973" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/548430/ss_fb70f0b3d83595c90c225a20f36a871583f25486.1920x1080.jpg?t=1782116973" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/548430/ss_356897a714a410cc03a178824c4955b3e6d6331a.1920x1080.jpg?t=1782116973" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/548430/ss_9ece49e998dd661e61eaf621e94c03e5b85b57f8.1920x1080.jpg?t=1782116973" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/548430/ss_bfecba27dcf45a751638e76c1745eab5e744ebd2.1920x1080.jpg?t=1782116973" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/548430/ss_4cac98f49fde6e994a64e813baaf7b34a195d2cc.1920x1080.jpg?t=1782116973" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/548430/ss_1b0c5a4e2fd0ab1a12a59274e3b7c706507b95f9.1920x1080.jpg?t=1782116973" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/548430/ss_b4fff9963828e4628b6318fa53c9d54500dc0950.1920x1080.jpg?t=1782116973" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/548430/ss_444544bc1e45aca9e7b7a66bccaaa77ed9e035a3.1920x1080.jpg?t=1782116973" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/548430/ss_faae18607909fb9cd5cc73c5078bf8bf0578e0c2.1920x1080.jpg?t=1782116973" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/548430/ss_38c83068454c997082f3f3c60fe2564e77814d29.1920x1080.jpg?t=1782116973" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/548430/ss_40ce888565444b789c4f0d15236ea03c444511a4.1920x1080.jpg?t=1782116973" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/548430/ss_ce893e738183d1332afd4493b9ee3f28eb6153c5.1920x1080.jpg?t=1782116973" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/548430/ss_e1badaf8dd8d1ddc91731ecedcaaebe6baeaab3a.1920x1080.jpg?t=1782116973" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/548430/ss_b7a314bd0534cd373b913a009ed6243868c29097.1920x1080.jpg?t=1782116973" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/548430/ss_b60176e028e0629141709ab023292c7a0c9ba5af.1920x1080.jpg?t=1782116973" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/548430/ss_99d2490fb73385516fdb28469649386fdf0dad07.1920x1080.jpg?t=1782116973" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/548430/ss_82bae16c1411fad6a4a09c8c9f62cdf86bd6e8c9.1920x1080.jpg?t=1782116973" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/548430/ss_c450b3836f94ae5def5cd402b70d8a05ca4be1dc.1920x1080.jpg?t=1782116973" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/548430/ss_79e622a554ff2362d6d0f914f7da0b84af0acbed.1920x1080.jpg?t=1782116973" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/548430/ss_4e30d3f9f1885a0af4d9ca7048bb7c25ad101ca0.1920x1080.jpg?t=1782116973" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/548430/ss_3fff97072bf18e192b0bc99f59209d357c62d624.1920x1080.jpg?t=1782116973" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/548430/ss_e6e1d97ee0a5fc8b82c5a9a1aacba178206e3522.1920x1080.jpg?t=1782116973" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/548430/ss_72a64017d059fb584cd0c5977886f2d935be8170.1920x1080.jpg?t=1782116973" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/548430/ss_d93c676ba296854f7b9261520e0262477c787820.1920x1080.jpg?t=1782116973" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/548430/ss_f4444adc34648598e17a90ccaca79232395b3027.1920x1080.jpg?t=1782116973" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/548430/ss_f7021d5ac1017dbfdef0762e8572e28ca7b6ad6c.1920x1080.jpg?t=1782116973" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/548430/ss_47a04438ce5388fb854bd14828fc4a4797aea8ea.1920x1080.jpg?t=1782116973" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/548430/ss_47dfb094023993edd6d2fd7f33ad7f907ef43c79.1920x1080.jpg?t=1782116973" alt="Screenshot" onclick="window.open(this.src)">
+      </div>
+      {{/if}}
+    </div>
+    
+    <!-- 右侧信息面板 -->
+    <div class="game-info">
+      <h1 class="game-title">深岩银河</h1>
+      <div class="game-subtitle">Deep Rock Galactic</div>
+      
+      <div class="game-meta">
+        <div class="meta-item">2020 年 5 月 13 日</div>
+        <div class="meta-item">动作</div>
+        <div class="meta-item score">评分 97</div>
+      </div>
+      
+      
+      <div class="info-block">
+        <div class="label">开发者</div>
+        <div class="value">Ghost Ship Games</div>
+      </div>
+      
+      
+      
+      <div class="info-block">
+        <div class="label">发行商</div>
+        <div class="value">Coffee Stain Publishing</div>
+      </div>
+      
+      
+      
+      <div class="game-desc">
+        《深岩银河》是一款多人合作类第一人称射击游戏，有着了不起的矮人、100% 可破坏的地形、由程序生成的洞穴以及无数的外星怪物。
+      </div>
+      
     </div>
   </div>
-</div>
+</section>
 
-<div class="content">
+<!-- 关于此游戏 -->
+
+<section class="content-section">
   <div class="container">
+    <div class="content-block">
+      <h2>关于此游戏</h2>
+      <div><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline crossorigin="anonymous" poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/548430/extras/d9f0ff37fc68bcec10fa5e6e3756a04f.poster.avif?t=1782116973" width=616 height=230 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/548430/extras/d9f0ff37fc68bcec10fa5e6e3756a04f.webm?t=1782116973" type="video/webm; codecs=vp9"></video></span><br><br>《深岩银河》是一款多人合作类第一人称射击游戏，有着了不起的矮人、100% 可破坏的地形、由程序生成的洞穴以及无数的外星怪物。<h2 class="bb_tag" >1-4 人合作</h2>团队携手合作，挖掘、探索和斩荆披棘地闯过巨大的洞穴系统，这里面到处都是致命敌人和珍贵资源。你只有依靠队友才能在银河系中最危险的洞穴系统中存活下去。<h2 class="bb_tag" >4 种各具特色的职业</h2>挑选合适的职业来完成任务。担任枪手一路杀敌挺进，担任侦察兵在前方探路并照亮洞穴，担任钻机手钻穿坚硬的岩石，或是担任工程师建造平台、搭建炮塔支援队伍。<h2 class="bb_tag" >完全可破坏的地形</h2>为达成目的而不择手段！游戏中没有固定的前进路线，你可以按自己喜欢的方式来完成任务。向下直接挖到目标，或是开辟复杂的行进路线来探索周围的一切—这都由你来决定。但务必谨慎行事，你不会想在毫无准备的情况下碰上外星异虫！<h2 class="bb_tag" >由程序生成的洞穴结构</h2>探索由程序生成的洞穴结构，对抗各样敌人，收集各色财宝。每次探索都会有新发现，不存在两次完全相同的游戏体验。<h2 class="bb_tag" >高科技武器和装备 </h2>矮人们知道需要带上什么才好完成任务。也就是说你可以使用最强大的武器和最先进的装备——喷火器、加特林机枪、便携式平台发射器，甚至还有更多。<h2 class="bb_tag" >照亮前路</h2>地下的洞穴黑暗深邃又恐怖。你需要依靠自己随身携带的光源来照亮这些漆黑的洞穴。<br><br><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/548430/extras/79ce17dac457618e476c7d0573ca17ff.avif?t=1782116973" width=616 height=202 /></span></div>
+    </div>
+  </div>
+</section>
 
-    <div class="dl-section">
+
+<!-- 下载区域 -->
+<section class="download-section">
+  <div class="container">
+    <div class="download-block">
       <h2>📥 下载链接</h2>
-      <div class="dl-buttons">
-<a href="https://fitgirl-repacks.site" class="dl-btn fitgirl" target="_blank">📀 FitGirl</a>
-<a href="https://www.gamer520.com/113971.html" class="dl-btn gamer520" target="_blank">🎮 gamer520</a>
-<a href="https://www.x6d.com/i-wz-18772.html" class="dl-btn x6d" target="_blank">📦 x6d</a>
+      <div class="download-buttons">
+        <a href="https://fitgirl-repacks.site" class="download-btn fitgirl" target="_blank">FitGirl</a>
+<a href="https://www.gamer520.com/113971.html" class="download-btn gamer520" target="_blank">gamer520</a>
+<a href="https://www.x6d.com/i-wz-18772.html" class="download-btn x6d" target="_blank">x6d</a>
 
       </div>
     </div>
-
-    <div class="section">
-      <h2>📋 游戏信息</h2>
-      <div class="info-grid">
-        <div class="info-item"><div class="label">开发商</div><div class="value">Ghost Ship Games</div></div>
-        <div class="info-item"><div class="label">发行商</div><div class="value">Coffee Stain Publishing</div></div>
-        <div class="info-item"><div class="label">发行日期</div><div class="value">2020 年 5 月 13 日</div></div>
-        <div class="info-item"><div class="label">类型</div><div class="value">动作</div></div>
-        <div class="info-item"><div class="label">Metacritic</div><div class="value">85</div></div>
-        <div class="info-item"><div class="label">Steam</div><div class="value"><a href="https://store.steampowered.com/app/548430" target="_blank">查看商店页 →</a></div></div>
-      </div>
-    </div>
-
-    
-    <div class="section">
-      <h2>📖 关于这款游戏</h2>
-      <div class="desc">《深岩银河》是一款多人合作类第一人称射击游戏，有着了不起的矮人、100% 可破坏的地形、由程序生成的洞穴以及无数的外星怪物。</div>
-    </div>
-
-    
-    <div class="section">
-      <h2>📸 游戏截图</h2>
-      <div class="ss-grid">
-        <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/548430/49a57d16c55b74a6f835c590421d299d417af4f8/ss_49a57d16c55b74a6f835c590421d299d417af4f8.1920x1080.jpg?t=1782116973" alt="" loading="lazy">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/548430/5ffa803484da48da16db9006d7f4313db8999c2a/ss_5ffa803484da48da16db9006d7f4313db8999c2a.1920x1080.jpg?t=1782116973" alt="" loading="lazy">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/548430/cf8c347fac940f99a9a256730aca3cb647cb563f/ss_cf8c347fac940f99a9a256730aca3cb647cb563f.1920x1080.jpg?t=1782116973" alt="" loading="lazy">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/548430/9fad579c755e0c3ed249f581537da3c634d141bb/ss_9fad579c755e0c3ed249f581537da3c634d141bb.1920x1080.jpg?t=1782116973" alt="" loading="lazy">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/548430/5de4ec4baa28c5df1cecb676be0f399f470beb75/ss_5de4ec4baa28c5df1cecb676be0f399f470beb75.1920x1080.jpg?t=1782116973" alt="" loading="lazy">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/548430/03ac295f55defe10866d07a6f81329751c5abfb7/ss_03ac295f55defe10866d07a6f81329751c5abfb7.1920x1080.jpg?t=1782116973" alt="" loading="lazy">
-
-      </div>
-    </div>
-
   </div>
-</div>
+</section>
+
+<!-- 系统需求 -->
+
+<section class="content-section">
+  <div class="container">
+    <div class="content-block">
+      <h2>系统需求</h2>
+      <div class="sys-req">
+        <div class="sys-req-col"><h4>最低配置</h4><div><strong>最低配置:</strong><br><ul class="bb_ul"><li>需要 64 位处理器和操作系统<br></li><li><strong>操作系统 *:</strong> Windows 7 64 Bit<br></li><li><strong>处理器:</strong> Intel i5, 3rd gen (or equivalent)<br></li><li><strong>内存:</strong> 6 GB RAM<br></li><li><strong>显卡:</strong> NVIDIA GeForce GTX 660 or AMD Radeon HD 7870<br></li><li><strong>DirectX 版本:</strong> 11<br></li><li><strong>网络:</strong> 宽带互联网连接<br></li><li><strong>存储空间:</strong> 需要 3 GB 可用空间</li></ul></div></div>
+        <div class="sys-req-col"><h4>推荐配置</h4><div><strong>推荐配置:</strong><br><ul class="bb_ul"><li>需要 64 位处理器和操作系统<br></li><li><strong>操作系统:</strong> Windows 10 64 Bit<br></li><li><strong>处理器:</strong> Intel i5, 7th gen (or equivalent)<br></li><li><strong>内存:</strong> 8 GB RAM<br></li><li><strong>显卡:</strong> NVIDIA 970 / AMD Radeon 290<br></li><li><strong>DirectX 版本:</strong> 11<br></li><li><strong>网络:</strong> 宽带互联网连接<br></li><li><strong>存储空间:</strong> 需要 3 GB 可用空间</li></ul></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+function showVideo() {
+  document.getElementById('video-container').style.display = 'block';
+  document.getElementById('screenshots-container').style.display = 'none';
+  document.querySelectorAll('.media-tab').forEach(t => t.classList.remove('active'));
+  event.target.classList.add('active');
+}
+
+function showScreenshots() {
+  const videoContainer = document.getElementById('video-container');
+  if (videoContainer) videoContainer.style.display = 'none';
+  document.getElementById('screenshots-container').style.display = 'grid';
+  document.querySelectorAll('.media-tab').forEach(t => t.classList.remove('active'));
+  event.target.classList.add('active');
+}
+</script>
+
 </body>
 </html>

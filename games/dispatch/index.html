@@ -3,122 +3,421 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>调度员 - Dispatch - 游戏详情</title>
+<title>调度员 - 游戏详情</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Segoe UI','Microsoft YaHei',sans-serif;background:#f5f5f7;color:#1a1a2e;line-height:1.6}
-.topbar{background:#ffffff;border-bottom:1px solid #e0e0e4;padding:12px 0;position:sticky;top:0;z-index:100}
-.topbar .container{display:flex;align-items:center;gap:16px}
-.container{max-width:1200px;margin:0 auto;padding:0 20px}
-.back{color:#6d28d9;text-decoration:none;font-size:14px;font-weight:500;display:flex;align-items:center;gap:4px}
-.back:hover{text-decoration:underline}
-.back-btn{background:#6d28d9;color:#fff;padding:6px 14px;border-radius:4px;text-decoration:none;font-size:13px}
-.back-btn:hover{background:#5b21b6}
-.hero{background:linear-gradient(180deg,#f0f0f5 0%,#e8e8f0 100%);color:#1a1a2e;padding:30px 0 0;border-bottom:1px solid #e0e0e4}
-.hero .container{display:flex;gap:30px;flex-wrap:wrap}
-.hero-info{flex:1;min-width:280px}
-.hero-info h1{font-size:26px;margin-bottom:4px}
-.hero-info .en{color:#888;font-size:14px;margin-bottom:12px}
-.hero-info .meta{display:flex;gap:6px;margin-bottom:14px;flex-wrap:wrap}
-.hero .tag{font-size:12px;padding:3px 10px;border-radius:4px;background:#e8e8ec;color:#555}
-.hero .tag.mc{background:#6d28d922;color:#6d28d9}
-.hero .tag.sales{background:#e11d4822;color:#e11d48}
-.hero-img{width:460px;max-width:100%;border-radius:8px;flex-shrink:0;box-shadow:0 2px 12px rgba(0,0,0,0.08)}
-.content{padding:24px 0}
-.section{background:#fff;border-radius:8px;border:1px solid #e0e0e4;padding:24px;margin-bottom:16px}
-.section h2{font-size:18px;color:#1a1a2e;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid #e0e0e4}
-.desc{font-size:15px;color:#444;line-height:1.7}
-.dl-section{background:#fff;border-radius:8px;border:1px solid #e0e0e4;padding:24px;margin-bottom:16px}
-.dl-section h2{font-size:18px;color:#1a1a2e;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid #e0e0e4}
-.dl-buttons{display:flex;flex-wrap:wrap;gap:8px}
-.dl-btn{display:inline-flex;align-items:center;gap:5px;padding:8px 16px;border-radius:6px;font-size:13px;text-decoration:none;color:#fff;transition:all .2s;font-weight:500}
-.dl-btn:hover{filter:brightness(1.1);transform:translateY(-1px)}
-.dl-btn.gamer520{background:#10b981}
-.dl-btn.x6d{background:#3b82f6}
-.dl-btn.tianyi{background:#6366f1}
-.dl-btn.baidu{background:#2563eb}
-.dl-btn.magnet{background:#ef4444}
-.dl-btn.fitgirl{background:#f59e0b}
-.info-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:16px}
-.info-item .label{font-size:12px;color:#888;text-transform:uppercase;letter-spacing:0.5px}
-.info-item .value{font-size:14px;color:#1a1a2e;margin-top:2px}
-.ss-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:8px}
-.ss-grid img{width:100%;border-radius:6px;cursor:pointer;transition:transform .2s}
-.ss-grid img:hover{transform:scale(1.02)}
-@media(max-width:768px){.hero-img{width:100%}.ss-grid{grid-template-columns:1fr}}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: "Microsoft YaHei", "Segoe UI", sans-serif;
+  background: #1b2838;
+  color: #c7d5e0;
+  line-height: 1.6;
+}
+
+/* 顶部导航 */
+.top-nav {
+  background: #171a21;
+  padding: 8px 0;
+  border-bottom: 1px solid #000;
+}
+.top-nav .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.breadcrumb {
+  font-size: 12px;
+  color: #666;
+}
+.breadcrumb a {
+  color: #666;
+  text-decoration: none;
+}
+.breadcrumb a:hover {
+  color: #fff;
+}
+.back-link {
+  color: #67c1f5;
+  text-decoration: none;
+  font-size: 13px;
+}
+.back-link:hover {
+  color: #fff;
+}
+
+/* 主容器 */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* 游戏头部 - Steam风格左右布局 */
+.game-header {
+  background: linear-gradient(180deg, #1b2838 0%, #2a475e 100%);
+  padding: 30px 0;
+}
+.game-header .container {
+  display: grid;
+  grid-template-columns: 460px 1fr;
+  gap: 30px;
+}
+
+/* 左侧媒体区域 */
+.media-section {
+  background: #000;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.media-tabs {
+  display: flex;
+  background: #1b2838;
+}
+.media-tab {
+  background: transparent;
+  border: none;
+  color: #67c1f5;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 13px;
+  border-bottom: 2px solid transparent;
+}
+.media-tab.active {
+  border-bottom-color: #67c1f5;
+  color: #fff;
+}
+.media-player {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/9;
+  background: #000;
+}
+.media-player video,
+.media-player img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.screenshots-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4px;
+  padding: 4px;
+  background: #1b2838;
+}
+.screenshots-grid img {
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+.screenshots-grid img:hover {
+  opacity: 0.8;
+}
+
+/* 右侧信息面板 */
+.game-info {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.game-title {
+  font-size: 32px;
+  font-weight: 300;
+  color: #fff;
+}
+.game-subtitle {
+  font-size: 14px;
+  color: #8f98a0;
+}
+.game-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.meta-item {
+  background: rgba(0,0,0,0.3);
+  padding: 6px 12px;
+  border-radius: 3px;
+  font-size: 13px;
+  color: #c7d5e0;
+}
+.meta-item.score {
+  background: #66c0f4;
+  color: #1b2838;
+  font-weight: 600;
+}
+.info-block {
+  background: rgba(0,0,0,0.2);
+  padding: 12px;
+  border-radius: 4px;
+}
+.info-block .label {
+  font-size: 11px;
+  color: #8f98a0;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.info-block .value {
+  font-size: 14px;
+  color: #67c1f5;
+}
+.game-desc {
+  font-size: 14px;
+  color: #acb2b8;
+  line-height: 1.7;
+}
+
+/* 内容区域 */
+.content-section {
+  background: #1b2838;
+  padding: 30px 0;
+}
+.content-block {
+  background: rgba(0,0,0,0.3);
+  padding: 24px;
+  border-radius: 4px;
+}
+.content-block h2 {
+  color: #fff;
+  font-size: 20px;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #2a475e;
+}
+.content-block p {
+  color: #acb2b8;
+  font-size: 14px;
+  line-height: 1.8;
+  margin-bottom: 12px;
+}
+.content-block h2.bb_tag {
+  color: #67c1f5;
+  font-size: 16px;
+  margin: 20px 0 10px 0;
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+/* 下载区域 */
+.download-section {
+  background: #1b2838;
+  padding: 30px 0;
+}
+.download-block {
+  background: rgba(0,0,0,0.3);
+  padding: 24px;
+  border-radius: 4px;
+}
+.download-block h2 {
+  color: #fff;
+  font-size: 20px;
+  margin-bottom: 16px;
+}
+.download-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: 4px;
+  text-decoration: none;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+.download-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+.download-btn.gamer520 { background: linear-gradient(135deg, #10b981, #059669); }
+.download-btn.x6d { background: linear-gradient(135deg, #3b82f6, #2563eb); }
+.download-btn.magnet { background: linear-gradient(135deg, #ef4444, #dc2626); }
+.download-btn.fitgirl { background: linear-gradient(135deg, #f59e0b, #d97706); }
+.download-btn.tianyi { background: linear-gradient(135deg, #6366f1, #4f46e5); }
+.download-btn.baidu { background: linear-gradient(135deg, #2563eb, #1d4ed8); }
+
+/* 系统需求 */
+.sys-req {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.sys-req-col h4 {
+  color: #67c1f5;
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+.sys-req-col ul {
+  list-style: none;
+  margin: 0;
+}
+.sys-req-col li {
+  font-size: 13px;
+  color: #acb2b8;
+  margin-bottom: 8px;
+  padding-left: 16px;
+  position: relative;
+}
+.sys-req-col li:before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #67c1f5;
+}
+
+/* 响应式 */
+@media (max-width: 900px) {
+  .game-header .container {
+    grid-template-columns: 1fr;
+  }
+  .media-section {
+    max-width: 100%;
+  }
+  .sys-req {
+    grid-template-columns: 1fr;
+  }
+}
 </style>
 </head>
 <body>
 
-<div class="topbar">
+<!-- 顶部导航 -->
+<nav class="top-nav">
   <div class="container">
-    <a href="../../index.html" class="back">← 返回游戏榜单</a>
-    <a href="https://store.steampowered.com/app/2592160" target="_blank" class="back-btn" style="margin-left:auto">Steam 商店页</a>
+    <div class="breadcrumb">
+      <a href="../../index.html">← 返回游戏榜单</a>
+    </div>
+    <a href="https://store.steampowered.com/app/2592160/" target="_blank" class="back-link">Steam 商店页 →</a>
   </div>
-</div>
+</nav>
 
-<div class="hero">
+<!-- 游戏头部 -->
+<section class="game-header">
   <div class="container">
-    <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/library_600x900.jpg" alt="Dispatch" class="hero-img" onerror="this.style.display='none'">
-    <div class="hero-info">
-      <h1>调度员</h1>
-      <div class="en">Dispatch</div>
-      <div class="meta">
-        <span class="tag">2025</span>
-        <span class="tag mc">评分 87</span>
-        <span class="tag sales">殿堂级 Top 250</span>
-        <span class="tag">动作, 冒险, 休闲, 独立, 策略</span>
+    <!-- 左侧媒体区域 -->
+    <div class="media-section">
+      <div class="media-tabs">
+        
+        <button class="media-tab active" onclick="showScreenshots()">截图</button>
       </div>
-      <div class="desc">《Dispatch》是一款超级英雄职场喜剧游戏，其中的故事发展将因你的选择而变化。你将管理一队由不合群的异类英雄所组成的功能失调团队，策略性地派遣不同的英雄到城市中各紧急事故现场处理事故，同时还要平衡办公室政治、人际关系，以及追寻你自己的英雄旅程。</div>
+      
+      
+      
+      
+      <div id="screenshots-container" class="screenshots-grid" {{#if VIDEO_HTML}}style="display:none;">
+        <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/ss_395c301af733dd84b526d5d6e0e9c4c3446b4a18.1920x1080.jpg?t=1784048711" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/ss_e821251aca2d2f5a6ac255b788cbf6c02904f379.1920x1080.jpg?t=1784048711" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/ss_a2fad5dd7e22186afb390cacbb4071d43a52678b.1920x1080.jpg?t=1784048711" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/ss_6aa03b03ee710fe218e3be4bc54975e4c34d7d8a.1920x1080.jpg?t=1784048711" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/ss_3a9be55a630dc9c9553eda8a1ec5a91b7d46ae01.1920x1080.jpg?t=1784048711" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/ss_f0ee4c607d1594f9482525dd266aac0205206c54.1920x1080.jpg?t=1784048711" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/ss_8a835666501b6569a2f58d8c2583d0e03dcdd828.1920x1080.jpg?t=1784048711" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/ss_926f6369ee5c76038026d83af2d59e49236aac7b.1920x1080.jpg?t=1784048711" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/ss_32dbaa5dabe09fbdef5373c229a1a1b76971328e.1920x1080.jpg?t=1784048711" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/ss_63fae45adf446403f79e87bd910a108b5738d21e.1920x1080.jpg?t=1784048711" alt="Screenshot" onclick="window.open(this.src)">
+      </div>
+      {{/if}}
+    </div>
+    
+    <!-- 右侧信息面板 -->
+    <div class="game-info">
+      <h1 class="game-title">调度员</h1>
+      <div class="game-subtitle">Dispatch</div>
+      
+      <div class="game-meta">
+        <div class="meta-item">2025 年 10 月 22 日</div>
+        <div class="meta-item">动作, 冒险, 休闲, 独立, 策略</div>
+        <div class="meta-item score">评分 87</div>
+      </div>
+      
+      
+      <div class="info-block">
+        <div class="label">开发者</div>
+        <div class="value">AdHoc Studio</div>
+      </div>
+      
+      
+      
+      <div class="info-block">
+        <div class="label">发行商</div>
+        <div class="value">AdHoc Studio</div>
+      </div>
+      
+      
+      
+      <div class="game-desc">
+        《Dispatch》是一款超级英雄职场喜剧游戏，其中的故事发展将因你的选择而变化。你将管理一队由不合群的异类英雄所组成的功能失调团队，策略性地派遣不同的英雄到城市中各紧急事故现场处理事故，同时还要平衡办公室政治、人际关系，以及追寻你自己的英雄旅程。
+      </div>
+      
     </div>
   </div>
-</div>
+</section>
 
-<div class="content">
+<!-- 关于此游戏 -->
+
+<section class="content-section">
   <div class="container">
+    <div class="content-block">
+      <h2>关于此游戏</h2>
+      <div><h2 class="bb_tag" >《<strong><i>Dispatch</i></strong>》是一款超级英雄职场喜剧游戏，场景设定在现代的洛杉矶。它的编剧和导演的作品包括《<strong><i>Tales from the Borderlands</i></strong>》、《<strong><i>The Wolf Among Us</i></strong>》。</h2><p class="bb_paragraph" ><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/extras/08bd8194caff314b3877e8a53cb01029.poster.avif?t=1784048711" width=676 height=226 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/extras/08bd8194caff314b3877e8a53cb01029.webm?t=1784048711" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/extras/08bd8194caff314b3877e8a53cb01029.mp4?t=1784048711" type="video/mp4"></video></span></p><p class="bb_paragraph" >你将扮演罗伯特·罗伯逊（Robert Robertson），绰号机甲人（Mecha Man）。你的机甲服在一次与死敌的战斗中被摧毁了，不得已接受了超级英雄派遣中心的工作。这工作不是做英雄，而是担任派遣员。你的责任是改造、管理一群前超级壞蛋组成的团队，处理办公室关系，同时重建你的机甲服，为复仇做准备。</p><p class="bb_paragraph" ></p><p class="bb_paragraph" ><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/extras/586d83627f93a9724013ba68b1f8b71e.poster.avif?t=1784048711" width=676 height=52 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/extras/586d83627f93a9724013ba68b1f8b71e.webm?t=1784048711" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/extras/586d83627f93a9724013ba68b1f8b71e.mp4?t=1784048711" type="video/mp4"></video></span></p><p class="bb_paragraph" ><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/extras/2f392a8c480bd1ae2342363aa9997653.poster.avif?t=1784048711" width=800 height=450 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/extras/2f392a8c480bd1ae2342363aa9997653.webm?t=1784048711" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/extras/2f392a8c480bd1ae2342363aa9997653.mp4?t=1784048711" type="video/mp4"></video></span></p><p class="bb_paragraph" >在《<i>Dispatch</i>》中，你所做的每个决定都会影响故事的发展。从休息室里的玩笑到事故现场的生死攸关的情况，你的选择都会影响你与英雄们的关系及他们的忠诚度，以及你自己的故事的走向。</p><p class="bb_paragraph" ></p><p class="bb_paragraph" ><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/extras/dceb7af16b92e4c3117aafbaa9b7bb1e.poster.avif?t=1784048711" width=676 height=52 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/extras/dceb7af16b92e4c3117aafbaa9b7bb1e.webm?t=1784048711" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/extras/dceb7af16b92e4c3117aafbaa9b7bb1e.mp4?t=1784048711" type="video/mp4"></video></span></p><p class="bb_paragraph" ><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/extras/b41e710d4ffd2988cf4b442825468221.poster.avif?t=1784048711" width=600 height=336 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/extras/b41e710d4ffd2988cf4b442825468221.webm?t=1784048711" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/extras/b41e710d4ffd2988cf4b442825468221.mp4?t=1784048711" type="video/mp4"></video></span></p><p class="bb_paragraph" >使用战略地图查看正在發生中的紧急事故，并派遣合适（或不合适）的英雄来处理这些事故。在做战术决定时，要衡量风险与报酬，要知道每个选择都可能对你的团队和城市产生长期的后果。</p><p class="bb_paragraph" ></p><p class="bb_paragraph" ><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/extras/99ae1052cfeb656ae47aa0e2dc0dea5a.poster.avif?t=1784048711" width=676 height=52 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/extras/99ae1052cfeb656ae47aa0e2dc0dea5a.webm?t=1784048711" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/extras/99ae1052cfeb656ae47aa0e2dc0dea5a.mp4?t=1784048711" type="video/mp4"></video></span></p><p class="bb_paragraph" ><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/extras/ef321860d8b0c1d8b02cbb91c12527e3.poster.avif?t=1784048711" width=800 height=450 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/extras/ef321860d8b0c1d8b02cbb91c12527e3.webm?t=1784048711" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/extras/ef321860d8b0c1d8b02cbb91c12527e3.mp4?t=1784048711" type="video/mp4"></video></span></p><p class="bb_paragraph" >管理英雄有时不仅仅是考量他们的本领。每个英雄都有自己的怪癖、缺陷和包袱，你需要细腻地管理英雄們的差异，才能把团队凝聚在一起。你要提升他们的技能及启发他们的潜力，才能增强他们在紧急事故现场所展现的威力。</p><p class="bb_paragraph" ></p><h2 class="bb_tag" >《<i>Dispatch</i>》融合了故事、策略和幽默，它探索了英雄的真正意义：你可以是穿着披风的英雄，也可以是坐在办公桌后的英雄。</h2><p class="bb_paragraph" ></p><p class="bb_paragraph" ><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/extras/95cbe9a2e0621fa0cf3fc2bbf49d68f7.poster.avif?t=1784048711" width=676 height=226 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/extras/95cbe9a2e0621fa0cf3fc2bbf49d68f7.webm?t=1784048711" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/extras/95cbe9a2e0621fa0cf3fc2bbf49d68f7.mp4?t=1784048711" type="video/mp4"></video></span></p><p class="bb_paragraph" ></p><p class="bb_paragraph" ><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/extras/c98ce3cbd204205ce440b9dc641176b6.poster.avif?t=1784048711" width=676 height=52 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/extras/c98ce3cbd204205ce440b9dc641176b6.webm?t=1784048711" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/extras/c98ce3cbd204205ce440b9dc641176b6.mp4?t=1784048711" type="video/mp4"></video></span></p><p class="bb_paragraph" ><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/extras/9f8915e3019e7b4bcab0dc59873cb9e6.avif?t=1784048711" width=678 height=682 /></span></p><h2 class="bb_tag" >汇聚了来自娱乐各界的明星阵容</h2><ul class="bb_ul"><li><p class="bb_paragraph" ><strong>Aaron Paul（《Breaking Bad》，《Westworld》，《Black Mirror》）</strong></p></li><li><p class="bb_paragraph" ><strong>Laura Bailey（《The Legend of Vox Machina》，《The Last of Us II》，《Marvel's Spider-Man》）</strong></p></li><li><p class="bb_paragraph" ><strong>Erin Yvette（《Hades II》，《The Wolf Among Us》，《Armored Core VI: Fires of Rubicon》）</strong></p></li><li><p class="bb_paragraph" ><strong>MoistCr1TiKaL（Charles White）</strong></p></li><li><p class="bb_paragraph" ><strong>Jacksepticeye（《Sonic Prime》，《River City Girls 1 &amp; 2》，《Bendy and the Ink Machine》）</strong></p></li><li><p class="bb_paragraph" ><strong>Travis Willingham（《The Legend of Vox Machina》，《Critical Role》，《Lego Avengers》）</strong></p></li><li><p class="bb_paragraph" ><strong>Alanah Pearce（《V/H/S Beyond》，《Cyberpunk 2077》，《Gears 5》）</strong></p></li><li><p class="bb_paragraph" ><strong>Lance Cantstopolis</strong> (空手道，舞者，演员）</p></li><li><p class="bb_paragraph" ><strong>Joel Haver</strong> (电影制作人、演员、YouTuber)</p></li><li><p class="bb_paragraph" ><strong>THOT SQUAD</strong> (作曲家：《Pound Cake》，《Hoes Depressed》)</p></li><li><p class="bb_paragraph" ><strong>Yung Gravy</strong>（作曲家：《Betty（Get Money）》，《oops!》）</p></li><li><p class="bb_paragraph" ><strong>Matthew Mercer</strong> (《Critical Role》，《Overwatch》，《Resident Evil 6》)</p></li><li><p class="bb_paragraph" ><strong>Jeffrey Wright</strong> （《American Fiction》，《The Batman》，《Casino Royale》）</p></li></ul><p class="bb_paragraph" ></p><p class="bb_paragraph" ></p><p class="bb_paragraph" ></p><p class="bb_paragraph" ></p></div>
+    </div>
+  </div>
+</section>
 
-    <div class="dl-section">
+
+<!-- 下载区域 -->
+<section class="download-section">
+  <div class="container">
+    <div class="download-block">
       <h2>📥 下载链接</h2>
-      <div class="dl-buttons">
-<a href="https://www.gamer520.com/33186.html" class="dl-btn gamer520" target="_blank">🎮 gamer520</a>
-<a href="https://www.x6d.com/i-wz-12686.html" class="dl-btn x6d" target="_blank">📦 x6d</a>
+      <div class="download-buttons">
+        <a href="https://www.gamer520.com/33186.html" class="download-btn gamer520" target="_blank">gamer520</a>
+<a href="https://www.x6d.com/i-wz-12686.html" class="download-btn x6d" target="_blank">x6d</a>
 
       </div>
     </div>
-
-    <div class="section">
-      <h2>📋 游戏信息</h2>
-      <div class="info-grid">
-        <div class="info-item"><div class="label">开发商</div><div class="value">AdHoc Studio</div></div>
-        <div class="info-item"><div class="label">发行商</div><div class="value">AdHoc Studio</div></div>
-        <div class="info-item"><div class="label">发行日期</div><div class="value">2025 年 10 月 22 日</div></div>
-        <div class="info-item"><div class="label">类型</div><div class="value">动作, 冒险, 休闲, 独立, 策略</div></div>
-        <div class="info-item"><div class="label">Metacritic</div><div class="value">87</div></div>
-        <div class="info-item"><div class="label">Steam</div><div class="value"><a href="https://store.steampowered.com/app/2592160" target="_blank">查看商店页 →</a></div></div>
-      </div>
-    </div>
-
-    
-    <div class="section">
-      <h2>📖 关于这款游戏</h2>
-      <div class="desc">《Dispatch》是一款超级英雄职场喜剧游戏，其中的故事发展将因你的选择而变化。你将管理一队由不合群的异类英雄所组成的功能失调团队，策略性地派遣不同的英雄到城市中各紧急事故现场处理事故，同时还要平衡办公室政治、人际关系，以及追寻你自己的英雄旅程。</div>
-    </div>
-
-    
-    <div class="section">
-      <h2>📸 游戏截图</h2>
-      <div class="ss-grid">
-        <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/ss_395c301af733dd84b526d5d6e0e9c4c3446b4a18.1920x1080.jpg?t=1784048711" alt="" loading="lazy">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/ss_e821251aca2d2f5a6ac255b788cbf6c02904f379.1920x1080.jpg?t=1784048711" alt="" loading="lazy">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/ss_a2fad5dd7e22186afb390cacbb4071d43a52678b.1920x1080.jpg?t=1784048711" alt="" loading="lazy">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/ss_6aa03b03ee710fe218e3be4bc54975e4c34d7d8a.1920x1080.jpg?t=1784048711" alt="" loading="lazy">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/ss_3a9be55a630dc9c9553eda8a1ec5a91b7d46ae01.1920x1080.jpg?t=1784048711" alt="" loading="lazy">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/ss_f0ee4c607d1594f9482525dd266aac0205206c54.1920x1080.jpg?t=1784048711" alt="" loading="lazy">
-
-      </div>
-    </div>
-
   </div>
-</div>
+</section>
+
+<!-- 系统需求 -->
+
+<section class="content-section">
+  <div class="container">
+    <div class="content-block">
+      <h2>系统需求</h2>
+      <div class="sys-req">
+        <div class="sys-req-col"><h4>最低配置</h4><div><strong>最低配置:</strong><br><ul class="bb_ul"><li><strong>操作系统:</strong> Windows 10（64位）或更高版本<br></li><li><strong>处理器:</strong> 2.0 GHz<br></li><li><strong>内存:</strong> 2 GB RAM<br></li><li><strong>显卡:</strong> Nvidia GTX 970 或类似显卡<br></li><li><strong>DirectX 版本:</strong> 11<br></li><li><strong>存储空间:</strong> 需要 15 GB 可用空间<br></li><li><strong>声卡:</strong> DirectX 兼容</li></ul></div></div>
+        <div class="sys-req-col"><h4>推荐配置</h4><div><strong>推荐配置:</strong><br><ul class="bb_ul"><li><strong>操作系统:</strong> Windows 10 (64-bit) or later<br></li><li><strong>处理器:</strong> Processor: Intel(R) Core(TM) i5-7400 CPU / AMD Ryzen 5 2600 or higher<br></li><li><strong>内存:</strong> 16 GB RAM<br></li><li><strong>显卡:</strong> NVIDIA GTX 1050 / AMD Radeon RX 580<br></li><li><strong>DirectX 版本:</strong> 11<br></li><li><strong>存储空间:</strong> 需要 15 GB 可用空间<br></li><li><strong>声卡:</strong> DirectX compatible</li></ul></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+function showVideo() {
+  document.getElementById('video-container').style.display = 'block';
+  document.getElementById('screenshots-container').style.display = 'none';
+  document.querySelectorAll('.media-tab').forEach(t => t.classList.remove('active'));
+  event.target.classList.add('active');
+}
+
+function showScreenshots() {
+  const videoContainer = document.getElementById('video-container');
+  if (videoContainer) videoContainer.style.display = 'none';
+  document.getElementById('screenshots-container').style.display = 'grid';
+  document.querySelectorAll('.media-tab').forEach(t => t.classList.remove('active'));
+  event.target.classList.add('active');
+}
+</script>
+
 </body>
 </html>

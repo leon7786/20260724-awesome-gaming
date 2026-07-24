@@ -3,122 +3,425 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>质量效应2 - Mass Effect 2 - 游戏详情</title>
+<title>质量效应2 - 游戏详情</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Segoe UI','Microsoft YaHei',sans-serif;background:#f5f5f7;color:#1a1a2e;line-height:1.6}
-.topbar{background:#ffffff;border-bottom:1px solid #e0e0e4;padding:12px 0;position:sticky;top:0;z-index:100}
-.topbar .container{display:flex;align-items:center;gap:16px}
-.container{max-width:1200px;margin:0 auto;padding:0 20px}
-.back{color:#6d28d9;text-decoration:none;font-size:14px;font-weight:500;display:flex;align-items:center;gap:4px}
-.back:hover{text-decoration:underline}
-.back-btn{background:#6d28d9;color:#fff;padding:6px 14px;border-radius:4px;text-decoration:none;font-size:13px}
-.back-btn:hover{background:#5b21b6}
-.hero{background:linear-gradient(180deg,#f0f0f5 0%,#e8e8f0 100%);color:#1a1a2e;padding:30px 0 0;border-bottom:1px solid #e0e0e4}
-.hero .container{display:flex;gap:30px;flex-wrap:wrap}
-.hero-info{flex:1;min-width:280px}
-.hero-info h1{font-size:26px;margin-bottom:4px}
-.hero-info .en{color:#888;font-size:14px;margin-bottom:12px}
-.hero-info .meta{display:flex;gap:6px;margin-bottom:14px;flex-wrap:wrap}
-.hero .tag{font-size:12px;padding:3px 10px;border-radius:4px;background:#e8e8ec;color:#555}
-.hero .tag.mc{background:#6d28d922;color:#6d28d9}
-.hero .tag.sales{background:#e11d4822;color:#e11d48}
-.hero-img{width:460px;max-width:100%;border-radius:8px;flex-shrink:0;box-shadow:0 2px 12px rgba(0,0,0,0.08)}
-.content{padding:24px 0}
-.section{background:#fff;border-radius:8px;border:1px solid #e0e0e4;padding:24px;margin-bottom:16px}
-.section h2{font-size:18px;color:#1a1a2e;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid #e0e0e4}
-.desc{font-size:15px;color:#444;line-height:1.7}
-.dl-section{background:#fff;border-radius:8px;border:1px solid #e0e0e4;padding:24px;margin-bottom:16px}
-.dl-section h2{font-size:18px;color:#1a1a2e;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid #e0e0e4}
-.dl-buttons{display:flex;flex-wrap:wrap;gap:8px}
-.dl-btn{display:inline-flex;align-items:center;gap:5px;padding:8px 16px;border-radius:6px;font-size:13px;text-decoration:none;color:#fff;transition:all .2s;font-weight:500}
-.dl-btn:hover{filter:brightness(1.1);transform:translateY(-1px)}
-.dl-btn.gamer520{background:#10b981}
-.dl-btn.x6d{background:#3b82f6}
-.dl-btn.tianyi{background:#6366f1}
-.dl-btn.baidu{background:#2563eb}
-.dl-btn.magnet{background:#ef4444}
-.dl-btn.fitgirl{background:#f59e0b}
-.info-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:16px}
-.info-item .label{font-size:12px;color:#888;text-transform:uppercase;letter-spacing:0.5px}
-.info-item .value{font-size:14px;color:#1a1a2e;margin-top:2px}
-.ss-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:8px}
-.ss-grid img{width:100%;border-radius:6px;cursor:pointer;transition:transform .2s}
-.ss-grid img:hover{transform:scale(1.02)}
-@media(max-width:768px){.hero-img{width:100%}.ss-grid{grid-template-columns:1fr}}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: "Microsoft YaHei", "Segoe UI", sans-serif;
+  background: #1b2838;
+  color: #c7d5e0;
+  line-height: 1.6;
+}
+
+/* 顶部导航 */
+.top-nav {
+  background: #171a21;
+  padding: 8px 0;
+  border-bottom: 1px solid #000;
+}
+.top-nav .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.breadcrumb {
+  font-size: 12px;
+  color: #666;
+}
+.breadcrumb a {
+  color: #666;
+  text-decoration: none;
+}
+.breadcrumb a:hover {
+  color: #fff;
+}
+.back-link {
+  color: #67c1f5;
+  text-decoration: none;
+  font-size: 13px;
+}
+.back-link:hover {
+  color: #fff;
+}
+
+/* 主容器 */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* 游戏头部 - Steam风格左右布局 */
+.game-header {
+  background: linear-gradient(180deg, #1b2838 0%, #2a475e 100%);
+  padding: 30px 0;
+}
+.game-header .container {
+  display: grid;
+  grid-template-columns: 460px 1fr;
+  gap: 30px;
+}
+
+/* 左侧媒体区域 */
+.media-section {
+  background: #000;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.media-tabs {
+  display: flex;
+  background: #1b2838;
+}
+.media-tab {
+  background: transparent;
+  border: none;
+  color: #67c1f5;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 13px;
+  border-bottom: 2px solid transparent;
+}
+.media-tab.active {
+  border-bottom-color: #67c1f5;
+  color: #fff;
+}
+.media-player {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/9;
+  background: #000;
+}
+.media-player video,
+.media-player img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.screenshots-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4px;
+  padding: 4px;
+  background: #1b2838;
+}
+.screenshots-grid img {
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+.screenshots-grid img:hover {
+  opacity: 0.8;
+}
+
+/* 右侧信息面板 */
+.game-info {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.game-title {
+  font-size: 32px;
+  font-weight: 300;
+  color: #fff;
+}
+.game-subtitle {
+  font-size: 14px;
+  color: #8f98a0;
+}
+.game-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.meta-item {
+  background: rgba(0,0,0,0.3);
+  padding: 6px 12px;
+  border-radius: 3px;
+  font-size: 13px;
+  color: #c7d5e0;
+}
+.meta-item.score {
+  background: #66c0f4;
+  color: #1b2838;
+  font-weight: 600;
+}
+.info-block {
+  background: rgba(0,0,0,0.2);
+  padding: 12px;
+  border-radius: 4px;
+}
+.info-block .label {
+  font-size: 11px;
+  color: #8f98a0;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.info-block .value {
+  font-size: 14px;
+  color: #67c1f5;
+}
+.game-desc {
+  font-size: 14px;
+  color: #acb2b8;
+  line-height: 1.7;
+}
+
+/* 内容区域 */
+.content-section {
+  background: #1b2838;
+  padding: 30px 0;
+}
+.content-block {
+  background: rgba(0,0,0,0.3);
+  padding: 24px;
+  border-radius: 4px;
+}
+.content-block h2 {
+  color: #fff;
+  font-size: 20px;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #2a475e;
+}
+.content-block p {
+  color: #acb2b8;
+  font-size: 14px;
+  line-height: 1.8;
+  margin-bottom: 12px;
+}
+.content-block h2.bb_tag {
+  color: #67c1f5;
+  font-size: 16px;
+  margin: 20px 0 10px 0;
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+/* 下载区域 */
+.download-section {
+  background: #1b2838;
+  padding: 30px 0;
+}
+.download-block {
+  background: rgba(0,0,0,0.3);
+  padding: 24px;
+  border-radius: 4px;
+}
+.download-block h2 {
+  color: #fff;
+  font-size: 20px;
+  margin-bottom: 16px;
+}
+.download-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: 4px;
+  text-decoration: none;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+.download-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+.download-btn.gamer520 { background: linear-gradient(135deg, #10b981, #059669); }
+.download-btn.x6d { background: linear-gradient(135deg, #3b82f6, #2563eb); }
+.download-btn.magnet { background: linear-gradient(135deg, #ef4444, #dc2626); }
+.download-btn.fitgirl { background: linear-gradient(135deg, #f59e0b, #d97706); }
+.download-btn.tianyi { background: linear-gradient(135deg, #6366f1, #4f46e5); }
+.download-btn.baidu { background: linear-gradient(135deg, #2563eb, #1d4ed8); }
+
+/* 系统需求 */
+.sys-req {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.sys-req-col h4 {
+  color: #67c1f5;
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+.sys-req-col ul {
+  list-style: none;
+  margin: 0;
+}
+.sys-req-col li {
+  font-size: 13px;
+  color: #acb2b8;
+  margin-bottom: 8px;
+  padding-left: 16px;
+  position: relative;
+}
+.sys-req-col li:before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #67c1f5;
+}
+
+/* 响应式 */
+@media (max-width: 900px) {
+  .game-header .container {
+    grid-template-columns: 1fr;
+  }
+  .media-section {
+    max-width: 100%;
+  }
+  .sys-req {
+    grid-template-columns: 1fr;
+  }
+}
 </style>
 </head>
 <body>
 
-<div class="topbar">
+<!-- 顶部导航 -->
+<nav class="top-nav">
   <div class="container">
-    <a href="../../index.html" class="back">← 返回游戏榜单</a>
-    <a href="https://store.steampowered.com/app/2362420" target="_blank" class="back-btn" style="margin-left:auto">Steam 商店页</a>
+    <div class="breadcrumb">
+      <a href="../../index.html">← 返回游戏榜单</a>
+    </div>
+    <a href="https://store.steampowered.com/app/2362420/" target="_blank" class="back-link">Steam 商店页 →</a>
   </div>
-</div>
+</nav>
 
-<div class="hero">
+<!-- 游戏头部 -->
+<section class="game-header">
   <div class="container">
-    <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2362420/library_600x900.jpg" alt="Mass Effect 2" class="hero-img" onerror="this.style.display='none'">
-    <div class="hero-info">
-      <h1>质量效应2</h1>
-      <div class="en">Mass Effect 2</div>
-      <div class="meta">
-        <span class="tag">2010</span>
-        <span class="tag mc">评分 94</span>
-        <span class="tag mc">口碑Top</span>
-        <span class="tag">角色扮演</span>
+    <!-- 左侧媒体区域 -->
+    <div class="media-section">
+      <div class="media-tabs">
+        
+        <button class="media-tab active" onclick="showScreenshots()">截图</button>
       </div>
-      <div class="desc">你是否准备好牺牲一切来拯救银河系？你必须是，薛帕德指挥官。赶快召集最伟大的盟友，招募银河系中的战斗精英，继续抵抗入侵的收割者。</div>
+      
+      
+      
+      
+      <div id="screenshots-container" class="screenshots-grid" {{#if VIDEO_HTML}}style="display:none;">
+        <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2362420/ss_71ad1e34f9d1bd6cf8038dc6d0746d3ece8c2c0c.1920x1080.jpg?t=1777395242" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2362420/ss_d8d162f5fd3e85d4aa8778281f6cabaae42eeb5a.1920x1080.jpg?t=1777395242" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2362420/ss_3f3d619d2eb3128f0d038b1c02a47edb17d66d70.1920x1080.jpg?t=1777395242" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2362420/ss_c60f33a856de3a2e706517d7cd007a575c98778e.1920x1080.jpg?t=1777395242" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2362420/ss_b8e706efbbfa614f5ece0bbb1e33b24fa847ade0.1920x1080.jpg?t=1777395242" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2362420/ss_d5e3f4a60c00438ecd0d3ca01680eccff5635c0a.1920x1080.jpg?t=1777395242" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2362420/ss_ea98e876311678b5452bf017e41af704dc791448.1920x1080.jpg?t=1777395242" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2362420/ss_2d1b0413d708b2d61b689a9578bbd2fbdaf3ab8f.1920x1080.jpg?t=1777395242" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2362420/ss_7fee08da809f412257391e660894e240d956e068.1920x1080.jpg?t=1777395242" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2362420/ss_a0849d602161bc2120d75a00efe417db7f57efa4.1920x1080.jpg?t=1777395242" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2362420/ss_9622b17e4c1a7e286ef0c8b02b005109a64e2639.1920x1080.jpg?t=1777395242" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2362420/ss_f0bf970193146230e6e097b46bb7c34b4ffe931f.1920x1080.jpg?t=1777395242" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2362420/ss_247bbbf15af81a75c141a42ef58d245c6b9e35dc.1920x1080.jpg?t=1777395242" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2362420/ss_eb1fbe877328785e2c9342d772b8022afcc35b9d.1920x1080.jpg?t=1777395242" alt="Screenshot" onclick="window.open(this.src)">
+      </div>
+      {{/if}}
+    </div>
+    
+    <!-- 右侧信息面板 -->
+    <div class="game-info">
+      <h1 class="game-title">质量效应2</h1>
+      <div class="game-subtitle">Mass Effect 2</div>
+      
+      <div class="game-meta">
+        <div class="meta-item">2023 年 5 月 15 日</div>
+        <div class="meta-item">角色扮演</div>
+        <div class="meta-item score">评分 96</div>
+      </div>
+      
+      
+      <div class="info-block">
+        <div class="label">开发者</div>
+        <div class="value">BioWare</div>
+      </div>
+      
+      
+      
+      <div class="info-block">
+        <div class="label">发行商</div>
+        <div class="value">Electronic Arts</div>
+      </div>
+      
+      
+      
+      <div class="game-desc">
+        你是否准备好牺牲一切来拯救银河系？你必须是，薛帕德指挥官。赶快召集最伟大的盟友，招募银河系中的战斗精英，继续抵抗入侵的收割者。
+      </div>
+      
     </div>
   </div>
-</div>
+</section>
 
-<div class="content">
+<!-- 关于此游戏 -->
+
+<section class="content-section">
   <div class="container">
+    <div class="content-block">
+      <h2>关于此游戏</h2>
+      <div>你是否准备好牺牲一切来拯救银河系？你必须是，薛帕德指挥官。赶快召集最伟大的盟友，招募银河系中的战斗精英，继续抵抗入侵的收割者。淬炼自己的坚强心态，因为这是一项极其艰巨任务，必须做出牺牲。你将面临更艰难的选择，以及更致命的新敌人。武装自己，准备踏上一次难忘的星际冒险。<br><br><strong>游戏特色：</strong><br><br><strong>将战斗扭转到对你有利的态势。</strong>赶快借助全新的物品系统为自己装备强大的新武器。此外，改良后的生命值恢复系统还可以减少寻找恢复物品的时间。<br><br><strong>每个决定都很重要。</strong>指挥官，互有分歧的团队成员只是冰山一角，因为你还要负责星际外交的问题。时光易逝，所以要积极使用新的即时操作，让你可以打断对话，即使这样可能会改变团队的命运……甚至改变银河系的命运。<br><br><strong>谨慎地打造新的联盟。</strong>你会和一些最值得信赖的团队成员并肩作战，但也有机会招募新的人才。谨慎选择新的合作伙伴，因为银河系的命运就扛在你的肩上，指挥官。<br><br>《质量效应 2》（2010 版）包含先前发布的所有 DLC：<br><br><strong>拓展包</strong><br><ul class="bb_ul"><li>霞 - 被盗的记忆<br></li><li>霸王<br></li><li>影子经纪人之巢<br></li><li>降临</li></ul><strong>塞伯鲁斯网络内容</strong><br><ul class="bb_ul"><li>诺曼底号失事点拓展包<br></li><li>扎伊德 – 复仇的代价拓展包<br></li><li>火行者载具包<br></li><li>塞伯鲁斯武器装甲包：内含塞伯鲁斯突击装甲和 M-22 开膛者霰弹枪。<br></li><li>闪灵电弧重型武器</li></ul><strong>组合包和同捆包</strong><br><ul class="bb_ul"><li>神盾组合包 - 内含 M-29 切割者狙击步枪和红隼装甲。<br></li><li>均衡装甲组合包：内含电容头盔、执政官面甲和地狱装甲。<br></li><li>火力武器组合包：内含 M-5 密集阵重型手枪、M-96 鹤嘴锄重型步枪和桀斯等离子霰弹枪。<br></li><li>替代外观组合包 1：内含加鲁斯、塔娜和杰克的新服装。<br></li><li>替代外观组合包 2：内含塔利、格鲁特和米兰达的新服装。<br></li><li>收藏版武器装甲组合包：内含珍藏装甲及珍藏突击步枪。<br></li><li>特莫洛斯武器装甲组合包：内含特莫洛斯突击装甲和 M-490 黑风暴重型武器。<br></li><li>《质量效应 2》促销同捆包：内含暗影面甲、哨兵界面和侦察护罩。<br></li><li>血龙装甲</li></ul></div>
+    </div>
+  </div>
+</section>
 
-    <div class="dl-section">
+
+<!-- 下载区域 -->
+<section class="download-section">
+  <div class="container">
+    <div class="download-block">
       <h2>📥 下载链接</h2>
-      <div class="dl-buttons">
-<a href="https://www.gamer520.com/106677.html" class="dl-btn gamer520" target="_blank">🎮 gamer520</a>
-<a href="https://www.x6d.com/i-wz-8398.html" class="dl-btn x6d" target="_blank">📦 x6d</a>
+      <div class="download-buttons">
+        <a href="https://www.gamer520.com/106677.html" class="download-btn gamer520" target="_blank">gamer520</a>
+<a href="https://www.x6d.com/i-wz-8398.html" class="download-btn x6d" target="_blank">x6d</a>
 
       </div>
     </div>
-
-    <div class="section">
-      <h2>📋 游戏信息</h2>
-      <div class="info-grid">
-        <div class="info-item"><div class="label">开发商</div><div class="value">BioWare</div></div>
-        <div class="info-item"><div class="label">发行商</div><div class="value">Electronic Arts</div></div>
-        <div class="info-item"><div class="label">发行日期</div><div class="value">2023 年 5 月 15 日</div></div>
-        <div class="info-item"><div class="label">类型</div><div class="value">角色扮演</div></div>
-        <div class="info-item"><div class="label">Metacritic</div><div class="value">94</div></div>
-        <div class="info-item"><div class="label">Steam</div><div class="value"><a href="https://store.steampowered.com/app/2362420" target="_blank">查看商店页 →</a></div></div>
-      </div>
-    </div>
-
-    
-    <div class="section">
-      <h2>📖 关于这款游戏</h2>
-      <div class="desc">你是否准备好牺牲一切来拯救银河系？你必须是，薛帕德指挥官。赶快召集最伟大的盟友，招募银河系中的战斗精英，继续抵抗入侵的收割者。</div>
-    </div>
-
-    
-    <div class="section">
-      <h2>📸 游戏截图</h2>
-      <div class="ss-grid">
-        <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2362420/ss_71ad1e34f9d1bd6cf8038dc6d0746d3ece8c2c0c.1920x1080.jpg?t=1777395242" alt="" loading="lazy">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2362420/ss_d8d162f5fd3e85d4aa8778281f6cabaae42eeb5a.1920x1080.jpg?t=1777395242" alt="" loading="lazy">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2362420/ss_3f3d619d2eb3128f0d038b1c02a47edb17d66d70.1920x1080.jpg?t=1777395242" alt="" loading="lazy">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2362420/ss_c60f33a856de3a2e706517d7cd007a575c98778e.1920x1080.jpg?t=1777395242" alt="" loading="lazy">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2362420/ss_b8e706efbbfa614f5ece0bbb1e33b24fa847ade0.1920x1080.jpg?t=1777395242" alt="" loading="lazy">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2362420/ss_d5e3f4a60c00438ecd0d3ca01680eccff5635c0a.1920x1080.jpg?t=1777395242" alt="" loading="lazy">
-
-      </div>
-    </div>
-
   </div>
-</div>
+</section>
+
+<!-- 系统需求 -->
+
+<section class="content-section">
+  <div class="container">
+    <div class="content-block">
+      <h2>系统需求</h2>
+      <div class="sys-req">
+        <div class="sys-req-col"><h4>最低配置</h4><div><strong>最低配置:</strong><br><ul class="bb_ul"><li><strong>操作系统 *:</strong> Windows 7 64bit<br></li><li><strong>处理器:</strong> 1.8GHz Intel Core 2 Duo or equivalent AMD CPU<br></li><li><strong>内存:</strong> 2 GB RAM<br></li><li><strong>显卡:</strong> 256 MB (with Pixel Shader 3.0 support)<br></li><li><strong>DirectX 版本:</strong> 9.0c<br></li><li><strong>存储空间:</strong> 需要 22 GB 可用空间<br></li><li><strong>声卡:</strong> DirectX 9.0c compatible<br></li><li><strong>支持 VR:</strong> NVIDIA GeForce 6800 or greater; ATI Radeon X1600 Pro or greater.<br></li><li><strong>附注事项:</strong> Please note that NVIDIA GeForce 7300, 8100, 8200, 8300, 8400, and 9300; ATI Radeon HD3200, and HD4350 are below minimum system requirements. Updates to your video and sound card drivers may be required.</li></ul></div></div>
+        <div class="sys-req-col"><h4>推荐配置</h4><div><strong>推荐配置:</strong><br><ul class="bb_ul"><li><strong>操作系统 *:</strong> Windows 7 64bit<br></li><li><strong>处理器:</strong> 2.6+ GHz Core 2 Duo Intel or equivalent AMD CPU<br></li><li><strong>内存:</strong> 2 GB RAM<br></li><li><strong>显卡:</strong> ATI Radeon HD 2900 XT, NVIDIA GeForce 8800 GT, or better recommended<br></li><li><strong>DirectX 版本:</strong> 9.0c<br></li><li><strong>存储空间:</strong> 需要 22 GB 可用空间<br></li><li><strong>声卡:</strong> DirectX 9.0c compatible</li></ul></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+function showVideo() {
+  document.getElementById('video-container').style.display = 'block';
+  document.getElementById('screenshots-container').style.display = 'none';
+  document.querySelectorAll('.media-tab').forEach(t => t.classList.remove('active'));
+  event.target.classList.add('active');
+}
+
+function showScreenshots() {
+  const videoContainer = document.getElementById('video-container');
+  if (videoContainer) videoContainer.style.display = 'none';
+  document.getElementById('screenshots-container').style.display = 'grid';
+  document.querySelectorAll('.media-tab').forEach(t => t.classList.remove('active'));
+  event.target.classList.add('active');
+}
+</script>
+
 </body>
 </html>

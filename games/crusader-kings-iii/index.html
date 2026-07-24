@@ -3,121 +3,424 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>十字军之王 3 - Crusader Kings III - 游戏详情</title>
+<title>十字军之王 3 - 游戏详情</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Segoe UI','Microsoft YaHei',sans-serif;background:#f5f5f7;color:#1a1a2e;line-height:1.6}
-.topbar{background:#ffffff;border-bottom:1px solid #e0e0e4;padding:12px 0;position:sticky;top:0;z-index:100}
-.topbar .container{display:flex;align-items:center;gap:16px}
-.container{max-width:1200px;margin:0 auto;padding:0 20px}
-.back{color:#6d28d9;text-decoration:none;font-size:14px;font-weight:500;display:flex;align-items:center;gap:4px}
-.back:hover{text-decoration:underline}
-.back-btn{background:#6d28d9;color:#fff;padding:6px 14px;border-radius:4px;text-decoration:none;font-size:13px}
-.back-btn:hover{background:#5b21b6}
-.hero{background:linear-gradient(180deg,#f0f0f5 0%,#e8e8f0 100%);color:#1a1a2e;padding:30px 0 0;border-bottom:1px solid #e0e0e4}
-.hero .container{display:flex;gap:30px;flex-wrap:wrap}
-.hero-info{flex:1;min-width:280px}
-.hero-info h1{font-size:26px;margin-bottom:4px}
-.hero-info .en{color:#888;font-size:14px;margin-bottom:12px}
-.hero-info .meta{display:flex;gap:6px;margin-bottom:14px;flex-wrap:wrap}
-.hero .tag{font-size:12px;padding:3px 10px;border-radius:4px;background:#e8e8ec;color:#555}
-.hero .tag.mc{background:#6d28d922;color:#6d28d9}
-.hero .tag.sales{background:#e11d4822;color:#e11d48}
-.hero-img{width:460px;max-width:100%;border-radius:8px;flex-shrink:0;box-shadow:0 2px 12px rgba(0,0,0,0.08)}
-.content{padding:24px 0}
-.section{background:#fff;border-radius:8px;border:1px solid #e0e0e4;padding:24px;margin-bottom:16px}
-.section h2{font-size:18px;color:#1a1a2e;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid #e0e0e4}
-.desc{font-size:15px;color:#444;line-height:1.7}
-.dl-section{background:#fff;border-radius:8px;border:1px solid #e0e0e4;padding:24px;margin-bottom:16px}
-.dl-section h2{font-size:18px;color:#1a1a2e;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid #e0e0e4}
-.dl-buttons{display:flex;flex-wrap:wrap;gap:8px}
-.dl-btn{display:inline-flex;align-items:center;gap:5px;padding:8px 16px;border-radius:6px;font-size:13px;text-decoration:none;color:#fff;transition:all .2s;font-weight:500}
-.dl-btn:hover{filter:brightness(1.1);transform:translateY(-1px)}
-.dl-btn.gamer520{background:#10b981}
-.dl-btn.x6d{background:#3b82f6}
-.dl-btn.tianyi{background:#6366f1}
-.dl-btn.baidu{background:#2563eb}
-.dl-btn.magnet{background:#ef4444}
-.dl-btn.fitgirl{background:#f59e0b}
-.info-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:16px}
-.info-item .label{font-size:12px;color:#888;text-transform:uppercase;letter-spacing:0.5px}
-.info-item .value{font-size:14px;color:#1a1a2e;margin-top:2px}
-.ss-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:8px}
-.ss-grid img{width:100%;border-radius:6px;cursor:pointer;transition:transform .2s}
-.ss-grid img:hover{transform:scale(1.02)}
-@media(max-width:768px){.hero-img{width:100%}.ss-grid{grid-template-columns:1fr}}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: "Microsoft YaHei", "Segoe UI", sans-serif;
+  background: #1b2838;
+  color: #c7d5e0;
+  line-height: 1.6;
+}
+
+/* 顶部导航 */
+.top-nav {
+  background: #171a21;
+  padding: 8px 0;
+  border-bottom: 1px solid #000;
+}
+.top-nav .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.breadcrumb {
+  font-size: 12px;
+  color: #666;
+}
+.breadcrumb a {
+  color: #666;
+  text-decoration: none;
+}
+.breadcrumb a:hover {
+  color: #fff;
+}
+.back-link {
+  color: #67c1f5;
+  text-decoration: none;
+  font-size: 13px;
+}
+.back-link:hover {
+  color: #fff;
+}
+
+/* 主容器 */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* 游戏头部 - Steam风格左右布局 */
+.game-header {
+  background: linear-gradient(180deg, #1b2838 0%, #2a475e 100%);
+  padding: 30px 0;
+}
+.game-header .container {
+  display: grid;
+  grid-template-columns: 460px 1fr;
+  gap: 30px;
+}
+
+/* 左侧媒体区域 */
+.media-section {
+  background: #000;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.media-tabs {
+  display: flex;
+  background: #1b2838;
+}
+.media-tab {
+  background: transparent;
+  border: none;
+  color: #67c1f5;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 13px;
+  border-bottom: 2px solid transparent;
+}
+.media-tab.active {
+  border-bottom-color: #67c1f5;
+  color: #fff;
+}
+.media-player {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/9;
+  background: #000;
+}
+.media-player video,
+.media-player img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.screenshots-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4px;
+  padding: 4px;
+  background: #1b2838;
+}
+.screenshots-grid img {
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+.screenshots-grid img:hover {
+  opacity: 0.8;
+}
+
+/* 右侧信息面板 */
+.game-info {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.game-title {
+  font-size: 32px;
+  font-weight: 300;
+  color: #fff;
+}
+.game-subtitle {
+  font-size: 14px;
+  color: #8f98a0;
+}
+.game-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.meta-item {
+  background: rgba(0,0,0,0.3);
+  padding: 6px 12px;
+  border-radius: 3px;
+  font-size: 13px;
+  color: #c7d5e0;
+}
+.meta-item.score {
+  background: #66c0f4;
+  color: #1b2838;
+  font-weight: 600;
+}
+.info-block {
+  background: rgba(0,0,0,0.2);
+  padding: 12px;
+  border-radius: 4px;
+}
+.info-block .label {
+  font-size: 11px;
+  color: #8f98a0;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.info-block .value {
+  font-size: 14px;
+  color: #67c1f5;
+}
+.game-desc {
+  font-size: 14px;
+  color: #acb2b8;
+  line-height: 1.7;
+}
+
+/* 内容区域 */
+.content-section {
+  background: #1b2838;
+  padding: 30px 0;
+}
+.content-block {
+  background: rgba(0,0,0,0.3);
+  padding: 24px;
+  border-radius: 4px;
+}
+.content-block h2 {
+  color: #fff;
+  font-size: 20px;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #2a475e;
+}
+.content-block p {
+  color: #acb2b8;
+  font-size: 14px;
+  line-height: 1.8;
+  margin-bottom: 12px;
+}
+.content-block h2.bb_tag {
+  color: #67c1f5;
+  font-size: 16px;
+  margin: 20px 0 10px 0;
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+/* 下载区域 */
+.download-section {
+  background: #1b2838;
+  padding: 30px 0;
+}
+.download-block {
+  background: rgba(0,0,0,0.3);
+  padding: 24px;
+  border-radius: 4px;
+}
+.download-block h2 {
+  color: #fff;
+  font-size: 20px;
+  margin-bottom: 16px;
+}
+.download-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: 4px;
+  text-decoration: none;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+.download-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+.download-btn.gamer520 { background: linear-gradient(135deg, #10b981, #059669); }
+.download-btn.x6d { background: linear-gradient(135deg, #3b82f6, #2563eb); }
+.download-btn.magnet { background: linear-gradient(135deg, #ef4444, #dc2626); }
+.download-btn.fitgirl { background: linear-gradient(135deg, #f59e0b, #d97706); }
+.download-btn.tianyi { background: linear-gradient(135deg, #6366f1, #4f46e5); }
+.download-btn.baidu { background: linear-gradient(135deg, #2563eb, #1d4ed8); }
+
+/* 系统需求 */
+.sys-req {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.sys-req-col h4 {
+  color: #67c1f5;
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+.sys-req-col ul {
+  list-style: none;
+  margin: 0;
+}
+.sys-req-col li {
+  font-size: 13px;
+  color: #acb2b8;
+  margin-bottom: 8px;
+  padding-left: 16px;
+  position: relative;
+}
+.sys-req-col li:before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #67c1f5;
+}
+
+/* 响应式 */
+@media (max-width: 900px) {
+  .game-header .container {
+    grid-template-columns: 1fr;
+  }
+  .media-section {
+    max-width: 100%;
+  }
+  .sys-req {
+    grid-template-columns: 1fr;
+  }
+}
 </style>
 </head>
 <body>
 
-<div class="topbar">
+<!-- 顶部导航 -->
+<nav class="top-nav">
   <div class="container">
-    <a href="../../index.html" class="back">← 返回游戏榜单</a>
-    <a href="https://store.steampowered.com/app/1158310" target="_blank" class="back-btn" style="margin-left:auto">Steam 商店页</a>
+    <div class="breadcrumb">
+      <a href="../../index.html">← 返回游戏榜单</a>
+    </div>
+    <a href="https://store.steampowered.com/app/1158310/" target="_blank" class="back-link">Steam 商店页 →</a>
   </div>
-</div>
+</nav>
 
-<div class="hero">
+<!-- 游戏头部 -->
+<section class="game-header">
   <div class="container">
-    <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/library_600x900.jpg" alt="Crusader Kings III" class="hero-img" onerror="this.style.display='none'">
-    <div class="hero-info">
-      <h1>十字军之王 3</h1>
-      <div class="en">Crusader Kings III</div>
-      <div class="meta">
-        <span class="tag">2020</span>
-        <span class="tag mc">评分 91</span>
-        <span class="tag sales">殿堂级 Top 250</span>
-        <span class="tag">角色扮演, 模拟, 策略</span>
+    <!-- 左侧媒体区域 -->
+    <div class="media-section">
+      <div class="media-tabs">
+        
+        <button class="media-tab active" onclick="showScreenshots()">截图</button>
       </div>
-      <div class="desc">坠入爱河、投身争斗、策划计谋、成就宏图伟业，在大战略游戏《Crusader Kings III》中书写你的贵族传承。死亡不过是下一场开始——在这个精彩纷呈、跃然纸上的中世纪模拟世界中，延续宗族血脉，谱写王朝史诗。</div>
+      
+      
+      
+      
+      <div id="screenshots-container" class="screenshots-grid" {{#if VIDEO_HTML}}style="display:none;">
+        <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/be024ed558784be2f4b8851fdf4a566a369bc5d2/ss_be024ed558784be2f4b8851fdf4a566a369bc5d2.1920x1080.jpg?t=1782466478" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/e8c1ff71f2a179e53f3418d774317495896da4c4/ss_e8c1ff71f2a179e53f3418d774317495896da4c4.1920x1080.jpg?t=1782466478" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/3e451095d381ddec634bbe4340896d17af773e61/ss_3e451095d381ddec634bbe4340896d17af773e61.1920x1080.jpg?t=1782466478" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/c2acb41263c0f51e4a3addfc6822609c0c82b29d/ss_c2acb41263c0f51e4a3addfc6822609c0c82b29d.1920x1080.jpg?t=1782466478" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/7b2cf6ebaebf297866f662d3d27d1cf04525fdb6/ss_7b2cf6ebaebf297866f662d3d27d1cf04525fdb6.1920x1080.jpg?t=1782466478" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/4b13b5137182c0977592783d38fa17eada394b10/ss_4b13b5137182c0977592783d38fa17eada394b10.1920x1080.jpg?t=1782466478" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/b40a53526f506cf2c6f1f22868f91dca34d049c3/ss_b40a53526f506cf2c6f1f22868f91dca34d049c3.1920x1080.jpg?t=1782466478" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/92420aa861477835e0d26f4d58f181a83a58919a/ss_92420aa861477835e0d26f4d58f181a83a58919a.1920x1080.jpg?t=1782466478" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/7083b53a52dd563d1d2a0b917a0c1c9487073ec9/ss_7083b53a52dd563d1d2a0b917a0c1c9487073ec9.1920x1080.jpg?t=1782466478" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/ec38bd3b85dddebb8d8c75f6d9b6a2db3b3f9c61/ss_ec38bd3b85dddebb8d8c75f6d9b6a2db3b3f9c61.1920x1080.jpg?t=1782466478" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/99e6559226665dddb68ebac2dff81188753e1862/ss_99e6559226665dddb68ebac2dff81188753e1862.1920x1080.jpg?t=1782466478" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/b8a810717e638e83af5e4dea98bc981d6704a21c/ss_b8a810717e638e83af5e4dea98bc981d6704a21c.1920x1080.jpg?t=1782466478" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/65884ef615b0a45bb8b21c27a8490418f18331bd/ss_65884ef615b0a45bb8b21c27a8490418f18331bd.1920x1080.jpg?t=1782466478" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/e22d1a53c76a20f5e597dc56701c1e6a7d6bd156/ss_e22d1a53c76a20f5e597dc56701c1e6a7d6bd156.1920x1080.jpg?t=1782466478" alt="Screenshot" onclick="window.open(this.src)">
+      </div>
+      {{/if}}
+    </div>
+    
+    <!-- 右侧信息面板 -->
+    <div class="game-info">
+      <h1 class="game-title">十字军之王 3</h1>
+      <div class="game-subtitle">Crusader Kings III</div>
+      
+      <div class="game-meta">
+        <div class="meta-item">2020 年 9 月 1 日</div>
+        <div class="meta-item">角色扮演, 模拟, 策略</div>
+        <div class="meta-item score">评分 91</div>
+      </div>
+      
+      
+      <div class="info-block">
+        <div class="label">开发者</div>
+        <div class="value">Paradox Development Studio</div>
+      </div>
+      
+      
+      
+      <div class="info-block">
+        <div class="label">发行商</div>
+        <div class="value">Paradox Interactive</div>
+      </div>
+      
+      
+      
+      <div class="game-desc">
+        坠入爱河、投身争斗、策划计谋、成就宏图伟业，在大战略游戏《Crusader Kings III》中书写你的贵族传承。死亡不过是下一场开始——在这个精彩纷呈、跃然纸上的中世纪模拟世界中，延续宗族血脉，谱写王朝史诗。
+      </div>
+      
     </div>
   </div>
-</div>
+</section>
 
-<div class="content">
+<!-- 关于此游戏 -->
+
+<section class="content-section">
   <div class="container">
+    <div class="content-block">
+      <h2>关于此游戏</h2>
+      <div><p class="bb_paragraph" style="text-align: center"><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/extras/f46fed10c65f7a7d9713ad91f6048a61.avif?t=1782466478" width=780 height=200 /></span></p><p class="bb_paragraph" >铸就属于你的传奇——在跨越数个世代的中世纪史诗中，选择你的家世出身，引领你的王朝崛起。战争不过是巩固王权的工具之一，因为真正的战略离不开外交权谋、治国理政与诡诈阴谋。《Crusader Kings III》延续Paradox Development Studio经典系列，在将沉浸式大战略与深度而戏剧性的中世纪角色扮演完美融合上广受好评。 </p><p class="bb_paragraph" ></p><p class="bb_paragraph" style="text-align: center"><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/extras/897f130c0b80d9c435162d4256292243.poster.avif?t=1782466478" width=780 height=370 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/extras/897f130c0b80d9c435162d4256292243.webm?t=1782466478" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/extras/897f130c0b80d9c435162d4256292243.mp4?t=1782466478" type="video/mp4"></video></span></p><p class="bb_paragraph" style="text-align: center"><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/extras/d5d80e0350b55ac621e6472a204f07c5.webp?t=1782466478" width=615 height=44 /></span></p><ul class="bb_ul"><li><p class="bb_paragraph" > 在考据严谨的中世纪版图上执掌家族命脉，引领宗族开枝散叶。从西元867年、1066年或1178年启程，争夺领地、头衔与封臣，打造配得上高贵血脉的恢弘版图。死亡不过是历史注脚——你的血脉将由继承人所延续，无论精心安排……还是意外横生。</p></li><li><p class="bb_paragraph" >探索生机勃勃的模拟世界：农民与骑士、廷臣与间谍、无赖与弄臣，乃至隐秘恋情。与大量历史角色来往互动——或缠绵悱恻、或暗施背叛、或处以极刑，或悄然施加影响。</p></li><li><p class="bb_paragraph" >纵横广袤的中世纪地图：从北欧雪原至非洲之角，从不列颠群岛至缅甸富饶之地。宣称、征服并统治数以千计的伯爵领、公爵领、王国乃至帝国。</p></li></ul><p class="bb_paragraph" > </p><p class="bb_paragraph" > </p><p class="bb_paragraph" style="text-align: center"><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/extras/512802bb26f28bc1f08d749bb4af32a2.poster.avif?t=1782466478" width=780 height=370 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/extras/512802bb26f28bc1f08d749bb4af32a2.webm?t=1782466478" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/extras/512802bb26f28bc1f08d749bb4af32a2.mp4?t=1782466478" type="video/mp4"></video></span></p><p class="bb_paragraph" style="text-align: center"><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/extras/4eae021f866be5f881c0b1462e24e8b6.webp?t=1782466478" width=615 height=44 /></span></p><ul class="bb_ul"><li><p class="bb_paragraph" > 每位角色皆跃然纸上，特质与生活方式将决定其行动与计谋。以铁腕统治唤起臣民恐惧，或凭德行善举赢得天下归心。遗传特质将代代相传——无论是惊世智慧，还是愚钝顽疾。</p></li><li><p class="bb_paragraph" >为继承人精心遴选监护人，或亲自教导培育。若子嗣难堪大任，可通过联姻或其他手段将其送走。</p></li><li><p class="bb_paragraph" >自定义统治者与贵族：从外貌到属性，塑造一位完美承袭祖辈美德与恶习的君主。</p></li></ul><p class="bb_paragraph" ></p><p class="bb_paragraph" > </p><p class="bb_paragraph" style="text-align: center"><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/extras/40cd9b36945550c1928df592e7cda8da.poster.avif?t=1782466478" width=780 height=370 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/extras/40cd9b36945550c1928df592e7cda8da.webm?t=1782466478" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/extras/40cd9b36945550c1928df592e7cda8da.mp4?t=1782466478" type="video/mp4"></video></span></p><p class="bb_paragraph" style="text-align: center"><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/extras/bb373af3e2e49b6508a7e312ed5f7725.webp?t=1782466478" width=615 height=44 /></span></p><ul class="bb_ul"><li><p class="bb_paragraph" > 治理瞬息万变的王国，将头衔分封心腹——或篡夺领主王冠为己所用。警惕各方威胁：躁动的农奴、怀恨的嫔妃皆可能成为心腹大患。</p></li><li><p class="bb_paragraph" >阴影波谲云诡，危险常在暗处涌动。招募密探等各种宵小，对阻碍者实施诋毁、勒索或暗杀。亦可效仿吟游诗人的风流做派，以魅惑之术攫取权柄。</p></li><li><p class="bb_paragraph" >血要流淌成河：集结精锐的兵士与强大的骑士，运筹战场谋略，统御千军万马。劫掠邻邦聚敛财富，或延揽佣兵与教团决胜沙场。 </p></li></ul><p class="bb_paragraph" ></p><p class="bb_paragraph" style="text-align: center"><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/extras/b7d5e3c082d88ec1c55709c8a3306eb8.poster.avif?t=1782466478" width=780 height=370 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/extras/b7d5e3c082d88ec1c55709c8a3306eb8.webm?t=1782466478" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/extras/b7d5e3c082d88ec1c55709c8a3306eb8.mp4?t=1782466478" type="video/mp4"></video></span></p><p class="bb_paragraph" style="text-align: center"><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/extras/c8afe8cd8c33cbc339423894875c1b4a.webp?t=1782466478" width=615 height=44 /></span></p><ul class="bb_ul"><li><p class="bb_paragraph" > 做一位恪守虔诚的国王，让宗教的权能为己所用；或自创新的信仰，自此流芳千古，抑或遗恨万年。</p></li><li><p class="bb_paragraph" >为你的文化带来革新，修筑巍峨碉堡城塞，增加麾下领土的财富、威望与安全。</p></li><li><p class="bb_paragraph" >万千道路铺陈眼前：体验数以千计动态事件与改变人生的决议，每段际遇皆按能想象到的情况与角色量身定制。有无数的手段可以在史册镌刻下属于你的一页。</p></li></ul></div>
+    </div>
+  </div>
+</section>
 
-    <div class="dl-section">
+
+<!-- 下载区域 -->
+<section class="download-section">
+  <div class="container">
+    <div class="download-block">
       <h2>📥 下载链接</h2>
-      <div class="dl-buttons">
-<a href="https://www.x6d.com/i-wz-12117.html" class="dl-btn x6d" target="_blank">📦 x6d</a>
+      <div class="download-buttons">
+        <a href="https://www.x6d.com/i-wz-12117.html" class="download-btn x6d" target="_blank">x6d</a>
 
       </div>
     </div>
-
-    <div class="section">
-      <h2>📋 游戏信息</h2>
-      <div class="info-grid">
-        <div class="info-item"><div class="label">开发商</div><div class="value">Paradox Development Studio</div></div>
-        <div class="info-item"><div class="label">发行商</div><div class="value">Paradox Interactive</div></div>
-        <div class="info-item"><div class="label">发行日期</div><div class="value">2020 年 9 月 1 日</div></div>
-        <div class="info-item"><div class="label">类型</div><div class="value">角色扮演, 模拟, 策略</div></div>
-        <div class="info-item"><div class="label">Metacritic</div><div class="value">91</div></div>
-        <div class="info-item"><div class="label">Steam</div><div class="value"><a href="https://store.steampowered.com/app/1158310" target="_blank">查看商店页 →</a></div></div>
-      </div>
-    </div>
-
-    
-    <div class="section">
-      <h2>📖 关于这款游戏</h2>
-      <div class="desc">坠入爱河、投身争斗、策划计谋、成就宏图伟业，在大战略游戏《Crusader Kings III》中书写你的贵族传承。死亡不过是下一场开始——在这个精彩纷呈、跃然纸上的中世纪模拟世界中，延续宗族血脉，谱写王朝史诗。</div>
-    </div>
-
-    
-    <div class="section">
-      <h2>📸 游戏截图</h2>
-      <div class="ss-grid">
-        <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/be024ed558784be2f4b8851fdf4a566a369bc5d2/ss_be024ed558784be2f4b8851fdf4a566a369bc5d2.1920x1080.jpg?t=1782466478" alt="" loading="lazy">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/e8c1ff71f2a179e53f3418d774317495896da4c4/ss_e8c1ff71f2a179e53f3418d774317495896da4c4.1920x1080.jpg?t=1782466478" alt="" loading="lazy">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/3e451095d381ddec634bbe4340896d17af773e61/ss_3e451095d381ddec634bbe4340896d17af773e61.1920x1080.jpg?t=1782466478" alt="" loading="lazy">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/c2acb41263c0f51e4a3addfc6822609c0c82b29d/ss_c2acb41263c0f51e4a3addfc6822609c0c82b29d.1920x1080.jpg?t=1782466478" alt="" loading="lazy">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/7b2cf6ebaebf297866f662d3d27d1cf04525fdb6/ss_7b2cf6ebaebf297866f662d3d27d1cf04525fdb6.1920x1080.jpg?t=1782466478" alt="" loading="lazy">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/4b13b5137182c0977592783d38fa17eada394b10/ss_4b13b5137182c0977592783d38fa17eada394b10.1920x1080.jpg?t=1782466478" alt="" loading="lazy">
-
-      </div>
-    </div>
-
   </div>
-</div>
+</section>
+
+<!-- 系统需求 -->
+
+<section class="content-section">
+  <div class="container">
+    <div class="content-block">
+      <h2>系统需求</h2>
+      <div class="sys-req">
+        <div class="sys-req-col"><h4>最低配置</h4><div><strong>最低配置:</strong><br><ul class="bb_ul"><li>需要 64 位处理器和操作系统<br></li><li><strong>操作系统:</strong> Windows® 10 Home 64 bit<br></li><li><strong>处理器:</strong> Intel Core i5-750 | AMD FX 4300<br></li><li><strong>内存:</strong> 8 GB RAM<br></li><li><strong>显卡:</strong> NVIDIA GeForce GTX 660 | AMD Radeon HD 7870 | Intel Arc A310 | Intel Iris Plus G7 | AMD Radeon Vega 11<br></li><li><strong>存储空间:</strong> 需要 20 GB 可用空间</li></ul></div></div>
+        <div class="sys-req-col"><h4>推荐配置</h4><div><strong>推荐配置:</strong><br><ul class="bb_ul"><li>需要 64 位处理器和操作系统<br></li><li><strong>操作系统:</strong> Windows® 10 Home 64 bit or Windows® 11<br></li><li><strong>处理器:</strong> Intel Core i5-8400 | AMD Ryzen 5 1600X<br></li><li><strong>内存:</strong> 16 GB RAM<br></li><li><strong>显卡:</strong> NVIDIA GeForce GTX 970 | AMD Radeon RX 480 | Intel Arc A580<br></li><li><strong>存储空间:</strong> 需要 20 GB 可用空间</li></ul></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+function showVideo() {
+  document.getElementById('video-container').style.display = 'block';
+  document.getElementById('screenshots-container').style.display = 'none';
+  document.querySelectorAll('.media-tab').forEach(t => t.classList.remove('active'));
+  event.target.classList.add('active');
+}
+
+function showScreenshots() {
+  const videoContainer = document.getElementById('video-container');
+  if (videoContainer) videoContainer.style.display = 'none';
+  document.getElementById('screenshots-container').style.display = 'grid';
+  document.querySelectorAll('.media-tab').forEach(t => t.classList.remove('active'));
+  event.target.classList.add('active');
+}
+</script>
+
 </body>
 </html>

@@ -3,121 +3,428 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>孤岛惊魂 3 - Far Cry 3 - 游戏详情</title>
+<title>孤岛惊魂 3 - 游戏详情</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Segoe UI','Microsoft YaHei',sans-serif;background:#f5f5f7;color:#1a1a2e;line-height:1.6}
-.topbar{background:#ffffff;border-bottom:1px solid #e0e0e4;padding:12px 0;position:sticky;top:0;z-index:100}
-.topbar .container{display:flex;align-items:center;gap:16px}
-.container{max-width:1200px;margin:0 auto;padding:0 20px}
-.back{color:#6d28d9;text-decoration:none;font-size:14px;font-weight:500;display:flex;align-items:center;gap:4px}
-.back:hover{text-decoration:underline}
-.back-btn{background:#6d28d9;color:#fff;padding:6px 14px;border-radius:4px;text-decoration:none;font-size:13px}
-.back-btn:hover{background:#5b21b6}
-.hero{background:linear-gradient(180deg,#f0f0f5 0%,#e8e8f0 100%);color:#1a1a2e;padding:30px 0 0;border-bottom:1px solid #e0e0e4}
-.hero .container{display:flex;gap:30px;flex-wrap:wrap}
-.hero-info{flex:1;min-width:280px}
-.hero-info h1{font-size:26px;margin-bottom:4px}
-.hero-info .en{color:#888;font-size:14px;margin-bottom:12px}
-.hero-info .meta{display:flex;gap:6px;margin-bottom:14px;flex-wrap:wrap}
-.hero .tag{font-size:12px;padding:3px 10px;border-radius:4px;background:#e8e8ec;color:#555}
-.hero .tag.mc{background:#6d28d922;color:#6d28d9}
-.hero .tag.sales{background:#e11d4822;color:#e11d48}
-.hero-img{width:460px;max-width:100%;border-radius:8px;flex-shrink:0;box-shadow:0 2px 12px rgba(0,0,0,0.08)}
-.content{padding:24px 0}
-.section{background:#fff;border-radius:8px;border:1px solid #e0e0e4;padding:24px;margin-bottom:16px}
-.section h2{font-size:18px;color:#1a1a2e;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid #e0e0e4}
-.desc{font-size:15px;color:#444;line-height:1.7}
-.dl-section{background:#fff;border-radius:8px;border:1px solid #e0e0e4;padding:24px;margin-bottom:16px}
-.dl-section h2{font-size:18px;color:#1a1a2e;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid #e0e0e4}
-.dl-buttons{display:flex;flex-wrap:wrap;gap:8px}
-.dl-btn{display:inline-flex;align-items:center;gap:5px;padding:8px 16px;border-radius:6px;font-size:13px;text-decoration:none;color:#fff;transition:all .2s;font-weight:500}
-.dl-btn:hover{filter:brightness(1.1);transform:translateY(-1px)}
-.dl-btn.gamer520{background:#10b981}
-.dl-btn.x6d{background:#3b82f6}
-.dl-btn.tianyi{background:#6366f1}
-.dl-btn.baidu{background:#2563eb}
-.dl-btn.magnet{background:#ef4444}
-.dl-btn.fitgirl{background:#f59e0b}
-.info-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:16px}
-.info-item .label{font-size:12px;color:#888;text-transform:uppercase;letter-spacing:0.5px}
-.info-item .value{font-size:14px;color:#1a1a2e;margin-top:2px}
-.ss-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:8px}
-.ss-grid img{width:100%;border-radius:6px;cursor:pointer;transition:transform .2s}
-.ss-grid img:hover{transform:scale(1.02)}
-@media(max-width:768px){.hero-img{width:100%}.ss-grid{grid-template-columns:1fr}}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: "Microsoft YaHei", "Segoe UI", sans-serif;
+  background: #1b2838;
+  color: #c7d5e0;
+  line-height: 1.6;
+}
+
+/* 顶部导航 */
+.top-nav {
+  background: #171a21;
+  padding: 8px 0;
+  border-bottom: 1px solid #000;
+}
+.top-nav .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.breadcrumb {
+  font-size: 12px;
+  color: #666;
+}
+.breadcrumb a {
+  color: #666;
+  text-decoration: none;
+}
+.breadcrumb a:hover {
+  color: #fff;
+}
+.back-link {
+  color: #67c1f5;
+  text-decoration: none;
+  font-size: 13px;
+}
+.back-link:hover {
+  color: #fff;
+}
+
+/* 主容器 */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* 游戏头部 - Steam风格左右布局 */
+.game-header {
+  background: linear-gradient(180deg, #1b2838 0%, #2a475e 100%);
+  padding: 30px 0;
+}
+.game-header .container {
+  display: grid;
+  grid-template-columns: 460px 1fr;
+  gap: 30px;
+}
+
+/* 左侧媒体区域 */
+.media-section {
+  background: #000;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.media-tabs {
+  display: flex;
+  background: #1b2838;
+}
+.media-tab {
+  background: transparent;
+  border: none;
+  color: #67c1f5;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 13px;
+  border-bottom: 2px solid transparent;
+}
+.media-tab.active {
+  border-bottom-color: #67c1f5;
+  color: #fff;
+}
+.media-player {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/9;
+  background: #000;
+}
+.media-player video,
+.media-player img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.screenshots-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4px;
+  padding: 4px;
+  background: #1b2838;
+}
+.screenshots-grid img {
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+.screenshots-grid img:hover {
+  opacity: 0.8;
+}
+
+/* 右侧信息面板 */
+.game-info {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.game-title {
+  font-size: 32px;
+  font-weight: 300;
+  color: #fff;
+}
+.game-subtitle {
+  font-size: 14px;
+  color: #8f98a0;
+}
+.game-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.meta-item {
+  background: rgba(0,0,0,0.3);
+  padding: 6px 12px;
+  border-radius: 3px;
+  font-size: 13px;
+  color: #c7d5e0;
+}
+.meta-item.score {
+  background: #66c0f4;
+  color: #1b2838;
+  font-weight: 600;
+}
+.info-block {
+  background: rgba(0,0,0,0.2);
+  padding: 12px;
+  border-radius: 4px;
+}
+.info-block .label {
+  font-size: 11px;
+  color: #8f98a0;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.info-block .value {
+  font-size: 14px;
+  color: #67c1f5;
+}
+.game-desc {
+  font-size: 14px;
+  color: #acb2b8;
+  line-height: 1.7;
+}
+
+/* 内容区域 */
+.content-section {
+  background: #1b2838;
+  padding: 30px 0;
+}
+.content-block {
+  background: rgba(0,0,0,0.3);
+  padding: 24px;
+  border-radius: 4px;
+}
+.content-block h2 {
+  color: #fff;
+  font-size: 20px;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #2a475e;
+}
+.content-block p {
+  color: #acb2b8;
+  font-size: 14px;
+  line-height: 1.8;
+  margin-bottom: 12px;
+}
+.content-block h2.bb_tag {
+  color: #67c1f5;
+  font-size: 16px;
+  margin: 20px 0 10px 0;
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+/* 下载区域 */
+.download-section {
+  background: #1b2838;
+  padding: 30px 0;
+}
+.download-block {
+  background: rgba(0,0,0,0.3);
+  padding: 24px;
+  border-radius: 4px;
+}
+.download-block h2 {
+  color: #fff;
+  font-size: 20px;
+  margin-bottom: 16px;
+}
+.download-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: 4px;
+  text-decoration: none;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+.download-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+.download-btn.gamer520 { background: linear-gradient(135deg, #10b981, #059669); }
+.download-btn.x6d { background: linear-gradient(135deg, #3b82f6, #2563eb); }
+.download-btn.magnet { background: linear-gradient(135deg, #ef4444, #dc2626); }
+.download-btn.fitgirl { background: linear-gradient(135deg, #f59e0b, #d97706); }
+.download-btn.tianyi { background: linear-gradient(135deg, #6366f1, #4f46e5); }
+.download-btn.baidu { background: linear-gradient(135deg, #2563eb, #1d4ed8); }
+
+/* 系统需求 */
+.sys-req {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.sys-req-col h4 {
+  color: #67c1f5;
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+.sys-req-col ul {
+  list-style: none;
+  margin: 0;
+}
+.sys-req-col li {
+  font-size: 13px;
+  color: #acb2b8;
+  margin-bottom: 8px;
+  padding-left: 16px;
+  position: relative;
+}
+.sys-req-col li:before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #67c1f5;
+}
+
+/* 响应式 */
+@media (max-width: 900px) {
+  .game-header .container {
+    grid-template-columns: 1fr;
+  }
+  .media-section {
+    max-width: 100%;
+  }
+  .sys-req {
+    grid-template-columns: 1fr;
+  }
+}
 </style>
 </head>
 <body>
 
-<div class="topbar">
+<!-- 顶部导航 -->
+<nav class="top-nav">
   <div class="container">
-    <a href="../../index.html" class="back">← 返回游戏榜单</a>
-    <a href="https://store.steampowered.com/app/220240" target="_blank" class="back-btn" style="margin-left:auto">Steam 商店页</a>
+    <div class="breadcrumb">
+      <a href="../../index.html">← 返回游戏榜单</a>
+    </div>
+    <a href="https://store.steampowered.com/app/220240/" target="_blank" class="back-link">Steam 商店页 →</a>
   </div>
-</div>
+</nav>
 
-<div class="hero">
+<!-- 游戏头部 -->
+<section class="game-header">
   <div class="container">
-    <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220240/library_600x900.jpg" alt="Far Cry 3" class="hero-img" onerror="this.style.display='none'">
-    <div class="hero-info">
-      <h1>孤岛惊魂 3</h1>
-      <div class="en">Far Cry 3</div>
-      <div class="meta">
-        <span class="tag">2012</span>
-        <span class="tag mc">评分 88</span>
-        <span class="tag sales">殿堂级 Top 250</span>
-        <span class="tag">待补充</span>
+    <!-- 左侧媒体区域 -->
+    <div class="media-section">
+      <div class="media-tabs">
+        
+        <button class="media-tab active" onclick="showScreenshots()">截图</button>
       </div>
-      <div class="desc">Discover the dark secrets of a lawless island ruled by violence and take the fight to the enemy as you try to escape. You’ll need more than luck to escape alive!</div>
+      
+      
+      
+      
+      <div id="screenshots-container" class="screenshots-grid" {{#if VIDEO_HTML}}style="display:none;">
+        <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220240/ss_eed79518c510b7b8ce6fce9d1c350bfcea530993.1920x1080.jpg?t=1781619366" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220240/ss_83af36773eb0393144cfefa80ceb6baf5c608cf7.1920x1080.jpg?t=1781619366" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220240/ss_ea2c0211c7c9d64264b40d715ba0822db96da42c.1920x1080.jpg?t=1781619366" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220240/ss_b318ad7c388f9a2d2d9afa1c35789e130f46333e.1920x1080.jpg?t=1781619366" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220240/ss_fb34f62630f41d05a835c50633cb4e20ac13b441.1920x1080.jpg?t=1781619366" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220240/ss_0b189925bdff13dcb799c0822c0282cafe926c3c.1920x1080.jpg?t=1781619366" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220240/ss_b1a0eebcf2d5c5db1b6b568765b870f1fb50705c.1920x1080.jpg?t=1781619366" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220240/ss_a85a01aae90c8ca69a05d32a1196ffaf6d943bd7.1920x1080.jpg?t=1781619366" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220240/ss_0c08ce5d7f63fd8cee404426f6d083d93105a924.1920x1080.jpg?t=1781619366" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220240/ss_b54fb346d5a7dad0fb345b5e90f379551ecfbfdc.1920x1080.jpg?t=1781619366" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220240/ss_a8fd4aee64245a876e9bee0f8b59ae065fedf08c.1920x1080.jpg?t=1781619366" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220240/ss_3cca8f434e284a0985d254271658cfb6ae9ef56b.1920x1080.jpg?t=1781619366" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220240/ss_6e7911d3622f3a801aeea1c2f8418f0f22880bb0.1920x1080.jpg?t=1781619366" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220240/ss_c5c810244ba6dd899de44121b37d87fad2621d4c.1920x1080.jpg?t=1781619366" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220240/ss_6a4dec0b9653564b7be754286cef07a012c24fea.1920x1080.jpg?t=1781619366" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220240/ss_3eecbdea4a16fbbd21cb2524da300547f5c75e39.1920x1080.jpg?t=1781619366" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220240/ss_842bfdeb44368babd55ad93af1cbbf560f9fb9a1.1920x1080.jpg?t=1781619366" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220240/ss_7106071cd402ada3d76c044bb4361a5b2236974e.1920x1080.jpg?t=1781619366" alt="Screenshot" onclick="window.open(this.src)">
+      </div>
+      {{/if}}
+    </div>
+    
+    <!-- 右侧信息面板 -->
+    <div class="game-info">
+      <h1 class="game-title">孤岛惊魂 3</h1>
+      <div class="game-subtitle">Far Cry 3</div>
+      
+      <div class="game-meta">
+        <div class="meta-item">2012 年 11 月 28 日</div>
+        <div class="meta-item">动作, 冒险</div>
+        <div class="meta-item score">评分 88</div>
+      </div>
+      
+      
+      <div class="info-block">
+        <div class="label">开发者</div>
+        <div class="value">Ubisoft Montreal, Massive Entertainment, and Ubisoft Shanghai</div>
+      </div>
+      
+      
+      
+      <div class="info-block">
+        <div class="label">发行商</div>
+        <div class="value">Ubisoft</div>
+      </div>
+      
+      
+      
+      <div class="game-desc">
+        Discover the dark secrets of a lawless island ruled by violence and take the fight to the enemy as you try to escape. You’ll need more than luck to escape alive!
+      </div>
+      
     </div>
   </div>
-</div>
+</section>
 
-<div class="content">
+<!-- 关于此游戏 -->
+
+<section class="content-section">
   <div class="container">
+    <div class="content-block">
+      <h2>关于此游戏</h2>
+      <div>﻿Far Cry 3 是一款拥有开放世界的第一人称射击游戏，设定在一座与众不同的岛屿。一个军阀运输奴隶，用来让外面的人用钱赎回他们，拥有重型武装的地方。你走上了一段艰难的旅程去拯救你的朋友，你会意识到，要逃离这个地狱的唯一办法...就是去拥抱它<h2 class="bb_tag" >主要特点：</h2><strong>一个开放世界的第一人称射击游戏</strong><br><br>创造您自己的FPS冒险。自定义您的武器，技能和方法来完成每一个任务，您可以倾向于激烈的&quot;跑&quot;和&quot;射&quot;动作，或者安静的近距离击杀，还可以进行远距离狙击。<br><br><strong>一个可探索的危险岛屿</strong><br><br>探索多样化的岛屿乐园，从山脉到沼泽草地到白色沙滩。发现遗迹，狩猎有异国情调的动物，玩小游戏以及通过海、陆、空来快速旅行。用您的方式通过岛上的城镇、寺庙、内河港口等！<br><br><strong>揭露一个令人难忘的故事，一个令人疯狂的角色</strong><br><br>遇见有吸引力和令人不安的角色，从坚韧不拔的旅程到人性的黑暗面，这些都由一个作家协会奖得主所创作<br><br><strong>和朋友一起玩完整的合作战役</strong><br><br>在一个4人战役中在线组队，挑战您的极限，共同努力才能取得胜利。通过一个固执的船员的眼睛体验这个岛屿，在生死线上生存。<br><br><strong>不同类型的多人游戏</strong><br><br>创新的多人游戏奖励技能和团队合作。为了升级，玩家必须通过战斗激励、救助队友、呼叫支援武器来互相支持。每场比赛结束后，玩家可以通过有趣和扭曲的方式来惩罚或怜悯他们的敌人，拥有精心设计的可互动的过场动画。<br><br><strong>使用地图编辑器来创建和访问新内容</strong><br><br>功能强大并且易于使用的 Far Cry® 地图编辑器带着新功能和改进又回来了。一个地图制作者社区可以确保让整个世界享受源源不断的新内容。使用附带的工具，你也可以做出惊人的地图，高效且容易。<br><br><strong>最先进的图形和游戏性</strong><br><br>Far Cry® 3由那些带给你广受好评的游戏如 Assassin’s Creed® 2，Assassin’s Creed® Brotherhood，以及 World in Conflict® 的世界顶级游戏设计师开发。</div>
+    </div>
+  </div>
+</section>
 
-    <div class="dl-section">
+
+<!-- 下载区域 -->
+<section class="download-section">
+  <div class="container">
+    <div class="download-block">
       <h2>📥 下载链接</h2>
-      <div class="dl-buttons">
-<a href="https://www.x6d.com/i-wz-16089.html" class="dl-btn x6d" target="_blank">📦 x6d</a>
+      <div class="download-buttons">
+        <a href="https://www.x6d.com/i-wz-16089.html" class="download-btn x6d" target="_blank">x6d</a>
 
       </div>
     </div>
-
-    <div class="section">
-      <h2>📋 游戏信息</h2>
-      <div class="info-grid">
-        <div class="info-item"><div class="label">开发商</div><div class="value">待补充</div></div>
-        <div class="info-item"><div class="label">发行商</div><div class="value">待补充</div></div>
-        <div class="info-item"><div class="label">发行日期</div><div class="value">2012</div></div>
-        <div class="info-item"><div class="label">类型</div><div class="value">待补充</div></div>
-        <div class="info-item"><div class="label">Metacritic</div><div class="value">88</div></div>
-        <div class="info-item"><div class="label">Steam</div><div class="value"><a href="https://store.steampowered.com/app/220240" target="_blank">查看商店页 →</a></div></div>
-      </div>
-    </div>
-
-    
-    <div class="section">
-      <h2>📖 关于这款游戏</h2>
-      <div class="desc">Discover the dark secrets of a lawless island ruled by violence and take the fight to the enemy as you try to escape. You’ll need more than luck to escape alive!</div>
-    </div>
-
-    
-    <div class="section">
-      <h2>📸 游戏截图</h2>
-      <div class="ss-grid">
-        <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220240/ss_eed79518c510b7b8ce6fce9d1c350bfcea530993.1920x1080.jpg?t=1781619366" alt="" loading="lazy">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220240/ss_83af36773eb0393144cfefa80ceb6baf5c608cf7.1920x1080.jpg?t=1781619366" alt="" loading="lazy">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220240/ss_ea2c0211c7c9d64264b40d715ba0822db96da42c.1920x1080.jpg?t=1781619366" alt="" loading="lazy">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220240/ss_b318ad7c388f9a2d2d9afa1c35789e130f46333e.1920x1080.jpg?t=1781619366" alt="" loading="lazy">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220240/ss_fb34f62630f41d05a835c50633cb4e20ac13b441.1920x1080.jpg?t=1781619366" alt="" loading="lazy">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220240/ss_0b189925bdff13dcb799c0822c0282cafe926c3c.1920x1080.jpg?t=1781619366" alt="" loading="lazy">
-
-      </div>
-    </div>
-
   </div>
-</div>
+</section>
+
+<!-- 系统需求 -->
+
+<section class="content-section">
+  <div class="container">
+    <div class="content-block">
+      <h2>系统需求</h2>
+      <div class="sys-req">
+        <div class="sys-req-col"><h4>最低配置</h4><div><strong>Minimum:</strong><br><ul class="bb_ul"><li><strong>OS *:</strong>Windows XP, Windows Vista<br>	</li><li><strong>Processor:</strong>Intel Core®2 Duo E6700 @ 2.6 GHz or AMD Athlon64 X2 6000+ @ 3.0Ghz or better<br>	</li><li><strong>Memory:</strong>4 GB RAM<br>	</li><li><strong>Graphics:</strong>512MB Video RAM (1GB Video RAM), DirectX9c (DirectX11) Shader Model 3.0 (Shader Model 5.0)<br>	</li><li><strong>DirectX®:</strong>9.0c<br>	</li><li><strong>Hard Drive:</strong>15 GB HD space<br>	</li><li><strong>Sound:</strong>DirectX Compatible  (Recommended Surround Sound 5.1 capable)<br>	</li><li><strong>Other Requirements:</strong>Broadband Internet connection<br>	</li><li><strong>Additional:</strong>*Supported Video Cards at Time of Release: AMD Radeon™ HD 2900 / 3000 / 4000 / 5000 / 6000 / 7000 series, NVIDIA® GeForce® 8800 GTX / 9 / 200 / 400 / 500 / 600 series. Laptop versions of these cards may work, but are not supported. These chipsets are the only ones that will run this game. For the most up-to-date minimum requirement listings, please visit the FAQ on our support website at .<br>Requires a UPlay account</li></ul></div></div>
+        <div class="sys-req-col"><h4>推荐配置</h4><div><strong>Recommended:</strong><br><ul class="bb_ul"><li><strong>Memory:</strong>4 GB RAM<br>	</li><li><strong>Graphics:</strong>512MB Video RAM (1GB Video RAM), DirectX9c (DirectX11) Shader Model 3.0 (Shader Model 5.0)<br>	</li><li><strong>DirectX®:</strong>11<br>	</li><li><strong>Hard Drive:</strong>15 GB HD space<br>	</li><li><strong>Sound:</strong>DirectX Compatible  (Recommended Surround Sound 5.1 capable)<br>	</li><li><strong>Other Requirements:</strong>Broadband Internet connection<br>	</li><li><strong>Additional:</strong>*Supported Video Cards at Time of Release: AMD Radeon™ HD 2900 / 3000 / 4000 / 5000 / 6000 / 7000 series, NVIDIA® GeForce® 8800 GTX / 9 / 200 / 400 / 500 / 600 series. Laptop versions of these cards may work, but are not supported. These chipsets are the only ones that will run this game. For the most up-to-date minimum requirement listings, please visit the FAQ on our support website at .<br>Requires a UPlay account</li></ul></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+function showVideo() {
+  document.getElementById('video-container').style.display = 'block';
+  document.getElementById('screenshots-container').style.display = 'none';
+  document.querySelectorAll('.media-tab').forEach(t => t.classList.remove('active'));
+  event.target.classList.add('active');
+}
+
+function showScreenshots() {
+  const videoContainer = document.getElementById('video-container');
+  if (videoContainer) videoContainer.style.display = 'none';
+  document.getElementById('screenshots-container').style.display = 'grid';
+  document.querySelectorAll('.media-tab').forEach(t => t.classList.remove('active'));
+  event.target.classList.add('active');
+}
+</script>
+
 </body>
 </html>

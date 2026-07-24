@@ -3,122 +3,425 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>死亡循环 - Deathloop - 游戏详情</title>
+<title>死亡循环 - 游戏详情</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Segoe UI','Microsoft YaHei',sans-serif;background:#f5f5f7;color:#1a1a2e;line-height:1.6}
-.topbar{background:#ffffff;border-bottom:1px solid #e0e0e4;padding:12px 0;position:sticky;top:0;z-index:100}
-.topbar .container{display:flex;align-items:center;gap:16px}
-.container{max-width:1200px;margin:0 auto;padding:0 20px}
-.back{color:#6d28d9;text-decoration:none;font-size:14px;font-weight:500;display:flex;align-items:center;gap:4px}
-.back:hover{text-decoration:underline}
-.back-btn{background:#6d28d9;color:#fff;padding:6px 14px;border-radius:4px;text-decoration:none;font-size:13px}
-.back-btn:hover{background:#5b21b6}
-.hero{background:linear-gradient(180deg,#f0f0f5 0%,#e8e8f0 100%);color:#1a1a2e;padding:30px 0 0;border-bottom:1px solid #e0e0e4}
-.hero .container{display:flex;gap:30px;flex-wrap:wrap}
-.hero-info{flex:1;min-width:280px}
-.hero-info h1{font-size:26px;margin-bottom:4px}
-.hero-info .en{color:#888;font-size:14px;margin-bottom:12px}
-.hero-info .meta{display:flex;gap:6px;margin-bottom:14px;flex-wrap:wrap}
-.hero .tag{font-size:12px;padding:3px 10px;border-radius:4px;background:#e8e8ec;color:#555}
-.hero .tag.mc{background:#6d28d922;color:#6d28d9}
-.hero .tag.sales{background:#e11d4822;color:#e11d48}
-.hero-img{width:460px;max-width:100%;border-radius:8px;flex-shrink:0;box-shadow:0 2px 12px rgba(0,0,0,0.08)}
-.content{padding:24px 0}
-.section{background:#fff;border-radius:8px;border:1px solid #e0e0e4;padding:24px;margin-bottom:16px}
-.section h2{font-size:18px;color:#1a1a2e;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid #e0e0e4}
-.desc{font-size:15px;color:#444;line-height:1.7}
-.dl-section{background:#fff;border-radius:8px;border:1px solid #e0e0e4;padding:24px;margin-bottom:16px}
-.dl-section h2{font-size:18px;color:#1a1a2e;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid #e0e0e4}
-.dl-buttons{display:flex;flex-wrap:wrap;gap:8px}
-.dl-btn{display:inline-flex;align-items:center;gap:5px;padding:8px 16px;border-radius:6px;font-size:13px;text-decoration:none;color:#fff;transition:all .2s;font-weight:500}
-.dl-btn:hover{filter:brightness(1.1);transform:translateY(-1px)}
-.dl-btn.gamer520{background:#10b981}
-.dl-btn.x6d{background:#3b82f6}
-.dl-btn.tianyi{background:#6366f1}
-.dl-btn.baidu{background:#2563eb}
-.dl-btn.magnet{background:#ef4444}
-.dl-btn.fitgirl{background:#f59e0b}
-.info-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:16px}
-.info-item .label{font-size:12px;color:#888;text-transform:uppercase;letter-spacing:0.5px}
-.info-item .value{font-size:14px;color:#1a1a2e;margin-top:2px}
-.ss-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:8px}
-.ss-grid img{width:100%;border-radius:6px;cursor:pointer;transition:transform .2s}
-.ss-grid img:hover{transform:scale(1.02)}
-@media(max-width:768px){.hero-img{width:100%}.ss-grid{grid-template-columns:1fr}}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: "Microsoft YaHei", "Segoe UI", sans-serif;
+  background: #1b2838;
+  color: #c7d5e0;
+  line-height: 1.6;
+}
+
+/* 顶部导航 */
+.top-nav {
+  background: #171a21;
+  padding: 8px 0;
+  border-bottom: 1px solid #000;
+}
+.top-nav .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.breadcrumb {
+  font-size: 12px;
+  color: #666;
+}
+.breadcrumb a {
+  color: #666;
+  text-decoration: none;
+}
+.breadcrumb a:hover {
+  color: #fff;
+}
+.back-link {
+  color: #67c1f5;
+  text-decoration: none;
+  font-size: 13px;
+}
+.back-link:hover {
+  color: #fff;
+}
+
+/* 主容器 */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* 游戏头部 - Steam风格左右布局 */
+.game-header {
+  background: linear-gradient(180deg, #1b2838 0%, #2a475e 100%);
+  padding: 30px 0;
+}
+.game-header .container {
+  display: grid;
+  grid-template-columns: 460px 1fr;
+  gap: 30px;
+}
+
+/* 左侧媒体区域 */
+.media-section {
+  background: #000;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.media-tabs {
+  display: flex;
+  background: #1b2838;
+}
+.media-tab {
+  background: transparent;
+  border: none;
+  color: #67c1f5;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 13px;
+  border-bottom: 2px solid transparent;
+}
+.media-tab.active {
+  border-bottom-color: #67c1f5;
+  color: #fff;
+}
+.media-player {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/9;
+  background: #000;
+}
+.media-player video,
+.media-player img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.screenshots-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4px;
+  padding: 4px;
+  background: #1b2838;
+}
+.screenshots-grid img {
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+.screenshots-grid img:hover {
+  opacity: 0.8;
+}
+
+/* 右侧信息面板 */
+.game-info {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.game-title {
+  font-size: 32px;
+  font-weight: 300;
+  color: #fff;
+}
+.game-subtitle {
+  font-size: 14px;
+  color: #8f98a0;
+}
+.game-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.meta-item {
+  background: rgba(0,0,0,0.3);
+  padding: 6px 12px;
+  border-radius: 3px;
+  font-size: 13px;
+  color: #c7d5e0;
+}
+.meta-item.score {
+  background: #66c0f4;
+  color: #1b2838;
+  font-weight: 600;
+}
+.info-block {
+  background: rgba(0,0,0,0.2);
+  padding: 12px;
+  border-radius: 4px;
+}
+.info-block .label {
+  font-size: 11px;
+  color: #8f98a0;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.info-block .value {
+  font-size: 14px;
+  color: #67c1f5;
+}
+.game-desc {
+  font-size: 14px;
+  color: #acb2b8;
+  line-height: 1.7;
+}
+
+/* 内容区域 */
+.content-section {
+  background: #1b2838;
+  padding: 30px 0;
+}
+.content-block {
+  background: rgba(0,0,0,0.3);
+  padding: 24px;
+  border-radius: 4px;
+}
+.content-block h2 {
+  color: #fff;
+  font-size: 20px;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #2a475e;
+}
+.content-block p {
+  color: #acb2b8;
+  font-size: 14px;
+  line-height: 1.8;
+  margin-bottom: 12px;
+}
+.content-block h2.bb_tag {
+  color: #67c1f5;
+  font-size: 16px;
+  margin: 20px 0 10px 0;
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+/* 下载区域 */
+.download-section {
+  background: #1b2838;
+  padding: 30px 0;
+}
+.download-block {
+  background: rgba(0,0,0,0.3);
+  padding: 24px;
+  border-radius: 4px;
+}
+.download-block h2 {
+  color: #fff;
+  font-size: 20px;
+  margin-bottom: 16px;
+}
+.download-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: 4px;
+  text-decoration: none;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+.download-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+.download-btn.gamer520 { background: linear-gradient(135deg, #10b981, #059669); }
+.download-btn.x6d { background: linear-gradient(135deg, #3b82f6, #2563eb); }
+.download-btn.magnet { background: linear-gradient(135deg, #ef4444, #dc2626); }
+.download-btn.fitgirl { background: linear-gradient(135deg, #f59e0b, #d97706); }
+.download-btn.tianyi { background: linear-gradient(135deg, #6366f1, #4f46e5); }
+.download-btn.baidu { background: linear-gradient(135deg, #2563eb, #1d4ed8); }
+
+/* 系统需求 */
+.sys-req {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.sys-req-col h4 {
+  color: #67c1f5;
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+.sys-req-col ul {
+  list-style: none;
+  margin: 0;
+}
+.sys-req-col li {
+  font-size: 13px;
+  color: #acb2b8;
+  margin-bottom: 8px;
+  padding-left: 16px;
+  position: relative;
+}
+.sys-req-col li:before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #67c1f5;
+}
+
+/* 响应式 */
+@media (max-width: 900px) {
+  .game-header .container {
+    grid-template-columns: 1fr;
+  }
+  .media-section {
+    max-width: 100%;
+  }
+  .sys-req {
+    grid-template-columns: 1fr;
+  }
+}
 </style>
 </head>
 <body>
 
-<div class="topbar">
+<!-- 顶部导航 -->
+<nav class="top-nav">
   <div class="container">
-    <a href="../../index.html" class="back">← 返回游戏榜单</a>
-    <a href="https://store.steampowered.com/app/1252330" target="_blank" class="back-btn" style="margin-left:auto">Steam 商店页</a>
+    <div class="breadcrumb">
+      <a href="../../index.html">← 返回游戏榜单</a>
+    </div>
+    <a href="https://store.steampowered.com/app/1252330/" target="_blank" class="back-link">Steam 商店页 →</a>
   </div>
-</div>
+</nav>
 
-<div class="hero">
+<!-- 游戏头部 -->
+<section class="game-header">
   <div class="container">
-    <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1252330/library_600x900.jpg" alt="Deathloop" class="hero-img" onerror="this.style.display='none'">
-    <div class="hero-info">
-      <h1>死亡循环</h1>
-      <div class="en">Deathloop</div>
-      <div class="meta">
-        <span class="tag">2021</span>
-        <span class="tag mc">评分 87</span>
-        <span class="tag sales">殿堂级 Top 250</span>
-        <span class="tag">动作</span>
+    <!-- 左侧媒体区域 -->
+    <div class="media-section">
+      <div class="media-tabs">
+        
+        <button class="media-tab active" onclick="showScreenshots()">截图</button>
       </div>
-      <div class="desc">DEATHLOOP是一款次世代第一人称射击游戏，由屡获殊荣的Arkane里昂开发。此工作室曾打造好评如潮的《Dishonored》系列。本游戏中，两名敌对刺客受困于黑礁岛神秘的时间循环，注定要永远重复同一天。</div>
+      
+      
+      
+      
+      <div id="screenshots-container" class="screenshots-grid" {{#if VIDEO_HTML}}style="display:none;">
+        <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1252330/ss_26bfb9a442924c466a844086646727f5d6191810.1920x1080.jpg?t=1750785409" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1252330/ss_b05a1ef5c5a43860f7728637c7047695d0d52236.1920x1080.jpg?t=1750785409" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1252330/ss_b18d58a9b6a161bf3b253044b9b3edb91802be0c.1920x1080.jpg?t=1750785409" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1252330/ss_75c463b64181b9607076ec65bb79e7c507a2abd4.1920x1080.jpg?t=1750785409" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1252330/ss_20d302547995e56cb37719f216daf4858e9fee07.1920x1080.jpg?t=1750785409" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1252330/ss_c676a68cd1bf16216bc29138a48382bb7b3dd737.1920x1080.jpg?t=1750785409" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1252330/ss_83ff6db592bee2d30854a067cdfe5e4969aebd56.1920x1080.jpg?t=1750785409" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1252330/ss_14b296c1c693428f94c35b83a6524fdcd7d4c574.1920x1080.jpg?t=1750785409" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1252330/ss_7d53c52c7562eb766334d208e0694b565cdb735d.1920x1080.jpg?t=1750785409" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1252330/ss_2a4e174ee70b3627c8528017d26328b3b48ebf6b.1920x1080.jpg?t=1750785409" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1252330/ss_6fbe7435297380f2f0e010377c36e7a67ede8d56.1920x1080.jpg?t=1750785409" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1252330/ss_647aa6706398334d384b98c92f177d83998f1017.1920x1080.jpg?t=1750785409" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1252330/ss_1beb48e48b69449f9cec4f7c95d519d8505cc7e6.1920x1080.jpg?t=1750785409" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1252330/ss_98d467152ad056ba68a6e736cac46e37649c2dc3.1920x1080.jpg?t=1750785409" alt="Screenshot" onclick="window.open(this.src)">
+      </div>
+      {{/if}}
+    </div>
+    
+    <!-- 右侧信息面板 -->
+    <div class="game-info">
+      <h1 class="game-title">死亡循环</h1>
+      <div class="game-subtitle">Deathloop</div>
+      
+      <div class="game-meta">
+        <div class="meta-item">2021 年 9 月 13 日</div>
+        <div class="meta-item">动作</div>
+        <div class="meta-item score">评分 87</div>
+      </div>
+      
+      
+      <div class="info-block">
+        <div class="label">开发者</div>
+        <div class="value">Arkane Studios</div>
+      </div>
+      
+      
+      
+      <div class="info-block">
+        <div class="label">发行商</div>
+        <div class="value">Bethesda Softworks</div>
+      </div>
+      
+      
+      
+      <div class="game-desc">
+        DEATHLOOP是一款次世代第一人称射击游戏，由屡获殊荣的Arkane里昂开发。此工作室曾打造好评如潮的《Dishonored》系列。本游戏中，两名敌对刺客受困于黑礁岛神秘的时间循环，注定要永远重复同一天。
+      </div>
+      
     </div>
   </div>
-</div>
+</section>
 
-<div class="content">
+<!-- 关于此游戏 -->
+
+<section class="content-section">
   <div class="container">
+    <div class="content-block">
+      <h2>关于此游戏</h2>
+      <div><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1252330/extras/bea5c8799eee29035b3480893ade09db.poster.avif?t=1750785409" width=600 height=266 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1252330/extras/bea5c8799eee29035b3480893ade09db.webm?t=1750785409" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1252330/extras/bea5c8799eee29035b3480893ade09db.mp4?t=1750785409" type="video/mp4"></video></span><br>DEATHLOOP是一款次世代第一人称射击游戏，由屡获殊荣的Arkane里昂开发。此工作室曾打造好评如潮的《Dishonored》系列。本游戏中，两名敌对刺客受困于黑礁岛神秘的时间循环，注定要永远重复同一天。对于柯尔特来说，唯有赶在时间重置之前刺杀八名关键目标，从而结束时间循环，他才有机会逃脱。从每次循环中汲取教训：不断尝试新路径、发掘信息并寻找新的武器和能力。不惜一切代价打破循环。<h2 class="bb_tag" >如果你一开始没能成功……那就，再死一次。</h2>每一次新循环都是改写过去的良机。从每次过往经历中汲取知识并灵活改变你的玩法，决定究竟该悄无声息地安然通关，还是该肆无忌惮地持枪冲锋陷阵。在每次循环中，你将会发现新秘密、发掘关于目标和黑礁岛的新信息，同时扩充你的军火库。配备一系列超凡能力和残暴武器后，你可以尽情使用它们，以引人注目且破坏力惊人的方式打倒敌人。明智选择你的配备，使你在这场致命的狩猎游戏中抢占生机。<br><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1252330/extras/93519a4602b42d5bd42574b23253e924.poster.avif?t=1750785409" width=600 height=266 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1252330/extras/93519a4602b42d5bd42574b23253e924.webm?t=1750785409" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1252330/extras/93519a4602b42d5bd42574b23253e924.mp4?t=1750785409" type="video/mp4"></video></span><h2 class="bb_tag" >为单人游戏玩法注入多人游戏的致命元素</h2>你是英雄还是反派？在DEATHLOOP的主线剧情中，你将扮演柯尔特，在黑礁岛上四处追击目标，试图打破循环并重获自由。与此同时，你的劲敌朱莉安娜将会对你穷追不舍，朱莉安娜有可能是由另一名玩家所操控。如果你想尝试反派作风，你也可以扮演朱莉安娜悄然潜入其他玩家的战役剧情并追杀柯尔特。玩家可自行选择多人游戏模式，你也可选择由电脑控制自己战役剧情中的朱莉安娜。<br><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1252330/extras/a0671ea32764a86bc798c6fb38f3ba44.poster.avif?t=1750785409" width=600 height=266 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1252330/extras/a0671ea32764a86bc798c6fb38f3ba44.webm?t=1750785409" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1252330/extras/a0671ea32764a86bc798c6fb38f3ba44.mp4?t=1750785409" type="video/mp4"></video></span><h2 class="bb_tag" >黑礁岛：天堂或囚牢……</h2>一直以来，Arkane所打造的游戏世界不仅具有宏伟的艺术风格，且以其提供的多种通关途径和涌现式游戏玩法而闻名。DEATHLOOP将会呈现一个受启于上世纪60年代，具有复古未来风格的惊人环境。如游戏世界中的各人物一样，这个故事的舞台本身也极具个性。虽然黑礁岛是一个风格十足的奇境，但对柯尔特而言，这个岛屿却是他的囚牢。这个世界受堕落掌控：在这里，死亡毫无意义，犯罪分子永远在狂欢；而他，却受囚于这牢笼之中。<br><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1252330/extras/c277877314cb4f7024c22c9cfadf9ca7.poster.avif?t=1750785409" width=600 height=266 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1252330/extras/c277877314cb4f7024c22c9cfadf9ca7.webm?t=1750785409" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1252330/extras/c277877314cb4f7024c22c9cfadf9ca7.mp4?t=1750785409" type="video/mp4"></video></span></div>
+    </div>
+  </div>
+</section>
 
-    <div class="dl-section">
+
+<!-- 下载区域 -->
+<section class="download-section">
+  <div class="container">
+    <div class="download-block">
       <h2>📥 下载链接</h2>
-      <div class="dl-buttons">
-<a href="https://www.gamer520.com/107008.html" class="dl-btn gamer520" target="_blank">🎮 gamer520</a>
-<a href="https://www.x6d.com/i-wz-17300.html" class="dl-btn x6d" target="_blank">📦 x6d</a>
+      <div class="download-buttons">
+        <a href="https://www.gamer520.com/107008.html" class="download-btn gamer520" target="_blank">gamer520</a>
+<a href="https://www.x6d.com/i-wz-17300.html" class="download-btn x6d" target="_blank">x6d</a>
 
       </div>
     </div>
-
-    <div class="section">
-      <h2>📋 游戏信息</h2>
-      <div class="info-grid">
-        <div class="info-item"><div class="label">开发商</div><div class="value">Arkane Studios</div></div>
-        <div class="info-item"><div class="label">发行商</div><div class="value">Bethesda Softworks</div></div>
-        <div class="info-item"><div class="label">发行日期</div><div class="value">2021 年 9 月 13 日</div></div>
-        <div class="info-item"><div class="label">类型</div><div class="value">动作</div></div>
-        <div class="info-item"><div class="label">Metacritic</div><div class="value">87</div></div>
-        <div class="info-item"><div class="label">Steam</div><div class="value"><a href="https://store.steampowered.com/app/1252330" target="_blank">查看商店页 →</a></div></div>
-      </div>
-    </div>
-
-    
-    <div class="section">
-      <h2>📖 关于这款游戏</h2>
-      <div class="desc">DEATHLOOP是一款次世代第一人称射击游戏，由屡获殊荣的Arkane里昂开发。此工作室曾打造好评如潮的《Dishonored》系列。本游戏中，两名敌对刺客受困于黑礁岛神秘的时间循环，注定要永远重复同一天。</div>
-    </div>
-
-    
-    <div class="section">
-      <h2>📸 游戏截图</h2>
-      <div class="ss-grid">
-        <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1252330/ss_26bfb9a442924c466a844086646727f5d6191810.1920x1080.jpg?t=1750785409" alt="" loading="lazy">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1252330/ss_b05a1ef5c5a43860f7728637c7047695d0d52236.1920x1080.jpg?t=1750785409" alt="" loading="lazy">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1252330/ss_b18d58a9b6a161bf3b253044b9b3edb91802be0c.1920x1080.jpg?t=1750785409" alt="" loading="lazy">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1252330/ss_75c463b64181b9607076ec65bb79e7c507a2abd4.1920x1080.jpg?t=1750785409" alt="" loading="lazy">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1252330/ss_20d302547995e56cb37719f216daf4858e9fee07.1920x1080.jpg?t=1750785409" alt="" loading="lazy">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1252330/ss_c676a68cd1bf16216bc29138a48382bb7b3dd737.1920x1080.jpg?t=1750785409" alt="" loading="lazy">
-
-      </div>
-    </div>
-
   </div>
-</div>
+</section>
+
+<!-- 系统需求 -->
+
+<section class="content-section">
+  <div class="container">
+    <div class="content-block">
+      <h2>系统需求</h2>
+      <div class="sys-req">
+        <div class="sys-req-col"><h4>最低配置</h4><div><strong>最低配置:</strong><br><ul class="bb_ul"><li>需要 64 位处理器和操作系统<br></li><li><strong>操作系统:</strong> 64 bit Windows 10 version 1909 or higher<br></li><li><strong>处理器:</strong> Intel Core i5-8400 @ 2.80GHz or AMD Ryzen 5 1600<br></li><li><strong>内存:</strong> 12 GB RAM<br></li><li><strong>显卡:</strong> Nvidia GTX 1060 (6GB) or AMD Radeon RX 580 (8GB)<br></li><li><strong>DirectX 版本:</strong> 12<br></li><li><strong>存储空间:</strong> 需要 30 GB 可用空间</li></ul></div></div>
+        <div class="sys-req-col"><h4>推荐配置</h4><div><strong>推荐配置:</strong><br><ul class="bb_ul"><li>需要 64 位处理器和操作系统<br></li><li><strong>操作系统:</strong> 64 bit Windows 10 version 1909 or higher<br></li><li><strong>处理器:</strong> Intel Core i7-9700K @ 3.60GHz or AMD Ryzen 7 2700X<br></li><li><strong>内存:</strong> 16 GB RAM<br></li><li><strong>显卡:</strong> Nvidia RTX 2060 (6GB) or AMD Radeon RX 5700 (8GB)<br></li><li><strong>DirectX 版本:</strong> 12<br></li><li><strong>网络:</strong> 宽带互联网连接<br></li><li><strong>存储空间:</strong> 需要 30 GB 可用空间</li></ul></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+function showVideo() {
+  document.getElementById('video-container').style.display = 'block';
+  document.getElementById('screenshots-container').style.display = 'none';
+  document.querySelectorAll('.media-tab').forEach(t => t.classList.remove('active'));
+  event.target.classList.add('active');
+}
+
+function showScreenshots() {
+  const videoContainer = document.getElementById('video-container');
+  if (videoContainer) videoContainer.style.display = 'none';
+  document.getElementById('screenshots-container').style.display = 'grid';
+  document.querySelectorAll('.media-tab').forEach(t => t.classList.remove('active'));
+  event.target.classList.add('active');
+}
+</script>
+
 </body>
 </html>
