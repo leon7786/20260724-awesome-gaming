@@ -12,6 +12,8 @@ body{font-family:'Segoe UI','Microsoft YaHei',sans-serif;background:#f5f5f7;colo
 .container{max-width:1200px;margin:0 auto;padding:0 20px}
 .back{color:#6d28d9;text-decoration:none;font-size:14px;font-weight:500;display:flex;align-items:center;gap:4px}
 .back:hover{text-decoration:underline}
+.back-btn{background:#6d28d9;color:#fff;padding:6px 14px;border-radius:4px;text-decoration:none;font-size:13px}
+.back-btn:hover{background:#5b21b6}
 .hero{background:linear-gradient(180deg,#f0f0f5 0%,#e8e8f0 100%);color:#1a1a2e;padding:30px 0 0;border-bottom:1px solid #e0e0e4}
 .hero .container{display:flex;gap:30px;flex-wrap:wrap}
 .hero-info{flex:1;min-width:280px}
@@ -19,6 +21,7 @@ body{font-family:'Segoe UI','Microsoft YaHei',sans-serif;background:#f5f5f7;colo
 .hero-info .en{color:#888;font-size:14px;margin-bottom:12px}
 .hero-info .meta{display:flex;gap:6px;margin-bottom:14px;flex-wrap:wrap}
 .hero .tag{font-size:12px;padding:3px 10px;border-radius:4px;background:#e8e8ec;color:#555}
+.hero .tag.mc{background:#6d28d922;color:#6d28d9}
 .hero .tag.sales{background:#e11d4822;color:#e11d48}
 .hero-img{width:460px;max-width:100%;border-radius:8px;flex-shrink:0;box-shadow:0 2px 12px rgba(0,0,0,0.08)}
 .content{padding:24px 0}
@@ -32,10 +35,17 @@ body{font-family:'Segoe UI','Microsoft YaHei',sans-serif;background:#f5f5f7;colo
 .dl-btn:hover{filter:brightness(1.1);transform:translateY(-1px)}
 .dl-btn.gamer520{background:#10b981}
 .dl-btn.x6d{background:#3b82f6}
+.dl-btn.tianyi{background:#6366f1}
+.dl-btn.baidu{background:#2563eb}
+.dl-btn.magnet{background:#ef4444}
+.dl-btn.fitgirl{background:#f59e0b}
 .info-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:16px}
 .info-item .label{font-size:12px;color:#888;text-transform:uppercase;letter-spacing:0.5px}
 .info-item .value{font-size:14px;color:#1a1a2e;margin-top:2px}
-@media(max-width:768px){.hero-img{width:100%}}
+.ss-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:8px}
+.ss-grid img{width:100%;border-radius:6px;cursor:pointer;transition:transform .2s}
+.ss-grid img:hover{transform:scale(1.02)}
+@media(max-width:768px){.hero-img{width:100%}.ss-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -43,18 +53,21 @@ body{font-family:'Segoe UI','Microsoft YaHei',sans-serif;background:#f5f5f7;colo
 <div class="topbar">
   <div class="container">
     <a href="../index.html" class="back">← 返回游戏榜单</a>
+    <a href="https://store.steampowered.com/app/3164500" target="_blank" class="back-btn" style="margin-left:auto">Steam 商店页</a>
   </div>
 </div>
 
 <div class="hero">
   <div class="container">
-    <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3164500/header.jpg?t=1773974661" alt="Schedule I" class="hero-img" onerror="this.style.display='none'">
+    <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3164500/library_600x900.jpg" alt="Schedule I" class="hero-img" onerror="this.style.display='none'">
     <div class="hero-info">
       <h1>第一日程</h1>
       <div class="en">Schedule I</div>
       <div class="meta">
         <span class="tag">2025</span>
+        
         <span class="tag sales">殿堂级 Top 250</span>
+        <span class="tag">动作, 独立, 模拟, 策略, 抢先体验</span>
       </div>
       <div class="desc">From small-time dope pusher to kingpin - manufacture and distribute a range of drugs throughout the grungy city of Hyland Point. Expand your empire with properties, businesses, employees and more.</div>
     </div>
@@ -74,9 +87,32 @@ body{font-family:'Segoe UI','Microsoft YaHei',sans-serif;background:#f5f5f7;colo
     <div class="section">
       <h2>📋 游戏信息</h2>
       <div class="info-grid">
-        <div class="info-item"><div class="label">发行年份</div><div class="value">2025</div></div>
-        <div class="info-item"><div class="label">平台</div><div class="value">PC</div></div>
-        <div class="info-item"><div class="label">荣誉</div><div class="value">Steam 250 年度最高评价独立黑马</div></div>
+        <div class="info-item"><div class="label">开发商</div><div class="value">TVGS</div></div>
+        <div class="info-item"><div class="label">发行商</div><div class="value">TVGS</div></div>
+        <div class="info-item"><div class="label">发行日期</div><div class="value">2025 年 3 月 24 日</div></div>
+        <div class="info-item"><div class="label">类型</div><div class="value">动作, 独立, 模拟, 策略, 抢先体验</div></div>
+        <div class="info-item"><div class="label">Metacritic</div><div class="value">待补充</div></div>
+        <div class="info-item"><div class="label">Steam</div><div class="value"><a href="https://store.steampowered.com/app/3164500" target="_blank">查看商店页 →</a></div></div>
+      </div>
+    </div>
+
+    
+    <div class="section">
+      <h2>📖 关于这款游戏</h2>
+      <div class="desc">From small-time dope pusher to kingpin - manufacture and distribute a range of drugs throughout the grungy city of Hyland Point. Expand your empire with properties, businesses, employees and more.</div>
+    </div>
+
+    
+    <div class="section">
+      <h2>📸 游戏截图</h2>
+      <div class="ss-grid">
+        <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3164500/ss_74961b6f52d7694b12c272c37d69551fc08a1ccb.1920x1080.jpg?t=1773974661" alt="" loading="lazy">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3164500/cf6f4630aec1f9065da3352532e5094613b35975/ss_cf6f4630aec1f9065da3352532e5094613b35975.1920x1080.jpg?t=1773974661" alt="" loading="lazy">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3164500/b63fe62bed217f2852a2e712b4c57faef67f6b19/ss_b63fe62bed217f2852a2e712b4c57faef67f6b19.1920x1080.jpg?t=1773974661" alt="" loading="lazy">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3164500/c5d4057a82c0a72092494e0e7ba3188e22dfe477/ss_c5d4057a82c0a72092494e0e7ba3188e22dfe477.1920x1080.jpg?t=1773974661" alt="" loading="lazy">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3164500/ss_a9b00612e3e3bbc111a6dc53a5a861d38b77c9df.1920x1080.jpg?t=1773974661" alt="" loading="lazy">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3164500/c792894199193adc8b04cf16b2fec45c5701b0f2/ss_c792894199193adc8b04cf16b2fec45c5701b0f2.1920x1080.jpg?t=1773974661" alt="" loading="lazy">
+
       </div>
     </div>
 

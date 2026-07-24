@@ -12,6 +12,8 @@ body{font-family:'Segoe UI','Microsoft YaHei',sans-serif;background:#f5f5f7;colo
 .container{max-width:1200px;margin:0 auto;padding:0 20px}
 .back{color:#6d28d9;text-decoration:none;font-size:14px;font-weight:500;display:flex;align-items:center;gap:4px}
 .back:hover{text-decoration:underline}
+.back-btn{background:#6d28d9;color:#fff;padding:6px 14px;border-radius:4px;text-decoration:none;font-size:13px}
+.back-btn:hover{background:#5b21b6}
 .hero{background:linear-gradient(180deg,#f0f0f5 0%,#e8e8f0 100%);color:#1a1a2e;padding:30px 0 0;border-bottom:1px solid #e0e0e4}
 .hero .container{display:flex;gap:30px;flex-wrap:wrap}
 .hero-info{flex:1;min-width:280px}
@@ -19,6 +21,7 @@ body{font-family:'Segoe UI','Microsoft YaHei',sans-serif;background:#f5f5f7;colo
 .hero-info .en{color:#888;font-size:14px;margin-bottom:12px}
 .hero-info .meta{display:flex;gap:6px;margin-bottom:14px;flex-wrap:wrap}
 .hero .tag{font-size:12px;padding:3px 10px;border-radius:4px;background:#e8e8ec;color:#555}
+.hero .tag.mc{background:#6d28d922;color:#6d28d9}
 .hero .tag.sales{background:#e11d4822;color:#e11d48}
 .hero-img{width:460px;max-width:100%;border-radius:8px;flex-shrink:0;box-shadow:0 2px 12px rgba(0,0,0,0.08)}
 .content{padding:24px 0}
@@ -32,10 +35,17 @@ body{font-family:'Segoe UI','Microsoft YaHei',sans-serif;background:#f5f5f7;colo
 .dl-btn:hover{filter:brightness(1.1);transform:translateY(-1px)}
 .dl-btn.gamer520{background:#10b981}
 .dl-btn.x6d{background:#3b82f6}
+.dl-btn.tianyi{background:#6366f1}
+.dl-btn.baidu{background:#2563eb}
+.dl-btn.magnet{background:#ef4444}
+.dl-btn.fitgirl{background:#f59e0b}
 .info-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:16px}
 .info-item .label{font-size:12px;color:#888;text-transform:uppercase;letter-spacing:0.5px}
 .info-item .value{font-size:14px;color:#1a1a2e;margin-top:2px}
-@media(max-width:768px){.hero-img{width:100%}}
+.ss-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:8px}
+.ss-grid img{width:100%;border-radius:6px;cursor:pointer;transition:transform .2s}
+.ss-grid img:hover{transform:scale(1.02)}
+@media(max-width:768px){.hero-img{width:100%}.ss-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -43,18 +53,21 @@ body{font-family:'Segoe UI','Microsoft YaHei',sans-serif;background:#f5f5f7;colo
 <div class="topbar">
   <div class="container">
     <a href="../index.html" class="back">← 返回游戏榜单</a>
+    <a href="https://store.steampowered.com/app/2414630" target="_blank" class="back-btn" style="margin-left:auto">Steam 商店页</a>
   </div>
 </div>
 
 <div class="hero">
   <div class="container">
-    <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2414630/header.jpg?t=1730875830" alt="Cocoon" class="hero-img" onerror="this.style.display='none'">
+    <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2414630/library_600x900.jpg" alt="Cocoon" class="hero-img" onerror="this.style.display='none'">
     <div class="hero-info">
       <h1>蚕茧</h1>
       <div class="en">Cocoon</div>
       <div class="meta">
         <span class="tag">2023</span>
+        
         <span class="tag sales">殿堂级 Top 250</span>
+        <span class="tag">冒险, 独立</span>
       </div>
       <div class="desc">“茧中蚕作最后一梦” Hollow Cocoon 是一款以1980年代的日本为游戏背景的第一人称恐怖冒险游戏。 探索真实还原的日本场景，克服恐惧，不断深入挖掘事件真相……</div>
     </div>
@@ -75,9 +88,32 @@ body{font-family:'Segoe UI','Microsoft YaHei',sans-serif;background:#f5f5f7;colo
     <div class="section">
       <h2>📋 游戏信息</h2>
       <div class="info-grid">
-        <div class="info-item"><div class="label">发行年份</div><div class="value">2023</div></div>
-        <div class="info-item"><div class="label">平台</div><div class="value">PC / Console</div></div>
-        <div class="info-item"><div class="label">荣誉</div><div class="value">TGA最佳新晋独立游戏 / 嵌套世界解谜神作</div></div>
+        <div class="info-item"><div class="label">开发商</div><div class="value">NAYUTA STUDIO</div></div>
+        <div class="info-item"><div class="label">发行商</div><div class="value">NAYUTA STUDIO</div></div>
+        <div class="info-item"><div class="label">发行日期</div><div class="value">2023 年 12 月 6 日</div></div>
+        <div class="info-item"><div class="label">类型</div><div class="value">冒险, 独立</div></div>
+        <div class="info-item"><div class="label">Metacritic</div><div class="value">待补充</div></div>
+        <div class="info-item"><div class="label">Steam</div><div class="value"><a href="https://store.steampowered.com/app/2414630" target="_blank">查看商店页 →</a></div></div>
+      </div>
+    </div>
+
+    
+    <div class="section">
+      <h2>📖 关于这款游戏</h2>
+      <div class="desc">“茧中蚕作最后一梦” Hollow Cocoon 是一款以1980年代的日本为游戏背景的第一人称恐怖冒险游戏。 探索真实还原的日本场景，克服恐惧，不断深入挖掘事件真相……</div>
+    </div>
+
+    
+    <div class="section">
+      <h2>📸 游戏截图</h2>
+      <div class="ss-grid">
+        <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2414630/ss_e1ec5f7542bf2ba1b8898028c0e5dfd5129fbe92.1920x1080.jpg?t=1730875830" alt="" loading="lazy">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2414630/ss_bd0de7a041066b0cf3eb89b95df60884eba7e1ef.1920x1080.jpg?t=1730875830" alt="" loading="lazy">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2414630/ss_bc1a89a517cdba5d6f55b92c51fa8e2692b79cd4.1920x1080.jpg?t=1730875830" alt="" loading="lazy">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2414630/ss_ef864108900fc965317d284a9cf138f155123f90.1920x1080.jpg?t=1730875830" alt="" loading="lazy">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2414630/ss_8d2691010c163d2542a7474a9fae16b5011ba68d.1920x1080.jpg?t=1730875830" alt="" loading="lazy">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2414630/ss_9e3ab87d81cb9bffd43d38e28203ff128b0d286b.1920x1080.jpg?t=1730875830" alt="" loading="lazy">
+
       </div>
     </div>
 

@@ -12,6 +12,8 @@ body{font-family:'Segoe UI','Microsoft YaHei',sans-serif;background:#f5f5f7;colo
 .container{max-width:1200px;margin:0 auto;padding:0 20px}
 .back{color:#6d28d9;text-decoration:none;font-size:14px;font-weight:500;display:flex;align-items:center;gap:4px}
 .back:hover{text-decoration:underline}
+.back-btn{background:#6d28d9;color:#fff;padding:6px 14px;border-radius:4px;text-decoration:none;font-size:13px}
+.back-btn:hover{background:#5b21b6}
 .hero{background:linear-gradient(180deg,#f0f0f5 0%,#e8e8f0 100%);color:#1a1a2e;padding:30px 0 0;border-bottom:1px solid #e0e0e4}
 .hero .container{display:flex;gap:30px;flex-wrap:wrap}
 .hero-info{flex:1;min-width:280px}
@@ -19,6 +21,7 @@ body{font-family:'Segoe UI','Microsoft YaHei',sans-serif;background:#f5f5f7;colo
 .hero-info .en{color:#888;font-size:14px;margin-bottom:12px}
 .hero-info .meta{display:flex;gap:6px;margin-bottom:14px;flex-wrap:wrap}
 .hero .tag{font-size:12px;padding:3px 10px;border-radius:4px;background:#e8e8ec;color:#555}
+.hero .tag.mc{background:#6d28d922;color:#6d28d9}
 .hero .tag.sales{background:#e11d4822;color:#e11d48}
 .hero-img{width:460px;max-width:100%;border-radius:8px;flex-shrink:0;box-shadow:0 2px 12px rgba(0,0,0,0.08)}
 .content{padding:24px 0}
@@ -32,10 +35,17 @@ body{font-family:'Segoe UI','Microsoft YaHei',sans-serif;background:#f5f5f7;colo
 .dl-btn:hover{filter:brightness(1.1);transform:translateY(-1px)}
 .dl-btn.gamer520{background:#10b981}
 .dl-btn.x6d{background:#3b82f6}
+.dl-btn.tianyi{background:#6366f1}
+.dl-btn.baidu{background:#2563eb}
+.dl-btn.magnet{background:#ef4444}
+.dl-btn.fitgirl{background:#f59e0b}
 .info-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:16px}
 .info-item .label{font-size:12px;color:#888;text-transform:uppercase;letter-spacing:0.5px}
 .info-item .value{font-size:14px;color:#1a1a2e;margin-top:2px}
-@media(max-width:768px){.hero-img{width:100%}}
+.ss-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:8px}
+.ss-grid img{width:100%;border-radius:6px;cursor:pointer;transition:transform .2s}
+.ss-grid img:hover{transform:scale(1.02)}
+@media(max-width:768px){.hero-img{width:100%}.ss-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -43,18 +53,21 @@ body{font-family:'Segoe UI','Microsoft YaHei',sans-serif;background:#f5f5f7;colo
 <div class="topbar">
   <div class="container">
     <a href="../index.html" class="back">← 返回游戏榜单</a>
+    <a href="https://store.steampowered.com/app/2947440" target="_blank" class="back-btn" style="margin-left:auto">Steam 商店页</a>
   </div>
 </div>
 
 <div class="hero">
   <div class="container">
-    <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2947440/7e5d923ac622bd1775ebc9b5d4b5b0a24bf5ed40/header.jpg?t=1770169624" alt="Silent Hill f" class="hero-img" onerror="this.style.display='none'">
+    <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2947440/library_600x900.jpg" alt="Silent Hill f" class="hero-img" onerror="this.style.display='none'">
     <div class="hero-info">
       <h1>寂静岭 f</h1>
       <div class="en">Silent Hill f</div>
       <div class="meta">
         <span class="tag">2025</span>
+        
         <span class="tag sales">殿堂级 Top 250</span>
+        <span class="tag">动作, 冒险</span>
       </div>
       <div class="desc">主人公是居住在群山环绕的日本乡村小镇·戎之丘的高中生·深水雏子。 她的日常生活因为神秘白色“怪物”的出现突然崩塌。 她一边在面目全非的熟悉小镇中探索、战斗、解谜，一边迎来属于她的“结局”。</div>
     </div>
@@ -76,9 +89,32 @@ body{font-family:'Segoe UI','Microsoft YaHei',sans-serif;background:#f5f5f7;colo
     <div class="section">
       <h2>📋 游戏信息</h2>
       <div class="info-grid">
-        <div class="info-item"><div class="label">发行年份</div><div class="value">2025</div></div>
-        <div class="info-item"><div class="label">平台</div><div class="value">PC / PS5 / Xbox Series</div></div>
-        <div class="info-item"><div class="label">荣誉</div><div class="value">Steam大奖杰出视觉风格得主</div></div>
+        <div class="info-item"><div class="label">开发商</div><div class="value">NeoBards Entertainment Ltd.</div></div>
+        <div class="info-item"><div class="label">发行商</div><div class="value">KONAMI</div></div>
+        <div class="info-item"><div class="label">发行日期</div><div class="value">2025 年 9 月 24 日</div></div>
+        <div class="info-item"><div class="label">类型</div><div class="value">动作, 冒险</div></div>
+        <div class="info-item"><div class="label">Metacritic</div><div class="value">待补充</div></div>
+        <div class="info-item"><div class="label">Steam</div><div class="value"><a href="https://store.steampowered.com/app/2947440" target="_blank">查看商店页 →</a></div></div>
+      </div>
+    </div>
+
+    
+    <div class="section">
+      <h2>📖 关于这款游戏</h2>
+      <div class="desc">主人公是居住在群山环绕的日本乡村小镇·戎之丘的高中生·深水雏子。 她的日常生活因为神秘白色“怪物”的出现突然崩塌。 她一边在面目全非的熟悉小镇中探索、战斗、解谜，一边迎来属于她的“结局”。</div>
+    </div>
+
+    
+    <div class="section">
+      <h2>📸 游戏截图</h2>
+      <div class="ss-grid">
+        <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2947440/93e420a6665b42229735a3495b86bd35b7cb8c53/ss_93e420a6665b42229735a3495b86bd35b7cb8c53.1920x1080.jpg?t=1770169624" alt="" loading="lazy">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2947440/fdfc1171e15f271eb16750cd0e5575e5e312a6af/ss_fdfc1171e15f271eb16750cd0e5575e5e312a6af.1920x1080.jpg?t=1770169624" alt="" loading="lazy">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2947440/212938a6419ccb6f2d2b6bdfe9c09a2600b7d846/ss_212938a6419ccb6f2d2b6bdfe9c09a2600b7d846.1920x1080.jpg?t=1770169624" alt="" loading="lazy">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2947440/596675f3269d51ef397a7db04a08199fe1987ff1/ss_596675f3269d51ef397a7db04a08199fe1987ff1.1920x1080.jpg?t=1770169624" alt="" loading="lazy">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2947440/c2a0f8efcb4cc01d3046a5c68675f9c811ee90e4/ss_c2a0f8efcb4cc01d3046a5c68675f9c811ee90e4.1920x1080.jpg?t=1770169624" alt="" loading="lazy">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2947440/0052fc9d54c4b4f1588b798a6638556c6b5d4db2/ss_0052fc9d54c4b4f1588b798a6638556c6b5d4db2.1920x1080.jpg?t=1770169624" alt="" loading="lazy">
+
       </div>
     </div>
 

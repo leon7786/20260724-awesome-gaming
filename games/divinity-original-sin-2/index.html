@@ -14,8 +14,6 @@ body{font-family:'Segoe UI','Microsoft YaHei',sans-serif;background:#f5f5f7;colo
 .back:hover{text-decoration:underline}
 .back-btn{background:#6d28d9;color:#fff;padding:6px 14px;border-radius:4px;text-decoration:none;font-size:13px}
 .back-btn:hover{background:#5b21b6}
-
-/* Steam风格头部 */
 .hero{background:linear-gradient(180deg,#f0f0f5 0%,#e8e8f0 100%);color:#1a1a2e;padding:30px 0 0;border-bottom:1px solid #e0e0e4}
 .hero .container{display:flex;gap:30px;flex-wrap:wrap}
 .hero-info{flex:1;min-width:280px}
@@ -26,17 +24,10 @@ body{font-family:'Segoe UI','Microsoft YaHei',sans-serif;background:#f5f5f7;colo
 .hero .tag.mc{background:#6d28d922;color:#6d28d9}
 .hero .tag.sales{background:#e11d4822;color:#e11d48}
 .hero-img{width:460px;max-width:100%;border-radius:8px;flex-shrink:0;box-shadow:0 2px 12px rgba(0,0,0,0.08)}
-
-/* Steam风格内容区 */
 .content{padding:24px 0}
 .section{background:#fff;border-radius:8px;border:1px solid #e0e0e4;padding:24px;margin-bottom:16px}
 .section h2{font-size:18px;color:#1a1a2e;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid #e0e0e4}
-
-/* 简介 */
 .desc{font-size:15px;color:#444;line-height:1.7}
-.desc a{color:#6d28d9}
-
-/* 下载区 */
 .dl-section{background:#fff;border-radius:8px;border:1px solid #e0e0e4;padding:24px;margin-bottom:16px}
 .dl-section h2{font-size:18px;color:#1a1a2e;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid #e0e0e4}
 .dl-buttons{display:flex;flex-wrap:wrap;gap:8px}
@@ -48,32 +39,12 @@ body{font-family:'Segoe UI','Microsoft YaHei',sans-serif;background:#f5f5f7;colo
 .dl-btn.baidu{background:#2563eb}
 .dl-btn.magnet{background:#ef4444}
 .dl-btn.fitgirl{background:#f59e0b}
-.dl-btn.steamzg{background:#8b5cf6}
-.dl-btn.crotorrents{background:#ec4899}
-
-/* Steam信息网格 */
 .info-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:16px}
-.info-item{}
 .info-item .label{font-size:12px;color:#888;text-transform:uppercase;letter-spacing:0.5px}
 .info-item .value{font-size:14px;color:#1a1a2e;margin-top:2px}
-.info-item .value a{color:#6d28d9;text-decoration:none}
-.info-item .value a:hover{text-decoration:underline}
-
-/* 截图 */
 .ss-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:8px}
 .ss-grid img{width:100%;border-radius:6px;cursor:pointer;transition:transform .2s}
 .ss-grid img:hover{transform:scale(1.02)}
-
-/* 配置要求 */
-.reqs{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-@media(max-width:768px){.reqs{grid-template-columns:1fr}}
-.req-item{}
-.req-item h3{font-size:14px;color:#1a1a2e;margin-bottom:8px;padding-bottom:4px;border-bottom:1px solid #e0e0e4}
-.req-text{font-size:13px;color:#555;line-height:1.6}
-.req-text ul{list-style:none;padding:0}
-.req-text li{padding:2px 0}
-.req-text strong{color:#1a1a2e}
-
 @media(max-width:768px){.hero-img{width:100%}.ss-grid{grid-template-columns:1fr}}
 </style>
 </head>
@@ -94,7 +65,7 @@ body{font-family:'Segoe UI','Microsoft YaHei',sans-serif;background:#f5f5f7;colo
       <div class="en">Divinity: Original Sin 2</div>
       <div class="meta">
         <span class="tag">2017</span>
-        <span class="tag mc">评分 </span>
+        <span class="tag mc">评分 93</span>
         <span class="tag mc">口碑Top</span>
         <span class="tag">冒险, 角色扮演, 策略</span>
       </div>
@@ -109,7 +80,11 @@ body{font-family:'Segoe UI','Microsoft YaHei',sans-serif;background:#f5f5f7;colo
     <div class="dl-section">
       <h2>📥 下载链接</h2>
       <div class="dl-buttons">
-<p style="color:#999;font-size:13px">暂无下载链接</p>
+<a href="magnet:?xt=urn:btih:EE2A7AAAEF75E21B8BD22216219FA9E58FEE907E" class="dl-btn magnet" target="_blank">🧲 磁力链</a>
+<a href="https://fitgirl-repacks.site/divinity-original-sin-2/" class="dl-btn fitgirl" target="_blank">📀 FitGirl</a>
+<a href="https://www.gamer520.com/62634.html" class="dl-btn gamer520" target="_blank">🎮 gamer520</a>
+<a href="https://www.x6d.com/i-wz-11978.html" class="dl-btn x6d" target="_blank">📦 x6d</a>
+
       </div>
     </div>
 
@@ -128,7 +103,7 @@ body{font-family:'Segoe UI','Microsoft YaHei',sans-serif;background:#f5f5f7;colo
     
     <div class="section">
       <h2>📖 关于这款游戏</h2>
-      <div class="desc">圣者已逝，虚空迫近。而你体内隐藏的力量很快就要觉醒。捍卫神性的战斗已经开始，请你做出明智的选择，对一切保持警惕：黑暗正潜伏于每个人的心中。 如何谱写你的传说？ 扮演一名食肉的精灵，一只统御帝国的蜥蜴人，又或是刚从坟墓中苏醒的亡灵？请尽情探索这个神奇的世界，看看它对于你的每一种选择，每一种身份，会如何来回应。新的圣者之路，就在此刻！  召集你的团队，和你的伙伴们一同前进。在回合制战斗的环境中，用高超的技巧将你的敌人打入深渊。你可以利用居高临下的优势，将周围的环境作为武器，并借助各种元素的力量来夺取胜利。成为绿维珑所期待的救赎之神。独自一人或是和最多三名伙伴组成队伍，探索绿维珑广袤而多元化的世界。你可以去任何想去的地方，放飞你的想象力，探索无穷无尽的与这个世界交互的方式。在绿维珑之外，我们还提供了全新的“玩家对战模式”和“游戏大师模式”，请尽情体验。选择你的种族和起源。从6个预设起源的角色中，根据他们独特的背景故事和人生目标进行挑选。或是创造你自己的角色：人类，蜥蜴人，精灵，矮人，亡灵等等。你所做出的任何选择，都会影响游戏的进程。毫无限制的探索与实验。你可以去任何地方，与任何人交谈，与一切事物互动！杀掉游戏中的NPC并不会终止你前进的道路，某些鬼魂还可能隐藏着一两个小秘密…在这个神奇的世界里，你甚至可以和每一只动物进行交流！新一代的回合制战斗。你可以组合各种元素，让你的对手尝尝它们的厉害，你可以利用高地优势来创造有利的格局。你可以精通12门技能学派的总计200多种技能。但要小心——游戏中的AI 2.0版是我们迄今为止最狡黠的发明。支持最多4名玩家联机或是本地协作。你可以和你的朋友们在线联机，或在同一台电脑上用手柄分屏游玩。本游戏支持各种手柄类型。游戏大师模式：拓展你的冒险，提高游戏体验。你可以用本模式来制作独属于你自己的故事，也可以从Steam创意工坊下载由其他玩家制作的战役或</div>
+      <div class="desc">来自《博德之门3》的开发团队，倍受好评的本作提升了RPG业界标杆。召集你的队伍，驾驭富有深度和挑战性的战斗。以最多四人的队伍进行冒险 - 但是请记住，只有其中一人才能成神。</div>
     </div>
 
     
@@ -142,14 +117,6 @@ body{font-family:'Segoe UI','Microsoft YaHei',sans-serif;background:#f5f5f7;colo
 <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/435150/ss_d51d3ccb39019124c45bf851bbe6a76e2461fab3.1920x1080.jpg?t=1765811123" alt="" loading="lazy">
 <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/435150/ss_a0fa5dd2f40fffbae32af259afcf588a999e6663.1920x1080.jpg?t=1765811123" alt="" loading="lazy">
 
-      </div>
-    </div>
-
-    
-    <div class="section">
-      <h2>💻 系统配置要求</h2>
-      <div class="reqs">
-        <div class="req-item"><h3>最低配置</h3><div class="req-text"><strong>最低配置:</strong><br><ul class="bb_ul"><li>需要 64 位处理器和操作系统<br></li><li><strong>操作系统 *:</strong> Windows 7 SP1 64-bit or Windows 8.1 64-bit or Windows 10 64-bit<br></li><li><strong>处理器:</strong> Intel Core i5 or equivalent<br></li><li><strong>内存:</strong> 4 GB RAM<br></li><li><strong>显卡:</strong> NVIDIA® GeForce® GTX 550 or ATI™ Radeon™ HD 6XXX or higher<br></li><li><strong>DirectX 版本:</strong> 11<br></li><li><strong>存储空间:</strong> 需要 60 GB 可用空间<br></li><li><strong>附注事项:</strong> Minimum requirements may change during development.</li></ul></div></div><div class="req-item"><h3>推荐配置</h3><div class="req-text"><strong>推荐配置:</strong><br><ul class="bb_ul"><li>需要 64 位处理器和操作系统<br></li><li><strong>操作系统 *:</strong> Windows 7 SP1 64-bit or Windows 8.1 64-bit or Windows 10 64-bit<br></li><li><strong>处理器:</strong> Intel Core i7 or equivalent<br></li><li><strong>内存:</strong> 8 GB RAM<br></li><li><strong>显卡:</strong> NVIDIA GeForce GTX 770 or AMD R9 280<br></li><li><strong>DirectX 版本:</strong> 11<br></li><li><strong>存储空间:</strong> 需要 60 GB 可用空间<br></li><li><strong>附注事项:</strong> Recommended requirements may change during development.</li></ul></div></div>
       </div>
     </div>
 

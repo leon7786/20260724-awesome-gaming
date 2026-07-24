@@ -12,6 +12,8 @@ body{font-family:'Segoe UI','Microsoft YaHei',sans-serif;background:#f5f5f7;colo
 .container{max-width:1200px;margin:0 auto;padding:0 20px}
 .back{color:#6d28d9;text-decoration:none;font-size:14px;font-weight:500;display:flex;align-items:center;gap:4px}
 .back:hover{text-decoration:underline}
+.back-btn{background:#6d28d9;color:#fff;padding:6px 14px;border-radius:4px;text-decoration:none;font-size:13px}
+.back-btn:hover{background:#5b21b6}
 .hero{background:linear-gradient(180deg,#f0f0f5 0%,#e8e8f0 100%);color:#1a1a2e;padding:30px 0 0;border-bottom:1px solid #e0e0e4}
 .hero .container{display:flex;gap:30px;flex-wrap:wrap}
 .hero-info{flex:1;min-width:280px}
@@ -19,6 +21,7 @@ body{font-family:'Segoe UI','Microsoft YaHei',sans-serif;background:#f5f5f7;colo
 .hero-info .en{color:#888;font-size:14px;margin-bottom:12px}
 .hero-info .meta{display:flex;gap:6px;margin-bottom:14px;flex-wrap:wrap}
 .hero .tag{font-size:12px;padding:3px 10px;border-radius:4px;background:#e8e8ec;color:#555}
+.hero .tag.mc{background:#6d28d922;color:#6d28d9}
 .hero .tag.sales{background:#e11d4822;color:#e11d48}
 .hero-img{width:460px;max-width:100%;border-radius:8px;flex-shrink:0;box-shadow:0 2px 12px rgba(0,0,0,0.08)}
 .content{padding:24px 0}
@@ -32,10 +35,17 @@ body{font-family:'Segoe UI','Microsoft YaHei',sans-serif;background:#f5f5f7;colo
 .dl-btn:hover{filter:brightness(1.1);transform:translateY(-1px)}
 .dl-btn.gamer520{background:#10b981}
 .dl-btn.x6d{background:#3b82f6}
+.dl-btn.tianyi{background:#6366f1}
+.dl-btn.baidu{background:#2563eb}
+.dl-btn.magnet{background:#ef4444}
+.dl-btn.fitgirl{background:#f59e0b}
 .info-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:16px}
 .info-item .label{font-size:12px;color:#888;text-transform:uppercase;letter-spacing:0.5px}
 .info-item .value{font-size:14px;color:#1a1a2e;margin-top:2px}
-@media(max-width:768px){.hero-img{width:100%}}
+.ss-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:8px}
+.ss-grid img{width:100%;border-radius:6px;cursor:pointer;transition:transform .2s}
+.ss-grid img:hover{transform:scale(1.02)}
+@media(max-width:768px){.hero-img{width:100%}.ss-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -43,21 +53,23 @@ body{font-family:'Segoe UI','Microsoft YaHei',sans-serif;background:#f5f5f7;colo
 <div class="topbar">
   <div class="container">
     <a href="../index.html" class="back">← 返回游戏榜单</a>
+    <a href="https://store.steampowered.com/app/2651280" target="_blank" class="back-btn" style="margin-left:auto">Steam 商店页</a>
   </div>
 </div>
 
 <div class="hero">
   <div class="container">
-    <img src="https://image.api.playstation.com/vulcan/ap/rnd/2023-06/0bKbqSfRZvZQZQZQZQZQZQZQ.png" alt="Marvel's Spider-Man 2" class="hero-img" onerror="this.style.display='none'">
+    <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2651280/library_600x900.jpg" alt="Marvel's Spider-Man 2" class="hero-img" onerror="this.style.display='none'">
     <div class="hero-info">
       <h1>漫威蜘蛛侠2</h1>
       <div class="en">Marvel's Spider-Man 2</div>
       <div class="meta">
         <span class="tag">2023</span>
+        <span class="tag mc">评分 93</span>
         <span class="tag sales">销量Top</span>
-        <span class="tag">动作冒险</span>
+        <span class="tag">动作, 冒险</span>
       </div>
-      <div class="desc">彼得·帕克和迈尔斯·莫拉莱斯再次回归，在这部备受期待的续作中面对新的威胁。两位蜘蛛侠将共同对抗毒液、猎人克莱文等经典反派，探索纽约市的各个角落。</div>
+      <div class="desc">Be Greater. Together. 在广受好评的《Spider-Man》续作PC版的全新激动人心的篇章中，共生体的惊人力量迫使彼得·帕克和迈尔斯·墨拉莱斯身陷绝望的战斗之中，与此同时，他们也要在自己的生活、友谊和保护需要帮助的人的责任之间取得平衡。</div>
     </div>
   </div>
 </div>
@@ -77,17 +89,33 @@ body{font-family:'Segoe UI','Microsoft YaHei',sans-serif;background:#f5f5f7;colo
     <div class="section">
       <h2>📋 游戏信息</h2>
       <div class="info-grid">
-        <div class="info-item"><div class="label">开发商</div><div class="value">Insomniac Games</div></div>
-        <div class="info-item"><div class="label">发行商</div><div class="value">Sony Interactive Entertainment</div></div>
-        <div class="info-item"><div class="label">发行日期</div><div class="value">2023 年 10 月 20 日</div></div>
-        <div class="info-item"><div class="label">类型</div><div class="value">动作冒险</div></div>
-        <div class="info-item"><div class="label">平台</div><div class="value">PlayStation 5, PC</div></div>
+        <div class="info-item"><div class="label">开发商</div><div class="value">Insomniac Games, Nixxes Software</div></div>
+        <div class="info-item"><div class="label">发行商</div><div class="value">PlayStation Publishing LLC</div></div>
+        <div class="info-item"><div class="label">发行日期</div><div class="value">2025 年 1 月 30 日</div></div>
+        <div class="info-item"><div class="label">类型</div><div class="value">动作, 冒险</div></div>
+        <div class="info-item"><div class="label">Metacritic</div><div class="value">93</div></div>
+        <div class="info-item"><div class="label">Steam</div><div class="value"><a href="https://store.steampowered.com/app/2651280" target="_blank">查看商店页 →</a></div></div>
       </div>
     </div>
 
+    
     <div class="section">
       <h2>📖 关于这款游戏</h2>
-      <div class="desc">《漫威蜘蛛侠2》是Insomniac Games开发的动作冒险游戏，是《漫威蜘蛛侠》和《漫威蜘蛛侠：迈尔斯·莫拉莱斯》的续作。游戏中，彼得·帕克和迈尔斯·莫拉莱斯将共同面对新的威胁，包括毒液、猎人克莱文等经典反派。游戏支持双主角切换，玩家可以体验两位蜘蛛侠的不同故事线。</div>
+      <div class="desc">Be Greater. Together. 在广受好评的《Spider-Man》续作PC版的全新激动人心的篇章中，共生体的惊人力量迫使彼得·帕克和迈尔斯·墨拉莱斯身陷绝望的战斗之中，与此同时，他们也要在自己的生活、友谊和保护需要帮助的人的责任之间取得平衡。</div>
+    </div>
+
+    
+    <div class="section">
+      <h2>📸 游戏截图</h2>
+      <div class="ss-grid">
+        <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2651280/ss_e4b67059ddedaeebd91fce113745f3eb99736f56.1920x1080.jpg?t=1763569811" alt="" loading="lazy">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2651280/ss_b4be948946130b7e140be82f24f1f9ccefae9117.1920x1080.jpg?t=1763569811" alt="" loading="lazy">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2651280/ss_f4140ba12158b812d9c1adc86c484d8e84b92e92.1920x1080.jpg?t=1763569811" alt="" loading="lazy">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2651280/ss_7ef8bc176702470fdc73f62f8e537c3912e70444.1920x1080.jpg?t=1763569811" alt="" loading="lazy">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2651280/ss_474a7ffe98998719c22025cc99da1f45dfca025e.1920x1080.jpg?t=1763569811" alt="" loading="lazy">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2651280/ss_aa8346cf207a1e114c5f9e7f6c3086c5dc9c3050.1920x1080.jpg?t=1763569811" alt="" loading="lazy">
+
+      </div>
     </div>
 
   </div>

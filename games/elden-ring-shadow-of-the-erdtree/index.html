@@ -12,6 +12,8 @@ body{font-family:'Segoe UI','Microsoft YaHei',sans-serif;background:#f5f5f7;colo
 .container{max-width:1200px;margin:0 auto;padding:0 20px}
 .back{color:#6d28d9;text-decoration:none;font-size:14px;font-weight:500;display:flex;align-items:center;gap:4px}
 .back:hover{text-decoration:underline}
+.back-btn{background:#6d28d9;color:#fff;padding:6px 14px;border-radius:4px;text-decoration:none;font-size:13px}
+.back-btn:hover{background:#5b21b6}
 .hero{background:linear-gradient(180deg,#f0f0f5 0%,#e8e8f0 100%);color:#1a1a2e;padding:30px 0 0;border-bottom:1px solid #e0e0e4}
 .hero .container{display:flex;gap:30px;flex-wrap:wrap}
 .hero-info{flex:1;min-width:280px}
@@ -19,6 +21,7 @@ body{font-family:'Segoe UI','Microsoft YaHei',sans-serif;background:#f5f5f7;colo
 .hero-info .en{color:#888;font-size:14px;margin-bottom:12px}
 .hero-info .meta{display:flex;gap:6px;margin-bottom:14px;flex-wrap:wrap}
 .hero .tag{font-size:12px;padding:3px 10px;border-radius:4px;background:#e8e8ec;color:#555}
+.hero .tag.mc{background:#6d28d922;color:#6d28d9}
 .hero .tag.sales{background:#e11d4822;color:#e11d48}
 .hero-img{width:460px;max-width:100%;border-radius:8px;flex-shrink:0;box-shadow:0 2px 12px rgba(0,0,0,0.08)}
 .content{padding:24px 0}
@@ -32,10 +35,17 @@ body{font-family:'Segoe UI','Microsoft YaHei',sans-serif;background:#f5f5f7;colo
 .dl-btn:hover{filter:brightness(1.1);transform:translateY(-1px)}
 .dl-btn.gamer520{background:#10b981}
 .dl-btn.x6d{background:#3b82f6}
+.dl-btn.tianyi{background:#6366f1}
+.dl-btn.baidu{background:#2563eb}
+.dl-btn.magnet{background:#ef4444}
+.dl-btn.fitgirl{background:#f59e0b}
 .info-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:16px}
 .info-item .label{font-size:12px;color:#888;text-transform:uppercase;letter-spacing:0.5px}
 .info-item .value{font-size:14px;color:#1a1a2e;margin-top:2px}
-@media(max-width:768px){.hero-img{width:100%}}
+.ss-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:8px}
+.ss-grid img{width:100%;border-radius:6px;cursor:pointer;transition:transform .2s}
+.ss-grid img:hover{transform:scale(1.02)}
+@media(max-width:768px){.hero-img{width:100%}.ss-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -43,18 +53,21 @@ body{font-family:'Segoe UI','Microsoft YaHei',sans-serif;background:#f5f5f7;colo
 <div class="topbar">
   <div class="container">
     <a href="../index.html" class="back">← 返回游戏榜单</a>
+    <a href="https://store.steampowered.com/app/2778580" target="_blank" class="back-btn" style="margin-left:auto">Steam 商店页</a>
   </div>
 </div>
 
 <div class="hero">
   <div class="container">
-    <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2778580/header.jpg?t=1763403045" alt="Elden Ring: Shadow of the Erdtree" class="hero-img" onerror="this.style.display='none'">
+    <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2778580/library_600x900.jpg" alt="Elden Ring: Shadow of the Erdtree" class="hero-img" onerror="this.style.display='none'">
     <div class="hero-info">
       <h1>艾尔登法环：黄金树幽影</h1>
       <div class="en">Elden Ring: Shadow of the Erdtree</div>
       <div class="meta">
         <span class="tag">2024</span>
+        <span class="tag mc">评分 92</span>
         <span class="tag sales">殿堂级 Top 250</span>
+        <span class="tag">动作, 角色扮演</span>
       </div>
       <div class="desc">《艾尔登法环 黄金树幽影》为游戏本体《艾尔登法环》的资料片。 《黄金树幽影》以“幽影之地”为舞台，伴随着多种新增要素（令人战栗的地下迷宫、充满威胁性的敌人，以及新增的武器、防具等等），交织出褪色者们的另一段故事。</div>
     </div>
@@ -75,9 +88,32 @@ body{font-family:'Segoe UI','Microsoft YaHei',sans-serif;background:#f5f5f7;colo
     <div class="section">
       <h2>📋 游戏信息</h2>
       <div class="info-grid">
-        <div class="info-item"><div class="label">发行年份</div><div class="value">2024</div></div>
-        <div class="info-item"><div class="label">平台</div><div class="value">PC / PS4 / PS5 / Xbox</div></div>
-        <div class="info-item"><div class="label">荣誉</div><div class="value">Metacritic 94分史上最高评分DLC</div></div>
+        <div class="info-item"><div class="label">开发商</div><div class="value">FromSoftware, Inc.</div></div>
+        <div class="info-item"><div class="label">发行商</div><div class="value">FromSoftware, Inc., Bandai Namco Entertainment</div></div>
+        <div class="info-item"><div class="label">发行日期</div><div class="value">2024 年 6 月 20 日</div></div>
+        <div class="info-item"><div class="label">类型</div><div class="value">动作, 角色扮演</div></div>
+        <div class="info-item"><div class="label">Metacritic</div><div class="value">92</div></div>
+        <div class="info-item"><div class="label">Steam</div><div class="value"><a href="https://store.steampowered.com/app/2778580" target="_blank">查看商店页 →</a></div></div>
+      </div>
+    </div>
+
+    
+    <div class="section">
+      <h2>📖 关于这款游戏</h2>
+      <div class="desc">《艾尔登法环 黄金树幽影》为游戏本体《艾尔登法环》的资料片。 《黄金树幽影》以“幽影之地”为舞台，伴随着多种新增要素（令人战栗的地下迷宫、充满威胁性的敌人，以及新增的武器、防具等等），交织出褪色者们的另一段故事。</div>
+    </div>
+
+    
+    <div class="section">
+      <h2>📸 游戏截图</h2>
+      <div class="ss-grid">
+        <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2778580/ss_c97bcad291f4f45d4be4594f34bd78921d961099.1920x1080.jpg?t=1763403045" alt="" loading="lazy">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2778580/ss_9769407281276d7fd76d6221fe83c05defb0b998.1920x1080.jpg?t=1763403045" alt="" loading="lazy">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2778580/ss_b51d116ccb4b033423d30f0c08c844767b3c013d.1920x1080.jpg?t=1763403045" alt="" loading="lazy">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2778580/ss_c27ceb209a6d3a215181b98e19dd8ab0632c4de3.1920x1080.jpg?t=1763403045" alt="" loading="lazy">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2778580/ss_d18059b5260bf730d3942343f9de3027db4b4afe.1920x1080.jpg?t=1763403045" alt="" loading="lazy">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2778580/ss_e2c584ea9ae274be76d0039f8f406d6300973f66.1920x1080.jpg?t=1763403045" alt="" loading="lazy">
+
       </div>
     </div>
 

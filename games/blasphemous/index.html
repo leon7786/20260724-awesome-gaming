@@ -14,8 +14,6 @@ body{font-family:'Segoe UI','Microsoft YaHei',sans-serif;background:#f5f5f7;colo
 .back:hover{text-decoration:underline}
 .back-btn{background:#6d28d9;color:#fff;padding:6px 14px;border-radius:4px;text-decoration:none;font-size:13px}
 .back-btn:hover{background:#5b21b6}
-
-/* Steam风格头部 */
 .hero{background:linear-gradient(180deg,#f0f0f5 0%,#e8e8f0 100%);color:#1a1a2e;padding:30px 0 0;border-bottom:1px solid #e0e0e4}
 .hero .container{display:flex;gap:30px;flex-wrap:wrap}
 .hero-info{flex:1;min-width:280px}
@@ -26,17 +24,10 @@ body{font-family:'Segoe UI','Microsoft YaHei',sans-serif;background:#f5f5f7;colo
 .hero .tag.mc{background:#6d28d922;color:#6d28d9}
 .hero .tag.sales{background:#e11d4822;color:#e11d48}
 .hero-img{width:460px;max-width:100%;border-radius:8px;flex-shrink:0;box-shadow:0 2px 12px rgba(0,0,0,0.08)}
-
-/* Steam风格内容区 */
 .content{padding:24px 0}
 .section{background:#fff;border-radius:8px;border:1px solid #e0e0e4;padding:24px;margin-bottom:16px}
 .section h2{font-size:18px;color:#1a1a2e;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid #e0e0e4}
-
-/* 简介 */
 .desc{font-size:15px;color:#444;line-height:1.7}
-.desc a{color:#6d28d9}
-
-/* 下载区 */
 .dl-section{background:#fff;border-radius:8px;border:1px solid #e0e0e4;padding:24px;margin-bottom:16px}
 .dl-section h2{font-size:18px;color:#1a1a2e;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid #e0e0e4}
 .dl-buttons{display:flex;flex-wrap:wrap;gap:8px}
@@ -48,32 +39,12 @@ body{font-family:'Segoe UI','Microsoft YaHei',sans-serif;background:#f5f5f7;colo
 .dl-btn.baidu{background:#2563eb}
 .dl-btn.magnet{background:#ef4444}
 .dl-btn.fitgirl{background:#f59e0b}
-.dl-btn.steamzg{background:#8b5cf6}
-.dl-btn.crotorrents{background:#ec4899}
-
-/* Steam信息网格 */
 .info-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:16px}
-.info-item{}
 .info-item .label{font-size:12px;color:#888;text-transform:uppercase;letter-spacing:0.5px}
 .info-item .value{font-size:14px;color:#1a1a2e;margin-top:2px}
-.info-item .value a{color:#6d28d9;text-decoration:none}
-.info-item .value a:hover{text-decoration:underline}
-
-/* 截图 */
 .ss-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:8px}
 .ss-grid img{width:100%;border-radius:6px;cursor:pointer;transition:transform .2s}
 .ss-grid img:hover{transform:scale(1.02)}
-
-/* 配置要求 */
-.reqs{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-@media(max-width:768px){.reqs{grid-template-columns:1fr}}
-.req-item{}
-.req-item h3{font-size:14px;color:#1a1a2e;margin-bottom:8px;padding-bottom:4px;border-bottom:1px solid #e0e0e4}
-.req-text{font-size:13px;color:#555;line-height:1.6}
-.req-text ul{list-style:none;padding:0}
-.req-text li{padding:2px 0}
-.req-text strong{color:#1a1a2e}
-
 @media(max-width:768px){.hero-img{width:100%}.ss-grid{grid-template-columns:1fr}}
 </style>
 </head>
@@ -82,23 +53,23 @@ body{font-family:'Segoe UI','Microsoft YaHei',sans-serif;background:#f5f5f7;colo
 <div class="topbar">
   <div class="container">
     <a href="../index.html" class="back">← 返回游戏榜单</a>
-    <a href="https://store.steampowered.com/app/774361" target="_blank" class="back-btn" style="margin-left:auto">Steam 商店页</a>
+    <a href="https://store.steampowered.com/app/2114740" target="_blank" class="back-btn" style="margin-left:auto">Steam 商店页</a>
   </div>
 </div>
 
 <div class="hero">
   <div class="container">
-    <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/774361/library_600x900.jpg" alt="Blasphemous" class="hero-img" onerror="this.style.display='none'">
+    <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2114740/library_600x900.jpg" alt="Blasphemous" class="hero-img" onerror="this.style.display='none'">
     <div class="hero-info">
       <h1>神之亵渎</h1>
       <div class="en">Blasphemous</div>
       <div class="meta">
         <span class="tag">2019</span>
-        <span class="tag mc">评分 92</span>
+        <span class="tag mc">评分 83</span>
         <span class="tag mc">口碑Top</span>
         <span class="tag">动作, 冒险, 独立</span>
       </div>
-      <div class="desc">《Blasphemous》是一款重视技术性砍杀战斗的暴力动作平台游戏，故事背景设定在一个梦魇般的世界：Cvstodia。探索、升级您的技能，并残酷地处决成群来袭的敌人，以继续追寻打破永世天罚的方法。</div>
+      <div class="desc">“悔罪者一号”在《神之亵渎2》醒来，再次陷入对抗“奇迹”永无休止的旅程。深入这个危险新世界，里头充满谜团和秘密等待您去发现，众多可怕敌人将阻挡您完成目标，您必须杀出一条血路，想办法彻底终结这个循环。</div>
     </div>
   </div>
 </div>
@@ -109,7 +80,9 @@ body{font-family:'Segoe UI','Microsoft YaHei',sans-serif;background:#f5f5f7;colo
     <div class="dl-section">
       <h2>📥 下载链接</h2>
       <div class="dl-buttons">
-<p style="color:#999;font-size:13px">暂无下载链接</p>
+<a href="https://www.gamer520.com/63589.html" class="dl-btn gamer520" target="_blank">🎮 gamer520</a>
+<a href="https://www.x6d.com/i-wz-24194.html" class="dl-btn x6d" target="_blank">📦 x6d</a>
+
       </div>
     </div>
 
@@ -118,38 +91,30 @@ body{font-family:'Segoe UI','Microsoft YaHei',sans-serif;background:#f5f5f7;colo
       <div class="info-grid">
         <div class="info-item"><div class="label">开发商</div><div class="value">The Game Kitchen</div></div>
         <div class="info-item"><div class="label">发行商</div><div class="value">Team17</div></div>
-        <div class="info-item"><div class="label">发行日期</div><div class="value">2019 年 9 月 10 日</div></div>
+        <div class="info-item"><div class="label">发行日期</div><div class="value">2023 年 8 月 24 日</div></div>
         <div class="info-item"><div class="label">类型</div><div class="value">动作, 冒险, 独立</div></div>
-        <div class="info-item"><div class="label">Metacritic</div><div class="value">77</div></div>
-        <div class="info-item"><div class="label">Steam</div><div class="value"><a href="https://store.steampowered.com/app/774361" target="_blank">查看商店页 →</a></div></div>
+        <div class="info-item"><div class="label">Metacritic</div><div class="value">83</div></div>
+        <div class="info-item"><div class="label">Steam</div><div class="value"><a href="https://store.steampowered.com/app/2114740" target="_blank">查看商店页 →</a></div></div>
       </div>
     </div>
 
     
     <div class="section">
       <h2>📖 关于这款游戏</h2>
-      <div class="desc">一条邪恶的诅咒降临在 Cvstodia 的土地和其居民身上 - 人们只知道它叫“奇迹”。在游戏中扮演“无声的悲哀”大屠杀惨剧中唯一的幸存者“悔罪者一号”。陷入死亡和重生的无休止轮回中，从这一厄运中解救世界并找到痛苦的根源就要靠你了。 探索邪恶宗教的噩梦般世界，并发现深藏其中的诸多秘密。使用威力强大的技能组合和残酷的终结技，消灭大批奇异怪物和巨型首领，它们只想把你撕成碎片。找到并装备遗物、念珠和祷文，它们可以召唤天堂的力量来帮助你打破永恒的诅咒。主要特色:探索非直线的世界：穿越各种不同的地形探险，在 Cvstodia 的黑暗哥特式世界中寻找救赎，战胜可怕的敌人，躲过致命的陷阱。残酷的战斗：释放诞生于罪恶本身的 Mea Culpa 剑的力量，屠杀敌人。杀出一条血路，同时获得威力强大的新技能组合和必杀技。杀戮：释放你的愤怒，享受血腥肢解对手的快感 - 一切都在精美渲染、像素完美的杀戮动画中实现。定制你的形象：找到并装备遗物、念珠、祷文和剑心，它们会带来新技能和升级，这些都是生存所必需的。使用不同的组合试验，以适应自己的打法。 史诗般的首领大战：在你和目标之间，有大批巨大奇异生物拦路。了解它们的进攻方式，从他们的致命攻击中活下来并取得胜利。解锁 Cvstodia 的谜团：世界上到处是备受折磨的灵魂。有些会给你提供帮助，有些可能会向你索取回报。揭开他们的故事和命运，即可获得奖励并对你所在的黑暗世界有一个更加深入的了解。</div>
+      <div class="desc">“悔罪者一号”在《神之亵渎2》醒来，再次陷入对抗“奇迹”永无休止的旅程。深入这个危险新世界，里头充满谜团和秘密等待您去发现，众多可怕敌人将阻挡您完成目标，您必须杀出一条血路，想办法彻底终结这个循环。</div>
     </div>
 
     
     <div class="section">
       <h2>📸 游戏截图</h2>
       <div class="ss-grid">
-        <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/774361/ss_770720a3db9408ae7ae6625ba157bfb9195a3a68.1920x1080.jpg?t=1780479368" alt="" loading="lazy">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/774361/ss_b74f57919e88283fac75389e76ead2fed73997e5.1920x1080.jpg?t=1780479368" alt="" loading="lazy">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/774361/ss_bd57bcb1e9183cbea61339727a97bcc5206677b2.1920x1080.jpg?t=1780479368" alt="" loading="lazy">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/774361/ss_933510ac0fd13c6bd4ecc4c187e0506d520f2e70.1920x1080.jpg?t=1780479368" alt="" loading="lazy">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/774361/ss_957b6216519c614984ee71c6f6a524d75ea6353b.1920x1080.jpg?t=1780479368" alt="" loading="lazy">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/774361/ss_959ffc1230d2ca57e18a9c96f3c56f5643b5cce7.1920x1080.jpg?t=1780479368" alt="" loading="lazy">
+        <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2114740/bf451315c76040de3472e7b95cafe2fb09a315b0/ss_bf451315c76040de3472e7b95cafe2fb09a315b0.1920x1080.jpg?t=1781194759" alt="" loading="lazy">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2114740/194e6bccd0a9db2a5b80d5cef9c0c694ba8a8eaf/ss_194e6bccd0a9db2a5b80d5cef9c0c694ba8a8eaf.1920x1080.jpg?t=1781194759" alt="" loading="lazy">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2114740/e736189232810f8477e51fd5abb3e00373deee15/ss_e736189232810f8477e51fd5abb3e00373deee15.1920x1080.jpg?t=1781194759" alt="" loading="lazy">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2114740/74e27f35ff29a24f35a4c3e73d125451d8668a97/ss_74e27f35ff29a24f35a4c3e73d125451d8668a97.1920x1080.jpg?t=1781194759" alt="" loading="lazy">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2114740/ss_08bf3eb43590566cc39cde50fff8305026b3d569.1920x1080.jpg?t=1781194759" alt="" loading="lazy">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2114740/ss_06ae2ee0a20de1d4c698ff247c7b2d1caa4dfd08.1920x1080.jpg?t=1781194759" alt="" loading="lazy">
 
-      </div>
-    </div>
-
-    
-    <div class="section">
-      <h2>💻 系统配置要求</h2>
-      <div class="reqs">
-        <div class="req-item"><h3>最低配置</h3><div class="req-text"><strong>最低配置:</strong><br><ul class="bb_ul"><li>需要 64 位处理器和操作系统<br></li><li><strong>操作系统 *:</strong> Windows 7 64-bit<br></li><li><strong>处理器:</strong> Intel Core2 Duo E8400 or AMD Phenom II x2 550<br></li><li><strong>内存:</strong> 4 GB RAM<br></li><li><strong>显卡:</strong> GeForce GTX 260 or Radeon HD 4850<br></li><li><strong>存储空间:</strong> 需要 4 GB 可用空间</li></ul></div></div><div class="req-item"><h3>推荐配置</h3><div class="req-text"><strong>推荐配置:</strong><br><ul class="bb_ul"><li>需要 64 位处理器和操作系统<br></li><li><strong>操作系统:</strong> Windows 10<br></li><li><strong>处理器:</strong> Intel Core i5-750 or AMD Phenom II x4 945<br></li><li><strong>内存:</strong> 4 GB RAM<br></li><li><strong>显卡:</strong> GeForce GTX 650 or Radeon HD 5770<br></li><li><strong>存储空间:</strong> 需要 4 GB 可用空间</li></ul></div></div>
       </div>
     </div>
 

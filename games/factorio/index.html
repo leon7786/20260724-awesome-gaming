@@ -14,8 +14,6 @@ body{font-family:'Segoe UI','Microsoft YaHei',sans-serif;background:#f5f5f7;colo
 .back:hover{text-decoration:underline}
 .back-btn{background:#6d28d9;color:#fff;padding:6px 14px;border-radius:4px;text-decoration:none;font-size:13px}
 .back-btn:hover{background:#5b21b6}
-
-/* Steam风格头部 */
 .hero{background:linear-gradient(180deg,#f0f0f5 0%,#e8e8f0 100%);color:#1a1a2e;padding:30px 0 0;border-bottom:1px solid #e0e0e4}
 .hero .container{display:flex;gap:30px;flex-wrap:wrap}
 .hero-info{flex:1;min-width:280px}
@@ -26,17 +24,10 @@ body{font-family:'Segoe UI','Microsoft YaHei',sans-serif;background:#f5f5f7;colo
 .hero .tag.mc{background:#6d28d922;color:#6d28d9}
 .hero .tag.sales{background:#e11d4822;color:#e11d48}
 .hero-img{width:460px;max-width:100%;border-radius:8px;flex-shrink:0;box-shadow:0 2px 12px rgba(0,0,0,0.08)}
-
-/* Steam风格内容区 */
 .content{padding:24px 0}
 .section{background:#fff;border-radius:8px;border:1px solid #e0e0e4;padding:24px;margin-bottom:16px}
 .section h2{font-size:18px;color:#1a1a2e;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid #e0e0e4}
-
-/* 简介 */
 .desc{font-size:15px;color:#444;line-height:1.7}
-.desc a{color:#6d28d9}
-
-/* 下载区 */
 .dl-section{background:#fff;border-radius:8px;border:1px solid #e0e0e4;padding:24px;margin-bottom:16px}
 .dl-section h2{font-size:18px;color:#1a1a2e;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid #e0e0e4}
 .dl-buttons{display:flex;flex-wrap:wrap;gap:8px}
@@ -48,32 +39,12 @@ body{font-family:'Segoe UI','Microsoft YaHei',sans-serif;background:#f5f5f7;colo
 .dl-btn.baidu{background:#2563eb}
 .dl-btn.magnet{background:#ef4444}
 .dl-btn.fitgirl{background:#f59e0b}
-.dl-btn.steamzg{background:#8b5cf6}
-.dl-btn.crotorrents{background:#ec4899}
-
-/* Steam信息网格 */
 .info-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:16px}
-.info-item{}
 .info-item .label{font-size:12px;color:#888;text-transform:uppercase;letter-spacing:0.5px}
 .info-item .value{font-size:14px;color:#1a1a2e;margin-top:2px}
-.info-item .value a{color:#6d28d9;text-decoration:none}
-.info-item .value a:hover{text-decoration:underline}
-
-/* 截图 */
 .ss-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:8px}
 .ss-grid img{width:100%;border-radius:6px;cursor:pointer;transition:transform .2s}
 .ss-grid img:hover{transform:scale(1.02)}
-
-/* 配置要求 */
-.reqs{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-@media(max-width:768px){.reqs{grid-template-columns:1fr}}
-.req-item{}
-.req-item h3{font-size:14px;color:#1a1a2e;margin-bottom:8px;padding-bottom:4px;border-bottom:1px solid #e0e0e4}
-.req-text{font-size:13px;color:#555;line-height:1.6}
-.req-text ul{list-style:none;padding:0}
-.req-text li{padding:2px 0}
-.req-text strong{color:#1a1a2e}
-
 @media(max-width:768px){.hero-img{width:100%}.ss-grid{grid-template-columns:1fr}}
 </style>
 </head>
@@ -94,7 +65,7 @@ body{font-family:'Segoe UI','Microsoft YaHei',sans-serif;background:#f5f5f7;colo
       <div class="en">Factorio</div>
       <div class="meta">
         <span class="tag">2020</span>
-        <span class="tag mc">评分 </span>
+        <span class="tag mc">评分 90</span>
         <span class="tag mc">口碑Top</span>
         <span class="tag">休闲, 独立, 模拟, 策略</span>
       </div>
@@ -109,7 +80,11 @@ body{font-family:'Segoe UI','Microsoft YaHei',sans-serif;background:#f5f5f7;colo
     <div class="dl-section">
       <h2>📥 下载链接</h2>
       <div class="dl-buttons">
-<p style="color:#999;font-size:13px">暂无下载链接</p>
+<a href="magnet:?xt=urn:btih:4DC9E6F68C51BA8CC47AA4A216D0165BB00842AC" class="dl-btn magnet" target="_blank">🧲 磁力链</a>
+<a href="https://fitgirl-repacks.site/factorio/" class="dl-btn fitgirl" target="_blank">📀 FitGirl</a>
+<a href="https://www.gamer520.com/44449.html" class="dl-btn gamer520" target="_blank">🎮 gamer520</a>
+<a href="https://www.x6d.com/i-wz-14066.html" class="dl-btn x6d" target="_blank">📦 x6d</a>
+
       </div>
     </div>
 
@@ -128,7 +103,7 @@ body{font-family:'Segoe UI','Microsoft YaHei',sans-serif;background:#f5f5f7;colo
     
     <div class="section">
       <h2>📖 关于这款游戏</h2>
-      <div class="desc">「异星工厂」Factorio 是一款建造工业生产流水线并保持其高效运转的游戏。在游戏中，你可以抠矿、搞科研、盖工厂、建设自动生产流水线，同时还要与异星虫子们互相伤害。你将从一无所有艰辛起步。挥斧砍树，抡镐抠矿，手搓机械臂和传送带，然而像这样一直搞下去并没有什么卵用。因此，你需要高效的大规模发电厂，庞大的石油化工体系，壮观的全自动化产业链，以及替你东奔西走的机器人大队，让你成为物资储备丰盈工业帝国的真正操控者！然而，总有一群刁民想害你。这个星球上的土著虫群对你在自家后院里瞎折腾的行为很不爽，总有一天这群刁民会联合起来找你麻烦。因此，你要制造武器、建立防御、准备镇压，让它们知道谁才是真正的主宰者。你可以在多人游戏中加入不同的阵营，在大触们的带领下与朋友们分工协作， 一起建设恢弘无比的工业园区。Factorio的模组支持吸引了全世界的设计师参与到对游戏的完善和革新中来，从优化调整到游戏辅助，甚至对游戏的彻底翻新，日新月异的模组将为你不断提供新的乐趣。除了游戏核心的自由模式和沙盒模式之外，任务包还提供了更多不同形式的游戏挑战，这已经作为一个免费的DLC提供给玩家了。对随机生成的地图不满意？不满足于原生游戏任务？这都不是事儿。通过内置的地图编辑器，你可以任意修改地图，配置地形、建筑、敌人等各种元素。如果你是大触，还可以添加自定义脚本，让你的游戏更具独创性、更加阴吹思婷！不打折声明：我们没有任何打折或降价的计划。看看高玩们都对Factorio说了些什么从未有过任何一款游戏在物流管理的模拟方面做得如此出色。 - Reddit当我闭上眼睛满脑子都是传送带，我可能沉浸在Factorio中无法自拔了。 - Notch, Mojang在我使用传送带来欺负虫子的时候我感觉Factorio棒极了！ - Zisteau, Youtube</div>
+      <div class="desc">「异星工厂」Factorio 是一款2D生产建设模拟游戏，在这里你需要设计并建设出不同的自动生产流水线，不断生产出愈加复杂的工业品。尽情开动你的想象力，将传送带、机械臂、组装机等简单的设备精密结合，创造出属于你自己的自动化流水生产建筑群。同时别忘了在异星虫子的威胁下保护好你的工业帝国。</div>
     </div>
 
     
@@ -142,14 +117,6 @@ body{font-family:'Segoe UI','Microsoft YaHei',sans-serif;background:#f5f5f7;colo
 <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/427520/ss_192864c00fc38b5ef97b97ca7fa655a9aed7c0da.1920x1080.jpg?t=1763986204" alt="" loading="lazy">
 <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/427520/ss_e301bde0fc0e996ba93e92639cd49dd90ae47b36.1920x1080.jpg?t=1763986204" alt="" loading="lazy">
 
-      </div>
-    </div>
-
-    
-    <div class="section">
-      <h2>💻 系统配置要求</h2>
-      <div class="reqs">
-        <div class="req-item"><h3>最低配置</h3><div class="req-text"><strong>最低配置:</strong><br><ul class="bb_ul"><li><strong>操作系统:</strong> Windows 11, 10<br></li><li><strong>处理器:</strong> Quad core 3Ghz+<br></li><li><strong>内存:</strong> 8 GB RAM<br></li><li><strong>显卡:</strong> DirectX 11 capable GPU with 1GB VRAM - GeForce GTX 750 Ti, Radeon R7 360 or Intel UHD Graphics 730<br></li><li><strong>DirectX 版本:</strong> 11<br></li><li><strong>存储空间:</strong> 需要 5 GB 可用空间<br></li><li><strong>附注事项:</strong> Normal sprite resolution, Low quality compression, 1080p resolution</li></ul></div></div><div class="req-item"><h3>推荐配置</h3><div class="req-text"><strong>推荐配置:</strong><br><ul class="bb_ul"><li><strong>操作系统:</strong> Windows 11, 10<br></li><li><strong>处理器:</strong> Quad core 4Ghz+ from 2020 or newer<br></li><li><strong>内存:</strong> 16 GB RAM<br></li><li><strong>显卡:</strong> DirectX 11 capable GPU with 4 GB VRAM - GeForce GTX 1050 Ti, Radeon RX 570, Intel Arc<br></li><li><strong>DirectX 版本:</strong> 11<br></li><li><strong>存储空间:</strong> 需要 10 GB 可用空间<br></li><li><strong>附注事项:</strong> High sprite resolution, High quality compression</li></ul></div></div>
       </div>
     </div>
 

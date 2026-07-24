@@ -12,6 +12,8 @@ body{font-family:'Segoe UI','Microsoft YaHei',sans-serif;background:#f5f5f7;colo
 .container{max-width:1200px;margin:0 auto;padding:0 20px}
 .back{color:#6d28d9;text-decoration:none;font-size:14px;font-weight:500;display:flex;align-items:center;gap:4px}
 .back:hover{text-decoration:underline}
+.back-btn{background:#6d28d9;color:#fff;padding:6px 14px;border-radius:4px;text-decoration:none;font-size:13px}
+.back-btn:hover{background:#5b21b6}
 .hero{background:linear-gradient(180deg,#f0f0f5 0%,#e8e8f0 100%);color:#1a1a2e;padding:30px 0 0;border-bottom:1px solid #e0e0e4}
 .hero .container{display:flex;gap:30px;flex-wrap:wrap}
 .hero-info{flex:1;min-width:280px}
@@ -19,6 +21,7 @@ body{font-family:'Segoe UI','Microsoft YaHei',sans-serif;background:#f5f5f7;colo
 .hero-info .en{color:#888;font-size:14px;margin-bottom:12px}
 .hero-info .meta{display:flex;gap:6px;margin-bottom:14px;flex-wrap:wrap}
 .hero .tag{font-size:12px;padding:3px 10px;border-radius:4px;background:#e8e8ec;color:#555}
+.hero .tag.mc{background:#6d28d922;color:#6d28d9}
 .hero .tag.sales{background:#e11d4822;color:#e11d48}
 .hero-img{width:460px;max-width:100%;border-radius:8px;flex-shrink:0;box-shadow:0 2px 12px rgba(0,0,0,0.08)}
 .content{padding:24px 0}
@@ -32,10 +35,17 @@ body{font-family:'Segoe UI','Microsoft YaHei',sans-serif;background:#f5f5f7;colo
 .dl-btn:hover{filter:brightness(1.1);transform:translateY(-1px)}
 .dl-btn.gamer520{background:#10b981}
 .dl-btn.x6d{background:#3b82f6}
+.dl-btn.tianyi{background:#6366f1}
+.dl-btn.baidu{background:#2563eb}
+.dl-btn.magnet{background:#ef4444}
+.dl-btn.fitgirl{background:#f59e0b}
 .info-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:16px}
 .info-item .label{font-size:12px;color:#888;text-transform:uppercase;letter-spacing:0.5px}
 .info-item .value{font-size:14px;color:#1a1a2e;margin-top:2px}
-@media(max-width:768px){.hero-img{width:100%}}
+.ss-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:8px}
+.ss-grid img{width:100%;border-radius:6px;cursor:pointer;transition:transform .2s}
+.ss-grid img:hover{transform:scale(1.02)}
+@media(max-width:768px){.hero-img{width:100%}.ss-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -43,18 +53,21 @@ body{font-family:'Segoe UI','Microsoft YaHei',sans-serif;background:#f5f5f7;colo
 <div class="topbar">
   <div class="container">
     <a href="../index.html" class="back">← 返回游戏榜单</a>
+    <a href="https://store.steampowered.com/app/2074920" target="_blank" class="back-btn" style="margin-left:auto">Steam 商店页</a>
   </div>
 </div>
 
 <div class="hero">
   <div class="container">
-    <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2074920/d6ab480d5d08d13363287bfc103ce62e2bb28c65/header.jpg?t=1781267897" alt="The First Descendant" class="hero-img" onerror="this.style.display='none'">
+    <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2074920/library_600x900.jpg" alt="The First Descendant" class="hero-img" onerror="this.style.display='none'">
     <div class="hero-info">
       <h1>第一后裔</h1>
       <div class="en">The First Descendant</div>
       <div class="meta">
         <span class="tag">2024</span>
+        
         <span class="tag sales">殿堂级 Top 250</span>
+        <span class="tag">动作, 冒险, 角色扮演, 免费开玩</span>
       </div>
       <div class="desc">《The First Descendant》是一款以虚幻引擎5为基础，可跨平台游玩的新一代第3人称打宝射击游戏。玩家将化身为继承者，为了人类的生存，与入侵者正面迎战。这里有各式各样的角色，刺激的枪击战，多元化的成长元素，令人震撼的剧情，以及4人合作模式！还在等什么？快来攻略首领吧！</div>
     </div>
@@ -74,9 +87,32 @@ body{font-family:'Segoe UI','Microsoft YaHei',sans-serif;background:#f5f5f7;colo
     <div class="section">
       <h2>📋 游戏信息</h2>
       <div class="info-grid">
-        <div class="info-item"><div class="label">发行年份</div><div class="value">2024</div></div>
-        <div class="info-item"><div class="label">平台</div><div class="value">PC / Console</div></div>
-        <div class="info-item"><div class="label">荣誉</div><div class="value">虚幻5刷宝射击热门</div></div>
+        <div class="info-item"><div class="label">开发商</div><div class="value">NEXON Games Co., Ltd.</div></div>
+        <div class="info-item"><div class="label">发行商</div><div class="value">NEXON</div></div>
+        <div class="info-item"><div class="label">发行日期</div><div class="value">2024 年 6 月 30 日</div></div>
+        <div class="info-item"><div class="label">类型</div><div class="value">动作, 冒险, 角色扮演, 免费开玩</div></div>
+        <div class="info-item"><div class="label">Metacritic</div><div class="value">待补充</div></div>
+        <div class="info-item"><div class="label">Steam</div><div class="value"><a href="https://store.steampowered.com/app/2074920" target="_blank">查看商店页 →</a></div></div>
+      </div>
+    </div>
+
+    
+    <div class="section">
+      <h2>📖 关于这款游戏</h2>
+      <div class="desc">《The First Descendant》是一款以虚幻引擎5为基础，可跨平台游玩的新一代第3人称打宝射击游戏。玩家将化身为继承者，为了人类的生存，与入侵者正面迎战。这里有各式各样的角色，刺激的枪击战，多元化的成长元素，令人震撼的剧情，以及4人合作模式！还在等什么？快来攻略首领吧！</div>
+    </div>
+
+    
+    <div class="section">
+      <h2>📸 游戏截图</h2>
+      <div class="ss-grid">
+        <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2074920/ss_72b515ee7afdcd2d95b142ee1a706fd71d74552d.1920x1080.jpg?t=1781267897" alt="" loading="lazy">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2074920/ss_a502e524f9a0e9142ffb38638cb867a7cb448147.1920x1080.jpg?t=1781267897" alt="" loading="lazy">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2074920/ss_6476e1c79bcd7f8e87c33eb397fc67b091cfbf6f.1920x1080.jpg?t=1781267897" alt="" loading="lazy">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2074920/ss_4e38598cbb671cd1e90da0eaf5f2b8f315d1d513.1920x1080.jpg?t=1781267897" alt="" loading="lazy">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2074920/ss_b55b78b901985900ef0bba95288f5fd314c1751f.1920x1080.jpg?t=1781267897" alt="" loading="lazy">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2074920/ss_b3313c29ad748d1bd4e67fb13d8e09e4ccb090c7.1920x1080.jpg?t=1781267897" alt="" loading="lazy">
+
       </div>
     </div>
 

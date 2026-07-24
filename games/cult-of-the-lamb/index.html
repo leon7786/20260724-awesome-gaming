@@ -14,8 +14,6 @@ body{font-family:'Segoe UI','Microsoft YaHei',sans-serif;background:#f5f5f7;colo
 .back:hover{text-decoration:underline}
 .back-btn{background:#6d28d9;color:#fff;padding:6px 14px;border-radius:4px;text-decoration:none;font-size:13px}
 .back-btn:hover{background:#5b21b6}
-
-/* Steam风格头部 */
 .hero{background:linear-gradient(180deg,#f0f0f5 0%,#e8e8f0 100%);color:#1a1a2e;padding:30px 0 0;border-bottom:1px solid #e0e0e4}
 .hero .container{display:flex;gap:30px;flex-wrap:wrap}
 .hero-info{flex:1;min-width:280px}
@@ -26,17 +24,10 @@ body{font-family:'Segoe UI','Microsoft YaHei',sans-serif;background:#f5f5f7;colo
 .hero .tag.mc{background:#6d28d922;color:#6d28d9}
 .hero .tag.sales{background:#e11d4822;color:#e11d48}
 .hero-img{width:460px;max-width:100%;border-radius:8px;flex-shrink:0;box-shadow:0 2px 12px rgba(0,0,0,0.08)}
-
-/* Steam风格内容区 */
 .content{padding:24px 0}
 .section{background:#fff;border-radius:8px;border:1px solid #e0e0e4;padding:24px;margin-bottom:16px}
 .section h2{font-size:18px;color:#1a1a2e;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid #e0e0e4}
-
-/* 简介 */
 .desc{font-size:15px;color:#444;line-height:1.7}
-.desc a{color:#6d28d9}
-
-/* 下载区 */
 .dl-section{background:#fff;border-radius:8px;border:1px solid #e0e0e4;padding:24px;margin-bottom:16px}
 .dl-section h2{font-size:18px;color:#1a1a2e;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid #e0e0e4}
 .dl-buttons{display:flex;flex-wrap:wrap;gap:8px}
@@ -48,32 +39,12 @@ body{font-family:'Segoe UI','Microsoft YaHei',sans-serif;background:#f5f5f7;colo
 .dl-btn.baidu{background:#2563eb}
 .dl-btn.magnet{background:#ef4444}
 .dl-btn.fitgirl{background:#f59e0b}
-.dl-btn.steamzg{background:#8b5cf6}
-.dl-btn.crotorrents{background:#ec4899}
-
-/* Steam信息网格 */
 .info-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:16px}
-.info-item{}
 .info-item .label{font-size:12px;color:#888;text-transform:uppercase;letter-spacing:0.5px}
 .info-item .value{font-size:14px;color:#1a1a2e;margin-top:2px}
-.info-item .value a{color:#6d28d9;text-decoration:none}
-.info-item .value a:hover{text-decoration:underline}
-
-/* 截图 */
 .ss-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:8px}
 .ss-grid img{width:100%;border-radius:6px;cursor:pointer;transition:transform .2s}
 .ss-grid img:hover{transform:scale(1.02)}
-
-/* 配置要求 */
-.reqs{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-@media(max-width:768px){.reqs{grid-template-columns:1fr}}
-.req-item{}
-.req-item h3{font-size:14px;color:#1a1a2e;margin-bottom:8px;padding-bottom:4px;border-bottom:1px solid #e0e0e4}
-.req-text{font-size:13px;color:#555;line-height:1.6}
-.req-text ul{list-style:none;padding:0}
-.req-text li{padding:2px 0}
-.req-text strong{color:#1a1a2e}
-
 @media(max-width:768px){.hero-img{width:100%}.ss-grid{grid-template-columns:1fr}}
 </style>
 </head>
@@ -94,7 +65,7 @@ body{font-family:'Segoe UI','Microsoft YaHei',sans-serif;background:#f5f5f7;colo
       <div class="en">Cult of the Lamb</div>
       <div class="meta">
         <span class="tag">2022</span>
-        <span class="tag mc">评分 93</span>
+        <span class="tag mc">评分 82</span>
         <span class="tag mc">口碑Top</span>
         <span class="tag">动作, 冒险, 独立, 策略</span>
       </div>
@@ -109,7 +80,11 @@ body{font-family:'Segoe UI','Microsoft YaHei',sans-serif;background:#f5f5f7;colo
     <div class="dl-section">
       <h2>📥 下载链接</h2>
       <div class="dl-buttons">
-<p style="color:#999;font-size:13px">暂无下载链接</p>
+<a href="magnet:?xt=urn:btih:555B3764B3DA7DFDE05C8FFF00E0F1B74F9F9B61" class="dl-btn magnet" target="_blank">🧲 磁力链</a>
+<a href="https://fitgirl-repacks.site/cult-of-the-lamb/" class="dl-btn fitgirl" target="_blank">📀 FitGirl</a>
+<a href="https://www.gamer520.com/39858.html" class="dl-btn gamer520" target="_blank">🎮 gamer520</a>
+<a href="https://www.x6d.com/i-wz-20131.html" class="dl-btn x6d" target="_blank">📦 x6d</a>
+
       </div>
     </div>
 
@@ -128,7 +103,7 @@ body{font-family:'Segoe UI','Microsoft YaHei',sans-serif;background:#f5f5f7;colo
     
     <div class="section">
       <h2>📖 关于这款游戏</h2>
-      <div class="desc">《咩咩启示录》中，玩家将扮演一只因被阴郁不祥的陌生人拯救从而免于一死的被附体的羊羔。为了报答救命之恩，玩家需要以那人之名组建一支忠诚的追随者队伍。在这片虚假先知横行的土地上，你要建立自己的教派，遍历大陆上神秘无比、风格迥异的各个区域，笼络一群笃信森林的忠诚追随者，广散你的真言，最终一统全境，成为唯一的正教。吸纳信徒收集利用手边资源，建造新的建筑、举行暗黑仪式来取悦众神，通过布道传教加强信众对你的信仰。驱逐异端探索一片无限生长、随机生成的世界，与成群的敌人搏斗，击溃敌对领袖并将其力量统统吸纳，维护你的教派的绝对统治。传播箴言训练你的信众，踏上探索四大神秘区域的揭秘之旅。沿途净化那些不信者的心智，传播大智慧的启蒙，进行神秘的仪式，最终成为无上威力的咩咩之神。</div>
+      <div class="desc">在这片虚假先知横行的土地上，你要建立自己的教派，遍历大陆上神秘无比、风格迥异的各个区域，笼络一群笃信森林的忠诚追随者，广散你的真言，最终一统全境，成为唯一的正教。</div>
     </div>
 
     
@@ -142,14 +117,6 @@ body{font-family:'Segoe UI','Microsoft YaHei',sans-serif;background:#f5f5f7;colo
 <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1313140/ss_f4ca3fd0416c3f41c57bc3809bb45f8f20e684ec.1920x1080.jpg?t=1769836674" alt="" loading="lazy">
 <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1313140/ss_566aecf445ab0448191f1996600fd7ec80d0a0d7.1920x1080.jpg?t=1769836674" alt="" loading="lazy">
 
-      </div>
-    </div>
-
-    
-    <div class="section">
-      <h2>💻 系统配置要求</h2>
-      <div class="reqs">
-        <div class="req-item"><h3>最低配置</h3><div class="req-text"><strong>最低配置:</strong><br><ul class="bb_ul"><li>需要 64 位处理器和操作系统<br></li><li><strong>操作系统 *:</strong> Windows 7 or later<br></li><li><strong>处理器:</strong> Intel Core i3-3240 (2 * 3400); AMD FX-4300 (4 * 3800)<br></li><li><strong>内存:</strong> 4 GB RAM<br></li><li><strong>显卡:</strong> GeForce GTX 560 Ti (1024 VRAM); Radeon HD 7750 (1024 VRAM)<br></li><li><strong>存储空间:</strong> 需要 4 GB 可用空间</li></ul></div></div><div class="req-item"><h3>推荐配置</h3><div class="req-text"><strong>推荐配置:</strong><br><ul class="bb_ul"><li>需要 64 位处理器和操作系统<br></li><li><strong>操作系统:</strong> Windows 10<br></li><li><strong>处理器:</strong> Intel Core i5-3470<br></li><li><strong>内存:</strong> 8 GB RAM<br></li><li><strong>显卡:</strong> GeForce GTX 1050 (2048 VRAM); Radeon R9 380 (2048 VRAM)<br></li><li><strong>存储空间:</strong> 需要 4 GB 可用空间</li></ul></div></div>
       </div>
     </div>
 

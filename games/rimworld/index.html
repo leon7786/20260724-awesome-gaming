@@ -14,8 +14,6 @@ body{font-family:'Segoe UI','Microsoft YaHei',sans-serif;background:#f5f5f7;colo
 .back:hover{text-decoration:underline}
 .back-btn{background:#6d28d9;color:#fff;padding:6px 14px;border-radius:4px;text-decoration:none;font-size:13px}
 .back-btn:hover{background:#5b21b6}
-
-/* Steam风格头部 */
 .hero{background:linear-gradient(180deg,#f0f0f5 0%,#e8e8f0 100%);color:#1a1a2e;padding:30px 0 0;border-bottom:1px solid #e0e0e4}
 .hero .container{display:flex;gap:30px;flex-wrap:wrap}
 .hero-info{flex:1;min-width:280px}
@@ -26,17 +24,10 @@ body{font-family:'Segoe UI','Microsoft YaHei',sans-serif;background:#f5f5f7;colo
 .hero .tag.mc{background:#6d28d922;color:#6d28d9}
 .hero .tag.sales{background:#e11d4822;color:#e11d48}
 .hero-img{width:460px;max-width:100%;border-radius:8px;flex-shrink:0;box-shadow:0 2px 12px rgba(0,0,0,0.08)}
-
-/* Steam风格内容区 */
 .content{padding:24px 0}
 .section{background:#fff;border-radius:8px;border:1px solid #e0e0e4;padding:24px;margin-bottom:16px}
 .section h2{font-size:18px;color:#1a1a2e;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid #e0e0e4}
-
-/* 简介 */
 .desc{font-size:15px;color:#444;line-height:1.7}
-.desc a{color:#6d28d9}
-
-/* 下载区 */
 .dl-section{background:#fff;border-radius:8px;border:1px solid #e0e0e4;padding:24px;margin-bottom:16px}
 .dl-section h2{font-size:18px;color:#1a1a2e;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid #e0e0e4}
 .dl-buttons{display:flex;flex-wrap:wrap;gap:8px}
@@ -48,32 +39,12 @@ body{font-family:'Segoe UI','Microsoft YaHei',sans-serif;background:#f5f5f7;colo
 .dl-btn.baidu{background:#2563eb}
 .dl-btn.magnet{background:#ef4444}
 .dl-btn.fitgirl{background:#f59e0b}
-.dl-btn.steamzg{background:#8b5cf6}
-.dl-btn.crotorrents{background:#ec4899}
-
-/* Steam信息网格 */
 .info-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:16px}
-.info-item{}
 .info-item .label{font-size:12px;color:#888;text-transform:uppercase;letter-spacing:0.5px}
 .info-item .value{font-size:14px;color:#1a1a2e;margin-top:2px}
-.info-item .value a{color:#6d28d9;text-decoration:none}
-.info-item .value a:hover{text-decoration:underline}
-
-/* 截图 */
 .ss-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:8px}
 .ss-grid img{width:100%;border-radius:6px;cursor:pointer;transition:transform .2s}
 .ss-grid img:hover{transform:scale(1.02)}
-
-/* 配置要求 */
-.reqs{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-@media(max-width:768px){.reqs{grid-template-columns:1fr}}
-.req-item{}
-.req-item h3{font-size:14px;color:#1a1a2e;margin-bottom:8px;padding-bottom:4px;border-bottom:1px solid #e0e0e4}
-.req-text{font-size:13px;color:#555;line-height:1.6}
-.req-text ul{list-style:none;padding:0}
-.req-text li{padding:2px 0}
-.req-text strong{color:#1a1a2e}
-
 @media(max-width:768px){.hero-img{width:100%}.ss-grid{grid-template-columns:1fr}}
 </style>
 </head>
@@ -94,7 +65,7 @@ body{font-family:'Segoe UI','Microsoft YaHei',sans-serif;background:#f5f5f7;colo
       <div class="en">RimWorld</div>
       <div class="meta">
         <span class="tag">2018</span>
-        <span class="tag mc">评分 </span>
+        <span class="tag mc">评分 87</span>
         <span class="tag mc">口碑Top</span>
         <span class="tag">独立, 模拟, 策略</span>
       </div>
@@ -109,7 +80,10 @@ body{font-family:'Segoe UI','Microsoft YaHei',sans-serif;background:#f5f5f7;colo
     <div class="dl-section">
       <h2>📥 下载链接</h2>
       <div class="dl-buttons">
+<a href="magnet:?xt=urn:btih:3D50D252" class="dl-btn magnet" target="_blank">🧲 磁力链</a>
 <a href="https://fitgirl-repacks.site" class="dl-btn fitgirl" target="_blank">📀 FitGirl</a>
+<a href="https://www.gamer520.com/14776.html" class="dl-btn gamer520" target="_blank">🎮 gamer520</a>
+<a href="https://www.x6d.com/i-wz-10332.html" class="dl-btn x6d" target="_blank">📦 x6d</a>
 
       </div>
     </div>
@@ -129,7 +103,7 @@ body{font-family:'Segoe UI','Microsoft YaHei',sans-serif;background:#f5f5f7;colo
     
     <div class="section">
       <h2>📖 关于这款游戏</h2>
-      <div class="desc">《边缘世界》是一款由聪明的人工智能故事讲述者驱动的科幻殖民地模拟游戏。灵感源自《矮人要塞》、《萤火虫》和《沙丘》。您会从遥远世界上一艘沉船的三名幸存者开始游戏.管理殖民者的情绪、需求、伤、病和瘾。在森林、沙漠、丛林、苔原和其他地方进行建造。观看殖民者发展和打破与家人、恋人和配偶的关系。用从他人身上获得的假肢、仿生生物或生物部位替换受伤的肢体和器官。与海盗、部落、发疯动物、巨型昆虫和古老的杀戮机器进行战斗。用金属、木头、石头、布匹和未来科技材料制作结构、武器和服装。驯服和训练可爱的宠物、家畜和致命的野兽。与过往船只和商队进行交易。组成商队以完成任务、交易，攻击其他派别或迁移整个殖民地。挖穿雪堆，穿过风暴和救火。俘虏难民或囚犯，将其留在您身边或当作奴隶贩卖出去。您在每次游戏的时候都会发现一个新创造的世界。在Steam创意工坊上探索数百个荒诞而有趣的模组。借助聪明且谦虚的人工智能导师轻松学习玩游戏。《边缘世界》是一个故事生成游戏。它旨在与他人合写关于被囚禁的海盗，绝望的殖民者，饥民和幸存者的悲惨、扭曲和胜利的故事。通过控制世界向您抛出的“随机”事件来进行游戏。每场风暴、海盗袭击和出差的推销员都是又人工智能故事讲述者安排给您的选择。有几个故事讲述者可供选择。Randy Random做疯狂道具，Cassandra Classic负责加剧紧张气氛， Phoebe Chillax喜欢放松。您的殖民者并不是专业移民-他们是在航线上触礁客轮上的幸存者。您最终可以得到一位贵族，一位会计师和一位家庭主妇。通过在战斗中俘虏他们并将其变成您的人，从奴隶贩子那里购买或在难民营中招募，您都可以获得更多的殖民者。因此，您的殖民地里永远都是鱼龙混杂。每个人的背景都会被跟踪，并影响其游戏方式。贵族善于社交技能（招募囚犯、洽谈交易价格），但拒绝从事体力劳动。农夫在如何种植食物方面拥有丰富的经验，但是没有做研究的</div>
+      <div class="desc">由聪明的人工智能故事讲述者驱动的科幻殖民地模拟电脑游戏。通过模拟心理学、生态学、枪战、近战、气候、生物群落、外交、人际关系、艺术、医学、贸易等来生成故事。</div>
     </div>
 
     
@@ -143,14 +117,6 @@ body{font-family:'Segoe UI','Microsoft YaHei',sans-serif;background:#f5f5f7;colo
 <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/294100/59a1400eff99e2b620d623d3d76a02c1592a72e7/ss_59a1400eff99e2b620d623d3d76a02c1592a72e7.1920x1080.jpg?t=1782756789" alt="" loading="lazy">
 <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/294100/1e3a2734b23daaa4eb60ea33dd87806aa65e0c8f/ss_1e3a2734b23daaa4eb60ea33dd87806aa65e0c8f.1920x1080.jpg?t=1782756789" alt="" loading="lazy">
 
-      </div>
-    </div>
-
-    
-    <div class="section">
-      <h2>💻 系统配置要求</h2>
-      <div class="reqs">
-        <div class="req-item"><h3>最低配置</h3><div class="req-text"><strong>最低配置:</strong><br><ul class="bb_ul"><li><strong>操作系统 *:</strong> Windows 7<br></li><li><strong>处理器:</strong> Core 2 Duo<br></li><li><strong>内存:</strong> 4 GB RAM<br></li><li><strong>显卡:</strong> Intel HD Graphics 4000 or other shader model 4.0<br></li><li><strong>存储空间:</strong> 需要 1 GB 可用空间</li></ul></div></div>
       </div>
     </div>
 
