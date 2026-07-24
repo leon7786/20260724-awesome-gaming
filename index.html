@@ -384,6 +384,13 @@ body {
   </div>
 
   <div class="grid" id="gameGrid"></div>
+
+  <div id="nonWindowsSection" style="display:none; margin-top: 3rem;">
+    <h2 style="font-size: 1.5rem; color: var(--text); margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid var(--border);">
+      🎮 非 Windows 平台游戏
+    </h2>
+    <div class="grid" id="nonWindowsGrid"></div>
+  </div>
 </div>
 
 <script>
@@ -393,12 +400,49 @@ fetch('games.json')
   .then(r => r.json())
   .then(games => {
     allGames = games;
-    renderGames(games);
+    
+    // 分离 Windows 和非 Windows 游戏
+    const windowsGames = games.filter(g => g.is_windows !== false);
+    const nonWindowsGames = games.filter(g => g.is_windows === false);
+    
+    renderGames(windowsGames);
+    renderNonWindowsGames(nonWindowsGames);
     updateStats(games);
   });
 
 function renderGames(games) {
   const grid = document.getElementById('gameGrid');
+  grid.innerHTML = games.map(game => `
+    <div class="card">
+      <a href="${game.detail}" class="card-poster">
+        <img src="${game.cover}" alt="${game.en_name}" loading="lazy">
+      </a>
+      <div class="card-body">
+        <div class="card-title">${game.cn_name}</div>
+        <div class="card-subtitle">${game.en_name}</div>
+        <div class="card-meta">
+          <span class="tag">${game.year}</span>
+          <span class="tag score">评分 ${game.score}</span>
+          ${game.tags.includes('口碑Top') ? '<span class="tag koubei">口碑Top</span>' : ''}
+          ${game.tags.includes('销量Top') ? '<span class="tag sales">销量Top</span>' : ''}
+        </div>
+        <div class="card-downloads">
+          ${game.downloads.map(dl => `
+            <a href="${dl.url}" class="dl-btn ${dl.type}" target="_blank">${dl.name}</a>
+          `).join('')}
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function renderNonWindowsGames(games) {
+  if (games.length === 0) return;
+  
+  const section = document.getElementById('nonWindowsSection');
+  const grid = document.getElementById('nonWindowsGrid');
+  
+  section.style.display = 'block';
   grid.innerHTML = games.map(game => `
     <div class="card">
       <a href="${game.detail}" class="card-poster">
