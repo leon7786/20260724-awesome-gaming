@@ -1,12 +1,4 @@
-# 刺猬索尼克 - 下载地址
+# 刺猬索尼克 下载链接
 
-## 下载链接
-
-| 来源 | 链接 | 说明 |
-|------|------|------|
-| 🧲 磁力链 | `magnet:?xt=urn:btih:1E70B1EDD1A433B7298286D847225777162E1503` | 最新版BT下载 |
-
-
-## 解压密码
-- gamer520.com: `laoquzhang.com`
-- x6d.com: 见页面说明
+- [gamer520](https://www.gamer520.com/61541.html)
+- [x6d](https://www.x6d.com/i-wz-8398.html)

@@ -1,10 +1,4 @@
-# 守望先锋2 - 下载地址
+# 守望先锋2 下载链接
 
-## 下载链接
-
-| 来源 | 链接 | 说明 |
-|------|------|------|
-
-## 解压密码
-- gamer520.com: `laoquzhang.com`
-- x6d.com: 见页面说明
+- [gamer520](https://www.gamer520.com/61541.html)
+- [x6d](https://www.x6d.com/i-wz-8398.html)

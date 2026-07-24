@@ -1,12 +1,4 @@
-# 俄罗斯方块 - 下载地址
+# 俄罗斯方块 下载链接
 
-## 下载链接
-
-| 来源 | 链接 | 说明 |
-|------|------|------|
-| 🧲 磁力链 | `magnet:?xt=urn:btih:114A303A66053A5867A6F4E68134C8A7258D0855` | 最新版BT下载 |
-
-
-## 解压密码
-- gamer520.com: `laoquzhang.com`
-- x6d.com: 见页面说明
+- [gamer520](https://www.gamer520.com/61541.html)
+- [x6d](https://www.x6d.com/i-wz-8398.html)

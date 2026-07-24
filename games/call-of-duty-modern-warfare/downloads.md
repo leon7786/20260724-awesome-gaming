@@ -1,12 +1,4 @@
-# 使命召唤：现代战争 - 下载地址
+# 使命召唤：现代战争 下载链接
 
-## 下载链接
-
-| 来源 | 链接 | 说明 |
-|------|------|------|
-| 🧲 磁力链 | `magnet:?xt=urn:btih:DEE09EB5CE0DE074A2F8FD4EAD1A7B5ECF3F01E9` | 最新版BT下载 |
-
-
-## 解压密码
-- gamer520.com: `laoquzhang.com`
-- x6d.com: 见页面说明
+- [gamer520](https://www.gamer520.com/61541.html)
+- [x6d](https://www.x6d.com/i-wz-8398.html)

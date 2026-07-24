@@ -1,12 +1,4 @@
-# 使命召唤：现代战争3 - 下载地址
+# 使命召唤：现代战争3 下载链接
 
-## 下载链接
-
-| 来源 | 链接 | 说明 |
-|------|------|------|
-| 🧲 磁力链 | `magnet:?xt=urn:btih:8C3776DCFCE4856972404B228768B2038B39A681` | 最新版BT下载 |
-
-
-## 解压密码
-- gamer520.com: `laoquzhang.com`
-- x6d.com: 见页面说明
+- [gamer520](https://www.gamer520.com/61541.html)
+- [x6d](https://www.x6d.com/i-wz-8398.html)
