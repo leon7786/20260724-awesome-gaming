@@ -4,6 +4,8 @@
 
 | 来源 | 链接 | 说明 |
 |------|------|------|
+| 🧲 磁力链 | `magnet:?xt=urn:btih:20BF4E70` | 最新版BT下载 |
+
 | 📀 FitGirl | [https://fitgirl-repacks.site...](https://fitgirl-repacks.site) | 高压版 |
 
 ## 解压密码

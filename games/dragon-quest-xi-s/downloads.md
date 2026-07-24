@@ -4,6 +4,8 @@
 
 | 来源 | 链接 | 说明 |
 |------|------|------|
+| 🧲 磁力链 | `magnet:?xt=urn:btih:1788FCE9DC953E916FCECDB49FF92E17DDCFB253` | 最新版BT下载 |
+
 | 🧲 磁力链 | `magnet:?xt=urn:btih:09F0E009B12867ACE8912E75BE4784E6627F9646` | 最新版BT下载 |
 
 
