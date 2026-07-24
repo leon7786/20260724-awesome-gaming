@@ -102,14 +102,6 @@ body {
   color: var(--primary);
   font-weight: 600;
 }
-.sidebar-link .badge {
-  font-size: 0.7rem;
-  background: #f0f0f5;
-  color: var(--text-light);
-  padding: 1px 6px;
-  border-radius: 10px;
-  margin-left: 4px;
-}
 
 /* 主内容区 */
 .main {
@@ -118,13 +110,80 @@ body {
   padding: 2rem;
 }
 
+/* 游戏卡片网格 */
+.games-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+.game-card {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 2px 8px var(--shadow);
+  transition: all 0.2s;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+.game-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px var(--shadow);
+}
+.game-cover {
+  aspect-ratio: 2/3;
+  background: linear-gradient(135deg, #e0e0e4, #f0f0f5);
+  overflow: hidden;
+}
+.game-cover img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+.game-card:hover .game-cover img { transform: scale(1.05); }
+.game-info {
+  padding: 0.8rem;
+}
+.game-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 0.2rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.game-subtitle {
+  font-size: 0.75rem;
+  color: var(--text-light);
+  margin-bottom: 0.4rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.game-meta {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+.tag {
+  font-size: 0.7rem;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: #f0f0f5;
+  color: var(--text-light);
+}
+.tag.score { background: rgba(109,40,217,0.1); color: var(--primary); font-weight: 600; }
+.tag.year { background: rgba(225,29,72,0.1); color: var(--accent); }
+
 /* Markdown 渲染样式 */
 .md-content {
   background: var(--card-bg);
   border-radius: var(--radius);
   padding: 2rem;
   box-shadow: 0 2px 8px var(--shadow);
+  display: none;
 }
+.md-content.active { display: block; }
 .md-content h1 {
   font-size: 1.8rem;
   background: linear-gradient(135deg, var(--primary), var(--accent));
@@ -145,27 +204,12 @@ body {
   color: var(--primary);
   margin: 1rem 0 0.5rem;
 }
-.md-content p {
-  margin-bottom: 0.75rem;
-  color: #444;
-}
-.md-content ul, .md-content ol {
-  padding-left: 1.5rem;
-  margin-bottom: 0.75rem;
-}
+.md-content p { margin-bottom: 0.75rem; color: #444; }
+.md-content ul, .md-content ol { padding-left: 1.5rem; margin-bottom: 0.75rem; }
 .md-content li { margin-bottom: 0.3rem; }
 .md-content strong { color: var(--text); }
-.md-content hr {
-  border: none;
-  border-top: 1px solid var(--border);
-  margin: 1.5rem 0;
-}
-.md-content table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 1rem 0;
-  font-size: 0.9rem;
-}
+.md-content hr { border: none; border-top: 1px solid var(--border); margin: 1.5rem 0; }
+.md-content table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.9rem; }
 .md-content th {
   background: #f5f3ff;
   color: var(--primary);
@@ -178,9 +222,7 @@ body {
   padding: 0.5rem 0.8rem;
   border-bottom: 1px solid var(--border);
 }
-.md-content tr:hover td {
-  background: #fafafa;
-}
+.md-content tr:hover td { background: #fafafa; }
 .md-content blockquote {
   border-left: 4px solid var(--primary);
   padding: 0.5rem 1rem;
@@ -194,99 +236,8 @@ body {
   border-radius: 4px;
   font-size: 0.85em;
 }
-
-/* 游戏详情卡片链接 */
-.md-content a {
-  color: var(--primary);
-  text-decoration: none;
-}
-.md-content a:hover {
-  text-decoration: underline;
-}
-
-/* 非Windows游戏卡片网格 */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 1.2rem;
-}
-.card {
-  background: var(--card-bg);
-  border-radius: var(--radius);
-  overflow: hidden;
-  box-shadow: 0 2px 8px var(--shadow);
-  transition: all 0.2s;
-  display: flex;
-  flex-direction: column;
-}
-.card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 20px var(--shadow);
-}
-.card-poster {
-  aspect-ratio: 3/4;
-  overflow: hidden;
-  background: linear-gradient(135deg, #e0e0e4, #f0f0f5);
-}
-.card-poster img {
-  width: 100%; height: 100%;
-  object-fit: cover;
-  transition: transform 0.3s;
-}
-.card:hover .card-poster img { transform: scale(1.05); }
-.card-body {
-  padding: 0.8rem;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
-.card-title {
-  font-size: 1rem;
-  font-weight: 600;
-  margin-bottom: 0.2rem;
-}
-.card-subtitle {
-  font-size: 0.8rem;
-  color: var(--text-light);
-  margin-bottom: 0.5rem;
-}
-.card-meta {
-  display: flex;
-  gap: 0.4rem;
-  flex-wrap: wrap;
-  margin-bottom: 0.5rem;
-}
-.tag {
-  font-size: 0.7rem;
-  padding: 2px 8px;
-  border-radius: 4px;
-  background: #f0f0f5;
-  color: var(--text-light);
-}
-.tag.score { background: rgba(109,40,217,0.1); color: var(--primary); font-weight: 600; }
-.tag.koubei { background: rgba(109,40,217,0.1); color: var(--primary); }
-.tag.sales { background: rgba(225,29,72,0.1); color: var(--accent); }
-.tag.platform { background: rgba(59,130,246,0.1); color: #2563eb; }
-.card-downloads {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.3rem;
-  margin-top: auto;
-}
-.dl-btn {
-  font-size: 0.7rem;
-  padding: 0.3rem 0.6rem;
-  border-radius: 5px;
-  text-decoration: none;
-  color: white;
-  transition: all 0.2s;
-}
-.dl-btn:hover { transform: translateY(-1px); box-shadow: 0 3px 8px rgba(0,0,0,0.15); }
-.dl-btn.gamer520 { background: linear-gradient(135deg, #10b981, #059669); }
-.dl-btn.x6d { background: linear-gradient(135deg, #3b82f6, #2563eb); }
-.dl-btn.tianyi { background: linear-gradient(135deg, #6366f1, #4f46e5); }
-.dl-btn.baidu { background: linear-gradient(135deg, #2563eb, #1d4ed8); }
-.dl-btn.magnet { background: linear-gradient(135deg, #ef4444, #dc2626); }
+.md-content a { color: var(--primary); text-decoration: none; }
+.md-content a:hover { text-decoration: underline; }
 
 /* 移动端 */
 @media (max-width: 900px) {
@@ -299,14 +250,11 @@ body {
     border-bottom: 1px solid var(--border);
     padding: 1rem 0;
   }
-  .sidebar-group { margin-bottom: 0.5rem; }
-  .sidebar-group-title { padding: 0 1rem; }
-  .sidebar-link { padding: 0.4rem 1rem; font-size: 0.82rem; }
   .main { padding: 1rem; }
+  .games-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 1rem; }
   .md-content { padding: 1rem; }
   .md-content h1 { font-size: 1.4rem; }
   .md-content table { font-size: 0.8rem; }
-  .md-content th, .md-content td { padding: 0.4rem; }
 }
 </style>
 </head>
@@ -315,7 +263,6 @@ body {
 <nav class="topbar">
   <a href="#" class="topbar-brand">🎮 殿堂级游戏榜单</a>
   <div class="topbar-links">
-    <a href="games/" target="_blank">📁 游戏详情</a>
     <a href="https://www.gamer520.com/" target="_blank">gamer520</a>
     <a href="https://www.x6d.com/html/96.html" target="_blank">x6d</a>
     <a href="https://github.com/leon7786/20260724-awesome-gaming" target="_blank">GitHub</a>
@@ -328,17 +275,11 @@ body {
   </aside>
 
   <main class="main">
-    <div class="md-content" id="content">
-      <p style="text-align:center;color:#999;padding:2rem">加载中...</p>
-    </div>
-
-    <!-- 非Windows游戏专区 -->
-    <div id="nonWindowsSection" style="display:none; margin-top: 2rem;">
-      <h2 style="font-size: 1.5rem; color: var(--text); margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid var(--border);">
-        🎮 非 Windows 平台游戏
-      </h2>
-      <div class="grid" id="nonWindowsGrid"></div>
-    </div>
+    <!-- 游戏卡片网格（默认显示） -->
+    <div class="games-grid" id="gamesGrid"></div>
+    
+    <!-- Markdown 内容（点击侧边栏时显示） -->
+    <div class="md-content" id="mdContent"></div>
   </main>
 </div>
 
@@ -348,7 +289,7 @@ const sidebarConfig = [
   {
     title: '🏆 综合榜单',
     items: [
-      { name: '殿堂级 Top 250 (按发行日期)', file: '20260724-top250-by-release-date.md', active: true },
+      { name: '殿堂级 Top 250 (按发行日期)', file: '20260724-top250-by-release-date.md' },
       { name: '全球游戏销量 Top 250', file: '20260724-global-games-top250.md' },
       { name: '平台独占精选', file: '20260724-platform-exclusives-top.md' },
     ]
@@ -388,34 +329,44 @@ const sidebarConfig = [
 // 渲染侧边栏
 function renderSidebar() {
   const sidebar = document.getElementById('sidebar');
-  let html = '';
+  let html = '<div class="sidebar-group"><div class="sidebar-group-title">📋 榜单分类</div>';
+  html += '<a href="#" class="sidebar-link active" onclick="showGames(); return false;">🎮 游戏卡片视图</a>';
+  html += '</div>';
+  
   for (const group of sidebarConfig) {
     html += `<div class="sidebar-group">`;
     html += `<div class="sidebar-group-title">${group.title}</div>`;
     for (const item of group.items) {
-      const activeClass = item.active ? ' active' : '';
-      html += `<a href="#" class="sidebar-link${activeClass}" data-file="${item.file}" onclick="loadMd('${item.file}', this); return false;">${item.name}</a>`;
+      html += `<a href="#" class="sidebar-link" onclick="loadMd('${item.file}', this); return false;">${item.name}</a>`;
     }
     html += `</div>`;
   }
   sidebar.innerHTML = html;
 }
 
-// 加载 MD 文件并渲染
+// 显示游戏卡片
+function showGames() {
+  document.getElementById('gamesGrid').style.display = 'grid';
+  document.getElementById('mdContent').classList.remove('active');
+  document.querySelectorAll('.sidebar-link').forEach(a => a.classList.remove('active'));
+  document.querySelector('.sidebar-link').classList.add('active');
+}
+
+// 加载 MD 文件
 async function loadMd(file, el) {
-  // 更新 active 状态
+  document.getElementById('gamesGrid').style.display = 'none';
+  const content = document.getElementById('mdContent');
+  content.classList.add('active');
+  content.innerHTML = '<p style="text-align:center;color:#999;padding:2rem">加载中...</p>';
+  
   document.querySelectorAll('.sidebar-link').forEach(a => a.classList.remove('active'));
   if (el) el.classList.add('active');
-
-  const content = document.getElementById('content');
-  content.innerHTML = '<p style="text-align:center;color:#999;padding:2rem">加载中...</p>';
 
   try {
     const resp = await fetch(`all-md/${file}`);
     if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
     const md = await resp.text();
     content.innerHTML = renderMarkdown(md);
-    // 滚动到顶部
     window.scrollTo({ top: 0, behavior: 'smooth' });
   } catch (e) {
     content.innerHTML = `<p style="color:red;padding:2rem">加载失败: ${e.message}</p>`;
@@ -425,8 +376,6 @@ async function loadMd(file, el) {
 // 简易 Markdown 渲染器
 function renderMarkdown(md) {
   let html = md;
-
-  // 表格
   html = html.replace(/^(\|.+\|)\n(\|[-:| ]+\|)\n((?:\|.+\|\n?)*)/gm, (match, header, sep, body) => {
     const heads = header.split('|').filter(c => c.trim()).map(c => `<th>${c.trim()}</th>`).join('');
     const rows = body.trim().split('\n').map(row => {
@@ -435,99 +384,62 @@ function renderMarkdown(md) {
     }).join('');
     return `<table><thead><tr>${heads}</tr></thead><tbody>${rows}</tbody></table>`;
   });
-
-  // 标题
   html = html.replace(/^######\s+(.+)$/gm, '<h6>$1</h6>');
   html = html.replace(/^#####\s+(.+)$/gm, '<h5>$1</h5>');
   html = html.replace(/^####\s+(.+)$/gm, '<h4>$1</h4>');
   html = html.replace(/^###\s+(.+)$/gm, '<h3>$1</h3>');
   html = html.replace(/^##\s+(.+)$/gm, '<h2>$1</h2>');
   html = html.replace(/^#\s+(.+)$/gm, '<h1>$1</h1>');
-
-  // 粗体/斜体
   html = html.replace(/\*\*\*(.+?)\*\*\*/g, '<strong><em>$1</em></strong>');
   html = html.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
   html = html.replace(/\*(.+?)\*/g, '<em>$1</em>');
-
-  // 代码
   html = html.replace(/`([^`]+)`/g, '<code>$1</code>');
-
-  // 引用
   html = html.replace(/^>\s*(.+)$/gm, '<blockquote>$1</blockquote>');
-
-  // 分割线
   html = html.replace(/^---+$/gm, '<hr>');
-
-  // 无序列表
   html = html.replace(/^[-*]\s+(.+)$/gm, '<li>$1</li>');
   html = html.replace(/((?:<li>.*<\/li>\n?)+)/g, '<ul>$1</ul>');
-
-  // 有序列表
   html = html.replace(/^\d+\.\s+(.+)$/gm, '<li>$1</li>');
-
-  // 段落
   html = html.replace(/\n\n/g, '</p><p>');
   html = '<p>' + html + '</p>';
-
-  // 清理空标签
   html = html.replace(/<p>\s*<(h[1-6]|table|ul|ol|hr|blockquote)/g, '<$1');
   html = html.replace(/<\/(h[1-6]|table|ul|ol|hr|blockquote)>\s*<\/p>/g, '</$1>');
   html = html.replace(/<p>\s*<\/p>/g, '');
-
   return html;
+}
+
+// 加载游戏数据
+async function loadGames() {
+  try {
+    const resp = await fetch('games.json');
+    const games = await resp.json();
+    
+    // 按年份降序排列
+    games.sort((a, b) => parseInt(b.year) - parseInt(a.year));
+    
+    const grid = document.getElementById('gamesGrid');
+    grid.innerHTML = games.map(game => `
+      <a href="${game.detail}" class="game-card">
+        <div class="game-cover">
+          <img src="${game.cover}" alt="${game.en_name}" loading="lazy" onerror="this.style.display='none'">
+        </div>
+        <div class="game-info">
+          <div class="game-title">${game.cn_name}</div>
+          <div class="game-subtitle">${game.en_name}</div>
+          <div class="game-meta">
+            <span class="tag year">${game.year}</span>
+            ${game.score ? `<span class="tag score">评分 ${game.score}</span>` : ''}
+          </div>
+        </div>
+      </a>
+    `).join('');
+  } catch (e) {
+    console.error('加载游戏数据失败:', e);
+  }
 }
 
 // 初始化
 renderSidebar();
-loadMd('20260724-top250-by-release-date.md', document.querySelector('.sidebar-link.active'));
-
-// 加载游戏数据并渲染非Windows专区
-fetch('games.json')
-  .then(r => r.json())
-  .then(games => {
-    // 分离 Windows 和非 Windows 游戏（已按年份降序排列）
-    const windowsGames = games.filter(g => g.is_windows !== false);
-    const nonWindowsGames = games.filter(g => g.is_windows === false);
-    
-    // 渲染非Windows游戏
-    renderNonWindowsGames(nonWindowsGames);
-  })
-  .catch(e => console.error('加载游戏数据失败:', e));
-
-function renderNonWindowsGames(games) {
-  const section = document.getElementById('nonWindowsSection');
-  const grid = document.getElementById('nonWindowsGrid');
-  
-  if (games.length === 0) {
-    section.style.display = 'none';
-    return;
-  }
-  
-  section.style.display = 'block';
-  grid.innerHTML = games.map(game => `
-    <div class="card">
-      <a href="${game.detail}" class="card-poster">
-        <img src="${game.cover}" alt="${game.en_name}" loading="lazy">
-      </a>
-      <div class="card-body">
-        <div class="card-title">${game.cn_name}</div>
-        <div class="card-subtitle">${game.en_name}</div>
-        <div class="card-meta">
-          <span class="tag">${game.year}</span>
-          <span class="tag score">评分 ${game.score}</span>
-          ${game.tags.includes('口碑Top') ? '<span class="tag koubei">口碑Top</span>' : ''}
-          ${game.tags.includes('销量Top') ? '<span class="tag sales">销量Top</span>' : ''}
-          <span class="tag platform">非Windows</span>
-        </div>
-        <div class="card-downloads">
-          ${game.downloads.map(dl => `
-            <a href="${dl.url}" class="dl-btn ${dl.type}" target="_blank">${dl.name}</a>
-          `).join('')}
-        </div>
-      </div>
-    </div>
-  `).join('');
-}
+loadGames();
 </script>
 
 </body>
