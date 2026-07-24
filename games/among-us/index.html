@@ -5,218 +5,297 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>太空狼人杀 - 游戏详情</title>
 <style>
+:root {
+  --bg: #fafbfc;
+  --surface: #ffffff;
+  --border: #e5e7eb;
+  --text-primary: #111827;
+  --text-secondary: #6b7280;
+  --text-muted: #9ca3af;
+  --accent: #3b82f6;
+  --accent-light: #dbeafe;
+  --success: #10b981;
+  --warning: #f59e0b;
+  --radius: 12px;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
+  --shadow: 0 4px 12px rgba(0,0,0,0.06);
+  --shadow-lg: 0 8px 24px rgba(0,0,0,0.08);
+}
+
 * { margin: 0; padding: 0; box-sizing: border-box; }
+
 body {
-  font-family: "Microsoft YaHei", "Segoe UI", sans-serif;
-  background: #1b2838;
-  color: #c7d5e0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text-primary);
   line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
 }
 
 /* 顶部导航 */
-.top-nav {
-  background: #171a21;
-  padding: 8px 0;
-  border-bottom: 1px solid #000;
-}
-.top-nav .container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
+.topbar {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 0.75rem 2rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-}
-.breadcrumb {
-  font-size: 12px;
-  color: #666;
-}
-.breadcrumb a {
-  color: #666;
-  text-decoration: none;
-}
-.breadcrumb a:hover {
-  color: #fff;
-}
-.back-link {
-  color: #67c1f5;
-  text-decoration: none;
-  font-size: 13px;
-}
-.back-link:hover {
-  color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
-/* 主容器 */
-.container {
+.topbar a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: all 0.2s;
+}
+
+.topbar a:hover {
+  background: var(--accent-light);
+  color: var(--accent);
+}
+
+/* 游戏头部 */
+.hero {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 2rem;
+}
+
+.hero .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
-}
-
-/* 游戏头部 - Steam风格左右布局 */
-.game-header {
-  background: linear-gradient(180deg, #1b2838 0%, #2a475e 100%);
-  padding: 30px 0;
-}
-.game-header .container {
   display: grid;
-  grid-template-columns: 460px 1fr;
-  gap: 30px;
+  grid-template-columns: 300px 1fr;
+  gap: 2.5rem;
+  align-items: start;
 }
 
-/* 左侧媒体区域 */
-.media-section {
-  background: #000;
-  border-radius: 4px;
+.hero-cover {
+  border-radius: var(--radius);
   overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  aspect-ratio: 3/4;
 }
-.media-tabs {
-  display: flex;
-  background: #1b2838;
-}
-.media-tab {
-  background: transparent;
-  border: none;
-  color: #67c1f5;
-  padding: 10px 20px;
-  cursor: pointer;
-  font-size: 13px;
-  border-bottom: 2px solid transparent;
-}
-.media-tab.active {
-  border-bottom-color: #67c1f5;
-  color: #fff;
-}
-.media-player {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 16/9;
-  background: #000;
-}
-.media-player video,
-.media-player img {
+
+.hero-cover img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
+
+.hero-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding-top: 0.5rem;
+}
+
+.hero-info h1 {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.hero-info .en-name {
+  font-size: 1.125rem;
+  color: var(--text-secondary);
+  font-weight: 400;
+}
+
+.meta-tags {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.meta-tag {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  padding: 0.375rem 0.75rem;
+  border-radius: 8px;
+  background: #f3f4f6;
+  color: var(--text-secondary);
+}
+
+.meta-tag.score {
+  background: var(--accent-light);
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.meta-tag.year {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.info-row {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.info-item .label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+}
+
+.info-item .value {
+  font-size: 0.9375rem;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.hero-desc {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+  max-width: 640px;
+}
+
+/* 媒体区域 */
+.media-section {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 2rem;
+}
+
+.media-tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.media-tab {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  padding: 0.5rem 1.25rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.media-tab:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.media-tab.active {
+  background: var(--accent);
+  color: white;
+  border-color: var(--accent);
+}
+
+.media-player {
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: #000;
+  aspect-ratio: 16/9;
+}
+
+.media-player video,
+.media-player img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
 .screenshots-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 4px;
-  padding: 4px;
-  background: #1b2838;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 0.75rem;
 }
+
 .screenshots-grid img {
   width: 100%;
   aspect-ratio: 16/9;
   object-fit: cover;
+  border-radius: 8px;
   cursor: pointer;
-  transition: opacity 0.2s;
-}
-.screenshots-grid img:hover {
-  opacity: 0.8;
+  transition: all 0.2s;
+  border: 1px solid var(--border);
 }
 
-/* 右侧信息面板 */
-.game-info {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-.game-title {
-  font-size: 32px;
-  font-weight: 300;
-  color: #fff;
-}
-.game-subtitle {
-  font-size: 14px;
-  color: #8f98a0;
-}
-.game-meta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-.meta-item {
-  background: rgba(0,0,0,0.3);
-  padding: 6px 12px;
-  border-radius: 3px;
-  font-size: 13px;
-  color: #c7d5e0;
-}
-.meta-item.score {
-  background: #66c0f4;
-  color: #1b2838;
-  font-weight: 600;
-}
-.info-block {
-  background: rgba(0,0,0,0.2);
-  padding: 12px;
-  border-radius: 4px;
-}
-.info-block .label {
-  font-size: 11px;
-  color: #8f98a0;
-  text-transform: uppercase;
-  margin-bottom: 4px;
-}
-.info-block .value {
-  font-size: 14px;
-  color: #67c1f5;
-}
-.game-desc {
-  font-size: 14px;
-  color: #acb2b8;
-  line-height: 1.7;
+.screenshots-grid img:hover {
+  transform: scale(1.02);
+  box-shadow: var(--shadow);
 }
 
 /* 内容区域 */
 .content-section {
-  background: #1b2838;
-  padding: 30px 0;
-}
-.content-block {
-  background: rgba(0,0,0,0.3);
-  padding: 24px;
-  border-radius: 4px;
-}
-.content-block h2 {
-  color: #fff;
-  font-size: 20px;
-  margin-bottom: 16px;
-  padding-bottom: 12px;
-  border-bottom: 1px solid #2a475e;
-}
-.content-block p {
-  color: #acb2b8;
-  font-size: 14px;
-  line-height: 1.8;
-  margin-bottom: 12px;
-}
-.content-block h2.bb_tag {
-  color: #67c1f5;
-  font-size: 16px;
-  margin: 20px 0 10px 0;
-  border-bottom: none;
-  padding-bottom: 0;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem 2rem;
 }
 
-/* Steam 内嵌媒体约束 */
+.content-block {
+  background: var(--surface);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.content-block h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.content-block p {
+  color: var(--text-secondary);
+  font-size: 0.9375rem;
+  line-height: 1.75;
+  margin-bottom: 0.75rem;
+}
+
+.content-block h2.bb_tag {
+  font-size: 1.125rem;
+  color: var(--accent);
+  margin: 1.5rem 0 0.75rem;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+/* Steam 内嵌媒体 */
 .content-block .bb_img_ctn {
   display: block;
   max-width: 100%;
-  margin: 12px 0;
+  margin: 1rem 0;
   overflow: hidden;
+  border-radius: 8px;
   background: #000;
 }
+
 .content-block .bb_img {
   max-width: 100% !important;
   width: 100% !important;
   height: auto !important;
   display: block;
-  border-radius: 4px;
+  border-radius: 8px;
 }
+
 .content-block video.bb_img {
   width: 100% !important;
   height: auto !important;
@@ -227,86 +306,125 @@ body {
 
 /* 下载区域 */
 .download-section {
-  background: #1b2838;
-  padding: 30px 0;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem 2rem;
 }
+
 .download-block {
-  background: rgba(0,0,0,0.3);
-  padding: 24px;
-  border-radius: 4px;
+  background: var(--surface);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  padding: 2rem;
 }
+
 .download-block h2 {
-  color: #fff;
-  font-size: 20px;
-  margin-bottom: 16px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
 }
+
 .download-buttons {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 0.75rem;
 }
+
 .download-btn {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 12px 24px;
-  border-radius: 4px;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 10px;
   text-decoration: none;
   color: #fff;
-  font-size: 14px;
+  font-size: 0.9375rem;
   font-weight: 500;
   transition: all 0.2s;
+  box-shadow: var(--shadow-sm);
 }
+
 .download-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  box-shadow: var(--shadow);
 }
+
 .download-btn.gamer520 { background: linear-gradient(135deg, #10b981, #059669); }
 .download-btn.x6d { background: linear-gradient(135deg, #3b82f6, #2563eb); }
-.download-btn.magnet { background: linear-gradient(135deg, #ef4444, #dc2626); }
-.download-btn.fitgirl { background: linear-gradient(135deg, #f59e0b, #d97706); }
+.download-btn.magnet { background: linear-gradient(135deg, #f59e0b, #d97706); }
+.download-btn.fitgirl { background: linear-gradient(135deg, #8b5cf6, #7c3aed); }
 .download-btn.tianyi { background: linear-gradient(135deg, #6366f1, #4f46e5); }
-.download-btn.baidu { background: linear-gradient(135deg, #2563eb, #1d4ed8); }
+.download-btn.baidu { background: linear-gradient(135deg, #06b6d4, #0891b2); }
+.download-btn.crotorrents { background: linear-gradient(135deg, #ec4899, #db2777); }
 
 /* 系统需求 */
 .sys-req {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20px;
+  gap: 2rem;
 }
+
 .sys-req-col h4 {
-  color: #67c1f5;
-  font-size: 14px;
-  margin-bottom: 12px;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 1rem;
 }
+
 .sys-req-col ul {
   list-style: none;
-  margin: 0;
 }
+
 .sys-req-col li {
-  font-size: 13px;
-  color: #acb2b8;
-  margin-bottom: 8px;
-  padding-left: 16px;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+  padding-left: 1.25rem;
   position: relative;
+  line-height: 1.6;
 }
+
 .sys-req-col li:before {
   content: "•";
   position: absolute;
   left: 0;
-  color: #67c1f5;
+  color: var(--accent);
+  font-weight: bold;
 }
 
 /* 响应式 */
 @media (max-width: 900px) {
-  .game-header .container {
+  .hero .container {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
-  .media-section {
-    max-width: 100%;
+  .hero-cover {
+    max-width: 280px;
+    margin: 0 auto;
+  }
+  .hero-info h1 {
+    font-size: 1.75rem;
   }
   .sys-req {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero {
+    padding: 1.5rem 1rem;
+  }
+  .media-section,
+  .content-section,
+  .download-section {
+    padding: 0 1rem 1.5rem;
+  }
+  .content-block,
+  .download-block {
+    padding: 1.5rem;
   }
 }
 </style>
@@ -314,102 +432,93 @@ body {
 <body>
 
 <!-- 顶部导航 -->
-<nav class="top-nav">
-  <div class="container">
-    <div class="breadcrumb">
-      <a href="../../index.html">← 返回游戏榜单</a>
-    </div>
-    <a href="https://store.steampowered.com/app/945360/" target="_blank" class="back-link">Steam 商店页 →</a>
-  </div>
+<nav class="topbar">
+  <a href="../../index.html">← 返回游戏榜单</a>
+  <a href="https://store.steampowered.com/app/945360/" target="_blank">Steam 商店页 →</a>
 </nav>
 
 <!-- 游戏头部 -->
-<section class="game-header">
+<section class="hero">
   <div class="container">
-    <!-- 左侧媒体区域 -->
-    <div class="media-section">
-      <div class="media-tabs">
-        
-        <button class="media-tab active" onclick="showScreenshots()">截图</button>
-      </div>
-      
-      
-      
-      
-      <div id="screenshots-container" class="screenshots-grid" 
+    <div class="hero-cover">
+      <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/945360/library_600x900.jpg" alt="太空狼人杀">
     </div>
-    
-    <!-- 右侧信息面板 -->
-    <div class="game-info">
-      <h1 class="game-title">太空狼人杀</h1>
-      <div class="game-subtitle">Among Us</div>
+    <div class="hero-info">
+      <h1>太空狼人杀</h1>
+      <div class="en-name">Among Us</div>
       
-      <div class="game-meta">
-        <div class="meta-item">2018 年 11 月 16 日</div>
-        <div class="meta-item">休闲</div>
-        <div class="meta-item score">评分 85</div>
+      <div class="meta-tags">
+        <span class="meta-tag year">2018 年 11 月 16 日</span>
+        <span class="meta-tag">休闲</span>
+        <span class="meta-tag score">⭐ 85</span>
       </div>
       
-      
-      <div class="info-block">
-        <div class="label">开发者</div>
-        <div class="value">Innersloth</div>
+      <div class="info-row">
+        <div class="info-item">
+          <span class="label">开发者</span>
+          <span class="value">Innersloth</span>
+        </div>
+        <div class="info-item">
+          <span class="label">发行商</span>
+          <span class="value">Innersloth</span>
+        </div>
       </div>
       
-      
-      
-      <div class="info-block">
-        <div class="label">发行商</div>
-        <div class="value">Innersloth</div>
-      </div>
-      
-      
-      
-      <div class="game-desc">
+      <div class="hero-desc">
         这是一款可以连线或本地游玩的派对游戏，4 到 15 名玩家相互合作与背叛... 一切都发生在太空之中！
       </div>
-      
     </div>
+  </div>
+</section>
+
+<!-- 媒体区域 -->
+<section class="media-section">
+  <div class="media-tabs">
+    <button class="media-tab active" onclick="showVideo()">▶ 视频</button>
+    <button class="media-tab" onclick="showScreenshots()">🖼 截图</button>
+  </div>
+  
+  <div id="video-container" class="media-player">
+    
+  </div>
+  
+  <div id="screenshots-container" class="screenshots-grid" style="display:none;">
+    <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/945360/ss_b7374128e5b786a302a716bca038d604b00ffe46.1920x1080.jpg?t=1781287930" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/945360/ss_719484b5e0314cc2ae43793786448e032056a31d.1920x1080.jpg?t=1781287930" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/945360/ss_ffd9c8926cbd7fce3ca5e5efb4399c47bb196bc8.1920x1080.jpg?t=1781287930" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/945360/ss_1fbd9dc9fd6a2710d233a088ef426a6d78fcf884.1920x1080.jpg?t=1781287930" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/945360/ss_9d11502fa973580a82b532b25f1901b8425c28f9.1920x1080.jpg?t=1781287930" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/945360/ss_17be75e178e3520c986504504ada8535de19cc0d.1920x1080.jpg?t=1781287930" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/945360/ss_a1872c1c594ad4e5885d248516919d85243d9c1f.1920x1080.jpg?t=1781287930" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/945360/ss_7ccc894b8f95091f608fa012450549091cce2423.1920x1080.jpg?t=1781287930" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/945360/ss_13ec9b7b0ad4d154a99a8cbbc4a0c12c02d0421f.1920x1080.jpg?t=1781287930" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/945360/ss_41c3f20fa1faf5c9c7548b38a22c449bcfa9bc5e.1920x1080.jpg?t=1781287930" alt="Screenshot" onclick="window.open(this.src)">
   </div>
 </section>
 
 <!-- 关于此游戏 -->
-
 <section class="content-section">
-  <div class="container">
-    <div class="content-block">
-      <h2>关于此游戏</h2>
-      <div><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/945360/extras/e5c2ed740b8c544b5fe6adee73f86d66.avif?t=1781287930" width=600 height=125 /></span><br>欢迎各位新乘员！<br><br>快跳入《Among Us》最新的地图“Airship”中吧！在这艘飞船上同心协力，实行最缜密巧妙的计划... 至于是以船员还是伪装者的身分行动，那就是另一回事了。<br><br>本次免费更新包含：<br><ul class="bb_ul"><li>第 4 张地图，也是当前最大的地图<br></li><li>抛光宝石、清垃圾 (真好玩) 等全新任务<br></li><li>能够选择开局时所在的房间<br></li><li>可探索 (或死于其中) 的全新区域<br></li><li>改善梯子与移动平台的移动能力<br></li><li>全新免费帽子，包含心型别针、愤怒眉毛、独角兽头部、橡胶手套等内容！</li></ul><br><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/945360/extras/6bbe13c19eac2f3aeaadddbc7bb40fdc.avif?t=1781287930" width=620 height=330 /></span><br><br>您可以在线或利用本地 WiFi 与 4-15 名玩家一起游玩，努力整备飞船为出发做准备，但过程中要小心，组员中至少会有一名玩家会被随机指派为想要杀死大家的伪装者！<br><br>本游戏是以派对同乐为目的打造而成，因此推荐您与好友们通过局域网面机，或在线上配合语音聊天一起游玩。可在 Android、iOS 和电脑间跨平台畅游。<br><br><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/945360/extras/76bef22d1af309e719a8f2b578ef63dc.avif?t=1781287930" width=600 height=124 /></span><br><br><ul class="bb_ul"><li>完成任务让船只准备好启程或是驱逐所有伪装者来获得胜利。<br></li><li>快速应对以修复伪装者造成的破坏。<br></li><li>查看管理室地图和保安摄像机以密切关注其他船员的动态。<br></li><li>发现尸体时立即报告，以开始讨论谁可能是伪装者。<br></li><li>召开紧急会议来针对可疑的行动进行讨论。<br></li><li>投票驱逐推测是伪装者的人。</li></ul><br><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/945360/extras/a00136b10c71226d0cb43d07d88efbf7.avif?t=1781287930" width=600 height=125 /></span><br><br><ul class="bb_ul"><li>杀死船员并嫁祸给旁观者。<br></li><li>假装进行任务以融入船员之中。<br></li><li>利用通风口在船上隐密地快速移动。<br></li><li>搞破坏来制造混乱并分化船员。<br></li><li>关门以困住受害者并悄悄将其杀害。</li></ul><br><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/945360/extras/c2ae1f9084de411d71d9c73d345d9622.avif?t=1781287930" width=600 height=315 /></span><h2 class="bb_tag" > 功能 </h2><ul class="bb_ul"><li>客制化：自行选择颜色和帽子。<br></li><li>多样化的游戏选项：增加更多伪装者、更多任务与其他更多内容！<br></li><li>利用主持列表来快速寻找在线游戏！<br></li><li>游戏内文字聊天。<br></li><li>丰富的 Discord 整合项目。<br></li><li>在电脑、Android 和 iOS 上享受跨平台游玩的乐趣！</li></ul></div>
-    </div>
+  <div class="content-block">
+    <h2>关于此游戏</h2>
+    <div><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/945360/extras/e5c2ed740b8c544b5fe6adee73f86d66.avif?t=1781287930" width=600 height=125 /></span><br>欢迎各位新乘员！<br><br>快跳入《Among Us》最新的地图“Airship”中吧！在这艘飞船上同心协力，实行最缜密巧妙的计划... 至于是以船员还是伪装者的身分行动，那就是另一回事了。<br><br>本次免费更新包含：<br><ul class="bb_ul"><li>第 4 张地图，也是当前最大的地图<br></li><li>抛光宝石、清垃圾 (真好玩) 等全新任务<br></li><li>能够选择开局时所在的房间<br></li><li>可探索 (或死于其中) 的全新区域<br></li><li>改善梯子与移动平台的移动能力<br></li><li>全新免费帽子，包含心型别针、愤怒眉毛、独角兽头部、橡胶手套等内容！</li></ul><br><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/945360/extras/6bbe13c19eac2f3aeaadddbc7bb40fdc.avif?t=1781287930" width=620 height=330 /></span><br><br>您可以在线或利用本地 WiFi 与 4-15 名玩家一起游玩，努力整备飞船为出发做准备，但过程中要小心，组员中至少会有一名玩家会被随机指派为想要杀死大家的伪装者！<br><br>本游戏是以派对同乐为目的打造而成，因此推荐您与好友们通过局域网面机，或在线上配合语音聊天一起游玩。可在 Android、iOS 和电脑间跨平台畅游。<br><br><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/945360/extras/76bef22d1af309e719a8f2b578ef63dc.avif?t=1781287930" width=600 height=124 /></span><br><br><ul class="bb_ul"><li>完成任务让船只准备好启程或是驱逐所有伪装者来获得胜利。<br></li><li>快速应对以修复伪装者造成的破坏。<br></li><li>查看管理室地图和保安摄像机以密切关注其他船员的动态。<br></li><li>发现尸体时立即报告，以开始讨论谁可能是伪装者。<br></li><li>召开紧急会议来针对可疑的行动进行讨论。<br></li><li>投票驱逐推测是伪装者的人。</li></ul><br><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/945360/extras/a00136b10c71226d0cb43d07d88efbf7.avif?t=1781287930" width=600 height=125 /></span><br><br><ul class="bb_ul"><li>杀死船员并嫁祸给旁观者。<br></li><li>假装进行任务以融入船员之中。<br></li><li>利用通风口在船上隐密地快速移动。<br></li><li>搞破坏来制造混乱并分化船员。<br></li><li>关门以困住受害者并悄悄将其杀害。</li></ul><br><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/945360/extras/c2ae1f9084de411d71d9c73d345d9622.avif?t=1781287930" width=600 height=315 /></span><h2 class="bb_tag" > 功能 </h2><ul class="bb_ul"><li>客制化：自行选择颜色和帽子。<br></li><li>多样化的游戏选项：增加更多伪装者、更多任务与其他更多内容！<br></li><li>利用主持列表来快速寻找在线游戏！<br></li><li>游戏内文字聊天。<br></li><li>丰富的 Discord 整合项目。<br></li><li>在电脑、Android 和 iOS 上享受跨平台游玩的乐趣！</li></ul></div>
   </div>
 </section>
 
-
 <!-- 下载区域 -->
 <section class="download-section">
-  <div class="container">
-    <div class="download-block">
-      <h2>📥 下载链接</h2>
-      <div class="download-buttons">
-        <p style="color:#8f98a0;">暂无下载链接</p>
-      </div>
+  <div class="download-block">
+    <h2>📥 下载链接</h2>
+    <div class="download-buttons">
+      <p style="color:var(--text-muted)">暂无下载链接</p>
     </div>
   </div>
 </section>
 
 <!-- 系统需求 -->
-
-<section class="content-section">
-  <div class="container">
-    <div class="content-block">
-      <h2>系统需求</h2>
-      <div class="sys-req">
-        <div class="sys-req-col"><h4>最低配置</h4><div><strong>最低配置:</strong><br><ul class="bb_ul"><li><strong>操作系统:</strong> Windows 10 x32bit<br></li><li><strong>处理器:</strong> INTEL i3-4330<br></li><li><strong>内存:</strong> 1 GB RAM<br></li><li><strong>显卡:</strong> INTEL HD Graphics 4600</li></ul></div></div>
-        <div class="sys-req-col"><h4>推荐配置</h4><div><strong>推荐配置:</strong><br><ul class="bb_ul"><li><strong>操作系统:</strong> Windows 10 x64bit<br></li><li><strong>处理器:</strong> INTEL i3-4330<br></li><li><strong>内存:</strong> 4 GB RAM<br></li><li><strong>显卡:</strong> Nvidia GTX 650</li></ul></div></div>
-      </div>
-    </div>
-  </div>
-</section>
+<section class="content-section"><div class="content-block"><h2>系统需求</h2><div class="sys-req">
+<div class="sys-req-col"><h4>最低配置</h4><ul><strong>最低配置:</strong><br><ul class="bb_ul"><li><strong>操作系统:</strong> Windows 10 x32bit<br></li><li><strong>处理器:</strong> INTEL i3-4330<br></li><li><strong>内存:</strong> 1 GB RAM<br></li><li><strong>显卡:</strong> INTEL HD Graphics 4600</li></ul></ul></div>
+<div class="sys-req-col"><h4>推荐配置</h4><ul><strong>推荐配置:</strong><br><ul class="bb_ul"><li><strong>操作系统:</strong> Windows 10 x64bit<br></li><li><strong>处理器:</strong> INTEL i3-4330<br></li><li><strong>内存:</strong> 4 GB RAM<br></li><li><strong>显卡:</strong> Nvidia GTX 650</li></ul></ul></div>
+</div></div></section>
 
 <script>
 function showVideo() {
@@ -420,8 +529,8 @@ function showVideo() {
 }
 
 function showScreenshots() {
-  const videoContainer = document.getElementById('video-container');
-  if (videoContainer) videoContainer.style.display = 'none';
+  const vc = document.getElementById('video-container');
+  if (vc) vc.style.display = 'none';
   document.getElementById('screenshots-container').style.display = 'grid';
   document.querySelectorAll('.media-tab').forEach(t => t.classList.remove('active'));
   event.target.classList.add('active');

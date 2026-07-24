@@ -5,218 +5,297 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>森林 - 游戏详情</title>
 <style>
+:root {
+  --bg: #fafbfc;
+  --surface: #ffffff;
+  --border: #e5e7eb;
+  --text-primary: #111827;
+  --text-secondary: #6b7280;
+  --text-muted: #9ca3af;
+  --accent: #3b82f6;
+  --accent-light: #dbeafe;
+  --success: #10b981;
+  --warning: #f59e0b;
+  --radius: 12px;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
+  --shadow: 0 4px 12px rgba(0,0,0,0.06);
+  --shadow-lg: 0 8px 24px rgba(0,0,0,0.08);
+}
+
 * { margin: 0; padding: 0; box-sizing: border-box; }
+
 body {
-  font-family: "Microsoft YaHei", "Segoe UI", sans-serif;
-  background: #1b2838;
-  color: #c7d5e0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text-primary);
   line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
 }
 
 /* 顶部导航 */
-.top-nav {
-  background: #171a21;
-  padding: 8px 0;
-  border-bottom: 1px solid #000;
-}
-.top-nav .container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
+.topbar {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 0.75rem 2rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-}
-.breadcrumb {
-  font-size: 12px;
-  color: #666;
-}
-.breadcrumb a {
-  color: #666;
-  text-decoration: none;
-}
-.breadcrumb a:hover {
-  color: #fff;
-}
-.back-link {
-  color: #67c1f5;
-  text-decoration: none;
-  font-size: 13px;
-}
-.back-link:hover {
-  color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
-/* 主容器 */
-.container {
+.topbar a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: all 0.2s;
+}
+
+.topbar a:hover {
+  background: var(--accent-light);
+  color: var(--accent);
+}
+
+/* 游戏头部 */
+.hero {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 2rem;
+}
+
+.hero .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
-}
-
-/* 游戏头部 - Steam风格左右布局 */
-.game-header {
-  background: linear-gradient(180deg, #1b2838 0%, #2a475e 100%);
-  padding: 30px 0;
-}
-.game-header .container {
   display: grid;
-  grid-template-columns: 460px 1fr;
-  gap: 30px;
+  grid-template-columns: 300px 1fr;
+  gap: 2.5rem;
+  align-items: start;
 }
 
-/* 左侧媒体区域 */
-.media-section {
-  background: #000;
-  border-radius: 4px;
+.hero-cover {
+  border-radius: var(--radius);
   overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  aspect-ratio: 3/4;
 }
-.media-tabs {
-  display: flex;
-  background: #1b2838;
-}
-.media-tab {
-  background: transparent;
-  border: none;
-  color: #67c1f5;
-  padding: 10px 20px;
-  cursor: pointer;
-  font-size: 13px;
-  border-bottom: 2px solid transparent;
-}
-.media-tab.active {
-  border-bottom-color: #67c1f5;
-  color: #fff;
-}
-.media-player {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 16/9;
-  background: #000;
-}
-.media-player video,
-.media-player img {
+
+.hero-cover img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
+
+.hero-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding-top: 0.5rem;
+}
+
+.hero-info h1 {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.hero-info .en-name {
+  font-size: 1.125rem;
+  color: var(--text-secondary);
+  font-weight: 400;
+}
+
+.meta-tags {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.meta-tag {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  padding: 0.375rem 0.75rem;
+  border-radius: 8px;
+  background: #f3f4f6;
+  color: var(--text-secondary);
+}
+
+.meta-tag.score {
+  background: var(--accent-light);
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.meta-tag.year {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.info-row {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.info-item .label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+}
+
+.info-item .value {
+  font-size: 0.9375rem;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.hero-desc {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+  max-width: 640px;
+}
+
+/* 媒体区域 */
+.media-section {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 2rem;
+}
+
+.media-tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.media-tab {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  padding: 0.5rem 1.25rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.media-tab:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.media-tab.active {
+  background: var(--accent);
+  color: white;
+  border-color: var(--accent);
+}
+
+.media-player {
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: #000;
+  aspect-ratio: 16/9;
+}
+
+.media-player video,
+.media-player img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
 .screenshots-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 4px;
-  padding: 4px;
-  background: #1b2838;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 0.75rem;
 }
+
 .screenshots-grid img {
   width: 100%;
   aspect-ratio: 16/9;
   object-fit: cover;
+  border-radius: 8px;
   cursor: pointer;
-  transition: opacity 0.2s;
-}
-.screenshots-grid img:hover {
-  opacity: 0.8;
+  transition: all 0.2s;
+  border: 1px solid var(--border);
 }
 
-/* 右侧信息面板 */
-.game-info {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-.game-title {
-  font-size: 32px;
-  font-weight: 300;
-  color: #fff;
-}
-.game-subtitle {
-  font-size: 14px;
-  color: #8f98a0;
-}
-.game-meta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-.meta-item {
-  background: rgba(0,0,0,0.3);
-  padding: 6px 12px;
-  border-radius: 3px;
-  font-size: 13px;
-  color: #c7d5e0;
-}
-.meta-item.score {
-  background: #66c0f4;
-  color: #1b2838;
-  font-weight: 600;
-}
-.info-block {
-  background: rgba(0,0,0,0.2);
-  padding: 12px;
-  border-radius: 4px;
-}
-.info-block .label {
-  font-size: 11px;
-  color: #8f98a0;
-  text-transform: uppercase;
-  margin-bottom: 4px;
-}
-.info-block .value {
-  font-size: 14px;
-  color: #67c1f5;
-}
-.game-desc {
-  font-size: 14px;
-  color: #acb2b8;
-  line-height: 1.7;
+.screenshots-grid img:hover {
+  transform: scale(1.02);
+  box-shadow: var(--shadow);
 }
 
 /* 内容区域 */
 .content-section {
-  background: #1b2838;
-  padding: 30px 0;
-}
-.content-block {
-  background: rgba(0,0,0,0.3);
-  padding: 24px;
-  border-radius: 4px;
-}
-.content-block h2 {
-  color: #fff;
-  font-size: 20px;
-  margin-bottom: 16px;
-  padding-bottom: 12px;
-  border-bottom: 1px solid #2a475e;
-}
-.content-block p {
-  color: #acb2b8;
-  font-size: 14px;
-  line-height: 1.8;
-  margin-bottom: 12px;
-}
-.content-block h2.bb_tag {
-  color: #67c1f5;
-  font-size: 16px;
-  margin: 20px 0 10px 0;
-  border-bottom: none;
-  padding-bottom: 0;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem 2rem;
 }
 
-/* Steam 内嵌媒体约束 */
+.content-block {
+  background: var(--surface);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.content-block h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.content-block p {
+  color: var(--text-secondary);
+  font-size: 0.9375rem;
+  line-height: 1.75;
+  margin-bottom: 0.75rem;
+}
+
+.content-block h2.bb_tag {
+  font-size: 1.125rem;
+  color: var(--accent);
+  margin: 1.5rem 0 0.75rem;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+/* Steam 内嵌媒体 */
 .content-block .bb_img_ctn {
   display: block;
   max-width: 100%;
-  margin: 12px 0;
+  margin: 1rem 0;
   overflow: hidden;
+  border-radius: 8px;
   background: #000;
 }
+
 .content-block .bb_img {
   max-width: 100% !important;
   width: 100% !important;
   height: auto !important;
   display: block;
-  border-radius: 4px;
+  border-radius: 8px;
 }
+
 .content-block video.bb_img {
   width: 100% !important;
   height: auto !important;
@@ -227,86 +306,125 @@ body {
 
 /* 下载区域 */
 .download-section {
-  background: #1b2838;
-  padding: 30px 0;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem 2rem;
 }
+
 .download-block {
-  background: rgba(0,0,0,0.3);
-  padding: 24px;
-  border-radius: 4px;
+  background: var(--surface);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  padding: 2rem;
 }
+
 .download-block h2 {
-  color: #fff;
-  font-size: 20px;
-  margin-bottom: 16px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
 }
+
 .download-buttons {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 0.75rem;
 }
+
 .download-btn {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 12px 24px;
-  border-radius: 4px;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 10px;
   text-decoration: none;
   color: #fff;
-  font-size: 14px;
+  font-size: 0.9375rem;
   font-weight: 500;
   transition: all 0.2s;
+  box-shadow: var(--shadow-sm);
 }
+
 .download-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  box-shadow: var(--shadow);
 }
+
 .download-btn.gamer520 { background: linear-gradient(135deg, #10b981, #059669); }
 .download-btn.x6d { background: linear-gradient(135deg, #3b82f6, #2563eb); }
-.download-btn.magnet { background: linear-gradient(135deg, #ef4444, #dc2626); }
-.download-btn.fitgirl { background: linear-gradient(135deg, #f59e0b, #d97706); }
+.download-btn.magnet { background: linear-gradient(135deg, #f59e0b, #d97706); }
+.download-btn.fitgirl { background: linear-gradient(135deg, #8b5cf6, #7c3aed); }
 .download-btn.tianyi { background: linear-gradient(135deg, #6366f1, #4f46e5); }
-.download-btn.baidu { background: linear-gradient(135deg, #2563eb, #1d4ed8); }
+.download-btn.baidu { background: linear-gradient(135deg, #06b6d4, #0891b2); }
+.download-btn.crotorrents { background: linear-gradient(135deg, #ec4899, #db2777); }
 
 /* 系统需求 */
 .sys-req {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20px;
+  gap: 2rem;
 }
+
 .sys-req-col h4 {
-  color: #67c1f5;
-  font-size: 14px;
-  margin-bottom: 12px;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 1rem;
 }
+
 .sys-req-col ul {
   list-style: none;
-  margin: 0;
 }
+
 .sys-req-col li {
-  font-size: 13px;
-  color: #acb2b8;
-  margin-bottom: 8px;
-  padding-left: 16px;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+  padding-left: 1.25rem;
   position: relative;
+  line-height: 1.6;
 }
+
 .sys-req-col li:before {
   content: "•";
   position: absolute;
   left: 0;
-  color: #67c1f5;
+  color: var(--accent);
+  font-weight: bold;
 }
 
 /* 响应式 */
 @media (max-width: 900px) {
-  .game-header .container {
+  .hero .container {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
-  .media-section {
-    max-width: 100%;
+  .hero-cover {
+    max-width: 280px;
+    margin: 0 auto;
+  }
+  .hero-info h1 {
+    font-size: 1.75rem;
   }
   .sys-req {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero {
+    padding: 1.5rem 1rem;
+  }
+  .media-section,
+  .content-section,
+  .download-section {
+    padding: 0 1rem 1.5rem;
+  }
+  .content-block,
+  .download-block {
+    padding: 1.5rem;
   }
 }
 </style>
@@ -314,106 +432,91 @@ body {
 <body>
 
 <!-- 顶部导航 -->
-<nav class="top-nav">
-  <div class="container">
-    <div class="breadcrumb">
-      <a href="../../index.html">← 返回游戏榜单</a>
-    </div>
-    <a href="https://store.steampowered.com/app/4376930/" target="_blank" class="back-link">Steam 商店页 →</a>
-  </div>
+<nav class="topbar">
+  <a href="../../index.html">← 返回游戏榜单</a>
+  <a href="https://store.steampowered.com/app/4376930/" target="_blank">Steam 商店页 →</a>
 </nav>
 
 <!-- 游戏头部 -->
-<section class="game-header">
+<section class="hero">
   <div class="container">
-    <!-- 左侧媒体区域 -->
-    <div class="media-section">
-      <div class="media-tabs">
-        
-        <button class="media-tab active" onclick="showScreenshots()">截图</button>
-      </div>
-      
-      
-      
-      
-      <div id="screenshots-container" class="screenshots-grid" 
+    <div class="hero-cover">
+      <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4376930/library_600x900.jpg" alt="森林">
     </div>
-    
-    <!-- 右侧信息面板 -->
-    <div class="game-info">
-      <h1 class="game-title">森林</h1>
-      <div class="game-subtitle">The Forest</div>
+    <div class="hero-info">
+      <h1>森林</h1>
+      <div class="en-name">The Forest</div>
       
-      <div class="game-meta">
-        <div class="meta-item">2026 年 7 月 8 日</div>
-        <div class="meta-item">动作, 冒险, 休闲, 角色扮演, 模拟</div>
-        <div class="meta-item score">评分 96</div>
+      <div class="meta-tags">
+        <span class="meta-tag year">2026 年 7 月 8 日</span>
+        <span class="meta-tag">动作, 冒险, 休闲, 角色扮演, 模拟</span>
+        <span class="meta-tag score">⭐ 96</span>
       </div>
       
-      
-      <div class="info-block">
-        <div class="label">开发者</div>
-        <div class="value">Gameloft</div>
+      <div class="info-row">
+        <div class="info-item">
+          <span class="label">开发者</span>
+          <span class="value">Gameloft</span>
+        </div>
+        <div class="info-item">
+          <span class="label">发行商</span>
+          <span class="value">Gameloft</span>
+        </div>
       </div>
       
-      
-      
-      <div class="info-block">
-        <div class="label">发行商</div>
-        <div class="value">Gameloft</div>
-      </div>
-      
-      
-      
-      <div class="game-desc">
+      <div class="hero-desc">
         探索蜜辉森林，在全新冒险包中，与迪士尼的小熊维尼、屹耳和小猪重逢！
       </div>
-      
     </div>
+  </div>
+</section>
+
+<!-- 媒体区域 -->
+<section class="media-section">
+  <div class="media-tabs">
+    <button class="media-tab active" onclick="showVideo()">▶ 视频</button>
+    <button class="media-tab" onclick="showScreenshots()">🖼 截图</button>
+  </div>
+  
+  <div id="video-container" class="media-player">
+    
+  </div>
+  
+  <div id="screenshots-container" class="screenshots-grid" style="display:none;">
+    <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4376930/6383729e6dc9a40c14c4a7c5c4a732808d63816b/ss_6383729e6dc9a40c14c4a7c5c4a732808d63816b.1920x1080.jpg?t=1783719711" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4376930/8447be99d02989cad10984d214bb6adaddbd02ba/ss_8447be99d02989cad10984d214bb6adaddbd02ba.1920x1080.jpg?t=1783719711" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4376930/65c1a89f09db3e36a3c41ba462eb152a8f6c049f/ss_65c1a89f09db3e36a3c41ba462eb152a8f6c049f.1920x1080.jpg?t=1783719711" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4376930/6e2df7ad28839cfd93798634b8dc69e2d7399f66/ss_6e2df7ad28839cfd93798634b8dc69e2d7399f66.1920x1080.jpg?t=1783719711" alt="Screenshot" onclick="window.open(this.src)">
   </div>
 </section>
 
 <!-- 关于此游戏 -->
-
 <section class="content-section">
-  <div class="container">
-    <div class="content-block">
-      <h2>关于此游戏</h2>
-      <div><p class="bb_paragraph" >内有2000枚月亮石</p><p class="bb_paragraph" >《迪士尼梦幻星谷：蜜辉森林》是《迪士尼梦幻星谷》的全新冒险扩展包，无论是初入星谷的新人玩家，还是资深老玩家，都能收获绝佳体验。你可以结识三位人气满满的小熊维尼系列角色，探索并装扮四块全新区域，还能在神秘的长青橡树中破解各类谜题。重拾孩童般的好奇心，在趣味十足的小熊维尼木棍游戏里重温友谊的美好；学习养蜂技艺，为你的家园增添甜蜜气息，同时解锁数十种全新制作配方。</p><h2 class="bb_tag" >邂逅新老朋友</h2><p class="bb_paragraph" >梦幻星谷深处有一片蜜辉森林，这里曾是你与许久未见的挚友共度悠闲午后的地方。重回这片田园之地，你很快就能遇见小熊维尼——纵使天色阴沉，他依旧乐观开朗。就在不远处，勇敢的小猪决心直面内心的恐惧，而心思细腻的屹耳则默默感受着林间淡淡的惆怅……当然，他也十分需要有人为他打气。</p><p class="bb_paragraph" >这片奇妙天地不止能让你与老友重聚，还能结识新伙伴。活泼可爱的多彩刺猬一家已在此等候，准备与你一同开启冒险旅程。</p><h2 class="bb_tag" >甜蜜相伴</h2><p class="bb_paragraph" >蜜辉森林的中心藏着一份金色惊喜：蜂蜜！学习养蜂之术，打造忙忙蜂小屋并将其放置在繁花之间，收获金黄蜂蜜。用蜂蜜制作精致的蜜辉风格家具、烘焙美味点心，还能解锁全新配方，让甜蜜气息弥漫在星谷的每个角落。</p><h2 class="bb_tag" >长青橡树之谜</h2><p class="bb_paragraph" >参天的长青橡树伫立在森林中央，周围环绕着四片风格迥异、如梦似幻的区域。在沉眠花田漫步，在繁花盛放的勇心林地冒险，在有趣潮湿的幽暗草地穿行，走进遍布巨型蜂巢的花蜜养蜂场。逐一修缮这些区域，揭开长青橡树隐藏的秘密，便能修复这片土地，破解蜜辉森林深处的谜团。</p><h2 class="bb_tag" >全新小游戏</h2><p class="bb_paragraph" >《迪士尼梦幻星谷：蜜辉森林》还上线了全新小游戏——小熊维尼木棍游戏，灵感源自经典小熊维尼故事，你可以和所有村民一起玩游戏。前往幽暗草地的桥梁处，召集四位村民即可玩小熊维尼木棍游戏。每个人各自挑选一件物品，从桥上丢入下游河道。谁的物品最先抵达河道终点，便能赢得胜利。这款温馨的小游戏，能让你和星谷里的伙伴们情谊愈发深厚。</p></div>
-    </div>
+  <div class="content-block">
+    <h2>关于此游戏</h2>
+    <div><p class="bb_paragraph" >内有2000枚月亮石</p><p class="bb_paragraph" >《迪士尼梦幻星谷：蜜辉森林》是《迪士尼梦幻星谷》的全新冒险扩展包，无论是初入星谷的新人玩家，还是资深老玩家，都能收获绝佳体验。你可以结识三位人气满满的小熊维尼系列角色，探索并装扮四块全新区域，还能在神秘的长青橡树中破解各类谜题。重拾孩童般的好奇心，在趣味十足的小熊维尼木棍游戏里重温友谊的美好；学习养蜂技艺，为你的家园增添甜蜜气息，同时解锁数十种全新制作配方。</p><h2 class="bb_tag" >邂逅新老朋友</h2><p class="bb_paragraph" >梦幻星谷深处有一片蜜辉森林，这里曾是你与许久未见的挚友共度悠闲午后的地方。重回这片田园之地，你很快就能遇见小熊维尼——纵使天色阴沉，他依旧乐观开朗。就在不远处，勇敢的小猪决心直面内心的恐惧，而心思细腻的屹耳则默默感受着林间淡淡的惆怅……当然，他也十分需要有人为他打气。</p><p class="bb_paragraph" >这片奇妙天地不止能让你与老友重聚，还能结识新伙伴。活泼可爱的多彩刺猬一家已在此等候，准备与你一同开启冒险旅程。</p><h2 class="bb_tag" >甜蜜相伴</h2><p class="bb_paragraph" >蜜辉森林的中心藏着一份金色惊喜：蜂蜜！学习养蜂之术，打造忙忙蜂小屋并将其放置在繁花之间，收获金黄蜂蜜。用蜂蜜制作精致的蜜辉风格家具、烘焙美味点心，还能解锁全新配方，让甜蜜气息弥漫在星谷的每个角落。</p><h2 class="bb_tag" >长青橡树之谜</h2><p class="bb_paragraph" >参天的长青橡树伫立在森林中央，周围环绕着四片风格迥异、如梦似幻的区域。在沉眠花田漫步，在繁花盛放的勇心林地冒险，在有趣潮湿的幽暗草地穿行，走进遍布巨型蜂巢的花蜜养蜂场。逐一修缮这些区域，揭开长青橡树隐藏的秘密，便能修复这片土地，破解蜜辉森林深处的谜团。</p><h2 class="bb_tag" >全新小游戏</h2><p class="bb_paragraph" >《迪士尼梦幻星谷：蜜辉森林》还上线了全新小游戏——小熊维尼木棍游戏，灵感源自经典小熊维尼故事，你可以和所有村民一起玩游戏。前往幽暗草地的桥梁处，召集四位村民即可玩小熊维尼木棍游戏。每个人各自挑选一件物品，从桥上丢入下游河道。谁的物品最先抵达河道终点，便能赢得胜利。这款温馨的小游戏，能让你和星谷里的伙伴们情谊愈发深厚。</p></div>
   </div>
 </section>
 
-
 <!-- 下载区域 -->
 <section class="download-section">
-  <div class="container">
-    <div class="download-block">
-      <h2>📥 下载链接</h2>
-      <div class="download-buttons">
-        <a href="magnet:?xt=urn:btih:D4F1FE005B7C94C6904269A7213E15B0DDC47B1E" class="download-btn magnet" target="_blank">🧲磁力</a>
+  <div class="download-block">
+    <h2>📥 下载链接</h2>
+    <div class="download-buttons">
+      <a href="magnet:?xt=urn:btih:D4F1FE005B7C94C6904269A7213E15B0DDC47B1E" class="download-btn magnet" target="_blank">🧲磁力</a>
 <a href="https://fitgirl-repacks.site/the-forest/" class="download-btn fitgirl" target="_blank">FitGirl</a>
 <a href="https://www.gamer520.com/89316.html" class="download-btn gamer520" target="_blank">gamer520</a>
 <a href="https://www.x6d.com/i-wz-32262.html" class="download-btn x6d" target="_blank">x6d</a>
 
-      </div>
     </div>
   </div>
 </section>
 
 <!-- 系统需求 -->
-
-<section class="content-section">
-  <div class="container">
-    <div class="content-block">
-      <h2>系统需求</h2>
-      <div class="sys-req">
-        <div class="sys-req-col"><h4>最低配置</h4><div><strong>最低配置:</strong><br><ul class="bb_ul"><li>需要 64 位处理器和操作系统<br></li><li><strong>操作系统:</strong> Windows 10<br></li><li><strong>处理器:</strong> Intel Core i3-540 or AMD Phenom II X4 940<br></li><li><strong>内存:</strong> 6 GB RAM<br></li><li><strong>显卡:</strong> NVIDIA GeForce 9600 GT, 512 MB or AMD Radeon HD 6570, 1 GB<br></li><li><strong>DirectX 版本:</strong> 10<br></li><li><strong>存储空间:</strong> 需要 15 GB 可用空间</li></ul></div></div>
-        <div class="sys-req-col"><h4>推荐配置</h4><div><strong>推荐配置:</strong><br><ul class="bb_ul"><li>需要 64 位处理器和操作系统<br></li><li><strong>操作系统:</strong> Windows 10<br></li><li><strong>处理器:</strong> Intel Core i5-4690 or AMD Ryzen 3 1300X<br></li><li><strong>内存:</strong> 6 GB RAM<br></li><li><strong>显卡:</strong> NVIDIA GeForce GTX 960, 4 GB or AMD Radeon R9 380, 4 GB<br></li><li><strong>DirectX 版本:</strong> 11<br></li><li><strong>存储空间:</strong> 需要 15 GB 可用空间</li></ul></div></div>
-      </div>
-    </div>
-  </div>
-</section>
+<section class="content-section"><div class="content-block"><h2>系统需求</h2><div class="sys-req">
+<div class="sys-req-col"><h4>最低配置</h4><ul><strong>最低配置:</strong><br><ul class="bb_ul"><li>需要 64 位处理器和操作系统<br></li><li><strong>操作系统:</strong> Windows 10<br></li><li><strong>处理器:</strong> Intel Core i3-540 or AMD Phenom II X4 940<br></li><li><strong>内存:</strong> 6 GB RAM<br></li><li><strong>显卡:</strong> NVIDIA GeForce 9600 GT, 512 MB or AMD Radeon HD 6570, 1 GB<br></li><li><strong>DirectX 版本:</strong> 10<br></li><li><strong>存储空间:</strong> 需要 15 GB 可用空间</li></ul></ul></div>
+<div class="sys-req-col"><h4>推荐配置</h4><ul><strong>推荐配置:</strong><br><ul class="bb_ul"><li>需要 64 位处理器和操作系统<br></li><li><strong>操作系统:</strong> Windows 10<br></li><li><strong>处理器:</strong> Intel Core i5-4690 or AMD Ryzen 3 1300X<br></li><li><strong>内存:</strong> 6 GB RAM<br></li><li><strong>显卡:</strong> NVIDIA GeForce GTX 960, 4 GB or AMD Radeon R9 380, 4 GB<br></li><li><strong>DirectX 版本:</strong> 11<br></li><li><strong>存储空间:</strong> 需要 15 GB 可用空间</li></ul></ul></div>
+</div></div></section>
 
 <script>
 function showVideo() {
@@ -424,8 +527,8 @@ function showVideo() {
 }
 
 function showScreenshots() {
-  const videoContainer = document.getElementById('video-container');
-  if (videoContainer) videoContainer.style.display = 'none';
+  const vc = document.getElementById('video-container');
+  if (vc) vc.style.display = 'none';
   document.getElementById('screenshots-container').style.display = 'grid';
   document.querySelectorAll('.media-tab').forEach(t => t.classList.remove('active'));
   event.target.classList.add('active');

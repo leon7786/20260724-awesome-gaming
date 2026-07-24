@@ -5,218 +5,297 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>使命召唤：现代战争 - 游戏详情</title>
 <style>
+:root {
+  --bg: #fafbfc;
+  --surface: #ffffff;
+  --border: #e5e7eb;
+  --text-primary: #111827;
+  --text-secondary: #6b7280;
+  --text-muted: #9ca3af;
+  --accent: #3b82f6;
+  --accent-light: #dbeafe;
+  --success: #10b981;
+  --warning: #f59e0b;
+  --radius: 12px;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
+  --shadow: 0 4px 12px rgba(0,0,0,0.06);
+  --shadow-lg: 0 8px 24px rgba(0,0,0,0.08);
+}
+
 * { margin: 0; padding: 0; box-sizing: border-box; }
+
 body {
-  font-family: "Microsoft YaHei", "Segoe UI", sans-serif;
-  background: #1b2838;
-  color: #c7d5e0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text-primary);
   line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
 }
 
 /* 顶部导航 */
-.top-nav {
-  background: #171a21;
-  padding: 8px 0;
-  border-bottom: 1px solid #000;
-}
-.top-nav .container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
+.topbar {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 0.75rem 2rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-}
-.breadcrumb {
-  font-size: 12px;
-  color: #666;
-}
-.breadcrumb a {
-  color: #666;
-  text-decoration: none;
-}
-.breadcrumb a:hover {
-  color: #fff;
-}
-.back-link {
-  color: #67c1f5;
-  text-decoration: none;
-  font-size: 13px;
-}
-.back-link:hover {
-  color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
-/* 主容器 */
-.container {
+.topbar a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: all 0.2s;
+}
+
+.topbar a:hover {
+  background: var(--accent-light);
+  color: var(--accent);
+}
+
+/* 游戏头部 */
+.hero {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 2rem;
+}
+
+.hero .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
-}
-
-/* 游戏头部 - Steam风格左右布局 */
-.game-header {
-  background: linear-gradient(180deg, #1b2838 0%, #2a475e 100%);
-  padding: 30px 0;
-}
-.game-header .container {
   display: grid;
-  grid-template-columns: 460px 1fr;
-  gap: 30px;
+  grid-template-columns: 300px 1fr;
+  gap: 2.5rem;
+  align-items: start;
 }
 
-/* 左侧媒体区域 */
-.media-section {
-  background: #000;
-  border-radius: 4px;
+.hero-cover {
+  border-radius: var(--radius);
   overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  aspect-ratio: 3/4;
 }
-.media-tabs {
-  display: flex;
-  background: #1b2838;
-}
-.media-tab {
-  background: transparent;
-  border: none;
-  color: #67c1f5;
-  padding: 10px 20px;
-  cursor: pointer;
-  font-size: 13px;
-  border-bottom: 2px solid transparent;
-}
-.media-tab.active {
-  border-bottom-color: #67c1f5;
-  color: #fff;
-}
-.media-player {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 16/9;
-  background: #000;
-}
-.media-player video,
-.media-player img {
+
+.hero-cover img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
+
+.hero-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding-top: 0.5rem;
+}
+
+.hero-info h1 {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.hero-info .en-name {
+  font-size: 1.125rem;
+  color: var(--text-secondary);
+  font-weight: 400;
+}
+
+.meta-tags {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.meta-tag {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  padding: 0.375rem 0.75rem;
+  border-radius: 8px;
+  background: #f3f4f6;
+  color: var(--text-secondary);
+}
+
+.meta-tag.score {
+  background: var(--accent-light);
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.meta-tag.year {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.info-row {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.info-item .label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+}
+
+.info-item .value {
+  font-size: 0.9375rem;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.hero-desc {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+  max-width: 640px;
+}
+
+/* 媒体区域 */
+.media-section {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 2rem;
+}
+
+.media-tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.media-tab {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  padding: 0.5rem 1.25rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.media-tab:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.media-tab.active {
+  background: var(--accent);
+  color: white;
+  border-color: var(--accent);
+}
+
+.media-player {
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: #000;
+  aspect-ratio: 16/9;
+}
+
+.media-player video,
+.media-player img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
 .screenshots-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 4px;
-  padding: 4px;
-  background: #1b2838;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 0.75rem;
 }
+
 .screenshots-grid img {
   width: 100%;
   aspect-ratio: 16/9;
   object-fit: cover;
+  border-radius: 8px;
   cursor: pointer;
-  transition: opacity 0.2s;
-}
-.screenshots-grid img:hover {
-  opacity: 0.8;
+  transition: all 0.2s;
+  border: 1px solid var(--border);
 }
 
-/* 右侧信息面板 */
-.game-info {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-.game-title {
-  font-size: 32px;
-  font-weight: 300;
-  color: #fff;
-}
-.game-subtitle {
-  font-size: 14px;
-  color: #8f98a0;
-}
-.game-meta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-.meta-item {
-  background: rgba(0,0,0,0.3);
-  padding: 6px 12px;
-  border-radius: 3px;
-  font-size: 13px;
-  color: #c7d5e0;
-}
-.meta-item.score {
-  background: #66c0f4;
-  color: #1b2838;
-  font-weight: 600;
-}
-.info-block {
-  background: rgba(0,0,0,0.2);
-  padding: 12px;
-  border-radius: 4px;
-}
-.info-block .label {
-  font-size: 11px;
-  color: #8f98a0;
-  text-transform: uppercase;
-  margin-bottom: 4px;
-}
-.info-block .value {
-  font-size: 14px;
-  color: #67c1f5;
-}
-.game-desc {
-  font-size: 14px;
-  color: #acb2b8;
-  line-height: 1.7;
+.screenshots-grid img:hover {
+  transform: scale(1.02);
+  box-shadow: var(--shadow);
 }
 
 /* 内容区域 */
 .content-section {
-  background: #1b2838;
-  padding: 30px 0;
-}
-.content-block {
-  background: rgba(0,0,0,0.3);
-  padding: 24px;
-  border-radius: 4px;
-}
-.content-block h2 {
-  color: #fff;
-  font-size: 20px;
-  margin-bottom: 16px;
-  padding-bottom: 12px;
-  border-bottom: 1px solid #2a475e;
-}
-.content-block p {
-  color: #acb2b8;
-  font-size: 14px;
-  line-height: 1.8;
-  margin-bottom: 12px;
-}
-.content-block h2.bb_tag {
-  color: #67c1f5;
-  font-size: 16px;
-  margin: 20px 0 10px 0;
-  border-bottom: none;
-  padding-bottom: 0;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem 2rem;
 }
 
-/* Steam 内嵌媒体约束 */
+.content-block {
+  background: var(--surface);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.content-block h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.content-block p {
+  color: var(--text-secondary);
+  font-size: 0.9375rem;
+  line-height: 1.75;
+  margin-bottom: 0.75rem;
+}
+
+.content-block h2.bb_tag {
+  font-size: 1.125rem;
+  color: var(--accent);
+  margin: 1.5rem 0 0.75rem;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+/* Steam 内嵌媒体 */
 .content-block .bb_img_ctn {
   display: block;
   max-width: 100%;
-  margin: 12px 0;
+  margin: 1rem 0;
   overflow: hidden;
+  border-radius: 8px;
   background: #000;
 }
+
 .content-block .bb_img {
   max-width: 100% !important;
   width: 100% !important;
   height: auto !important;
   display: block;
-  border-radius: 4px;
+  border-radius: 8px;
 }
+
 .content-block video.bb_img {
   width: 100% !important;
   height: auto !important;
@@ -227,86 +306,125 @@ body {
 
 /* 下载区域 */
 .download-section {
-  background: #1b2838;
-  padding: 30px 0;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem 2rem;
 }
+
 .download-block {
-  background: rgba(0,0,0,0.3);
-  padding: 24px;
-  border-radius: 4px;
+  background: var(--surface);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  padding: 2rem;
 }
+
 .download-block h2 {
-  color: #fff;
-  font-size: 20px;
-  margin-bottom: 16px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
 }
+
 .download-buttons {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 0.75rem;
 }
+
 .download-btn {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 12px 24px;
-  border-radius: 4px;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 10px;
   text-decoration: none;
   color: #fff;
-  font-size: 14px;
+  font-size: 0.9375rem;
   font-weight: 500;
   transition: all 0.2s;
+  box-shadow: var(--shadow-sm);
 }
+
 .download-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  box-shadow: var(--shadow);
 }
+
 .download-btn.gamer520 { background: linear-gradient(135deg, #10b981, #059669); }
 .download-btn.x6d { background: linear-gradient(135deg, #3b82f6, #2563eb); }
-.download-btn.magnet { background: linear-gradient(135deg, #ef4444, #dc2626); }
-.download-btn.fitgirl { background: linear-gradient(135deg, #f59e0b, #d97706); }
+.download-btn.magnet { background: linear-gradient(135deg, #f59e0b, #d97706); }
+.download-btn.fitgirl { background: linear-gradient(135deg, #8b5cf6, #7c3aed); }
 .download-btn.tianyi { background: linear-gradient(135deg, #6366f1, #4f46e5); }
-.download-btn.baidu { background: linear-gradient(135deg, #2563eb, #1d4ed8); }
+.download-btn.baidu { background: linear-gradient(135deg, #06b6d4, #0891b2); }
+.download-btn.crotorrents { background: linear-gradient(135deg, #ec4899, #db2777); }
 
 /* 系统需求 */
 .sys-req {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20px;
+  gap: 2rem;
 }
+
 .sys-req-col h4 {
-  color: #67c1f5;
-  font-size: 14px;
-  margin-bottom: 12px;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 1rem;
 }
+
 .sys-req-col ul {
   list-style: none;
-  margin: 0;
 }
+
 .sys-req-col li {
-  font-size: 13px;
-  color: #acb2b8;
-  margin-bottom: 8px;
-  padding-left: 16px;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+  padding-left: 1.25rem;
   position: relative;
+  line-height: 1.6;
 }
+
 .sys-req-col li:before {
   content: "•";
   position: absolute;
   left: 0;
-  color: #67c1f5;
+  color: var(--accent);
+  font-weight: bold;
 }
 
 /* 响应式 */
 @media (max-width: 900px) {
-  .game-header .container {
+  .hero .container {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
-  .media-section {
-    max-width: 100%;
+  .hero-cover {
+    max-width: 280px;
+    margin: 0 auto;
+  }
+  .hero-info h1 {
+    font-size: 1.75rem;
   }
   .sys-req {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero {
+    padding: 1.5rem 1rem;
+  }
+  .media-section,
+  .content-section,
+  .download-section {
+    padding: 0 1rem 1.5rem;
+  }
+  .content-block,
+  .download-block {
+    padding: 1.5rem;
   }
 }
 </style>
@@ -314,104 +432,95 @@ body {
 <body>
 
 <!-- 顶部导航 -->
-<nav class="top-nav">
-  <div class="container">
-    <div class="breadcrumb">
-      <a href="../../index.html">← 返回游戏榜单</a>
-    </div>
-    <a href="https://store.steampowered.com/app/4435490/" target="_blank" class="back-link">Steam 商店页 →</a>
-  </div>
+<nav class="topbar">
+  <a href="../../index.html">← 返回游戏榜单</a>
+  <a href="https://store.steampowered.com/app/4435490/" target="_blank">Steam 商店页 →</a>
 </nav>
 
 <!-- 游戏头部 -->
-<section class="game-header">
+<section class="hero">
   <div class="container">
-    <!-- 左侧媒体区域 -->
-    <div class="media-section">
-      <div class="media-tabs">
-        
-        <button class="media-tab active" onclick="showScreenshots()">截图</button>
-      </div>
-      
-      
-      
-      
-      <div id="screenshots-container" class="screenshots-grid" 
+    <div class="hero-cover">
+      <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4435490/library_600x900.jpg" alt="使命召唤：现代战争">
     </div>
-    
-    <!-- 右侧信息面板 -->
-    <div class="game-info">
-      <h1 class="game-title">使命召唤：现代战争</h1>
-      <div class="game-subtitle">Call of Duty: Modern Warfare</div>
+    <div class="hero-info">
+      <h1>使命召唤：现代战争</h1>
+      <div class="en-name">Call of Duty: Modern Warfare</div>
       
-      <div class="game-meta">
-        <div class="meta-item">2026 年 10 月 22 日</div>
-        <div class="meta-item">动作</div>
-        <div class="meta-item score">评分 91</div>
+      <div class="meta-tags">
+        <span class="meta-tag year">2026 年 10 月 22 日</span>
+        <span class="meta-tag">动作</span>
+        <span class="meta-tag score">⭐ 91</span>
       </div>
       
-      
-      <div class="info-block">
-        <div class="label">开发者</div>
-        <div class="value">Infinity Ward, Beenox, Digital Legends, Activision Shanghai, Raven Software, Treyarch, Sledgehammer Games, High Moon Studios</div>
+      <div class="info-row">
+        <div class="info-item">
+          <span class="label">开发者</span>
+          <span class="value">Infinity Ward, Beenox, Digital Legends, Activision Shanghai, Raven Software, Treyarch, Sledgehammer Games, High Moon Studios</span>
+        </div>
+        <div class="info-item">
+          <span class="label">发行商</span>
+          <span class="value">Activision</span>
+        </div>
       </div>
       
-      
-      
-      <div class="info-block">
-        <div class="label">发行商</div>
-        <div class="value">Activision</div>
-      </div>
-      
-      
-      
-      <div class="game-desc">
+      <div class="hero-desc">
         在《使命召唤®：现代战争® 4》中，朝鲜发动全面侵袭，半岛爆发战争，世界岌岌可危。
       </div>
-      
     </div>
+  </div>
+</section>
+
+<!-- 媒体区域 -->
+<section class="media-section">
+  <div class="media-tabs">
+    <button class="media-tab active" onclick="showVideo()">▶ 视频</button>
+    <button class="media-tab" onclick="showScreenshots()">🖼 截图</button>
+  </div>
+  
+  <div id="video-container" class="media-player">
+    
+  </div>
+  
+  <div id="screenshots-container" class="screenshots-grid" style="display:none;">
+    <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4435490/ee5f6b6aebe4dc9e86b49c4e309d361b132df308/ss_ee5f6b6aebe4dc9e86b49c4e309d361b132df308.1920x1080.jpg?t=1784825199" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4435490/ca97243a998802a38c7cddf195cee327c5760353/ss_ca97243a998802a38c7cddf195cee327c5760353.1920x1080.jpg?t=1784825199" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4435490/6b8f4040a1e923f036e04d9eb21ecb0f866be57e/ss_6b8f4040a1e923f036e04d9eb21ecb0f866be57e.1920x1080.jpg?t=1784825199" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4435490/c6f865bd79b76a1fa50c59cd17a68d7837abf0b2/ss_c6f865bd79b76a1fa50c59cd17a68d7837abf0b2.1920x1080.jpg?t=1784825199" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4435490/619503d5c40001a5e72717bedccbbca027084d94/ss_619503d5c40001a5e72717bedccbbca027084d94.1920x1080.jpg?t=1784825199" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4435490/88dbb0eae312359216204ce3ab34b2f476177efd/ss_88dbb0eae312359216204ce3ab34b2f476177efd.1920x1080.jpg?t=1784825199" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4435490/90880487f8532ac5f183ac95f721965048056250/ss_90880487f8532ac5f183ac95f721965048056250.1920x1080.jpg?t=1784825199" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4435490/69ebde0b83f6d45a259494397402df7a9f5fa50a/ss_69ebde0b83f6d45a259494397402df7a9f5fa50a.1920x1080.jpg?t=1784825199" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4435490/ff17c14e86dff06ccdd4ecb29f46758bf24694f3/ss_ff17c14e86dff06ccdd4ecb29f46758bf24694f3.1920x1080.jpg?t=1784825199" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4435490/10d6a60711209aa8019cedab4667532af49f5d2a/ss_10d6a60711209aa8019cedab4667532af49f5d2a.1920x1080.jpg?t=1784825199" alt="Screenshot" onclick="window.open(this.src)">
   </div>
 </section>
 
 <!-- 关于此游戏 -->
-
 <section class="content-section">
-  <div class="container">
-    <div class="content-block">
-      <h2>关于此游戏</h2>
-      <div><p class="bb_paragraph" >预订任意数字版即可获得：</p><p class="bb_paragraph" ></p><p class="bb_paragraph" >- 抢先体验公开试玩的资格*</p><p class="bb_paragraph" >-- 预购抢先体验活动时间为8月22日至8月25日</p><p class="bb_paragraph" >-- 公开试玩将于8月29日至9月1日期间面向所有玩家开放。</p><p class="bb_paragraph" >- 在《使命召唤®：黑色行动 7》和《使命召唤®：战争地带™》中可立即使用的物品**：</p><p class="bb_paragraph" >-- 猎杀部队特遣队员外观 - 立即解锁猎杀部队特遣队员外观</p><p class="bb_paragraph" >-- “鎏金珍珠”迷彩包 - 立即解锁“月光珍珠”武器迷彩。另可解锁“鎏金遗迹”武器迷彩。</p><p class="bb_paragraph" >- 抢先体验剧情战役，10月17日重磅开启***</p><p class="bb_paragraph" ></p><p class="bb_paragraph" >在《使命召唤®：现代战争® 4》中，朝鲜发动全面侵袭，半岛爆发战争，世界岌岌可危。</p><p class="bb_paragraph" >一队年轻的韩国士兵在即将失守的前线奋力求生，而在地球的另一端，心怀仇恨的普莱斯上尉一边躲避着追捕他的人，一边在暗中展开了一场私人战争。随着普莱斯的秘密行动与侵袭行动背后的势力发生冲突，战争的局势逐渐失控。</p><p class="bb_paragraph" >《现代战争® 4》将系列游戏推向了更加黑暗和危险的全新维度，种种连锁后果与局势升级，让长线剧情走向极具冲击力和感性的爆发临界点。</p><p class="bb_paragraph" ></p><p class="bb_paragraph" ></p><p class="bb_paragraph" >- 在<strong>剧情战役</strong>中，玩家将体验朝鲜半岛堑壕战、纽约近距离巷战、巴黎极速追猎行动、孟买特种空勤团夜袭，以及全城规模的收复占领区攻坚战。</p><p class="bb_paragraph" ></p><p class="bb_paragraph" ></p><p class="bb_paragraph" ><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4435490/extras/8e71665afc3d31194c81c66e20707609.avif?t=1784825199" width=1000 height=562 /></span></p><p class="bb_paragraph" ></p><p class="bb_paragraph" ></p><p class="bb_paragraph" ></p><p class="bb_paragraph" >- <strong>多人游戏</strong>提供真实、精准的战斗体验，灵活的机动走位、自由的玩家选择与更高的操作掌控度，定义了每一场战斗交锋。</p><p class="bb_paragraph" ></p><p class="bb_paragraph" ></p><p class="bb_paragraph" ><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4435490/extras/d7f92b5d208cdd0d3a8694c36f92c68c.avif?t=1784825199" width=1000 height=562 /></span></p><p class="bb_paragraph" ></p><p class="bb_paragraph" ></p><p class="bb_paragraph" ></p><p class="bb_paragraph" >- 在<strong>无人区</strong>，玩家将作为秘密作战力量深入敌后。每一次闯入争夺中区域的撤离行动，都将迫使玩家艰难抉择：该推进哪些任务目标、保全哪些物资以及何时撤离。</p><p class="bb_paragraph" ></p><p class="bb_paragraph" ></p><p class="bb_paragraph" ><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4435490/extras/8c027be1a7cdf783af7a43467572cbb9.avif?t=1784825199" width=1000 height=562 /></span></p></div>
-    </div>
+  <div class="content-block">
+    <h2>关于此游戏</h2>
+    <div><p class="bb_paragraph" >预订任意数字版即可获得：</p><p class="bb_paragraph" ></p><p class="bb_paragraph" >- 抢先体验公开试玩的资格*</p><p class="bb_paragraph" >-- 预购抢先体验活动时间为8月22日至8月25日</p><p class="bb_paragraph" >-- 公开试玩将于8月29日至9月1日期间面向所有玩家开放。</p><p class="bb_paragraph" >- 在《使命召唤®：黑色行动 7》和《使命召唤®：战争地带™》中可立即使用的物品**：</p><p class="bb_paragraph" >-- 猎杀部队特遣队员外观 - 立即解锁猎杀部队特遣队员外观</p><p class="bb_paragraph" >-- “鎏金珍珠”迷彩包 - 立即解锁“月光珍珠”武器迷彩。另可解锁“鎏金遗迹”武器迷彩。</p><p class="bb_paragraph" >- 抢先体验剧情战役，10月17日重磅开启***</p><p class="bb_paragraph" ></p><p class="bb_paragraph" >在《使命召唤®：现代战争® 4》中，朝鲜发动全面侵袭，半岛爆发战争，世界岌岌可危。</p><p class="bb_paragraph" >一队年轻的韩国士兵在即将失守的前线奋力求生，而在地球的另一端，心怀仇恨的普莱斯上尉一边躲避着追捕他的人，一边在暗中展开了一场私人战争。随着普莱斯的秘密行动与侵袭行动背后的势力发生冲突，战争的局势逐渐失控。</p><p class="bb_paragraph" >《现代战争® 4》将系列游戏推向了更加黑暗和危险的全新维度，种种连锁后果与局势升级，让长线剧情走向极具冲击力和感性的爆发临界点。</p><p class="bb_paragraph" ></p><p class="bb_paragraph" ></p><p class="bb_paragraph" >- 在<strong>剧情战役</strong>中，玩家将体验朝鲜半岛堑壕战、纽约近距离巷战、巴黎极速追猎行动、孟买特种空勤团夜袭，以及全城规模的收复占领区攻坚战。</p><p class="bb_paragraph" ></p><p class="bb_paragraph" ></p><p class="bb_paragraph" ><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4435490/extras/8e71665afc3d31194c81c66e20707609.avif?t=1784825199" width=1000 height=562 /></span></p><p class="bb_paragraph" ></p><p class="bb_paragraph" ></p><p class="bb_paragraph" ></p><p class="bb_paragraph" >- <strong>多人游戏</strong>提供真实、精准的战斗体验，灵活的机动走位、自由的玩家选择与更高的操作掌控度，定义了每一场战斗交锋。</p><p class="bb_paragraph" ></p><p class="bb_paragraph" ></p><p class="bb_paragraph" ><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4435490/extras/d7f92b5d208cdd0d3a8694c36f92c68c.avif?t=1784825199" width=1000 height=562 /></span></p><p class="bb_paragraph" ></p><p class="bb_paragraph" ></p><p class="bb_paragraph" ></p><p class="bb_paragraph" >- 在<strong>无人区</strong>，玩家将作为秘密作战力量深入敌后。每一次闯入争夺中区域的撤离行动，都将迫使玩家艰难抉择：该推进哪些任务目标、保全哪些物资以及何时撤离。</p><p class="bb_paragraph" ></p><p class="bb_paragraph" ></p><p class="bb_paragraph" ><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4435490/extras/8c027be1a7cdf783af7a43467572cbb9.avif?t=1784825199" width=1000 height=562 /></span></p></div>
   </div>
 </section>
 
-
 <!-- 下载区域 -->
 <section class="download-section">
-  <div class="container">
-    <div class="download-block">
-      <h2>📥 下载链接</h2>
-      <div class="download-buttons">
-        <a href="https://www.gamer520.com/14762.html" class="download-btn gamer520" target="_blank">gamer520</a>
+  <div class="download-block">
+    <h2>📥 下载链接</h2>
+    <div class="download-buttons">
+      <a href="https://www.gamer520.com/14762.html" class="download-btn gamer520" target="_blank">gamer520</a>
 <a href="https://www.x6d.com/i-wz-29296.html" class="download-btn x6d" target="_blank">x6d</a>
 
-      </div>
     </div>
   </div>
 </section>
 
 <!-- 系统需求 -->
-
-<section class="content-section">
-  <div class="container">
-    <div class="content-block">
-      <h2>系统需求</h2>
-      <div class="sys-req">
-        <div class="sys-req-col"><h4>最低配置</h4><div><strong>最低配置:</strong><br><ul class="bb_ul"><li>需要 64 位处理器和操作系统<br></li><li><strong>附注事项:</strong> TBD</li></ul></div></div>
-        <div class="sys-req-col"><h4>推荐配置</h4><div><strong>推荐配置:</strong><br><ul class="bb_ul"><li>需要 64 位处理器和操作系统<br></li><li><strong>附注事项:</strong> TBD</li></ul></div></div>
-      </div>
-    </div>
-  </div>
-</section>
+<section class="content-section"><div class="content-block"><h2>系统需求</h2><div class="sys-req">
+<div class="sys-req-col"><h4>最低配置</h4><ul><strong>最低配置:</strong><br><ul class="bb_ul"><li>需要 64 位处理器和操作系统<br></li><li><strong>附注事项:</strong> TBD</li></ul></ul></div>
+<div class="sys-req-col"><h4>推荐配置</h4><ul><strong>推荐配置:</strong><br><ul class="bb_ul"><li>需要 64 位处理器和操作系统<br></li><li><strong>附注事项:</strong> TBD</li></ul></ul></div>
+</div></div></section>
 
 <script>
 function showVideo() {
@@ -422,8 +531,8 @@ function showVideo() {
 }
 
 function showScreenshots() {
-  const videoContainer = document.getElementById('video-container');
-  if (videoContainer) videoContainer.style.display = 'none';
+  const vc = document.getElementById('video-container');
+  if (vc) vc.style.display = 'none';
   document.getElementById('screenshots-container').style.display = 'grid';
   document.querySelectorAll('.media-tab').forEach(t => t.classList.remove('active'));
   event.target.classList.add('active');

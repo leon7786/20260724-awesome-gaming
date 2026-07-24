@@ -5,218 +5,297 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>环世界 - 游戏详情</title>
 <style>
+:root {
+  --bg: #fafbfc;
+  --surface: #ffffff;
+  --border: #e5e7eb;
+  --text-primary: #111827;
+  --text-secondary: #6b7280;
+  --text-muted: #9ca3af;
+  --accent: #3b82f6;
+  --accent-light: #dbeafe;
+  --success: #10b981;
+  --warning: #f59e0b;
+  --radius: 12px;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
+  --shadow: 0 4px 12px rgba(0,0,0,0.06);
+  --shadow-lg: 0 8px 24px rgba(0,0,0,0.08);
+}
+
 * { margin: 0; padding: 0; box-sizing: border-box; }
+
 body {
-  font-family: "Microsoft YaHei", "Segoe UI", sans-serif;
-  background: #1b2838;
-  color: #c7d5e0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text-primary);
   line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
 }
 
 /* 顶部导航 */
-.top-nav {
-  background: #171a21;
-  padding: 8px 0;
-  border-bottom: 1px solid #000;
-}
-.top-nav .container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
+.topbar {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 0.75rem 2rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-}
-.breadcrumb {
-  font-size: 12px;
-  color: #666;
-}
-.breadcrumb a {
-  color: #666;
-  text-decoration: none;
-}
-.breadcrumb a:hover {
-  color: #fff;
-}
-.back-link {
-  color: #67c1f5;
-  text-decoration: none;
-  font-size: 13px;
-}
-.back-link:hover {
-  color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
-/* 主容器 */
-.container {
+.topbar a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: all 0.2s;
+}
+
+.topbar a:hover {
+  background: var(--accent-light);
+  color: var(--accent);
+}
+
+/* 游戏头部 */
+.hero {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 2rem;
+}
+
+.hero .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
-}
-
-/* 游戏头部 - Steam风格左右布局 */
-.game-header {
-  background: linear-gradient(180deg, #1b2838 0%, #2a475e 100%);
-  padding: 30px 0;
-}
-.game-header .container {
   display: grid;
-  grid-template-columns: 460px 1fr;
-  gap: 30px;
+  grid-template-columns: 300px 1fr;
+  gap: 2.5rem;
+  align-items: start;
 }
 
-/* 左侧媒体区域 */
-.media-section {
-  background: #000;
-  border-radius: 4px;
+.hero-cover {
+  border-radius: var(--radius);
   overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  aspect-ratio: 3/4;
 }
-.media-tabs {
-  display: flex;
-  background: #1b2838;
-}
-.media-tab {
-  background: transparent;
-  border: none;
-  color: #67c1f5;
-  padding: 10px 20px;
-  cursor: pointer;
-  font-size: 13px;
-  border-bottom: 2px solid transparent;
-}
-.media-tab.active {
-  border-bottom-color: #67c1f5;
-  color: #fff;
-}
-.media-player {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 16/9;
-  background: #000;
-}
-.media-player video,
-.media-player img {
+
+.hero-cover img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
+
+.hero-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding-top: 0.5rem;
+}
+
+.hero-info h1 {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.hero-info .en-name {
+  font-size: 1.125rem;
+  color: var(--text-secondary);
+  font-weight: 400;
+}
+
+.meta-tags {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.meta-tag {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  padding: 0.375rem 0.75rem;
+  border-radius: 8px;
+  background: #f3f4f6;
+  color: var(--text-secondary);
+}
+
+.meta-tag.score {
+  background: var(--accent-light);
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.meta-tag.year {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.info-row {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.info-item .label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+}
+
+.info-item .value {
+  font-size: 0.9375rem;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.hero-desc {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+  max-width: 640px;
+}
+
+/* 媒体区域 */
+.media-section {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 2rem;
+}
+
+.media-tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.media-tab {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  padding: 0.5rem 1.25rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.media-tab:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.media-tab.active {
+  background: var(--accent);
+  color: white;
+  border-color: var(--accent);
+}
+
+.media-player {
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: #000;
+  aspect-ratio: 16/9;
+}
+
+.media-player video,
+.media-player img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
 .screenshots-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 4px;
-  padding: 4px;
-  background: #1b2838;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 0.75rem;
 }
+
 .screenshots-grid img {
   width: 100%;
   aspect-ratio: 16/9;
   object-fit: cover;
+  border-radius: 8px;
   cursor: pointer;
-  transition: opacity 0.2s;
-}
-.screenshots-grid img:hover {
-  opacity: 0.8;
+  transition: all 0.2s;
+  border: 1px solid var(--border);
 }
 
-/* 右侧信息面板 */
-.game-info {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-.game-title {
-  font-size: 32px;
-  font-weight: 300;
-  color: #fff;
-}
-.game-subtitle {
-  font-size: 14px;
-  color: #8f98a0;
-}
-.game-meta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-.meta-item {
-  background: rgba(0,0,0,0.3);
-  padding: 6px 12px;
-  border-radius: 3px;
-  font-size: 13px;
-  color: #c7d5e0;
-}
-.meta-item.score {
-  background: #66c0f4;
-  color: #1b2838;
-  font-weight: 600;
-}
-.info-block {
-  background: rgba(0,0,0,0.2);
-  padding: 12px;
-  border-radius: 4px;
-}
-.info-block .label {
-  font-size: 11px;
-  color: #8f98a0;
-  text-transform: uppercase;
-  margin-bottom: 4px;
-}
-.info-block .value {
-  font-size: 14px;
-  color: #67c1f5;
-}
-.game-desc {
-  font-size: 14px;
-  color: #acb2b8;
-  line-height: 1.7;
+.screenshots-grid img:hover {
+  transform: scale(1.02);
+  box-shadow: var(--shadow);
 }
 
 /* 内容区域 */
 .content-section {
-  background: #1b2838;
-  padding: 30px 0;
-}
-.content-block {
-  background: rgba(0,0,0,0.3);
-  padding: 24px;
-  border-radius: 4px;
-}
-.content-block h2 {
-  color: #fff;
-  font-size: 20px;
-  margin-bottom: 16px;
-  padding-bottom: 12px;
-  border-bottom: 1px solid #2a475e;
-}
-.content-block p {
-  color: #acb2b8;
-  font-size: 14px;
-  line-height: 1.8;
-  margin-bottom: 12px;
-}
-.content-block h2.bb_tag {
-  color: #67c1f5;
-  font-size: 16px;
-  margin: 20px 0 10px 0;
-  border-bottom: none;
-  padding-bottom: 0;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem 2rem;
 }
 
-/* Steam 内嵌媒体约束 */
+.content-block {
+  background: var(--surface);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.content-block h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.content-block p {
+  color: var(--text-secondary);
+  font-size: 0.9375rem;
+  line-height: 1.75;
+  margin-bottom: 0.75rem;
+}
+
+.content-block h2.bb_tag {
+  font-size: 1.125rem;
+  color: var(--accent);
+  margin: 1.5rem 0 0.75rem;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+/* Steam 内嵌媒体 */
 .content-block .bb_img_ctn {
   display: block;
   max-width: 100%;
-  margin: 12px 0;
+  margin: 1rem 0;
   overflow: hidden;
+  border-radius: 8px;
   background: #000;
 }
+
 .content-block .bb_img {
   max-width: 100% !important;
   width: 100% !important;
   height: auto !important;
   display: block;
-  border-radius: 4px;
+  border-radius: 8px;
 }
+
 .content-block video.bb_img {
   width: 100% !important;
   height: auto !important;
@@ -227,86 +306,125 @@ body {
 
 /* 下载区域 */
 .download-section {
-  background: #1b2838;
-  padding: 30px 0;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem 2rem;
 }
+
 .download-block {
-  background: rgba(0,0,0,0.3);
-  padding: 24px;
-  border-radius: 4px;
+  background: var(--surface);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  padding: 2rem;
 }
+
 .download-block h2 {
-  color: #fff;
-  font-size: 20px;
-  margin-bottom: 16px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
 }
+
 .download-buttons {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 0.75rem;
 }
+
 .download-btn {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 12px 24px;
-  border-radius: 4px;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 10px;
   text-decoration: none;
   color: #fff;
-  font-size: 14px;
+  font-size: 0.9375rem;
   font-weight: 500;
   transition: all 0.2s;
+  box-shadow: var(--shadow-sm);
 }
+
 .download-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  box-shadow: var(--shadow);
 }
+
 .download-btn.gamer520 { background: linear-gradient(135deg, #10b981, #059669); }
 .download-btn.x6d { background: linear-gradient(135deg, #3b82f6, #2563eb); }
-.download-btn.magnet { background: linear-gradient(135deg, #ef4444, #dc2626); }
-.download-btn.fitgirl { background: linear-gradient(135deg, #f59e0b, #d97706); }
+.download-btn.magnet { background: linear-gradient(135deg, #f59e0b, #d97706); }
+.download-btn.fitgirl { background: linear-gradient(135deg, #8b5cf6, #7c3aed); }
 .download-btn.tianyi { background: linear-gradient(135deg, #6366f1, #4f46e5); }
-.download-btn.baidu { background: linear-gradient(135deg, #2563eb, #1d4ed8); }
+.download-btn.baidu { background: linear-gradient(135deg, #06b6d4, #0891b2); }
+.download-btn.crotorrents { background: linear-gradient(135deg, #ec4899, #db2777); }
 
 /* 系统需求 */
 .sys-req {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20px;
+  gap: 2rem;
 }
+
 .sys-req-col h4 {
-  color: #67c1f5;
-  font-size: 14px;
-  margin-bottom: 12px;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 1rem;
 }
+
 .sys-req-col ul {
   list-style: none;
-  margin: 0;
 }
+
 .sys-req-col li {
-  font-size: 13px;
-  color: #acb2b8;
-  margin-bottom: 8px;
-  padding-left: 16px;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+  padding-left: 1.25rem;
   position: relative;
+  line-height: 1.6;
 }
+
 .sys-req-col li:before {
   content: "•";
   position: absolute;
   left: 0;
-  color: #67c1f5;
+  color: var(--accent);
+  font-weight: bold;
 }
 
 /* 响应式 */
 @media (max-width: 900px) {
-  .game-header .container {
+  .hero .container {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
-  .media-section {
-    max-width: 100%;
+  .hero-cover {
+    max-width: 280px;
+    margin: 0 auto;
+  }
+  .hero-info h1 {
+    font-size: 1.75rem;
   }
   .sys-req {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero {
+    padding: 1.5rem 1rem;
+  }
+  .media-section,
+  .content-section,
+  .download-section {
+    padding: 0 1rem 1.5rem;
+  }
+  .content-block,
+  .download-block {
+    padding: 1.5rem;
   }
 }
 </style>
@@ -314,106 +432,98 @@ body {
 <body>
 
 <!-- 顶部导航 -->
-<nav class="top-nav">
-  <div class="container">
-    <div class="breadcrumb">
-      <a href="../../index.html">← 返回游戏榜单</a>
-    </div>
-    <a href="https://store.steampowered.com/app/294100/" target="_blank" class="back-link">Steam 商店页 →</a>
-  </div>
+<nav class="topbar">
+  <a href="../../index.html">← 返回游戏榜单</a>
+  <a href="https://store.steampowered.com/app/294100/" target="_blank">Steam 商店页 →</a>
 </nav>
 
 <!-- 游戏头部 -->
-<section class="game-header">
+<section class="hero">
   <div class="container">
-    <!-- 左侧媒体区域 -->
-    <div class="media-section">
-      <div class="media-tabs">
-        
-        <button class="media-tab active" onclick="showScreenshots()">截图</button>
-      </div>
-      
-      
-      
-      
-      <div id="screenshots-container" class="screenshots-grid" 
+    <div class="hero-cover">
+      <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/294100/library_600x900.jpg" alt="环世界">
     </div>
-    
-    <!-- 右侧信息面板 -->
-    <div class="game-info">
-      <h1 class="game-title">环世界</h1>
-      <div class="game-subtitle">RimWorld</div>
+    <div class="hero-info">
+      <h1>环世界</h1>
+      <div class="en-name">RimWorld</div>
       
-      <div class="game-meta">
-        <div class="meta-item">2018 年 10 月 17 日</div>
-        <div class="meta-item">独立, 模拟, 策略</div>
-        <div class="meta-item score">评分 98</div>
+      <div class="meta-tags">
+        <span class="meta-tag year">2018 年 10 月 17 日</span>
+        <span class="meta-tag">独立, 模拟, 策略</span>
+        <span class="meta-tag score">⭐ 98</span>
       </div>
       
-      
-      <div class="info-block">
-        <div class="label">开发者</div>
-        <div class="value">Ludeon Studios</div>
+      <div class="info-row">
+        <div class="info-item">
+          <span class="label">开发者</span>
+          <span class="value">Ludeon Studios</span>
+        </div>
+        <div class="info-item">
+          <span class="label">发行商</span>
+          <span class="value">Ludeon Studios</span>
+        </div>
       </div>
       
-      
-      
-      <div class="info-block">
-        <div class="label">发行商</div>
-        <div class="value">Ludeon Studios</div>
-      </div>
-      
-      
-      
-      <div class="game-desc">
+      <div class="hero-desc">
         由聪明的人工智能故事讲述者驱动的科幻殖民地模拟电脑游戏。通过模拟心理学、生态学、枪战、近战、气候、生物群落、外交、人际关系、艺术、医学、贸易等来生成故事。
       </div>
-      
     </div>
+  </div>
+</section>
+
+<!-- 媒体区域 -->
+<section class="media-section">
+  <div class="media-tabs">
+    <button class="media-tab active" onclick="showVideo()">▶ 视频</button>
+    <button class="media-tab" onclick="showScreenshots()">🖼 截图</button>
+  </div>
+  
+  <div id="video-container" class="media-player">
+    
+  </div>
+  
+  <div id="screenshots-container" class="screenshots-grid" style="display:none;">
+    <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/294100/80e383ef19353058791efe17a6485849246c9c17/ss_80e383ef19353058791efe17a6485849246c9c17.1920x1080.jpg?t=1782756789" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/294100/a6158c5cef23ac8157b37dd3eb17f3c2d2649e93/ss_a6158c5cef23ac8157b37dd3eb17f3c2d2649e93.1920x1080.jpg?t=1782756789" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/294100/cccfece4c643fd32d438642fbea1b980bc519a48/ss_cccfece4c643fd32d438642fbea1b980bc519a48.1920x1080.jpg?t=1782756789" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/294100/57c3e8d556d47bb5ad048699643528aefc652aa6/ss_57c3e8d556d47bb5ad048699643528aefc652aa6.1920x1080.jpg?t=1782756789" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/294100/59a1400eff99e2b620d623d3d76a02c1592a72e7/ss_59a1400eff99e2b620d623d3d76a02c1592a72e7.1920x1080.jpg?t=1782756789" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/294100/1e3a2734b23daaa4eb60ea33dd87806aa65e0c8f/ss_1e3a2734b23daaa4eb60ea33dd87806aa65e0c8f.1920x1080.jpg?t=1782756789" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/294100/788bf7f8f71014b2be28b3dfa11405a06a7fb49e/ss_788bf7f8f71014b2be28b3dfa11405a06a7fb49e.1920x1080.jpg?t=1782756789" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/294100/698ad21bff61006f31650270446d68cd1073c770/ss_698ad21bff61006f31650270446d68cd1073c770.1920x1080.jpg?t=1782756789" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/294100/71f1f380e10d46e7355469b93ec60dcd81af03c6/ss_71f1f380e10d46e7355469b93ec60dcd81af03c6.1920x1080.jpg?t=1782756789" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/294100/b509c42ec00bde9422e7a87cab7c8bb1b884915f/ss_b509c42ec00bde9422e7a87cab7c8bb1b884915f.1920x1080.jpg?t=1782756789" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/294100/382605cbf325270a5dcce07f7db48398e3e39129/ss_382605cbf325270a5dcce07f7db48398e3e39129.1920x1080.jpg?t=1782756789" alt="Screenshot" onclick="window.open(this.src)">
   </div>
 </section>
 
 <!-- 关于此游戏 -->
-
 <section class="content-section">
-  <div class="container">
-    <div class="content-block">
-      <h2>关于此游戏</h2>
-      <div><strong>《边缘世界》是一款由聪明的人工智能故事讲述者驱动的科幻殖民地模拟游戏。</strong>灵感源自《矮人要塞》、《萤火虫》和《沙丘》。<br><br><strong>您会从遥远世界上一艘沉船的三名幸存者开始游戏.</strong><br><ul class="bb_ul"><li>管理殖民者的情绪、需求、伤、病和瘾。<br></li><li>在森林、沙漠、丛林、苔原和其他地方进行建造。<br></li><li>观看殖民者发展和打破与家人、恋人和配偶的关系。<br></li><li>用从他人身上获得的假肢、仿生生物或生物部位替换受伤的肢体和器官。<br></li><li>与海盗、部落、发疯动物、巨型昆虫和古老的杀戮机器进行战斗。<br></li><li>用金属、木头、石头、布匹和未来科技材料制作结构、武器和服装。<br></li><li>驯服和训练可爱的宠物、家畜和致命的野兽。<br></li><li>与过往船只和商队进行交易。<br></li><li>组成商队以完成任务、交易，攻击其他派别或迁移整个殖民地。<br></li><li>挖穿雪堆，穿过风暴和救火。<br></li><li>俘虏难民或囚犯，将其留在您身边或当作奴隶贩卖出去。<br></li><li>您在每次游戏的时候都会发现一个新创造的世界。<br></li><li>在Steam创意工坊上探索数百个荒诞而有趣的模组。<br></li><li>借助聪明且谦虚的人工智能导师轻松学习玩游戏。</li></ul><br><strong>《边缘世界》是一个故事生成游戏。</strong>它旨在与他人合写关于被囚禁的海盗，绝望的殖民者，饥民和幸存者的悲惨、扭曲和胜利的故事。通过控制世界向您抛出的“随机”事件来进行游戏。每场风暴、海盗袭击和出差的推销员都是又<strong>人工智能故事讲述者</strong>安排给您的选择。有几个故事讲述者可供选择。Randy Random做疯狂道具，Cassandra Classic负责加剧紧张气氛， Phoebe Chillax喜欢放松。<br><br><strong>您的殖民者并不是专业移民</strong>-他们是在航线上触礁客轮上的幸存者。您最终可以得到一位贵族，一位会计师和一位家庭主妇。通过在战斗中俘虏他们并将其变成您的人，从奴隶贩子那里购买或在难民营中招募，您都可以获得更多的殖民者。因此，您的殖民地里永远都是鱼龙混杂。<br><br><strong>每个人的背景都会被跟踪，并影响其游戏方式。</strong>贵族善于社交技能（招募囚犯、洽谈交易价格），但拒绝从事体力劳动。农夫在如何种植食物方面拥有丰富的经验，但是没有做研究的能力。书呆子式的科学家则擅长研究，但根本无法完成社交任务。一个经过基因改造的刺客除了杀人什么都不会 – 杀人的本领倒是很高。<br><br><strong>殖民者发展和和破坏人际关系。</strong>每个人都会对别人有看法，这决定了他们会不会成为情人、结婚、欺骗或打架。也许您最好的两个殖民者愉快地结了婚 — 直到其中一个爱上了为她治疗枪伤的这位勇敢外科医生为止。<br><br><strong>游戏会生成包括了从极点到赤道的完整星球。</strong>您可以选择将碰撞舱降落在寒冷的北方苔原，干旱的沙漠平原、温带森林或炎热的赤道丛林中。不同地区有着不同的动物、植物、疾病、温度、降雨、矿产资源和地形。在疾病丛生，令人窒息的丛林中生存和在旱季长达两个月的荒漠或冻原中生存所遇到的难度是截然不同的。<br><br><strong>穿越星球。</strong>您不会被局限在一个地方。您可以将人、动物和囚犯编成一支商队。从海盗哨所中营救被绑架的前盟友，参加和谈，与其他派别进行贸易，攻击敌人的殖民地，以及完成其他任务。您甚至可以把整个殖民地搬到新的地方。您可以使用火箭动力运输舱来更快地旅行。<br><br><strong>您可以驯服和训练动物。</strong>可爱的宠物会为悲伤的殖民者带来欢乐。家畜可以劳作、挤奶和剪毛。可以放出致命猛兽去攻击敌人。动物种类很多 — 猫、拉布拉多犬、灰熊、骆驼、美洲狮、龙猫、鸡和外星生物。<br><br><strong>《边缘世界》中的人们不断观察自己的处境和周围环境，以便在任何给定的时刻决定该如何感觉。</strong>他们对饥饿和疲劳做出反应，目睹死亡，对未埋葬的尸体不敬，受伤，留在黑暗中，挤在狭窄的环境中，和其他人一起在外面或同一房间中睡觉，以及许多其他情况。如果压力太大，它们可能会暴躁或崩溃。<br><br><strong>每个身体部位的伤口、感染、修复和慢性病都可以被跟踪，并影响角色的能力。</strong>眼睛受伤会对射击或做手术造成困难。双腿受伤使人移动缓慢。手、脑、口、心、肝、肾、胃、脚、手指、脚趾等部位都可能受伤、患病或缺失，并且所有都具有合理的游戏内效果。其他物种都有自己专属的身体布局— 摘下鹿的一条腿，它仍然可以用其他三条腿蹒跚而行。摘下犀牛的角，它的危险性就会降低很多。<br><br><strong>您可以利用原始或超凡的各种假肢来修复身体部位。</strong>不幸的犀牛攻击事件发生后，Joe Colonist会让木质假肢走路，但走得仍然会很慢。第二年，从商人那里购买了一条昂贵的仿生腿之后，Joe成为了超人跑手。您甚至可以摘取、出售、购买和移植内脏器官。<br><br>不仅如此！该游戏还易于修改，并在Steam的创意工坊上具有活跃的模组社区。<br><br>(所有非英语翻译均由粉丝维护。)</div>
-    </div>
+  <div class="content-block">
+    <h2>关于此游戏</h2>
+    <div><strong>《边缘世界》是一款由聪明的人工智能故事讲述者驱动的科幻殖民地模拟游戏。</strong>灵感源自《矮人要塞》、《萤火虫》和《沙丘》。<br><br><strong>您会从遥远世界上一艘沉船的三名幸存者开始游戏.</strong><br><ul class="bb_ul"><li>管理殖民者的情绪、需求、伤、病和瘾。<br></li><li>在森林、沙漠、丛林、苔原和其他地方进行建造。<br></li><li>观看殖民者发展和打破与家人、恋人和配偶的关系。<br></li><li>用从他人身上获得的假肢、仿生生物或生物部位替换受伤的肢体和器官。<br></li><li>与海盗、部落、发疯动物、巨型昆虫和古老的杀戮机器进行战斗。<br></li><li>用金属、木头、石头、布匹和未来科技材料制作结构、武器和服装。<br></li><li>驯服和训练可爱的宠物、家畜和致命的野兽。<br></li><li>与过往船只和商队进行交易。<br></li><li>组成商队以完成任务、交易，攻击其他派别或迁移整个殖民地。<br></li><li>挖穿雪堆，穿过风暴和救火。<br></li><li>俘虏难民或囚犯，将其留在您身边或当作奴隶贩卖出去。<br></li><li>您在每次游戏的时候都会发现一个新创造的世界。<br></li><li>在Steam创意工坊上探索数百个荒诞而有趣的模组。<br></li><li>借助聪明且谦虚的人工智能导师轻松学习玩游戏。</li></ul><br><strong>《边缘世界》是一个故事生成游戏。</strong>它旨在与他人合写关于被囚禁的海盗，绝望的殖民者，饥民和幸存者的悲惨、扭曲和胜利的故事。通过控制世界向您抛出的“随机”事件来进行游戏。每场风暴、海盗袭击和出差的推销员都是又<strong>人工智能故事讲述者</strong>安排给您的选择。有几个故事讲述者可供选择。Randy Random做疯狂道具，Cassandra Classic负责加剧紧张气氛， Phoebe Chillax喜欢放松。<br><br><strong>您的殖民者并不是专业移民</strong>-他们是在航线上触礁客轮上的幸存者。您最终可以得到一位贵族，一位会计师和一位家庭主妇。通过在战斗中俘虏他们并将其变成您的人，从奴隶贩子那里购买或在难民营中招募，您都可以获得更多的殖民者。因此，您的殖民地里永远都是鱼龙混杂。<br><br><strong>每个人的背景都会被跟踪，并影响其游戏方式。</strong>贵族善于社交技能（招募囚犯、洽谈交易价格），但拒绝从事体力劳动。农夫在如何种植食物方面拥有丰富的经验，但是没有做研究的能力。书呆子式的科学家则擅长研究，但根本无法完成社交任务。一个经过基因改造的刺客除了杀人什么都不会 – 杀人的本领倒是很高。<br><br><strong>殖民者发展和和破坏人际关系。</strong>每个人都会对别人有看法，这决定了他们会不会成为情人、结婚、欺骗或打架。也许您最好的两个殖民者愉快地结了婚 — 直到其中一个爱上了为她治疗枪伤的这位勇敢外科医生为止。<br><br><strong>游戏会生成包括了从极点到赤道的完整星球。</strong>您可以选择将碰撞舱降落在寒冷的北方苔原，干旱的沙漠平原、温带森林或炎热的赤道丛林中。不同地区有着不同的动物、植物、疾病、温度、降雨、矿产资源和地形。在疾病丛生，令人窒息的丛林中生存和在旱季长达两个月的荒漠或冻原中生存所遇到的难度是截然不同的。<br><br><strong>穿越星球。</strong>您不会被局限在一个地方。您可以将人、动物和囚犯编成一支商队。从海盗哨所中营救被绑架的前盟友，参加和谈，与其他派别进行贸易，攻击敌人的殖民地，以及完成其他任务。您甚至可以把整个殖民地搬到新的地方。您可以使用火箭动力运输舱来更快地旅行。<br><br><strong>您可以驯服和训练动物。</strong>可爱的宠物会为悲伤的殖民者带来欢乐。家畜可以劳作、挤奶和剪毛。可以放出致命猛兽去攻击敌人。动物种类很多 — 猫、拉布拉多犬、灰熊、骆驼、美洲狮、龙猫、鸡和外星生物。<br><br><strong>《边缘世界》中的人们不断观察自己的处境和周围环境，以便在任何给定的时刻决定该如何感觉。</strong>他们对饥饿和疲劳做出反应，目睹死亡，对未埋葬的尸体不敬，受伤，留在黑暗中，挤在狭窄的环境中，和其他人一起在外面或同一房间中睡觉，以及许多其他情况。如果压力太大，它们可能会暴躁或崩溃。<br><br><strong>每个身体部位的伤口、感染、修复和慢性病都可以被跟踪，并影响角色的能力。</strong>眼睛受伤会对射击或做手术造成困难。双腿受伤使人移动缓慢。手、脑、口、心、肝、肾、胃、脚、手指、脚趾等部位都可能受伤、患病或缺失，并且所有都具有合理的游戏内效果。其他物种都有自己专属的身体布局— 摘下鹿的一条腿，它仍然可以用其他三条腿蹒跚而行。摘下犀牛的角，它的危险性就会降低很多。<br><br><strong>您可以利用原始或超凡的各种假肢来修复身体部位。</strong>不幸的犀牛攻击事件发生后，Joe Colonist会让木质假肢走路，但走得仍然会很慢。第二年，从商人那里购买了一条昂贵的仿生腿之后，Joe成为了超人跑手。您甚至可以摘取、出售、购买和移植内脏器官。<br><br>不仅如此！该游戏还易于修改，并在Steam的创意工坊上具有活跃的模组社区。<br><br>(所有非英语翻译均由粉丝维护。)</div>
   </div>
 </section>
 
-
 <!-- 下载区域 -->
 <section class="download-section">
-  <div class="container">
-    <div class="download-block">
-      <h2>📥 下载链接</h2>
-      <div class="download-buttons">
-        <a href="magnet:?xt=urn:btih:3D50D252" class="download-btn magnet" target="_blank">🧲磁力</a>
+  <div class="download-block">
+    <h2>📥 下载链接</h2>
+    <div class="download-buttons">
+      <a href="magnet:?xt=urn:btih:3D50D252" class="download-btn magnet" target="_blank">🧲磁力</a>
 <a href="https://fitgirl-repacks.site" class="download-btn fitgirl" target="_blank">FitGirl</a>
 <a href="https://www.gamer520.com/14776.html" class="download-btn gamer520" target="_blank">gamer520</a>
 <a href="https://www.x6d.com/i-wz-10332.html" class="download-btn x6d" target="_blank">x6d</a>
 
-      </div>
     </div>
   </div>
 </section>
 
 <!-- 系统需求 -->
+<section class="content-section"><div class="content-block"><h2>系统需求</h2><div class="sys-req">
+<div class="sys-req-col"><h4>最低配置</h4><ul><strong>最低配置:</strong><br><ul class="bb_ul"><li><strong>操作系统 *:</strong> Windows 7<br></li><li><strong>处理器:</strong> Core 2 Duo<br></li><li><strong>内存:</strong> 4 GB RAM<br></li><li><strong>显卡:</strong> Intel HD Graphics 4000 or other shader model 4.0<br></li><li><strong>存储空间:</strong> 需要 1 GB 可用空间</li></ul></ul></div>
 
-<section class="content-section">
-  <div class="container">
-    <div class="content-block">
-      <h2>系统需求</h2>
-      <div class="sys-req">
-        <div class="sys-req-col"><h4>最低配置</h4><div><strong>最低配置:</strong><br><ul class="bb_ul"><li><strong>操作系统 *:</strong> Windows 7<br></li><li><strong>处理器:</strong> Core 2 Duo<br></li><li><strong>内存:</strong> 4 GB RAM<br></li><li><strong>显卡:</strong> Intel HD Graphics 4000 or other shader model 4.0<br></li><li><strong>存储空间:</strong> 需要 1 GB 可用空间</li></ul></div></div>
-        
-      </div>
-    </div>
-  </div>
-</section>
+</div></div></section>
 
 <script>
 function showVideo() {
@@ -424,8 +534,8 @@ function showVideo() {
 }
 
 function showScreenshots() {
-  const videoContainer = document.getElementById('video-container');
-  if (videoContainer) videoContainer.style.display = 'none';
+  const vc = document.getElementById('video-container');
+  if (vc) vc.style.display = 'none';
   document.getElementById('screenshots-container').style.display = 'grid';
   document.querySelectorAll('.media-tab').forEach(t => t.classList.remove('active'));
   event.target.classList.add('active');

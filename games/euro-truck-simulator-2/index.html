@@ -5,218 +5,297 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>欧洲卡车模拟2 - 游戏详情</title>
 <style>
+:root {
+  --bg: #fafbfc;
+  --surface: #ffffff;
+  --border: #e5e7eb;
+  --text-primary: #111827;
+  --text-secondary: #6b7280;
+  --text-muted: #9ca3af;
+  --accent: #3b82f6;
+  --accent-light: #dbeafe;
+  --success: #10b981;
+  --warning: #f59e0b;
+  --radius: 12px;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
+  --shadow: 0 4px 12px rgba(0,0,0,0.06);
+  --shadow-lg: 0 8px 24px rgba(0,0,0,0.08);
+}
+
 * { margin: 0; padding: 0; box-sizing: border-box; }
+
 body {
-  font-family: "Microsoft YaHei", "Segoe UI", sans-serif;
-  background: #1b2838;
-  color: #c7d5e0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text-primary);
   line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
 }
 
 /* 顶部导航 */
-.top-nav {
-  background: #171a21;
-  padding: 8px 0;
-  border-bottom: 1px solid #000;
-}
-.top-nav .container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
+.topbar {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 0.75rem 2rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-}
-.breadcrumb {
-  font-size: 12px;
-  color: #666;
-}
-.breadcrumb a {
-  color: #666;
-  text-decoration: none;
-}
-.breadcrumb a:hover {
-  color: #fff;
-}
-.back-link {
-  color: #67c1f5;
-  text-decoration: none;
-  font-size: 13px;
-}
-.back-link:hover {
-  color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
-/* 主容器 */
-.container {
+.topbar a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: all 0.2s;
+}
+
+.topbar a:hover {
+  background: var(--accent-light);
+  color: var(--accent);
+}
+
+/* 游戏头部 */
+.hero {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 2rem;
+}
+
+.hero .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
-}
-
-/* 游戏头部 - Steam风格左右布局 */
-.game-header {
-  background: linear-gradient(180deg, #1b2838 0%, #2a475e 100%);
-  padding: 30px 0;
-}
-.game-header .container {
   display: grid;
-  grid-template-columns: 460px 1fr;
-  gap: 30px;
+  grid-template-columns: 300px 1fr;
+  gap: 2.5rem;
+  align-items: start;
 }
 
-/* 左侧媒体区域 */
-.media-section {
-  background: #000;
-  border-radius: 4px;
+.hero-cover {
+  border-radius: var(--radius);
   overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  aspect-ratio: 3/4;
 }
-.media-tabs {
-  display: flex;
-  background: #1b2838;
-}
-.media-tab {
-  background: transparent;
-  border: none;
-  color: #67c1f5;
-  padding: 10px 20px;
-  cursor: pointer;
-  font-size: 13px;
-  border-bottom: 2px solid transparent;
-}
-.media-tab.active {
-  border-bottom-color: #67c1f5;
-  color: #fff;
-}
-.media-player {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 16/9;
-  background: #000;
-}
-.media-player video,
-.media-player img {
+
+.hero-cover img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
+
+.hero-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding-top: 0.5rem;
+}
+
+.hero-info h1 {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.hero-info .en-name {
+  font-size: 1.125rem;
+  color: var(--text-secondary);
+  font-weight: 400;
+}
+
+.meta-tags {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.meta-tag {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  padding: 0.375rem 0.75rem;
+  border-radius: 8px;
+  background: #f3f4f6;
+  color: var(--text-secondary);
+}
+
+.meta-tag.score {
+  background: var(--accent-light);
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.meta-tag.year {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.info-row {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.info-item .label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+}
+
+.info-item .value {
+  font-size: 0.9375rem;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.hero-desc {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+  max-width: 640px;
+}
+
+/* 媒体区域 */
+.media-section {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 2rem;
+}
+
+.media-tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.media-tab {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  padding: 0.5rem 1.25rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.media-tab:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.media-tab.active {
+  background: var(--accent);
+  color: white;
+  border-color: var(--accent);
+}
+
+.media-player {
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: #000;
+  aspect-ratio: 16/9;
+}
+
+.media-player video,
+.media-player img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
 .screenshots-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 4px;
-  padding: 4px;
-  background: #1b2838;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 0.75rem;
 }
+
 .screenshots-grid img {
   width: 100%;
   aspect-ratio: 16/9;
   object-fit: cover;
+  border-radius: 8px;
   cursor: pointer;
-  transition: opacity 0.2s;
-}
-.screenshots-grid img:hover {
-  opacity: 0.8;
+  transition: all 0.2s;
+  border: 1px solid var(--border);
 }
 
-/* 右侧信息面板 */
-.game-info {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-.game-title {
-  font-size: 32px;
-  font-weight: 300;
-  color: #fff;
-}
-.game-subtitle {
-  font-size: 14px;
-  color: #8f98a0;
-}
-.game-meta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-.meta-item {
-  background: rgba(0,0,0,0.3);
-  padding: 6px 12px;
-  border-radius: 3px;
-  font-size: 13px;
-  color: #c7d5e0;
-}
-.meta-item.score {
-  background: #66c0f4;
-  color: #1b2838;
-  font-weight: 600;
-}
-.info-block {
-  background: rgba(0,0,0,0.2);
-  padding: 12px;
-  border-radius: 4px;
-}
-.info-block .label {
-  font-size: 11px;
-  color: #8f98a0;
-  text-transform: uppercase;
-  margin-bottom: 4px;
-}
-.info-block .value {
-  font-size: 14px;
-  color: #67c1f5;
-}
-.game-desc {
-  font-size: 14px;
-  color: #acb2b8;
-  line-height: 1.7;
+.screenshots-grid img:hover {
+  transform: scale(1.02);
+  box-shadow: var(--shadow);
 }
 
 /* 内容区域 */
 .content-section {
-  background: #1b2838;
-  padding: 30px 0;
-}
-.content-block {
-  background: rgba(0,0,0,0.3);
-  padding: 24px;
-  border-radius: 4px;
-}
-.content-block h2 {
-  color: #fff;
-  font-size: 20px;
-  margin-bottom: 16px;
-  padding-bottom: 12px;
-  border-bottom: 1px solid #2a475e;
-}
-.content-block p {
-  color: #acb2b8;
-  font-size: 14px;
-  line-height: 1.8;
-  margin-bottom: 12px;
-}
-.content-block h2.bb_tag {
-  color: #67c1f5;
-  font-size: 16px;
-  margin: 20px 0 10px 0;
-  border-bottom: none;
-  padding-bottom: 0;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem 2rem;
 }
 
-/* Steam 内嵌媒体约束 */
+.content-block {
+  background: var(--surface);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.content-block h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.content-block p {
+  color: var(--text-secondary);
+  font-size: 0.9375rem;
+  line-height: 1.75;
+  margin-bottom: 0.75rem;
+}
+
+.content-block h2.bb_tag {
+  font-size: 1.125rem;
+  color: var(--accent);
+  margin: 1.5rem 0 0.75rem;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+/* Steam 内嵌媒体 */
 .content-block .bb_img_ctn {
   display: block;
   max-width: 100%;
-  margin: 12px 0;
+  margin: 1rem 0;
   overflow: hidden;
+  border-radius: 8px;
   background: #000;
 }
+
 .content-block .bb_img {
   max-width: 100% !important;
   width: 100% !important;
   height: auto !important;
   display: block;
-  border-radius: 4px;
+  border-radius: 8px;
 }
+
 .content-block video.bb_img {
   width: 100% !important;
   height: auto !important;
@@ -227,86 +306,125 @@ body {
 
 /* 下载区域 */
 .download-section {
-  background: #1b2838;
-  padding: 30px 0;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem 2rem;
 }
+
 .download-block {
-  background: rgba(0,0,0,0.3);
-  padding: 24px;
-  border-radius: 4px;
+  background: var(--surface);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  padding: 2rem;
 }
+
 .download-block h2 {
-  color: #fff;
-  font-size: 20px;
-  margin-bottom: 16px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
 }
+
 .download-buttons {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 0.75rem;
 }
+
 .download-btn {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 12px 24px;
-  border-radius: 4px;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 10px;
   text-decoration: none;
   color: #fff;
-  font-size: 14px;
+  font-size: 0.9375rem;
   font-weight: 500;
   transition: all 0.2s;
+  box-shadow: var(--shadow-sm);
 }
+
 .download-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  box-shadow: var(--shadow);
 }
+
 .download-btn.gamer520 { background: linear-gradient(135deg, #10b981, #059669); }
 .download-btn.x6d { background: linear-gradient(135deg, #3b82f6, #2563eb); }
-.download-btn.magnet { background: linear-gradient(135deg, #ef4444, #dc2626); }
-.download-btn.fitgirl { background: linear-gradient(135deg, #f59e0b, #d97706); }
+.download-btn.magnet { background: linear-gradient(135deg, #f59e0b, #d97706); }
+.download-btn.fitgirl { background: linear-gradient(135deg, #8b5cf6, #7c3aed); }
 .download-btn.tianyi { background: linear-gradient(135deg, #6366f1, #4f46e5); }
-.download-btn.baidu { background: linear-gradient(135deg, #2563eb, #1d4ed8); }
+.download-btn.baidu { background: linear-gradient(135deg, #06b6d4, #0891b2); }
+.download-btn.crotorrents { background: linear-gradient(135deg, #ec4899, #db2777); }
 
 /* 系统需求 */
 .sys-req {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20px;
+  gap: 2rem;
 }
+
 .sys-req-col h4 {
-  color: #67c1f5;
-  font-size: 14px;
-  margin-bottom: 12px;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 1rem;
 }
+
 .sys-req-col ul {
   list-style: none;
-  margin: 0;
 }
+
 .sys-req-col li {
-  font-size: 13px;
-  color: #acb2b8;
-  margin-bottom: 8px;
-  padding-left: 16px;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+  padding-left: 1.25rem;
   position: relative;
+  line-height: 1.6;
 }
+
 .sys-req-col li:before {
   content: "•";
   position: absolute;
   left: 0;
-  color: #67c1f5;
+  color: var(--accent);
+  font-weight: bold;
 }
 
 /* 响应式 */
 @media (max-width: 900px) {
-  .game-header .container {
+  .hero .container {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
-  .media-section {
-    max-width: 100%;
+  .hero-cover {
+    max-width: 280px;
+    margin: 0 auto;
+  }
+  .hero-info h1 {
+    font-size: 1.75rem;
   }
   .sys-req {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero {
+    padding: 1.5rem 1rem;
+  }
+  .media-section,
+  .content-section,
+  .download-section {
+    padding: 0 1rem 1.5rem;
+  }
+  .content-block,
+  .download-block {
+    padding: 1.5rem;
   }
 }
 </style>
@@ -314,104 +432,135 @@ body {
 <body>
 
 <!-- 顶部导航 -->
-<nav class="top-nav">
-  <div class="container">
-    <div class="breadcrumb">
-      <a href="../../index.html">← 返回游戏榜单</a>
-    </div>
-    <a href="https://store.steampowered.com/app/227300/" target="_blank" class="back-link">Steam 商店页 →</a>
-  </div>
+<nav class="topbar">
+  <a href="../../index.html">← 返回游戏榜单</a>
+  <a href="https://store.steampowered.com/app/227300/" target="_blank">Steam 商店页 →</a>
 </nav>
 
 <!-- 游戏头部 -->
-<section class="game-header">
+<section class="hero">
   <div class="container">
-    <!-- 左侧媒体区域 -->
-    <div class="media-section">
-      <div class="media-tabs">
-        
-        <button class="media-tab active" onclick="showScreenshots()">截图</button>
-      </div>
-      
-      
-      
-      
-      <div id="screenshots-container" class="screenshots-grid" 
+    <div class="hero-cover">
+      <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/227300/library_600x900.jpg" alt="欧洲卡车模拟2">
     </div>
-    
-    <!-- 右侧信息面板 -->
-    <div class="game-info">
-      <h1 class="game-title">欧洲卡车模拟2</h1>
-      <div class="game-subtitle">Euro Truck Simulator 2</div>
+    <div class="hero-info">
+      <h1>欧洲卡车模拟2</h1>
+      <div class="en-name">Euro Truck Simulator 2</div>
       
-      <div class="game-meta">
-        <div class="meta-item">2012 年 10 月 12 日</div>
-        <div class="meta-item">独立, 模拟</div>
-        <div class="meta-item score">评分 97</div>
+      <div class="meta-tags">
+        <span class="meta-tag year">2012 年 10 月 12 日</span>
+        <span class="meta-tag">独立, 模拟</span>
+        <span class="meta-tag score">⭐ 97</span>
       </div>
       
-      
-      <div class="info-block">
-        <div class="label">开发者</div>
-        <div class="value">SCS Software</div>
+      <div class="info-row">
+        <div class="info-item">
+          <span class="label">开发者</span>
+          <span class="value">SCS Software</span>
+        </div>
+        <div class="info-item">
+          <span class="label">发行商</span>
+          <span class="value">SCS Software</span>
+        </div>
       </div>
       
-      
-      
-      <div class="info-block">
-        <div class="label">发行商</div>
-        <div class="value">SCS Software</div>
-      </div>
-      
-      
-      
-      <div class="game-desc">
+      <div class="hero-desc">
         像公路之王一样在欧洲穿行， 将价值不菲的货物完美送抵远方！往返于英国，比利时，德国，意大利，荷兰，波兰等众多城市；您的耐力，技巧，速度都被您发挥到了极致！
       </div>
-      
     </div>
+  </div>
+</section>
+
+<!-- 媒体区域 -->
+<section class="media-section">
+  <div class="media-tabs">
+    <button class="media-tab active" onclick="showVideo()">▶ 视频</button>
+    <button class="media-tab" onclick="showScreenshots()">🖼 截图</button>
+  </div>
+  
+  <div id="video-container" class="media-player">
+    
+  </div>
+  
+  <div id="screenshots-container" class="screenshots-grid" style="display:none;">
+    <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/227300/e040f74641ac21f15e3ec7c2415fc8b4de0b6bf9/ss_e040f74641ac21f15e3ec7c2415fc8b4de0b6bf9.1920x1080.jpg?t=1784269455" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/227300/edbff61a062a49d1d97269e53b8afbffde05bb24/ss_edbff61a062a49d1d97269e53b8afbffde05bb24.1920x1080.jpg?t=1784269455" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/227300/c610d985eb21cc22c26507b53cd843cfa0b3a00d/ss_c610d985eb21cc22c26507b53cd843cfa0b3a00d.1920x1080.jpg?t=1784269455" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/227300/a944c7f801629bfa0cfb91fa7b23b4ff95e11753/ss_a944c7f801629bfa0cfb91fa7b23b4ff95e11753.1920x1080.jpg?t=1784269455" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/227300/06aa11ece5d3303cfcfeafb3c81734258a7dd614/ss_06aa11ece5d3303cfcfeafb3c81734258a7dd614.1920x1080.jpg?t=1784269455" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/227300/5dff1bca6580b5df288a4ad061e4f92f62f6a073/ss_5dff1bca6580b5df288a4ad061e4f92f62f6a073.1920x1080.jpg?t=1784269455" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/227300/e76e3816ced57f87dd198b00caa55e7e8eab490e/ss_e76e3816ced57f87dd198b00caa55e7e8eab490e.1920x1080.jpg?t=1784269455" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/227300/5f10a971137a5375cf8a4402dec2f9befbb84ddd/ss_5f10a971137a5375cf8a4402dec2f9befbb84ddd.1920x1080.jpg?t=1784269455" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/227300/54100267623179f54731048c91add16c1c3d3d1e/ss_54100267623179f54731048c91add16c1c3d3d1e.1920x1080.jpg?t=1784269455" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/227300/a83704fdbf2363b4cee1f44ddec6f8e1c80258af/ss_a83704fdbf2363b4cee1f44ddec6f8e1c80258af.1920x1080.jpg?t=1784269455" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/227300/e8f2f677d41086916804ffca0e3da04c7c5b600f/ss_e8f2f677d41086916804ffca0e3da04c7c5b600f.1920x1080.jpg?t=1784269455" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/227300/d7e184079e3ecd5612c355f87c60430a00b69ab9/ss_d7e184079e3ecd5612c355f87c60430a00b69ab9.1920x1080.jpg?t=1784269455" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/227300/55d4cccdcea427ec4e9f19168a0f83716300c7b7/ss_55d4cccdcea427ec4e9f19168a0f83716300c7b7.1920x1080.jpg?t=1784269455" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/227300/4e725a12f1639d71c94a23ec219d098d8273d78c/ss_4e725a12f1639d71c94a23ec219d098d8273d78c.1920x1080.jpg?t=1784269455" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/227300/82e2202270452a435f6618b0d5147feeabf6b155/ss_82e2202270452a435f6618b0d5147feeabf6b155.1920x1080.jpg?t=1784269455" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/227300/e57e1ef726416e161007bc90d4160d5b529498a4/ss_e57e1ef726416e161007bc90d4160d5b529498a4.1920x1080.jpg?t=1784269455" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/227300/f903e4e63d478e9fe1db48ed05dfc5b314f262ad/ss_f903e4e63d478e9fe1db48ed05dfc5b314f262ad.1920x1080.jpg?t=1784269455" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/227300/1dc6f27e13e90e20fe0dd67b6cff4b916f96d662/ss_1dc6f27e13e90e20fe0dd67b6cff4b916f96d662.1920x1080.jpg?t=1784269455" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/227300/1a455dd625b6d8068c6f1db93887167383275757/ss_1a455dd625b6d8068c6f1db93887167383275757.1920x1080.jpg?t=1784269455" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/227300/b3eba0d5e75836a7283014f677f8a364e6514367/ss_b3eba0d5e75836a7283014f677f8a364e6514367.1920x1080.jpg?t=1784269455" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/227300/4aae303d9b7c3ca66022b35a84dd8570369121c4/ss_4aae303d9b7c3ca66022b35a84dd8570369121c4.1920x1080.jpg?t=1784269455" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/227300/c94a1cd5dc2ae212f94b098e8162c1f78dc9fd9d/ss_c94a1cd5dc2ae212f94b098e8162c1f78dc9fd9d.1920x1080.jpg?t=1784269455" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/227300/430ef267a450f58ca2d8a3caa61cef3a7450de75/ss_430ef267a450f58ca2d8a3caa61cef3a7450de75.1920x1080.jpg?t=1784269455" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/227300/fdf513cd6389f0eb08aa6010eae185430f8c4c6e/ss_fdf513cd6389f0eb08aa6010eae185430f8c4c6e.1920x1080.jpg?t=1784269455" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/227300/f3dc49d4d8f1fb3cf03334ced1c210321bd80185/ss_f3dc49d4d8f1fb3cf03334ced1c210321bd80185.1920x1080.jpg?t=1784269455" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/227300/6804c3af110d58a3be3f93edc9a319ebff109754/ss_6804c3af110d58a3be3f93edc9a319ebff109754.1920x1080.jpg?t=1784269455" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/227300/3d3d243ace91523a20e7c5a5992a46d77c00fb01/ss_3d3d243ace91523a20e7c5a5992a46d77c00fb01.1920x1080.jpg?t=1784269455" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/227300/53e90822a1fd272cc7062ef2ec166db7f35b96ce/ss_53e90822a1fd272cc7062ef2ec166db7f35b96ce.1920x1080.jpg?t=1784269455" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/227300/7a8c4308ae2cc5a9f1b0df87f30b6cfffd26b588/ss_7a8c4308ae2cc5a9f1b0df87f30b6cfffd26b588.1920x1080.jpg?t=1784269455" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/227300/c49c51974213722bcb6b509fc7006c137a1f8a67/ss_c49c51974213722bcb6b509fc7006c137a1f8a67.1920x1080.jpg?t=1784269455" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/227300/3bd9c6f5621eeaad4068d5334b9e0fa43527db21/ss_3bd9c6f5621eeaad4068d5334b9e0fa43527db21.1920x1080.jpg?t=1784269455" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/227300/a4967319d67768dd7d5c3118f3d53de68928cf92/ss_a4967319d67768dd7d5c3118f3d53de68928cf92.1920x1080.jpg?t=1784269455" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/227300/bd8b2b2f6a1a595afab14f398de836e6010563c7/ss_bd8b2b2f6a1a595afab14f398de836e6010563c7.1920x1080.jpg?t=1784269455" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/227300/4e97e5e55ce756fb8c5d28db220c72a3bd820fb3/ss_4e97e5e55ce756fb8c5d28db220c72a3bd820fb3.1920x1080.jpg?t=1784269455" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/227300/bd8f79513af1759d8dd01092b2fd064214227683/ss_bd8f79513af1759d8dd01092b2fd064214227683.1920x1080.jpg?t=1784269455" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/227300/fd675feae669c7fb4ca6dcfb738d49fb7b7a238d/ss_fd675feae669c7fb4ca6dcfb738d49fb7b7a238d.1920x1080.jpg?t=1784269455" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/227300/368254bc83b253c146326ef20a88f157fb87ae2f/ss_368254bc83b253c146326ef20a88f157fb87ae2f.1920x1080.jpg?t=1784269455" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/227300/ebb3be125abd764a6fd216d17f40273d7f78ab2c/ss_ebb3be125abd764a6fd216d17f40273d7f78ab2c.1920x1080.jpg?t=1784269455" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/227300/bfb76d77b688b87b406f2dddddd1be142a06cadc/ss_bfb76d77b688b87b406f2dddddd1be142a06cadc.1920x1080.jpg?t=1784269455" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/227300/eb434cd5ec7b731f36c3869aa772950ac1e876ca/ss_eb434cd5ec7b731f36c3869aa772950ac1e876ca.1920x1080.jpg?t=1784269455" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/227300/56e98c4a5169674702c74c832d799294d643d507/ss_56e98c4a5169674702c74c832d799294d643d507.1920x1080.jpg?t=1784269455" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/227300/cb40f4513deeaeac03ae8d894cef6bebed55816d/ss_cb40f4513deeaeac03ae8d894cef6bebed55816d.1920x1080.jpg?t=1784269455" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/227300/67f69404e444fffe8c16774d54510d0f3b5042bd/ss_67f69404e444fffe8c16774d54510d0f3b5042bd.1920x1080.jpg?t=1784269455" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/227300/ba8c4f88d6d98665ee596b3ee53b158798ca614c/ss_ba8c4f88d6d98665ee596b3ee53b158798ca614c.1920x1080.jpg?t=1784269455" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/227300/fa9d08bac73ca4745387aa41a5d95ce13204cede/ss_fa9d08bac73ca4745387aa41a5d95ce13204cede.1920x1080.jpg?t=1784269455" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/227300/ebb380dd10bf7ad0e4afdb88f25de901dbda032e/ss_ebb380dd10bf7ad0e4afdb88f25de901dbda032e.1920x1080.jpg?t=1784269455" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/227300/4a8c73ac16132d73e6dc88d58126572a760a0720/ss_4a8c73ac16132d73e6dc88d58126572a760a0720.1920x1080.jpg?t=1784269455" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/227300/97881274415df85d24791de17da900303897ee42/ss_97881274415df85d24791de17da900303897ee42.1920x1080.jpg?t=1784269455" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/227300/f21bff4784d1314f013fcb9b8d20527f6deebd92/ss_f21bff4784d1314f013fcb9b8d20527f6deebd92.1920x1080.jpg?t=1784269455" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/227300/1bb04141085a0eec37597e38c80cfe5bf6b8dd97/ss_1bb04141085a0eec37597e38c80cfe5bf6b8dd97.1920x1080.jpg?t=1784269455" alt="Screenshot" onclick="window.open(this.src)">
   </div>
 </section>
 
 <!-- 关于此游戏 -->
-
 <section class="content-section">
-  <div class="container">
-    <div class="content-block">
-      <h2>关于此游戏</h2>
-      <div><p class="bb_paragraph" ><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/227300/extras/d4d0c77d1e9f17cdda16a8c375e14c59.poster.avif?t=1784269455" width=616 height=176 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/227300/extras/d4d0c77d1e9f17cdda16a8c375e14c59.webm?t=1784269455" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/227300/extras/d4d0c77d1e9f17cdda16a8c375e14c59.mp4?t=1784269455" type="video/mp4"></video></span></p><p class="bb_paragraph" >像公路之王一样在欧洲穿行， 将价值不菲的货物完美送抵远方！往返于英国，比利时，德国，意大利，荷兰，波兰等众多城市；您的耐力，技巧，速度都被您发挥到了极致！想知道如何成为一名卡车运输界的行家里手，用您的车轮来证明吧！</p><p class="bb_paragraph" ></p><h2 class="bb_tag" >主要特色：</h2><ul class="bb_ul"><li><p class="bb_paragraph" >在超过60个欧洲城市中运送大量货物</p></li><li><p class="bb_paragraph" >运送货物,经营公司,逐渐发展</p></li><li><p class="bb_paragraph" >建立自己的卡车团队,购买自己的车库，雇佣司机，管理公司以赚取最大利润</p></li><li><p class="bb_paragraph" >对卡车进行全方位定义，从性能到外观</p></li><li><p class="bb_paragraph" >真实卡车配件系统，保险杠，喇叭，灯光，排气管等等</p></li><li><p class="bb_paragraph" >上万公里的真实路段以及数百处著名地标建筑等。</p></li></ul><p class="bb_paragraph" ></p><h2 class="bb_tag" >World of Trucks（卡车世界）</h2><p class="bb_paragraph" ></p><p class="bb_paragraph" >World of Trucks 线上社区汇集了大量虚拟卡车司机，这些卡车司机来自全球各地，而且对《Euro Truck Simulator 2》以及 SCS Software 未来推出的卡车模拟游戏颇感兴趣，赶快加入 World of Trucks，体验《Euro Truck Simulator 2》的其他特色功能。</p><p class="bb_paragraph" ></p><ul class="bb_ul"><li><p class="bb_paragraph" >使用游戏中的“拍照模式”捕捉精彩瞬间并与成千上万的卡车爱好者分享你的照片。</p></li><li><p class="bb_paragraph" >为您最喜爱的图片点赞，方便今后随时回来看看。</p></li><li><p class="bb_paragraph" >与 World of Trucks 中的其他玩家一同讨论截图。</p></li><li><p class="bb_paragraph" >“编者精选”几乎每日更新，您可在此查看游戏创作人员精挑细选的最佳图片。试着让您的屏幕截图登上此精选列表！</p></li><li><p class="bb_paragraph" >上传并在游戏中使用自定义卡车和牌照。</p></li><li><p class="bb_paragraph" >更多特色功能，敬请期待！</p></li></ul><p class="bb_paragraph" ></p><p class="bb_paragraph" >只需在加入页面上用您的 Steam 帐户进行注册，即可进入我们的 World of Trucks！</p><p class="bb_paragraph" ></p><p class="bb_paragraph" ><strong>World of Trucks 为可选服务，您无需进行注册也可游玩游戏。</strong></p></div>
-    </div>
+  <div class="content-block">
+    <h2>关于此游戏</h2>
+    <div><p class="bb_paragraph" ><span class="bb_img_ctn"><video controls class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/227300/extras/d4d0c77d1e9f17cdda16a8c375e14c59.poster.avif?t=1784269455" ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/227300/extras/d4d0c77d1e9f17cdda16a8c375e14c59.webm?t=1784269455" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/227300/extras/d4d0c77d1e9f17cdda16a8c375e14c59.mp4?t=1784269455" type="video/mp4"></video></span></p><p class="bb_paragraph" >像公路之王一样在欧洲穿行， 将价值不菲的货物完美送抵远方！往返于英国，比利时，德国，意大利，荷兰，波兰等众多城市；您的耐力，技巧，速度都被您发挥到了极致！想知道如何成为一名卡车运输界的行家里手，用您的车轮来证明吧！</p><p class="bb_paragraph" ></p><h2 class="bb_tag" >主要特色：</h2><ul class="bb_ul"><li><p class="bb_paragraph" >在超过60个欧洲城市中运送大量货物</p></li><li><p class="bb_paragraph" >运送货物,经营公司,逐渐发展</p></li><li><p class="bb_paragraph" >建立自己的卡车团队,购买自己的车库，雇佣司机，管理公司以赚取最大利润</p></li><li><p class="bb_paragraph" >对卡车进行全方位定义，从性能到外观</p></li><li><p class="bb_paragraph" >真实卡车配件系统，保险杠，喇叭，灯光，排气管等等</p></li><li><p class="bb_paragraph" >上万公里的真实路段以及数百处著名地标建筑等。</p></li></ul><p class="bb_paragraph" ></p><h2 class="bb_tag" >World of Trucks（卡车世界）</h2><p class="bb_paragraph" ></p><p class="bb_paragraph" >World of Trucks 线上社区汇集了大量虚拟卡车司机，这些卡车司机来自全球各地，而且对《Euro Truck Simulator 2》以及 SCS Software 未来推出的卡车模拟游戏颇感兴趣，赶快加入 World of Trucks，体验《Euro Truck Simulator 2》的其他特色功能。</p><p class="bb_paragraph" ></p><ul class="bb_ul"><li><p class="bb_paragraph" >使用游戏中的“拍照模式”捕捉精彩瞬间并与成千上万的卡车爱好者分享你的照片。</p></li><li><p class="bb_paragraph" >为您最喜爱的图片点赞，方便今后随时回来看看。</p></li><li><p class="bb_paragraph" >与 World of Trucks 中的其他玩家一同讨论截图。</p></li><li><p class="bb_paragraph" >“编者精选”几乎每日更新，您可在此查看游戏创作人员精挑细选的最佳图片。试着让您的屏幕截图登上此精选列表！</p></li><li><p class="bb_paragraph" >上传并在游戏中使用自定义卡车和牌照。</p></li><li><p class="bb_paragraph" >更多特色功能，敬请期待！</p></li></ul><p class="bb_paragraph" ></p><p class="bb_paragraph" >只需在加入页面上用您的 Steam 帐户进行注册，即可进入我们的 World of Trucks！</p><p class="bb_paragraph" ></p><p class="bb_paragraph" ><strong>World of Trucks 为可选服务，您无需进行注册也可游玩游戏。</strong></p></div>
   </div>
 </section>
 
-
 <!-- 下载区域 -->
 <section class="download-section">
-  <div class="container">
-    <div class="download-block">
-      <h2>📥 下载链接</h2>
-      <div class="download-buttons">
-        <a href="https://www.gamer520.com/66421.html" class="download-btn gamer520" target="_blank">gamer520</a>
+  <div class="download-block">
+    <h2>📥 下载链接</h2>
+    <div class="download-buttons">
+      <a href="https://www.gamer520.com/66421.html" class="download-btn gamer520" target="_blank">gamer520</a>
 <a href="https://www.x6d.com/i-wz-12572.html" class="download-btn x6d" target="_blank">x6d</a>
 
-      </div>
     </div>
   </div>
 </section>
 
 <!-- 系统需求 -->
-
-<section class="content-section">
-  <div class="container">
-    <div class="content-block">
-      <h2>系统需求</h2>
-      <div class="sys-req">
-        <div class="sys-req-col"><h4>最低配置</h4><div><strong>Minimum:</strong><br><ul class="bb_ul"><li><strong>OS:</strong> Windows 10 64-bit<br></li><li><strong>Processor:</strong> Intel Core i5-6400 or AMD Ryzen 3 1200 or similar<br></li><li><strong>Memory:</strong> 8 GB RAM<br></li><li><strong>Graphics:</strong> NVIDIA GeForce GTX 660 or AMD Radeon RX 460 or Intel HD 630 (2GB VRAM)<br></li><li><strong>Hard Drive:</strong> 25 GB available space (Euro Truck Simulator 2 base game)</li></ul></div></div>
-        <div class="sys-req-col"><h4>推荐配置</h4><div><strong>Recommended:</strong><br><ul class="bb_ul"><li><strong>OS:</strong> Windows 10 64-bit<br></li><li><strong>Processor:</strong> Intel Core i5-9600 or AMD Ryzen 5 3600 or similar<br></li><li><strong>Memory:</strong> 12 GB RAM<br></li><li><strong>Graphics:</strong> NVIDIA GeForce GTX 1660 or AMD Radeon RX 590 (2GB VRAM)<br></li><li><strong>Hard Drive:</strong> 25 GB available space (Euro Truck Simulator 2 base game)</li></ul></div></div>
-      </div>
-    </div>
-  </div>
-</section>
+<section class="content-section"><div class="content-block"><h2>系统需求</h2><div class="sys-req">
+<div class="sys-req-col"><h4>最低配置</h4><ul><strong>Minimum:</strong><br><ul class="bb_ul"><li><strong>OS:</strong> Windows 10 64-bit<br></li><li><strong>Processor:</strong> Intel Core i5-6400 or AMD Ryzen 3 1200 or similar<br></li><li><strong>Memory:</strong> 8 GB RAM<br></li><li><strong>Graphics:</strong> NVIDIA GeForce GTX 660 or AMD Radeon RX 460 or Intel HD 630 (2GB VRAM)<br></li><li><strong>Hard Drive:</strong> 25 GB available space (Euro Truck Simulator 2 base game)</li></ul></ul></div>
+<div class="sys-req-col"><h4>推荐配置</h4><ul><strong>Recommended:</strong><br><ul class="bb_ul"><li><strong>OS:</strong> Windows 10 64-bit<br></li><li><strong>Processor:</strong> Intel Core i5-9600 or AMD Ryzen 5 3600 or similar<br></li><li><strong>Memory:</strong> 12 GB RAM<br></li><li><strong>Graphics:</strong> NVIDIA GeForce GTX 1660 or AMD Radeon RX 590 (2GB VRAM)<br></li><li><strong>Hard Drive:</strong> 25 GB available space (Euro Truck Simulator 2 base game)</li></ul></ul></div>
+</div></div></section>
 
 <script>
 function showVideo() {
@@ -422,8 +571,8 @@ function showVideo() {
 }
 
 function showScreenshots() {
-  const videoContainer = document.getElementById('video-container');
-  if (videoContainer) videoContainer.style.display = 'none';
+  const vc = document.getElementById('video-container');
+  if (vc) vc.style.display = 'none';
   document.getElementById('screenshots-container').style.display = 'grid';
   document.querySelectorAll('.media-tab').forEach(t => t.classList.remove('active'));
   event.target.classList.add('active');

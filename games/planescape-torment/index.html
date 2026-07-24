@@ -5,218 +5,297 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>异域镇魂曲 - 游戏详情</title>
 <style>
+:root {
+  --bg: #fafbfc;
+  --surface: #ffffff;
+  --border: #e5e7eb;
+  --text-primary: #111827;
+  --text-secondary: #6b7280;
+  --text-muted: #9ca3af;
+  --accent: #3b82f6;
+  --accent-light: #dbeafe;
+  --success: #10b981;
+  --warning: #f59e0b;
+  --radius: 12px;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
+  --shadow: 0 4px 12px rgba(0,0,0,0.06);
+  --shadow-lg: 0 8px 24px rgba(0,0,0,0.08);
+}
+
 * { margin: 0; padding: 0; box-sizing: border-box; }
+
 body {
-  font-family: "Microsoft YaHei", "Segoe UI", sans-serif;
-  background: #1b2838;
-  color: #c7d5e0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text-primary);
   line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
 }
 
 /* 顶部导航 */
-.top-nav {
-  background: #171a21;
-  padding: 8px 0;
-  border-bottom: 1px solid #000;
-}
-.top-nav .container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
+.topbar {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 0.75rem 2rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-}
-.breadcrumb {
-  font-size: 12px;
-  color: #666;
-}
-.breadcrumb a {
-  color: #666;
-  text-decoration: none;
-}
-.breadcrumb a:hover {
-  color: #fff;
-}
-.back-link {
-  color: #67c1f5;
-  text-decoration: none;
-  font-size: 13px;
-}
-.back-link:hover {
-  color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
-/* 主容器 */
-.container {
+.topbar a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: all 0.2s;
+}
+
+.topbar a:hover {
+  background: var(--accent-light);
+  color: var(--accent);
+}
+
+/* 游戏头部 */
+.hero {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 2rem;
+}
+
+.hero .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
-}
-
-/* 游戏头部 - Steam风格左右布局 */
-.game-header {
-  background: linear-gradient(180deg, #1b2838 0%, #2a475e 100%);
-  padding: 30px 0;
-}
-.game-header .container {
   display: grid;
-  grid-template-columns: 460px 1fr;
-  gap: 30px;
+  grid-template-columns: 300px 1fr;
+  gap: 2.5rem;
+  align-items: start;
 }
 
-/* 左侧媒体区域 */
-.media-section {
-  background: #000;
-  border-radius: 4px;
+.hero-cover {
+  border-radius: var(--radius);
   overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  aspect-ratio: 3/4;
 }
-.media-tabs {
-  display: flex;
-  background: #1b2838;
-}
-.media-tab {
-  background: transparent;
-  border: none;
-  color: #67c1f5;
-  padding: 10px 20px;
-  cursor: pointer;
-  font-size: 13px;
-  border-bottom: 2px solid transparent;
-}
-.media-tab.active {
-  border-bottom-color: #67c1f5;
-  color: #fff;
-}
-.media-player {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 16/9;
-  background: #000;
-}
-.media-player video,
-.media-player img {
+
+.hero-cover img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
+
+.hero-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding-top: 0.5rem;
+}
+
+.hero-info h1 {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.hero-info .en-name {
+  font-size: 1.125rem;
+  color: var(--text-secondary);
+  font-weight: 400;
+}
+
+.meta-tags {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.meta-tag {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  padding: 0.375rem 0.75rem;
+  border-radius: 8px;
+  background: #f3f4f6;
+  color: var(--text-secondary);
+}
+
+.meta-tag.score {
+  background: var(--accent-light);
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.meta-tag.year {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.info-row {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.info-item .label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+}
+
+.info-item .value {
+  font-size: 0.9375rem;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.hero-desc {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+  max-width: 640px;
+}
+
+/* 媒体区域 */
+.media-section {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 2rem;
+}
+
+.media-tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.media-tab {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  padding: 0.5rem 1.25rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.media-tab:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.media-tab.active {
+  background: var(--accent);
+  color: white;
+  border-color: var(--accent);
+}
+
+.media-player {
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: #000;
+  aspect-ratio: 16/9;
+}
+
+.media-player video,
+.media-player img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
 .screenshots-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 4px;
-  padding: 4px;
-  background: #1b2838;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 0.75rem;
 }
+
 .screenshots-grid img {
   width: 100%;
   aspect-ratio: 16/9;
   object-fit: cover;
+  border-radius: 8px;
   cursor: pointer;
-  transition: opacity 0.2s;
-}
-.screenshots-grid img:hover {
-  opacity: 0.8;
+  transition: all 0.2s;
+  border: 1px solid var(--border);
 }
 
-/* 右侧信息面板 */
-.game-info {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-.game-title {
-  font-size: 32px;
-  font-weight: 300;
-  color: #fff;
-}
-.game-subtitle {
-  font-size: 14px;
-  color: #8f98a0;
-}
-.game-meta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-.meta-item {
-  background: rgba(0,0,0,0.3);
-  padding: 6px 12px;
-  border-radius: 3px;
-  font-size: 13px;
-  color: #c7d5e0;
-}
-.meta-item.score {
-  background: #66c0f4;
-  color: #1b2838;
-  font-weight: 600;
-}
-.info-block {
-  background: rgba(0,0,0,0.2);
-  padding: 12px;
-  border-radius: 4px;
-}
-.info-block .label {
-  font-size: 11px;
-  color: #8f98a0;
-  text-transform: uppercase;
-  margin-bottom: 4px;
-}
-.info-block .value {
-  font-size: 14px;
-  color: #67c1f5;
-}
-.game-desc {
-  font-size: 14px;
-  color: #acb2b8;
-  line-height: 1.7;
+.screenshots-grid img:hover {
+  transform: scale(1.02);
+  box-shadow: var(--shadow);
 }
 
 /* 内容区域 */
 .content-section {
-  background: #1b2838;
-  padding: 30px 0;
-}
-.content-block {
-  background: rgba(0,0,0,0.3);
-  padding: 24px;
-  border-radius: 4px;
-}
-.content-block h2 {
-  color: #fff;
-  font-size: 20px;
-  margin-bottom: 16px;
-  padding-bottom: 12px;
-  border-bottom: 1px solid #2a475e;
-}
-.content-block p {
-  color: #acb2b8;
-  font-size: 14px;
-  line-height: 1.8;
-  margin-bottom: 12px;
-}
-.content-block h2.bb_tag {
-  color: #67c1f5;
-  font-size: 16px;
-  margin: 20px 0 10px 0;
-  border-bottom: none;
-  padding-bottom: 0;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem 2rem;
 }
 
-/* Steam 内嵌媒体约束 */
+.content-block {
+  background: var(--surface);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.content-block h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.content-block p {
+  color: var(--text-secondary);
+  font-size: 0.9375rem;
+  line-height: 1.75;
+  margin-bottom: 0.75rem;
+}
+
+.content-block h2.bb_tag {
+  font-size: 1.125rem;
+  color: var(--accent);
+  margin: 1.5rem 0 0.75rem;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+/* Steam 内嵌媒体 */
 .content-block .bb_img_ctn {
   display: block;
   max-width: 100%;
-  margin: 12px 0;
+  margin: 1rem 0;
   overflow: hidden;
+  border-radius: 8px;
   background: #000;
 }
+
 .content-block .bb_img {
   max-width: 100% !important;
   width: 100% !important;
   height: auto !important;
   display: block;
-  border-radius: 4px;
+  border-radius: 8px;
 }
+
 .content-block video.bb_img {
   width: 100% !important;
   height: auto !important;
@@ -227,86 +306,125 @@ body {
 
 /* 下载区域 */
 .download-section {
-  background: #1b2838;
-  padding: 30px 0;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem 2rem;
 }
+
 .download-block {
-  background: rgba(0,0,0,0.3);
-  padding: 24px;
-  border-radius: 4px;
+  background: var(--surface);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  padding: 2rem;
 }
+
 .download-block h2 {
-  color: #fff;
-  font-size: 20px;
-  margin-bottom: 16px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
 }
+
 .download-buttons {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 0.75rem;
 }
+
 .download-btn {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 12px 24px;
-  border-radius: 4px;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 10px;
   text-decoration: none;
   color: #fff;
-  font-size: 14px;
+  font-size: 0.9375rem;
   font-weight: 500;
   transition: all 0.2s;
+  box-shadow: var(--shadow-sm);
 }
+
 .download-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  box-shadow: var(--shadow);
 }
+
 .download-btn.gamer520 { background: linear-gradient(135deg, #10b981, #059669); }
 .download-btn.x6d { background: linear-gradient(135deg, #3b82f6, #2563eb); }
-.download-btn.magnet { background: linear-gradient(135deg, #ef4444, #dc2626); }
-.download-btn.fitgirl { background: linear-gradient(135deg, #f59e0b, #d97706); }
+.download-btn.magnet { background: linear-gradient(135deg, #f59e0b, #d97706); }
+.download-btn.fitgirl { background: linear-gradient(135deg, #8b5cf6, #7c3aed); }
 .download-btn.tianyi { background: linear-gradient(135deg, #6366f1, #4f46e5); }
-.download-btn.baidu { background: linear-gradient(135deg, #2563eb, #1d4ed8); }
+.download-btn.baidu { background: linear-gradient(135deg, #06b6d4, #0891b2); }
+.download-btn.crotorrents { background: linear-gradient(135deg, #ec4899, #db2777); }
 
 /* 系统需求 */
 .sys-req {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20px;
+  gap: 2rem;
 }
+
 .sys-req-col h4 {
-  color: #67c1f5;
-  font-size: 14px;
-  margin-bottom: 12px;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 1rem;
 }
+
 .sys-req-col ul {
   list-style: none;
-  margin: 0;
 }
+
 .sys-req-col li {
-  font-size: 13px;
-  color: #acb2b8;
-  margin-bottom: 8px;
-  padding-left: 16px;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+  padding-left: 1.25rem;
   position: relative;
+  line-height: 1.6;
 }
+
 .sys-req-col li:before {
   content: "•";
   position: absolute;
   left: 0;
-  color: #67c1f5;
+  color: var(--accent);
+  font-weight: bold;
 }
 
 /* 响应式 */
 @media (max-width: 900px) {
-  .game-header .container {
+  .hero .container {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
-  .media-section {
-    max-width: 100%;
+  .hero-cover {
+    max-width: 280px;
+    margin: 0 auto;
+  }
+  .hero-info h1 {
+    font-size: 1.75rem;
   }
   .sys-req {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero {
+    padding: 1.5rem 1rem;
+  }
+  .media-section,
+  .content-section,
+  .download-section {
+    padding: 0 1rem 1.5rem;
+  }
+  .content-block,
+  .download-block {
+    padding: 1.5rem;
   }
 }
 </style>
@@ -314,102 +432,100 @@ body {
 <body>
 
 <!-- 顶部导航 -->
-<nav class="top-nav">
-  <div class="container">
-    <div class="breadcrumb">
-      <a href="../../index.html">← 返回游戏榜单</a>
-    </div>
-    <a href="https://store.steampowered.com/app/466300/" target="_blank" class="back-link">Steam 商店页 →</a>
-  </div>
+<nav class="topbar">
+  <a href="../../index.html">← 返回游戏榜单</a>
+  <a href="https://store.steampowered.com/app/466300/" target="_blank">Steam 商店页 →</a>
 </nav>
 
 <!-- 游戏头部 -->
-<section class="game-header">
+<section class="hero">
   <div class="container">
-    <!-- 左侧媒体区域 -->
-    <div class="media-section">
-      <div class="media-tabs">
-        
-        <button class="media-tab active" onclick="showScreenshots()">截图</button>
-      </div>
-      
-      
-      
-      
-      <div id="screenshots-container" class="screenshots-grid" 
+    <div class="hero-cover">
+      <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/466300/library_600x900.jpg" alt="异域镇魂曲">
     </div>
-    
-    <!-- 右侧信息面板 -->
-    <div class="game-info">
-      <h1 class="game-title">异域镇魂曲</h1>
-      <div class="game-subtitle">Planescape: Torment</div>
+    <div class="hero-info">
+      <h1>异域镇魂曲</h1>
+      <div class="en-name">Planescape: Torment</div>
       
-      <div class="game-meta">
-        <div class="meta-item">2017 年 4 月 11 日</div>
-        <div class="meta-item">冒险, 角色扮演</div>
-        <div class="meta-item score">评分 85</div>
+      <div class="meta-tags">
+        <span class="meta-tag year">2017 年 4 月 11 日</span>
+        <span class="meta-tag">冒险, 角色扮演</span>
+        <span class="meta-tag score">⭐ 85</span>
       </div>
       
-      
-      <div class="info-block">
-        <div class="label">开发者</div>
-        <div class="value">Beamdog</div>
+      <div class="info-row">
+        <div class="info-item">
+          <span class="label">开发者</span>
+          <span class="value">Beamdog</span>
+        </div>
+        <div class="info-item">
+          <span class="label">发行商</span>
+          <span class="value">Beamdog</span>
+        </div>
       </div>
       
-      
-      
-      <div class="info-block">
-        <div class="label">发行商</div>
-        <div class="value">Beamdog</div>
-      </div>
-      
-      
-      
-      <div class="game-desc">
+      <div class="hero-desc">
         Uncover secrets of past lives in this story-rich, tactical roleplaying game set in Sigil, a dark fantasy city at the heart of the Dungeons &amp; Dragons multiverse. Explore the planes, survive combat alongside a party of bizarre companions, and solve puzzles unlike any ever seen in the genre.
       </div>
-      
     </div>
+  </div>
+</section>
+
+<!-- 媒体区域 -->
+<section class="media-section">
+  <div class="media-tabs">
+    <button class="media-tab active" onclick="showVideo()">▶ 视频</button>
+    <button class="media-tab" onclick="showScreenshots()">🖼 截图</button>
+  </div>
+  
+  <div id="video-container" class="media-player">
+    
+  </div>
+  
+  <div id="screenshots-container" class="screenshots-grid" style="display:none;">
+    <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/466300/ss_457a8a3ab48265c8b244db01e3af6f492325e2e6.1920x1080.jpg?t=1746122996" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/466300/ss_972f43fa4942d11cc33ad9792b1af949c84ed033.1920x1080.jpg?t=1746122996" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/466300/ss_a3f3049318e4fbf8a61ae35eef5952df7ba8c9ee.1920x1080.jpg?t=1746122996" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/466300/ss_e3c1821b2d04679274cb5d0d28cb5583b0eeb13a.1920x1080.jpg?t=1746122996" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/466300/ss_a890058eb5a75513ce25c10c208d7b74827b595d.1920x1080.jpg?t=1746122996" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/466300/ss_4e0dd0b8b61cb087bbcbfae916509d42b7ccaf09.1920x1080.jpg?t=1746122996" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/466300/ss_d76be0bc88998a1323a30fe937a82e090c640f1b.1920x1080.jpg?t=1746122996" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/466300/ss_b41e121833c7b592a53455454c5516558186f3c2.1920x1080.jpg?t=1746122996" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/466300/ss_ca6baf1dd29359da13755f5bf568f750f9bb43f0.1920x1080.jpg?t=1746122996" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/466300/ss_136fc7c5465b572bc4ece58f6f96e32949b7debb.1920x1080.jpg?t=1746122996" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/466300/ss_a9064bb39e4f89c54ba7023f7ba3590a7f1bbe12.1920x1080.jpg?t=1746122996" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/466300/ss_b5c6251a3d366ab52d58e5574fbdc201f713f539.1920x1080.jpg?t=1746122996" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/466300/ss_3ddf85cff06953bfce6aa6c3d67faf83bcda286a.1920x1080.jpg?t=1746122996" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/466300/ss_0b1da39e422f517dd725db4982bdf61751ae2d91.1920x1080.jpg?t=1746122996" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/466300/ss_f7320ac0893403c711944ee55852d98f4c91e753.1920x1080.jpg?t=1746122996" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/466300/ss_2cd8bc48e961d182fffd9f919c696e4e13ecad2e.1920x1080.jpg?t=1746122996" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/466300/ss_ba35ac4b3e703eee3805e4fd680a5afe4e739f44.1920x1080.jpg?t=1746122996" alt="Screenshot" onclick="window.open(this.src)">
   </div>
 </section>
 
 <!-- 关于此游戏 -->
-
 <section class="content-section">
-  <div class="container">
-    <div class="content-block">
-      <h2>关于此游戏</h2>
-      <div>The original Planescape: Torment was released in 1999 to widespread critical acclaim. It won RPG of the Year from multiple outlets for its unconventional story, characters, and amazing soundtrack. Since then, millions of Planescape: Torment fans have enjoyed exploring the strange and dangerous city of Sigil and surrounding planes through the Nameless One's eyes. <br><br>Discover an incredibly rich story and a unique setting unlike anything else in fantasy. Defeat strange and alien creatures, engage in rich dialogue, and explore the dark and dangerous Planescape setting in this 50+ hour RPG classic.<br><br>This is Planescape: Torment like you’ve never seen before.<h2 class="bb_tag" >Story</h2><br>&quot;What can change the nature of a man?&quot;<br><br>You are the Nameless One, a hulking figure covered in scars and tattoos collected over the course of countless lives—none of which you can remember, but are now coming back to haunt you. You are prodded awake by Morte, a floating skull and keeper of secrets, to embark on an adventure taking The Nameless One from the dirty streets of Sigil into the mysterious Outer Planes and even into the depths of Hell itself.<br><br>Portals riddle the planar metropolis of Sigil, providing access to anywhere in existence, but only if you have the proper key. Known as the &quot;City of Doors,&quot; Sigil is a neutral ground where demons, devas, and races from across the multiverse gather under the watchful shadow of the Lady of Pain, the city's enigmatic ruler. This is a place where the word is mightier than the sword, where thought defines reality, and belief has the power to reshape worlds.<br><br>In your search for answers, you'll find companions matching the bizarre nature of the planes: a chaste succubus who can kill with a kiss, a confused crossbow-wielding cube, a suit of armor animated by a spirit demanding JUSTICE, and more. With these companions and others at The Nameless One’s side, you will explore worlds in search of answers, all to discover that some destinies cannot be escaped and some memories cost more than an even an immortal can bear.<h2 class="bb_tag" >Features</h2><br><ul class="bb_ul"><li><strong>Enhanced Planescape</strong>: Gameplay updates, bug fixes, and enhancements to best capture the original vision for the game.<br></li><li><strong>The Planes Await</strong>: Planescape is a setting you've never experienced before, filled with strange magics, strange adversaries, and Dungeons &amp; Dragons locations from across the multiverse.<br></li><li><strong>Conversations to Remember</strong>: Encounter personable items, philosophic undead, and rat hiveminds while walking the planes with the strangest collection of allies ever seen in an RPG.<br></li><li><strong>Pick Your Path</strong>: Character creation is just the beginning. The Nameless One can change his class, alignment, and even gain new abilities based on your choices.<br></li><li><strong>Remastered Music</strong>: The full Planescape: Torment soundtrack has been remastered in-game to add more depth to Sigil and the multiverse.<br></li><li><strong>4K Interface</strong>: Sigil has never looked this good! The interface of Planescape: Torment has been rebuilt in high definition with tons of new convenience features. <br></li><li><strong>A Planescape For Today</strong>: The Enhanced Edition includes modern features such as tab highlighting, area zooming, combat log, quickloot, and more!<br></li><li><strong>Play It Your Way</strong>: Enable Enhanced Edition features as you desire or turn them off to experience Planescape: Torment in its original glory.<br></li><li><strong>Cast Comprehend Languages</strong>: Planescape: Torment: Enhanced Edition is available in English, French, Polish, German, and Korean. Note: Korean translations are text only with voice-overs played in English.</li></ul></div>
-    </div>
+  <div class="content-block">
+    <h2>关于此游戏</h2>
+    <div>The original Planescape: Torment was released in 1999 to widespread critical acclaim. It won RPG of the Year from multiple outlets for its unconventional story, characters, and amazing soundtrack. Since then, millions of Planescape: Torment fans have enjoyed exploring the strange and dangerous city of Sigil and surrounding planes through the Nameless One's eyes. <br><br>Discover an incredibly rich story and a unique setting unlike anything else in fantasy. Defeat strange and alien creatures, engage in rich dialogue, and explore the dark and dangerous Planescape setting in this 50+ hour RPG classic.<br><br>This is Planescape: Torment like you’ve never seen before.<h2 class="bb_tag" >Story</h2><br>&quot;What can change the nature of a man?&quot;<br><br>You are the Nameless One, a hulking figure covered in scars and tattoos collected over the course of countless lives—none of which you can remember, but are now coming back to haunt you. You are prodded awake by Morte, a floating skull and keeper of secrets, to embark on an adventure taking The Nameless One from the dirty streets of Sigil into the mysterious Outer Planes and even into the depths of Hell itself.<br><br>Portals riddle the planar metropolis of Sigil, providing access to anywhere in existence, but only if you have the proper key. Known as the &quot;City of Doors,&quot; Sigil is a neutral ground where demons, devas, and races from across the multiverse gather under the watchful shadow of the Lady of Pain, the city's enigmatic ruler. This is a place where the word is mightier than the sword, where thought defines reality, and belief has the power to reshape worlds.<br><br>In your search for answers, you'll find companions matching the bizarre nature of the planes: a chaste succubus who can kill with a kiss, a confused crossbow-wielding cube, a suit of armor animated by a spirit demanding JUSTICE, and more. With these companions and others at The Nameless One’s side, you will explore worlds in search of answers, all to discover that some destinies cannot be escaped and some memories cost more than an even an immortal can bear.<h2 class="bb_tag" >Features</h2><br><ul class="bb_ul"><li><strong>Enhanced Planescape</strong>: Gameplay updates, bug fixes, and enhancements to best capture the original vision for the game.<br></li><li><strong>The Planes Await</strong>: Planescape is a setting you've never experienced before, filled with strange magics, strange adversaries, and Dungeons &amp; Dragons locations from across the multiverse.<br></li><li><strong>Conversations to Remember</strong>: Encounter personable items, philosophic undead, and rat hiveminds while walking the planes with the strangest collection of allies ever seen in an RPG.<br></li><li><strong>Pick Your Path</strong>: Character creation is just the beginning. The Nameless One can change his class, alignment, and even gain new abilities based on your choices.<br></li><li><strong>Remastered Music</strong>: The full Planescape: Torment soundtrack has been remastered in-game to add more depth to Sigil and the multiverse.<br></li><li><strong>4K Interface</strong>: Sigil has never looked this good! The interface of Planescape: Torment has been rebuilt in high definition with tons of new convenience features. <br></li><li><strong>A Planescape For Today</strong>: The Enhanced Edition includes modern features such as tab highlighting, area zooming, combat log, quickloot, and more!<br></li><li><strong>Play It Your Way</strong>: Enable Enhanced Edition features as you desire or turn them off to experience Planescape: Torment in its original glory.<br></li><li><strong>Cast Comprehend Languages</strong>: Planescape: Torment: Enhanced Edition is available in English, French, Polish, German, and Korean. Note: Korean translations are text only with voice-overs played in English.</li></ul></div>
   </div>
 </section>
 
-
 <!-- 下载区域 -->
 <section class="download-section">
-  <div class="container">
-    <div class="download-block">
-      <h2>📥 下载链接</h2>
-      <div class="download-buttons">
-        <p style="color:#8f98a0;">暂无下载链接</p>
-      </div>
+  <div class="download-block">
+    <h2>📥 下载链接</h2>
+    <div class="download-buttons">
+      <p style="color:var(--text-muted)">暂无下载链接</p>
     </div>
   </div>
 </section>
 
 <!-- 系统需求 -->
+<section class="content-section"><div class="content-block"><h2>系统需求</h2><div class="sys-req">
+<div class="sys-req-col"><h4>最低配置</h4><ul><strong>最低配置:</strong><br><ul class="bb_ul"><li><strong>操作系统 *:</strong> Windows XP, Vista, 7, 8.1, 10<br></li><li><strong>处理器:</strong> Dual Core Processor<br></li><li><strong>内存:</strong> 1 GB RAM<br></li><li><strong>显卡:</strong> OpenGL 2.0 compatible<br></li><li><strong>存储空间:</strong> 需要 2 GB 可用空间</li></ul></ul></div>
 
-<section class="content-section">
-  <div class="container">
-    <div class="content-block">
-      <h2>系统需求</h2>
-      <div class="sys-req">
-        <div class="sys-req-col"><h4>最低配置</h4><div><strong>最低配置:</strong><br><ul class="bb_ul"><li><strong>操作系统 *:</strong> Windows XP, Vista, 7, 8.1, 10<br></li><li><strong>处理器:</strong> Dual Core Processor<br></li><li><strong>内存:</strong> 1 GB RAM<br></li><li><strong>显卡:</strong> OpenGL 2.0 compatible<br></li><li><strong>存储空间:</strong> 需要 2 GB 可用空间</li></ul></div></div>
-        
-      </div>
-    </div>
-  </div>
-</section>
+</div></div></section>
 
 <script>
 function showVideo() {
@@ -420,8 +536,8 @@ function showVideo() {
 }
 
 function showScreenshots() {
-  const videoContainer = document.getElementById('video-container');
-  if (videoContainer) videoContainer.style.display = 'none';
+  const vc = document.getElementById('video-container');
+  if (vc) vc.style.display = 'none';
   document.getElementById('screenshots-container').style.display = 'grid';
   document.querySelectorAll('.media-tab').forEach(t => t.classList.remove('active'));
   event.target.classList.add('active');

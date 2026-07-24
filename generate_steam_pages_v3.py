@@ -103,6 +103,19 @@ def render_template(tpl, data):
     result = re.sub(r'\{\{#unless[^}]*\}\}', '', result)
     result = re.sub(r'\{\{/unless\}\}', '', result)
     
+    # 8. 清理视频标签的固定尺寸属性，添加controls
+    def fix_video_tag(match):
+        video_tag = match.group(0)
+        # 移除width和height属性
+        video_tag = re.sub(r'\s+width=\d+', '', video_tag)
+        video_tag = re.sub(r'\s+height=\d+', '', video_tag)
+        # 添加controls属性（如果没有）
+        if 'controls' not in video_tag:
+            video_tag = video_tag.replace('<video', '<video controls')
+        return video_tag
+    
+    result = re.sub(r'<video[^>]*>', fix_video_tag, result)
+    
     return result
 
 def generate_detail_page(game):

@@ -5,218 +5,297 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>消逝的光芒 - 游戏详情</title>
 <style>
+:root {
+  --bg: #fafbfc;
+  --surface: #ffffff;
+  --border: #e5e7eb;
+  --text-primary: #111827;
+  --text-secondary: #6b7280;
+  --text-muted: #9ca3af;
+  --accent: #3b82f6;
+  --accent-light: #dbeafe;
+  --success: #10b981;
+  --warning: #f59e0b;
+  --radius: 12px;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
+  --shadow: 0 4px 12px rgba(0,0,0,0.06);
+  --shadow-lg: 0 8px 24px rgba(0,0,0,0.08);
+}
+
 * { margin: 0; padding: 0; box-sizing: border-box; }
+
 body {
-  font-family: "Microsoft YaHei", "Segoe UI", sans-serif;
-  background: #1b2838;
-  color: #c7d5e0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text-primary);
   line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
 }
 
 /* 顶部导航 */
-.top-nav {
-  background: #171a21;
-  padding: 8px 0;
-  border-bottom: 1px solid #000;
-}
-.top-nav .container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
+.topbar {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 0.75rem 2rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-}
-.breadcrumb {
-  font-size: 12px;
-  color: #666;
-}
-.breadcrumb a {
-  color: #666;
-  text-decoration: none;
-}
-.breadcrumb a:hover {
-  color: #fff;
-}
-.back-link {
-  color: #67c1f5;
-  text-decoration: none;
-  font-size: 13px;
-}
-.back-link:hover {
-  color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
-/* 主容器 */
-.container {
+.topbar a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: all 0.2s;
+}
+
+.topbar a:hover {
+  background: var(--accent-light);
+  color: var(--accent);
+}
+
+/* 游戏头部 */
+.hero {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 2rem;
+}
+
+.hero .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
-}
-
-/* 游戏头部 - Steam风格左右布局 */
-.game-header {
-  background: linear-gradient(180deg, #1b2838 0%, #2a475e 100%);
-  padding: 30px 0;
-}
-.game-header .container {
   display: grid;
-  grid-template-columns: 460px 1fr;
-  gap: 30px;
+  grid-template-columns: 300px 1fr;
+  gap: 2.5rem;
+  align-items: start;
 }
 
-/* 左侧媒体区域 */
-.media-section {
-  background: #000;
-  border-radius: 4px;
+.hero-cover {
+  border-radius: var(--radius);
   overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  aspect-ratio: 3/4;
 }
-.media-tabs {
-  display: flex;
-  background: #1b2838;
-}
-.media-tab {
-  background: transparent;
-  border: none;
-  color: #67c1f5;
-  padding: 10px 20px;
-  cursor: pointer;
-  font-size: 13px;
-  border-bottom: 2px solid transparent;
-}
-.media-tab.active {
-  border-bottom-color: #67c1f5;
-  color: #fff;
-}
-.media-player {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 16/9;
-  background: #000;
-}
-.media-player video,
-.media-player img {
+
+.hero-cover img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
+
+.hero-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding-top: 0.5rem;
+}
+
+.hero-info h1 {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.hero-info .en-name {
+  font-size: 1.125rem;
+  color: var(--text-secondary);
+  font-weight: 400;
+}
+
+.meta-tags {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.meta-tag {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  padding: 0.375rem 0.75rem;
+  border-radius: 8px;
+  background: #f3f4f6;
+  color: var(--text-secondary);
+}
+
+.meta-tag.score {
+  background: var(--accent-light);
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.meta-tag.year {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.info-row {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.info-item .label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+}
+
+.info-item .value {
+  font-size: 0.9375rem;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.hero-desc {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+  max-width: 640px;
+}
+
+/* 媒体区域 */
+.media-section {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 2rem;
+}
+
+.media-tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.media-tab {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  padding: 0.5rem 1.25rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.media-tab:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.media-tab.active {
+  background: var(--accent);
+  color: white;
+  border-color: var(--accent);
+}
+
+.media-player {
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: #000;
+  aspect-ratio: 16/9;
+}
+
+.media-player video,
+.media-player img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
 .screenshots-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 4px;
-  padding: 4px;
-  background: #1b2838;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 0.75rem;
 }
+
 .screenshots-grid img {
   width: 100%;
   aspect-ratio: 16/9;
   object-fit: cover;
+  border-radius: 8px;
   cursor: pointer;
-  transition: opacity 0.2s;
-}
-.screenshots-grid img:hover {
-  opacity: 0.8;
+  transition: all 0.2s;
+  border: 1px solid var(--border);
 }
 
-/* 右侧信息面板 */
-.game-info {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-.game-title {
-  font-size: 32px;
-  font-weight: 300;
-  color: #fff;
-}
-.game-subtitle {
-  font-size: 14px;
-  color: #8f98a0;
-}
-.game-meta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-.meta-item {
-  background: rgba(0,0,0,0.3);
-  padding: 6px 12px;
-  border-radius: 3px;
-  font-size: 13px;
-  color: #c7d5e0;
-}
-.meta-item.score {
-  background: #66c0f4;
-  color: #1b2838;
-  font-weight: 600;
-}
-.info-block {
-  background: rgba(0,0,0,0.2);
-  padding: 12px;
-  border-radius: 4px;
-}
-.info-block .label {
-  font-size: 11px;
-  color: #8f98a0;
-  text-transform: uppercase;
-  margin-bottom: 4px;
-}
-.info-block .value {
-  font-size: 14px;
-  color: #67c1f5;
-}
-.game-desc {
-  font-size: 14px;
-  color: #acb2b8;
-  line-height: 1.7;
+.screenshots-grid img:hover {
+  transform: scale(1.02);
+  box-shadow: var(--shadow);
 }
 
 /* 内容区域 */
 .content-section {
-  background: #1b2838;
-  padding: 30px 0;
-}
-.content-block {
-  background: rgba(0,0,0,0.3);
-  padding: 24px;
-  border-radius: 4px;
-}
-.content-block h2 {
-  color: #fff;
-  font-size: 20px;
-  margin-bottom: 16px;
-  padding-bottom: 12px;
-  border-bottom: 1px solid #2a475e;
-}
-.content-block p {
-  color: #acb2b8;
-  font-size: 14px;
-  line-height: 1.8;
-  margin-bottom: 12px;
-}
-.content-block h2.bb_tag {
-  color: #67c1f5;
-  font-size: 16px;
-  margin: 20px 0 10px 0;
-  border-bottom: none;
-  padding-bottom: 0;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem 2rem;
 }
 
-/* Steam 内嵌媒体约束 */
+.content-block {
+  background: var(--surface);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.content-block h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.content-block p {
+  color: var(--text-secondary);
+  font-size: 0.9375rem;
+  line-height: 1.75;
+  margin-bottom: 0.75rem;
+}
+
+.content-block h2.bb_tag {
+  font-size: 1.125rem;
+  color: var(--accent);
+  margin: 1.5rem 0 0.75rem;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+/* Steam 内嵌媒体 */
 .content-block .bb_img_ctn {
   display: block;
   max-width: 100%;
-  margin: 12px 0;
+  margin: 1rem 0;
   overflow: hidden;
+  border-radius: 8px;
   background: #000;
 }
+
 .content-block .bb_img {
   max-width: 100% !important;
   width: 100% !important;
   height: auto !important;
   display: block;
-  border-radius: 4px;
+  border-radius: 8px;
 }
+
 .content-block video.bb_img {
   width: 100% !important;
   height: auto !important;
@@ -227,86 +306,125 @@ body {
 
 /* 下载区域 */
 .download-section {
-  background: #1b2838;
-  padding: 30px 0;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem 2rem;
 }
+
 .download-block {
-  background: rgba(0,0,0,0.3);
-  padding: 24px;
-  border-radius: 4px;
+  background: var(--surface);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  padding: 2rem;
 }
+
 .download-block h2 {
-  color: #fff;
-  font-size: 20px;
-  margin-bottom: 16px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
 }
+
 .download-buttons {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 0.75rem;
 }
+
 .download-btn {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 12px 24px;
-  border-radius: 4px;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 10px;
   text-decoration: none;
   color: #fff;
-  font-size: 14px;
+  font-size: 0.9375rem;
   font-weight: 500;
   transition: all 0.2s;
+  box-shadow: var(--shadow-sm);
 }
+
 .download-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  box-shadow: var(--shadow);
 }
+
 .download-btn.gamer520 { background: linear-gradient(135deg, #10b981, #059669); }
 .download-btn.x6d { background: linear-gradient(135deg, #3b82f6, #2563eb); }
-.download-btn.magnet { background: linear-gradient(135deg, #ef4444, #dc2626); }
-.download-btn.fitgirl { background: linear-gradient(135deg, #f59e0b, #d97706); }
+.download-btn.magnet { background: linear-gradient(135deg, #f59e0b, #d97706); }
+.download-btn.fitgirl { background: linear-gradient(135deg, #8b5cf6, #7c3aed); }
 .download-btn.tianyi { background: linear-gradient(135deg, #6366f1, #4f46e5); }
-.download-btn.baidu { background: linear-gradient(135deg, #2563eb, #1d4ed8); }
+.download-btn.baidu { background: linear-gradient(135deg, #06b6d4, #0891b2); }
+.download-btn.crotorrents { background: linear-gradient(135deg, #ec4899, #db2777); }
 
 /* 系统需求 */
 .sys-req {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20px;
+  gap: 2rem;
 }
+
 .sys-req-col h4 {
-  color: #67c1f5;
-  font-size: 14px;
-  margin-bottom: 12px;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 1rem;
 }
+
 .sys-req-col ul {
   list-style: none;
-  margin: 0;
 }
+
 .sys-req-col li {
-  font-size: 13px;
-  color: #acb2b8;
-  margin-bottom: 8px;
-  padding-left: 16px;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+  padding-left: 1.25rem;
   position: relative;
+  line-height: 1.6;
 }
+
 .sys-req-col li:before {
   content: "•";
   position: absolute;
   left: 0;
-  color: #67c1f5;
+  color: var(--accent);
+  font-weight: bold;
 }
 
 /* 响应式 */
 @media (max-width: 900px) {
-  .game-header .container {
+  .hero .container {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
-  .media-section {
-    max-width: 100%;
+  .hero-cover {
+    max-width: 280px;
+    margin: 0 auto;
+  }
+  .hero-info h1 {
+    font-size: 1.75rem;
   }
   .sys-req {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero {
+    padding: 1.5rem 1rem;
+  }
+  .media-section,
+  .content-section,
+  .download-section {
+    padding: 0 1rem 1.5rem;
+  }
+  .content-block,
+  .download-block {
+    padding: 1.5rem;
   }
 }
 </style>
@@ -314,104 +432,92 @@ body {
 <body>
 
 <!-- 顶部导航 -->
-<nav class="top-nav">
-  <div class="container">
-    <div class="breadcrumb">
-      <a href="../../index.html">← 返回游戏榜单</a>
-    </div>
-    <a href="https://store.steampowered.com/app/3008130/" target="_blank" class="back-link">Steam 商店页 →</a>
-  </div>
+<nav class="topbar">
+  <a href="../../index.html">← 返回游戏榜单</a>
+  <a href="https://store.steampowered.com/app/3008130/" target="_blank">Steam 商店页 →</a>
 </nav>
 
 <!-- 游戏头部 -->
-<section class="game-header">
+<section class="hero">
   <div class="container">
-    <!-- 左侧媒体区域 -->
-    <div class="media-section">
-      <div class="media-tabs">
-        
-        <button class="media-tab active" onclick="showScreenshots()">截图</button>
-      </div>
-      
-      
-      
-      
-      <div id="screenshots-container" class="screenshots-grid" 
+    <div class="hero-cover">
+      <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3008130/library_600x900.jpg" alt="消逝的光芒">
     </div>
-    
-    <!-- 右侧信息面板 -->
-    <div class="game-info">
-      <h1 class="game-title">消逝的光芒</h1>
-      <div class="game-subtitle">Dying Light</div>
+    <div class="hero-info">
+      <h1>消逝的光芒</h1>
+      <div class="en-name">Dying Light</div>
       
-      <div class="game-meta">
-        <div class="meta-item">2025 年 9 月 18 日</div>
-        <div class="meta-item">动作, 冒险, 角色扮演</div>
-        <div class="meta-item score">评分 95</div>
+      <div class="meta-tags">
+        <span class="meta-tag year">2025 年 9 月 18 日</span>
+        <span class="meta-tag">动作, 冒险, 角色扮演</span>
+        <span class="meta-tag score">⭐ 95</span>
       </div>
       
-      
-      <div class="info-block">
-        <div class="label">开发者</div>
-        <div class="value">Techland</div>
+      <div class="info-row">
+        <div class="info-item">
+          <span class="label">开发者</span>
+          <span class="value">Techland</span>
+        </div>
+        <div class="info-item">
+          <span class="label">发行商</span>
+          <span class="value">Techland</span>
+        </div>
       </div>
       
-      
-      
-      <div class="info-block">
-        <div class="label">发行商</div>
-        <div class="value">Techland</div>
-      </div>
-      
-      
-      
-      <div class="game-desc">
+      <div class="hero-desc">
         你是凯尔·克兰，遭受了多年的实验，被改造成了半人半野兽的怪物。在开放世界和动作生存恐怖相结合的独特游戏体验里，追杀把你变成这个样子的罪魁祸首。
       </div>
-      
     </div>
+  </div>
+</section>
+
+<!-- 媒体区域 -->
+<section class="media-section">
+  <div class="media-tabs">
+    <button class="media-tab active" onclick="showVideo()">▶ 视频</button>
+    <button class="media-tab" onclick="showScreenshots()">🖼 截图</button>
+  </div>
+  
+  <div id="video-container" class="media-player">
+    
+  </div>
+  
+  <div id="screenshots-container" class="screenshots-grid" style="display:none;">
+    <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3008130/26ac72d16d3bdec63948f769f34446feba126cb9/ss_26ac72d16d3bdec63948f769f34446feba126cb9.1920x1080.jpg?t=1777373421" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3008130/664fb0500ab6dfeb8378e90ae45ddcfc86a9d53b/ss_664fb0500ab6dfeb8378e90ae45ddcfc86a9d53b.1920x1080.jpg?t=1777373421" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3008130/50a84a957ec4fcd627c75692fb50123bb6d799b3/ss_50a84a957ec4fcd627c75692fb50123bb6d799b3.1920x1080.jpg?t=1777373421" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3008130/a470b06ba2d33e31f50f075efe3fabed1756ce70/ss_a470b06ba2d33e31f50f075efe3fabed1756ce70.1920x1080.jpg?t=1777373421" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3008130/2b048ee561f5911b6b2bb207bda7519cec0e6766/ss_2b048ee561f5911b6b2bb207bda7519cec0e6766.1920x1080.jpg?t=1777373421" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3008130/42517dcaa43cfe5c00eed3e63ae55a151a024bc8/ss_42517dcaa43cfe5c00eed3e63ae55a151a024bc8.1920x1080.jpg?t=1777373421" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3008130/7e7088ae4652018a26b705294eb9455cda78eb1f/ss_7e7088ae4652018a26b705294eb9455cda78eb1f.1920x1080.jpg?t=1777373421" alt="Screenshot" onclick="window.open(this.src)">
   </div>
 </section>
 
 <!-- 关于此游戏 -->
-
 <section class="content-section">
-  <div class="container">
-    <div class="content-block">
-      <h2>关于此游戏</h2>
-      <div><p class="bb_paragraph" >你是凯尔·克兰，被男爵囚禁，多年来遭受了痛苦的实验。虽然你逃了出来，但是抹不去的伤痛依然存在。由于身体里同时具有人类和丧尸两种DNA，你徘徊在人性的边缘，挣扎着想要控制住内心的野兽，还有随之而来的矛盾冲突。你必须成功，因为是男爵把你变成了这个样子，你要报仇。</p><p class="bb_paragraph" >《消逝的光芒：困兽》是一款独特的游戏，把开放世界和动作生存恐怖结合在一起。故事发生在美丽又危险的河狸谷，如今这里遍布丧尸，而不是观光客。你需要组建一个脆弱的联盟，充分利用各种战斗和移动的手段，打倒曾经囚禁你的敌人。</p><p class="bb_paragraph" >但是要小心：在这里，每一步都是一场生死攸关的战斗。尤其是太阳下山以后，真正的恐怖在夜晚出现，气氛也会变得更加紧张！</p><p class="bb_paragraph" ></p><p class="bb_paragraph" ><strong>亦人亦兽，野性觉醒</strong></p><p class="bb_paragraph" style="text-align: center"><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline crossorigin="anonymous" poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3008130/extras/fd0877206b2d13e5979235b520838609.poster.avif?t=1777373421" width=616 height=325 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3008130/extras/fd0877206b2d13e5979235b520838609.webm?t=1777373421" type="video/webm; codecs=vp9"></video></span></p><p class="bb_paragraph" >成为凯尔·克兰。这位独一无二的英雄体内同时拥有了人类和野兽的DNA。两种不同游戏玩法，人性和兽性终极冲突，掌握无可匹敌的力量。</p><p class="bb_paragraph" ></p><p class="bb_paragraph" > </p><p class="bb_paragraph" ><strong>暴力美学，战斗！爽！</strong></p><p class="bb_paragraph" style="text-align: center"><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline crossorigin="anonymous" poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3008130/extras/cecadfde9294ce75f32ed12d9e46b7a4.poster.avif?t=1777373421" width=616 height=324 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3008130/extras/cecadfde9294ce75f32ed12d9e46b7a4.webm?t=1777373421" type="video/webm; codecs=vp9"></video></span></p><p class="bb_paragraph" >《消逝的光芒》暴力美学的极致呈现，突破人类野性极限。拳拳到肉、摧枯拉朽。挣扎在失控的边缘，怒火中烧，野性觉醒！</p><p class="bb_paragraph" ></p><p class="bb_paragraph" >主宰白昼，敬畏黑夜</p><p class="bb_paragraph" style="text-align: center"> <span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline crossorigin="anonymous" poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3008130/extras/326653289f39eccd9e7f5ade6189cd85.poster.avif?t=1777373421" width=616 height=325 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3008130/extras/326653289f39eccd9e7f5ade6189cd85.webm?t=1777373421" type="video/webm; codecs=vp9"></video></span> </p><p class="bb_paragraph" >《消逝的光芒》系列的精髓，昼夜两种不同的体验融会贯通。白天争分夺秒，探索、搜刮。落日西沉，恐惧伴随黑暗倾巢而出。你只有三种选择：跑、躲，或者生死一搏。</p><p class="bb_paragraph" ></p><p class="bb_paragraph" >飞檐走壁，驰骋四方</p><p class="bb_paragraph" style="text-align: center"><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline crossorigin="anonymous" poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3008130/extras/c7ff59593d911998599d2ae7a281c909.poster.avif?t=1777373421" width=616 height=325 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3008130/extras/c7ff59593d911998599d2ae7a281c909.webm?t=1777373421" type="video/webm; codecs=vp9"></video></span> </p><p class="bb_paragraph" >卓越的第一人称跑酷视角，感受流畅的快感。在屋顶之间飞跃，翻越重重障碍。动作系统易于上手，同时又不乏深度。还能一脚油门，在丧尸大军里横冲直撞。自由穿梭在开放世界里，享受无与伦比的乐趣。</p><p class="bb_paragraph" ></p><p class="bb_paragraph" > </p><p class="bb_paragraph" style="text-align: center">凄美末日，恍如隔世<br><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline crossorigin="anonymous" poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3008130/extras/5aadd2e4febe2efd11e4289f41f25e50.poster.avif?t=1777373421" width=616 height=325 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3008130/extras/5aadd2e4febe2efd11e4289f41f25e50.webm?t=1777373421" type="video/webm; codecs=vp9"></video></span><strong> </strong></p><p class="bb_paragraph" >叹为观止的次世代画面，呈现出精心打造的丧尸末日世界。每个细节背后都是一段生存故事。河狸谷以瑞士的阿尔卑斯山为原型，生态环境丰富多样：旅游小镇、工业区、国家公园、农场田野、湿地沼泽。这里的风光壮丽，叫人沉迷……同时也充满腐化的痕迹。</p><p class="bb_paragraph" ></p><p class="bb_paragraph" >进度同步，友情永固</p><p class="bb_paragraph" style="text-align: center"><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline crossorigin="anonymous" poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3008130/extras/770bc6b36c2c3345fbecacb01b4ffea4.poster.avif?t=1777373421" width=616 height=325 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3008130/extras/770bc6b36c2c3345fbecacb01b4ffea4.webm?t=1777373421" type="video/webm; codecs=vp9"></video></span></p><p class="bb_paragraph" >在合作模式中，最多可以4名玩家组队勇闯河狸谷。共同经历每一场战斗、每一次发现、每一段曲折的剧情。团队之间共享游戏进度，并肩完成全部的冒险。面对无情的强敌，搜集资源，互相救助，逃出生天。</p><p class="bb_paragraph" ></p></div>
-    </div>
+  <div class="content-block">
+    <h2>关于此游戏</h2>
+    <div><p class="bb_paragraph" >你是凯尔·克兰，被男爵囚禁，多年来遭受了痛苦的实验。虽然你逃了出来，但是抹不去的伤痛依然存在。由于身体里同时具有人类和丧尸两种DNA，你徘徊在人性的边缘，挣扎着想要控制住内心的野兽，还有随之而来的矛盾冲突。你必须成功，因为是男爵把你变成了这个样子，你要报仇。</p><p class="bb_paragraph" >《消逝的光芒：困兽》是一款独特的游戏，把开放世界和动作生存恐怖结合在一起。故事发生在美丽又危险的河狸谷，如今这里遍布丧尸，而不是观光客。你需要组建一个脆弱的联盟，充分利用各种战斗和移动的手段，打倒曾经囚禁你的敌人。</p><p class="bb_paragraph" >但是要小心：在这里，每一步都是一场生死攸关的战斗。尤其是太阳下山以后，真正的恐怖在夜晚出现，气氛也会变得更加紧张！</p><p class="bb_paragraph" ></p><p class="bb_paragraph" ><strong>亦人亦兽，野性觉醒</strong></p><p class="bb_paragraph" style="text-align: center"><span class="bb_img_ctn"><video controls class="bb_img" autoplay muted loop playsinline crossorigin="anonymous" poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3008130/extras/fd0877206b2d13e5979235b520838609.poster.avif?t=1777373421" ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3008130/extras/fd0877206b2d13e5979235b520838609.webm?t=1777373421" type="video/webm; codecs=vp9"></video></span></p><p class="bb_paragraph" >成为凯尔·克兰。这位独一无二的英雄体内同时拥有了人类和野兽的DNA。两种不同游戏玩法，人性和兽性终极冲突，掌握无可匹敌的力量。</p><p class="bb_paragraph" ></p><p class="bb_paragraph" > </p><p class="bb_paragraph" ><strong>暴力美学，战斗！爽！</strong></p><p class="bb_paragraph" style="text-align: center"><span class="bb_img_ctn"><video controls class="bb_img" autoplay muted loop playsinline crossorigin="anonymous" poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3008130/extras/cecadfde9294ce75f32ed12d9e46b7a4.poster.avif?t=1777373421" ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3008130/extras/cecadfde9294ce75f32ed12d9e46b7a4.webm?t=1777373421" type="video/webm; codecs=vp9"></video></span></p><p class="bb_paragraph" >《消逝的光芒》暴力美学的极致呈现，突破人类野性极限。拳拳到肉、摧枯拉朽。挣扎在失控的边缘，怒火中烧，野性觉醒！</p><p class="bb_paragraph" ></p><p class="bb_paragraph" >主宰白昼，敬畏黑夜</p><p class="bb_paragraph" style="text-align: center"> <span class="bb_img_ctn"><video controls class="bb_img" autoplay muted loop playsinline crossorigin="anonymous" poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3008130/extras/326653289f39eccd9e7f5ade6189cd85.poster.avif?t=1777373421" ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3008130/extras/326653289f39eccd9e7f5ade6189cd85.webm?t=1777373421" type="video/webm; codecs=vp9"></video></span> </p><p class="bb_paragraph" >《消逝的光芒》系列的精髓，昼夜两种不同的体验融会贯通。白天争分夺秒，探索、搜刮。落日西沉，恐惧伴随黑暗倾巢而出。你只有三种选择：跑、躲，或者生死一搏。</p><p class="bb_paragraph" ></p><p class="bb_paragraph" >飞檐走壁，驰骋四方</p><p class="bb_paragraph" style="text-align: center"><span class="bb_img_ctn"><video controls class="bb_img" autoplay muted loop playsinline crossorigin="anonymous" poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3008130/extras/c7ff59593d911998599d2ae7a281c909.poster.avif?t=1777373421" ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3008130/extras/c7ff59593d911998599d2ae7a281c909.webm?t=1777373421" type="video/webm; codecs=vp9"></video></span> </p><p class="bb_paragraph" >卓越的第一人称跑酷视角，感受流畅的快感。在屋顶之间飞跃，翻越重重障碍。动作系统易于上手，同时又不乏深度。还能一脚油门，在丧尸大军里横冲直撞。自由穿梭在开放世界里，享受无与伦比的乐趣。</p><p class="bb_paragraph" ></p><p class="bb_paragraph" > </p><p class="bb_paragraph" style="text-align: center">凄美末日，恍如隔世<br><span class="bb_img_ctn"><video controls class="bb_img" autoplay muted loop playsinline crossorigin="anonymous" poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3008130/extras/5aadd2e4febe2efd11e4289f41f25e50.poster.avif?t=1777373421" ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3008130/extras/5aadd2e4febe2efd11e4289f41f25e50.webm?t=1777373421" type="video/webm; codecs=vp9"></video></span><strong> </strong></p><p class="bb_paragraph" >叹为观止的次世代画面，呈现出精心打造的丧尸末日世界。每个细节背后都是一段生存故事。河狸谷以瑞士的阿尔卑斯山为原型，生态环境丰富多样：旅游小镇、工业区、国家公园、农场田野、湿地沼泽。这里的风光壮丽，叫人沉迷……同时也充满腐化的痕迹。</p><p class="bb_paragraph" ></p><p class="bb_paragraph" >进度同步，友情永固</p><p class="bb_paragraph" style="text-align: center"><span class="bb_img_ctn"><video controls class="bb_img" autoplay muted loop playsinline crossorigin="anonymous" poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3008130/extras/770bc6b36c2c3345fbecacb01b4ffea4.poster.avif?t=1777373421" ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3008130/extras/770bc6b36c2c3345fbecacb01b4ffea4.webm?t=1777373421" type="video/webm; codecs=vp9"></video></span></p><p class="bb_paragraph" >在合作模式中，最多可以4名玩家组队勇闯河狸谷。共同经历每一场战斗、每一次发现、每一段曲折的剧情。团队之间共享游戏进度，并肩完成全部的冒险。面对无情的强敌，搜集资源，互相救助，逃出生天。</p><p class="bb_paragraph" ></p></div>
   </div>
 </section>
 
-
 <!-- 下载区域 -->
 <section class="download-section">
-  <div class="container">
-    <div class="download-block">
-      <h2>📥 下载链接</h2>
-      <div class="download-buttons">
-        <a href="https://www.gamer520.com/39500.html" class="download-btn gamer520" target="_blank">gamer520</a>
+  <div class="download-block">
+    <h2>📥 下载链接</h2>
+    <div class="download-buttons">
+      <a href="https://www.gamer520.com/39500.html" class="download-btn gamer520" target="_blank">gamer520</a>
 <a href="https://www.x6d.com/i-wz-32139.html" class="download-btn x6d" target="_blank">x6d</a>
 
-      </div>
     </div>
   </div>
 </section>
 
 <!-- 系统需求 -->
-
-<section class="content-section">
-  <div class="container">
-    <div class="content-block">
-      <h2>系统需求</h2>
-      <div class="sys-req">
-        <div class="sys-req-col"><h4>最低配置</h4><div><strong>最低配置:</strong><br><ul class="bb_ul"><li>需要 64 位处理器和操作系统<br></li><li><strong>操作系统:</strong> Windows 10 or newer<br></li><li><strong>处理器:</strong> Intel i5-9600K / AMD Ryzen 5 3600<br></li><li><strong>内存:</strong> 16 GB RAM<br></li><li><strong>显卡:</strong> NVIDIA GeForce 1060 / AMD Radeon 5500 XT / Intel ARC A750<br></li><li><strong>存储空间:</strong> 需要 70 GB 可用空间<br></li><li><strong>附注事项:</strong> SSD Required</li></ul></div></div>
-        <div class="sys-req-col"><h4>推荐配置</h4><div><strong>推荐配置:</strong><br><ul class="bb_ul"><li>需要 64 位处理器和操作系统<br></li><li><strong>操作系统:</strong> Windows 10 or newer<br></li><li><strong>处理器:</strong> Intel i5-13400F / AMD Ryzen 7 7700<br></li><li><strong>内存:</strong> 16 GB RAM<br></li><li><strong>显卡:</strong> NVIDIA GeForce RTX 3070 TI / AMD Radeon 6750 XT / Intel ARC B580<br></li><li><strong>存储空间:</strong> 需要 70 GB 可用空间<br></li><li><strong>附注事项:</strong> SSD Required</li></ul></div></div>
-      </div>
-    </div>
-  </div>
-</section>
+<section class="content-section"><div class="content-block"><h2>系统需求</h2><div class="sys-req">
+<div class="sys-req-col"><h4>最低配置</h4><ul><strong>最低配置:</strong><br><ul class="bb_ul"><li>需要 64 位处理器和操作系统<br></li><li><strong>操作系统:</strong> Windows 10 or newer<br></li><li><strong>处理器:</strong> Intel i5-9600K / AMD Ryzen 5 3600<br></li><li><strong>内存:</strong> 16 GB RAM<br></li><li><strong>显卡:</strong> NVIDIA GeForce 1060 / AMD Radeon 5500 XT / Intel ARC A750<br></li><li><strong>存储空间:</strong> 需要 70 GB 可用空间<br></li><li><strong>附注事项:</strong> SSD Required</li></ul></ul></div>
+<div class="sys-req-col"><h4>推荐配置</h4><ul><strong>推荐配置:</strong><br><ul class="bb_ul"><li>需要 64 位处理器和操作系统<br></li><li><strong>操作系统:</strong> Windows 10 or newer<br></li><li><strong>处理器:</strong> Intel i5-13400F / AMD Ryzen 7 7700<br></li><li><strong>内存:</strong> 16 GB RAM<br></li><li><strong>显卡:</strong> NVIDIA GeForce RTX 3070 TI / AMD Radeon 6750 XT / Intel ARC B580<br></li><li><strong>存储空间:</strong> 需要 70 GB 可用空间<br></li><li><strong>附注事项:</strong> SSD Required</li></ul></ul></div>
+</div></div></section>
 
 <script>
 function showVideo() {
@@ -422,8 +528,8 @@ function showVideo() {
 }
 
 function showScreenshots() {
-  const videoContainer = document.getElementById('video-container');
-  if (videoContainer) videoContainer.style.display = 'none';
+  const vc = document.getElementById('video-container');
+  if (vc) vc.style.display = 'none';
   document.getElementById('screenshots-container').style.display = 'grid';
   document.querySelectorAll('.media-tab').forEach(t => t.classList.remove('active'));
   event.target.classList.add('active');

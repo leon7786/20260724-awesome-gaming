@@ -5,218 +5,297 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>文明 5 - 游戏详情</title>
 <style>
+:root {
+  --bg: #fafbfc;
+  --surface: #ffffff;
+  --border: #e5e7eb;
+  --text-primary: #111827;
+  --text-secondary: #6b7280;
+  --text-muted: #9ca3af;
+  --accent: #3b82f6;
+  --accent-light: #dbeafe;
+  --success: #10b981;
+  --warning: #f59e0b;
+  --radius: 12px;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
+  --shadow: 0 4px 12px rgba(0,0,0,0.06);
+  --shadow-lg: 0 8px 24px rgba(0,0,0,0.08);
+}
+
 * { margin: 0; padding: 0; box-sizing: border-box; }
+
 body {
-  font-family: "Microsoft YaHei", "Segoe UI", sans-serif;
-  background: #1b2838;
-  color: #c7d5e0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text-primary);
   line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
 }
 
 /* 顶部导航 */
-.top-nav {
-  background: #171a21;
-  padding: 8px 0;
-  border-bottom: 1px solid #000;
-}
-.top-nav .container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
+.topbar {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 0.75rem 2rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-}
-.breadcrumb {
-  font-size: 12px;
-  color: #666;
-}
-.breadcrumb a {
-  color: #666;
-  text-decoration: none;
-}
-.breadcrumb a:hover {
-  color: #fff;
-}
-.back-link {
-  color: #67c1f5;
-  text-decoration: none;
-  font-size: 13px;
-}
-.back-link:hover {
-  color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
-/* 主容器 */
-.container {
+.topbar a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: all 0.2s;
+}
+
+.topbar a:hover {
+  background: var(--accent-light);
+  color: var(--accent);
+}
+
+/* 游戏头部 */
+.hero {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 2rem;
+}
+
+.hero .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
-}
-
-/* 游戏头部 - Steam风格左右布局 */
-.game-header {
-  background: linear-gradient(180deg, #1b2838 0%, #2a475e 100%);
-  padding: 30px 0;
-}
-.game-header .container {
   display: grid;
-  grid-template-columns: 460px 1fr;
-  gap: 30px;
+  grid-template-columns: 300px 1fr;
+  gap: 2.5rem;
+  align-items: start;
 }
 
-/* 左侧媒体区域 */
-.media-section {
-  background: #000;
-  border-radius: 4px;
+.hero-cover {
+  border-radius: var(--radius);
   overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  aspect-ratio: 3/4;
 }
-.media-tabs {
-  display: flex;
-  background: #1b2838;
-}
-.media-tab {
-  background: transparent;
-  border: none;
-  color: #67c1f5;
-  padding: 10px 20px;
-  cursor: pointer;
-  font-size: 13px;
-  border-bottom: 2px solid transparent;
-}
-.media-tab.active {
-  border-bottom-color: #67c1f5;
-  color: #fff;
-}
-.media-player {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 16/9;
-  background: #000;
-}
-.media-player video,
-.media-player img {
+
+.hero-cover img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
+
+.hero-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding-top: 0.5rem;
+}
+
+.hero-info h1 {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.hero-info .en-name {
+  font-size: 1.125rem;
+  color: var(--text-secondary);
+  font-weight: 400;
+}
+
+.meta-tags {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.meta-tag {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  padding: 0.375rem 0.75rem;
+  border-radius: 8px;
+  background: #f3f4f6;
+  color: var(--text-secondary);
+}
+
+.meta-tag.score {
+  background: var(--accent-light);
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.meta-tag.year {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.info-row {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.info-item .label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+}
+
+.info-item .value {
+  font-size: 0.9375rem;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.hero-desc {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+  max-width: 640px;
+}
+
+/* 媒体区域 */
+.media-section {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 2rem;
+}
+
+.media-tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.media-tab {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  padding: 0.5rem 1.25rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.media-tab:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.media-tab.active {
+  background: var(--accent);
+  color: white;
+  border-color: var(--accent);
+}
+
+.media-player {
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: #000;
+  aspect-ratio: 16/9;
+}
+
+.media-player video,
+.media-player img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
 .screenshots-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 4px;
-  padding: 4px;
-  background: #1b2838;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 0.75rem;
 }
+
 .screenshots-grid img {
   width: 100%;
   aspect-ratio: 16/9;
   object-fit: cover;
+  border-radius: 8px;
   cursor: pointer;
-  transition: opacity 0.2s;
-}
-.screenshots-grid img:hover {
-  opacity: 0.8;
+  transition: all 0.2s;
+  border: 1px solid var(--border);
 }
 
-/* 右侧信息面板 */
-.game-info {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-.game-title {
-  font-size: 32px;
-  font-weight: 300;
-  color: #fff;
-}
-.game-subtitle {
-  font-size: 14px;
-  color: #8f98a0;
-}
-.game-meta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-.meta-item {
-  background: rgba(0,0,0,0.3);
-  padding: 6px 12px;
-  border-radius: 3px;
-  font-size: 13px;
-  color: #c7d5e0;
-}
-.meta-item.score {
-  background: #66c0f4;
-  color: #1b2838;
-  font-weight: 600;
-}
-.info-block {
-  background: rgba(0,0,0,0.2);
-  padding: 12px;
-  border-radius: 4px;
-}
-.info-block .label {
-  font-size: 11px;
-  color: #8f98a0;
-  text-transform: uppercase;
-  margin-bottom: 4px;
-}
-.info-block .value {
-  font-size: 14px;
-  color: #67c1f5;
-}
-.game-desc {
-  font-size: 14px;
-  color: #acb2b8;
-  line-height: 1.7;
+.screenshots-grid img:hover {
+  transform: scale(1.02);
+  box-shadow: var(--shadow);
 }
 
 /* 内容区域 */
 .content-section {
-  background: #1b2838;
-  padding: 30px 0;
-}
-.content-block {
-  background: rgba(0,0,0,0.3);
-  padding: 24px;
-  border-radius: 4px;
-}
-.content-block h2 {
-  color: #fff;
-  font-size: 20px;
-  margin-bottom: 16px;
-  padding-bottom: 12px;
-  border-bottom: 1px solid #2a475e;
-}
-.content-block p {
-  color: #acb2b8;
-  font-size: 14px;
-  line-height: 1.8;
-  margin-bottom: 12px;
-}
-.content-block h2.bb_tag {
-  color: #67c1f5;
-  font-size: 16px;
-  margin: 20px 0 10px 0;
-  border-bottom: none;
-  padding-bottom: 0;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem 2rem;
 }
 
-/* Steam 内嵌媒体约束 */
+.content-block {
+  background: var(--surface);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.content-block h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.content-block p {
+  color: var(--text-secondary);
+  font-size: 0.9375rem;
+  line-height: 1.75;
+  margin-bottom: 0.75rem;
+}
+
+.content-block h2.bb_tag {
+  font-size: 1.125rem;
+  color: var(--accent);
+  margin: 1.5rem 0 0.75rem;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+/* Steam 内嵌媒体 */
 .content-block .bb_img_ctn {
   display: block;
   max-width: 100%;
-  margin: 12px 0;
+  margin: 1rem 0;
   overflow: hidden;
+  border-radius: 8px;
   background: #000;
 }
+
 .content-block .bb_img {
   max-width: 100% !important;
   width: 100% !important;
   height: auto !important;
   display: block;
-  border-radius: 4px;
+  border-radius: 8px;
 }
+
 .content-block video.bb_img {
   width: 100% !important;
   height: auto !important;
@@ -227,86 +306,125 @@ body {
 
 /* 下载区域 */
 .download-section {
-  background: #1b2838;
-  padding: 30px 0;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem 2rem;
 }
+
 .download-block {
-  background: rgba(0,0,0,0.3);
-  padding: 24px;
-  border-radius: 4px;
+  background: var(--surface);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  padding: 2rem;
 }
+
 .download-block h2 {
-  color: #fff;
-  font-size: 20px;
-  margin-bottom: 16px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
 }
+
 .download-buttons {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 0.75rem;
 }
+
 .download-btn {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 12px 24px;
-  border-radius: 4px;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 10px;
   text-decoration: none;
   color: #fff;
-  font-size: 14px;
+  font-size: 0.9375rem;
   font-weight: 500;
   transition: all 0.2s;
+  box-shadow: var(--shadow-sm);
 }
+
 .download-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  box-shadow: var(--shadow);
 }
+
 .download-btn.gamer520 { background: linear-gradient(135deg, #10b981, #059669); }
 .download-btn.x6d { background: linear-gradient(135deg, #3b82f6, #2563eb); }
-.download-btn.magnet { background: linear-gradient(135deg, #ef4444, #dc2626); }
-.download-btn.fitgirl { background: linear-gradient(135deg, #f59e0b, #d97706); }
+.download-btn.magnet { background: linear-gradient(135deg, #f59e0b, #d97706); }
+.download-btn.fitgirl { background: linear-gradient(135deg, #8b5cf6, #7c3aed); }
 .download-btn.tianyi { background: linear-gradient(135deg, #6366f1, #4f46e5); }
-.download-btn.baidu { background: linear-gradient(135deg, #2563eb, #1d4ed8); }
+.download-btn.baidu { background: linear-gradient(135deg, #06b6d4, #0891b2); }
+.download-btn.crotorrents { background: linear-gradient(135deg, #ec4899, #db2777); }
 
 /* 系统需求 */
 .sys-req {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20px;
+  gap: 2rem;
 }
+
 .sys-req-col h4 {
-  color: #67c1f5;
-  font-size: 14px;
-  margin-bottom: 12px;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 1rem;
 }
+
 .sys-req-col ul {
   list-style: none;
-  margin: 0;
 }
+
 .sys-req-col li {
-  font-size: 13px;
-  color: #acb2b8;
-  margin-bottom: 8px;
-  padding-left: 16px;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+  padding-left: 1.25rem;
   position: relative;
+  line-height: 1.6;
 }
+
 .sys-req-col li:before {
   content: "•";
   position: absolute;
   left: 0;
-  color: #67c1f5;
+  color: var(--accent);
+  font-weight: bold;
 }
 
 /* 响应式 */
 @media (max-width: 900px) {
-  .game-header .container {
+  .hero .container {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
-  .media-section {
-    max-width: 100%;
+  .hero-cover {
+    max-width: 280px;
+    margin: 0 auto;
+  }
+  .hero-info h1 {
+    font-size: 1.75rem;
   }
   .sys-req {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero {
+    padding: 1.5rem 1rem;
+  }
+  .media-section,
+  .content-section,
+  .download-section {
+    padding: 0 1rem 1.5rem;
+  }
+  .content-block,
+  .download-block {
+    padding: 1.5rem;
   }
 }
 </style>
@@ -314,103 +432,92 @@ body {
 <body>
 
 <!-- 顶部导航 -->
-<nav class="top-nav">
-  <div class="container">
-    <div class="breadcrumb">
-      <a href="../../index.html">← 返回游戏榜单</a>
-    </div>
-    <a href="https://store.steampowered.com/app/1295660/" target="_blank" class="back-link">Steam 商店页 →</a>
-  </div>
+<nav class="topbar">
+  <a href="../../index.html">← 返回游戏榜单</a>
+  <a href="https://store.steampowered.com/app/1295660/" target="_blank">Steam 商店页 →</a>
 </nav>
 
 <!-- 游戏头部 -->
-<section class="game-header">
+<section class="hero">
   <div class="container">
-    <!-- 左侧媒体区域 -->
-    <div class="media-section">
-      <div class="media-tabs">
-        
-        <button class="media-tab active" onclick="showScreenshots()">截图</button>
-      </div>
-      
-      
-      
-      
-      <div id="screenshots-container" class="screenshots-grid" 
+    <div class="hero-cover">
+      <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1295660/library_600x900.jpg" alt="文明 5">
     </div>
-    
-    <!-- 右侧信息面板 -->
-    <div class="game-info">
-      <h1 class="game-title">文明 5</h1>
-      <div class="game-subtitle">Civilization V</div>
+    <div class="hero-info">
+      <h1>文明 5</h1>
+      <div class="en-name">Civilization V</div>
       
-      <div class="game-meta">
-        <div class="meta-item">2025 年 2 月 10 日</div>
-        <div class="meta-item">模拟, 策略</div>
-        <div class="meta-item score">评分 79</div>
+      <div class="meta-tags">
+        <span class="meta-tag year">2025 年 2 月 10 日</span>
+        <span class="meta-tag">模拟, 策略</span>
+        <span class="meta-tag score">⭐ 79</span>
       </div>
       
-      
-      <div class="info-block">
-        <div class="label">开发者</div>
-        <div class="value">Firaxis Games</div>
+      <div class="info-row">
+        <div class="info-item">
+          <span class="label">开发者</span>
+          <span class="value">Firaxis Games</span>
+        </div>
+        <div class="info-item">
+          <span class="label">发行商</span>
+          <span class="value">2K</span>
+        </div>
       </div>
       
-      
-      
-      <div class="info-block">
-        <div class="label">发行商</div>
-        <div class="value">2K</div>
-      </div>
-      
-      
-      
-      <div class="game-desc">
+      <div class="hero-desc">
         领导历经时代更迭而演进或延续的帝国。用《席德·梅尔的 Civilization® VII》打造你坚信的事业。
       </div>
-      
     </div>
+  </div>
+</section>
+
+<!-- 媒体区域 -->
+<section class="media-section">
+  <div class="media-tabs">
+    <button class="media-tab active" onclick="showVideo()">▶ 视频</button>
+    <button class="media-tab" onclick="showScreenshots()">🖼 截图</button>
+  </div>
+  
+  <div id="video-container" class="media-player">
+    
+  </div>
+  
+  <div id="screenshots-container" class="screenshots-grid" style="display:none;">
+    <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1295660/a8e4b446968bd5b29c7d8562b1cdc655de2798bf/ss_a8e4b446968bd5b29c7d8562b1cdc655de2798bf.1920x1080.jpg?t=1784747260" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1295660/6461e684c0ddb02f3058ea0a4d3d7a7eb3167759/ss_6461e684c0ddb02f3058ea0a4d3d7a7eb3167759.1920x1080.jpg?t=1784747260" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1295660/925610202aa7ff380a8a62100262605e9049fd40/ss_925610202aa7ff380a8a62100262605e9049fd40.1920x1080.jpg?t=1784747260" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1295660/ss_8c1226a5c58447773b03b6c967e9d561d3315fd7.1920x1080.jpg?t=1784747260" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1295660/ss_ad61e86883bed33711a00965170fc4b4ae785774.1920x1080.jpg?t=1784747260" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1295660/ss_64cd9528b18dc6deebd96a4f32125b5b49fd27ab.1920x1080.jpg?t=1784747260" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1295660/ss_84b42c86ecf359f5df63f1626b0971d0454ebd3e.1920x1080.jpg?t=1784747260" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1295660/ss_ef1f0a6add3e8669f1b4ca33b0ec77a47231d20b.1920x1080.jpg?t=1784747260" alt="Screenshot" onclick="window.open(this.src)">
   </div>
 </section>
 
 <!-- 关于此游戏 -->
-
 <section class="content-section">
-  <div class="container">
-    <div class="content-block">
-      <h2>关于此游戏</h2>
-      <div><p class="bb_paragraph" ><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1295660/extras/e56da1671d3ab096032902e96718cb17.avif?t=1784747260" width=1080 height=2220 /></span></p><p class="bb_paragraph" ></p><p class="bb_paragraph" ><strong>你们的文明会随着时代的变迁而发展，还是能经受住时间的考验？</strong></p><p class="bb_paragraph" ></p><p class="bb_paragraph" > </p><p class="bb_paragraph" > 在《席德·梅尔的 Civilization® VII》中，每个战略决策都影响着你们帝国的独特血脉。 化身历史长河中的传奇领袖，统治帝国，选择你们的文明在人类发展的每个时代如何变化或延续，争取独特的胜利。</p><p class="bb_paragraph" ></p><p class="bb_paragraph" > </p><p class="bb_paragraph" > 利用新的定居点和建筑奇观来发展疆域，利用技术突破来推动进步，并在探索和扩张世界未知区域时，征服竞争对手或与他们合作。在沉浸式单机体验中追求繁荣，或在联机多人游戏中与其他人一起畅玩。*</p><p class="bb_paragraph" ></p><p class="bb_paragraph" > </p><p class="bb_paragraph" > 无论是遵循植根于历史的道路，还是开辟属于自己的前行之路，在《Civilization VII》里，都可以打造你所坚信的事业。 </p><p class="bb_paragraph" ></p><p class="bb_paragraph" style="text-align: center"><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1295660/extras/838947c0e0428af59acf728e33d4a986.poster.avif?t=1784747260" width=780 height=318 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1295660/extras/838947c0e0428af59acf728e33d4a986.webm?t=1784747260" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1295660/extras/838947c0e0428af59acf728e33d4a986.mp4?t=1784747260" type="video/mp4"></video></span></p><p class="bb_paragraph" style="text-align: center"> <strong>随时代发展或经受住时间的考验</strong></p><p class="bb_paragraph" ></p><p class="bb_paragraph" >带领你的帝国走过人类历史的不同时代。贯穿古典时代、探索时代和现代，选择是否要从头到尾带领一个经得起时间考验的文明，让其策略性地演变，在下个时代以新的身份蓬勃发展，或者通过融合来实现折中。在每个时代实现科技、文化、军事和经济里程碑，即可在下一个时代解锁优势，由你决定帝国的发展方向和时机。 </p><p class="bb_paragraph" ></p><p class="bb_paragraph" style="text-align: center"><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1295660/extras/cfb6a6af878a9b6ccf2fc664acb0b55f.poster.avif?t=1784747260" width=780 height=318 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1295660/extras/cfb6a6af878a9b6ccf2fc664acb0b55f.webm?t=1784747260" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1295660/extras/cfb6a6af878a9b6ccf2fc664acb0b55f.mp4?t=1784747260" type="video/mp4"></video></span></p><p class="bb_paragraph" style="text-align: center"><strong> 开始规划你自己的胜利之路</strong></p><p class="bb_paragraph" ></p><p class="bb_paragraph" >通过追求各种独特的凯旋目标（这些目标基于属性，能够提供玩家驱动的体验），塑造帝国的独特故事。随着每个新时代拓展游戏的范围，游戏也带来了借用其他文明元素的机会，解锁新的奖励，并以无数令人兴奋的新方式取得胜利。命令指挥官统一调度军队，利用改进后的战斗机制与敌人交战，在不同战役中通过纪念物配备可调换的领袖加成，以及更多精彩内容。 </p><p class="bb_paragraph" ></p><p class="bb_paragraph" style="text-align: center"><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1295660/extras/98304cec704ecaef4f2ae05b636a94e5.poster.avif?t=1784747260" width=780 height=318 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1295660/extras/98304cec704ecaef4f2ae05b636a94e5.webm?t=1784747260" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1295660/extras/98304cec704ecaef4f2ae05b636a94e5.mp4?t=1784747260" type="video/mp4"></video></span></p><p class="bb_paragraph" style="text-align: center"><strong>化身具有远见卓识的进步领袖</strong></p><p class="bb_paragraph" ></p><p class="bb_paragraph" >化身《Civilization》系列迄今为止最多样化的领袖之一，从以军事力量或政治才能闻名的传统国家元首，到对哲学、科学、人权等领域产生深远影响的远见者，应有尽有。你选择的领袖可以跨越时代，具有独特的能力，有助于强化或调整你的策略，使其从一个时代顺利过渡到下一个时代。在这一系列游戏中，首次允许选择独立于你所选文明的领袖，从而让你能够自由地通过混搭组合来打造全新的策略。 </p><p class="bb_paragraph" ></p><p class="bb_paragraph" style="text-align: center"><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1295660/extras/88b31be232a344deb0570f09b817ccc1.poster.avif?t=1784747260" width=780 height=318 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1295660/extras/88b31be232a344deb0570f09b817ccc1.webm?t=1784747260" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1295660/extras/88b31be232a344deb0570f09b817ccc1.mp4?t=1784747260" type="video/mp4"></video></span></p><p class="bb_paragraph" style="text-align: center"><strong>探索栩栩如生的世界</strong> </p><p class="bb_paragraph" ></p><p class="bb_paragraph" >在这个华丽而充满细节的世界里留下你的印记！你的帝国会通过建筑结构和单位设计展现出丰富多样的文化风格。穿越可通航的河流，探索地图上未被探索的地区，并通过新城市或专业城镇来扩展你的边界。随着渲染精美的领土不断扩大，所有优美景观、充满活力的大都市和新兴的边疆领土将在这片不断变化的景观中无缝连接。  </p><p class="bb_paragraph" ></p><p class="bb_paragraph" style="text-align: center"><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1295660/extras/f02ffce16b2ca3594540ec6b6eeeb62c.poster.avif?t=1784747260" width=780 height=318 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1295660/extras/f02ffce16b2ca3594540ec6b6eeeb62c.webm?t=1784747260" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1295660/extras/f02ffce16b2ca3594540ec6b6eeeb62c.mp4?t=1784747260" type="video/mp4"></video></span></p><p class="bb_paragraph" style="text-align: center"><strong>在多人游戏中测试你的战略气概</strong> </p><p class="bb_paragraph" ></p><p class="bb_paragraph" >在线上与其他玩家竞争，证明你作为伟大领袖的实力。* 多人游戏可以是史诗般的多时代战役，也可以在单一时代中进行，并且PC和主机之间支持跨平台联机，所以无论朋友身在何处，你都可以和他们一起畅玩。</p><p class="bb_paragraph" ></p><p class="bb_paragraph" > </p><p class="bb_paragraph" ></p><p class="bb_paragraph" ><i>*在线游戏和功能（包括进度奖励）须有互联网连接和2K账户（最低年龄要求各有不同）。古典时代和探索时代最多支持五位玩家。现代最多支持八位玩家。某些跨平台多人游戏可能有地图大小限制。适用相关条款。</i></p></div>
-    </div>
+  <div class="content-block">
+    <h2>关于此游戏</h2>
+    <div><p class="bb_paragraph" ><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1295660/extras/e56da1671d3ab096032902e96718cb17.avif?t=1784747260" width=1080 height=2220 /></span></p><p class="bb_paragraph" ></p><p class="bb_paragraph" ><strong>你们的文明会随着时代的变迁而发展，还是能经受住时间的考验？</strong></p><p class="bb_paragraph" ></p><p class="bb_paragraph" > </p><p class="bb_paragraph" > 在《席德·梅尔的 Civilization® VII》中，每个战略决策都影响着你们帝国的独特血脉。 化身历史长河中的传奇领袖，统治帝国，选择你们的文明在人类发展的每个时代如何变化或延续，争取独特的胜利。</p><p class="bb_paragraph" ></p><p class="bb_paragraph" > </p><p class="bb_paragraph" > 利用新的定居点和建筑奇观来发展疆域，利用技术突破来推动进步，并在探索和扩张世界未知区域时，征服竞争对手或与他们合作。在沉浸式单机体验中追求繁荣，或在联机多人游戏中与其他人一起畅玩。*</p><p class="bb_paragraph" ></p><p class="bb_paragraph" > </p><p class="bb_paragraph" > 无论是遵循植根于历史的道路，还是开辟属于自己的前行之路，在《Civilization VII》里，都可以打造你所坚信的事业。 </p><p class="bb_paragraph" ></p><p class="bb_paragraph" style="text-align: center"><span class="bb_img_ctn"><video controls class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1295660/extras/838947c0e0428af59acf728e33d4a986.poster.avif?t=1784747260" ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1295660/extras/838947c0e0428af59acf728e33d4a986.webm?t=1784747260" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1295660/extras/838947c0e0428af59acf728e33d4a986.mp4?t=1784747260" type="video/mp4"></video></span></p><p class="bb_paragraph" style="text-align: center"> <strong>随时代发展或经受住时间的考验</strong></p><p class="bb_paragraph" ></p><p class="bb_paragraph" >带领你的帝国走过人类历史的不同时代。贯穿古典时代、探索时代和现代，选择是否要从头到尾带领一个经得起时间考验的文明，让其策略性地演变，在下个时代以新的身份蓬勃发展，或者通过融合来实现折中。在每个时代实现科技、文化、军事和经济里程碑，即可在下一个时代解锁优势，由你决定帝国的发展方向和时机。 </p><p class="bb_paragraph" ></p><p class="bb_paragraph" style="text-align: center"><span class="bb_img_ctn"><video controls class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1295660/extras/cfb6a6af878a9b6ccf2fc664acb0b55f.poster.avif?t=1784747260" ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1295660/extras/cfb6a6af878a9b6ccf2fc664acb0b55f.webm?t=1784747260" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1295660/extras/cfb6a6af878a9b6ccf2fc664acb0b55f.mp4?t=1784747260" type="video/mp4"></video></span></p><p class="bb_paragraph" style="text-align: center"><strong> 开始规划你自己的胜利之路</strong></p><p class="bb_paragraph" ></p><p class="bb_paragraph" >通过追求各种独特的凯旋目标（这些目标基于属性，能够提供玩家驱动的体验），塑造帝国的独特故事。随着每个新时代拓展游戏的范围，游戏也带来了借用其他文明元素的机会，解锁新的奖励，并以无数令人兴奋的新方式取得胜利。命令指挥官统一调度军队，利用改进后的战斗机制与敌人交战，在不同战役中通过纪念物配备可调换的领袖加成，以及更多精彩内容。 </p><p class="bb_paragraph" ></p><p class="bb_paragraph" style="text-align: center"><span class="bb_img_ctn"><video controls class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1295660/extras/98304cec704ecaef4f2ae05b636a94e5.poster.avif?t=1784747260" ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1295660/extras/98304cec704ecaef4f2ae05b636a94e5.webm?t=1784747260" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1295660/extras/98304cec704ecaef4f2ae05b636a94e5.mp4?t=1784747260" type="video/mp4"></video></span></p><p class="bb_paragraph" style="text-align: center"><strong>化身具有远见卓识的进步领袖</strong></p><p class="bb_paragraph" ></p><p class="bb_paragraph" >化身《Civilization》系列迄今为止最多样化的领袖之一，从以军事力量或政治才能闻名的传统国家元首，到对哲学、科学、人权等领域产生深远影响的远见者，应有尽有。你选择的领袖可以跨越时代，具有独特的能力，有助于强化或调整你的策略，使其从一个时代顺利过渡到下一个时代。在这一系列游戏中，首次允许选择独立于你所选文明的领袖，从而让你能够自由地通过混搭组合来打造全新的策略。 </p><p class="bb_paragraph" ></p><p class="bb_paragraph" style="text-align: center"><span class="bb_img_ctn"><video controls class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1295660/extras/88b31be232a344deb0570f09b817ccc1.poster.avif?t=1784747260" ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1295660/extras/88b31be232a344deb0570f09b817ccc1.webm?t=1784747260" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1295660/extras/88b31be232a344deb0570f09b817ccc1.mp4?t=1784747260" type="video/mp4"></video></span></p><p class="bb_paragraph" style="text-align: center"><strong>探索栩栩如生的世界</strong> </p><p class="bb_paragraph" ></p><p class="bb_paragraph" >在这个华丽而充满细节的世界里留下你的印记！你的帝国会通过建筑结构和单位设计展现出丰富多样的文化风格。穿越可通航的河流，探索地图上未被探索的地区，并通过新城市或专业城镇来扩展你的边界。随着渲染精美的领土不断扩大，所有优美景观、充满活力的大都市和新兴的边疆领土将在这片不断变化的景观中无缝连接。  </p><p class="bb_paragraph" ></p><p class="bb_paragraph" style="text-align: center"><span class="bb_img_ctn"><video controls class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1295660/extras/f02ffce16b2ca3594540ec6b6eeeb62c.poster.avif?t=1784747260" ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1295660/extras/f02ffce16b2ca3594540ec6b6eeeb62c.webm?t=1784747260" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1295660/extras/f02ffce16b2ca3594540ec6b6eeeb62c.mp4?t=1784747260" type="video/mp4"></video></span></p><p class="bb_paragraph" style="text-align: center"><strong>在多人游戏中测试你的战略气概</strong> </p><p class="bb_paragraph" ></p><p class="bb_paragraph" >在线上与其他玩家竞争，证明你作为伟大领袖的实力。* 多人游戏可以是史诗般的多时代战役，也可以在单一时代中进行，并且PC和主机之间支持跨平台联机，所以无论朋友身在何处，你都可以和他们一起畅玩。</p><p class="bb_paragraph" ></p><p class="bb_paragraph" > </p><p class="bb_paragraph" ></p><p class="bb_paragraph" ><i>*在线游戏和功能（包括进度奖励）须有互联网连接和2K账户（最低年龄要求各有不同）。古典时代和探索时代最多支持五位玩家。现代最多支持八位玩家。某些跨平台多人游戏可能有地图大小限制。适用相关条款。</i></p></div>
   </div>
 </section>
 
-
 <!-- 下载区域 -->
 <section class="download-section">
-  <div class="container">
-    <div class="download-block">
-      <h2>📥 下载链接</h2>
-      <div class="download-buttons">
-        <a href="https://www.x6d.com/i-wz-10301.html" class="download-btn x6d" target="_blank">x6d</a>
+  <div class="download-block">
+    <h2>📥 下载链接</h2>
+    <div class="download-buttons">
+      <a href="https://www.x6d.com/i-wz-10301.html" class="download-btn x6d" target="_blank">x6d</a>
 
-      </div>
     </div>
   </div>
 </section>
 
 <!-- 系统需求 -->
-
-<section class="content-section">
-  <div class="container">
-    <div class="content-block">
-      <h2>系统需求</h2>
-      <div class="sys-req">
-        <div class="sys-req-col"><h4>最低配置</h4><div><strong>最低配置:</strong><br><ul class="bb_ul"><li>需要 64 位处理器和操作系统<br></li><li><strong>操作系统:</strong> Win 10 64 Bit<br></li><li><strong>处理器:</strong> Intel i5-4690 / Intel i3-10100 / AMD Ryzen 3 1200<br></li><li><strong>内存:</strong> 8 GB RAM<br></li><li><strong>显卡:</strong> NVIDIA GTX 1050 / AMD RX 460 / Intel Arc A380<br></li><li><strong>DirectX 版本:</strong> 12<br></li><li><strong>存储空间:</strong> 需要 20 GB 可用空间</li></ul></div></div>
-        <div class="sys-req-col"><h4>推荐配置</h4><div><strong>推荐配置:</strong><br><ul class="bb_ul"><li>需要 64 位处理器和操作系统<br></li><li><strong>操作系统:</strong> Win 10 64 Bit<br></li><li><strong>处理器:</strong> Intel Core i5-10400 / AMD Ryzen 5 3600X<br></li><li><strong>内存:</strong> 16 GB RAM<br></li><li><strong>显卡:</strong> NVIDIA RTX 2060 / AMD RX 6600 / Intel Arc A750<br></li><li><strong>DirectX 版本:</strong> 12<br></li><li><strong>存储空间:</strong> 需要 20 GB 可用空间</li></ul></div></div>
-      </div>
-    </div>
-  </div>
-</section>
+<section class="content-section"><div class="content-block"><h2>系统需求</h2><div class="sys-req">
+<div class="sys-req-col"><h4>最低配置</h4><ul><strong>最低配置:</strong><br><ul class="bb_ul"><li>需要 64 位处理器和操作系统<br></li><li><strong>操作系统:</strong> Win 10 64 Bit<br></li><li><strong>处理器:</strong> Intel i5-4690 / Intel i3-10100 / AMD Ryzen 3 1200<br></li><li><strong>内存:</strong> 8 GB RAM<br></li><li><strong>显卡:</strong> NVIDIA GTX 1050 / AMD RX 460 / Intel Arc A380<br></li><li><strong>DirectX 版本:</strong> 12<br></li><li><strong>存储空间:</strong> 需要 20 GB 可用空间</li></ul></ul></div>
+<div class="sys-req-col"><h4>推荐配置</h4><ul><strong>推荐配置:</strong><br><ul class="bb_ul"><li>需要 64 位处理器和操作系统<br></li><li><strong>操作系统:</strong> Win 10 64 Bit<br></li><li><strong>处理器:</strong> Intel Core i5-10400 / AMD Ryzen 5 3600X<br></li><li><strong>内存:</strong> 16 GB RAM<br></li><li><strong>显卡:</strong> NVIDIA RTX 2060 / AMD RX 6600 / Intel Arc A750<br></li><li><strong>DirectX 版本:</strong> 12<br></li><li><strong>存储空间:</strong> 需要 20 GB 可用空间</li></ul></ul></div>
+</div></div></section>
 
 <script>
 function showVideo() {
@@ -421,8 +528,8 @@ function showVideo() {
 }
 
 function showScreenshots() {
-  const videoContainer = document.getElementById('video-container');
-  if (videoContainer) videoContainer.style.display = 'none';
+  const vc = document.getElementById('video-container');
+  if (vc) vc.style.display = 'none';
   document.getElementById('screenshots-container').style.display = 'grid';
   document.querySelectorAll('.media-tab').forEach(t => t.classList.remove('active'));
   event.target.classList.add('active');

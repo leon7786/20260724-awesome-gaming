@@ -5,218 +5,297 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>幻兽帕鲁 - 游戏详情</title>
 <style>
+:root {
+  --bg: #fafbfc;
+  --surface: #ffffff;
+  --border: #e5e7eb;
+  --text-primary: #111827;
+  --text-secondary: #6b7280;
+  --text-muted: #9ca3af;
+  --accent: #3b82f6;
+  --accent-light: #dbeafe;
+  --success: #10b981;
+  --warning: #f59e0b;
+  --radius: 12px;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
+  --shadow: 0 4px 12px rgba(0,0,0,0.06);
+  --shadow-lg: 0 8px 24px rgba(0,0,0,0.08);
+}
+
 * { margin: 0; padding: 0; box-sizing: border-box; }
+
 body {
-  font-family: "Microsoft YaHei", "Segoe UI", sans-serif;
-  background: #1b2838;
-  color: #c7d5e0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text-primary);
   line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
 }
 
 /* 顶部导航 */
-.top-nav {
-  background: #171a21;
-  padding: 8px 0;
-  border-bottom: 1px solid #000;
-}
-.top-nav .container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
+.topbar {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 0.75rem 2rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-}
-.breadcrumb {
-  font-size: 12px;
-  color: #666;
-}
-.breadcrumb a {
-  color: #666;
-  text-decoration: none;
-}
-.breadcrumb a:hover {
-  color: #fff;
-}
-.back-link {
-  color: #67c1f5;
-  text-decoration: none;
-  font-size: 13px;
-}
-.back-link:hover {
-  color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
-/* 主容器 */
-.container {
+.topbar a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: all 0.2s;
+}
+
+.topbar a:hover {
+  background: var(--accent-light);
+  color: var(--accent);
+}
+
+/* 游戏头部 */
+.hero {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 2rem;
+}
+
+.hero .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
-}
-
-/* 游戏头部 - Steam风格左右布局 */
-.game-header {
-  background: linear-gradient(180deg, #1b2838 0%, #2a475e 100%);
-  padding: 30px 0;
-}
-.game-header .container {
   display: grid;
-  grid-template-columns: 460px 1fr;
-  gap: 30px;
+  grid-template-columns: 300px 1fr;
+  gap: 2.5rem;
+  align-items: start;
 }
 
-/* 左侧媒体区域 */
-.media-section {
-  background: #000;
-  border-radius: 4px;
+.hero-cover {
+  border-radius: var(--radius);
   overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  aspect-ratio: 3/4;
 }
-.media-tabs {
-  display: flex;
-  background: #1b2838;
-}
-.media-tab {
-  background: transparent;
-  border: none;
-  color: #67c1f5;
-  padding: 10px 20px;
-  cursor: pointer;
-  font-size: 13px;
-  border-bottom: 2px solid transparent;
-}
-.media-tab.active {
-  border-bottom-color: #67c1f5;
-  color: #fff;
-}
-.media-player {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 16/9;
-  background: #000;
-}
-.media-player video,
-.media-player img {
+
+.hero-cover img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
+
+.hero-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding-top: 0.5rem;
+}
+
+.hero-info h1 {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.hero-info .en-name {
+  font-size: 1.125rem;
+  color: var(--text-secondary);
+  font-weight: 400;
+}
+
+.meta-tags {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.meta-tag {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  padding: 0.375rem 0.75rem;
+  border-radius: 8px;
+  background: #f3f4f6;
+  color: var(--text-secondary);
+}
+
+.meta-tag.score {
+  background: var(--accent-light);
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.meta-tag.year {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.info-row {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.info-item .label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+}
+
+.info-item .value {
+  font-size: 0.9375rem;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.hero-desc {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+  max-width: 640px;
+}
+
+/* 媒体区域 */
+.media-section {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 2rem;
+}
+
+.media-tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.media-tab {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  padding: 0.5rem 1.25rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.media-tab:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.media-tab.active {
+  background: var(--accent);
+  color: white;
+  border-color: var(--accent);
+}
+
+.media-player {
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: #000;
+  aspect-ratio: 16/9;
+}
+
+.media-player video,
+.media-player img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
 .screenshots-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 4px;
-  padding: 4px;
-  background: #1b2838;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 0.75rem;
 }
+
 .screenshots-grid img {
   width: 100%;
   aspect-ratio: 16/9;
   object-fit: cover;
+  border-radius: 8px;
   cursor: pointer;
-  transition: opacity 0.2s;
-}
-.screenshots-grid img:hover {
-  opacity: 0.8;
+  transition: all 0.2s;
+  border: 1px solid var(--border);
 }
 
-/* 右侧信息面板 */
-.game-info {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-.game-title {
-  font-size: 32px;
-  font-weight: 300;
-  color: #fff;
-}
-.game-subtitle {
-  font-size: 14px;
-  color: #8f98a0;
-}
-.game-meta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-.meta-item {
-  background: rgba(0,0,0,0.3);
-  padding: 6px 12px;
-  border-radius: 3px;
-  font-size: 13px;
-  color: #c7d5e0;
-}
-.meta-item.score {
-  background: #66c0f4;
-  color: #1b2838;
-  font-weight: 600;
-}
-.info-block {
-  background: rgba(0,0,0,0.2);
-  padding: 12px;
-  border-radius: 4px;
-}
-.info-block .label {
-  font-size: 11px;
-  color: #8f98a0;
-  text-transform: uppercase;
-  margin-bottom: 4px;
-}
-.info-block .value {
-  font-size: 14px;
-  color: #67c1f5;
-}
-.game-desc {
-  font-size: 14px;
-  color: #acb2b8;
-  line-height: 1.7;
+.screenshots-grid img:hover {
+  transform: scale(1.02);
+  box-shadow: var(--shadow);
 }
 
 /* 内容区域 */
 .content-section {
-  background: #1b2838;
-  padding: 30px 0;
-}
-.content-block {
-  background: rgba(0,0,0,0.3);
-  padding: 24px;
-  border-radius: 4px;
-}
-.content-block h2 {
-  color: #fff;
-  font-size: 20px;
-  margin-bottom: 16px;
-  padding-bottom: 12px;
-  border-bottom: 1px solid #2a475e;
-}
-.content-block p {
-  color: #acb2b8;
-  font-size: 14px;
-  line-height: 1.8;
-  margin-bottom: 12px;
-}
-.content-block h2.bb_tag {
-  color: #67c1f5;
-  font-size: 16px;
-  margin: 20px 0 10px 0;
-  border-bottom: none;
-  padding-bottom: 0;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem 2rem;
 }
 
-/* Steam 内嵌媒体约束 */
+.content-block {
+  background: var(--surface);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.content-block h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.content-block p {
+  color: var(--text-secondary);
+  font-size: 0.9375rem;
+  line-height: 1.75;
+  margin-bottom: 0.75rem;
+}
+
+.content-block h2.bb_tag {
+  font-size: 1.125rem;
+  color: var(--accent);
+  margin: 1.5rem 0 0.75rem;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+/* Steam 内嵌媒体 */
 .content-block .bb_img_ctn {
   display: block;
   max-width: 100%;
-  margin: 12px 0;
+  margin: 1rem 0;
   overflow: hidden;
+  border-radius: 8px;
   background: #000;
 }
+
 .content-block .bb_img {
   max-width: 100% !important;
   width: 100% !important;
   height: auto !important;
   display: block;
-  border-radius: 4px;
+  border-radius: 8px;
 }
+
 .content-block video.bb_img {
   width: 100% !important;
   height: auto !important;
@@ -227,86 +306,125 @@ body {
 
 /* 下载区域 */
 .download-section {
-  background: #1b2838;
-  padding: 30px 0;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem 2rem;
 }
+
 .download-block {
-  background: rgba(0,0,0,0.3);
-  padding: 24px;
-  border-radius: 4px;
+  background: var(--surface);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  padding: 2rem;
 }
+
 .download-block h2 {
-  color: #fff;
-  font-size: 20px;
-  margin-bottom: 16px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
 }
+
 .download-buttons {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 0.75rem;
 }
+
 .download-btn {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 12px 24px;
-  border-radius: 4px;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 10px;
   text-decoration: none;
   color: #fff;
-  font-size: 14px;
+  font-size: 0.9375rem;
   font-weight: 500;
   transition: all 0.2s;
+  box-shadow: var(--shadow-sm);
 }
+
 .download-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  box-shadow: var(--shadow);
 }
+
 .download-btn.gamer520 { background: linear-gradient(135deg, #10b981, #059669); }
 .download-btn.x6d { background: linear-gradient(135deg, #3b82f6, #2563eb); }
-.download-btn.magnet { background: linear-gradient(135deg, #ef4444, #dc2626); }
-.download-btn.fitgirl { background: linear-gradient(135deg, #f59e0b, #d97706); }
+.download-btn.magnet { background: linear-gradient(135deg, #f59e0b, #d97706); }
+.download-btn.fitgirl { background: linear-gradient(135deg, #8b5cf6, #7c3aed); }
 .download-btn.tianyi { background: linear-gradient(135deg, #6366f1, #4f46e5); }
-.download-btn.baidu { background: linear-gradient(135deg, #2563eb, #1d4ed8); }
+.download-btn.baidu { background: linear-gradient(135deg, #06b6d4, #0891b2); }
+.download-btn.crotorrents { background: linear-gradient(135deg, #ec4899, #db2777); }
 
 /* 系统需求 */
 .sys-req {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20px;
+  gap: 2rem;
 }
+
 .sys-req-col h4 {
-  color: #67c1f5;
-  font-size: 14px;
-  margin-bottom: 12px;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 1rem;
 }
+
 .sys-req-col ul {
   list-style: none;
-  margin: 0;
 }
+
 .sys-req-col li {
-  font-size: 13px;
-  color: #acb2b8;
-  margin-bottom: 8px;
-  padding-left: 16px;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+  padding-left: 1.25rem;
   position: relative;
+  line-height: 1.6;
 }
+
 .sys-req-col li:before {
   content: "•";
   position: absolute;
   left: 0;
-  color: #67c1f5;
+  color: var(--accent);
+  font-weight: bold;
 }
 
 /* 响应式 */
 @media (max-width: 900px) {
-  .game-header .container {
+  .hero .container {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
-  .media-section {
-    max-width: 100%;
+  .hero-cover {
+    max-width: 280px;
+    margin: 0 auto;
+  }
+  .hero-info h1 {
+    font-size: 1.75rem;
   }
   .sys-req {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero {
+    padding: 1.5rem 1rem;
+  }
+  .media-section,
+  .content-section,
+  .download-section {
+    padding: 0 1rem 1.5rem;
+  }
+  .content-block,
+  .download-block {
+    padding: 1.5rem;
   }
 }
 </style>
@@ -314,104 +432,102 @@ body {
 <body>
 
 <!-- 顶部导航 -->
-<nav class="top-nav">
-  <div class="container">
-    <div class="breadcrumb">
-      <a href="../../index.html">← 返回游戏榜单</a>
-    </div>
-    <a href="https://store.steampowered.com/app/1623730/" target="_blank" class="back-link">Steam 商店页 →</a>
-  </div>
+<nav class="topbar">
+  <a href="../../index.html">← 返回游戏榜单</a>
+  <a href="https://store.steampowered.com/app/1623730/" target="_blank">Steam 商店页 →</a>
 </nav>
 
 <!-- 游戏头部 -->
-<section class="game-header">
+<section class="hero">
   <div class="container">
-    <!-- 左侧媒体区域 -->
-    <div class="media-section">
-      <div class="media-tabs">
-        
-        <button class="media-tab active" onclick="showScreenshots()">截图</button>
-      </div>
-      
-      
-      
-      
-      <div id="screenshots-container" class="screenshots-grid" 
+    <div class="hero-cover">
+      <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1623730/library_600x900.jpg" alt="幻兽帕鲁">
     </div>
-    
-    <!-- 右侧信息面板 -->
-    <div class="game-info">
-      <h1 class="game-title">幻兽帕鲁</h1>
-      <div class="game-subtitle">Palworld</div>
+    <div class="hero-info">
+      <h1>幻兽帕鲁</h1>
+      <div class="en-name">Palworld</div>
       
-      <div class="game-meta">
-        <div class="meta-item">2026 年 7 月 9 日</div>
-        <div class="meta-item">动作, 冒险, 独立, 角色扮演</div>
-        <div class="meta-item score">评分 93</div>
+      <div class="meta-tags">
+        <span class="meta-tag year">2026 年 7 月 9 日</span>
+        <span class="meta-tag">动作, 冒险, 独立, 角色扮演</span>
+        <span class="meta-tag score">⭐ 93</span>
       </div>
       
-      
-      <div class="info-block">
-        <div class="label">开发者</div>
-        <div class="value">Pocketpair</div>
+      <div class="info-row">
+        <div class="info-item">
+          <span class="label">开发者</span>
+          <span class="value">Pocketpair</span>
+        </div>
+        <div class="info-item">
+          <span class="label">发行商</span>
+          <span class="value">Pocketpair</span>
+        </div>
       </div>
       
-      
-      
-      <div class="info-block">
-        <div class="label">发行商</div>
-        <div class="value">Pocketpair</div>
-      </div>
-      
-      
-      
-      <div class="game-desc">
+      <div class="hero-desc">
         在广阔的世界中收集神奇的生物“帕鲁”，派他们进行战斗、建造、做农活，工业生产等，这是一款支持多人游戏模式的全新开放世界生存制作游戏。
       </div>
-      
     </div>
+  </div>
+</section>
+
+<!-- 媒体区域 -->
+<section class="media-section">
+  <div class="media-tabs">
+    <button class="media-tab active" onclick="showVideo()">▶ 视频</button>
+    <button class="media-tab" onclick="showScreenshots()">🖼 截图</button>
+  </div>
+  
+  <div id="video-container" class="media-player">
+    
+  </div>
+  
+  <div id="screenshots-container" class="screenshots-grid" style="display:none;">
+    <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1623730/ss_f81b7c4f20be3b99f76a1415c4cdb9b444c99b97.1920x1080.jpg?t=1784714419" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1623730/648ed4266fc18f413292292741304ef648421c55/ss_648ed4266fc18f413292292741304ef648421c55.1920x1080.jpg?t=1784714419" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1623730/ss_b3cea7c9f04a67d784d4c6a0c157a11d6268b189.1920x1080.jpg?t=1784714419" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1623730/cd7b46028d10c21db8fc8217192094d309efcebc/ss_cd7b46028d10c21db8fc8217192094d309efcebc.1920x1080.jpg?t=1784714419" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1623730/ss_06e27c15c7b4b10233c937b887cf6a6925c83009.1920x1080.jpg?t=1784714419" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1623730/ss_a99fba5536acde781bd863cb3555c10b5b96c0ae.1920x1080.jpg?t=1784714419" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1623730/ss_1e6f7cf3c58086df2a3e9b13a988c2681d372b2d.1920x1080.jpg?t=1784714419" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1623730/b463e0cc770b5ea81230a1db561c100f5fdb3c30/ss_b463e0cc770b5ea81230a1db561c100f5fdb3c30.1920x1080.jpg?t=1784714419" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1623730/e2c34987fa3f3893480afed747b0c2ede52e5a31/ss_e2c34987fa3f3893480afed747b0c2ede52e5a31.1920x1080.jpg?t=1784714419" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1623730/348aae38bc825f667656e5f9c1287761c1d339f7/ss_348aae38bc825f667656e5f9c1287761c1d339f7.1920x1080.jpg?t=1784714419" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1623730/ss_6ce0960860f1009b7d10ba225ead4cc377286115.1920x1080.jpg?t=1784714419" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1623730/efec2f6aaaca15d66e30455e3b57383fdaa246c5/ss_efec2f6aaaca15d66e30455e3b57383fdaa246c5.1920x1080.jpg?t=1784714419" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1623730/ss_43ed640c916ec689981a74f0818e5b9c77204d1c.1920x1080.jpg?t=1784714419" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1623730/ss_c6a8e8dc8640ebd1409b1e72fe6e9db7d1c1d57a.1920x1080.jpg?t=1784714419" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1623730/c386fc9813a95c54a4c9c024bf21e5011bcaadad/ss_c386fc9813a95c54a4c9c024bf21e5011bcaadad.1920x1080.jpg?t=1784714419" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1623730/84c7d900e173e6933057bf2038eb61288db8f5bb/ss_84c7d900e173e6933057bf2038eb61288db8f5bb.1920x1080.jpg?t=1784714419" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1623730/ss_88c603ab6cd66c229d3283d312a50d14e3e4c77c.1920x1080.jpg?t=1784714419" alt="Screenshot" onclick="window.open(this.src)">
   </div>
 </section>
 
 <!-- 关于此游戏 -->
-
 <section class="content-section">
-  <div class="container">
-    <div class="content-block">
-      <h2>关于此游戏</h2>
-      <div><p class="bb_paragraph" ><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1623730/extras/5e261111cb5994052495ec9eab3a2bbe.avif?t=1784714419" width=616 height=143 /></span></p><p class="bb_paragraph" ></p><p class="bb_paragraph" >Q. 这是一款怎样的游戏呢？</p><p class="bb_paragraph" ></p><p class="bb_paragraph" >A. 在帕鲁的世界，你可以选择与神奇的生物「帕鲁」一同享受悠闲的生活，也可以投身于与偷猎者进行生死搏斗的冒险。</p><p class="bb_paragraph" ></p><p class="bb_paragraph" >帕鲁可以进行战斗、繁殖、协助你做农活，也可以为你在工厂工作。</p><p class="bb_paragraph" >你也可以将它们进行售卖，或肢解后食用。</p><p class="bb_paragraph" ></p><p class="bb_paragraph" ></p><p class="bb_paragraph" ><strong><u>生存</u></strong></p><p class="bb_paragraph" >食物短缺、恶劣的环境……非法的偷猎者。这个世界危机四伏。为了生存你只能不择手段。有时候，你甚至要用帕鲁来充饥……</p><p class="bb_paragraph" ><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1623730/extras/2b2402730f698b3c10c82c054cd4c47d.poster.avif?t=1784714419" width=616 height=252 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1623730/extras/2b2402730f698b3c10c82c054cd4c47d.webm?t=1784714419" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1623730/extras/2b2402730f698b3c10c82c054cd4c47d.mp4?t=1784714419" type="video/mp4"></video></span></p><p class="bb_paragraph" ><strong><u>骑乘、探索</u></strong></p><p class="bb_paragraph" >你可以骑着帕鲁去陆地、海洋、天空，在各种不同的场所进行探索。</p><p class="bb_paragraph" ><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1623730/extras/f2524dd877a8705d3bd6ae8a68a206f3.poster.avif?t=1784714419" width=616 height=252 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1623730/extras/f2524dd877a8705d3bd6ae8a68a206f3.webm?t=1784714419" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1623730/extras/f2524dd877a8705d3bd6ae8a68a206f3.mp4?t=1784714419" type="video/mp4"></video></span></p><p class="bb_paragraph" ><strong><u>建造</u></strong></p><p class="bb_paragraph" >想建造金字塔吗？这时候就让大量的帕鲁为你做建造的工作吧。帕鲁并不受劳动法规的约束，尽请放心。</p><p class="bb_paragraph" ><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1623730/extras/5b945d8350fe14110dd3f542df0eced1.poster.avif?t=1784714419" width=616 height=252 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1623730/extras/5b945d8350fe14110dd3f542df0eced1.webm?t=1784714419" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1623730/extras/5b945d8350fe14110dd3f542df0eced1.mp4?t=1784714419" type="video/mp4"></video></span></p><p class="bb_paragraph" ><strong><u>生活</u></strong></p><p class="bb_paragraph" >生火、发电、采掘……。收集各种不同类型的便利帕鲁，来享受舒适的生活吧。</p><p class="bb_paragraph" ><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1623730/extras/a8ab4ca622ac6c491541fae9ea3b672f.poster.avif?t=1784714419" width=616 height=252 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1623730/extras/a8ab4ca622ac6c491541fae9ea3b672f.webm?t=1784714419" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1623730/extras/a8ab4ca622ac6c491541fae9ea3b672f.mp4?t=1784714419" type="video/mp4"></video></span></p><p class="bb_paragraph" ><strong><u>农业</u></strong></p><p class="bb_paragraph" >不同的帕鲁擅长播种、浇水、收割等各类不同的工作。和帕鲁一起，打造美好的农园吧。</p><p class="bb_paragraph" ><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1623730/extras/ba80ddf24602c2de6aae326e95d6d228.poster.avif?t=1784714419" width=616 height=252 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1623730/extras/ba80ddf24602c2de6aae326e95d6d228.webm?t=1784714419" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1623730/extras/ba80ddf24602c2de6aae326e95d6d228.mp4?t=1784714419" type="video/mp4"></video></span></p><p class="bb_paragraph" ><strong><u>工业、自动化</u></strong></p><p class="bb_paragraph" >为了实现自动化，将手工作业交给帕鲁就尤为重要。建造工厂，并安排帕鲁在其中工作吧。只要有足够的食物，帕鲁就可以不断地工作，直到它们生命的尽头。</p><p class="bb_paragraph" ><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1623730/extras/2ae72a791bb84ca97e46e9227e6ac4d7.poster.avif?t=1784714419" width=616 height=252 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1623730/extras/2ae72a791bb84ca97e46e9227e6ac4d7.webm?t=1784714419" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1623730/extras/2ae72a791bb84ca97e46e9227e6ac4d7.mp4?t=1784714419" type="video/mp4"></video></span></p><p class="bb_paragraph" ><strong><u>地下城探索</u></strong></p><p class="bb_paragraph" >有帕鲁在，哪怕危险的区域也大可放心。在危机时刻，你可以让帕鲁做你的替身。它们会不惜一切，哪怕舍弃自己的生命也会保护你。</p><p class="bb_paragraph" ><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1623730/extras/752721ee7db99e1eb6cb7d588d464769.poster.avif?t=1784714419" width=616 height=252 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1623730/extras/752721ee7db99e1eb6cb7d588d464769.webm?t=1784714419" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1623730/extras/752721ee7db99e1eb6cb7d588d464769.mp4?t=1784714419" type="video/mp4"></video></span></p><p class="bb_paragraph" ><strong><u>繁殖、遗传</u></strong></p><p class="bb_paragraph" >繁殖后，帕鲁将会继承父母的特性。将稀有的帕鲁组合在一起，繁育出最强的帕鲁吧！</p><p class="bb_paragraph" ><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1623730/extras/6abae7ea3d546cf9e98359f801f4784f.poster.avif?t=1784714419" width=616 height=252 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1623730/extras/6abae7ea3d546cf9e98359f801f4784f.webm?t=1784714419" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1623730/extras/6abae7ea3d546cf9e98359f801f4784f.mp4?t=1784714419" type="video/mp4"></video></span></p><p class="bb_paragraph" ><strong><u>偷猎、犯罪</u></strong></p><p class="bb_paragraph" >在禁猎区栖息着濒临灭绝的稀有帕鲁。悄悄潜入那里并捕获它们你就能够大赚一笔！只要不被发现，就不算是犯罪。</p><p class="bb_paragraph" ><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1623730/extras/2030b4c9bba0cd0a8258452c410e0483.poster.avif?t=1784714419" width=616 height=252 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1623730/extras/2030b4c9bba0cd0a8258452c410e0483.webm?t=1784714419" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1623730/extras/2030b4c9bba0cd0a8258452c410e0483.mp4?t=1784714419" type="video/mp4"></video></span></p><p class="bb_paragraph" ><strong><u>多人游戏</u></strong></p><p class="bb_paragraph" >支持多人游戏模式。邀请你的朋友一起来冒险吧！当然，你们也可以进行对战以及交易。</p><p class="bb_paragraph" ></p><p class="bb_paragraph" ><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1623730/extras/cb75478a82fdce7adc094a8ae8d4d541.poster.avif?t=1784714419" width=616 height=252 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1623730/extras/cb75478a82fdce7adc094a8ae8d4d541.webm?t=1784714419" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1623730/extras/cb75478a82fdce7adc094a8ae8d4d541.mp4?t=1784714419" type="video/mp4"></video></span></p></div>
-    </div>
+  <div class="content-block">
+    <h2>关于此游戏</h2>
+    <div><p class="bb_paragraph" ><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1623730/extras/5e261111cb5994052495ec9eab3a2bbe.avif?t=1784714419" width=616 height=143 /></span></p><p class="bb_paragraph" ></p><p class="bb_paragraph" >Q. 这是一款怎样的游戏呢？</p><p class="bb_paragraph" ></p><p class="bb_paragraph" >A. 在帕鲁的世界，你可以选择与神奇的生物「帕鲁」一同享受悠闲的生活，也可以投身于与偷猎者进行生死搏斗的冒险。</p><p class="bb_paragraph" ></p><p class="bb_paragraph" >帕鲁可以进行战斗、繁殖、协助你做农活，也可以为你在工厂工作。</p><p class="bb_paragraph" >你也可以将它们进行售卖，或肢解后食用。</p><p class="bb_paragraph" ></p><p class="bb_paragraph" ></p><p class="bb_paragraph" ><strong><u>生存</u></strong></p><p class="bb_paragraph" >食物短缺、恶劣的环境……非法的偷猎者。这个世界危机四伏。为了生存你只能不择手段。有时候，你甚至要用帕鲁来充饥……</p><p class="bb_paragraph" ><span class="bb_img_ctn"><video controls class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1623730/extras/2b2402730f698b3c10c82c054cd4c47d.poster.avif?t=1784714419" ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1623730/extras/2b2402730f698b3c10c82c054cd4c47d.webm?t=1784714419" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1623730/extras/2b2402730f698b3c10c82c054cd4c47d.mp4?t=1784714419" type="video/mp4"></video></span></p><p class="bb_paragraph" ><strong><u>骑乘、探索</u></strong></p><p class="bb_paragraph" >你可以骑着帕鲁去陆地、海洋、天空，在各种不同的场所进行探索。</p><p class="bb_paragraph" ><span class="bb_img_ctn"><video controls class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1623730/extras/f2524dd877a8705d3bd6ae8a68a206f3.poster.avif?t=1784714419" ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1623730/extras/f2524dd877a8705d3bd6ae8a68a206f3.webm?t=1784714419" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1623730/extras/f2524dd877a8705d3bd6ae8a68a206f3.mp4?t=1784714419" type="video/mp4"></video></span></p><p class="bb_paragraph" ><strong><u>建造</u></strong></p><p class="bb_paragraph" >想建造金字塔吗？这时候就让大量的帕鲁为你做建造的工作吧。帕鲁并不受劳动法规的约束，尽请放心。</p><p class="bb_paragraph" ><span class="bb_img_ctn"><video controls class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1623730/extras/5b945d8350fe14110dd3f542df0eced1.poster.avif?t=1784714419" ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1623730/extras/5b945d8350fe14110dd3f542df0eced1.webm?t=1784714419" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1623730/extras/5b945d8350fe14110dd3f542df0eced1.mp4?t=1784714419" type="video/mp4"></video></span></p><p class="bb_paragraph" ><strong><u>生活</u></strong></p><p class="bb_paragraph" >生火、发电、采掘……。收集各种不同类型的便利帕鲁，来享受舒适的生活吧。</p><p class="bb_paragraph" ><span class="bb_img_ctn"><video controls class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1623730/extras/a8ab4ca622ac6c491541fae9ea3b672f.poster.avif?t=1784714419" ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1623730/extras/a8ab4ca622ac6c491541fae9ea3b672f.webm?t=1784714419" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1623730/extras/a8ab4ca622ac6c491541fae9ea3b672f.mp4?t=1784714419" type="video/mp4"></video></span></p><p class="bb_paragraph" ><strong><u>农业</u></strong></p><p class="bb_paragraph" >不同的帕鲁擅长播种、浇水、收割等各类不同的工作。和帕鲁一起，打造美好的农园吧。</p><p class="bb_paragraph" ><span class="bb_img_ctn"><video controls class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1623730/extras/ba80ddf24602c2de6aae326e95d6d228.poster.avif?t=1784714419" ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1623730/extras/ba80ddf24602c2de6aae326e95d6d228.webm?t=1784714419" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1623730/extras/ba80ddf24602c2de6aae326e95d6d228.mp4?t=1784714419" type="video/mp4"></video></span></p><p class="bb_paragraph" ><strong><u>工业、自动化</u></strong></p><p class="bb_paragraph" >为了实现自动化，将手工作业交给帕鲁就尤为重要。建造工厂，并安排帕鲁在其中工作吧。只要有足够的食物，帕鲁就可以不断地工作，直到它们生命的尽头。</p><p class="bb_paragraph" ><span class="bb_img_ctn"><video controls class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1623730/extras/2ae72a791bb84ca97e46e9227e6ac4d7.poster.avif?t=1784714419" ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1623730/extras/2ae72a791bb84ca97e46e9227e6ac4d7.webm?t=1784714419" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1623730/extras/2ae72a791bb84ca97e46e9227e6ac4d7.mp4?t=1784714419" type="video/mp4"></video></span></p><p class="bb_paragraph" ><strong><u>地下城探索</u></strong></p><p class="bb_paragraph" >有帕鲁在，哪怕危险的区域也大可放心。在危机时刻，你可以让帕鲁做你的替身。它们会不惜一切，哪怕舍弃自己的生命也会保护你。</p><p class="bb_paragraph" ><span class="bb_img_ctn"><video controls class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1623730/extras/752721ee7db99e1eb6cb7d588d464769.poster.avif?t=1784714419" ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1623730/extras/752721ee7db99e1eb6cb7d588d464769.webm?t=1784714419" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1623730/extras/752721ee7db99e1eb6cb7d588d464769.mp4?t=1784714419" type="video/mp4"></video></span></p><p class="bb_paragraph" ><strong><u>繁殖、遗传</u></strong></p><p class="bb_paragraph" >繁殖后，帕鲁将会继承父母的特性。将稀有的帕鲁组合在一起，繁育出最强的帕鲁吧！</p><p class="bb_paragraph" ><span class="bb_img_ctn"><video controls class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1623730/extras/6abae7ea3d546cf9e98359f801f4784f.poster.avif?t=1784714419" ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1623730/extras/6abae7ea3d546cf9e98359f801f4784f.webm?t=1784714419" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1623730/extras/6abae7ea3d546cf9e98359f801f4784f.mp4?t=1784714419" type="video/mp4"></video></span></p><p class="bb_paragraph" ><strong><u>偷猎、犯罪</u></strong></p><p class="bb_paragraph" >在禁猎区栖息着濒临灭绝的稀有帕鲁。悄悄潜入那里并捕获它们你就能够大赚一笔！只要不被发现，就不算是犯罪。</p><p class="bb_paragraph" ><span class="bb_img_ctn"><video controls class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1623730/extras/2030b4c9bba0cd0a8258452c410e0483.poster.avif?t=1784714419" ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1623730/extras/2030b4c9bba0cd0a8258452c410e0483.webm?t=1784714419" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1623730/extras/2030b4c9bba0cd0a8258452c410e0483.mp4?t=1784714419" type="video/mp4"></video></span></p><p class="bb_paragraph" ><strong><u>多人游戏</u></strong></p><p class="bb_paragraph" >支持多人游戏模式。邀请你的朋友一起来冒险吧！当然，你们也可以进行对战以及交易。</p><p class="bb_paragraph" ></p><p class="bb_paragraph" ><span class="bb_img_ctn"><video controls class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1623730/extras/cb75478a82fdce7adc094a8ae8d4d541.poster.avif?t=1784714419" ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1623730/extras/cb75478a82fdce7adc094a8ae8d4d541.webm?t=1784714419" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1623730/extras/cb75478a82fdce7adc094a8ae8d4d541.mp4?t=1784714419" type="video/mp4"></video></span></p></div>
   </div>
 </section>
 
-
 <!-- 下载区域 -->
 <section class="download-section">
-  <div class="container">
-    <div class="download-block">
-      <h2>📥 下载链接</h2>
-      <div class="download-buttons">
-        <a href="https://www.gamer520.com/87043.html" class="download-btn gamer520" target="_blank">gamer520</a>
+  <div class="download-block">
+    <h2>📥 下载链接</h2>
+    <div class="download-buttons">
+      <a href="https://www.gamer520.com/87043.html" class="download-btn gamer520" target="_blank">gamer520</a>
 <a href="https://www.x6d.com/i-wz-25381.html" class="download-btn x6d" target="_blank">x6d</a>
 
-      </div>
     </div>
   </div>
 </section>
 
 <!-- 系统需求 -->
-
-<section class="content-section">
-  <div class="container">
-    <div class="content-block">
-      <h2>系统需求</h2>
-      <div class="sys-req">
-        <div class="sys-req-col"><h4>最低配置</h4><div><strong>最低配置:</strong><br><ul class="bb_ul"><li>需要 64 位处理器和操作系统<br></li><li><strong>操作系统:</strong> Windows 10 (64-Bit)<br></li><li><strong>处理器:</strong> Intel Core i5-9400F<br></li><li><strong>内存:</strong> 16 GB RAM<br></li><li><strong>显卡:</strong> GeForce GTX 1660<br></li><li><strong>DirectX 版本:</strong> 11<br></li><li><strong>网络:</strong> 宽带互联网连接<br></li><li><strong>存储空间:</strong> 需要 40 GB 可用空间<br></li><li><strong>附注事项:</strong> SSD Required - Performance may vary depending on the amount of active Pals.</li></ul></div></div>
-        <div class="sys-req-col"><h4>推荐配置</h4><div><strong>推荐配置:</strong><br><ul class="bb_ul"><li>需要 64 位处理器和操作系统<br></li><li><strong>操作系统:</strong> Windows 11 (64-Bit)<br></li><li><strong>处理器:</strong> Intel Core i5-12400 / AMD Ryzen 5 5600X<br></li><li><strong>内存:</strong> 32 GB RAM<br></li><li><strong>显卡:</strong> GeForce RTX 3060 Ti / Radeon RX 6700 XT<br></li><li><strong>DirectX 版本:</strong> 11<br></li><li><strong>网络:</strong> 宽带互联网连接<br></li><li><strong>存储空间:</strong> 需要 40 GB 可用空间<br></li><li><strong>附注事项:</strong> SSD Required - Performance may vary depending on the amount of active Pals.</li></ul></div></div>
-      </div>
-    </div>
-  </div>
-</section>
+<section class="content-section"><div class="content-block"><h2>系统需求</h2><div class="sys-req">
+<div class="sys-req-col"><h4>最低配置</h4><ul><strong>最低配置:</strong><br><ul class="bb_ul"><li>需要 64 位处理器和操作系统<br></li><li><strong>操作系统:</strong> Windows 10 (64-Bit)<br></li><li><strong>处理器:</strong> Intel Core i5-9400F<br></li><li><strong>内存:</strong> 16 GB RAM<br></li><li><strong>显卡:</strong> GeForce GTX 1660<br></li><li><strong>DirectX 版本:</strong> 11<br></li><li><strong>网络:</strong> 宽带互联网连接<br></li><li><strong>存储空间:</strong> 需要 40 GB 可用空间<br></li><li><strong>附注事项:</strong> SSD Required - Performance may vary depending on the amount of active Pals.</li></ul></ul></div>
+<div class="sys-req-col"><h4>推荐配置</h4><ul><strong>推荐配置:</strong><br><ul class="bb_ul"><li>需要 64 位处理器和操作系统<br></li><li><strong>操作系统:</strong> Windows 11 (64-Bit)<br></li><li><strong>处理器:</strong> Intel Core i5-12400 / AMD Ryzen 5 5600X<br></li><li><strong>内存:</strong> 32 GB RAM<br></li><li><strong>显卡:</strong> GeForce RTX 3060 Ti / Radeon RX 6700 XT<br></li><li><strong>DirectX 版本:</strong> 11<br></li><li><strong>网络:</strong> 宽带互联网连接<br></li><li><strong>存储空间:</strong> 需要 40 GB 可用空间<br></li><li><strong>附注事项:</strong> SSD Required - Performance may vary depending on the amount of active Pals.</li></ul></ul></div>
+</div></div></section>
 
 <script>
 function showVideo() {
@@ -422,8 +538,8 @@ function showVideo() {
 }
 
 function showScreenshots() {
-  const videoContainer = document.getElementById('video-container');
-  if (videoContainer) videoContainer.style.display = 'none';
+  const vc = document.getElementById('video-container');
+  if (vc) vc.style.display = 'none';
   document.getElementById('screenshots-container').style.display = 'grid';
   document.querySelectorAll('.media-tab').forEach(t => t.classList.remove('active'));
   event.target.classList.add('active');

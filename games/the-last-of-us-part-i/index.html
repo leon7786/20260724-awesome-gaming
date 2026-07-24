@@ -5,218 +5,297 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>最后生还者 第一部 - 游戏详情</title>
 <style>
+:root {
+  --bg: #fafbfc;
+  --surface: #ffffff;
+  --border: #e5e7eb;
+  --text-primary: #111827;
+  --text-secondary: #6b7280;
+  --text-muted: #9ca3af;
+  --accent: #3b82f6;
+  --accent-light: #dbeafe;
+  --success: #10b981;
+  --warning: #f59e0b;
+  --radius: 12px;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
+  --shadow: 0 4px 12px rgba(0,0,0,0.06);
+  --shadow-lg: 0 8px 24px rgba(0,0,0,0.08);
+}
+
 * { margin: 0; padding: 0; box-sizing: border-box; }
+
 body {
-  font-family: "Microsoft YaHei", "Segoe UI", sans-serif;
-  background: #1b2838;
-  color: #c7d5e0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text-primary);
   line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
 }
 
 /* 顶部导航 */
-.top-nav {
-  background: #171a21;
-  padding: 8px 0;
-  border-bottom: 1px solid #000;
-}
-.top-nav .container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
+.topbar {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 0.75rem 2rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-}
-.breadcrumb {
-  font-size: 12px;
-  color: #666;
-}
-.breadcrumb a {
-  color: #666;
-  text-decoration: none;
-}
-.breadcrumb a:hover {
-  color: #fff;
-}
-.back-link {
-  color: #67c1f5;
-  text-decoration: none;
-  font-size: 13px;
-}
-.back-link:hover {
-  color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
-/* 主容器 */
-.container {
+.topbar a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: all 0.2s;
+}
+
+.topbar a:hover {
+  background: var(--accent-light);
+  color: var(--accent);
+}
+
+/* 游戏头部 */
+.hero {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 2rem;
+}
+
+.hero .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
-}
-
-/* 游戏头部 - Steam风格左右布局 */
-.game-header {
-  background: linear-gradient(180deg, #1b2838 0%, #2a475e 100%);
-  padding: 30px 0;
-}
-.game-header .container {
   display: grid;
-  grid-template-columns: 460px 1fr;
-  gap: 30px;
+  grid-template-columns: 300px 1fr;
+  gap: 2.5rem;
+  align-items: start;
 }
 
-/* 左侧媒体区域 */
-.media-section {
-  background: #000;
-  border-radius: 4px;
+.hero-cover {
+  border-radius: var(--radius);
   overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  aspect-ratio: 3/4;
 }
-.media-tabs {
-  display: flex;
-  background: #1b2838;
-}
-.media-tab {
-  background: transparent;
-  border: none;
-  color: #67c1f5;
-  padding: 10px 20px;
-  cursor: pointer;
-  font-size: 13px;
-  border-bottom: 2px solid transparent;
-}
-.media-tab.active {
-  border-bottom-color: #67c1f5;
-  color: #fff;
-}
-.media-player {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 16/9;
-  background: #000;
-}
-.media-player video,
-.media-player img {
+
+.hero-cover img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
+
+.hero-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding-top: 0.5rem;
+}
+
+.hero-info h1 {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.hero-info .en-name {
+  font-size: 1.125rem;
+  color: var(--text-secondary);
+  font-weight: 400;
+}
+
+.meta-tags {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.meta-tag {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  padding: 0.375rem 0.75rem;
+  border-radius: 8px;
+  background: #f3f4f6;
+  color: var(--text-secondary);
+}
+
+.meta-tag.score {
+  background: var(--accent-light);
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.meta-tag.year {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.info-row {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.info-item .label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+}
+
+.info-item .value {
+  font-size: 0.9375rem;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.hero-desc {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+  max-width: 640px;
+}
+
+/* 媒体区域 */
+.media-section {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 2rem;
+}
+
+.media-tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.media-tab {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  padding: 0.5rem 1.25rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.media-tab:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.media-tab.active {
+  background: var(--accent);
+  color: white;
+  border-color: var(--accent);
+}
+
+.media-player {
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: #000;
+  aspect-ratio: 16/9;
+}
+
+.media-player video,
+.media-player img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
 .screenshots-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 4px;
-  padding: 4px;
-  background: #1b2838;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 0.75rem;
 }
+
 .screenshots-grid img {
   width: 100%;
   aspect-ratio: 16/9;
   object-fit: cover;
+  border-radius: 8px;
   cursor: pointer;
-  transition: opacity 0.2s;
-}
-.screenshots-grid img:hover {
-  opacity: 0.8;
+  transition: all 0.2s;
+  border: 1px solid var(--border);
 }
 
-/* 右侧信息面板 */
-.game-info {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-.game-title {
-  font-size: 32px;
-  font-weight: 300;
-  color: #fff;
-}
-.game-subtitle {
-  font-size: 14px;
-  color: #8f98a0;
-}
-.game-meta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-.meta-item {
-  background: rgba(0,0,0,0.3);
-  padding: 6px 12px;
-  border-radius: 3px;
-  font-size: 13px;
-  color: #c7d5e0;
-}
-.meta-item.score {
-  background: #66c0f4;
-  color: #1b2838;
-  font-weight: 600;
-}
-.info-block {
-  background: rgba(0,0,0,0.2);
-  padding: 12px;
-  border-radius: 4px;
-}
-.info-block .label {
-  font-size: 11px;
-  color: #8f98a0;
-  text-transform: uppercase;
-  margin-bottom: 4px;
-}
-.info-block .value {
-  font-size: 14px;
-  color: #67c1f5;
-}
-.game-desc {
-  font-size: 14px;
-  color: #acb2b8;
-  line-height: 1.7;
+.screenshots-grid img:hover {
+  transform: scale(1.02);
+  box-shadow: var(--shadow);
 }
 
 /* 内容区域 */
 .content-section {
-  background: #1b2838;
-  padding: 30px 0;
-}
-.content-block {
-  background: rgba(0,0,0,0.3);
-  padding: 24px;
-  border-radius: 4px;
-}
-.content-block h2 {
-  color: #fff;
-  font-size: 20px;
-  margin-bottom: 16px;
-  padding-bottom: 12px;
-  border-bottom: 1px solid #2a475e;
-}
-.content-block p {
-  color: #acb2b8;
-  font-size: 14px;
-  line-height: 1.8;
-  margin-bottom: 12px;
-}
-.content-block h2.bb_tag {
-  color: #67c1f5;
-  font-size: 16px;
-  margin: 20px 0 10px 0;
-  border-bottom: none;
-  padding-bottom: 0;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem 2rem;
 }
 
-/* Steam 内嵌媒体约束 */
+.content-block {
+  background: var(--surface);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.content-block h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.content-block p {
+  color: var(--text-secondary);
+  font-size: 0.9375rem;
+  line-height: 1.75;
+  margin-bottom: 0.75rem;
+}
+
+.content-block h2.bb_tag {
+  font-size: 1.125rem;
+  color: var(--accent);
+  margin: 1.5rem 0 0.75rem;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+/* Steam 内嵌媒体 */
 .content-block .bb_img_ctn {
   display: block;
   max-width: 100%;
-  margin: 12px 0;
+  margin: 1rem 0;
   overflow: hidden;
+  border-radius: 8px;
   background: #000;
 }
+
 .content-block .bb_img {
   max-width: 100% !important;
   width: 100% !important;
   height: auto !important;
   display: block;
-  border-radius: 4px;
+  border-radius: 8px;
 }
+
 .content-block video.bb_img {
   width: 100% !important;
   height: auto !important;
@@ -227,86 +306,125 @@ body {
 
 /* 下载区域 */
 .download-section {
-  background: #1b2838;
-  padding: 30px 0;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem 2rem;
 }
+
 .download-block {
-  background: rgba(0,0,0,0.3);
-  padding: 24px;
-  border-radius: 4px;
+  background: var(--surface);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  padding: 2rem;
 }
+
 .download-block h2 {
-  color: #fff;
-  font-size: 20px;
-  margin-bottom: 16px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
 }
+
 .download-buttons {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 0.75rem;
 }
+
 .download-btn {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 12px 24px;
-  border-radius: 4px;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 10px;
   text-decoration: none;
   color: #fff;
-  font-size: 14px;
+  font-size: 0.9375rem;
   font-weight: 500;
   transition: all 0.2s;
+  box-shadow: var(--shadow-sm);
 }
+
 .download-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  box-shadow: var(--shadow);
 }
+
 .download-btn.gamer520 { background: linear-gradient(135deg, #10b981, #059669); }
 .download-btn.x6d { background: linear-gradient(135deg, #3b82f6, #2563eb); }
-.download-btn.magnet { background: linear-gradient(135deg, #ef4444, #dc2626); }
-.download-btn.fitgirl { background: linear-gradient(135deg, #f59e0b, #d97706); }
+.download-btn.magnet { background: linear-gradient(135deg, #f59e0b, #d97706); }
+.download-btn.fitgirl { background: linear-gradient(135deg, #8b5cf6, #7c3aed); }
 .download-btn.tianyi { background: linear-gradient(135deg, #6366f1, #4f46e5); }
-.download-btn.baidu { background: linear-gradient(135deg, #2563eb, #1d4ed8); }
+.download-btn.baidu { background: linear-gradient(135deg, #06b6d4, #0891b2); }
+.download-btn.crotorrents { background: linear-gradient(135deg, #ec4899, #db2777); }
 
 /* 系统需求 */
 .sys-req {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20px;
+  gap: 2rem;
 }
+
 .sys-req-col h4 {
-  color: #67c1f5;
-  font-size: 14px;
-  margin-bottom: 12px;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 1rem;
 }
+
 .sys-req-col ul {
   list-style: none;
-  margin: 0;
 }
+
 .sys-req-col li {
-  font-size: 13px;
-  color: #acb2b8;
-  margin-bottom: 8px;
-  padding-left: 16px;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+  padding-left: 1.25rem;
   position: relative;
+  line-height: 1.6;
 }
+
 .sys-req-col li:before {
   content: "•";
   position: absolute;
   left: 0;
-  color: #67c1f5;
+  color: var(--accent);
+  font-weight: bold;
 }
 
 /* 响应式 */
 @media (max-width: 900px) {
-  .game-header .container {
+  .hero .container {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
-  .media-section {
-    max-width: 100%;
+  .hero-cover {
+    max-width: 280px;
+    margin: 0 auto;
+  }
+  .hero-info h1 {
+    font-size: 1.75rem;
   }
   .sys-req {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero {
+    padding: 1.5rem 1rem;
+  }
+  .media-section,
+  .content-section,
+  .download-section {
+    padding: 0 1rem 1.5rem;
+  }
+  .content-block,
+  .download-block {
+    padding: 1.5rem;
   }
 }
 </style>
@@ -314,104 +432,107 @@ body {
 <body>
 
 <!-- 顶部导航 -->
-<nav class="top-nav">
-  <div class="container">
-    <div class="breadcrumb">
-      <a href="../../index.html">← 返回游戏榜单</a>
-    </div>
-    <a href="https://store.steampowered.com/app/1888930/" target="_blank" class="back-link">Steam 商店页 →</a>
-  </div>
+<nav class="topbar">
+  <a href="../../index.html">← 返回游戏榜单</a>
+  <a href="https://store.steampowered.com/app/1888930/" target="_blank">Steam 商店页 →</a>
 </nav>
 
 <!-- 游戏头部 -->
-<section class="game-header">
+<section class="hero">
   <div class="container">
-    <!-- 左侧媒体区域 -->
-    <div class="media-section">
-      <div class="media-tabs">
-        
-        <button class="media-tab active" onclick="showScreenshots()">截图</button>
-      </div>
-      
-      
-      
-      
-      <div id="screenshots-container" class="screenshots-grid" 
+    <div class="hero-cover">
+      <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1888930/library_600x900.jpg" alt="最后生还者 第一部">
     </div>
-    
-    <!-- 右侧信息面板 -->
-    <div class="game-info">
-      <h1 class="game-title">最后生还者 第一部</h1>
-      <div class="game-subtitle">The Last of Us Part I</div>
+    <div class="hero-info">
+      <h1>最后生还者 第一部</h1>
+      <div class="en-name">The Last of Us Part I</div>
       
-      <div class="game-meta">
-        <div class="meta-item">2023 年 3 月 28 日</div>
-        <div class="meta-item">动作, 冒险</div>
-        <div class="meta-item score">评分 95</div>
+      <div class="meta-tags">
+        <span class="meta-tag year">2023 年 3 月 28 日</span>
+        <span class="meta-tag">动作, 冒险</span>
+        <span class="meta-tag score">⭐ 95</span>
       </div>
       
-      
-      <div class="info-block">
-        <div class="label">开发者</div>
-        <div class="value">Naughty Dog LLC, Iron Galaxy Studios</div>
+      <div class="info-row">
+        <div class="info-item">
+          <span class="label">开发者</span>
+          <span class="value">Naughty Dog LLC, Iron Galaxy Studios</span>
+        </div>
+        <div class="info-item">
+          <span class="label">发行商</span>
+          <span class="value">PlayStation Publishing LLC</span>
+        </div>
       </div>
       
-      
-      
-      <div class="info-block">
-        <div class="label">发行商</div>
-        <div class="value">PlayStation Publishing LLC</div>
-      </div>
-      
-      
-      
-      <div class="game-desc">
+      <div class="hero-desc">
         探索广受赞誉的游戏《The Last of Us™》，以这款游戏为灵感的同名电视剧同样大获好评。带领乔尔和艾莉穿越末日后的美国，遇见令人难忘的盟友和敌人，踏上一段充满挑战的旅程。
       </div>
-      
     </div>
+  </div>
+</section>
+
+<!-- 媒体区域 -->
+<section class="media-section">
+  <div class="media-tabs">
+    <button class="media-tab active" onclick="showVideo()">▶ 视频</button>
+    <button class="media-tab" onclick="showScreenshots()">🖼 截图</button>
+  </div>
+  
+  <div id="video-container" class="media-player">
+    
+  </div>
+  
+  <div id="screenshots-container" class="screenshots-grid" style="display:none;">
+    <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1888930/ss_3f1805ecddafacee7f61f87cb8e4624435a83ee3.1920x1080.jpg?t=1750959031" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1888930/ss_89fffc2857dcae29dee2a09f1be33d745610e19d.1920x1080.jpg?t=1750959031" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1888930/ss_8cd55ab975b2e47f4d4d9a0da4ae6948040ef807.1920x1080.jpg?t=1750959031" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1888930/ss_f4829000d3677a9b5b2f234482a7deff12b31ac9.1920x1080.jpg?t=1750959031" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1888930/ss_3bed642215856b863799884f6f11671a1ef014d4.1920x1080.jpg?t=1750959031" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1888930/ss_a80060b89b2c81121c2d7a3fc2a3b13ddc18a0a6.1920x1080.jpg?t=1750959031" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1888930/ss_412d9b0e95b40f3111b5b7d830c4bf6354ed42a6.1920x1080.jpg?t=1750959031" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1888930/ss_98b476104b239764ba2a3280b1a9e09a24701041.1920x1080.jpg?t=1750959031" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1888930/ss_1fdb892568d2ea8e8df9810c43e3b4dba8996a51.1920x1080.jpg?t=1750959031" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1888930/ss_4b82b51ca2d09c971d73ec464a3cb5e7b3e04716.1920x1080.jpg?t=1750959031" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1888930/ss_c2853eee7ca824c42e008e83f3f45ad42d9e8547.1920x1080.jpg?t=1750959031" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1888930/ss_abc373417afe2172ddf7b6d91442a14366a46975.1920x1080.jpg?t=1750959031" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1888930/ss_0330e4473e70f6c0850f38204d712d5aa66e6223.1920x1080.jpg?t=1750959031" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1888930/ss_ec1a71230d4fb477282fa7f25688af37b702ce49.1920x1080.jpg?t=1750959031" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1888930/ss_ea8b45bb65d05fafa911387df16399ead11e6878.1920x1080.jpg?t=1750959031" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1888930/ss_1d4757f62cb17a674f451ab18136a87fe5959ad5.1920x1080.jpg?t=1750959031" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1888930/ss_5d7cf9e0857d10924def80a1bb0ce8f5f8da1b02.1920x1080.jpg?t=1750959031" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1888930/ss_3ee73e4d741ba90d9bbabaae105c3e6d2e7941a3.1920x1080.jpg?t=1750959031" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1888930/ss_e67d2ca76b0c8985a3615afb38c21e893df73272.1920x1080.jpg?t=1750959031" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1888930/ss_56a85dbf963bda77e1f9e7aefebbed025f33e6f3.1920x1080.jpg?t=1750959031" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1888930/ss_32792cba98a3e8e807d1fdcd835202f46e2999c2.1920x1080.jpg?t=1750959031" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1888930/ss_4a74a42ccfbaa370b38df2526719c7eaa173a0f5.1920x1080.jpg?t=1750959031" alt="Screenshot" onclick="window.open(this.src)">
   </div>
 </section>
 
 <!-- 关于此游戏 -->
-
 <section class="content-section">
-  <div class="container">
-    <div class="content-block">
-      <h2>关于此游戏</h2>
-      <div><p class="bb_paragraph" >进入《The Last of Us™》，在这款荣获 200 余项 TGA 大奖的游戏中，体验那段动人心弦的故事，见证角色们的命运。</p><p class="bb_paragraph" ><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1888930/extras/2651badcd48ee3c8d38a0d45fbfc8759.poster.avif?t=1750959031" width=616 height=348 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1888930/extras/2651badcd48ee3c8d38a0d45fbfc8759.webm?t=1750959031" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1888930/extras/2651badcd48ee3c8d38a0d45fbfc8759.mp4?t=1750959031" type="video/mp4"></video></span></p><p class="bb_paragraph" > 人类文明风雨飘摇，感染者与人类幸存者横行各地。故事的主人公，饱经风霜的乔尔，受雇将 14 岁的艾莉“走私”到军事隔离区外。然而，这份看似平常的差事，最终竟成了一场艰难曲折的横跨美国之旅。 </p><p class="bb_paragraph" ><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1888930/extras/06a30ee4620fdb50bd2acf67e4e62b80.poster.avif?t=1750959031" width=616 height=348 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1888930/extras/06a30ee4620fdb50bd2acf67e4e62b80.webm?t=1750959031" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1888930/extras/06a30ee4620fdb50bd2acf67e4e62b80.mp4?t=1750959031" type="video/mp4"></video></span>游戏包含《The Last of Us™》单人模式剧情，以及游戏前传《Left Behind》。在该前传中，你将体验那段改变了艾莉与挚友莱莉命运的往事。 </p><h2 class="bb_tag" >专为 PC 端而制</h2><p class="bb_paragraph" >《The Last of Us™ Part I》PC 版将携大量 PC 版专属特色登场，生动呈现乔尔和艾利险象环生、令人难忘的旅程。《The Last of Us Part I》PC 版专为 PC 端进行了优化，针对 PC 端让游玩体验大大提升。游戏将支持 AMD FSR 2.2 技术和 Nvidia DLSS Super Resolution* 技术，可以设置垂直同步和帧率上限，并加入了一系列专为 PC 端而设的功能，包括可调节材质质量、阴影、反射效果、环境光遮蔽等等。 </p><p class="bb_paragraph" ><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1888930/extras/a44c3d3db9536241bbc5322a5dc3905d.poster.avif?t=1750959031" width=616 height=348 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1888930/extras/a44c3d3db9536241bbc5322a5dc3905d.webm?t=1750959031" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1888930/extras/a44c3d3db9536241bbc5322a5dc3905d.mp4?t=1750959031" type="video/mp4"></video></span></p><p class="bb_paragraph" >在乔尔和艾莉整个冒险旅途中，PC 端玩家将享受真正的 4K 分辨率所呈现的精细入微画面，让自己全然沉浸于一个风景如画却危机四伏的世界**。从波士顿隔离区环境恶劣压抑的街道，到比尔的小镇杂草丛生、颓败萧索的居所，踏上横跨整个美国的奇妙之旅。玩家可以使用屏幕高宽比为 21:9 超宽和 32:9 终极超宽的显示器，尊享豪华体验。</p><p class="bb_paragraph" ><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1888930/extras/2a2c8fddb06366d7e88150d0e5936e70.poster.avif?t=1750959031" width=616 height=346 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1888930/extras/2a2c8fddb06366d7e88150d0e5936e70.webm?t=1750959031" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1888930/extras/2a2c8fddb06366d7e88150d0e5936e70.mp4?t=1750959031" type="video/mp4"></video></span></p><p class="bb_paragraph" >探索各个区域，藏踪蹑迹地穿行于荒凉的房屋和城市（搜索抽屉和橱柜，寻找补给），或加入扣人心弦的战斗，在 3D 音效的支持下更准确地辨识树叶摩挲和玻璃碎裂的声响，以及敌人企图靠近时的脚步声***。</p><p class="bb_paragraph" ><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1888930/extras/f057db38ff2a0c0b86256dada2146e48.poster.avif?t=1750959031" width=616 height=348 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1888930/extras/f057db38ff2a0c0b86256dada2146e48.webm?t=1750959031" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1888930/extras/f057db38ff2a0c0b86256dada2146e48.mp4?t=1750959031" type="video/mp4"></video></span></p><h2 class="bb_tag" >AMD Fidelity FX Super Resolution 2</h2><p class="bb_paragraph" >利用 AMD 尖端的时间放大技术，在您化身乔尔和艾莉为生存而战时提升帧率。FSR 2 使用先进的算法来提升帧率并在多种兼容图形卡中提供高质量、高分辨率的《The Last of Us Part I》游戏体验。</p><p class="bb_paragraph" ><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1888930/extras/cf7743ead8a881d277dbafbb80cff1db.poster.avif?t=1750959031" width=616 height=348 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1888930/extras/cf7743ead8a881d277dbafbb80cff1db.webm?t=1750959031" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1888930/extras/cf7743ead8a881d277dbafbb80cff1db.mp4?t=1750959031" type="video/mp4"></video></span></p><h2 class="bb_tag" >周边配套</h2><p class="bb_paragraph" >《The Last of Us Part I》PC 版支持 DualSense 控制器有线连接。通过触觉反馈和动态自适应扳机，玩家将切身体会富有冲击力的战斗和坦克从身旁“隆隆”驶过的震撼。游戏还支持 DualShock 4 和其他各种控制器，支持键盘鼠标操作，玩家可根据自己的偏好选择游玩模式。PC 版新添了许多全新控制自定义选项，包括完全控制重映射，键盘和鼠标控制主、次要按键绑定，还允许玩家使用自适应模式，结合使用键盘和控制器。PC 版还将保留《The Last of Us Part I》的一系列无障碍功能，玩家可以自行调节，满足自己的需求和偏好。 </p><p class="bb_paragraph" ><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1888930/extras/6cb21f74fb8cab941963dbcd9d214049.avif?t=1750959031" data-big-src=https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1888930/extras_big/6cb21f74fb8cab941963dbcd9d214049.avif?t=1750959031 width=800 height=450 /></span></p><p class="bb_paragraph" ><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1888930/extras/9a7a93a3cc74be99ed4144de2b8a4dc5.avif?t=1750959031" data-big-src=https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1888930/extras_big/9a7a93a3cc74be99ed4144de2b8a4dc5.avif?t=1750959031 width=800 height=450 /></span></p><p class="bb_paragraph" >* 需要兼容的 PC 与显卡方可开启图像增强。<br>** 需要兼容的 Pc、显卡和 4K 显示设备方可开启图像增强。 <br>*** 需要立体声耳机或兼容的扬声器方可开启 3D 音效模式。</p></div>
-    </div>
+  <div class="content-block">
+    <h2>关于此游戏</h2>
+    <div><p class="bb_paragraph" >进入《The Last of Us™》，在这款荣获 200 余项 TGA 大奖的游戏中，体验那段动人心弦的故事，见证角色们的命运。</p><p class="bb_paragraph" ><span class="bb_img_ctn"><video controls class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1888930/extras/2651badcd48ee3c8d38a0d45fbfc8759.poster.avif?t=1750959031" ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1888930/extras/2651badcd48ee3c8d38a0d45fbfc8759.webm?t=1750959031" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1888930/extras/2651badcd48ee3c8d38a0d45fbfc8759.mp4?t=1750959031" type="video/mp4"></video></span></p><p class="bb_paragraph" > 人类文明风雨飘摇，感染者与人类幸存者横行各地。故事的主人公，饱经风霜的乔尔，受雇将 14 岁的艾莉“走私”到军事隔离区外。然而，这份看似平常的差事，最终竟成了一场艰难曲折的横跨美国之旅。 </p><p class="bb_paragraph" ><span class="bb_img_ctn"><video controls class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1888930/extras/06a30ee4620fdb50bd2acf67e4e62b80.poster.avif?t=1750959031" ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1888930/extras/06a30ee4620fdb50bd2acf67e4e62b80.webm?t=1750959031" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1888930/extras/06a30ee4620fdb50bd2acf67e4e62b80.mp4?t=1750959031" type="video/mp4"></video></span>游戏包含《The Last of Us™》单人模式剧情，以及游戏前传《Left Behind》。在该前传中，你将体验那段改变了艾莉与挚友莱莉命运的往事。 </p><h2 class="bb_tag" >专为 PC 端而制</h2><p class="bb_paragraph" >《The Last of Us™ Part I》PC 版将携大量 PC 版专属特色登场，生动呈现乔尔和艾利险象环生、令人难忘的旅程。《The Last of Us Part I》PC 版专为 PC 端进行了优化，针对 PC 端让游玩体验大大提升。游戏将支持 AMD FSR 2.2 技术和 Nvidia DLSS Super Resolution* 技术，可以设置垂直同步和帧率上限，并加入了一系列专为 PC 端而设的功能，包括可调节材质质量、阴影、反射效果、环境光遮蔽等等。 </p><p class="bb_paragraph" ><span class="bb_img_ctn"><video controls class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1888930/extras/a44c3d3db9536241bbc5322a5dc3905d.poster.avif?t=1750959031" ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1888930/extras/a44c3d3db9536241bbc5322a5dc3905d.webm?t=1750959031" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1888930/extras/a44c3d3db9536241bbc5322a5dc3905d.mp4?t=1750959031" type="video/mp4"></video></span></p><p class="bb_paragraph" >在乔尔和艾莉整个冒险旅途中，PC 端玩家将享受真正的 4K 分辨率所呈现的精细入微画面，让自己全然沉浸于一个风景如画却危机四伏的世界**。从波士顿隔离区环境恶劣压抑的街道，到比尔的小镇杂草丛生、颓败萧索的居所，踏上横跨整个美国的奇妙之旅。玩家可以使用屏幕高宽比为 21:9 超宽和 32:9 终极超宽的显示器，尊享豪华体验。</p><p class="bb_paragraph" ><span class="bb_img_ctn"><video controls class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1888930/extras/2a2c8fddb06366d7e88150d0e5936e70.poster.avif?t=1750959031" ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1888930/extras/2a2c8fddb06366d7e88150d0e5936e70.webm?t=1750959031" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1888930/extras/2a2c8fddb06366d7e88150d0e5936e70.mp4?t=1750959031" type="video/mp4"></video></span></p><p class="bb_paragraph" >探索各个区域，藏踪蹑迹地穿行于荒凉的房屋和城市（搜索抽屉和橱柜，寻找补给），或加入扣人心弦的战斗，在 3D 音效的支持下更准确地辨识树叶摩挲和玻璃碎裂的声响，以及敌人企图靠近时的脚步声***。</p><p class="bb_paragraph" ><span class="bb_img_ctn"><video controls class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1888930/extras/f057db38ff2a0c0b86256dada2146e48.poster.avif?t=1750959031" ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1888930/extras/f057db38ff2a0c0b86256dada2146e48.webm?t=1750959031" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1888930/extras/f057db38ff2a0c0b86256dada2146e48.mp4?t=1750959031" type="video/mp4"></video></span></p><h2 class="bb_tag" >AMD Fidelity FX Super Resolution 2</h2><p class="bb_paragraph" >利用 AMD 尖端的时间放大技术，在您化身乔尔和艾莉为生存而战时提升帧率。FSR 2 使用先进的算法来提升帧率并在多种兼容图形卡中提供高质量、高分辨率的《The Last of Us Part I》游戏体验。</p><p class="bb_paragraph" ><span class="bb_img_ctn"><video controls class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1888930/extras/cf7743ead8a881d277dbafbb80cff1db.poster.avif?t=1750959031" ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1888930/extras/cf7743ead8a881d277dbafbb80cff1db.webm?t=1750959031" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1888930/extras/cf7743ead8a881d277dbafbb80cff1db.mp4?t=1750959031" type="video/mp4"></video></span></p><h2 class="bb_tag" >周边配套</h2><p class="bb_paragraph" >《The Last of Us Part I》PC 版支持 DualSense 控制器有线连接。通过触觉反馈和动态自适应扳机，玩家将切身体会富有冲击力的战斗和坦克从身旁“隆隆”驶过的震撼。游戏还支持 DualShock 4 和其他各种控制器，支持键盘鼠标操作，玩家可根据自己的偏好选择游玩模式。PC 版新添了许多全新控制自定义选项，包括完全控制重映射，键盘和鼠标控制主、次要按键绑定，还允许玩家使用自适应模式，结合使用键盘和控制器。PC 版还将保留《The Last of Us Part I》的一系列无障碍功能，玩家可以自行调节，满足自己的需求和偏好。 </p><p class="bb_paragraph" ><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1888930/extras/6cb21f74fb8cab941963dbcd9d214049.avif?t=1750959031" data-big-src=https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1888930/extras_big/6cb21f74fb8cab941963dbcd9d214049.avif?t=1750959031 width=800 height=450 /></span></p><p class="bb_paragraph" ><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1888930/extras/9a7a93a3cc74be99ed4144de2b8a4dc5.avif?t=1750959031" data-big-src=https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1888930/extras_big/9a7a93a3cc74be99ed4144de2b8a4dc5.avif?t=1750959031 width=800 height=450 /></span></p><p class="bb_paragraph" >* 需要兼容的 PC 与显卡方可开启图像增强。<br>** 需要兼容的 Pc、显卡和 4K 显示设备方可开启图像增强。 <br>*** 需要立体声耳机或兼容的扬声器方可开启 3D 音效模式。</p></div>
   </div>
 </section>
 
-
 <!-- 下载区域 -->
 <section class="download-section">
-  <div class="container">
-    <div class="download-block">
-      <h2>📥 下载链接</h2>
-      <div class="download-buttons">
-        <a href="https://www.gamer520.com/85342.html" class="download-btn gamer520" target="_blank">gamer520</a>
+  <div class="download-block">
+    <h2>📥 下载链接</h2>
+    <div class="download-buttons">
+      <a href="https://www.gamer520.com/85342.html" class="download-btn gamer520" target="_blank">gamer520</a>
 <a href="https://www.x6d.com/i-wz-22692.html" class="download-btn x6d" target="_blank">x6d</a>
 
-      </div>
     </div>
   </div>
 </section>
 
 <!-- 系统需求 -->
-
-<section class="content-section">
-  <div class="container">
-    <div class="content-block">
-      <h2>系统需求</h2>
-      <div class="sys-req">
-        <div class="sys-req-col"><h4>最低配置</h4><div><strong>最低配置:</strong><br><ul class="bb_ul"><li>需要 64 位处理器和操作系统<br></li><li><strong>操作系统:</strong> Windows 10 (Version 1909 or Newer)<br></li><li><strong>处理器:</strong> AMD Ryzen 5 1500X, Intel Core i7-4770K<br></li><li><strong>内存:</strong> 16 GB RAM<br></li><li><strong>显卡:</strong> AMD Radeon RX 470 (4 GB), AMD Radeon RX 6500 XT (4 GB), NVIDIA GeForce GTX 970 (4 GB), NVIDIA GeForce GTX 1050 Ti (4 GB)<br></li><li><strong>存储空间:</strong> 需要 100 GB 可用空间<br></li><li><strong>附注事项:</strong> SSD Recommended</li></ul></div></div>
-        <div class="sys-req-col"><h4>推荐配置</h4><div><strong>推荐配置:</strong><br><ul class="bb_ul"><li>需要 64 位处理器和操作系统<br></li><li><strong>操作系统:</strong> Windows 10 (Version 1909 or Newer)<br></li><li><strong>处理器:</strong> AMD Ryzen 5 3600X, Intel Core i7-8700<br></li><li><strong>内存:</strong> 16 GB RAM<br></li><li><strong>显卡:</strong> AMD Radeon RX 5700 XT (8 GB), AMD Radeon RX 6600 XT (8 GB), NVIDIA GeForce RTX 2070 SUPER (8 GB), NVIDIA GeForce RTX 3060 (8 GB)<br></li><li><strong>存储空间:</strong> 需要 100 GB 可用空间<br></li><li><strong>附注事项:</strong> SSD Recommended</li></ul></div></div>
-      </div>
-    </div>
-  </div>
-</section>
+<section class="content-section"><div class="content-block"><h2>系统需求</h2><div class="sys-req">
+<div class="sys-req-col"><h4>最低配置</h4><ul><strong>最低配置:</strong><br><ul class="bb_ul"><li>需要 64 位处理器和操作系统<br></li><li><strong>操作系统:</strong> Windows 10 (Version 1909 or Newer)<br></li><li><strong>处理器:</strong> AMD Ryzen 5 1500X, Intel Core i7-4770K<br></li><li><strong>内存:</strong> 16 GB RAM<br></li><li><strong>显卡:</strong> AMD Radeon RX 470 (4 GB), AMD Radeon RX 6500 XT (4 GB), NVIDIA GeForce GTX 970 (4 GB), NVIDIA GeForce GTX 1050 Ti (4 GB)<br></li><li><strong>存储空间:</strong> 需要 100 GB 可用空间<br></li><li><strong>附注事项:</strong> SSD Recommended</li></ul></ul></div>
+<div class="sys-req-col"><h4>推荐配置</h4><ul><strong>推荐配置:</strong><br><ul class="bb_ul"><li>需要 64 位处理器和操作系统<br></li><li><strong>操作系统:</strong> Windows 10 (Version 1909 or Newer)<br></li><li><strong>处理器:</strong> AMD Ryzen 5 3600X, Intel Core i7-8700<br></li><li><strong>内存:</strong> 16 GB RAM<br></li><li><strong>显卡:</strong> AMD Radeon RX 5700 XT (8 GB), AMD Radeon RX 6600 XT (8 GB), NVIDIA GeForce RTX 2070 SUPER (8 GB), NVIDIA GeForce RTX 3060 (8 GB)<br></li><li><strong>存储空间:</strong> 需要 100 GB 可用空间<br></li><li><strong>附注事项:</strong> SSD Recommended</li></ul></ul></div>
+</div></div></section>
 
 <script>
 function showVideo() {
@@ -422,8 +543,8 @@ function showVideo() {
 }
 
 function showScreenshots() {
-  const videoContainer = document.getElementById('video-container');
-  if (videoContainer) videoContainer.style.display = 'none';
+  const vc = document.getElementById('video-container');
+  if (vc) vc.style.display = 'none';
   document.getElementById('screenshots-container').style.display = 'grid';
   document.querySelectorAll('.media-tab').forEach(t => t.classList.remove('active'));
   event.target.classList.add('active');

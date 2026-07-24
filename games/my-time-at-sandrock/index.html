@@ -5,218 +5,297 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>沙石镇时光 - 游戏详情</title>
 <style>
+:root {
+  --bg: #fafbfc;
+  --surface: #ffffff;
+  --border: #e5e7eb;
+  --text-primary: #111827;
+  --text-secondary: #6b7280;
+  --text-muted: #9ca3af;
+  --accent: #3b82f6;
+  --accent-light: #dbeafe;
+  --success: #10b981;
+  --warning: #f59e0b;
+  --radius: 12px;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
+  --shadow: 0 4px 12px rgba(0,0,0,0.06);
+  --shadow-lg: 0 8px 24px rgba(0,0,0,0.08);
+}
+
 * { margin: 0; padding: 0; box-sizing: border-box; }
+
 body {
-  font-family: "Microsoft YaHei", "Segoe UI", sans-serif;
-  background: #1b2838;
-  color: #c7d5e0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text-primary);
   line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
 }
 
 /* 顶部导航 */
-.top-nav {
-  background: #171a21;
-  padding: 8px 0;
-  border-bottom: 1px solid #000;
-}
-.top-nav .container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
+.topbar {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 0.75rem 2rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-}
-.breadcrumb {
-  font-size: 12px;
-  color: #666;
-}
-.breadcrumb a {
-  color: #666;
-  text-decoration: none;
-}
-.breadcrumb a:hover {
-  color: #fff;
-}
-.back-link {
-  color: #67c1f5;
-  text-decoration: none;
-  font-size: 13px;
-}
-.back-link:hover {
-  color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
-/* 主容器 */
-.container {
+.topbar a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: all 0.2s;
+}
+
+.topbar a:hover {
+  background: var(--accent-light);
+  color: var(--accent);
+}
+
+/* 游戏头部 */
+.hero {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 2rem;
+}
+
+.hero .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
-}
-
-/* 游戏头部 - Steam风格左右布局 */
-.game-header {
-  background: linear-gradient(180deg, #1b2838 0%, #2a475e 100%);
-  padding: 30px 0;
-}
-.game-header .container {
   display: grid;
-  grid-template-columns: 460px 1fr;
-  gap: 30px;
+  grid-template-columns: 300px 1fr;
+  gap: 2.5rem;
+  align-items: start;
 }
 
-/* 左侧媒体区域 */
-.media-section {
-  background: #000;
-  border-radius: 4px;
+.hero-cover {
+  border-radius: var(--radius);
   overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  aspect-ratio: 3/4;
 }
-.media-tabs {
-  display: flex;
-  background: #1b2838;
-}
-.media-tab {
-  background: transparent;
-  border: none;
-  color: #67c1f5;
-  padding: 10px 20px;
-  cursor: pointer;
-  font-size: 13px;
-  border-bottom: 2px solid transparent;
-}
-.media-tab.active {
-  border-bottom-color: #67c1f5;
-  color: #fff;
-}
-.media-player {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 16/9;
-  background: #000;
-}
-.media-player video,
-.media-player img {
+
+.hero-cover img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
+
+.hero-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding-top: 0.5rem;
+}
+
+.hero-info h1 {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.hero-info .en-name {
+  font-size: 1.125rem;
+  color: var(--text-secondary);
+  font-weight: 400;
+}
+
+.meta-tags {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.meta-tag {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  padding: 0.375rem 0.75rem;
+  border-radius: 8px;
+  background: #f3f4f6;
+  color: var(--text-secondary);
+}
+
+.meta-tag.score {
+  background: var(--accent-light);
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.meta-tag.year {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.info-row {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.info-item .label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+}
+
+.info-item .value {
+  font-size: 0.9375rem;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.hero-desc {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+  max-width: 640px;
+}
+
+/* 媒体区域 */
+.media-section {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 2rem;
+}
+
+.media-tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.media-tab {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  padding: 0.5rem 1.25rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.media-tab:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.media-tab.active {
+  background: var(--accent);
+  color: white;
+  border-color: var(--accent);
+}
+
+.media-player {
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: #000;
+  aspect-ratio: 16/9;
+}
+
+.media-player video,
+.media-player img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
 .screenshots-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 4px;
-  padding: 4px;
-  background: #1b2838;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 0.75rem;
 }
+
 .screenshots-grid img {
   width: 100%;
   aspect-ratio: 16/9;
   object-fit: cover;
+  border-radius: 8px;
   cursor: pointer;
-  transition: opacity 0.2s;
-}
-.screenshots-grid img:hover {
-  opacity: 0.8;
+  transition: all 0.2s;
+  border: 1px solid var(--border);
 }
 
-/* 右侧信息面板 */
-.game-info {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-.game-title {
-  font-size: 32px;
-  font-weight: 300;
-  color: #fff;
-}
-.game-subtitle {
-  font-size: 14px;
-  color: #8f98a0;
-}
-.game-meta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-.meta-item {
-  background: rgba(0,0,0,0.3);
-  padding: 6px 12px;
-  border-radius: 3px;
-  font-size: 13px;
-  color: #c7d5e0;
-}
-.meta-item.score {
-  background: #66c0f4;
-  color: #1b2838;
-  font-weight: 600;
-}
-.info-block {
-  background: rgba(0,0,0,0.2);
-  padding: 12px;
-  border-radius: 4px;
-}
-.info-block .label {
-  font-size: 11px;
-  color: #8f98a0;
-  text-transform: uppercase;
-  margin-bottom: 4px;
-}
-.info-block .value {
-  font-size: 14px;
-  color: #67c1f5;
-}
-.game-desc {
-  font-size: 14px;
-  color: #acb2b8;
-  line-height: 1.7;
+.screenshots-grid img:hover {
+  transform: scale(1.02);
+  box-shadow: var(--shadow);
 }
 
 /* 内容区域 */
 .content-section {
-  background: #1b2838;
-  padding: 30px 0;
-}
-.content-block {
-  background: rgba(0,0,0,0.3);
-  padding: 24px;
-  border-radius: 4px;
-}
-.content-block h2 {
-  color: #fff;
-  font-size: 20px;
-  margin-bottom: 16px;
-  padding-bottom: 12px;
-  border-bottom: 1px solid #2a475e;
-}
-.content-block p {
-  color: #acb2b8;
-  font-size: 14px;
-  line-height: 1.8;
-  margin-bottom: 12px;
-}
-.content-block h2.bb_tag {
-  color: #67c1f5;
-  font-size: 16px;
-  margin: 20px 0 10px 0;
-  border-bottom: none;
-  padding-bottom: 0;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem 2rem;
 }
 
-/* Steam 内嵌媒体约束 */
+.content-block {
+  background: var(--surface);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.content-block h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.content-block p {
+  color: var(--text-secondary);
+  font-size: 0.9375rem;
+  line-height: 1.75;
+  margin-bottom: 0.75rem;
+}
+
+.content-block h2.bb_tag {
+  font-size: 1.125rem;
+  color: var(--accent);
+  margin: 1.5rem 0 0.75rem;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+/* Steam 内嵌媒体 */
 .content-block .bb_img_ctn {
   display: block;
   max-width: 100%;
-  margin: 12px 0;
+  margin: 1rem 0;
   overflow: hidden;
+  border-radius: 8px;
   background: #000;
 }
+
 .content-block .bb_img {
   max-width: 100% !important;
   width: 100% !important;
   height: auto !important;
   display: block;
-  border-radius: 4px;
+  border-radius: 8px;
 }
+
 .content-block video.bb_img {
   width: 100% !important;
   height: auto !important;
@@ -227,86 +306,125 @@ body {
 
 /* 下载区域 */
 .download-section {
-  background: #1b2838;
-  padding: 30px 0;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem 2rem;
 }
+
 .download-block {
-  background: rgba(0,0,0,0.3);
-  padding: 24px;
-  border-radius: 4px;
+  background: var(--surface);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  padding: 2rem;
 }
+
 .download-block h2 {
-  color: #fff;
-  font-size: 20px;
-  margin-bottom: 16px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
 }
+
 .download-buttons {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 0.75rem;
 }
+
 .download-btn {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 12px 24px;
-  border-radius: 4px;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 10px;
   text-decoration: none;
   color: #fff;
-  font-size: 14px;
+  font-size: 0.9375rem;
   font-weight: 500;
   transition: all 0.2s;
+  box-shadow: var(--shadow-sm);
 }
+
 .download-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  box-shadow: var(--shadow);
 }
+
 .download-btn.gamer520 { background: linear-gradient(135deg, #10b981, #059669); }
 .download-btn.x6d { background: linear-gradient(135deg, #3b82f6, #2563eb); }
-.download-btn.magnet { background: linear-gradient(135deg, #ef4444, #dc2626); }
-.download-btn.fitgirl { background: linear-gradient(135deg, #f59e0b, #d97706); }
+.download-btn.magnet { background: linear-gradient(135deg, #f59e0b, #d97706); }
+.download-btn.fitgirl { background: linear-gradient(135deg, #8b5cf6, #7c3aed); }
 .download-btn.tianyi { background: linear-gradient(135deg, #6366f1, #4f46e5); }
-.download-btn.baidu { background: linear-gradient(135deg, #2563eb, #1d4ed8); }
+.download-btn.baidu { background: linear-gradient(135deg, #06b6d4, #0891b2); }
+.download-btn.crotorrents { background: linear-gradient(135deg, #ec4899, #db2777); }
 
 /* 系统需求 */
 .sys-req {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20px;
+  gap: 2rem;
 }
+
 .sys-req-col h4 {
-  color: #67c1f5;
-  font-size: 14px;
-  margin-bottom: 12px;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 1rem;
 }
+
 .sys-req-col ul {
   list-style: none;
-  margin: 0;
 }
+
 .sys-req-col li {
-  font-size: 13px;
-  color: #acb2b8;
-  margin-bottom: 8px;
-  padding-left: 16px;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+  padding-left: 1.25rem;
   position: relative;
+  line-height: 1.6;
 }
+
 .sys-req-col li:before {
   content: "•";
   position: absolute;
   left: 0;
-  color: #67c1f5;
+  color: var(--accent);
+  font-weight: bold;
 }
 
 /* 响应式 */
 @media (max-width: 900px) {
-  .game-header .container {
+  .hero .container {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
-  .media-section {
-    max-width: 100%;
+  .hero-cover {
+    max-width: 280px;
+    margin: 0 auto;
+  }
+  .hero-info h1 {
+    font-size: 1.75rem;
   }
   .sys-req {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero {
+    padding: 1.5rem 1rem;
+  }
+  .media-section,
+  .content-section,
+  .download-section {
+    padding: 0 1rem 1.5rem;
+  }
+  .content-block,
+  .download-block {
+    padding: 1.5rem;
   }
 }
 </style>
@@ -314,105 +432,99 @@ body {
 <body>
 
 <!-- 顶部导航 -->
-<nav class="top-nav">
-  <div class="container">
-    <div class="breadcrumb">
-      <a href="../../index.html">← 返回游戏榜单</a>
-    </div>
-    <a href="https://store.steampowered.com/app/1084600/" target="_blank" class="back-link">Steam 商店页 →</a>
-  </div>
+<nav class="topbar">
+  <a href="../../index.html">← 返回游戏榜单</a>
+  <a href="https://store.steampowered.com/app/1084600/" target="_blank">Steam 商店页 →</a>
 </nav>
 
 <!-- 游戏头部 -->
-<section class="game-header">
+<section class="hero">
   <div class="container">
-    <!-- 左侧媒体区域 -->
-    <div class="media-section">
-      <div class="media-tabs">
-        
-        <button class="media-tab active" onclick="showScreenshots()">截图</button>
-      </div>
-      
-      
-      
-      
-      <div id="screenshots-container" class="screenshots-grid" 
+    <div class="hero-cover">
+      <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/library_600x900.jpg" alt="沙石镇时光">
     </div>
-    
-    <!-- 右侧信息面板 -->
-    <div class="game-info">
-      <h1 class="game-title">沙石镇时光</h1>
-      <div class="game-subtitle">My Time at Sandrock</div>
+    <div class="hero-info">
+      <h1>沙石镇时光</h1>
+      <div class="en-name">My Time at Sandrock</div>
       
-      <div class="game-meta">
-        <div class="meta-item">2023 年 11 月 2 日</div>
-        <div class="meta-item">冒险, 休闲, 独立, 角色扮演, 模拟</div>
-        <div class="meta-item score">评分 80</div>
+      <div class="meta-tags">
+        <span class="meta-tag year">2023 年 11 月 2 日</span>
+        <span class="meta-tag">冒险, 休闲, 独立, 角色扮演, 模拟</span>
+        <span class="meta-tag score">⭐ 80</span>
       </div>
       
-      
-      <div class="info-block">
-        <div class="label">开发者</div>
-        <div class="value">Pathea Games</div>
+      <div class="info-row">
+        <div class="info-item">
+          <span class="label">开发者</span>
+          <span class="value">Pathea Games</span>
+        </div>
+        <div class="info-item">
+          <span class="label">发行商</span>
+          <span class="value">Pathea Games, Focus Entertainment, PM Studios, Inc., DMM Games</span>
+        </div>
       </div>
       
-      
-      
-      <div class="info-block">
-        <div class="label">发行商</div>
-        <div class="value">Pathea Games, Focus Entertainment, PM Studios, Inc., DMM Games</div>
-      </div>
-      
-      
-      
-      <div class="game-desc">
+      <div class="hero-desc">
         荒漠小镇沙石镇诚挚欢迎新工坊主。你可以在这里使用工具收集资源，建造各种设备，并将你破旧的工坊扩建成美好的家园，在拯救这个濒临灭亡的小镇同时，收获亲情友情甚至是爱情。《沙石镇时光》正式版现已推出，欢迎工坊主造访沙石镇！
       </div>
-      
     </div>
+  </div>
+</section>
+
+<!-- 媒体区域 -->
+<section class="media-section">
+  <div class="media-tabs">
+    <button class="media-tab active" onclick="showVideo()">▶ 视频</button>
+    <button class="media-tab" onclick="showScreenshots()">🖼 截图</button>
+  </div>
+  
+  <div id="video-container" class="media-player">
+    
+  </div>
+  
+  <div id="screenshots-container" class="screenshots-grid" style="display:none;">
+    <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/ss_c424c0e45220e6d83242671e6594cacaf2d0dc06.1920x1080.jpg?t=1784773821" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/ss_18bf600d67dfe6d7523e44bd5ceba493039554e8.1920x1080.jpg?t=1784773821" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/ss_f8f27dba8e12c6f71c2f6463ecb27f4ac62269ac.1920x1080.jpg?t=1784773821" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/ss_7cf0ec2cb855b1cf29280e9c5ba9009561e6ec58.1920x1080.jpg?t=1784773821" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/ss_bd7ee0f57c3dad5e8759b92b0ed33ab8a6dd3e46.1920x1080.jpg?t=1784773821" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/ss_995acc0e2bcee1f67348a7bfeb9c4f366a8a8126.1920x1080.jpg?t=1784773821" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/ss_b36ac3a5c05787c207afec0962c13f93550cf0ca.1920x1080.jpg?t=1784773821" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/ss_9a8c323b1aaa8a2d8618557c371f782d37877f3f.1920x1080.jpg?t=1784773821" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/ss_bd5199c6a183093b04da93b3efcc38c1f78e54a6.1920x1080.jpg?t=1784773821" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/ss_730b674aa925a5cfb9a2d24386727fbb16148038.1920x1080.jpg?t=1784773821" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/ss_8cd993e8952ba2ed623c5b36a70f0870f1c82de9.1920x1080.jpg?t=1784773821" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/ss_c33315bb33ca6122c9f0e4ccc19f4d336674b738.1920x1080.jpg?t=1784773821" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/ss_35a4cfe1d7705612059667850f6c6dd7a15e3957.1920x1080.jpg?t=1784773821" alt="Screenshot" onclick="window.open(this.src)">
   </div>
 </section>
 
 <!-- 关于此游戏 -->
-
 <section class="content-section">
-  <div class="container">
-    <div class="content-block">
-      <h2>关于此游戏</h2>
-      <div>添加愿望单，打折有通知<br><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/ebfeee0ab2dcc54a8b236e820f5db41b.poster.avif?t=1784773821" width=442 height=102 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/ebfeee0ab2dcc54a8b236e820f5db41b.webm?t=1784773821" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/ebfeee0ab2dcc54a8b236e820f5db41b.mp4?t=1784773821" type="video/mp4"></video></span><br><br>尊敬的工坊主，欢迎来到沙石镇！<strong>《沙石镇时光》正式版现已推出，多人在线合作模式也已全面开放，欢迎工坊主们约上小伙伴一起来沙石镇玩~</strong><br><br><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/197010c6d989c5a9a747b76b73a1e5cb.poster.avif?t=1784773821" width=616 height=410 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/197010c6d989c5a9a747b76b73a1e5cb.webm?t=1784773821" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/197010c6d989c5a9a747b76b73a1e5cb.mp4?t=1784773821" type="video/mp4"></video></span><br><strong><br>游戏简介：</strong>荒漠小城沙石镇诚挚而迫切地邀请您。作为新工坊主，您可以在这里用不同的方式收集资源，在专属工坊中创造各种机器和设备，也可以探索广阔的沙漠，深入废墟，搜寻旧世界遗留的古老文物，甚至与怪物斗智斗勇。经营崭新生活也少不了种植，烹饪，养殖，与沙石镇居民建立不同的关系等等丰富多样的玩法。<br><br><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/5be7a1f789c3ecd3f46ba302a78b985d.poster.avif?t=1784773821" width=616 height=72 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/5be7a1f789c3ecd3f46ba302a78b985d.webm?t=1784773821" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/5be7a1f789c3ecd3f46ba302a78b985d.mp4?t=1784773821" type="video/mp4"></video></span><br><br><strong>从无到有，一切尽在您手：</strong>您可以将各种复杂精密的机器排列组合在一起，打造专属于您的工坊，并制作各式各样的工具或设备；您可以通过劳作，将戈壁变成可耕种的肥沃土地，拥有着特色沙漠种植系统的沙石镇时光是您不能错过的种田游戏；您可以扩建栅栏，养上一大堆沙漠地区特有的动物，成为这个小镇首屈一指的牧场主；全新加入的房屋扩建系统，可以让每个玩家都建造出自己独有的房屋，家园升级不再千篇一律。<br><br><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/ca5d12f82c03b1652b2908854c620a98.poster.avif?t=1784773821" width=616 height=300 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/ca5d12f82c03b1652b2908854c620a98.webm?t=1784773821" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/ca5d12f82c03b1652b2908854c620a98.mp4?t=1784773821" type="video/mp4"></video></span><br><br><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/d769663d05db71b96b4cbf6667cae539.poster.avif?t=1784773821" width=616 height=70 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/d769663d05db71b96b4cbf6667cae539.webm?t=1784773821" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/d769663d05db71b96b4cbf6667cae539.mp4?t=1784773821" type="video/mp4"></video></span><br><br><strong>广阔天地，任您畅游:</strong>您可以探索小镇周围的广阔沙漠，深入各种废墟探险；从充满生活气息的城镇到散发神秘色彩的戈壁，各种新奇的怪物，各种沙漠特色坐骑等您来体验。<br><br><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/88bd9fc2d247a4871f67336ccb2e0fee.poster.avif?t=1784773821" width=616 height=300 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/88bd9fc2d247a4871f67336ccb2e0fee.webm?t=1784773821" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/88bd9fc2d247a4871f67336ccb2e0fee.mp4?t=1784773821" type="video/mp4"></video></span><br><br><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/f6a7abe22e682250e2f97ba4d8d45e14.poster.avif?t=1784773821" width=616 height=60 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/f6a7abe22e682250e2f97ba4d8d45e14.webm?t=1784773821" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/f6a7abe22e682250e2f97ba4d8d45e14.mp4?t=1784773821" type="video/mp4"></video></span><br><br><strong>您是沙石镇的超级明星:</strong> 您将会体验到精彩的剧情故事，数以百计的支线任务，可以与超过40个全新的角色互动，发掘他们每个人身上的神秘故事，更有机会和他们中的某些人擦出爱情的花火。<br><br><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/e6ea87ab9e71277093971ec83328743e.poster.avif?t=1784773821" width=616 height=300 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/e6ea87ab9e71277093971ec83328743e.webm?t=1784773821" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/e6ea87ab9e71277093971ec83328743e.mp4?t=1784773821" type="video/mp4"></video></span><br><br><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/0df1fa21721d1131f025a2ce35ff6bc9.poster.avif?t=1784773821" width=616 height=58 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/0df1fa21721d1131f025a2ce35ff6bc9.webm?t=1784773821" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/0df1fa21721d1131f025a2ce35ff6bc9.mp4?t=1784773821" type="video/mp4"></video></span><br><br><strong>全新升级的战斗系统：</strong>通过技能树，您可以学习更多酷炫的战斗技能，使用更多不同的武器。<br><br><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/2e49a6b2a5da12bad573758c3ca3ae84.poster.avif?t=1784773821" width=616 height=300 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/2e49a6b2a5da12bad573758c3ca3ae84.webm?t=1784773821" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/2e49a6b2a5da12bad573758c3ca3ae84.mp4?t=1784773821" type="video/mp4"></video></span><br><br><br><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/13143ba6cf9f1e443fb79ba3df9d34c1.poster.avif?t=1784773821" width=616 height=60 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/13143ba6cf9f1e443fb79ba3df9d34c1.webm?t=1784773821" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/13143ba6cf9f1e443fb79ba3df9d34c1.mp4?t=1784773821" type="video/mp4"></video></span><br><br><strong>更多的？可以有！:</strong> 您可以听到更加生动和动感的音乐，并且体验新的声效技术，让您仅凭声音就能知道身处何方！独特新奇的天气系统，让您体验渺渺黄沙天万里，全新丰富有趣的小游戏，让您在工坊经营之余体验到多彩的沙石镇风土人情。<br><br><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/ea57651fd01d3ede22167dd4de05b1d4.poster.avif?t=1784773821" width=616 height=300 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/ea57651fd01d3ede22167dd4de05b1d4.webm?t=1784773821" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/ea57651fd01d3ede22167dd4de05b1d4.mp4?t=1784773821" type="video/mp4"></video></span><br><br><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/17e2829265b30a71db9022f8f45ea1d0.poster.avif?t=1784773821" width=616 height=72 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/17e2829265b30a71db9022f8f45ea1d0.webm?t=1784773821" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/17e2829265b30a71db9022f8f45ea1d0.mp4?t=1784773821" type="video/mp4"></video></span><br><br><strong>多人在线合作模式现已上线，</strong>您可以和三位知己，共同体验打造梦幻沙漠家园的过程，一起在沙石镇挥洒汗水，享受时光。<br><br><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/2d9a9bc5bf5695a9c234345e6078cc20.poster.avif?t=1784773821" width=616 height=300 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/2d9a9bc5bf5695a9c234345e6078cc20.webm?t=1784773821" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/2d9a9bc5bf5695a9c234345e6078cc20.mp4?t=1784773821" type="video/mp4"></video></span><h2 class="bb_tag" >尊敬的工坊主，愿您在沙石镇度过一段美好的愉悦的游戏人生！</h2></div>
-    </div>
+  <div class="content-block">
+    <h2>关于此游戏</h2>
+    <div>添加愿望单，打折有通知<br><span class="bb_img_ctn"><video controls class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/ebfeee0ab2dcc54a8b236e820f5db41b.poster.avif?t=1784773821" ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/ebfeee0ab2dcc54a8b236e820f5db41b.webm?t=1784773821" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/ebfeee0ab2dcc54a8b236e820f5db41b.mp4?t=1784773821" type="video/mp4"></video></span><br><br>尊敬的工坊主，欢迎来到沙石镇！<strong>《沙石镇时光》正式版现已推出，多人在线合作模式也已全面开放，欢迎工坊主们约上小伙伴一起来沙石镇玩~</strong><br><br><span class="bb_img_ctn"><video controls class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/197010c6d989c5a9a747b76b73a1e5cb.poster.avif?t=1784773821" ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/197010c6d989c5a9a747b76b73a1e5cb.webm?t=1784773821" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/197010c6d989c5a9a747b76b73a1e5cb.mp4?t=1784773821" type="video/mp4"></video></span><br><strong><br>游戏简介：</strong>荒漠小城沙石镇诚挚而迫切地邀请您。作为新工坊主，您可以在这里用不同的方式收集资源，在专属工坊中创造各种机器和设备，也可以探索广阔的沙漠，深入废墟，搜寻旧世界遗留的古老文物，甚至与怪物斗智斗勇。经营崭新生活也少不了种植，烹饪，养殖，与沙石镇居民建立不同的关系等等丰富多样的玩法。<br><br><span class="bb_img_ctn"><video controls class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/5be7a1f789c3ecd3f46ba302a78b985d.poster.avif?t=1784773821" ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/5be7a1f789c3ecd3f46ba302a78b985d.webm?t=1784773821" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/5be7a1f789c3ecd3f46ba302a78b985d.mp4?t=1784773821" type="video/mp4"></video></span><br><br><strong>从无到有，一切尽在您手：</strong>您可以将各种复杂精密的机器排列组合在一起，打造专属于您的工坊，并制作各式各样的工具或设备；您可以通过劳作，将戈壁变成可耕种的肥沃土地，拥有着特色沙漠种植系统的沙石镇时光是您不能错过的种田游戏；您可以扩建栅栏，养上一大堆沙漠地区特有的动物，成为这个小镇首屈一指的牧场主；全新加入的房屋扩建系统，可以让每个玩家都建造出自己独有的房屋，家园升级不再千篇一律。<br><br><span class="bb_img_ctn"><video controls class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/ca5d12f82c03b1652b2908854c620a98.poster.avif?t=1784773821" ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/ca5d12f82c03b1652b2908854c620a98.webm?t=1784773821" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/ca5d12f82c03b1652b2908854c620a98.mp4?t=1784773821" type="video/mp4"></video></span><br><br><span class="bb_img_ctn"><video controls class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/d769663d05db71b96b4cbf6667cae539.poster.avif?t=1784773821" ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/d769663d05db71b96b4cbf6667cae539.webm?t=1784773821" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/d769663d05db71b96b4cbf6667cae539.mp4?t=1784773821" type="video/mp4"></video></span><br><br><strong>广阔天地，任您畅游:</strong>您可以探索小镇周围的广阔沙漠，深入各种废墟探险；从充满生活气息的城镇到散发神秘色彩的戈壁，各种新奇的怪物，各种沙漠特色坐骑等您来体验。<br><br><span class="bb_img_ctn"><video controls class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/88bd9fc2d247a4871f67336ccb2e0fee.poster.avif?t=1784773821" ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/88bd9fc2d247a4871f67336ccb2e0fee.webm?t=1784773821" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/88bd9fc2d247a4871f67336ccb2e0fee.mp4?t=1784773821" type="video/mp4"></video></span><br><br><span class="bb_img_ctn"><video controls class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/f6a7abe22e682250e2f97ba4d8d45e14.poster.avif?t=1784773821" ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/f6a7abe22e682250e2f97ba4d8d45e14.webm?t=1784773821" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/f6a7abe22e682250e2f97ba4d8d45e14.mp4?t=1784773821" type="video/mp4"></video></span><br><br><strong>您是沙石镇的超级明星:</strong> 您将会体验到精彩的剧情故事，数以百计的支线任务，可以与超过40个全新的角色互动，发掘他们每个人身上的神秘故事，更有机会和他们中的某些人擦出爱情的花火。<br><br><span class="bb_img_ctn"><video controls class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/e6ea87ab9e71277093971ec83328743e.poster.avif?t=1784773821" ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/e6ea87ab9e71277093971ec83328743e.webm?t=1784773821" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/e6ea87ab9e71277093971ec83328743e.mp4?t=1784773821" type="video/mp4"></video></span><br><br><span class="bb_img_ctn"><video controls class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/0df1fa21721d1131f025a2ce35ff6bc9.poster.avif?t=1784773821" ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/0df1fa21721d1131f025a2ce35ff6bc9.webm?t=1784773821" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/0df1fa21721d1131f025a2ce35ff6bc9.mp4?t=1784773821" type="video/mp4"></video></span><br><br><strong>全新升级的战斗系统：</strong>通过技能树，您可以学习更多酷炫的战斗技能，使用更多不同的武器。<br><br><span class="bb_img_ctn"><video controls class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/2e49a6b2a5da12bad573758c3ca3ae84.poster.avif?t=1784773821" ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/2e49a6b2a5da12bad573758c3ca3ae84.webm?t=1784773821" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/2e49a6b2a5da12bad573758c3ca3ae84.mp4?t=1784773821" type="video/mp4"></video></span><br><br><br><span class="bb_img_ctn"><video controls class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/13143ba6cf9f1e443fb79ba3df9d34c1.poster.avif?t=1784773821" ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/13143ba6cf9f1e443fb79ba3df9d34c1.webm?t=1784773821" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/13143ba6cf9f1e443fb79ba3df9d34c1.mp4?t=1784773821" type="video/mp4"></video></span><br><br><strong>更多的？可以有！:</strong> 您可以听到更加生动和动感的音乐，并且体验新的声效技术，让您仅凭声音就能知道身处何方！独特新奇的天气系统，让您体验渺渺黄沙天万里，全新丰富有趣的小游戏，让您在工坊经营之余体验到多彩的沙石镇风土人情。<br><br><span class="bb_img_ctn"><video controls class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/ea57651fd01d3ede22167dd4de05b1d4.poster.avif?t=1784773821" ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/ea57651fd01d3ede22167dd4de05b1d4.webm?t=1784773821" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/ea57651fd01d3ede22167dd4de05b1d4.mp4?t=1784773821" type="video/mp4"></video></span><br><br><span class="bb_img_ctn"><video controls class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/17e2829265b30a71db9022f8f45ea1d0.poster.avif?t=1784773821" ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/17e2829265b30a71db9022f8f45ea1d0.webm?t=1784773821" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/17e2829265b30a71db9022f8f45ea1d0.mp4?t=1784773821" type="video/mp4"></video></span><br><br><strong>多人在线合作模式现已上线，</strong>您可以和三位知己，共同体验打造梦幻沙漠家园的过程，一起在沙石镇挥洒汗水，享受时光。<br><br><span class="bb_img_ctn"><video controls class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/2d9a9bc5bf5695a9c234345e6078cc20.poster.avif?t=1784773821" ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/2d9a9bc5bf5695a9c234345e6078cc20.webm?t=1784773821" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/2d9a9bc5bf5695a9c234345e6078cc20.mp4?t=1784773821" type="video/mp4"></video></span><h2 class="bb_tag" >尊敬的工坊主，愿您在沙石镇度过一段美好的愉悦的游戏人生！</h2></div>
   </div>
 </section>
 
-
 <!-- 下载区域 -->
 <section class="download-section">
-  <div class="container">
-    <div class="download-block">
-      <h2>📥 下载链接</h2>
-      <div class="download-buttons">
-        <a href="magnet:?xt=urn:btih:5050AD0683DEF1E59275A44F56466CB399436AA1" class="download-btn magnet" target="_blank">🧲磁力</a>
+  <div class="download-block">
+    <h2>📥 下载链接</h2>
+    <div class="download-buttons">
+      <a href="magnet:?xt=urn:btih:5050AD0683DEF1E59275A44F56466CB399436AA1" class="download-btn magnet" target="_blank">🧲磁力</a>
 <a href="https://fitgirl-repacks.site/my-time-at-sandrock/" class="download-btn fitgirl" target="_blank">FitGirl</a>
 <a href="https://www.gamer520.com/67147.html" class="download-btn gamer520" target="_blank">gamer520</a>
 
-      </div>
     </div>
   </div>
 </section>
 
 <!-- 系统需求 -->
-
-<section class="content-section">
-  <div class="container">
-    <div class="content-block">
-      <h2>系统需求</h2>
-      <div class="sys-req">
-        <div class="sys-req-col"><h4>最低配置</h4><div><strong>最低配置:</strong><br><ul class="bb_ul"><li><strong>操作系统:</strong> Win 10<br></li><li><strong>处理器:</strong> Intel Core i3-2100 | AMD FX-6300<br></li><li><strong>内存:</strong> 8 GB RAM<br></li><li><strong>显卡:</strong> Nvidia GeForce GTX760 | AMD Radeon 7950<br></li><li><strong>DirectX 版本:</strong> 11<br></li><li><strong>存储空间:</strong> 需要 50 GB 可用空间<br></li><li><strong>附注事项:</strong> 推荐游戏安装到SSD中，最低配置可能会在之后有变化调整</li></ul></div></div>
-        <div class="sys-req-col"><h4>推荐配置</h4><div><strong>推荐配置:</strong><br><ul class="bb_ul"><li><strong>操作系统:</strong> Win 10<br></li><li><strong>处理器:</strong> Intel Core i7-9700K | AMD Ryzen 7 2700X<br></li><li><strong>内存:</strong> 16 GB RAM<br></li><li><strong>显卡:</strong> Nvidia GeForce GTX1060 | AMD Radeon RX 580<br></li><li><strong>DirectX 版本:</strong> 11<br></li><li><strong>存储空间:</strong> 需要 50 GB 可用空间<br></li><li><strong>附注事项:</strong> 推荐游戏安装到SSD中，推荐配置可能会在之后有变化调整</li></ul></div></div>
-      </div>
-    </div>
-  </div>
-</section>
+<section class="content-section"><div class="content-block"><h2>系统需求</h2><div class="sys-req">
+<div class="sys-req-col"><h4>最低配置</h4><ul><strong>最低配置:</strong><br><ul class="bb_ul"><li><strong>操作系统:</strong> Win 10<br></li><li><strong>处理器:</strong> Intel Core i3-2100 | AMD FX-6300<br></li><li><strong>内存:</strong> 8 GB RAM<br></li><li><strong>显卡:</strong> Nvidia GeForce GTX760 | AMD Radeon 7950<br></li><li><strong>DirectX 版本:</strong> 11<br></li><li><strong>存储空间:</strong> 需要 50 GB 可用空间<br></li><li><strong>附注事项:</strong> 推荐游戏安装到SSD中，最低配置可能会在之后有变化调整</li></ul></ul></div>
+<div class="sys-req-col"><h4>推荐配置</h4><ul><strong>推荐配置:</strong><br><ul class="bb_ul"><li><strong>操作系统:</strong> Win 10<br></li><li><strong>处理器:</strong> Intel Core i7-9700K | AMD Ryzen 7 2700X<br></li><li><strong>内存:</strong> 16 GB RAM<br></li><li><strong>显卡:</strong> Nvidia GeForce GTX1060 | AMD Radeon RX 580<br></li><li><strong>DirectX 版本:</strong> 11<br></li><li><strong>存储空间:</strong> 需要 50 GB 可用空间<br></li><li><strong>附注事项:</strong> 推荐游戏安装到SSD中，推荐配置可能会在之后有变化调整</li></ul></ul></div>
+</div></div></section>
 
 <script>
 function showVideo() {
@@ -423,8 +535,8 @@ function showVideo() {
 }
 
 function showScreenshots() {
-  const videoContainer = document.getElementById('video-container');
-  if (videoContainer) videoContainer.style.display = 'none';
+  const vc = document.getElementById('video-container');
+  if (vc) vc.style.display = 'none';
   document.getElementById('screenshots-container').style.display = 'grid';
   document.querySelectorAll('.media-tab').forEach(t => t.classList.remove('active'));
   event.target.classList.add('active');

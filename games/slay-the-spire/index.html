@@ -5,218 +5,297 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>杀戮尖塔 - 游戏详情</title>
 <style>
+:root {
+  --bg: #fafbfc;
+  --surface: #ffffff;
+  --border: #e5e7eb;
+  --text-primary: #111827;
+  --text-secondary: #6b7280;
+  --text-muted: #9ca3af;
+  --accent: #3b82f6;
+  --accent-light: #dbeafe;
+  --success: #10b981;
+  --warning: #f59e0b;
+  --radius: 12px;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
+  --shadow: 0 4px 12px rgba(0,0,0,0.06);
+  --shadow-lg: 0 8px 24px rgba(0,0,0,0.08);
+}
+
 * { margin: 0; padding: 0; box-sizing: border-box; }
+
 body {
-  font-family: "Microsoft YaHei", "Segoe UI", sans-serif;
-  background: #1b2838;
-  color: #c7d5e0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text-primary);
   line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
 }
 
 /* 顶部导航 */
-.top-nav {
-  background: #171a21;
-  padding: 8px 0;
-  border-bottom: 1px solid #000;
-}
-.top-nav .container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
+.topbar {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 0.75rem 2rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-}
-.breadcrumb {
-  font-size: 12px;
-  color: #666;
-}
-.breadcrumb a {
-  color: #666;
-  text-decoration: none;
-}
-.breadcrumb a:hover {
-  color: #fff;
-}
-.back-link {
-  color: #67c1f5;
-  text-decoration: none;
-  font-size: 13px;
-}
-.back-link:hover {
-  color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
-/* 主容器 */
-.container {
+.topbar a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: all 0.2s;
+}
+
+.topbar a:hover {
+  background: var(--accent-light);
+  color: var(--accent);
+}
+
+/* 游戏头部 */
+.hero {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 2rem;
+}
+
+.hero .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
-}
-
-/* 游戏头部 - Steam风格左右布局 */
-.game-header {
-  background: linear-gradient(180deg, #1b2838 0%, #2a475e 100%);
-  padding: 30px 0;
-}
-.game-header .container {
   display: grid;
-  grid-template-columns: 460px 1fr;
-  gap: 30px;
+  grid-template-columns: 300px 1fr;
+  gap: 2.5rem;
+  align-items: start;
 }
 
-/* 左侧媒体区域 */
-.media-section {
-  background: #000;
-  border-radius: 4px;
+.hero-cover {
+  border-radius: var(--radius);
   overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  aspect-ratio: 3/4;
 }
-.media-tabs {
-  display: flex;
-  background: #1b2838;
-}
-.media-tab {
-  background: transparent;
-  border: none;
-  color: #67c1f5;
-  padding: 10px 20px;
-  cursor: pointer;
-  font-size: 13px;
-  border-bottom: 2px solid transparent;
-}
-.media-tab.active {
-  border-bottom-color: #67c1f5;
-  color: #fff;
-}
-.media-player {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 16/9;
-  background: #000;
-}
-.media-player video,
-.media-player img {
+
+.hero-cover img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
+
+.hero-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding-top: 0.5rem;
+}
+
+.hero-info h1 {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.hero-info .en-name {
+  font-size: 1.125rem;
+  color: var(--text-secondary);
+  font-weight: 400;
+}
+
+.meta-tags {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.meta-tag {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  padding: 0.375rem 0.75rem;
+  border-radius: 8px;
+  background: #f3f4f6;
+  color: var(--text-secondary);
+}
+
+.meta-tag.score {
+  background: var(--accent-light);
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.meta-tag.year {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.info-row {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.info-item .label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+}
+
+.info-item .value {
+  font-size: 0.9375rem;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.hero-desc {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+  max-width: 640px;
+}
+
+/* 媒体区域 */
+.media-section {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 2rem;
+}
+
+.media-tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.media-tab {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  padding: 0.5rem 1.25rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.media-tab:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.media-tab.active {
+  background: var(--accent);
+  color: white;
+  border-color: var(--accent);
+}
+
+.media-player {
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: #000;
+  aspect-ratio: 16/9;
+}
+
+.media-player video,
+.media-player img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
 .screenshots-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 4px;
-  padding: 4px;
-  background: #1b2838;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 0.75rem;
 }
+
 .screenshots-grid img {
   width: 100%;
   aspect-ratio: 16/9;
   object-fit: cover;
+  border-radius: 8px;
   cursor: pointer;
-  transition: opacity 0.2s;
-}
-.screenshots-grid img:hover {
-  opacity: 0.8;
+  transition: all 0.2s;
+  border: 1px solid var(--border);
 }
 
-/* 右侧信息面板 */
-.game-info {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-.game-title {
-  font-size: 32px;
-  font-weight: 300;
-  color: #fff;
-}
-.game-subtitle {
-  font-size: 14px;
-  color: #8f98a0;
-}
-.game-meta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-.meta-item {
-  background: rgba(0,0,0,0.3);
-  padding: 6px 12px;
-  border-radius: 3px;
-  font-size: 13px;
-  color: #c7d5e0;
-}
-.meta-item.score {
-  background: #66c0f4;
-  color: #1b2838;
-  font-weight: 600;
-}
-.info-block {
-  background: rgba(0,0,0,0.2);
-  padding: 12px;
-  border-radius: 4px;
-}
-.info-block .label {
-  font-size: 11px;
-  color: #8f98a0;
-  text-transform: uppercase;
-  margin-bottom: 4px;
-}
-.info-block .value {
-  font-size: 14px;
-  color: #67c1f5;
-}
-.game-desc {
-  font-size: 14px;
-  color: #acb2b8;
-  line-height: 1.7;
+.screenshots-grid img:hover {
+  transform: scale(1.02);
+  box-shadow: var(--shadow);
 }
 
 /* 内容区域 */
 .content-section {
-  background: #1b2838;
-  padding: 30px 0;
-}
-.content-block {
-  background: rgba(0,0,0,0.3);
-  padding: 24px;
-  border-radius: 4px;
-}
-.content-block h2 {
-  color: #fff;
-  font-size: 20px;
-  margin-bottom: 16px;
-  padding-bottom: 12px;
-  border-bottom: 1px solid #2a475e;
-}
-.content-block p {
-  color: #acb2b8;
-  font-size: 14px;
-  line-height: 1.8;
-  margin-bottom: 12px;
-}
-.content-block h2.bb_tag {
-  color: #67c1f5;
-  font-size: 16px;
-  margin: 20px 0 10px 0;
-  border-bottom: none;
-  padding-bottom: 0;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem 2rem;
 }
 
-/* Steam 内嵌媒体约束 */
+.content-block {
+  background: var(--surface);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.content-block h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.content-block p {
+  color: var(--text-secondary);
+  font-size: 0.9375rem;
+  line-height: 1.75;
+  margin-bottom: 0.75rem;
+}
+
+.content-block h2.bb_tag {
+  font-size: 1.125rem;
+  color: var(--accent);
+  margin: 1.5rem 0 0.75rem;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+/* Steam 内嵌媒体 */
 .content-block .bb_img_ctn {
   display: block;
   max-width: 100%;
-  margin: 12px 0;
+  margin: 1rem 0;
   overflow: hidden;
+  border-radius: 8px;
   background: #000;
 }
+
 .content-block .bb_img {
   max-width: 100% !important;
   width: 100% !important;
   height: auto !important;
   display: block;
-  border-radius: 4px;
+  border-radius: 8px;
 }
+
 .content-block video.bb_img {
   width: 100% !important;
   height: auto !important;
@@ -227,86 +306,125 @@ body {
 
 /* 下载区域 */
 .download-section {
-  background: #1b2838;
-  padding: 30px 0;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem 2rem;
 }
+
 .download-block {
-  background: rgba(0,0,0,0.3);
-  padding: 24px;
-  border-radius: 4px;
+  background: var(--surface);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  padding: 2rem;
 }
+
 .download-block h2 {
-  color: #fff;
-  font-size: 20px;
-  margin-bottom: 16px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
 }
+
 .download-buttons {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 0.75rem;
 }
+
 .download-btn {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 12px 24px;
-  border-radius: 4px;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 10px;
   text-decoration: none;
   color: #fff;
-  font-size: 14px;
+  font-size: 0.9375rem;
   font-weight: 500;
   transition: all 0.2s;
+  box-shadow: var(--shadow-sm);
 }
+
 .download-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  box-shadow: var(--shadow);
 }
+
 .download-btn.gamer520 { background: linear-gradient(135deg, #10b981, #059669); }
 .download-btn.x6d { background: linear-gradient(135deg, #3b82f6, #2563eb); }
-.download-btn.magnet { background: linear-gradient(135deg, #ef4444, #dc2626); }
-.download-btn.fitgirl { background: linear-gradient(135deg, #f59e0b, #d97706); }
+.download-btn.magnet { background: linear-gradient(135deg, #f59e0b, #d97706); }
+.download-btn.fitgirl { background: linear-gradient(135deg, #8b5cf6, #7c3aed); }
 .download-btn.tianyi { background: linear-gradient(135deg, #6366f1, #4f46e5); }
-.download-btn.baidu { background: linear-gradient(135deg, #2563eb, #1d4ed8); }
+.download-btn.baidu { background: linear-gradient(135deg, #06b6d4, #0891b2); }
+.download-btn.crotorrents { background: linear-gradient(135deg, #ec4899, #db2777); }
 
 /* 系统需求 */
 .sys-req {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20px;
+  gap: 2rem;
 }
+
 .sys-req-col h4 {
-  color: #67c1f5;
-  font-size: 14px;
-  margin-bottom: 12px;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 1rem;
 }
+
 .sys-req-col ul {
   list-style: none;
-  margin: 0;
 }
+
 .sys-req-col li {
-  font-size: 13px;
-  color: #acb2b8;
-  margin-bottom: 8px;
-  padding-left: 16px;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+  padding-left: 1.25rem;
   position: relative;
+  line-height: 1.6;
 }
+
 .sys-req-col li:before {
   content: "•";
   position: absolute;
   left: 0;
-  color: #67c1f5;
+  color: var(--accent);
+  font-weight: bold;
 }
 
 /* 响应式 */
 @media (max-width: 900px) {
-  .game-header .container {
+  .hero .container {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
-  .media-section {
-    max-width: 100%;
+  .hero-cover {
+    max-width: 280px;
+    margin: 0 auto;
+  }
+  .hero-info h1 {
+    font-size: 1.75rem;
   }
   .sys-req {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero {
+    padding: 1.5rem 1rem;
+  }
+  .media-section,
+  .content-section,
+  .download-section {
+    padding: 0 1rem 1.5rem;
+  }
+  .content-block,
+  .download-block {
+    padding: 1.5rem;
   }
 }
 </style>
@@ -314,105 +432,92 @@ body {
 <body>
 
 <!-- 顶部导航 -->
-<nav class="top-nav">
-  <div class="container">
-    <div class="breadcrumb">
-      <a href="../../index.html">← 返回游戏榜单</a>
-    </div>
-    <a href="https://store.steampowered.com/app/2868840/" target="_blank" class="back-link">Steam 商店页 →</a>
-  </div>
+<nav class="topbar">
+  <a href="../../index.html">← 返回游戏榜单</a>
+  <a href="https://store.steampowered.com/app/2868840/" target="_blank">Steam 商店页 →</a>
 </nav>
 
 <!-- 游戏头部 -->
-<section class="game-header">
+<section class="hero">
   <div class="container">
-    <!-- 左侧媒体区域 -->
-    <div class="media-section">
-      <div class="media-tabs">
-        
-        <button class="media-tab active" onclick="showScreenshots()">截图</button>
-      </div>
-      
-      
-      
-      
-      <div id="screenshots-container" class="screenshots-grid" 
+    <div class="hero-cover">
+      <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2868840/library_600x900.jpg" alt="杀戮尖塔">
     </div>
-    
-    <!-- 右侧信息面板 -->
-    <div class="game-info">
-      <h1 class="game-title">杀戮尖塔</h1>
-      <div class="game-subtitle">Slay the Spire</div>
+    <div class="hero-info">
+      <h1>杀戮尖塔</h1>
+      <div class="en-name">Slay the Spire</div>
       
-      <div class="game-meta">
-        <div class="meta-item">2026 年 3 月 5 日</div>
-        <div class="meta-item">独立, 策略, 抢先体验</div>
-        <div class="meta-item score">评分 97</div>
+      <div class="meta-tags">
+        <span class="meta-tag year">2026 年 3 月 5 日</span>
+        <span class="meta-tag">独立, 策略, 抢先体验</span>
+        <span class="meta-tag score">⭐ 97</span>
       </div>
       
-      
-      <div class="info-block">
-        <div class="label">开发者</div>
-        <div class="value">Mega Crit</div>
+      <div class="info-row">
+        <div class="info-item">
+          <span class="label">开发者</span>
+          <span class="value">Mega Crit</span>
+        </div>
+        <div class="info-item">
+          <span class="label">发行商</span>
+          <span class="value">Mega Crit</span>
+        </div>
       </div>
       
-      
-      
-      <div class="info-block">
-        <div class="label">发行商</div>
-        <div class="value">Mega Crit</div>
-      </div>
-      
-      
-      
-      <div class="game-desc">
+      <div class="hero-desc">
         标志性Rogue-like卡牌构筑游戏回归啦！在《杀戮尖塔2》中创建独特的卡组，遭遇各种奇异的生物，发掘含有无尽力量的遗物吧！
       </div>
-      
     </div>
+  </div>
+</section>
+
+<!-- 媒体区域 -->
+<section class="media-section">
+  <div class="media-tabs">
+    <button class="media-tab active" onclick="showVideo()">▶ 视频</button>
+    <button class="media-tab" onclick="showScreenshots()">🖼 截图</button>
+  </div>
+  
+  <div id="video-container" class="media-player">
+    
+  </div>
+  
+  <div id="screenshots-container" class="screenshots-grid" style="display:none;">
+    <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2868840/1a373a95229aab0cfd97f553ecbe86092364bb9c/ss_1a373a95229aab0cfd97f553ecbe86092364bb9c.1920x1080.jpg?t=1776735385" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2868840/f3af7cb9693b9c4b6a7555227db3fef943db3992/ss_f3af7cb9693b9c4b6a7555227db3fef943db3992.1920x1080.jpg?t=1776735385" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2868840/c3db69efd984ef012ae85c5b426663720152f0a4/ss_c3db69efd984ef012ae85c5b426663720152f0a4.1920x1080.jpg?t=1776735385" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2868840/0fdb2940c0d367a40b2be6433daf12e3634089cf/ss_0fdb2940c0d367a40b2be6433daf12e3634089cf.1920x1080.jpg?t=1776735385" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2868840/18e8bda7bc4cdb37b90e0e2ce546967cbec87076/ss_18e8bda7bc4cdb37b90e0e2ce546967cbec87076.1920x1080.jpg?t=1776735385" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2868840/0aa6bff0eff26e37ccfdb07ad6cab52f8ab1ed4b/ss_0aa6bff0eff26e37ccfdb07ad6cab52f8ab1ed4b.1920x1080.jpg?t=1776735385" alt="Screenshot" onclick="window.open(this.src)">
   </div>
 </section>
 
 <!-- 关于此游戏 -->
-
 <section class="content-section">
-  <div class="container">
-    <div class="content-block">
-      <h2>关于此游戏</h2>
-      <div><h2 class="bb_tag" >高塔苏醒了</h2><p class="bb_paragraph" >究极的卡牌肉鸽游戏再度归来！<br><br>一千年来，高塔一直在沉睡。其中的秘密被深埋、恐怖被遗忘。如今，高塔再次开启，比以往更加饥饿与危险，吞噬每一个胆敢前来攀升的人。<br><br>新的危险要求你使用更敏锐的策略、最无情的计算与毫不动摇的决心。克服高塔残酷的考验，发现藏在它顶峰的真相吧。<br><br>你是会独自攀爬，还是征求其他冒险者同伴们的支持呢？</p><p class="bb_paragraph" ></p><p class="bb_paragraph" style="text-align: center"><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2868840/extras/7cae6b9b4c639e8c6929efa57c856cf7.poster.avif?t=1776735385" width=620 height=178 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2868840/extras/7cae6b9b4c639e8c6929efa57c856cf7.webm?t=1776735385" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2868840/extras/7cae6b9b4c639e8c6929efa57c856cf7.mp4?t=1776735385" type="video/mp4"></video></span></p><h2 class="bb_tag" >不断变化的高塔</h2><p class="bb_paragraph" >踏进已经焕然一新的高塔，这里是一个充满奇异与致命敌人的扭曲迷宫。试着熟悉全新的卡牌、遗物与药水，每一样都有可能改变你的整局游戏——或是带来危险的后果。<br><br>和众多新老角色一起爬塔，每位角色都有自己的卡牌、动机和秘密。<br><br>没有哪两次攀登会一模一样。不可预料的挑战与不断进化的策略等待着那些勇敢——或愚昧——的爬塔者们。</p><p class="bb_paragraph" ></p><p class="bb_paragraph" ><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2868840/extras/27da8333d420707bdc74ec08c60639d7.poster.avif?t=1776735385" width=780 height=430 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2868840/extras/27da8333d420707bdc74ec08c60639d7.webm?t=1776735385" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2868840/extras/27da8333d420707bdc74ec08c60639d7.mp4?t=1776735385" type="video/mp4"></video></span></p><h2 class="bb_tag" >独自攀登，或与盟友共同进退</h2><p class="bb_paragraph" >是独自挑战高塔，还是最多4名玩家一起在全新的合作模式中共同面对高塔，决定在你！发现多人模式专属的卡牌、强大的团队连携、扛起你的队友们（或是被队友们扛着）去获得胜利！<br></p><p class="bb_paragraph" ></p><p class="bb_paragraph" ><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2868840/extras/d99471fefc7334953090a27bd835b9bb.avif?t=1776735385" width=1080 height=557 /></span></p><h2 class="bb_tag" >众多新老角色</h2><p class="bb_paragraph" >从五名不同的角色中选择一位踏上爬塔的旅程，有一些角色对老玩家们会相当熟悉，而另两位则是全新登场。在扫清一切拦路敌人的途中，发现每一位角色的独特游玩风格、发挥他们的全部潜力、了解他们秘密的背景故事。</p><h2 class="bb_tag" >发现高塔的故事</h2><p class="bb_paragraph" >高塔的历史和其中众多无论敌友的居民，如今你都可以用全新的方式发现和了解他们。解锁高塔神秘时间线中的无数碎片，在你无数次的爬塔旅程中，邂逅其中最为古老的居民们。</p><p class="bb_paragraph" ></p><p class="bb_paragraph" style="text-align: center"><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2868840/extras/a011229a5c774d3546ee78a7f7969cc7.poster.avif?t=1776735385" width=600 height=358 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2868840/extras/a011229a5c774d3546ee78a7f7969cc7.webm?t=1776735385" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2868840/extras/a011229a5c774d3546ee78a7f7969cc7.mp4?t=1776735385" type="video/mp4"></video></span></p><h2 class="bb_tag" >抢先体验期间还会有更多内容</h2><p class="bb_paragraph" >高塔总是不断变化……并且变化的层面多种多样。更多内容——包括卡牌、事件、环境、敌人和更多——都会在抢先体验期间不断添加和调整平衡。来抢先加入这段旅程，成为高塔下一次进化的一部分吧。<br><br><br>那么，为什么要用抢先体验的模式发布呢？你可能会问。因为《杀戮尖塔1》的成功就源于我们的社区！这听起来很俗套，但当初众多玩家们为游戏所付出的额外助力，无论是汇报问题、翻译内容与新闻、发布长篇论文式视频、制作优秀的（哈哈）强度表/排行榜、还是绘制各种精美或搞怪的同人图，这一切都是让我们能够再次制作续作的原因。我们热爱我们的工作！</p></div>
-    </div>
+  <div class="content-block">
+    <h2>关于此游戏</h2>
+    <div><h2 class="bb_tag" >高塔苏醒了</h2><p class="bb_paragraph" >究极的卡牌肉鸽游戏再度归来！<br><br>一千年来，高塔一直在沉睡。其中的秘密被深埋、恐怖被遗忘。如今，高塔再次开启，比以往更加饥饿与危险，吞噬每一个胆敢前来攀升的人。<br><br>新的危险要求你使用更敏锐的策略、最无情的计算与毫不动摇的决心。克服高塔残酷的考验，发现藏在它顶峰的真相吧。<br><br>你是会独自攀爬，还是征求其他冒险者同伴们的支持呢？</p><p class="bb_paragraph" ></p><p class="bb_paragraph" style="text-align: center"><span class="bb_img_ctn"><video controls class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2868840/extras/7cae6b9b4c639e8c6929efa57c856cf7.poster.avif?t=1776735385" ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2868840/extras/7cae6b9b4c639e8c6929efa57c856cf7.webm?t=1776735385" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2868840/extras/7cae6b9b4c639e8c6929efa57c856cf7.mp4?t=1776735385" type="video/mp4"></video></span></p><h2 class="bb_tag" >不断变化的高塔</h2><p class="bb_paragraph" >踏进已经焕然一新的高塔，这里是一个充满奇异与致命敌人的扭曲迷宫。试着熟悉全新的卡牌、遗物与药水，每一样都有可能改变你的整局游戏——或是带来危险的后果。<br><br>和众多新老角色一起爬塔，每位角色都有自己的卡牌、动机和秘密。<br><br>没有哪两次攀登会一模一样。不可预料的挑战与不断进化的策略等待着那些勇敢——或愚昧——的爬塔者们。</p><p class="bb_paragraph" ></p><p class="bb_paragraph" ><span class="bb_img_ctn"><video controls class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2868840/extras/27da8333d420707bdc74ec08c60639d7.poster.avif?t=1776735385" ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2868840/extras/27da8333d420707bdc74ec08c60639d7.webm?t=1776735385" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2868840/extras/27da8333d420707bdc74ec08c60639d7.mp4?t=1776735385" type="video/mp4"></video></span></p><h2 class="bb_tag" >独自攀登，或与盟友共同进退</h2><p class="bb_paragraph" >是独自挑战高塔，还是最多4名玩家一起在全新的合作模式中共同面对高塔，决定在你！发现多人模式专属的卡牌、强大的团队连携、扛起你的队友们（或是被队友们扛着）去获得胜利！<br></p><p class="bb_paragraph" ></p><p class="bb_paragraph" ><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2868840/extras/d99471fefc7334953090a27bd835b9bb.avif?t=1776735385" width=1080 height=557 /></span></p><h2 class="bb_tag" >众多新老角色</h2><p class="bb_paragraph" >从五名不同的角色中选择一位踏上爬塔的旅程，有一些角色对老玩家们会相当熟悉，而另两位则是全新登场。在扫清一切拦路敌人的途中，发现每一位角色的独特游玩风格、发挥他们的全部潜力、了解他们秘密的背景故事。</p><h2 class="bb_tag" >发现高塔的故事</h2><p class="bb_paragraph" >高塔的历史和其中众多无论敌友的居民，如今你都可以用全新的方式发现和了解他们。解锁高塔神秘时间线中的无数碎片，在你无数次的爬塔旅程中，邂逅其中最为古老的居民们。</p><p class="bb_paragraph" ></p><p class="bb_paragraph" style="text-align: center"><span class="bb_img_ctn"><video controls class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2868840/extras/a011229a5c774d3546ee78a7f7969cc7.poster.avif?t=1776735385" ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2868840/extras/a011229a5c774d3546ee78a7f7969cc7.webm?t=1776735385" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2868840/extras/a011229a5c774d3546ee78a7f7969cc7.mp4?t=1776735385" type="video/mp4"></video></span></p><h2 class="bb_tag" >抢先体验期间还会有更多内容</h2><p class="bb_paragraph" >高塔总是不断变化……并且变化的层面多种多样。更多内容——包括卡牌、事件、环境、敌人和更多——都会在抢先体验期间不断添加和调整平衡。来抢先加入这段旅程，成为高塔下一次进化的一部分吧。<br><br><br>那么，为什么要用抢先体验的模式发布呢？你可能会问。因为《杀戮尖塔1》的成功就源于我们的社区！这听起来很俗套，但当初众多玩家们为游戏所付出的额外助力，无论是汇报问题、翻译内容与新闻、发布长篇论文式视频、制作优秀的（哈哈）强度表/排行榜、还是绘制各种精美或搞怪的同人图，这一切都是让我们能够再次制作续作的原因。我们热爱我们的工作！</p></div>
   </div>
 </section>
 
-
 <!-- 下载区域 -->
 <section class="download-section">
-  <div class="container">
-    <div class="download-block">
-      <h2>📥 下载链接</h2>
-      <div class="download-buttons">
-        <a href="magnet:?xt=urn:btih:5AB86D9BA43C93A5E981C7824941174C71D47559" class="download-btn magnet" target="_blank">🧲磁力</a>
+  <div class="download-block">
+    <h2>📥 下载链接</h2>
+    <div class="download-buttons">
+      <a href="magnet:?xt=urn:btih:5AB86D9BA43C93A5E981C7824941174C71D47559" class="download-btn magnet" target="_blank">🧲磁力</a>
 <a href="https://fitgirl-repacks.site/slay-the-spire/" class="download-btn fitgirl" target="_blank">FitGirl</a>
 <a href="https://www.gamer520.com/109811.html" class="download-btn gamer520" target="_blank">gamer520</a>
 
-      </div>
     </div>
   </div>
 </section>
 
 <!-- 系统需求 -->
-
-<section class="content-section">
-  <div class="container">
-    <div class="content-block">
-      <h2>系统需求</h2>
-      <div class="sys-req">
-        <div class="sys-req-col"><h4>最低配置</h4><div><strong>最低配置:</strong><br><ul class="bb_ul"><li>需要 64 位处理器和操作系统<br></li><li><strong>操作系统:</strong> Windows 10 (64-bit)<br></li><li><strong>处理器:</strong> Dual-core 2.0 GHz<br></li><li><strong>内存:</strong> 4 GB RAM<br></li><li><strong>显卡:</strong> DirectX 12 or Vulkan compatible, 1 GB VRAM<br></li><li><strong>存储空间:</strong> 需要 4 GB 可用空间</li></ul></div></div>
-        <div class="sys-req-col"><h4>推荐配置</h4><div><strong>推荐配置:</strong><br><ul class="bb_ul"><li>需要 64 位处理器和操作系统<br></li><li><strong>操作系统:</strong> Windows 10 (64-bit)<br></li><li><strong>处理器:</strong> Quad-core 3.0 GHz<br></li><li><strong>内存:</strong> 8 GB RAM<br></li><li><strong>显卡:</strong> DirectX 12 or Vulkan compatible, 2 GB VRAM<br></li><li><strong>存储空间:</strong> 需要 4 GB 可用空间</li></ul></div></div>
-      </div>
-    </div>
-  </div>
-</section>
+<section class="content-section"><div class="content-block"><h2>系统需求</h2><div class="sys-req">
+<div class="sys-req-col"><h4>最低配置</h4><ul><strong>最低配置:</strong><br><ul class="bb_ul"><li>需要 64 位处理器和操作系统<br></li><li><strong>操作系统:</strong> Windows 10 (64-bit)<br></li><li><strong>处理器:</strong> Dual-core 2.0 GHz<br></li><li><strong>内存:</strong> 4 GB RAM<br></li><li><strong>显卡:</strong> DirectX 12 or Vulkan compatible, 1 GB VRAM<br></li><li><strong>存储空间:</strong> 需要 4 GB 可用空间</li></ul></ul></div>
+<div class="sys-req-col"><h4>推荐配置</h4><ul><strong>推荐配置:</strong><br><ul class="bb_ul"><li>需要 64 位处理器和操作系统<br></li><li><strong>操作系统:</strong> Windows 10 (64-bit)<br></li><li><strong>处理器:</strong> Quad-core 3.0 GHz<br></li><li><strong>内存:</strong> 8 GB RAM<br></li><li><strong>显卡:</strong> DirectX 12 or Vulkan compatible, 2 GB VRAM<br></li><li><strong>存储空间:</strong> 需要 4 GB 可用空间</li></ul></ul></div>
+</div></div></section>
 
 <script>
 function showVideo() {
@@ -423,8 +528,8 @@ function showVideo() {
 }
 
 function showScreenshots() {
-  const videoContainer = document.getElementById('video-container');
-  if (videoContainer) videoContainer.style.display = 'none';
+  const vc = document.getElementById('video-container');
+  if (vc) vc.style.display = 'none';
   document.getElementById('screenshots-container').style.display = 'grid';
   document.querySelectorAll('.media-tab').forEach(t => t.classList.remove('active'));
   event.target.classList.add('active');

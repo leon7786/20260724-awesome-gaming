@@ -5,218 +5,297 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>暗黑地牢2 - 游戏详情</title>
 <style>
+:root {
+  --bg: #fafbfc;
+  --surface: #ffffff;
+  --border: #e5e7eb;
+  --text-primary: #111827;
+  --text-secondary: #6b7280;
+  --text-muted: #9ca3af;
+  --accent: #3b82f6;
+  --accent-light: #dbeafe;
+  --success: #10b981;
+  --warning: #f59e0b;
+  --radius: 12px;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
+  --shadow: 0 4px 12px rgba(0,0,0,0.06);
+  --shadow-lg: 0 8px 24px rgba(0,0,0,0.08);
+}
+
 * { margin: 0; padding: 0; box-sizing: border-box; }
+
 body {
-  font-family: "Microsoft YaHei", "Segoe UI", sans-serif;
-  background: #1b2838;
-  color: #c7d5e0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text-primary);
   line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
 }
 
 /* 顶部导航 */
-.top-nav {
-  background: #171a21;
-  padding: 8px 0;
-  border-bottom: 1px solid #000;
-}
-.top-nav .container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
+.topbar {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 0.75rem 2rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-}
-.breadcrumb {
-  font-size: 12px;
-  color: #666;
-}
-.breadcrumb a {
-  color: #666;
-  text-decoration: none;
-}
-.breadcrumb a:hover {
-  color: #fff;
-}
-.back-link {
-  color: #67c1f5;
-  text-decoration: none;
-  font-size: 13px;
-}
-.back-link:hover {
-  color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
-/* 主容器 */
-.container {
+.topbar a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: all 0.2s;
+}
+
+.topbar a:hover {
+  background: var(--accent-light);
+  color: var(--accent);
+}
+
+/* 游戏头部 */
+.hero {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 2rem;
+}
+
+.hero .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
-}
-
-/* 游戏头部 - Steam风格左右布局 */
-.game-header {
-  background: linear-gradient(180deg, #1b2838 0%, #2a475e 100%);
-  padding: 30px 0;
-}
-.game-header .container {
   display: grid;
-  grid-template-columns: 460px 1fr;
-  gap: 30px;
+  grid-template-columns: 300px 1fr;
+  gap: 2.5rem;
+  align-items: start;
 }
 
-/* 左侧媒体区域 */
-.media-section {
-  background: #000;
-  border-radius: 4px;
+.hero-cover {
+  border-radius: var(--radius);
   overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  aspect-ratio: 3/4;
 }
-.media-tabs {
-  display: flex;
-  background: #1b2838;
-}
-.media-tab {
-  background: transparent;
-  border: none;
-  color: #67c1f5;
-  padding: 10px 20px;
-  cursor: pointer;
-  font-size: 13px;
-  border-bottom: 2px solid transparent;
-}
-.media-tab.active {
-  border-bottom-color: #67c1f5;
-  color: #fff;
-}
-.media-player {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 16/9;
-  background: #000;
-}
-.media-player video,
-.media-player img {
+
+.hero-cover img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
+
+.hero-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding-top: 0.5rem;
+}
+
+.hero-info h1 {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.hero-info .en-name {
+  font-size: 1.125rem;
+  color: var(--text-secondary);
+  font-weight: 400;
+}
+
+.meta-tags {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.meta-tag {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  padding: 0.375rem 0.75rem;
+  border-radius: 8px;
+  background: #f3f4f6;
+  color: var(--text-secondary);
+}
+
+.meta-tag.score {
+  background: var(--accent-light);
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.meta-tag.year {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.info-row {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.info-item .label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+}
+
+.info-item .value {
+  font-size: 0.9375rem;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.hero-desc {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+  max-width: 640px;
+}
+
+/* 媒体区域 */
+.media-section {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 2rem;
+}
+
+.media-tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.media-tab {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  padding: 0.5rem 1.25rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.media-tab:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.media-tab.active {
+  background: var(--accent);
+  color: white;
+  border-color: var(--accent);
+}
+
+.media-player {
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: #000;
+  aspect-ratio: 16/9;
+}
+
+.media-player video,
+.media-player img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
 .screenshots-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 4px;
-  padding: 4px;
-  background: #1b2838;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 0.75rem;
 }
+
 .screenshots-grid img {
   width: 100%;
   aspect-ratio: 16/9;
   object-fit: cover;
+  border-radius: 8px;
   cursor: pointer;
-  transition: opacity 0.2s;
-}
-.screenshots-grid img:hover {
-  opacity: 0.8;
+  transition: all 0.2s;
+  border: 1px solid var(--border);
 }
 
-/* 右侧信息面板 */
-.game-info {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-.game-title {
-  font-size: 32px;
-  font-weight: 300;
-  color: #fff;
-}
-.game-subtitle {
-  font-size: 14px;
-  color: #8f98a0;
-}
-.game-meta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-.meta-item {
-  background: rgba(0,0,0,0.3);
-  padding: 6px 12px;
-  border-radius: 3px;
-  font-size: 13px;
-  color: #c7d5e0;
-}
-.meta-item.score {
-  background: #66c0f4;
-  color: #1b2838;
-  font-weight: 600;
-}
-.info-block {
-  background: rgba(0,0,0,0.2);
-  padding: 12px;
-  border-radius: 4px;
-}
-.info-block .label {
-  font-size: 11px;
-  color: #8f98a0;
-  text-transform: uppercase;
-  margin-bottom: 4px;
-}
-.info-block .value {
-  font-size: 14px;
-  color: #67c1f5;
-}
-.game-desc {
-  font-size: 14px;
-  color: #acb2b8;
-  line-height: 1.7;
+.screenshots-grid img:hover {
+  transform: scale(1.02);
+  box-shadow: var(--shadow);
 }
 
 /* 内容区域 */
 .content-section {
-  background: #1b2838;
-  padding: 30px 0;
-}
-.content-block {
-  background: rgba(0,0,0,0.3);
-  padding: 24px;
-  border-radius: 4px;
-}
-.content-block h2 {
-  color: #fff;
-  font-size: 20px;
-  margin-bottom: 16px;
-  padding-bottom: 12px;
-  border-bottom: 1px solid #2a475e;
-}
-.content-block p {
-  color: #acb2b8;
-  font-size: 14px;
-  line-height: 1.8;
-  margin-bottom: 12px;
-}
-.content-block h2.bb_tag {
-  color: #67c1f5;
-  font-size: 16px;
-  margin: 20px 0 10px 0;
-  border-bottom: none;
-  padding-bottom: 0;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem 2rem;
 }
 
-/* Steam 内嵌媒体约束 */
+.content-block {
+  background: var(--surface);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.content-block h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.content-block p {
+  color: var(--text-secondary);
+  font-size: 0.9375rem;
+  line-height: 1.75;
+  margin-bottom: 0.75rem;
+}
+
+.content-block h2.bb_tag {
+  font-size: 1.125rem;
+  color: var(--accent);
+  margin: 1.5rem 0 0.75rem;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+/* Steam 内嵌媒体 */
 .content-block .bb_img_ctn {
   display: block;
   max-width: 100%;
-  margin: 12px 0;
+  margin: 1rem 0;
   overflow: hidden;
+  border-radius: 8px;
   background: #000;
 }
+
 .content-block .bb_img {
   max-width: 100% !important;
   width: 100% !important;
   height: auto !important;
   display: block;
-  border-radius: 4px;
+  border-radius: 8px;
 }
+
 .content-block video.bb_img {
   width: 100% !important;
   height: auto !important;
@@ -227,86 +306,125 @@ body {
 
 /* 下载区域 */
 .download-section {
-  background: #1b2838;
-  padding: 30px 0;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem 2rem;
 }
+
 .download-block {
-  background: rgba(0,0,0,0.3);
-  padding: 24px;
-  border-radius: 4px;
+  background: var(--surface);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  padding: 2rem;
 }
+
 .download-block h2 {
-  color: #fff;
-  font-size: 20px;
-  margin-bottom: 16px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
 }
+
 .download-buttons {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 0.75rem;
 }
+
 .download-btn {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 12px 24px;
-  border-radius: 4px;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 10px;
   text-decoration: none;
   color: #fff;
-  font-size: 14px;
+  font-size: 0.9375rem;
   font-weight: 500;
   transition: all 0.2s;
+  box-shadow: var(--shadow-sm);
 }
+
 .download-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  box-shadow: var(--shadow);
 }
+
 .download-btn.gamer520 { background: linear-gradient(135deg, #10b981, #059669); }
 .download-btn.x6d { background: linear-gradient(135deg, #3b82f6, #2563eb); }
-.download-btn.magnet { background: linear-gradient(135deg, #ef4444, #dc2626); }
-.download-btn.fitgirl { background: linear-gradient(135deg, #f59e0b, #d97706); }
+.download-btn.magnet { background: linear-gradient(135deg, #f59e0b, #d97706); }
+.download-btn.fitgirl { background: linear-gradient(135deg, #8b5cf6, #7c3aed); }
 .download-btn.tianyi { background: linear-gradient(135deg, #6366f1, #4f46e5); }
-.download-btn.baidu { background: linear-gradient(135deg, #2563eb, #1d4ed8); }
+.download-btn.baidu { background: linear-gradient(135deg, #06b6d4, #0891b2); }
+.download-btn.crotorrents { background: linear-gradient(135deg, #ec4899, #db2777); }
 
 /* 系统需求 */
 .sys-req {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20px;
+  gap: 2rem;
 }
+
 .sys-req-col h4 {
-  color: #67c1f5;
-  font-size: 14px;
-  margin-bottom: 12px;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 1rem;
 }
+
 .sys-req-col ul {
   list-style: none;
-  margin: 0;
 }
+
 .sys-req-col li {
-  font-size: 13px;
-  color: #acb2b8;
-  margin-bottom: 8px;
-  padding-left: 16px;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+  padding-left: 1.25rem;
   position: relative;
+  line-height: 1.6;
 }
+
 .sys-req-col li:before {
   content: "•";
   position: absolute;
   left: 0;
-  color: #67c1f5;
+  color: var(--accent);
+  font-weight: bold;
 }
 
 /* 响应式 */
 @media (max-width: 900px) {
-  .game-header .container {
+  .hero .container {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
-  .media-section {
-    max-width: 100%;
+  .hero-cover {
+    max-width: 280px;
+    margin: 0 auto;
+  }
+  .hero-info h1 {
+    font-size: 1.75rem;
   }
   .sys-req {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero {
+    padding: 1.5rem 1rem;
+  }
+  .media-section,
+  .content-section,
+  .download-section {
+    padding: 0 1rem 1.5rem;
+  }
+  .content-block,
+  .download-block {
+    padding: 1.5rem;
   }
 }
 </style>
@@ -314,104 +432,105 @@ body {
 <body>
 
 <!-- 顶部导航 -->
-<nav class="top-nav">
-  <div class="container">
-    <div class="breadcrumb">
-      <a href="../../index.html">← 返回游戏榜单</a>
-    </div>
-    <a href="https://store.steampowered.com/app/1940340/" target="_blank" class="back-link">Steam 商店页 →</a>
-  </div>
+<nav class="topbar">
+  <a href="../../index.html">← 返回游戏榜单</a>
+  <a href="https://store.steampowered.com/app/1940340/" target="_blank">Steam 商店页 →</a>
 </nav>
 
 <!-- 游戏头部 -->
-<section class="game-header">
+<section class="hero">
   <div class="container">
-    <!-- 左侧媒体区域 -->
-    <div class="media-section">
-      <div class="media-tabs">
-        
-        <button class="media-tab active" onclick="showScreenshots()">截图</button>
-      </div>
-      
-      
-      
-      
-      <div id="screenshots-container" class="screenshots-grid" 
+    <div class="hero-cover">
+      <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1940340/library_600x900.jpg" alt="暗黑地牢2">
     </div>
-    
-    <!-- 右侧信息面板 -->
-    <div class="game-info">
-      <h1 class="game-title">暗黑地牢2</h1>
-      <div class="game-subtitle">Darkest Dungeon 2</div>
+    <div class="hero-info">
+      <h1>暗黑地牢2</h1>
+      <div class="en-name">Darkest Dungeon 2</div>
       
-      <div class="game-meta">
-        <div class="meta-item">2023 年 5 月 8 日</div>
-        <div class="meta-item">独立, 角色扮演, 策略</div>
-        <div class="meta-item score">评分 81</div>
+      <div class="meta-tags">
+        <span class="meta-tag year">2023 年 5 月 8 日</span>
+        <span class="meta-tag">独立, 角色扮演, 策略</span>
+        <span class="meta-tag score">⭐ 81</span>
       </div>
       
-      
-      <div class="info-block">
-        <div class="label">开发者</div>
-        <div class="value">Red Hook Studios</div>
+      <div class="info-row">
+        <div class="info-item">
+          <span class="label">开发者</span>
+          <span class="value">Red Hook Studios</span>
+        </div>
+        <div class="info-item">
+          <span class="label">发行商</span>
+          <span class="value">Red Hook Studios</span>
+        </div>
       </div>
       
-      
-      
-      <div class="info-block">
-        <div class="label">发行商</div>
-        <div class="value">Red Hook Studios</div>
-      </div>
-      
-      
-      
-      <div class="game-desc">
+      <div class="hero-desc">
         《暗黑地牢2》是一场有去无回的类Rogue公路旅行。组建一支队伍，武装你的驿站马车，然后策马横穿日益腐朽的大地，去追寻避免末世浩劫的最后一线希望。但是务必当心：最大的威胁，或许正潜藏在你们之中……
       </div>
-      
     </div>
+  </div>
+</section>
+
+<!-- 媒体区域 -->
+<section class="media-section">
+  <div class="media-tabs">
+    <button class="media-tab active" onclick="showVideo()">▶ 视频</button>
+    <button class="media-tab" onclick="showScreenshots()">🖼 截图</button>
+  </div>
+  
+  <div id="video-container" class="media-player">
+    
+  </div>
+  
+  <div id="screenshots-container" class="screenshots-grid" style="display:none;">
+    <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1940340/ss_bc4c7aec5704ed4108a181ec9a790c3fea4a9f12.1920x1080.jpg?t=1759351183" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1940340/ss_254e72f3356e62496b02c1faf7852bb5053e0338.1920x1080.jpg?t=1759351183" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1940340/ss_19b4a3415f5c4167121cb2acd12b7d6d90555e2c.1920x1080.jpg?t=1759351183" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1940340/ss_9fab75b3c27e5dfc4b55a105b457623d0a76f924.1920x1080.jpg?t=1759351183" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1940340/ss_7c63e2d7ec491bf2b4a94209742a75b869b47814.1920x1080.jpg?t=1759351183" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1940340/ss_e25bc022fa98e7b235eb7146a3e54507893f3ab0.1920x1080.jpg?t=1759351183" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1940340/ss_e1e58fd089d3223d6af5e2285ec957ce4fa47601.1920x1080.jpg?t=1759351183" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1940340/ss_d9ace881030b51b9f405198111df391f4573d092.1920x1080.jpg?t=1759351183" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1940340/ss_aa9bc1b0dff5ab82c008e3b944b0ad6487a3f868.1920x1080.jpg?t=1759351183" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1940340/ss_740a7bb85276e21d85f7ed8aec558e9d040be748.1920x1080.jpg?t=1759351183" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1940340/ss_a250419aa699d9676acb374972df287d522305ac.1920x1080.jpg?t=1759351183" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1940340/ss_e45a78cf2c30c0bea63cd7db9c17782cabf82a16.1920x1080.jpg?t=1759351183" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1940340/ss_3a66e8696dcfc049401f5f6ade354c138899f0b3.1920x1080.jpg?t=1759351183" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1940340/ss_fed764604bcb367ccd2411c9540b8754c21e8090.1920x1080.jpg?t=1759351183" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1940340/ss_ea2afe87f9ea89ee9816b3eef48e7eac51f60e13.1920x1080.jpg?t=1759351183" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1940340/ss_ae99a05123bc28caa5c4968ec62b08f7a09f0607.1920x1080.jpg?t=1759351183" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1940340/ss_b6d6ef7bde79ff54c7bfac5ab094ef7d88054e6a.1920x1080.jpg?t=1759351183" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1940340/ss_7e181a480137b5ebe5062842808478e3181d7361.1920x1080.jpg?t=1759351183" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1940340/ss_1e1e63dd8c701371a1b9ff352212ccbdc38db680.1920x1080.jpg?t=1759351183" alt="Screenshot" onclick="window.open(this.src)">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1940340/ss_e5f532902ce528340bce0735f16a8816f56182d9.1920x1080.jpg?t=1759351183" alt="Screenshot" onclick="window.open(this.src)">
   </div>
 </section>
 
 <!-- 关于此游戏 -->
-
 <section class="content-section">
-  <div class="container">
-    <div class="content-block">
-      <h2>关于此游戏</h2>
-      <div>《暗黑地牢2》是一场有去无回的类Rogue公路旅行。组建一支队伍，武装你的驿站马车，然后驱车横穿日益腐朽的大地，在末日浩劫中追寻最后一线希望。但是务必当心：最大的威胁，或许正是你的心魔……<br><br><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1940340/extras/f8e0716d0d983a99d12e48b408152210.avif?t=1759351183" alt="Kingdoms" data-big-src=https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1940340/extras_big/f8e0716d0d983a99d12e48b408152210.avif?t=1759351183 width=800 height=214 /></span><br><br><strong><i>全新游戏模式“王国模式”现已发布！</i></strong><br><br><i>“这满目疮痍的王国，如今归你所有，而你亦缚身期间。”</i><br><br>“王国模式”是全新的独立战役策略模式，现已可在《暗黑地牢2》中游玩。<br><br><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline crossorigin="anonymous" poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1940340/extras/1f269989e249cbf0dcef5a8b88b95f18.poster.avif?t=1759351183" width=616 height=347 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1940340/extras/1f269989e249cbf0dcef5a8b88b95f18.webm?t=1759351183" type="video/webm; codecs=vp9"></video></span><br><br>王国模式重新设计了游戏玩法，与罪状模式并行运作，带来截然不同的游戏体验。玩家将面临来自全新敌人派系的入侵，肩负起守护一个风雨飘摇的王国的重任。<br><br>管理一队坚毅的英雄们，收集资源，追逐一条史诗的任务线，以期找到邪恶的来源，趁为时未晚将其铲除。<br><br>]<span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline crossorigin="anonymous" poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1940340/extras/fec579897aed89adb8b80da1982a7338.poster.avif?t=1759351183" width=616 height=336 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1940340/extras/fec579897aed89adb8b80da1982a7338.webm?t=1759351183" type="video/webm; codecs=vp9"></video></span><br><br>两种模式的进度互不影响，玩家可以随时切换游戏模式。<br><br>王国模式正以主题篇章的形式逐步推出，每个篇章都聚焦于不同的敌人威胁。共有三个冒险篇章：“群兽之饥”、“巫会之秘”、“诅咒之庭”，现已全部上线！<br><br><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1940340/extras/a695c091f967159ce9b5d5eeb69b2fb1.avif?t=1759351183" alt="Confessions" data-big-src=https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1940340/extras_big/a695c091f967159ce9b5d5eeb69b2fb1.avif?t=1759351183 width=800 height=214 /></span><br><br><strong><i>鼓起勇气，驱车直入这土崩瓦解的乱世。</i></strong><br>四名英雄，一辆马车，便是这世界坠入万劫不复前的最后屏障。<br><br><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1940340/extras/7d07f9f7a73e32805bd65467de04bdea.poster.avif?t=1759351183" width=630 height=200 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1940340/extras/7d07f9f7a73e32805bd65467de04bdea.webm?t=1759351183" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1940340/extras/7d07f9f7a73e32805bd65467de04bdea.mp4?t=1759351183" type="video/mp4"></video></span><br><br><strong><i>历久弥新的回合制战斗</i></strong><br>《暗黑地牢》中一鸣惊人、奠定系列基础的战斗系统回归，但从数值到规则的一切都得到了改进和优化。全新的标记系统会让你的决策更有意义，同时也让玩法更有深度。<br><br><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1940340/extras/174da2c6f7da2621035127db931836ce.poster.avif?t=1759351183" width=630 height=300 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1940340/extras/174da2c6f7da2621035127db931836ce.webm?t=1759351183" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1940340/extras/174da2c6f7da2621035127db931836ce.mp4?t=1759351183" type="video/mp4"></video></span><br><br><strong><i>令人难忘的英雄</i></strong><br>发掘并亲历每名英雄的悲情故事。通过技能、道途、物品和更多选择来解锁他们完整的力量。<br><br><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1940340/extras/dea81831321c1b5c4f3e8888f59f593e.poster.avif?t=1759351183" width=630 height=300 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1940340/extras/dea81831321c1b5c4f3e8888f59f593e.webm?t=1759351183" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1940340/extras/dea81831321c1b5c4f3e8888f59f593e.mp4?t=1759351183" type="video/mp4"></video></span><br><br><strong><i>类Rogue冒险，每轮都有新的故事</i></strong><br>每场征程的持续时间为30分钟至数个小时。即使出师未捷身先死，你也会获得资源奖励，为你后续的旅程提供助力。<br><br><strong><i>希望祭坛</i></strong><br>得益于庞大的升级与奖励系统，每场征程都会有新的策略可供尝试。选择对于你来说最重要的东西，构建独特的策略向山峰发起冲击。<br><br><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1940340/extras/5ea2bf9a2f2ae6aa76e6d45007526f63.poster.avif?t=1759351183" width=630 height=300 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1940340/extras/5ea2bf9a2f2ae6aa76e6d45007526f63.webm?t=1759351183" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1940340/extras/5ea2bf9a2f2ae6aa76e6d45007526f63.mp4?t=1759351183" type="video/mp4"></video></span><br><br><strong><i>和睦系统</i></strong><br>随着每次旅程的进展，英雄们或是会彼此建立纽带，或是会相互结下梁子；前者能带来雪中送炭的战斗配合，而后者则往往将团队引向灭亡。管理英雄们的压力和互动，才能让他们团结一致，携手赴死。<br><br><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1940340/extras/87be4f3201b96527b8dc1616d95a9a3c.avif?t=1759351183" width=600 height=338 /></span><br><br><strong><i>噩梦般的环境</i></strong><br>从烈火滔天的陌城到疫病肆虐的腐宴，通往山峰的漫漫前路将会对你的决策能力和忍耐力发起挑战。<br><br>探索五个迥然不同的地区，每个地区都有其独特的生物和挑战。<br><br><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1940340/extras/b6deb3b50545178296ebb4d58349e4bd.poster.avif?t=1759351183" width=630 height=200 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1940340/extras/b6deb3b50545178296ebb4d58349e4bd.webm?t=1759351183" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1940340/extras/b6deb3b50545178296ebb4d58349e4bd.mp4?t=1759351183" type="video/mp4"></video></span><br><br><strong><i>片刻安宁</i></strong><br>酒馆可以供历尽艰险、心神不宁的英雄们歇息，在那里你可以用一系列奇珍杂物缓解他们的压力，并尝试让他们变得更加和睦。<br><br><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1940340/extras/37e11e8bd5843a2db795753eb529d54f.poster.avif?t=1759351183" width=630 height=200 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1940340/extras/37e11e8bd5843a2db795753eb529d54f.webm?t=1759351183" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1940340/extras/37e11e8bd5843a2db795753eb529d54f.mp4?t=1759351183" type="video/mp4"></video></span><br><br><strong><i>直面你的失败</i></strong><br>跋山涉水前往山峰，直面你的五个弱点的可怖具象。<br><br><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1940340/extras/9eed418dcc233d1c7f6adb2c278deaa9.avif?t=1759351183" width=600 height=338 /></span><br><br><strong><i>标志性的美术风格更上一层楼</i></strong><br>为《暗黑地牢》系列奠基的美术得到了全方位的提升，倾情演绎3D美术，动画及视觉效果。<br><br><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1940340/extras/4d884cf3976b889d40a590ade3286217.poster.avif?t=1759351183" width=630 height=300 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1940340/extras/4d884cf3976b889d40a590ade3286217.webm?t=1759351183" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1940340/extras/4d884cf3976b889d40a590ade3286217.mp4?t=1759351183" type="video/mp4"></video></span><br><br><strong><i>听觉盛宴</i></strong><br>《暗黑地牢》的音频团队再度回归。尽享由 Wayne June 配音的全新剧情叙事，来自 Stuart Chatwood 的绕梁不散的原声音轨，以及来自 Power Up Audio 那粉身碎骨般的音效。<br><br><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1940340/extras/31d335d0f35115da4d7df9010ce345a8.avif?t=1759351183" width=600 height=302 /></span></div>
-    </div>
+  <div class="content-block">
+    <h2>关于此游戏</h2>
+    <div>《暗黑地牢2》是一场有去无回的类Rogue公路旅行。组建一支队伍，武装你的驿站马车，然后驱车横穿日益腐朽的大地，在末日浩劫中追寻最后一线希望。但是务必当心：最大的威胁，或许正是你的心魔……<br><br><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1940340/extras/f8e0716d0d983a99d12e48b408152210.avif?t=1759351183" alt="Kingdoms" data-big-src=https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1940340/extras_big/f8e0716d0d983a99d12e48b408152210.avif?t=1759351183 width=800 height=214 /></span><br><br><strong><i>全新游戏模式“王国模式”现已发布！</i></strong><br><br><i>“这满目疮痍的王国，如今归你所有，而你亦缚身期间。”</i><br><br>“王国模式”是全新的独立战役策略模式，现已可在《暗黑地牢2》中游玩。<br><br><span class="bb_img_ctn"><video controls class="bb_img" autoplay muted loop playsinline crossorigin="anonymous" poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1940340/extras/1f269989e249cbf0dcef5a8b88b95f18.poster.avif?t=1759351183" ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1940340/extras/1f269989e249cbf0dcef5a8b88b95f18.webm?t=1759351183" type="video/webm; codecs=vp9"></video></span><br><br>王国模式重新设计了游戏玩法，与罪状模式并行运作，带来截然不同的游戏体验。玩家将面临来自全新敌人派系的入侵，肩负起守护一个风雨飘摇的王国的重任。<br><br>管理一队坚毅的英雄们，收集资源，追逐一条史诗的任务线，以期找到邪恶的来源，趁为时未晚将其铲除。<br><br>]<span class="bb_img_ctn"><video controls class="bb_img" autoplay muted loop playsinline crossorigin="anonymous" poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1940340/extras/fec579897aed89adb8b80da1982a7338.poster.avif?t=1759351183" ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1940340/extras/fec579897aed89adb8b80da1982a7338.webm?t=1759351183" type="video/webm; codecs=vp9"></video></span><br><br>两种模式的进度互不影响，玩家可以随时切换游戏模式。<br><br>王国模式正以主题篇章的形式逐步推出，每个篇章都聚焦于不同的敌人威胁。共有三个冒险篇章：“群兽之饥”、“巫会之秘”、“诅咒之庭”，现已全部上线！<br><br><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1940340/extras/a695c091f967159ce9b5d5eeb69b2fb1.avif?t=1759351183" alt="Confessions" data-big-src=https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1940340/extras_big/a695c091f967159ce9b5d5eeb69b2fb1.avif?t=1759351183 width=800 height=214 /></span><br><br><strong><i>鼓起勇气，驱车直入这土崩瓦解的乱世。</i></strong><br>四名英雄，一辆马车，便是这世界坠入万劫不复前的最后屏障。<br><br><span class="bb_img_ctn"><video controls class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1940340/extras/7d07f9f7a73e32805bd65467de04bdea.poster.avif?t=1759351183" ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1940340/extras/7d07f9f7a73e32805bd65467de04bdea.webm?t=1759351183" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1940340/extras/7d07f9f7a73e32805bd65467de04bdea.mp4?t=1759351183" type="video/mp4"></video></span><br><br><strong><i>历久弥新的回合制战斗</i></strong><br>《暗黑地牢》中一鸣惊人、奠定系列基础的战斗系统回归，但从数值到规则的一切都得到了改进和优化。全新的标记系统会让你的决策更有意义，同时也让玩法更有深度。<br><br><span class="bb_img_ctn"><video controls class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1940340/extras/174da2c6f7da2621035127db931836ce.poster.avif?t=1759351183" ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1940340/extras/174da2c6f7da2621035127db931836ce.webm?t=1759351183" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1940340/extras/174da2c6f7da2621035127db931836ce.mp4?t=1759351183" type="video/mp4"></video></span><br><br><strong><i>令人难忘的英雄</i></strong><br>发掘并亲历每名英雄的悲情故事。通过技能、道途、物品和更多选择来解锁他们完整的力量。<br><br><span class="bb_img_ctn"><video controls class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1940340/extras/dea81831321c1b5c4f3e8888f59f593e.poster.avif?t=1759351183" ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1940340/extras/dea81831321c1b5c4f3e8888f59f593e.webm?t=1759351183" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1940340/extras/dea81831321c1b5c4f3e8888f59f593e.mp4?t=1759351183" type="video/mp4"></video></span><br><br><strong><i>类Rogue冒险，每轮都有新的故事</i></strong><br>每场征程的持续时间为30分钟至数个小时。即使出师未捷身先死，你也会获得资源奖励，为你后续的旅程提供助力。<br><br><strong><i>希望祭坛</i></strong><br>得益于庞大的升级与奖励系统，每场征程都会有新的策略可供尝试。选择对于你来说最重要的东西，构建独特的策略向山峰发起冲击。<br><br><span class="bb_img_ctn"><video controls class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1940340/extras/5ea2bf9a2f2ae6aa76e6d45007526f63.poster.avif?t=1759351183" ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1940340/extras/5ea2bf9a2f2ae6aa76e6d45007526f63.webm?t=1759351183" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1940340/extras/5ea2bf9a2f2ae6aa76e6d45007526f63.mp4?t=1759351183" type="video/mp4"></video></span><br><br><strong><i>和睦系统</i></strong><br>随着每次旅程的进展，英雄们或是会彼此建立纽带，或是会相互结下梁子；前者能带来雪中送炭的战斗配合，而后者则往往将团队引向灭亡。管理英雄们的压力和互动，才能让他们团结一致，携手赴死。<br><br><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1940340/extras/87be4f3201b96527b8dc1616d95a9a3c.avif?t=1759351183" width=600 height=338 /></span><br><br><strong><i>噩梦般的环境</i></strong><br>从烈火滔天的陌城到疫病肆虐的腐宴，通往山峰的漫漫前路将会对你的决策能力和忍耐力发起挑战。<br><br>探索五个迥然不同的地区，每个地区都有其独特的生物和挑战。<br><br><span class="bb_img_ctn"><video controls class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1940340/extras/b6deb3b50545178296ebb4d58349e4bd.poster.avif?t=1759351183" ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1940340/extras/b6deb3b50545178296ebb4d58349e4bd.webm?t=1759351183" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1940340/extras/b6deb3b50545178296ebb4d58349e4bd.mp4?t=1759351183" type="video/mp4"></video></span><br><br><strong><i>片刻安宁</i></strong><br>酒馆可以供历尽艰险、心神不宁的英雄们歇息，在那里你可以用一系列奇珍杂物缓解他们的压力，并尝试让他们变得更加和睦。<br><br><span class="bb_img_ctn"><video controls class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1940340/extras/37e11e8bd5843a2db795753eb529d54f.poster.avif?t=1759351183" ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1940340/extras/37e11e8bd5843a2db795753eb529d54f.webm?t=1759351183" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1940340/extras/37e11e8bd5843a2db795753eb529d54f.mp4?t=1759351183" type="video/mp4"></video></span><br><br><strong><i>直面你的失败</i></strong><br>跋山涉水前往山峰，直面你的五个弱点的可怖具象。<br><br><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1940340/extras/9eed418dcc233d1c7f6adb2c278deaa9.avif?t=1759351183" width=600 height=338 /></span><br><br><strong><i>标志性的美术风格更上一层楼</i></strong><br>为《暗黑地牢》系列奠基的美术得到了全方位的提升，倾情演绎3D美术，动画及视觉效果。<br><br><span class="bb_img_ctn"><video controls class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1940340/extras/4d884cf3976b889d40a590ade3286217.poster.avif?t=1759351183" ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1940340/extras/4d884cf3976b889d40a590ade3286217.webm?t=1759351183" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1940340/extras/4d884cf3976b889d40a590ade3286217.mp4?t=1759351183" type="video/mp4"></video></span><br><br><strong><i>听觉盛宴</i></strong><br>《暗黑地牢》的音频团队再度回归。尽享由 Wayne June 配音的全新剧情叙事，来自 Stuart Chatwood 的绕梁不散的原声音轨，以及来自 Power Up Audio 那粉身碎骨般的音效。<br><br><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1940340/extras/31d335d0f35115da4d7df9010ce345a8.avif?t=1759351183" width=600 height=302 /></span></div>
   </div>
 </section>
 
-
 <!-- 下载区域 -->
 <section class="download-section">
-  <div class="container">
-    <div class="download-block">
-      <h2>📥 下载链接</h2>
-      <div class="download-buttons">
-        <a href="https://www.gamer520.com/24254.html" class="download-btn gamer520" target="_blank">gamer520</a>
+  <div class="download-block">
+    <h2>📥 下载链接</h2>
+    <div class="download-buttons">
+      <a href="https://www.gamer520.com/24254.html" class="download-btn gamer520" target="_blank">gamer520</a>
 <a href="https://www.x6d.com/i-wz-16694.html" class="download-btn x6d" target="_blank">x6d</a>
 
-      </div>
     </div>
   </div>
 </section>
 
 <!-- 系统需求 -->
-
-<section class="content-section">
-  <div class="container">
-    <div class="content-block">
-      <h2>系统需求</h2>
-      <div class="sys-req">
-        <div class="sys-req-col"><h4>最低配置</h4><div><strong>最低配置:</strong><br><ul class="bb_ul"><li>需要 64 位处理器和操作系统<br></li><li><strong>操作系统:</strong> Windows 10<br></li><li><strong>处理器:</strong> AMD Athlon X4 | Intel Core i5 4460<br></li><li><strong>内存:</strong> 8 GB RAM<br></li><li><strong>显卡:</strong> Nvidia GTX 950 | AMD R7 370<br></li><li><strong>存储空间:</strong> 需要 6 GB 可用空间</li></ul></div></div>
-        <div class="sys-req-col"><h4>推荐配置</h4><div><strong>推荐配置:</strong><br><ul class="bb_ul"><li>需要 64 位处理器和操作系统<br></li><li><strong>操作系统:</strong> Windows 10<br></li><li><strong>处理器:</strong> i7 6700k<br></li><li><strong>内存:</strong> 16 GB RAM<br></li><li><strong>存储空间:</strong> 需要 6 GB 可用空间</li></ul></div></div>
-      </div>
-    </div>
-  </div>
-</section>
+<section class="content-section"><div class="content-block"><h2>系统需求</h2><div class="sys-req">
+<div class="sys-req-col"><h4>最低配置</h4><ul><strong>最低配置:</strong><br><ul class="bb_ul"><li>需要 64 位处理器和操作系统<br></li><li><strong>操作系统:</strong> Windows 10<br></li><li><strong>处理器:</strong> AMD Athlon X4 | Intel Core i5 4460<br></li><li><strong>内存:</strong> 8 GB RAM<br></li><li><strong>显卡:</strong> Nvidia GTX 950 | AMD R7 370<br></li><li><strong>存储空间:</strong> 需要 6 GB 可用空间</li></ul></ul></div>
+<div class="sys-req-col"><h4>推荐配置</h4><ul><strong>推荐配置:</strong><br><ul class="bb_ul"><li>需要 64 位处理器和操作系统<br></li><li><strong>操作系统:</strong> Windows 10<br></li><li><strong>处理器:</strong> i7 6700k<br></li><li><strong>内存:</strong> 16 GB RAM<br></li><li><strong>存储空间:</strong> 需要 6 GB 可用空间</li></ul></ul></div>
+</div></div></section>
 
 <script>
 function showVideo() {
@@ -422,8 +541,8 @@ function showVideo() {
 }
 
 function showScreenshots() {
-  const videoContainer = document.getElementById('video-container');
-  if (videoContainer) videoContainer.style.display = 'none';
+  const vc = document.getElementById('video-container');
+  if (vc) vc.style.display = 'none';
   document.getElementById('screenshots-container').style.display = 'grid';
   document.querySelectorAll('.media-tab').forEach(t => t.classList.remove('active'));
   event.target.classList.add('active');
