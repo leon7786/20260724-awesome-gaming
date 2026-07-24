@@ -5,6 +5,7 @@
 | 来源 | 链接 | 说明 |
 |------|------|------|
 | 🧲 磁力链 | `magnet:?xt=urn:btih:EE2A7AAAEF75E21B8BD22216219FA9E58FEE907E` | 最新版BT下载 |
+| 📀 FitGirl | [https://fitgirl-repacks.site/divinity-original-sin...](https://fitgirl-repacks.site/divinity-original-sin-2/) | 高压版 |
 
 
 ## 解压密码

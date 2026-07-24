@@ -5,6 +5,7 @@
 | 来源 | 链接 | 说明 |
 |------|------|------|
 | 🧲 磁力链 | `magnet:?xt=urn:btih:CDF31CDE367E8BBBD17A44253954185557ACB058` | 最新版BT下载 |
+| 📀 FitGirl | [https://fitgirl-repacks.site/dead-cells/...](https://fitgirl-repacks.site/dead-cells/) | 高压版 |
 
 
 ## 解压密码

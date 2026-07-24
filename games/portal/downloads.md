@@ -5,6 +5,7 @@
 | 来源 | 链接 | 说明 |
 |------|------|------|
 | 🧲 磁力链 | `magnet:?xt=urn:btih:36176DE2` | 最新版BT下载 |
+| 📀 FitGirl | [https://fitgirl-repacks.site/portal/...](https://fitgirl-repacks.site/portal/) | 高压版 |
 
 
 ## 解压密码

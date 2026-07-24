@@ -5,6 +5,7 @@
 | 来源 | 链接 | 说明 |
 |------|------|------|
 | 🧲 磁力链 | `magnet:?xt=urn:btih:8A1272888A9BB91EEDA6A796ACC70D38ECD50E0D` | 最新版BT下载 |
+| 📀 FitGirl | [https://fitgirl-repacks.site/prince-of-persia-the-...](https://fitgirl-repacks.site/prince-of-persia-the-lost-crown/) | 高压版 |
 
 
 ## 解压密码

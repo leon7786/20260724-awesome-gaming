@@ -5,6 +5,7 @@
 | 来源 | 链接 | 说明 |
 |------|------|------|
 | 🧲 磁力链 | `magnet:?xt=urn:btih:0F432B4B7B2F404489BF2E6D94424566E36BADDB` | 最新版BT下载 |
+| 📀 FitGirl | [https://fitgirl-repacks.site/subnautica/...](https://fitgirl-repacks.site/subnautica/) | 高压版 |
 
 
 ## 解压密码

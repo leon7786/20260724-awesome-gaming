@@ -5,6 +5,7 @@
 | 来源 | 链接 | 说明 |
 |------|------|------|
 | 🧲 磁力链 | `magnet:?xt=urn:btih:42021EE8FB7EB17054BAFD52BC1094E56A6F37B1` | 最新版BT下载 |
+| 📀 FitGirl | [https://fitgirl-repacks.site/valheim/...](https://fitgirl-repacks.site/valheim/) | 高压版 |
 
 
 ## 解压密码

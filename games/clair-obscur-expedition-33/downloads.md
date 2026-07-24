@@ -5,6 +5,7 @@
 | 来源 | 链接 | 说明 |
 |------|------|------|
 | 🧲 磁力链 | `magnet:?xt=urn:btih:93626317C63A3284EE05C775722B6C5A9AE61772` | 最新版BT下载 |
+| 📀 FitGirl | [https://fitgirl-repacks.site/clair-obscur-expediti...](https://fitgirl-repacks.site/clair-obscur-expedition-33/) | 高压版 |
 
 
 ## 解压密码

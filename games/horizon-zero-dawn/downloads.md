@@ -5,6 +5,7 @@
 | 来源 | 链接 | 说明 |
 |------|------|------|
 | 🧲 磁力链 | `magnet:?xt=urn:btih:2B72EDC366BFF51B47A5B87AF6F09CA840F436EA` | 最新版BT下载 |
+| 📀 FitGirl | [https://fitgirl-repacks.site/horizon-zero-dawn/...](https://fitgirl-repacks.site/horizon-zero-dawn/) | 高压版 |
 
 
 ## 解压密码

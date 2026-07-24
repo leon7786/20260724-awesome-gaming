@@ -5,6 +5,7 @@
 | 来源 | 链接 | 说明 |
 |------|------|------|
 | 🧲 磁力链 | `magnet:?xt=urn:btih:33459C4DA6C3073570F0119E8EECEB7B9EAC7AC3` | 最新版BT下载 |
+| 📀 FitGirl | [https://fitgirl-repacks.site/celeste/...](https://fitgirl-repacks.site/celeste/) | 高压版 |
 
 
 ## 解压密码

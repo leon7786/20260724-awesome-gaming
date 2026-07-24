@@ -5,6 +5,7 @@
 | 来源 | 链接 | 说明 |
 |------|------|------|
 | 🧲 磁力链 | `magnet:?xt=urn:btih:2E1A4FF9A6EAF431DC991FB32A7DABC70A89A8B2` | 最新版BT下载 |
+| 📀 FitGirl | [https://fitgirl-repacks.site/ratchet-clank-rift-ap...](https://fitgirl-repacks.site/ratchet-clank-rift-apart/) | 高压版 |
 
 
 ## 解压密码

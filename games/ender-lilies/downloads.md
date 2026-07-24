@@ -5,6 +5,7 @@
 | 来源 | 链接 | 说明 |
 |------|------|------|
 | 🧲 磁力链 | `magnet:?xt=urn:btih:9B4E7B6B7F423E886320893741A25C1B0D9EF0BE` | 最新版BT下载 |
+| 📀 FitGirl | [https://fitgirl-repacks.site/ender-lilies/...](https://fitgirl-repacks.site/ender-lilies/) | 高压版 |
 
 
 ## 解压密码
