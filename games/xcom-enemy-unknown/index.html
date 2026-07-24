@@ -208,6 +208,7 @@ body {
   max-width: 100%;
   margin: 12px 0;
   overflow: hidden;
+  background: #000;
 }
 .content-block .bb_img {
   max-width: 100% !important;
@@ -217,8 +218,11 @@ body {
   border-radius: 4px;
 }
 .content-block video.bb_img {
-  aspect-ratio: 16/9;
-  object-fit: cover;
+  width: 100% !important;
+  height: auto !important;
+  max-height: 500px;
+  object-fit: contain;
+  background: #000;
 }
 
 /* 下载区域 */
