@@ -164,7 +164,7 @@ body{{font-family:'Segoe UI','Microsoft YaHei',sans-serif;background:#f5f5f7;col
 
 <div class="topbar">
   <div class="container">
-    <a href="../index.html" class="back">← 返回游戏榜单</a>
+    <a href="../../index.html" class="back">← 返回游戏榜单</a>
     <a href="https://store.steampowered.com/app/{appid}" target="_blank" class="back-btn" style="margin-left:auto">Steam 商店页</a>
   </div>
 </div>
