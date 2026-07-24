@@ -202,6 +202,25 @@ body {
   padding-bottom: 0;
 }
 
+/* Steam 内嵌媒体约束 */
+.content-block .bb_img_ctn {
+  display: block;
+  max-width: 100%;
+  margin: 12px 0;
+  overflow: hidden;
+}
+.content-block .bb_img {
+  max-width: 100% !important;
+  width: 100% !important;
+  height: auto !important;
+  display: block;
+  border-radius: 4px;
+}
+.content-block video.bb_img {
+  aspect-ratio: 16/9;
+  object-fit: cover;
+}
+
 /* 下载区域 */
 .download-section {
   background: #1b2838;
@@ -320,7 +339,6 @@ body {
 <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1240440/9fa7ba3e331c56a7e58d47ec34d9bbb9a4e2d47e/ss_9fa7ba3e331c56a7e58d47ec34d9bbb9a4e2d47e.1920x1080.jpg?t=1774464322" alt="Screenshot" onclick="window.open(this.src)">
 <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1240440/d8d86f14b8a5fdfe029dc88ae317817515c7f92c/ss_d8d86f14b8a5fdfe029dc88ae317817515c7f92c.1920x1080.jpg?t=1774464322" alt="Screenshot" onclick="window.open(this.src)">
 <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1240440/15b015e76198ba3835ddcff24316ddf090148ba3/ss_15b015e76198ba3835ddcff24316ddf090148ba3.1920x1080.jpg?t=1774464322" alt="Screenshot" onclick="window.open(this.src)">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1240440/6b6a6a963801ffe33aa3ff8454cda99ba2a53d53/ss_6b6a6a963801ffe33aa3ff8454cda99ba2a53d53.1920x1080.jpg?t=1774464322" alt="Screenshot" onclick="window.open(this.src)">
       </div>
       {{/if}}
     </div>
@@ -331,23 +349,13 @@ body {
       <div class="game-subtitle">Halo Infinite</div>
       
       <div class="game-meta">
-        <div class="meta-item">2021 年 11 月 15 日</div>
-        <div class="meta-item">动作, 免费开玩</div>
+        <div class="meta-item">{{RELEASE_DATE}}</div>
+        
         <div class="meta-item score">评分 69</div>
       </div>
       
       
-      <div class="info-block">
-        <div class="label">开发者</div>
-        <div class="value">343 Industries</div>
-      </div>
       
-      
-      
-      <div class="info-block">
-        <div class="label">发行商</div>
-        <div class="value">Xbox Game Studios</div>
-      </div>
       
       
       
@@ -365,7 +373,7 @@ body {
   <div class="container">
     <div class="content-block">
       <h2>关于此游戏</h2>
-      <div><h2 class="bb_tag" >战役：</h2><br>在希望尽数破灭，人类的命运岌岌可危之际，士官长已准备好面对最无情的敌人。穿上人类最伟大英雄的盔甲，体验史诗般的开放世界冒险，探索庞大的 Halo 环带。<br><br>通过网络战役合作和任务回放，你可以重温你最喜爱的时刻，再次探寻收藏品，独自一人或与至多三名火力小队成员一起探索 Zeta Halo 的奇观。<br><br>要体验战役，请购买 Halo Infinite（战役）。<h2 class="bb_tag" >免费多人游戏</h2><br>免费体验经重新设计的 Halo 多人游戏！Halo Infinite 拥有 70 多张匹配地图、数十亿种自定义配置和无数社区铸造器作品供玩家体验，是光环系列中最具规模的多人游戏。<br><br>从快节奏的排名模式到自定义游戏中充满奇思妙想的混战，再到枪林弹雨：山丘之王波次生存模式中的合作协调，你可享受前所未有的多样化游戏体验。组建你的火力小队并征服每一种模式，Halo 为团队合作、策略和令人难忘的胜利提供了无尽的机会。<h2 class="bb_tag" >铸造器测试版：</h2><br>Halo 传奇的内容创建工具更胜以往，具有先进的功能，如复杂的视觉脚本引擎、模式编辑器、物件缩放、照明和音频工具，此外在保真度和物件预算限制上也有显著改进。<br><br>铸造器还包含功能强大的 AI 工具包，允许玩家为自己的作品添加战役 AI。无论是重现 Halo 前作中的标志性体验，还是创造完全独特的东西，激动人心的自定义地图和游戏模式都具有无限的可能性。   &quot;</div>
+      <div>作为游戏界最具代表性的传奇之一，Halo 如今的规模胜过以往任何时候。该游戏具有宏大的开放世界战役，给予玩家丰富多样的免费多人游戏体验。 </div>
     </div>
   </div>
 </section>
@@ -387,17 +395,6 @@ body {
 
 <!-- 系统需求 -->
 
-<section class="content-section">
-  <div class="container">
-    <div class="content-block">
-      <h2>系统需求</h2>
-      <div class="sys-req">
-        <div class="sys-req-col"><h4>最低配置</h4><div><strong>最低配置:</strong><br><ul class="bb_ul"><li>需要 64 位处理器和操作系统<br></li><li><strong>操作系统:</strong> Windows 10 RS5 x64<br></li><li><strong>处理器:</strong> AMD Ryzen 5 1600 or Intel i5-4440<br></li><li><strong>内存:</strong> 8 GB RAM<br></li><li><strong>显卡:</strong> AMD RX 570 or Nvidia GTX 1050 Ti<br></li><li><strong>DirectX 版本:</strong> 12<br></li><li><strong>存储空间:</strong> 需要 50 GB 可用空间</li></ul></div></div>
-        <div class="sys-req-col"><h4>推荐配置</h4><div><strong>推荐配置:</strong><br><ul class="bb_ul"><li>需要 64 位处理器和操作系统<br></li><li><strong>操作系统:</strong> Windows 10 19H2 x64<br></li><li><strong>处理器:</strong> AMD Ryzen 7 3700X or Intel i7-9700k<br></li><li><strong>内存:</strong> 16 GB RAM<br></li><li><strong>显卡:</strong> Radeon RX 5700 XT or Nvidia RTX 2070<br></li><li><strong>DirectX 版本:</strong> 12<br></li><li><strong>存储空间:</strong> 需要 50 GB 可用空间</li></ul></div></div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <script>
 function showVideo() {

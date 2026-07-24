@@ -202,6 +202,25 @@ body {
   padding-bottom: 0;
 }
 
+/* Steam 内嵌媒体约束 */
+.content-block .bb_img_ctn {
+  display: block;
+  max-width: 100%;
+  margin: 12px 0;
+  overflow: hidden;
+}
+.content-block .bb_img {
+  max-width: 100% !important;
+  width: 100% !important;
+  height: auto !important;
+  display: block;
+  border-radius: 4px;
+}
+.content-block video.bb_img {
+  aspect-ratio: 16/9;
+  object-fit: cover;
+}
+
 /* 下载区域 */
 .download-section {
   background: #1b2838;
