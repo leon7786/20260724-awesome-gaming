@@ -200,6 +200,26 @@ body {
   border: none;
 }
 
+
+/* 媒体切换过渡 */
+.media-main img,
+.media-main video {
+  animation: mediaFadeIn 0.28s ease;
+}
+@keyframes mediaFadeIn {
+  from { opacity: 0; transform: scale(1.01); }
+  to { opacity: 1; transform: scale(1); }
+}
+.media-thumb {
+  transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+.media-thumb:hover {
+  transform: scale(1.05);
+}
+.media-thumb.active {
+  box-shadow: 0 0 0 2px rgba(59,130,246,0.25);
+}
+
 /* 媒体控制按钮 */
 .media-controls {
   position: absolute;
@@ -233,6 +253,8 @@ body {
   overflow-x: auto;
   background: #f9fafb;
   border-top: 1px solid var(--border);
+  scroll-behavior: smooth;
+  scroll-padding-inline: 0.75rem;
 }
 
 .media-thumbnails::-webkit-scrollbar {
@@ -628,18 +650,22 @@ function switchMedia(index) {
     thumb.classList.toggle('active', i === index);
   });
 
-  // 点到边缘时自动滚动 2 张，避免手动拖滚动条
+  // 点到边缘时自动滚动 2 张（带过渡动画）
   const bar = document.getElementById('mediaThumbnails') || document.querySelector('.media-thumbnails');
   const active = thumbs[index];
   if (bar && active) {
     const barRect = bar.getBoundingClientRect();
     const tRect = active.getBoundingClientRect();
     const step = active.offsetWidth + 8; // thumb width + gap
-    const edgePad = step * 0.6;
-    if (tRect.right > barRect.right - edgePad) {
-      bar.scrollBy({ left: step * 2, behavior: 'smooth' });
-    } else if (tRect.left < barRect.left + edgePad) {
-      bar.scrollBy({ left: -step * 2, behavior: 'smooth' });
+    const edgePad = step * 0.75;
+    let dx = 0;
+    if (tRect.right > barRect.right - edgePad) dx = step * 2;
+    else if (tRect.left < barRect.left + edgePad) dx = -step * 2;
+    if (dx !== 0) {
+      // 轻微延迟让 active 高亮先出现，再平滑滚动
+      requestAnimationFrame(() => {
+        bar.scrollBy({ left: dx, behavior: 'smooth' });
+      });
     }
   }
 }
