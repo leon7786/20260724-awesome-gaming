@@ -866,13 +866,28 @@ function renderMarkdown(md) {
 // 渲染单个游戏卡片
 function renderGameCard(game) {
   const downloads = game.downloads || [];
-  const dlBtns = downloads.slice(0, 2).map(dl => {
+  // 最多5个: 2磁力 + fitgirl + gamer520 + x6d (按此优先级)
+  const filtered = [];
+  let magnetCount = 0;
+  for (const dl of downloads) {
+    const type = dl.type || 'detail';
+    if (type === 'magnet') {
+      if (magnetCount >= 2) continue;
+      magnetCount++;
+      filtered.push(dl);
+    } else if (type === 'fitgirl') {
+      filtered.push(dl);
+    } else if (type === 'gamer520') {
+      filtered.push(dl);
+    } else if (type === 'x6d') {
+      filtered.push(dl);
+    }
+    if (filtered.length >= 5) break;
+  }
+  const dlBtns = filtered.map(dl => {
     const type = dl.type || 'detail';
     const name = dl.name || type;
-    const btnClass = type === 'gamer520' ? 'btn-success' : 
-                    type === 'x6d' ? 'btn-primary' : 
-                    type === 'magnet' ? 'btn-secondary' : 'btn-secondary';
-    return `<a href="${dl.url}" class="btn ${btnClass}" target="_blank" onclick="event.stopPropagation()">${name}</a>`;
+    return `<a href="${dl.url}" class="btn" target="_blank" onclick="event.stopPropagation()">${name}</a>`;
   }).join('');
   
   // 存储大小标签
