@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+<!DO      </div>
+CTYPE html>
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
@@ -219,6 +220,36 @@ body {
 .media-thumb.active {
   box-shadow: 0 0 0 2px rgba(59,130,246,0.25);
 }
+/* 缩略图滚动箭头提示 */
+.media-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: rgba(27, 40, 56, 0.78);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  z-index: 5;
+}
+.media-arrow.left { left: 4px; }
+.media-arrow.right { right: 4px; }
+.media-thumbnails-wrap {
+  position: relative;
+  overflow: hidden;
+}
+.media-thumbnails-wrap:hover .media-arrow.show {
+  opacity: 1;
+}
+
 
 /* 媒体控制按钮 */
 .media-controls {
@@ -607,8 +638,10 @@ body {
     </div>
     
     <!-- 缩略图bar -->
-    <div class="media-thumbnails" id="mediaThumbnails">
-      <div class="media-thumb active" data-index="0"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257361421/d424bdb0975352a094fab47528aeb3229178685f/movie_600x337.jpg?t=1783440931" alt="Video"></div>
+    <div class="media-thumbnails-wrap" id="mediaThumbnailsWrap">
+      <div class="media-thumbnails" id="mediaThumbnails">
+      <div class="media-thumb active" data-index="0"><div class="play-icon">▶</div>      </div>
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257361421/d424bdb0975352a094fab47528aeb3229178685f/movie_600x337.jpg?t=1783440931" alt="Video"></div>
 <div class="media-thumb" data-index="1"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257361402/47889a9ef0ef552ad05c84b102970d516f5f758d/movie_600x337.jpg?t=1783440968" alt="Video"></div>
 <div class="media-thumb" data-index="2"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4384550/0d3fffebfd9343ff4233a87967a6f63cc81757a5/ss_0d3fffebfd9343ff4233a87967a6f63cc81757a5.1920x1080.jpg?t=1783699904" alt="Screenshot"></div>
 <div class="media-thumb" data-index="3"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4384550/cbde45c18646285d0262ef8704c5e151fec7d5ee/ss_cbde45c18646285d0262ef8704c5e151fec7d5ee.1920x1080.jpg?t=1783699904" alt="Screenshot"></div>
@@ -786,6 +819,41 @@ document.addEventListener('DOMContentLoaded', () => {
   if (mediaItems.length > 0) {
     switchMedia(0);
   }
+
+  // 缩略图滚动箭头提示
+  const thumbsWrap = document.getElementById('mediaThumbnailsWrap') || document.querySelector('.media-thumbnails-wrap');
+  const bar = document.getElementById('mediaThumbnails');
+  if (bar && thumbsWrap) {
+    const leftArrow = thumbsWrap.querySelector('.media-arrow.left') || (() => {
+      const el = document.createElement('div');
+      el.className = 'media-arrow left';
+      el.innerHTML = '\u2039';
+      thumbsWrap.appendChild(el);
+      return el;
+    })();
+    const rightArrow = thumbsWrap.querySelector('.media-arrow.right') || (() => {
+      const el = document.createElement('div');
+      el.className = 'media-arrow right';
+      el.innerHTML = '\u203A';
+      thumbsWrap.appendChild(el);
+      return el;
+    })();
+    function updateArrows() {
+      const left = bar.scrollLeft;
+      const maxLeft = bar.scrollWidth - bar.clientWidth;
+      if (maxLeft <= 0) {
+        leftArrow.classList.remove('show');
+        rightArrow.classList.remove('show');
+        return;
+      }
+      leftArrow.classList.toggle('show', left > 1);
+      rightArrow.classList.toggle('show', left < maxLeft - 1);
+    }
+    bar.addEventListener('scroll', updateArrows);
+    window.addEventListener('resize', updateArrows);
+    updateArrows();
+  }
+
 });
 </script>
 
