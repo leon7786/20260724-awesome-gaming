@@ -536,7 +536,7 @@ body {
   <div class="media-gallery">
     <!-- 主图显示区域 -->
     <div class="media-main" id="mediaMain">
-      <iframe src="https://store.steampowered.com/app/220240/" frameborder="0" allowfullscreen allow="autoplay; fullscreen"></iframe>
+      <img src="" alt="Loading">
     </div>
     
     <!-- 缩略图bar -->
@@ -601,9 +601,9 @@ body {
 <script>
 // 媒体数据
 const mediaItems = [
-  {"type": "video", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2028177/movie.293x165.jpg?t=1447357140", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2028177/movie.293x165.jpg?t=1447357140"},
-  {"type": "video", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2028100/movie.293x165.jpg?t=1654549163", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2028100/movie.293x165.jpg?t=1654549163"},
-  {"type": "video", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2028101/movie.293x165.jpg?t=1447356997", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2028101/movie.293x165.jpg?t=1447356997"},
+  {"type": "video", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2028177/movie_max.mp4", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2028177/movie.293x165.jpg?t=1447357140"},
+  {"type": "video", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2028100/movie_max.mp4", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2028100/movie.293x165.jpg?t=1654549163"},
+  {"type": "video", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2028101/movie_max.mp4", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2028101/movie.293x165.jpg?t=1447356997"},
   {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220240/ss_eed79518c510b7b8ce6fce9d1c350bfcea530993.1920x1080.jpg?t=1781619366", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220240/ss_eed79518c510b7b8ce6fce9d1c350bfcea530993.1920x1080.jpg?t=1781619366"},
   {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220240/ss_83af36773eb0393144cfefa80ceb6baf5c608cf7.1920x1080.jpg?t=1781619366", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220240/ss_83af36773eb0393144cfefa80ceb6baf5c608cf7.1920x1080.jpg?t=1781619366"},
   {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220240/ss_ea2c0211c7c9d64264b40d715ba0822db96da42c.1920x1080.jpg?t=1781619366", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220240/ss_ea2c0211c7c9d64264b40d715ba0822db96da42c.1920x1080.jpg?t=1781619366"},
@@ -635,8 +635,9 @@ function switchMedia(index) {
   const mainEl = document.getElementById('mediaMain');
   
   if (item.type === 'video') {
-    // 使用Steam视频嵌入
-    mainEl.innerHTML = `<iframe src="${item.url}" frameborder="0" allowfullscreen allow="autoplay; fullscreen"></iframe>`;
+    // 直接播放 Steam trailer mp4
+    const poster = item.thumb || '';
+    mainEl.innerHTML = `<video controls autoplay playsinline poster="${poster}" src="${item.url}" style="width:100%;height:100%;object-fit:contain;background:#000"></video>`;
   } else {
     mainEl.innerHTML = `<img src="${item.url}" alt="Screenshot">`;
   }

@@ -536,7 +536,7 @@ body {
   <div class="media-gallery">
     <!-- 主图显示区域 -->
     <div class="media-main" id="mediaMain">
-      <iframe src="https://store.steampowered.com/app/241930/" frameborder="0" allowfullscreen allow="autoplay; fullscreen"></iframe>
+      <img src="" alt="Loading">
     </div>
     
     <!-- 缩略图bar -->
@@ -587,7 +587,7 @@ body {
 <script>
 // 媒体数据
 const mediaItems = [
-  {"type": "video", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257195828/952f0e371ff90882ee25ee2d29e71beb5d20ecc4/movie_600x337.jpg?t=1757538318", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257195828/952f0e371ff90882ee25ee2d29e71beb5d20ecc4/movie_600x337.jpg?t=1757538318"},
+  {"type": "video", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257195828/movie_max.mp4", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257195828/952f0e371ff90882ee25ee2d29e71beb5d20ecc4/movie_600x337.jpg?t=1757538318"},
   {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/241930/ss_a7a02628b413b410a91402cc24fe54a54b50a9d3.1920x1080.jpg?t=1780594906", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/241930/ss_a7a02628b413b410a91402cc24fe54a54b50a9d3.600x338.jpg?t=1780594906"},
   {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/241930/ss_601701af77a18ef504c38f0a920053f3f62ff059.1920x1080.jpg?t=1780594906", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/241930/ss_601701af77a18ef504c38f0a920053f3f62ff059.600x338.jpg?t=1780594906"},
   {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/241930/ss_360e6a398db94335af8213c495ea7e943046edee.1920x1080.jpg?t=1780594906", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/241930/ss_360e6a398db94335af8213c495ea7e943046edee.600x338.jpg?t=1780594906"},
@@ -606,8 +606,9 @@ function switchMedia(index) {
   const mainEl = document.getElementById('mediaMain');
   
   if (item.type === 'video') {
-    // 使用Steam视频嵌入
-    mainEl.innerHTML = `<iframe src="${item.url}" frameborder="0" allowfullscreen allow="autoplay; fullscreen"></iframe>`;
+    // 直接播放 Steam trailer mp4
+    const poster = item.thumb || '';
+    mainEl.innerHTML = `<video controls autoplay playsinline poster="${poster}" src="${item.url}" style="width:100%;height:100%;object-fit:contain;background:#000"></video>`;
   } else {
     mainEl.innerHTML = `<img src="${item.url}" alt="Screenshot">`;
   }
