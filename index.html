@@ -155,89 +155,6 @@ body {
   padding: 2rem;
 }
 
-/* 高分3A大作展示区 */
-.featured-section {
-  margin-bottom: 2.5rem;
-}
-
-.featured-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 1rem;
-}
-
-.featured-title {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--text-primary);
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.featured-badge {
-  background: linear-gradient(135deg, #f59e0b, #ef4444);
-  color: white;
-  font-size: 0.75rem;
-  font-weight: 600;
-  padding: 0.25rem 0.625rem;
-  border-radius: 12px;
-}
-
-.featured-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 1.25rem;
-}
-
-.featured-card {
-  background: var(--surface);
-  border-radius: var(--radius);
-  overflow: hidden;
-  box-shadow: var(--shadow);
-  transition: var(--transition);
-  text-decoration: none;
-  color: inherit;
-  display: flex;
-  flex-direction: column;
-  border: 2px solid transparent;
-  position: relative;
-}
-
-.featured-card:hover {
-  transform: translateY(-6px);
-  box-shadow: var(--shadow-lg);
-  border-color: #f59e0b;
-}
-
-.featured-card .game-cover {
-  aspect-ratio: 16/9;
-}
-
-.featured-card .featured-score {
-  position: absolute;
-  top: 0.75rem;
-  right: 0.75rem;
-  background: rgba(245, 158, 11, 0.95);
-  color: white;
-  font-size: 0.875rem;
-  font-weight: 700;
-  padding: 0.375rem 0.75rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-}
-
-.featured-card .game-info {
-  padding: 1rem;
-}
-
-.featured-card .game-title {
-  font-size: 1.125rem;
-  font-weight: 700;
-  margin-bottom: 0.25rem;
-}
-
 /* 游戏卡片网格 */
 .games-grid {
   display: grid;
@@ -581,14 +498,6 @@ body {
   </aside>
 
   <main class="main">
-    <!-- 高分3A大作展示区 -->
-    <div class="featured-section" id="featuredSection" style="display:none;">
-      <div class="featured-header">
-        <div class="featured-title">🔥 高分3A大作 <span class="featured-badge">TOP</span></div>
-      </div>
-      <div class="featured-grid" id="featuredGrid"></div>
-    </div>
-    
     <div class="games-grid" id="gamesGrid"></div>
     <div class="md-content" id="mdContent"></div>
   </main>
@@ -780,28 +689,6 @@ async function loadGames() {
     // 按年份降序排列
     windowsGames.sort((a, b) => parseInt(b.year) - parseInt(a.year));
     nonWindowsGames.sort((a, b) => parseInt(b.year) - parseInt(a.year));
-    
-    // 渲染高分3A大作展示区（评分>=90且有cover的Windows游戏，按评分降序，最多20个）
-    const featuredGames = windowsGames
-      .filter(g => g.score && g.score >= 90 && g.cover)
-      .sort((a, b) => b.score - a.score)
-      .slice(0, 20);
-    
-    if (featuredGames.length > 0) {
-      document.getElementById('featuredSection').style.display = 'block';
-      document.getElementById('featuredGrid').innerHTML = featuredGames.map(game => `
-        <a href="${game.detail || '#'}" class="featured-card">
-          <div class="game-cover">
-            <img src="${game.cover}" alt="${game.en_name}" loading="lazy" onerror="this.style.display='none'">
-          </div>
-          <div class="featured-score">⭐ ${game.score}</div>
-          <div class="game-info">
-            <div class="game-title">${game.cn_name}</div>
-            <div class="game-subtitle">${game.en_name} · ${game.year}</div>
-          </div>
-        </a>
-      `).join('');
-    }
     
     const grid = document.getElementById('gamesGrid');
     
