@@ -7,20 +7,17 @@
 <link rel="icon" type="image/x-icon" href="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/292030/capsule_231x87.jpg">
 <style>
 :root {
-  --bg: #0a0a0f;
-  --surface: #13131a;
-  --card: #1a1a24;
-  --border: #26263a;
-  --text-primary: #e8e8f0;
-  --text-secondary: #a0a0b8;
-  --text-muted: #6a6a85;
-  --accent: #7c3aed;
-  --accent-light: #a78bfa;
-  --gold: #f59e0b;
-  --green: #10b981;
-  --radius: 12px;
-  --shadow: 0 4px 24px rgba(0,0,0,0.4);
-  --shadow-lg: 0 8px 48px rgba(0,0,0,0.6);
+  --bg: #f5f5f7;
+  --surface: #ffffff;
+  --border: #e0e0e6;
+  --text-primary: #1a1a2e;
+  --text-secondary: #4a4a5e;
+  --text-muted: #8a8a9e;
+  --accent: #1a1a2e;
+  --accent-soft: #2d2d44;
+  --radius: 8px;
+  --shadow: 0 1px 4px rgba(0,0,0,0.06);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.08);
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -35,251 +32,271 @@ body {
 
 .topbar {
   position: sticky; top: 0; z-index: 100;
-  background: rgba(10,10,15,0.85);
+  background: rgba(255,255,255,0.85);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border);
   padding: 0.75rem 1.5rem;
 }
 .topbar .inner {
-  max-width: 1100px; margin: 0 auto;
+  max-width: 960px; margin: 0 auto;
   display: flex; justify-content: space-between; align-items: center;
 }
 .topbar a {
   color: var(--text-secondary); text-decoration: none;
-  font-size: 0.875rem; font-weight: 500; transition: color 0.2s;
+  font-size: 0.8125rem; font-weight: 500; transition: color 0.2s;
 }
-.topbar a:hover { color: var(--accent-light); }
+.topbar a:hover { color: var(--accent); }
 
-.hero { position: relative; overflow: hidden; }
-.hero-bg {
-  position: absolute; inset: 0;
-  background-image: url("https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/292030/eb2f071040ff86119feb2bd97e2cd283cc40b7e5/header_schinese.jpg?t=1768303991");
-  background-size: cover; background-position: center 30%;
-  filter: brightness(0.45) saturate(1.1);
-}
-.hero-bg::after {
-  content: ""; position: absolute; inset: 0;
-  background: linear-gradient(180deg, rgba(10,10,15,0.3) 0%, rgba(10,10,15,0.6) 50%, var(--bg) 100%);
-}
-.hero-content {
-  position: relative; z-index: 1;
-  max-width: 1100px; margin: 0 auto;
-  padding: 4rem 1.5rem 3rem;
-  display: grid; grid-template-columns: 200px 1fr;
-  gap: 3rem; align-items: end;
-}
-.cover-card {
-  border-radius: var(--radius); overflow: hidden;
-  box-shadow: var(--shadow-lg); border: 2px solid var(--border);
-  aspect-ratio: 3/4; background: #000;
-}
-.cover-card img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.container { max-width: 960px; margin: 0 auto; padding: 0 1rem; }
 
-.title-block h1 {
-  font-size: 2.5rem; font-weight: 700;
-  color: var(--text-primary); line-height: 1.15;
-  text-shadow: 0 2px 12px rgba(0,0,0,0.6);
+.hero { margin-bottom: 1.5rem; }
+.hero-card {
+  background: var(--surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  border: 1px solid var(--border);
 }
-.title-block .en-name {
-  font-size: 1rem; color: var(--text-muted);
-  margin-top: 0.5rem; letter-spacing: 0.02em;
+.hero-img {
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  display: block;
+}
+.hero-body { padding: 1.75rem 2rem 1.5rem; }
+.hero-body h1 {
+  font-size: 1.875rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+.hero-body .en-name {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-top: 0.25rem;
 }
 
 .meta-row {
-  display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.25rem;
+  display: flex; flex-wrap: wrap; gap: 0.4rem;
+  margin-top: 1rem;
 }
 .meta-chip {
-  display: inline-flex; align-items: center; gap: 0.35rem;
-  padding: 0.3rem 0.75rem; border-radius: 100px;
-  font-size: 0.8rem; font-weight: 500;
-  background: rgba(255,255,255,0.08); color: var(--text-secondary);
-  border: 1px solid var(--border);
+  display: inline-flex; align-items: center;
+  padding: 0.2rem 0.65rem;
+  border-radius: 4px;
+  font-size: 0.75rem; font-weight: 500;
+  background: #f0f0f5;
+  color: var(--text-secondary);
 }
-.meta-chip.gold { background: rgba(245,158,11,0.15); color: var(--gold); border-color: rgba(245,158,11,0.3); }
-.meta-chip.purple { background: rgba(124,58,237,0.15); color: var(--accent-light); border-color: rgba(124,58,237,0.3); }
-.meta-chip.green { background: rgba(16,185,129,0.15); color: var(--green); border-color: rgba(16,185,129,0.3); }
+.meta-chip.gold { background: #fef3c7; color: #92400e; }
+.meta-chip.purple { background: #ede9fe; color: #5b21b6; }
+.meta-chip.green { background: #d1fae5; color: #065f46; }
 
 .score-badge {
   display: inline-flex; align-items: baseline; gap: 0.4rem;
-  margin-top: 1.25rem; padding: 0.5rem 1rem;
-  background: var(--card); border-radius: var(--radius);
-  border: 1px solid var(--border);
+  margin-top: 1rem;
+  padding: 0.4rem 0.8rem;
+  background: var(--text-primary);
+  color: #fff;
+  border-radius: var(--radius);
 }
-.score-badge .num { font-size: 1.75rem; font-weight: 700; color: var(--gold); }
-.score-badge .meta { font-size: 0.75rem; color: var(--text-secondary); }
-.score-badge .label { font-size: 0.75rem; color: var(--text-muted); }
+.score-badge .num { font-size: 1.25rem; font-weight: 700; color: #f59e0b; }
+.score-badge .meta { font-size: 0.65rem; opacity: 0.7; }
+.score-badge .label { font-size: 0.65rem; opacity: 0.7; }
 
 .info-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 1rem; margin-top: 1.5rem; max-width: 600px;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 1rem;
+  margin-top: 1.25rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border);
 }
 .info-item .label {
-  font-size: 0.65rem; color: var(--text-muted);
-  text-transform: uppercase; letter-spacing: 0.08em;
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
 }
 .info-item .value {
-  font-size: 0.9rem; color: var(--text-primary);
-  font-weight: 500; margin-top: 0.2rem;
+  font-size: 0.85rem;
+  color: var(--text-primary);
+  font-weight: 500;
+  margin-top: 0.15rem;
 }
 
-.section { max-width: 1100px; margin: 0 auto; padding: 2rem 1.5rem; }
 .section-title {
-  font-size: 0.85rem; font-weight: 600; color: var(--text-muted);
-  text-transform: uppercase; letter-spacing: 0.1em;
-  margin-bottom: 1.25rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 1rem;
   display: flex; align-items: center; gap: 0.75rem;
 }
 .section-title::after {
   content: ""; flex: 1; height: 1px; background: var(--border);
 }
 
-.media-section { padding-top: 0; }
 .video-player {
-  width: 100%; aspect-ratio: 16/9; background: #000;
-  border-radius: var(--radius); overflow: hidden;
-  box-shadow: var(--shadow); margin-bottom: 1rem;
+  width: 100%;
+  aspect-ratio: 16/9;
+  background: #000;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  margin-bottom: 1rem;
 }
 .video-player video { width: 100%; height: 100%; display: block; object-fit: contain; }
 
 .thumbnails {
-  display: flex; gap: 0.5rem; overflow-x: auto;
-  padding-bottom: 0.5rem;
-  scrollbar-width: thin; scrollbar-color: var(--border) transparent;
+  display: flex; gap: 0.4rem; overflow-x: auto;
+  padding-bottom: 0.25rem;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) transparent;
 }
-.thumbnails::-webkit-scrollbar { height: 4px; }
+.thumbnails::-webkit-scrollbar { height: 3px; }
 .thumbnails::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
 
 .thumb {
-  flex-shrink: 0; width: 130px; height: 73px;
-  border-radius: 8px; overflow: hidden; cursor: pointer;
-  border: 2px solid transparent; transition: all 0.2s;
-  position: relative; background: #000;
+  flex-shrink: 0;
+  width: 110px; height: 62px;
+  border-radius: 6px;
+  overflow: hidden;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all 0.2s;
+  position: relative;
+  background: #000;
 }
-.thumb:hover { border-color: var(--accent-light); transform: translateY(-2px); }
+.thumb:hover { border-color: var(--accent); transform: translateY(-1px); }
 .thumb.active { border-color: var(--accent); }
 .thumb img { width: 100%; height: 100%; object-fit: cover; }
-.thumb.is-video { position: relative; }
 .thumb.is-video::after {
   content: "▶"; position: absolute; inset: 0;
   display: flex; align-items: center; justify-content: center;
-  background: rgba(0,0,0,0.4); color: white; font-size: 1.2rem;
+  background: rgba(0,0,0,0.35); color: #fff; font-size: 1rem;
 }
 
 .about-block {
-  background: var(--surface); border-radius: var(--radius);
-  border: 1px solid var(--border); padding: 2rem;
+  background: var(--surface);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  padding: 1.5rem 2rem;
+  box-shadow: var(--shadow);
 }
 .about-block h2 {
-  font-size: 1.1rem; font-weight: 600;
-  color: var(--text-primary); margin-bottom: 1rem;
+  font-size: 0.95rem; font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
 }
 .about-block p {
-  font-size: 0.9rem; color: var(--text-secondary);
-  line-height: 1.75; margin-bottom: 0.75rem;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 0.5rem;
 }
 .about-block .short-desc {
-  font-size: 1.1rem; color: var(--text-primary);
-  line-height: 1.7; padding: 1.25rem 0;
-  border-bottom: 1px solid var(--border); margin-bottom: 1.25rem;
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  line-height: 1.75;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 1rem;
 }
 .about-block .bb_img {
-  width: 100% !important; height: auto !important;
-  max-width: 100% !important; display: block;
-  border-radius: 8px; margin: 0.75rem 0;
+  width: 100% !important;
+  height: auto !important;
+  max-width: 100% !important;
+  display: block;
+  border-radius: 6px;
+  margin: 0.5rem 0;
 }
-.about-block .bb_img_ctn { display: block; max-width: 100%; margin: 0.75rem 0; overflow: hidden; }
+.about-block .bb_img_ctn { display: block; max-width: 100%; margin: 0.5rem 0; overflow: hidden; }
 
-.stats-grid {
-  display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem;
-}
-.stat-card {
-  background: var(--surface); border-radius: var(--radius);
-  border: 1px solid var(--border); padding: 1.25rem; text-align: center;
-}
-.stat-card .stat-num { font-size: 1.5rem; font-weight: 700; color: var(--accent-light); }
-.stat-card .stat-label {
-  font-size: 0.7rem; color: var(--text-muted);
-  text-transform: uppercase; letter-spacing: 0.08em; margin-top: 0.3rem;
-}
-
-.req-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+.req-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem; }
 .req-card {
-  background: var(--surface); border-radius: var(--radius);
-  border: 1px solid var(--border); padding: 1.5rem;
+  background: var(--surface);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  padding: 1.25rem 1.5rem;
+  box-shadow: var(--shadow);
 }
 .req-card .req-title {
-  font-size: 0.8rem; font-weight: 600; color: var(--accent-light);
-  margin-bottom: 1rem; padding-bottom: 0.5rem;
+  font-size: 0.7rem; font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.5rem;
   border-bottom: 1px solid var(--border);
-  text-transform: uppercase; letter-spacing: 0.05em;
 }
 .req-card ul { list-style: none; }
 .req-card li {
-  font-size: 0.82rem; color: var(--text-secondary);
-  line-height: 1.5; margin-bottom: 0.35rem;
-  padding-left: 1.25rem; position: relative;
+  font-size: 0.775rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-bottom: 0.25rem;
+  padding-left: 1.1rem;
+  position: relative;
 }
 .req-card li strong { color: var(--text-primary); font-weight: 500; }
+.req-card li::before {
+  content: "›"; position: absolute; left: 0;
+  color: var(--accent); font-weight: 700;
+}
+
 ul.bb_ul { list-style: none; }
 .bb_ul li {
-  font-size: 0.82rem; color: var(--text-secondary);
-  line-height: 1.5; margin-bottom: 0.35rem;
-  padding-left: 1.25rem; position: relative;
+  font-size: 0.775rem; color: var(--text-secondary);
+  line-height: 1.5; margin-bottom: 0.25rem;
+  padding-left: 1.1rem; position: relative;
 }
 .bb_ul li::before {
   content: "›"; position: absolute; left: 0;
   color: var(--accent); font-weight: 700;
 }
 .bb_ul li strong { color: var(--text-primary); font-weight: 500; }
-.req-card li::before {
-  content: "›"; position: absolute; left: 0;
-  color: var(--accent); font-weight: 700;
-}
 
+.download-section { margin-bottom: 3rem; }
 .download-grid {
-  display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 0.75rem;
+  display: flex; flex-wrap: wrap; gap: 0.5rem;
 }
 .download-btn {
-  display: flex; align-items: center; gap: 0.75rem;
-  padding: 1rem 1.25rem; border-radius: var(--radius);
-  text-decoration: none; color: #fff;
-  font-size: 0.9rem; font-weight: 500;
-  transition: all 0.2s; border: 1px solid var(--border);
+  display: inline-flex; align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 0.9rem;
+  border-radius: var(--radius);
+  text-decoration: none;
+  color: #fff;
+  font-size: 0.775rem; font-weight: 500;
+  transition: all 0.2s;
+  box-shadow: var(--shadow);
 }
-.download-btn:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
-.download-btn .icon { font-size: 1.25rem; }
-.download-btn .name { font-weight: 600; }
-.download-btn .desc { font-size: 0.75rem; color: rgba(255,255,255,0.7); }
-.download-btn.btn1 { background: linear-gradient(135deg, #059669, #10b981); border-color: transparent; }
-.download-btn.btn2 { background: linear-gradient(135deg, #2563eb, #3b82f6); border-color: transparent; }
-.download-btn.btn3 { background: linear-gradient(135deg, #7c3aed, #8b5cf6); border-color: transparent; }
+.download-btn:hover { transform: translateY(-1px); box-shadow: var(--shadow-md); }
+.download-btn .icon { font-size: 0.85rem; }
+.download-btn.btn1 { background: #059669; }
+.download-btn.btn2 { background: #2563eb; }
+.download-btn.btn3 { background: #7c3aed; }
 
-.footer { text-align: center; padding: 3rem 1.5rem; color: var(--text-muted); font-size: 0.75rem; }
-
-@media (max-width: 900px) {
-  .hero-content { grid-template-columns: 160px 1fr; gap: 2rem; padding-top: 2rem; }
-  .title-block h1 { font-size: 1.8rem; }
-  .stats-grid { grid-template-columns: repeat(2, 1fr); }
-  .req-grid { grid-template-columns: 1fr; }
-  .info-grid { grid-template-columns: repeat(3, 1fr); }
+.footer {
+  text-align: center; padding: 2rem 1.5rem;
+  color: var(--text-muted); font-size: 0.65rem;
+  border-top: 1px solid var(--border);
 }
 
 @media (max-width: 640px) {
-  .hero-content { grid-template-columns: 1fr; gap: 1.5rem; }
-  .cover-card { max-width: 220px; margin: 0 auto; }
-  .title-block h1 { font-size: 1.5rem; }
-  .section { padding: 1.5rem 1rem; }
+  .hero-body { padding: 1.25rem 1.25rem 1rem; }
+  .hero-body h1 { font-size: 1.375rem; }
   .about-block { padding: 1.25rem; }
-  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .req-grid { grid-template-columns: 1fr; }
   .info-grid { grid-template-columns: repeat(2, 1fr); }
-  .download-grid { grid-template-columns: 1fr; }
+  .topbar { padding: 0.75rem 1rem; }
 }
 </style>
 </head>
 <body>
 
-<!-- Top Bar -->
 <nav class="topbar">
   <div class="inner">
     <a href="../../index.html">← 返回游戏榜单</a>
@@ -287,14 +304,11 @@ ul.bb_ul { list-style: none; }
   </div>
 </nav>
 
-<!-- Hero -->
-<section class="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-content">
-    <div class="cover-card">
-      <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/292030/library_600x900.jpg" alt="巫师3：狂猎">
-    </div>
-    <div class="title-block">
+<div class="container">
+<div class="hero">
+  <div class="hero-card">
+    <img class="hero-img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/292030/eb2f071040ff86119feb2bd97e2cd283cc40b7e5/header_schinese.jpg?t=1768303991" alt="巫师3：狂猎">
+    <div class="hero-body">
       <h1>巫师3：狂猎</h1>
       <div class="en-name">The Witcher 3: Wild Hunt</div>
       <div class="meta-row">
@@ -328,10 +342,10 @@ ul.bb_ul { list-style: none; }
       </div>
     </div>
   </div>
-</section>
+</div>
 
 <!-- Media -->
-<section class="section media-section">
+<section class="section">
   <div class="section-title">🎬 媒体内容</div>
   <div class="video-player">
     <video id="mediaPlayer" controls autoplay muted poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256927226/movie.293x165.jpg?t=1674829926">
@@ -409,7 +423,7 @@ ul.bb_ul { list-style: none; }
 </section>
 
 <!-- About -->
-<section class="section about-section">
+<section class="section">
   <div class="section-title">📖 关于此游戏</div>
   <div class="about-block">
     <p class="short-desc">您是利维亚的杰洛特，收钱办事的怪物杀手。您可以在眼前这片怪物横行、饱受战火摧残的土地上尽情探索。您手上的委托？追踪预言之子——希里，一件足以改变世界面貌的活生生的武器。</p>
@@ -417,31 +431,8 @@ ul.bb_ul { list-style: none; }
   </div>
 </section>
 
-<!-- Stats -->
-<section class="section stats-section">
-  <div class="section-title">📊 游戏数据</div>
-  <div class="stats-grid">
-    <div class="stat-card">
-      <div class="stat-num">93</div>
-      <div class="stat-label">Metacritic 评分</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-num">18</div>
-      <div class="stat-label">游戏截图</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-num">4</div>
-      <div class="stat-label">预告片</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-num">2015</div>
-      <div class="stat-label">发售年份</div>
-    </div>
-  </div>
-</section>
-
 <!-- System Requirements -->
-<section class="section req-section">
+<section class="section">
   <div class="section-title">💻 系统配置要求</div>
   <div class="req-grid">
     <div class="req-card">
@@ -461,27 +452,19 @@ ul.bb_ul { list-style: none; }
   <div class="download-grid">
     <a href="https://www.gamer520.com/47649.html" target="_blank" class="download-btn btn1">
       <span class="icon">🎮</span>
-      <div>
-        <div class="name">gamer520</div>
-        <div class="desc">点击跳转下载</div>
-      </div>
+      gamer520
     </a>
     <a href="https://www.x6d.com/i-wz-10131.html" target="_blank" class="download-btn btn2">
       <span class="icon">📦</span>
-      <div>
-        <div class="name">x6d</div>
-        <div class="desc">点击跳转下载</div>
-      </div>
+      x6d
     </a>
     <a href="https://steamzg.com/24239" target="_blank" class="download-btn btn3">
       <span class="icon">🔗</span>
-      <div>
-        <div class="name">steamzg</div>
-        <div class="desc">点击跳转下载</div>
-      </div>
+      steamzg
     </a>
   </div>
 </section>
+</div><!-- container -->
 
 <div class="footer">
   数据来源：Steam API · 封面/截图/视频 © CD PROJEKT RED
