@@ -552,14 +552,6 @@ body {
   </aside>
 
   <main class="main">
-    <!-- 筛选栏 -->
-    <div class="filter-bar">
-      <button class="filter-btn active" data-filter="all">全部游戏</button>
-      <button class="filter-btn" data-filter="large">超过20GB</button>
-      <button class="filter-btn" data-filter="medium">10-20GB</button>
-      <button class="filter-btn" data-filter="small">小于10GB</button>
-    </div>
-    
     <div class="games-grid" id="gamesGrid"></div>
     <div class="md-content" id="mdContent"></div>
   </main>
@@ -830,7 +822,6 @@ function initFilters() {
 // 初始化
 renderSidebar();
 loadGames();
-initFilters();
 </script>
 
 </body>
