@@ -71,7 +71,7 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 300px 1fr;
+  grid-template-columns: 375px 1fr;
   gap: 2.5rem;
   align-items: start;
 }
@@ -409,33 +409,37 @@ body {
 
 /* 内容区域 */
 .content-section {
-  max-width: 1200px;
+  max-width: 920px;
   margin: 0 auto;
-  padding: 0 2rem 2rem;
+  padding: 0 1rem 2rem;
 }
 
 .content-block {
   background: var(--surface);
   border-radius: var(--radius);
   border: 1px solid var(--border);
-  padding: 2rem;
+  padding: 1.25rem;
   margin-bottom: 1.5rem;
+  font-family: "Motiva Sans", "Motiva Sans Unicode", "MS Gothic", "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-size: 1rem;
+  color: var(--text-secondary);
 }
 
 .content-block h2 {
   font-size: 0.9375rem;
   font-weight: 600;
   color: var(--text-secondary);
-  margin-bottom: 1.25rem;
-  padding-bottom: 0.75rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.625rem;
   border-bottom: 1px solid var(--border);
+  font-family: "Motiva Sans", "Motiva Sans Unicode", "MS Gothic", "PingFang SC", "Microsoft YaHei", sans-serif;
 }
 
 .content-block p {
   color: var(--text-secondary);
   font-size: 0.9375rem;
-  line-height: 1.75;
-  margin-bottom: 0.75rem;
+  line-height: 1.625;
+  margin-bottom: 0.625rem;
 }
 
 .content-block h2.bb_tag {
@@ -450,10 +454,8 @@ body {
 .content-block .bb_img_ctn {
   display: block;
   max-width: 100%;
-  margin: 1rem 0;
+  margin: 0.75rem 0;
   overflow: hidden;
-  border-radius: 8px;
-  background: #000;
 }
 
 .content-block .bb_img {
@@ -461,7 +463,6 @@ body {
   width: 100% !important;
   height: auto !important;
   display: block;
-  border-radius: 8px;
 }
 
 .content-block video.bb_img {
