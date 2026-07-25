@@ -14,10 +14,12 @@
   --text-secondary: #4a4a5e;
   --text-muted: #8a8a9e;
   --accent: #1a1a2e;
-  --radius: 12px;
+  --accent-soft: #2d2d44;
+  --radius: 8px;
   --shadow: 0 1px 4px rgba(0,0,0,0.06);
-  --shadow-md: 0 8px 24px rgba(0,0,0,0.1);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.08);
 }
+
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
@@ -30,169 +32,105 @@ body {
 
 .topbar {
   position: sticky; top: 0; z-index: 100;
-  background: rgba(245,245,247,0.85);
+  background: rgba(255,255,255,0.85);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border);
-  padding: 0.65rem 1.5rem;
+  padding: 0.75rem 1.5rem;
 }
 .topbar .inner {
-  max-width: 1200px; margin: 0 auto;
+  max-width: 960px; margin: 0 auto;
   display: flex; justify-content: space-between; align-items: center;
 }
 .topbar a {
   color: var(--text-secondary); text-decoration: none;
-  font-size: 0.8rem; font-weight: 500; transition: color 0.2s;
+  font-size: 0.8125rem; font-weight: 500; transition: color 0.2s;
 }
-.topbar a:hover { color: var(--text-primary); }
+.topbar a:hover { color: var(--accent); }
 
-/* Hero full-width banner */
-.hero {
-  position: relative;
-  width: 100%;
-  height: 520px;
-  overflow: hidden;
-}
-.hero-bg {
-  position: absolute; inset: 0;
-  background-image: url("https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/292030/eb2f071040ff86119feb2bd97e2cd283cc40b7e5/header_schinese.jpg?t=1768303991");
-  background-size: cover;
-  background-position: center 40%;
-}
-.hero-overlay {
-  position: absolute; inset: 0;
-  background: linear-gradient(90deg, 
-    rgba(10,10,15,0.85) 0%,
-    rgba(10,10,15,0.7) 30%,
-    rgba(10,10,15,0.3) 60%,
-    rgba(10,10,15,0.1) 100%)
-)}
-.hero-overlay::after {
-  content: ""; position: absolute; inset: 0;
-  background: linear-gradient(180deg, 
-    rgba(10,10,15,0.2) 0%,
-    rgba(10,10,15,0) 30%,
-    rgba(10,10,15,0) 60%,
-    var(--bg) 100%)
-}
-.hero-content {
-  position: relative;
-  z-index: 2;
-  height: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
-  display: flex;
-  align-items: flex-end;
-  gap: 3rem;
-}
+.container { max-width: 960px; margin: 0 auto; padding: 0 1rem; }
 
-.cover-art {
-  flex-shrink: 0;
-  width: 200px;
-  aspect-ratio: 3/4;
+.hero { margin-bottom: 1.5rem; }
+.hero-card {
+  background: var(--surface);
   border-radius: var(--radius);
+  box-shadow: var(--shadow);
   overflow: hidden;
-  box-shadow: 0 16px 48px rgba(0,0,0,0.5);
-  border: 2px solid rgba(255,255,255,0.1);
-  margin-bottom: -80px;
+  border: 1px solid var(--border);
 }
-.cover-art img {
-  width: 100%; height: 100%;
-  object-fit: cover; display: block;
+.hero-img {
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  display: block;
 }
-
-.title-area {
-  flex: 1;
-  min-width: 0;
-  padding-bottom: 1rem;
+.hero-body { padding: 1.75rem 2rem 1.5rem; }
+.hero-body h1 {
+  font-size: 1.875rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.2;
 }
-.title-area .pretitle {
-  font-size: 0.7rem;
-  color: rgba(255,255,255,0.6);
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  font-weight: 500;
-  margin-bottom: 0.75rem;
-}
-.title-area h1 {
-  font-size: 3rem;
-  font-weight: 700;
-  color: #fff;
-  line-height: 1.1;
-  text-shadow: 0 2px 24px rgba(0,0,0,0.5);
-  letter-spacing: -0.01em;
-}
-.title-area .en-name {
-  font-size: 1.1rem;
-  color: rgba(255,255,255,0.55);
-  margin-top: 0.5rem;
-  font-weight: 300;
-}
-.title-area .short-desc {
+.hero-body .en-name {
   font-size: 0.9rem;
-  color: rgba(255,255,255,0.85);
-  line-height: 1.6;
-  max-width: 480px;
-  margin-top: 1.25rem;
+  color: var(--text-muted);
+  margin-top: 0.25rem;
 }
-
-.hero-tags {
-  display: flex; flex-wrap: wrap; gap: 0.4rem;
-  margin-top: 1.25rem;
-}
-.hero-tags .tag {
-  display: inline-flex; align-items: center;
-  padding: 0.25rem 0.65rem;
-  border-radius: 100px;
-  font-size: 0.7rem; font-weight: 500;
-  background: rgba(255,255,255,0.12);
-  color: #fff;
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(255,255,255,0.1);
-}
-.hero-tags .tag.gold { background: rgba(245,158,11,0.2); border-color: rgba(245,158,11,0.3); color: #fbbf24; }
-.hero-tags .tag.purple { background: rgba(124,58,237,0.2); border-color: rgba(124,58,237,0.3); color: #c4b5fd; }
-.hero-tags .tag.green { background: rgba(16,185,129,0.2); border-color: rgba(16,185,129,0.3); color: #6ee7b7; }
-
-.score-row {
-  display: flex; align-items: center;
-  gap: 1.5rem;
-  margin-top: 1.25rem;
-}
-.score {
-  display: flex; align-items: baseline; gap: 0.3rem;
-  background: rgba(0,0,0,0.3);
-  padding: 0.5rem 0.9rem;
-  border-radius: 8px;
-  border: 1px solid rgba(255,255,255,0.1);
-}
-.score .num { font-size: 1.5rem; font-weight: 700; color: #f59e0b; }
-.score .label { font-size: 0.65rem; color: rgba(255,255,255,0.7); }
-.info-pill {
-  display: flex; align-items: baseline; gap: 0.4rem;
-}
-.info-pill .label { font-size: 0.6rem; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.06em; }
-.info-pill .value { font-size: 0.8rem; color: #fff; font-weight: 500; }
 
 .meta-row {
-  display: flex; flex-wrap: wrap; gap: 1rem;
-  padding: 2rem 1.5rem 0;
-  max-width: 1200px; margin: 0 auto;
+  display: flex; flex-wrap: wrap; gap: 0.4rem;
+  margin-top: 1rem;
 }
-.meta-item {
-  display: flex; align-items: center; gap: 0.4rem;
-  font-size: 0.8rem; color: var(--text-secondary);
+.meta-chip {
+  display: inline-flex; align-items: center;
+  padding: 0.2rem 0.65rem;
+  border-radius: 4px;
+  font-size: 0.75rem; font-weight: 500;
+  background: #f0f0f5;
+  color: var(--text-secondary);
 }
-.meta-item .label { font-size: 0.6rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em; }
-.meta-item .value { font-size: 0.8rem; color: var(--text-primary); font-weight: 500; }
+.meta-chip.gold { background: #fef3c7; color: #92400e; }
+.meta-chip.purple { background: #ede9fe; color: #5b21b6; }
+.meta-chip.green { background: #d1fae5; color: #065f46; }
 
-.section { max-width: 1200px; margin: 0 auto; padding: 1.5rem 1.5rem 0; }
+.score-badge {
+  display: inline-flex; align-items: baseline; gap: 0.4rem;
+  margin-top: 1rem;
+  padding: 0.4rem 0.8rem;
+  background: var(--text-primary);
+  color: #fff;
+  border-radius: var(--radius);
+}
+.score-badge .num { font-size: 1.25rem; font-weight: 700; color: #f59e0b; }
+.score-badge .meta { font-size: 0.65rem; opacity: 0.7; }
+.score-badge .label { font-size: 0.65rem; opacity: 0.7; }
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 1rem;
+  margin-top: 1.25rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border);
+}
+.info-item .label {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.info-item .value {
+  font-size: 0.85rem;
+  color: var(--text-primary);
+  font-weight: 500;
+  margin-top: 0.15rem;
+}
+
 .section-title {
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   font-weight: 600;
   color: var(--text-muted);
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   margin-bottom: 1rem;
   display: flex; align-items: center; gap: 0.75rem;
 }
@@ -207,7 +145,7 @@ body {
   border-radius: var(--radius);
   overflow: hidden;
   box-shadow: var(--shadow-md);
-  margin-bottom: 0.75rem;
+  margin-bottom: 1rem;
 }
 .video-player video { width: 100%; height: 100%; display: block; object-fit: contain; }
 
@@ -221,21 +159,23 @@ body {
 .thumbnails::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
 
 .thumb {
-  flex-shrink: 0; width: 100px; height: 56px;
+  flex-shrink: 0;
+  width: 110px; height: 62px;
   border-radius: 6px;
-  overflow: hidden; cursor: pointer;
+  overflow: hidden;
+  cursor: pointer;
   border: 2px solid transparent;
   transition: all 0.2s;
   position: relative;
   background: #000;
 }
-.thumb:hover { border-color: var(--text-primary); transform: translateY(-1px); }
-.thumb.active { border-color: var(--text-primary); }
+.thumb:hover { border-color: var(--accent); transform: translateY(-1px); }
+.thumb.active { border-color: var(--accent); }
 .thumb img { width: 100%; height: 100%; object-fit: cover; }
 .thumb.is-video::after {
   content: "▶"; position: absolute; inset: 0;
   display: flex; align-items: center; justify-content: center;
-  background: rgba(0,0,0,0.35); color: #fff; font-size: 0.9rem;
+  background: rgba(0,0,0,0.35); color: #fff; font-size: 1rem;
 }
 
 .about-block {
@@ -244,13 +184,6 @@ body {
   border: 1px solid var(--border);
   padding: 1.5rem 2rem;
   box-shadow: var(--shadow);
-  margin-bottom: 1.5rem;
-}
-.about-block h1 {
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--text-primary);
-  margin-bottom: 0.75rem;
 }
 .about-block h2 {
   font-size: 0.95rem; font-weight: 600;
@@ -310,8 +243,9 @@ body {
 .req-card li strong { color: var(--text-primary); font-weight: 500; }
 .req-card li::before {
   content: "›"; position: absolute; left: 0;
-  color: var(--text-primary); font-weight: 700;
+  color: var(--accent); font-weight: 700;
 }
+
 ul.bb_ul { list-style: none; }
 .bb_ul li {
   font-size: 0.775rem; color: var(--text-secondary);
@@ -320,66 +254,44 @@ ul.bb_ul { list-style: none; }
 }
 .bb_ul li::before {
   content: "›"; position: absolute; left: 0;
-  color: var(--text-primary); font-weight: 700;
+  color: var(--accent); font-weight: 700;
 }
 .bb_ul li strong { color: var(--text-primary); font-weight: 500; }
 
 .download-section { margin-bottom: 3rem; }
-.download-block {
-  background: var(--surface);
-  border-radius: var(--radius);
-  border: 1px solid var(--border);
-  padding: 1.25rem 1.5rem;
-  box-shadow: var(--shadow);
-}
 .download-grid {
   display: flex; flex-wrap: wrap; gap: 0.5rem;
 }
-.download-link {
+.download-btn {
   display: inline-flex; align-items: center;
-  gap: 0.5rem;
-  padding: 0.5rem 1rem;
-  border-radius: 100px;
+  gap: 0.4rem;
+  padding: 0.45rem 0.9rem;
+  border-radius: var(--radius);
   text-decoration: none;
+  color: #fff;
   font-size: 0.775rem; font-weight: 500;
   transition: all 0.2s;
-  border: 1px solid var(--border);
-  color: var(--text-primary);
-  background: var(--surface);
+  box-shadow: var(--shadow);
 }
-.download-link:hover {
-  transform: translateY(-1px);
-  box-shadow: var(--shadow-md);
-  border-color: var(--text-primary);
-}
-.download-link .icon { font-size: 0.9rem; }
-.download-link .name { font-weight: 600; }
-.download-link .desc { font-size: 0.7rem; color: var(--text-muted); }
+.download-btn:hover { transform: translateY(-1px); box-shadow: var(--shadow-md); }
+.download-btn .icon { font-size: 0.85rem; }
+.download-btn.btn1 { background: #059669; }
+.download-btn.btn2 { background: #2563eb; }
+.download-btn.btn3 { background: #7c3aed; }
 
 .footer {
-  text-align: center; padding: 2.5rem 1.5rem;
+  text-align: center; padding: 2rem 1.5rem;
   color: var(--text-muted); font-size: 0.65rem;
   border-top: 1px solid var(--border);
 }
 
-@media (max-width: 768px) {
-  .hero { height: 420px; }
-  .hero-content { flex-direction: column; align-items: flex-start; gap: 1.5rem; padding: 0 1.25rem; }
-  .cover-art { width: 150px; margin-bottom: 0; }
-  .title-area h1 { font-size: 2rem; }
-  .title-area .short-desc { max-width: 100%; }
-  .score-row { flex-wrap: wrap; }
-  .meta-row { padding: 1.5rem 1.25rem 0; }
+@media (max-width: 640px) {
+  .hero-body { padding: 1.25rem 1.25rem 1rem; }
+  .hero-body h1 { font-size: 1.375rem; }
   .about-block { padding: 1.25rem; }
   .req-grid { grid-template-columns: 1fr; }
-  .section { padding: 1.5rem 1.25rem 0; }
-}
-
-@media (max-width: 480px) {
-  .hero { height: 380px; }
-  .title-area h1 { font-size: 1.6rem; }
-  .title-area .short-desc { font-size: 0.8rem; }
-  .meta-row { gap: 0.75rem; flex-direction: column; align-items: flex-start; }
+  .info-grid { grid-template-columns: repeat(2, 1fr); }
+  .topbar { padding: 0.75rem 1rem; }
 }
 </style>
 </head>
@@ -392,64 +304,43 @@ ul.bb_ul { list-style: none; }
   </div>
 </nav>
 
-<!-- Hero -->
-<section class="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-overlay"></div>
-  <div class="hero-content">
-    <div class="cover-art">
-      <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/292030/library_600x900.jpg" alt="巫师3：狂猎">
-    </div>
-    <div class="title-area">
-      <div class="pretitle">PC · STEAM</div>
+<div class="container">
+<div class="hero">
+  <div class="hero-card">
+    <img class="hero-img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/292030/eb2f071040ff86119feb2bd97e2cd283cc40b7e5/header_schinese.jpg?t=1768303991" alt="巫师3：狂猎">
+    <div class="hero-body">
       <h1>巫师3：狂猎</h1>
       <div class="en-name">The Witcher 3: Wild Hunt</div>
-      <p class="short-desc">您是利维亚的杰洛特，收钱办事的怪物杀手。您可以在眼前这片怪物横行、饱受战火摧残的土地上尽情探索。您手上的委托？追踪预言之子——希里，一件足以改变世界面貌的活生生的武器。</p>
-      <div class="hero-tags">
-        <span class="tag gold">🏆 口碑Top</span>
-        <span class="tag gold">🏆 销量Top</span>
-        <span class="tag purple">🎭 角色扮演</span>
-        <span class="tag green">🖥 Windows</span>
+      <div class="meta-row">
+        <span class="meta-chip gold">🏆 口碑Top</span>
+        <span class="meta-chip gold">🏆 销量Top</span>
+        <span class="meta-chip purple">🎭 角色扮演</span>
+        <span class="meta-chip green">🖥 Windows</span>
       </div>
-      <div class="score-row">
-        <div class="score">
-          <span class="num">93</span>
-          <span class="label">/100 Metacritic</span>
+      <div class="score-badge">
+        <span class="num">93</span>
+        <span class="meta">/100</span>
+        <span class="label">Metacritic</span>
+      </div>
+      <div class="info-grid">
+        <div class="info-item">
+          <div class="label">发售日期</div>
+          <div class="value">2015 年 5 月 18 日</div>
         </div>
-        <div class="info-pill">
-          <span class="label">发售</span>
-          <span class="value">2015 年 5 月 18 日</span>
+        <div class="info-item">
+          <div class="label">开发商</div>
+          <div class="value">CD PROJEKT RED</div>
         </div>
-        <div class="info-pill">
-          <span class="label">开发商</span>
-          <span class="value">CD PROJEKT RED</span>
+        <div class="info-item">
+          <div class="label">发行商</div>
+          <div class="value">CD PROJEKT RED</div>
+        </div>
+        <div class="info-item">
+          <div class="label">类型</div>
+          <div class="value">单人</div>
         </div>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- Meta -->
-<div class="meta-row">
-  <div class="meta-item">
-    <span class="label">发行商</span>
-    <span class="value">CD PROJEKT RED</span>
-  </div>
-  <div class="meta-item">
-    <span class="label">类型</span>
-    <span class="value">单人</span>
-  </div>
-  <div class="meta-item">
-    <span class="label">发售年份</span>
-    <span class="value">2015</span>
-  </div>
-  <div class="meta-item">
-    <span class="label">平台</span>
-    <span class="value">Windows</span>
-  </div>
-  <div class="meta-item">
-    <span class="label">特色</span>
-    <span class="value">Steam 成就 · Steam 创意工坊</span>
   </div>
 </div>
 
@@ -558,23 +449,22 @@ ul.bb_ul { list-style: none; }
 <!-- Downloads -->
 <section class="section download-section">
   <div class="section-title">📥 下载链接</div>
-  <div class="download-block">
-    <div class="download-grid">
-      <a href="https://www.gamer520.com/47649.html" target="_blank" class="download-link">
-        <span class="icon">🎮</span>
-        <span class="name">gamer520</span>
-      </a>
-      <a href="https://www.x6d.com/i-wz-10131.html" target="_blank" class="download-link">
-        <span class="icon">📦</span>
-        <span class="name">x6d</span>
-      </a>
-      <a href="https://steamzg.com/24239" target="_blank" class="download-link">
-        <span class="icon">🔗</span>
-        <span class="name">steamzg</span>
-      </a>
-    </div>
+  <div class="download-grid">
+    <a href="https://www.gamer520.com/47649.html" target="_blank" class="download-btn btn1">
+      <span class="icon">🎮</span>
+      gamer520
+    </a>
+    <a href="https://www.x6d.com/i-wz-10131.html" target="_blank" class="download-btn btn2">
+      <span class="icon">📦</span>
+      x6d
+    </a>
+    <a href="https://steamzg.com/24239" target="_blank" class="download-btn btn3">
+      <span class="icon">🔗</span>
+      steamzg
+    </a>
   </div>
 </section>
+</div><!-- container -->
 
 <div class="footer">
   数据来源：Steam API · 封面/截图/视频 © CD PROJEKT RED
