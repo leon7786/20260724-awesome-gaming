@@ -66,6 +66,7 @@ body {
 
 .navbar-links {
   display: flex;
+  align-items: center;
   gap: 0.5rem;
 }
 
@@ -82,6 +83,169 @@ body {
 .navbar-links a:hover {
   background: var(--accent-light);
   color: var(--accent);
+}
+
+/* 新搜索框 */
+.search-box {
+  position: relative;
+  width: 300px;
+  max-width: 100%;
+}
+
+.search-input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-icon {
+  position: absolute;
+  left: 0.75rem;
+  width: 1rem;
+  height: 1rem;
+  color: var(--text-muted);
+  pointer-events: none;
+}
+
+.search-input {
+  width: 100%;
+  height: 38px;
+  padding: 0 3rem 0 2.5rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: #ffffff;
+  color: var(--text-primary);
+  font-size: 0.875rem;
+  outline: none;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+.search-input::placeholder {
+  color: var(--text-muted);
+}
+
+.search-input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.14);
+}
+
+.search-close {
+  position: absolute;
+  right: 0.6rem;
+  width: 24px;
+  height: 24px;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-input:not(:placeholder-shown) + .search-close {
+  display: flex;
+}
+
+.search-results {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  width: 420px;
+  max-height: 520px;
+  overflow: hidden;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: var(--shadow-lg);
+  display: none;
+  z-index: 200;
+}
+
+.search-results.open {
+  display: block;
+}
+
+.search-result-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-muted);
+  font-size: 0.78rem;
+}
+
+.search-result-list {
+  max-height: 460px;
+  overflow-y: auto;
+  padding: 0.5rem;
+}
+
+.search-empty {
+  padding: 1.5rem;
+  text-align: center;
+  color: var(--text-muted);
+}
+
+.search-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.55rem;
+  border-radius: 10px;
+  text-decoration: none;
+  color: var(--text-primary);
+  transition: background .15s ease;
+}
+
+.search-item:hover {
+  background: #eef4ff;
+}
+
+.search-item img {
+  width: 44px;
+  height: 66px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: var(--shadow-sm);
+  flex: 0 0 44px;
+}
+
+.search-item-info {
+  min-width: 0;
+}
+
+.search-item-title {
+  font-size: 0.9rem;
+  font-weight: 650;
+  line-height: 1.25;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.search-item-meta {
+  margin-top: 0.15rem;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+.search-highlight {
+  color: #f59e0b;
+  font-weight: 700;
+  background: rgba(245, 158, 11, 0.12);
+  border-radius: 3px;
+  padding: 0 1px;
+}
+
+@media (max-width: 640px) {
+  .navbar-links a:not(.search-trigger-mobile) { display: none; }
+  .search-box { width: 100%; }
+  .search-results { width: calc(100vw - 2rem); right: 0; }
 }
 
 /* 主布局 */
@@ -548,10 +712,24 @@ body {
     🎮 <span>游戏殿堂</span>
   </a>
   <div class="navbar-links">
+    <div class="search-box" id="searchBox">
+      <div class="search-input-wrap">
+        <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="m21 21-4.35-4.35M11 19a8 8 0 1 0 0-16 8 8 0 0 0 0 16Z"/>
+        </svg>
+        <input type="text" id="searchInput" class="search-input" placeholder="搜索游戏..." autocomplete="off" />
+        <button type="button" class="search-close" aria-label="清空搜索">
+          <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+      <div class="search-results" id="searchResults">
+        <div class="search-result-header"><span>搜索结果</span><span id="searchCount"></span></div>
+        <div class="search-result-list" id="searchResultList"></div>
+      </div>
+    </div>
     <a href="https://www.gamer520.com/" target="_blank">gamer520</a>
     <a href="https://www.x6d.com/html/96.html" target="_blank">x6d</a>
     <a href="https://github.com/leon7786/20260724-awesome-gaming" target="_blank">GitHub</a>
-    <input type="text" id="searchInput" class="search-input" placeholder="搜索游戏..." oninput="filterBySearch()" />
   </div>
 </nav>
 
@@ -780,6 +958,116 @@ async function loadGames() {
     console.error('加载游戏数据失败:', e);
   }
 }
+
+// 新搜索框：实时模糊检索
+(function initSearch() {
+  const input = document.getElementById('searchInput');
+  const closeBtn = document.querySelector('#searchBox .search-close');
+  const resultsBox = document.getElementById('searchResults');
+  const resultList = document.getElementById('searchResultList');
+  const countEl = document.getElementById('searchCount');
+  let timer = null;
+
+  function escapeHtml(str) {
+    return String(str).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  }
+
+  function highlightText(text, query) {
+    if (!query) return escapeHtml(text);
+    const safe = escapeHtml(text);
+    const regex = new RegExp(`(${query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
+    return safe.replace(regex, '<span class="search-highlight">$1</span>');
+  }
+
+  function search(query) {
+    if (timer) clearTimeout(timer);
+    timer = setTimeout(() => runSearch(query.trim()), 60);
+  }
+
+  function runSearch(query) {
+    const list = document.createElement('div');
+    list.style.cssText = 'padding:0.5rem;';
+
+    if (!query || allGames.length === 0) {
+      list.innerHTML = '<div style="padding:1.5rem;text-align:center;color:#9ca3af">开始输入搜索游戏…</div>';
+      resultList.innerHTML = '';
+      resultList.appendChild(list);
+      countEl.textContent = '';
+      if (query) resultsBox.classList.add('open');
+      else resultsBox.classList.remove('open');
+      return;
+    }
+
+    const q = query.toLowerCase();
+    const matched = allGames.filter(g => {
+      const cn = (g.cn_name || '').toLowerCase();
+      const en = (g.en_name || '').toLowerCase();
+      const tags = ((g.tags || []).map(t => t.toLowerCase())).join(' ');
+      return cn.includes(q) || en.includes(q) || tags.includes(q);
+    }).slice(0, 12);
+
+    if (matched.length === 0) {
+      list.innerHTML = '<div style="padding:1.5rem;text-align:center;color:#9ca3af">没有找到游戏</div>';
+      resultList.innerHTML = '';
+      resultList.appendChild(list);
+      countEl.textContent = '0 项';
+      resultsBox.classList.add('open');
+      return;
+    }
+
+    countEl.textContent = `${matched.length} 项`;
+    const fragment = document.createDocumentFragment();
+
+    matched.forEach(g => {
+      const a = document.createElement('a');
+      a.className = 'search-item';
+      const href = g.detail ? (g.detail.endsWith('/') ? g.detail + 'index.html' : g.detail) : '#';
+      a.href = href;
+
+      let titleText = g.cn_name || g.en_name || '';
+      let metaText = (g.en_name || '') + (g.year ? ' · ' + g.year : '') + (g.size_gb ? ' · ' + g.size_gb + 'GB' : '');
+
+      a.innerHTML = `
+        <img src="${escapeHtml(g.cover || '')}" alt="" loading="lazy" onerror="this.style.display='none'">
+        <div class="search-item-info">
+          <div class="search-item-title">${highlightText(titleText, query)}</div>
+          <div class="search-item-meta">${highlightText(metaText, query)}</div>
+        </div>
+      `;
+
+      a.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.location.href = href;
+      });
+
+      fragment.appendChild(a);
+    });
+
+    resultList.innerHTML = '';
+    resultList.appendChild(list);
+    Array.from(fragment).forEach(el => list.appendChild(el));
+    resultsBox.classList.add('open');
+  }
+
+  input.addEventListener('input', () => search(input.value));
+
+  if (closeBtn) {
+    closeBtn.addEventListener('click', () => {
+      input.value = '';
+      resultsBox.classList.remove('open');
+      countEl.textContent = '';
+      input.focus();
+    });
+  }
+
+  input.addEventListener('blur', () => {
+    setTimeout(() => { if (!input.matches(':focus')) resultsBox.classList.remove('open'); }, 150);
+  });
+
+  input.addEventListener('focus', () => {
+    if (input.value.trim()) resultsBox.classList.add('open');
+  });
+})();
 
 // 筛选按钮事件监听
 function initFilters() {
