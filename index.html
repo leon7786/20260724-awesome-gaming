@@ -569,41 +569,19 @@ body {
 // 侧边栏分类配置
 const sidebarConfig = [
   {
-    title: '🏆 综合榜单',
-    items: [
-      { name: '殿堂级 Top 250', file: '20260724-top250-by-release-date.md' },
-      { name: '全球销量 Top 250', file: '20260724-global-games-top250.md' },
-      { name: '平台独占精选', file: '20260724-platform-exclusives-top.md' },
-    ]
-  },
-  {
-    title: '⭐ 媒体评分',
+    title: '',
     items: [
       { name: 'Metacritic 高分榜', file: '20260724-top-metacritic.md' },
-      { name: 'OpenCritic 名人堂', file: '20260724-top-opencritic.md' },
+      { name: 'TGA 年度游戏', file: '20260724-tga-awards-goty.md' },
       { name: 'IGN Top 100', file: '20260724-top-ign.md' },
-      { name: 'GameSpot 满分榜', file: '20260724-top-gamespot.md' },
-      { name: 'Eurogamer 推荐', file: '20260724-top-eurogamer.md' },
-      { name: 'Digital Foundry', file: '20260724-top-digital-foundry.md' },
       { name: 'Famitsu 满分榜', file: '20260724-top-famitsu.md' },
+      { name: 'GameSpot 满分榜', file: '20260724-top-gamespot.md' },
+      { name: 'Digital Foundry', file: '20260724-top-digital-foundry.md' },
+      { name: 'Eurogamer 推荐', file: '20260724-top-eurogamer.md' },
+      { name: 'OpenCritic 名人堂', file: '20260724-top-opencritic.md' },
       { name: 'RPS 推荐', file: '20260724-top-rps.md' },
-      { name: 'Noclip 推荐', file: '20260724-top-noclip.md' },
-    ]
-  },
-  {
-    title: '💰 玩家/销量',
-    items: [
       { name: 'Steam 250 高分榜', file: '20260724-steam-top250-rating.md' },
       { name: 'Steam 热销榜', file: '20260724-top-steam.md' },
-      { name: 'GitHub 热门游戏', file: '20260724-games-github.md' },
-    ]
-  },
-  {
-    title: '🎖️ 大奖',
-    items: [
-      { name: 'TGA 年度游戏', file: '20260724-tga-awards-goty.md' },
-      { name: 'Steam 大奖 10年', file: '20260724-steam-awards-10years.md' },
-      { name: 'Steam 年度最佳', file: '20260724-steam-bestofyear-10years.md' },
     ]
   }
 ];
@@ -618,7 +596,7 @@ function renderSidebar() {
   
   for (const group of sidebarConfig) {
     html += `<div class="sidebar-section">`;
-    html += `<div class="sidebar-title">${group.title}</div>`;
+    if (group.title) html += `<div class="sidebar-title">${group.title}</div>`;
     for (const item of group.items) {
       html += `<a href="#" class="sidebar-link" onclick="loadMd('${item.file}', this); return false;">${item.name}</a>`;
     }
