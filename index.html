@@ -235,11 +235,22 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.3s ease;
 }
 
-.game-card:hover .game-cover img {
-  transform: scale(1.05);
+.game-score {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background: rgba(0, 0, 0, 0.75);
+  color: #ffd700;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  z-index: 2;
 }
 
 .game-info {
@@ -716,6 +727,7 @@ function renderGameCard(game) {
       <a href="${game.detail || '#'}" style="text-decoration:none;color:inherit;display:block">
         <div class="game-cover">
           <img src="${game.cover}" alt="${game.en_name}" loading="lazy" onerror="this.style.display='none'">
+          ${game.score ? `<div class="game-score">⭐ ${game.score}</div>` : ''}
         </div>
       </a>
       <div class="game-info">
@@ -723,7 +735,6 @@ function renderGameCard(game) {
         <div class="game-subtitle">${game.en_name}</div>
         <div class="game-meta">
           <span class="tag year">${game.year}</span>
-          ${game.score ? `<span class="tag score">⭐ ${game.score}</span>` : ''}
           ${sizeTag}
         </div>
         <div class="game-actions">
