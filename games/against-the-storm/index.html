@@ -651,17 +651,17 @@ function switchMedia(index) {
     thumb.classList.toggle('active', i === index);
   });
 
-  // 点到边缘时自动滚动 2 张（带过渡动画）
+  // 点到边缘时自动滚动 1 张（带过渡动画）
   const bar = document.getElementById('mediaThumbnails') || document.querySelector('.media-thumbnails');
   const active = thumbs[index];
   if (bar && active) {
     const barRect = bar.getBoundingClientRect();
     const tRect = active.getBoundingClientRect();
     const step = active.offsetWidth + 8; // thumb width + gap
-    const edgePad = step * 0.75;
+    const edgePad = step * 0.45;
     let dx = 0;
-    if (tRect.right > barRect.right - edgePad) dx = step * 2;
-    else if (tRect.left < barRect.left + edgePad) dx = -step * 2;
+    if (tRect.right > barRect.right - edgePad) dx = step * 1;
+    else if (tRect.left < barRect.left + edgePad) dx = -step * 1;
     if (dx !== 0) {
       // 轻微延迟让 active 高亮先出现，再平滑滚动
       requestAnimationFrame(() => {
