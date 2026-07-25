@@ -148,6 +148,49 @@ body {
   font-weight: 600;
 }
 
+/* 筛选按钮 */
+.filter-bar {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.filter-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.filter-btn.active {
+  background: var(--accent);
+  color: white;
+  border-color: var(--accent);
+}
+
+/* 存储标签 */
+.tag.size {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.tag.size-large {
+  background: #fee2e2;
+  color: #991b1b;
+  font-weight: 600;
+}
+
 /* 主内容区 */
 .main {
   flex: 1;
@@ -498,6 +541,14 @@ body {
   </aside>
 
   <main class="main">
+    <!-- 筛选栏 -->
+    <div class="filter-bar">
+      <button class="filter-btn active" data-filter="all">全部游戏</button>
+      <button class="filter-btn" data-filter="large">超过20GB</button>
+      <button class="filter-btn" data-filter="medium">10-20GB</button>
+      <button class="filter-btn" data-filter="small">小于10GB</button>
+    </div>
+    
     <div class="games-grid" id="gamesGrid"></div>
     <div class="md-content" id="mdContent"></div>
   </main>
@@ -653,6 +704,13 @@ function renderGameCard(game) {
   
   const detailBtn = game.detail ? `<a href="${game.detail}" class="btn btn-primary">详情</a>` : '';
   
+  // 存储大小标签
+  let sizeTag = '';
+  if (game.size_gb) {
+    const sizeClass = game.size_gb >= 20 ? 'size-large' : 'size';
+    sizeTag = `<span class="tag ${sizeClass}">${game.size_gb}GB</span>`;
+  }
+  
   return `
     <div class="game-card">
       <a href="${game.detail || '#'}" style="text-decoration:none;color:inherit;display:block">
@@ -666,6 +724,7 @@ function renderGameCard(game) {
         <div class="game-meta">
           <span class="tag year">${game.year}</span>
           ${game.score ? `<span class="tag score">⭐ ${game.score}</span>` : ''}
+          ${sizeTag}
         </div>
         <div class="game-actions">
           ${dlBtns}
@@ -676,49 +735,91 @@ function renderGameCard(game) {
   `;
 }
 
+// 全局游戏数据
+let allGames = [];
+let currentFilter = 'all';
+
+// 筛选游戏
+function filterGames(games, filter) {
+  if (filter === 'all') return games;
+  
+  return games.filter(game => {
+    const size = game.size_gb || 0;
+    if (filter === 'large') return size >= 20;
+    if (filter === 'medium') return size >= 10 && size < 20;
+    if (filter === 'small') return size < 10;
+    return true;
+  });
+}
+
+// 渲染游戏列表
+function renderGames(games) {
+  // 分离Windows和非Windows游戏
+  const windowsGames = games.filter(g => g.is_windows !== false);
+  const nonWindowsGames = games.filter(g => g.is_windows === false);
+  
+  // 按年份降序排列
+  windowsGames.sort((a, b) => parseInt(b.year) - parseInt(a.year));
+  nonWindowsGames.sort((a, b) => parseInt(b.year) - parseInt(a.year));
+  
+  const grid = document.getElementById('gamesGrid');
+  
+  // 渲染Windows游戏
+  let html = windowsGames.map(renderGameCard).join('');
+  
+  // 如果有非Windows游戏，添加分组
+  if (nonWindowsGames.length > 0) {
+    html += `
+      <div style="grid-column: 1 / -1; margin-top: 3rem; margin-bottom: 1rem;">
+        <h2 style="font-size: 1.5rem; font-weight: 600; color: var(--text-primary); padding-bottom: 0.75rem; border-bottom: 2px solid var(--border);">
+          🎮 非Windows平台独占
+        </h2>
+        <p style="color: var(--text-secondary); font-size: 0.875rem; margin-top: 0.5rem;">
+          以下游戏为其他平台独占，暂不支持Windows
+        </p>
+      </div>
+    `;
+    html += nonWindowsGames.map(renderGameCard).join('');
+  }
+  
+  grid.innerHTML = html;
+}
+
 // 加载游戏数据
 async function loadGames() {
   try {
     const resp = await fetch('games.json');
-    const games = await resp.json();
+    allGames = await resp.json();
     
-    // 分离Windows和非Windows游戏
-    const windowsGames = games.filter(g => g.is_windows !== false);
-    const nonWindowsGames = games.filter(g => g.is_windows === false);
-    
-    // 按年份降序排列
-    windowsGames.sort((a, b) => parseInt(b.year) - parseInt(a.year));
-    nonWindowsGames.sort((a, b) => parseInt(b.year) - parseInt(a.year));
-    
-    const grid = document.getElementById('gamesGrid');
-    
-    // 渲染Windows游戏
-    let html = windowsGames.map(renderGameCard).join('');
-    
-    // 如果有非Windows游戏，添加分组
-    if (nonWindowsGames.length > 0) {
-      html += `
-        <div style="grid-column: 1 / -1; margin-top: 3rem; margin-bottom: 1rem;">
-          <h2 style="font-size: 1.5rem; font-weight: 600; color: var(--text-primary); padding-bottom: 0.75rem; border-bottom: 2px solid var(--border);">
-            🎮 非Windows平台独占
-          </h2>
-          <p style="color: var(--text-secondary); font-size: 0.875rem; margin-top: 0.5rem;">
-            以下游戏为其他平台独占，暂不支持Windows
-          </p>
-        </div>
-      `;
-      html += nonWindowsGames.map(renderGameCard).join('');
-    }
-    
-    grid.innerHTML = html;
+    // 初始渲染
+    renderGames(filterGames(allGames, currentFilter));
   } catch (e) {
     console.error('加载游戏数据失败:', e);
   }
 }
 
+// 筛选按钮事件监听
+function initFilters() {
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      // 更新按钮状态
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      
+      // 更新筛选条件
+      currentFilter = btn.dataset.filter;
+      
+      // 重新渲染
+      renderGames(filterGames(allGames, currentFilter));
+    });
+  });
+}
+
 // 初始化
 renderSidebar();
 loadGames();
+initFilters();
 </script>
 
 </body>
