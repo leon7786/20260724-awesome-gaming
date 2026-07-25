@@ -743,13 +743,9 @@ function filterGames(games, filter) {
 
 // 渲染游戏列表
 function renderGames(games) {
-  // 分离Windows和非Windows游戏
+  // 保持 games.json 中的原始顺序，不再按年份重新排序
   const windowsGames = games.filter(g => g.is_windows !== false);
   const nonWindowsGames = games.filter(g => g.is_windows === false);
-  
-  // 按年份降序排列
-  windowsGames.sort((a, b) => parseInt(b.year) - parseInt(a.year));
-  nonWindowsGames.sort((a, b) => parseInt(b.year) - parseInt(a.year));
   
   const grid = document.getElementById('gamesGrid');
   
