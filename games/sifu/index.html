@@ -590,23 +590,37 @@ let currentIndex = 0;
 // 切换到指定媒体
 function switchMedia(index) {
   if (index < 0 || index >= mediaItems.length) return;
-  
+
   currentIndex = index;
   const item = mediaItems[index];
   const mainEl = document.getElementById('mediaMain');
-  
+
   if (item.type === 'video') {
-    // 直接播放 Steam trailer mp4
     const poster = item.thumb || '';
     mainEl.innerHTML = `<video controls autoplay playsinline poster="${poster}" src="${item.url}" style="width:100%;height:100%;object-fit:contain;background:#000"></video>`;
   } else {
     mainEl.innerHTML = `<img src="${item.url}" alt="Screenshot">`;
   }
-  
-  // 更新缩略图active状态
-  document.querySelectorAll('.media-thumb').forEach((thumb, i) => {
+
+  const thumbs = document.querySelectorAll('.media-thumb');
+  thumbs.forEach((thumb, i) => {
     thumb.classList.toggle('active', i === index);
   });
+
+  // 点到边缘时自动滚动 2 张，避免手动拖滚动条
+  const bar = document.getElementById('mediaThumbnails') || document.querySelector('.media-thumbnails');
+  const active = thumbs[index];
+  if (bar && active) {
+    const barRect = bar.getBoundingClientRect();
+    const tRect = active.getBoundingClientRect();
+    const step = active.offsetWidth + 8; // thumb width + gap
+    const edgePad = step * 0.6;
+    if (tRect.right > barRect.right - edgePad) {
+      bar.scrollBy({ left: step * 2, behavior: 'smooth' });
+    } else if (tRect.left < barRect.left + edgePad) {
+      bar.scrollBy({ left: -step * 2, behavior: 'smooth' });
+    }
+  }
 }
 
 // 初始化
