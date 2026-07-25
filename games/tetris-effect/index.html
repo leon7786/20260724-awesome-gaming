@@ -509,6 +509,51 @@ body {
     height: 45px;
   }
 }
+
+/* Steam 关于此游戏内容 */
+.content-block .about_para {
+  margin-bottom: 0.9rem;
+  color: var(--text-secondary);
+  font-size: 0.9375rem;
+  line-height: 1.75;
+}
+.content-block .about_media {
+  display: block;
+  max-width: 100%;
+  margin: 1rem 0;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #000;
+}
+.content-block .about_img {
+  max-width: 100% !important;
+  width: 100% !important;
+  height: auto !important;
+  display: block;
+  border-radius: 8px;
+}
+.content-block video.about_img {
+  width: 100% !important;
+  max-height: 480px;
+  object-fit: contain;
+  background: #000;
+}
+.content-block .about_ul {
+  list-style: none;
+  padding-left: 0;
+}
+.content-block .about_ul li {
+  padding-left: 1.25rem;
+  position: relative;
+  margin-bottom: 0.5rem;
+}
+.content-block .about_ul li:before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+}
+
 </style>
 </head>
 <body>
@@ -523,7 +568,7 @@ body {
 <section class="hero">
   <div class="container">
     <div class="hero-cover">
-      <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1003590/library_600x900.jpg" alt="俄罗斯方块 效应">
+      <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1003590/11d98bbb08ca8e16d015ae4a40b60920ae8dbe36/header.jpg" alt="俄罗斯方块 效应">
     </div>
     <div class="hero-info">
       <h1>俄罗斯方块 效应</h1>
@@ -557,12 +602,22 @@ body {
   <div class="media-gallery">
     <!-- 主图显示区域 -->
     <div class="media-main" id="mediaMain">
-      <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1003590/ss_8ba09dc00d14f6a454c5bd62e0166cd56176841a.1920x1080.jpg?t=1774036904" alt="Screenshot">
+      <video controls playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256847227/movie.293x165.jpg?t=1629258731" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256847227/movie_max.mp4" style="width:100%;height:100%;object-fit:contain;background:#000"></video>
     </div>
     
     <!-- 缩略图bar -->
     <div class="media-thumbnails" id="mediaThumbnails">
-      <div class="media-thumb active" data-index="0"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1003590/ss_8ba09dc00d14f6a454c5bd62e0166cd56176841a.1920x1080.jpg?t=1774036904" alt="Screenshot"></div>
+      <div class="media-thumb active" data-index="0"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256847227/movie.293x165.jpg?t=1629258731" alt="Video"></div>
+<div class="media-thumb" data-index="1"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256845173/movie.293x165.jpg?t=1628053269" alt="Video"></div>
+<div class="media-thumb" data-index="2"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1003590/ss_8ba09dc00d14f6a454c5bd62e0166cd56176841a.1920x1080.jpg?t=1774036904" alt="Screenshot"></div>
+<div class="media-thumb" data-index="3"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1003590/ss_b0ea46ab638043942f74f165a8f75ecd4a6a4a11.1920x1080.jpg?t=1774036904" alt="Screenshot"></div>
+<div class="media-thumb" data-index="4"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1003590/ss_f0bf29b1f32dc996dc069981e4d8ec20f4de5604.1920x1080.jpg?t=1774036904" alt="Screenshot"></div>
+<div class="media-thumb" data-index="5"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1003590/ss_fae1b2cc73ee2fe88009624cc3aeb7d095fcddfb.1920x1080.jpg?t=1774036904" alt="Screenshot"></div>
+<div class="media-thumb" data-index="6"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1003590/ss_84450b142fa7680b267f00c90f5bdcfef92a6ecc.1920x1080.jpg?t=1774036904" alt="Screenshot"></div>
+<div class="media-thumb" data-index="7"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1003590/ss_5b8b182a538c785e635797df65807228a71122e4.1920x1080.jpg?t=1774036904" alt="Screenshot"></div>
+<div class="media-thumb" data-index="8"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1003590/ss_025c90bd17745b4b1301bd7afc78838bacb6045b.1920x1080.jpg?t=1774036904" alt="Screenshot"></div>
+<div class="media-thumb" data-index="9"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1003590/ss_1f88ee71d3ff41e80ec92174d002142ced82d34a.1920x1080.jpg?t=1774036904" alt="Screenshot"></div>
+    </div>
 <div class="media-thumb " data-index="1"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1003590/ss_b0ea46ab638043942f74f165a8f75ecd4a6a4a11.1920x1080.jpg?t=1774036904" alt="Screenshot"></div>
 <div class="media-thumb " data-index="2"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1003590/ss_f0bf29b1f32dc996dc069981e4d8ec20f4de5604.1920x1080.jpg?t=1774036904" alt="Screenshot"></div>
 <div class="media-thumb " data-index="3"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1003590/ss_fae1b2cc73ee2fe88009624cc3aeb7d095fcddfb.1920x1080.jpg?t=1774036904" alt="Screenshot"></div>
@@ -577,7 +632,7 @@ body {
 <section class="content-section">
   <div class="content-block">
     <h2>关于此游戏</h2>
-    <div>Tetris® Effect: Connected是一款让您耳目一新的俄罗斯方块游戏，带给您从未有过的感受——超经典游戏的华丽重制，独特、惊艳、让人欲罢不能。</div>
+    <div><span class="about_media"><video class="about_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1003590/extras/e20a0354706aed00b5fa7c707a714765.poster.avif?t=1774036904" width=600 height=336 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1003590/extras/e20a0354706aed00b5fa7c707a714765.webm?t=1774036904" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1003590/extras/e20a0354706aed00b5fa7c707a714765.mp4?t=1774036904" type="video/mp4"></video></span><br><br>Tetris® Effect: Connected是一款让您耳目一新的俄罗斯方块游戏，带给您从未有过的感受——超经典游戏的华丽重制，独特、惊艳、让人欲罢不能。<br><br>音乐、背景、音效、特效，一切你能想象到的，乃至方块们（Tetriminos）的跳动、起舞、闪烁和爆炸，将与您的操作完美同步。让您忍不住想要一再体验整个游戏的30多个关卡和10多个模式。<br><br>再加跨平台多人游戏模式，让您痛快合作与竞技！<br><br><span class="about_media"><video class="about_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1003590/extras/4248c232deea79dcded650418ec93140.poster.avif?t=1774036904" width=600 height=336 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1003590/extras/4248c232deea79dcded650418ec93140.webm?t=1774036904" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1003590/extras/4248c232deea79dcded650418ec93140.mp4?t=1774036904" type="video/mp4"></video></span><br><br><span class="about_media"><img class="about_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1003590/extras/82fe8954422b7a4dd0147d7bc802c0a1.webp?t=1774036904" width=20 height=14 /></span> 一个惊喜连连，令人兴奋的单机游戏体验。<br>超过30个不同的关卡,每个都有专属的音乐、音效、视觉风格和背景,并随游玩过程不断发展和变化。<br><br><span class="about_media"><img class="about_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1003590/extras/82fe8954422b7a4dd0147d7bc802c0a1.webp?t=1774036904" width=20 height=14 /></span> ZONE是专为Tetris Effect: Connected设计的全新机制！<br>全新的 “Zone”机制，玩家可以通过进入 “zone”来冻结时间与暂停方块的下落，或者在千钧一发之际摆脱可能导致游戏结束的棘手情况，或者消除额外的行数来获得更高分数。<br><br><span class="about_media"><video class="about_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1003590/extras/4cf4f59ad9517a0527aa484c5542aaf0.poster.avif?t=1774036904" width=600 height=336 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1003590/extras/4cf4f59ad9517a0527aa484c5542aaf0.webm?t=1774036904" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1003590/extras/4cf4f59ad9517a0527aa484c5542aaf0.mp4?t=1774036904" type="video/mp4"></video></span><br><br><span class="about_media"><img class="about_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1003590/extras/82fe8954422b7a4dd0147d7bc802c0a1.webp?t=1774036904" width=20 height=14 /></span> 跨平台的多人游戏让你与世界各地的玩家一起玩！<br>不同平台上的玩家可以通过新的房间ID功能轻松加入好友匹配房间或轻松进行匹配游戏。<br><br><span class="about_media"><video class="about_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1003590/extras/27275c78f7bcd56f167b292cc60240b7.poster.avif?t=1774036904" width=600 height=336 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1003590/extras/27275c78f7bcd56f167b292cc60240b7.webm?t=1774036904" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1003590/extras/27275c78f7bcd56f167b292cc60240b7.mp4?t=1774036904" type="video/mp4"></video></span><br><br><span class="about_media"><img class="about_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1003590/extras/82fe8954422b7a4dd0147d7bc802c0a1.webp?t=1774036904" width=20 height=14 /></span> 多种多样的竞争与合作模式!<br>新模式包括：“Connected”，三个玩家将组队并连接他们的游戏面盘，共同对抗AI 首领；“Zone Battle”，俄罗斯方块标准的一对一比赛，但有一个变化：时间暂停的Zone机制（首次在《Tetris® Effect: Connected》的单人模式中引入）；以及 “Score Attack”，两个玩家各自为战的对战模式，看谁能获得最佳分数。<br><br><span class="about_media"><video class="about_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1003590/extras/68877b2fcd03b17833e73d6da071071c.poster.avif?t=1774036904" width=600 height=336 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1003590/extras/68877b2fcd03b17833e73d6da071071c.webm?t=1774036904" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1003590/extras/68877b2fcd03b17833e73d6da071071c.mp4?t=1774036904" type="video/mp4"></video></span><br><br><span class="about_media"><img class="about_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1003590/extras/82fe8954422b7a4dd0147d7bc802c0a1.webp?t=1774036904" width=20 height=14 /></span> 加入旁观者模式分享快乐！<br>加入旁观者模式! 旁观者模式可在好友比赛中使用。一个房间最多可以容纳8个人。旁观者可以在比赛中使用表情来活跃气氛。</div>
   </div>
 </section>
 
@@ -598,12 +653,56 @@ body {
 <script>
 // 媒体数据
 const mediaItems = [
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1003590/ss_8ba09dc00d14f6a454c5bd62e0166cd56176841a.1920x1080.jpg?t=1774036904", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1003590/ss_8ba09dc00d14f6a454c5bd62e0166cd56176841a.1920x1080.jpg?t=1774036904"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1003590/ss_b0ea46ab638043942f74f165a8f75ecd4a6a4a11.1920x1080.jpg?t=1774036904", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1003590/ss_b0ea46ab638043942f74f165a8f75ecd4a6a4a11.1920x1080.jpg?t=1774036904"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1003590/ss_f0bf29b1f32dc996dc069981e4d8ec20f4de5604.1920x1080.jpg?t=1774036904", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1003590/ss_f0bf29b1f32dc996dc069981e4d8ec20f4de5604.1920x1080.jpg?t=1774036904"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1003590/ss_fae1b2cc73ee2fe88009624cc3aeb7d095fcddfb.1920x1080.jpg?t=1774036904", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1003590/ss_fae1b2cc73ee2fe88009624cc3aeb7d095fcddfb.1920x1080.jpg?t=1774036904"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1003590/ss_84450b142fa7680b267f00c90f5bdcfef92a6ecc.1920x1080.jpg?t=1774036904", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1003590/ss_84450b142fa7680b267f00c90f5bdcfef92a6ecc.1920x1080.jpg?t=1774036904"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1003590/ss_5b8b182a538c785e635797df65807228a71122e4.1920x1080.jpg?t=1774036904", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1003590/ss_5b8b182a538c785e635797df65807228a71122e4.1920x1080.jpg?t=1774036904"}
+  {
+    "type": "video",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256847227/movie_max.mp4",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256847227/movie.293x165.jpg?t=1629258731"
+  },
+  {
+    "type": "video",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256845173/movie_max.mp4",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256845173/movie.293x165.jpg?t=1628053269"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1003590/ss_8ba09dc00d14f6a454c5bd62e0166cd56176841a.1920x1080.jpg?t=1774036904",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1003590/ss_8ba09dc00d14f6a454c5bd62e0166cd56176841a.1920x1080.jpg?t=1774036904"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1003590/ss_b0ea46ab638043942f74f165a8f75ecd4a6a4a11.1920x1080.jpg?t=1774036904",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1003590/ss_b0ea46ab638043942f74f165a8f75ecd4a6a4a11.1920x1080.jpg?t=1774036904"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1003590/ss_f0bf29b1f32dc996dc069981e4d8ec20f4de5604.1920x1080.jpg?t=1774036904",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1003590/ss_f0bf29b1f32dc996dc069981e4d8ec20f4de5604.1920x1080.jpg?t=1774036904"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1003590/ss_fae1b2cc73ee2fe88009624cc3aeb7d095fcddfb.1920x1080.jpg?t=1774036904",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1003590/ss_fae1b2cc73ee2fe88009624cc3aeb7d095fcddfb.1920x1080.jpg?t=1774036904"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1003590/ss_84450b142fa7680b267f00c90f5bdcfef92a6ecc.1920x1080.jpg?t=1774036904",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1003590/ss_84450b142fa7680b267f00c90f5bdcfef92a6ecc.1920x1080.jpg?t=1774036904"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1003590/ss_5b8b182a538c785e635797df65807228a71122e4.1920x1080.jpg?t=1774036904",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1003590/ss_5b8b182a538c785e635797df65807228a71122e4.1920x1080.jpg?t=1774036904"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1003590/ss_025c90bd17745b4b1301bd7afc78838bacb6045b.1920x1080.jpg?t=1774036904",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1003590/ss_025c90bd17745b4b1301bd7afc78838bacb6045b.1920x1080.jpg?t=1774036904"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1003590/ss_1f88ee71d3ff41e80ec92174d002142ced82d34a.1920x1080.jpg?t=1774036904",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1003590/ss_1f88ee71d3ff41e80ec92174d002142ced82d34a.1920x1080.jpg?t=1774036904"
+  }
 ];
 
 let currentIndex = 0;

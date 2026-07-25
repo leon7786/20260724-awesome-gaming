@@ -509,6 +509,51 @@ body {
     height: 45px;
   }
 }
+
+/* Steam 关于此游戏内容 */
+.content-block .about_para {
+  margin-bottom: 0.9rem;
+  color: var(--text-secondary);
+  font-size: 0.9375rem;
+  line-height: 1.75;
+}
+.content-block .about_media {
+  display: block;
+  max-width: 100%;
+  margin: 1rem 0;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #000;
+}
+.content-block .about_img {
+  max-width: 100% !important;
+  width: 100% !important;
+  height: auto !important;
+  display: block;
+  border-radius: 8px;
+}
+.content-block video.about_img {
+  width: 100% !important;
+  max-height: 480px;
+  object-fit: contain;
+  background: #000;
+}
+.content-block .about_ul {
+  list-style: none;
+  padding-left: 0;
+}
+.content-block .about_ul li {
+  padding-left: 1.25rem;
+  position: relative;
+  margin-bottom: 0.5rem;
+}
+.content-block .about_ul li:before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+}
+
 </style>
 </head>
 <body>
@@ -523,7 +568,7 @@ body {
 <section class="hero">
   <div class="container">
     <div class="hero-cover">
-      <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2630/library_600x900.jpg" alt="使命召唤 2">
+      <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2630/header.jpg" alt="使命召唤 2">
     </div>
     <div class="hero-info">
       <h1>使命召唤 2</h1>
@@ -560,7 +605,12 @@ body {
       <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2630/0000000696.1920x1080.jpg?t=1780962161" alt="Screenshot">
     </div>
     <div class="media-thumbnails" id="mediaThumbnails">
-<div class="media-thumb active" data-index="0"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2630/0000000696.600x338.jpg?t=1780962161" alt="Media"></div>
+      <div class="media-thumb active" data-index="0"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2630/0000000696.1920x1080.jpg?t=1780962161" alt="Screenshot"></div>
+<div class="media-thumb" data-index="1"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2630/0000000692.1920x1080.jpg?t=1780962161" alt="Screenshot"></div>
+<div class="media-thumb" data-index="2"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2630/0000000693.1920x1080.jpg?t=1780962161" alt="Screenshot"></div>
+<div class="media-thumb" data-index="3"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2630/0000000694.1920x1080.jpg?t=1780962161" alt="Screenshot"></div>
+<div class="media-thumb" data-index="4"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2630/0000000695.1920x1080.jpg?t=1780962161" alt="Screenshot"></div>
+    </div>
 <div class="media-thumb " data-index="1"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2630/0000000692.600x338.jpg?t=1780962161" alt="Media"></div>
 <div class="media-thumb " data-index="2"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2630/0000000693.600x338.jpg?t=1780962161" alt="Media"></div>
 <div class="media-thumb " data-index="3"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2630/0000000694.600x338.jpg?t=1780962161" alt="Media"></div>
@@ -574,7 +624,7 @@ body {
 <section class="content-section">
   <div class="content-block">
     <h2>关于此游戏</h2>
-    <div>Call of Duty® 2 重新定义了普通士兵在二次世界大战中所见到的战场，不但更有戏剧张力，更重现了战场的混乱。 继 2003 年推出的 Call of Duty 勇夺 80 多项年度最佳游戏奖，现在 Call of Duty 2 采用了 COD™2 引擎，带来比以往更宽广的战场，更有张力，更逼真的战斗。<br>			<ul class="bb_ul"><li>二次世界大战最佳开发团队再次带来全新惊人体验：获奖作品 Call of Duty 的开发团队 Inifinity Ward 所开发。 前所未见的全新增强效果，从惊人的逼真绘图到完美无缝的游戏内容，革新的 COD2 引擎带来突破性的 AI 与多选择导向游戏创新。 精致绘制的飘雪、雨水、浓雾和硝烟，配合动态打光和阴影，让这款游戏成为至今最具张力的二次世界大战射击游戏。<br>			</li><li>全新冲突与全新敌人： Call of Duty 2 带给您更大规模的战斗，屏幕上有更多坦克，部队，更多爆炸效果与更宽广的视野，并且带来欧洲大陆战场上更多样的地点和环境。 在炙热的北非沙漠与“沙漠之狐”对抗，见证一波波的坦克火线冲击。 用火箭推动的钩爪，跟您的陆军游骑兵小队一同突袭奥克角断崖，阻挡毫不放松的德军反击；扮演反坦克部队，在战乱中的苏联都市行军。 <br>			</li><li>小队支持更加精采：您四周的许多盟军士兵都能够查觉身旁状况的变化，用全新设计的环境感知战斗通讯系统让您掌握战况。 他们不但会诱敌、掩护、利用散兵坑和坦克推进作掩护，还会警告您来袭敌军与敌方火力。<br>			</li><li>多选择导向游戏：按照个人偏好选择任务顺序。 您想要先扮演狙击手还是坦克指挥官？ 一切由您决定。 开放结局的战场让您发挥个人战术，选择战斗目标完成顺序。 <br>			</li><li>多人游戏大混战：上线参加紧凑的轴心国对抗盟军战斗， 以极受欢迎的 Call of Duty 多人游戏模式为基础所延伸设计的多人团队式游戏。<br>			</li></ul><br>© 2006 Activision Publishing, Inc.  Activision 和 Call of Duty 是 Activision Publishing, Inc. 的注册商标。保留所有权利。  所有其它商标和商品名均为各自所有者的财产。</div>
+    <div>Call of Duty® 2 重新定义了普通士兵在二次世界大战中所见到的战场，不但更有戏剧张力，更重现了战场的混乱。 继 2003 年推出的 Call of Duty 勇夺 80 多项年度最佳游戏奖，现在 Call of Duty 2 采用了 COD™2 引擎，带来比以往更宽广的战场，更有张力，更逼真的战斗。<br>			<ul class="about_ul"><li>二次世界大战最佳开发团队再次带来全新惊人体验：获奖作品 Call of Duty 的开发团队 Inifinity Ward 所开发。 前所未见的全新增强效果，从惊人的逼真绘图到完美无缝的游戏内容，革新的 COD2 引擎带来突破性的 AI 与多选择导向游戏创新。 精致绘制的飘雪、雨水、浓雾和硝烟，配合动态打光和阴影，让这款游戏成为至今最具张力的二次世界大战射击游戏。<br>			</li><li>全新冲突与全新敌人： Call of Duty 2 带给您更大规模的战斗，屏幕上有更多坦克，部队，更多爆炸效果与更宽广的视野，并且带来欧洲大陆战场上更多样的地点和环境。 在炙热的北非沙漠与“沙漠之狐”对抗，见证一波波的坦克火线冲击。 用火箭推动的钩爪，跟您的陆军游骑兵小队一同突袭奥克角断崖，阻挡毫不放松的德军反击；扮演反坦克部队，在战乱中的苏联都市行军。 <br>			</li><li>小队支持更加精采：您四周的许多盟军士兵都能够查觉身旁状况的变化，用全新设计的环境感知战斗通讯系统让您掌握战况。 他们不但会诱敌、掩护、利用散兵坑和坦克推进作掩护，还会警告您来袭敌军与敌方火力。<br>			</li><li>多选择导向游戏：按照个人偏好选择任务顺序。 您想要先扮演狙击手还是坦克指挥官？ 一切由您决定。 开放结局的战场让您发挥个人战术，选择战斗目标完成顺序。 <br>			</li><li>多人游戏大混战：上线参加紧凑的轴心国对抗盟军战斗， 以极受欢迎的 Call of Duty 多人游戏模式为基础所延伸设计的多人团队式游戏。<br>			</li></ul><br>© 2006 Activision Publishing, Inc.  Activision 和 Call of Duty 是 Activision Publishing, Inc. 的注册商标。保留所有权利。  所有其它商标和商品名均为各自所有者的财产。</div>
   </div>
 </section>
 
@@ -603,11 +653,31 @@ body {
 <script>
 // 媒体数据
 const mediaItems = [
-{"type":"image","url":"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2630/0000000696.1920x1080.jpg?t=1780962161","thumb":"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2630/0000000696.600x338.jpg?t=1780962161"},
-{"type":"image","url":"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2630/0000000692.1920x1080.jpg?t=1780962161","thumb":"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2630/0000000692.600x338.jpg?t=1780962161"},
-{"type":"image","url":"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2630/0000000693.1920x1080.jpg?t=1780962161","thumb":"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2630/0000000693.600x338.jpg?t=1780962161"},
-{"type":"image","url":"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2630/0000000694.1920x1080.jpg?t=1780962161","thumb":"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2630/0000000694.600x338.jpg?t=1780962161"},
-{"type":"image","url":"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2630/0000000695.1920x1080.jpg?t=1780962161","thumb":"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2630/0000000695.600x338.jpg?t=1780962161"}
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2630/0000000696.1920x1080.jpg?t=1780962161",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2630/0000000696.1920x1080.jpg?t=1780962161"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2630/0000000692.1920x1080.jpg?t=1780962161",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2630/0000000692.1920x1080.jpg?t=1780962161"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2630/0000000693.1920x1080.jpg?t=1780962161",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2630/0000000693.1920x1080.jpg?t=1780962161"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2630/0000000694.1920x1080.jpg?t=1780962161",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2630/0000000694.1920x1080.jpg?t=1780962161"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2630/0000000695.1920x1080.jpg?t=1780962161",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2630/0000000695.1920x1080.jpg?t=1780962161"
+  }
 ];
 
 let currentIndex = 0;

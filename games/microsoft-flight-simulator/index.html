@@ -509,6 +509,51 @@ body {
     height: 45px;
   }
 }
+
+/* Steam 关于此游戏内容 */
+.content-block .about_para {
+  margin-bottom: 0.9rem;
+  color: var(--text-secondary);
+  font-size: 0.9375rem;
+  line-height: 1.75;
+}
+.content-block .about_media {
+  display: block;
+  max-width: 100%;
+  margin: 1rem 0;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #000;
+}
+.content-block .about_img {
+  max-width: 100% !important;
+  width: 100% !important;
+  height: auto !important;
+  display: block;
+  border-radius: 8px;
+}
+.content-block video.about_img {
+  width: 100% !important;
+  max-height: 480px;
+  object-fit: contain;
+  background: #000;
+}
+.content-block .about_ul {
+  list-style: none;
+  padding-left: 0;
+}
+.content-block .about_ul li {
+  padding-left: 1.25rem;
+  position: relative;
+  margin-bottom: 0.5rem;
+}
+.content-block .about_ul li:before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+}
+
 </style>
 </head>
 <body>
@@ -523,7 +568,7 @@ body {
 <section class="hero">
   <div class="container">
     <div class="hero-cover">
-      <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2537590/library_600x900.jpg" alt="微软模拟飞行">
+      <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2537590/header.jpg" alt="微软模拟飞行">
     </div>
     <div class="hero-info">
       <h1>微软模拟飞行</h1>
@@ -558,12 +603,26 @@ body {
   <div class="media-gallery">
     <!-- 主图显示区域 -->
     <div class="media-main" id="mediaMain">
-      <img src="" alt="Loading">
+      <video controls playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257352793/1b6349f98dd58dd4ceb07d53b0b87fa28bd1aca1/movie_600x337.jpg?t=1780854661" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257352793/movie_max.mp4" style="width:100%;height:100%;object-fit:contain;background:#000"></video>
     </div>
     
     <!-- 缩略图bar -->
     <div class="media-thumbnails" id="mediaThumbnails">
       <div class="media-thumb active" data-index="0"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257352793/1b6349f98dd58dd4ceb07d53b0b87fa28bd1aca1/movie_600x337.jpg?t=1780854661" alt="Video"></div>
+<div class="media-thumb" data-index="1"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257058239/movie.293x165.jpg?t=1727283024" alt="Video"></div>
+<div class="media-thumb" data-index="2"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2537590/ss_62dee3ea5e0ef5989a33b93eecab18c41d865b72.1920x1080.jpg?t=1780854662" alt="Screenshot"></div>
+<div class="media-thumb" data-index="3"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2537590/ss_2c5ad31f74f8787cd1f2180ec3001d6b6d46b8f9.1920x1080.jpg?t=1780854662" alt="Screenshot"></div>
+<div class="media-thumb" data-index="4"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2537590/ss_632088560168c4be6e1b8c6b85fbf6901220ca71.1920x1080.jpg?t=1780854662" alt="Screenshot"></div>
+<div class="media-thumb" data-index="5"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2537590/ss_b4cdc13836299a875d57b3a5b17f845eef131930.1920x1080.jpg?t=1780854662" alt="Screenshot"></div>
+<div class="media-thumb" data-index="6"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2537590/ss_b031d4853f9ec7bb4b353410a75cabc5d770b9a0.1920x1080.jpg?t=1780854662" alt="Screenshot"></div>
+<div class="media-thumb" data-index="7"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2537590/ss_9bccd11f151b75c3b54dbaa0a972715606102925.1920x1080.jpg?t=1780854662" alt="Screenshot"></div>
+<div class="media-thumb" data-index="8"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2537590/ss_36d622f53dcfb8b1564a1edff4647bd487b10958.1920x1080.jpg?t=1780854662" alt="Screenshot"></div>
+<div class="media-thumb" data-index="9"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2537590/ss_f2d3074f57e94210c2e1d48341a644785c52d2ae.1920x1080.jpg?t=1780854662" alt="Screenshot"></div>
+<div class="media-thumb" data-index="10"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2537590/ss_868397f04f4b30ffca3e76f42a6ebc252f954777.1920x1080.jpg?t=1780854662" alt="Screenshot"></div>
+<div class="media-thumb" data-index="11"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2537590/ss_860e895e1e8ada3b3db5d85743d1caff35650704.1920x1080.jpg?t=1780854662" alt="Screenshot"></div>
+<div class="media-thumb" data-index="12"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2537590/ss_d60dc790af18a3aa6fd71b1ba835b39a4add84bc.1920x1080.jpg?t=1780854662" alt="Screenshot"></div>
+<div class="media-thumb" data-index="13"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2537590/ss_d3edc204e690a40538dc8f91171b8ba52497d42f.1920x1080.jpg?t=1780854662" alt="Screenshot"></div>
+    </div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257352793/1b6349f98dd58dd4ceb07d53b0b87fa28bd1aca1/movie_600x337.jpg?t=1780854661" alt="Video"></div>
 <div class="media-thumb " data-index="1"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257058239/movie.293x165.jpg?t=1727283024" alt="Video"></div>
 <div class="media-thumb " data-index="2"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2537590/ss_62dee3ea5e0ef5989a33b93eecab18c41d865b72.1920x1080.jpg?t=1780854662" alt="Screenshot"></div>
 <div class="media-thumb " data-index="3"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2537590/ss_2c5ad31f74f8787cd1f2180ec3001d6b6d46b8f9.1920x1080.jpg?t=1780854662" alt="Screenshot"></div>
@@ -590,7 +649,7 @@ body {
 <section class="content-section">
   <div class="content-block">
     <h2>关于此游戏</h2>
-    <div><strong> 飞行有目标</strong><br>在世界上任何你选择的地方开启你的飞行生涯。积累经验，建立声誉，完成认证，从而获得参与真实飞行活动的机会，从医疗撤离、偏远货运、空中消防、搜救等，一直到成为航空客运飞行员。踏上真正的全球飞行冒险，完成全球几乎无限的任务.<br><br><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2537590/extras/700f2540259b72a4d793b8993099e534.avif?t=1780854662" data-big-src=https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2537590/extras_big/700f2540259b72a4d793b8993099e534.avif?t=1780854662 width=800 height=160 /></span><br><br>在全新的挑战联赛模式中与其他飞行员竞争，或在数十项活动中磨练你的技能，包括刺激的拉力赛、精确着陆、低空挑战等精彩内容。在标志性的红牛空中竞赛 (Red Bull Air Race) 和传奇的雷诺空中竞赛 (Reno Air Race) 中展开正面较量，其中包括新的罗斯威尔赛道.<br><br><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2537590/extras/e6edfc827e3c5047b72480de8e1972c0.avif?t=1780854662" data-big-src=https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2537590/extras_big/e6edfc827e3c5047b72480de8e1972c0.avif?t=1780854662 width=800 height=160 /></span><br><br>成为世界摄影师，游历我们美丽的星球，捕捉令人惊叹的自然风光，参观著名地标，并在你的旅行手册中用照片记录这些冒险经历。独特的摄影挑战考验你的创意眼光和飞行技能，同时你将努力捕捉完美瞬间.<br><br><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2537590/extras/9e43d483cbcaa05b5c2a27dac0f3833e.avif?t=1780854662" data-big-src=https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2537590/extras_big/9e43d483cbcaa05b5c2a27dac0f3833e.avif?t=1780854662 width=800 height=160 /></span><br><br><strong> 高级模拟</strong><br>增强的物理系统支持 10,000 多个刚体表面，能够模拟任何形状的飞机。软体物理支持布料、绳索、气球等。改进的地面和水面处理进一步增强了真实感.<br><br><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2537590/extras/b0bb6e293c0fb36fe85ae31de4ffa0ae.avif?t=1780854662" data-big-src=https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2537590/extras_big/b0bb6e293c0fb36fe85ae31de4ffa0ae.avif?t=1780854662 width=800 height=160 /></span><br><br>全新的高度精确的飞机系统，包括电气、气动、燃油和液压系统，载荷和乘客系统，以及航空电子设备，如通用 UNS-1 飞行管理系统和霍尼韦尔 Primus Epic 2。飞行前检查和绕机检查进一步增加了沉浸感.<br><br><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2537590/extras/e58bc5b34cb7bb6d95213503507accbe.avif?t=1780854662" data-big-src=https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2537590/extras_big/e58bc5b34cb7bb6d95213503507accbe.avif?t=1780854662 width=800 height=160 /></span><br><br>使用突破性的飞行规划器规划你的飞行，它支持 IFR 和 VFR 地图层、IFR 图表、路线规划、燃油和载荷规划、垂直剖面规划以及 ETOPS 规划。它还提供机场信息，包括天气和航行通告，并可在模拟器内部、移动设备或网络浏览器中原生提供，以便在模拟器外部进行飞行规划.<br><br><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2537590/extras/12877b3210b39308a91c24bc396ab642.avif?t=1780854662" data-big-src=https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2537590/extras_big/12877b3210b39308a91c24bc396ab642.avif?t=1780854662 width=800 height=160 /></span><br><br><strong> 探索我们逼真的数字孪生体验</strong><br>探索我们迄今为止细节更为逼真的地球再创作。增强的数字高程地图、超过 500 个 TIN（三角不规则网络）城市和超过 10 万平方公里的乡村地区摄影测量技术，这共同造就了逼真的数字孪生体验。我们精心打造了 150 多座机场、2,000 座滑翔机机场、10,000 个直升机停机坪、2,000 个兴趣点和 900 个钻井平台，同时程序化系统生成了全球 40,000 座机场、80,000 个直升机停机坪、15 亿座建筑和近 3 万亿棵树.<br><br><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2537590/extras/117e0d521eac0fa8612c4afa672437d7.avif?t=1780854662" data-big-src=https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2537590/extras_big/117e0d521eac0fa8612c4afa672437d7.avif?t=1780854662 width=800 height=160 /></span><br><br>在任何地方着陆，并在《Microsoft Flight Simulator》中首次走出飞机，探索 27 个高度详尽的生物群落，这里有数百种植被物种，以及动态创建的细节，包括草、岩石和花朵，所有这些都受到季节变化的影响。 全新的光度测量照明系统比以往更准确地呈现世界，增强的天气功能，如新的云类型、极光和其他天气现象，带来了新鲜而引人入胜的气象体验. <br><br><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2537590/extras/b6626ea6c18464e920ca68f817bb9f85.avif?t=1780854662" data-big-src=https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2537590/extras_big/b6626ea6c18464e920ca68f817bb9f85.avif?t=1780854662 width=800 height=160 /></span><br><br>整个世界因全球范围内自然栖息地中的丰富陆地野生动物和自由放养的牲畜而生机勃勃。海洋和水道中充斥着活灵活现的全球海上交通，从大型油轮和货船到拖网渔船、拖船等应有尽有。丰富多彩、地域准确的人类形象呈现，为全球的机场、飞机和客舱注入了生机。增强的真实世界空中交通，数百架精确描绘的飞机模型和数十种官方授权的涂装使了天空和机场停机坪生机勃勃.<br><br><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2537590/extras/5e8cd98d17c4b859df4bd196b036e45b.avif?t=1780854662" data-big-src=https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2537590/extras_big/5e8cd98d17c4b859df4bd196b036e45b.avif?t=1780854662 width=800 height=160 /></span><br><br><br><br><br><strong>Microsoft Flight Simulator 2024 Editions</strong><br><br><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2537590/extras/d34f274c968163974e278ad76857bf1a.avif?t=1780854662" data-big-src=https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2537590/extras_big/d34f274c968163974e278ad76857bf1a.avif?t=1780854662 width=800 height=840 /></span><br><br><strong> 标准版</strong><br>在《Microsoft Flight Simulator 2024》中，驾驶我们庞大的标准版机队探索世界，将模拟体验提升至全新高度，开启你的飞行生涯。标准版包含超过 65 架飞机和 150 座手工构建的机场.<br><br><ul class="bb_ul"><li>Aero Vodochody L-39<br></li><li>Aeroelvira Optica<br></li><li>Air Tractor AT-802<br></li><li>Airbus A310-300<br></li><li>Airbus A320neo<br></li><li>Airbus A321LR<br></li><li>Airbus A330-200 / 200F / 300<br></li><li>Airbus A330-743L Beluga XL<br></li><li>Airbus A400M Atlas<br></li><li>Airbus Helicopters H125<br></li><li>Airship Industries Skyship 600<br></li><li>Archer Midnight<br></li><li>Aviat Pitts Special S1S<br></li><li>Aviat Pitts Special S2S<br></li><li>Beechcraft Bonanza G36<br></li><li>Beechcraft King Air 350i<br></li><li>Bell 407G<br></li><li>Boeing 737 MAX 8<br></li><li>Boeing 747-8I &amp; 8F<br></li><li>Boeing F/A-18E<br></li><li>Cessna 152<br></li><li>Cessna 172 Skyhawk (GP)<br></li><li>Cessna 208 Grand Caravan Ex<br></li><li>Cessna 400 Corvalis TT<br></li><li>Cessna Citation CJ4<br></li><li>CGS Hawk Arrow II<br></li><li>Cirrus Vision SF50<br></li><li>Cubcrafter NX-Cub<br></li><li>Cubcrafter X-Cub<br></li><li>Curtiss JN-4 &quot;Jenny&quot;<br></li><li>Daher TBM 930<br></li><li>De Havilland Canada CL-415<br></li><li>De Havilland Canada DHC-2 Beaver<br></li><li>De Havilland Canada DHC-6 Twin Otter<br></li><li>DG Aviation DG 1001E<br></li><li>DG Aviation LS-8<br></li><li>Diamond DA40 NG<br></li><li>Diamond DA62<br></li><li>Douglas Aircraft Company DC-3<br></li><li>Draco X<br></li><li>Erickson S-64 Aircrane<br></li><li>Extra E330<br></li><li>Fairchild Republic A-10 Thunderbolt II Warthog<br></li><li>Flight Design CTSL<br></li><li>Grumman G-21A Goose<br></li><li>Guimbal Cabri G2<br></li><li>Heart Aerospace ES-30<br></li><li>Hot Air Balloon N/A<br></li><li>Hot Air Balloon Motor FlyDoo<br></li><li>Hughes H-4 Hercules &quot;Spruce Goose&quot;<br></li><li>Icon A5<br></li><li>Jetson Aero Jetson One<br></li><li>JMB VL3<br></li><li>Joby Aviation S4<br></li><li>Magni M-24 Orion<br></li><li>MX Aircraft Company MXS-R<br></li><li>North American P-51<br></li><li>North American T-6 Texan<br></li><li>Pilatus PC-6 Porter<br></li><li>Pilatus PC-12 NGX<br></li><li>Powrachute Sky Rascal<br></li><li>Robin CAP 10<br></li><li>Robin DR400-100 Cadet<br></li><li>Robinson R66<br></li><li>Ryan NYP &quot;Spirit of St. Louis&quot;<br></li><li>Stemme S12-G<br></li><li>Volocopter Volocity<br></li><li>Wright Cycle Company Wright Flyer<br></li><li>Zivko Aeronautics Edge 540<br></li><li>Zlin Aviation Savage Cub</li></ul><br><strong> 豪华版</strong><br>豪华版包含标准版的所有内容，外加 10 架飞机和 5 座额外手工构建的国际机场。.<br><br><ul class="bb_ul"><li>Amphibian Aerospace Albatross G111/HU<br></li><li>Beechcraft Baron G58<br></li><li>Cessna 152 Aerobat<br></li><li>Cessna 172 (SP)<br></li><li>Cessna 188 AGTruck<br></li><li>Cessna 404 Titan<br></li><li>Cessna 408 SkyCourier<br></li><li>Diamond DA40 TDI<br></li><li>Diamond DV20<br></li><li>Dornier SeaStar</li></ul><br><strong> 高级豪华版</strong><br>高级豪华版包含标准版的所有内容，外加 25 架飞机和 10 座额外手工构建的国际机场。<br><br><ul class="bb_ul"><li>Airbus Helicopter H225<br></li><li>Beechcraft C90 GTX King Air<br></li><li>Boeing 747-400 Global Supertanker<br></li><li>Boeing 747-400 LCE Dreamlifter<br></li><li>Boeing 787-10 Dreamliner<br></li><li>Boeing C-17 Globemaster III<br></li><li>Boeing CH47D Chinook<br></li><li>Cessna Citation Longitude<br></li><li>Cirrus Aircraft SR22<br></li><li>Pilatus PC-24<br></li><li>Pipistrel Taurus M<br></li><li>Pipistrel Virus SW 121<br></li><li>Saab 340B<br></li><li>Zlin Aviation Savage Norden<br></li><li>Zlin Aviation Shock Ultra</li></ul><br><strong> 飞行员版</strong><br>飞行员版包含高级豪华版的所有内容，外加 2021 年至 2024 年间为《Microsoft Flight Simulator》开发的全部 30 架由 Microsoft 发布的 Marketplace 飞机。<br><br><ul class="bb_ul"><li>Aero Ae-45 / Ae-145<br></li><li>Antonov An-2<br></li><li>Antonov An-225<br></li><li>ATR 42-600 / 72-600<br></li><li>Beechcraft Bonanza V35<br></li><li>Beechcraft Model 17 Staggerwing<br></li><li>Beechcraft Model 18 Twin Beech<br></li><li>Bell Helicopter 47J Ranger<br></li><li>Boeing 307 Stratoliner<br></li><li>Boeing 707-320C<br></li><li>Cessna 195 Businessliner<br></li><li>Cessna 207T<br></li><li>Curtiss C-46 Commando<br></li><li>De Havilland Canada DHC-4 Caribou<br></li><li>Dornier Do J Wal<br></li><li>Dornier Do 31<br></li><li>Dornier Do X<br></li><li>Douglas Aircraft Company &amp; Waco C-47D Skytrain &amp; CG-4A<br></li><li>Focke-Wulff 200 Condor<br></li><li>Fokker F.VII<br></li><li>Ford	4AT Trimotor<br></li><li>Granville Gee Bee R2 / Z<br></li><li>Junkers F13<br></li><li>Junkers JU 52<br></li><li>Latécoère 631<br></li><li>Mitsubishi Heavy Industries MU-2<br></li><li>Saab 17 B<br></li><li>Savoia-Marcketti S.55<br></li><li>Short SC.7 Skyvan<br></li><li>Westland Scout / Wasp</li></ul></div>
+    <div><strong> 飞行有目标</strong><br>在世界上任何你选择的地方开启你的飞行生涯。积累经验，建立声誉，完成认证，从而获得参与真实飞行活动的机会，从医疗撤离、偏远货运、空中消防、搜救等，一直到成为航空客运飞行员。踏上真正的全球飞行冒险，完成全球几乎无限的任务.<br><br><span class="about_media"><img class="about_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2537590/extras/700f2540259b72a4d793b8993099e534.avif?t=1780854662" data-big-src=https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2537590/extras_big/700f2540259b72a4d793b8993099e534.avif?t=1780854662 width=800 height=160 /></span><br><br>在全新的挑战联赛模式中与其他飞行员竞争，或在数十项活动中磨练你的技能，包括刺激的拉力赛、精确着陆、低空挑战等精彩内容。在标志性的红牛空中竞赛 (Red Bull Air Race) 和传奇的雷诺空中竞赛 (Reno Air Race) 中展开正面较量，其中包括新的罗斯威尔赛道.<br><br><span class="about_media"><img class="about_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2537590/extras/e6edfc827e3c5047b72480de8e1972c0.avif?t=1780854662" data-big-src=https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2537590/extras_big/e6edfc827e3c5047b72480de8e1972c0.avif?t=1780854662 width=800 height=160 /></span><br><br>成为世界摄影师，游历我们美丽的星球，捕捉令人惊叹的自然风光，参观著名地标，并在你的旅行手册中用照片记录这些冒险经历。独特的摄影挑战考验你的创意眼光和飞行技能，同时你将努力捕捉完美瞬间.<br><br><span class="about_media"><img class="about_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2537590/extras/9e43d483cbcaa05b5c2a27dac0f3833e.avif?t=1780854662" data-big-src=https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2537590/extras_big/9e43d483cbcaa05b5c2a27dac0f3833e.avif?t=1780854662 width=800 height=160 /></span><br><br><strong> 高级模拟</strong><br>增强的物理系统支持 10,000 多个刚体表面，能够模拟任何形状的飞机。软体物理支持布料、绳索、气球等。改进的地面和水面处理进一步增强了真实感.<br><br><span class="about_media"><img class="about_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2537590/extras/b0bb6e293c0fb36fe85ae31de4ffa0ae.avif?t=1780854662" data-big-src=https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2537590/extras_big/b0bb6e293c0fb36fe85ae31de4ffa0ae.avif?t=1780854662 width=800 height=160 /></span><br><br>全新的高度精确的飞机系统，包括电气、气动、燃油和液压系统，载荷和乘客系统，以及航空电子设备，如通用 UNS-1 飞行管理系统和霍尼韦尔 Primus Epic 2。飞行前检查和绕机检查进一步增加了沉浸感.<br><br><span class="about_media"><img class="about_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2537590/extras/e58bc5b34cb7bb6d95213503507accbe.avif?t=1780854662" data-big-src=https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2537590/extras_big/e58bc5b34cb7bb6d95213503507accbe.avif?t=1780854662 width=800 height=160 /></span><br><br>使用突破性的飞行规划器规划你的飞行，它支持 IFR 和 VFR 地图层、IFR 图表、路线规划、燃油和载荷规划、垂直剖面规划以及 ETOPS 规划。它还提供机场信息，包括天气和航行通告，并可在模拟器内部、移动设备或网络浏览器中原生提供，以便在模拟器外部进行飞行规划.<br><br><span class="about_media"><img class="about_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2537590/extras/12877b3210b39308a91c24bc396ab642.avif?t=1780854662" data-big-src=https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2537590/extras_big/12877b3210b39308a91c24bc396ab642.avif?t=1780854662 width=800 height=160 /></span><br><br><strong> 探索我们逼真的数字孪生体验</strong><br>探索我们迄今为止细节更为逼真的地球再创作。增强的数字高程地图、超过 500 个 TIN（三角不规则网络）城市和超过 10 万平方公里的乡村地区摄影测量技术，这共同造就了逼真的数字孪生体验。我们精心打造了 150 多座机场、2,000 座滑翔机机场、10,000 个直升机停机坪、2,000 个兴趣点和 900 个钻井平台，同时程序化系统生成了全球 40,000 座机场、80,000 个直升机停机坪、15 亿座建筑和近 3 万亿棵树.<br><br><span class="about_media"><img class="about_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2537590/extras/117e0d521eac0fa8612c4afa672437d7.avif?t=1780854662" data-big-src=https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2537590/extras_big/117e0d521eac0fa8612c4afa672437d7.avif?t=1780854662 width=800 height=160 /></span><br><br>在任何地方着陆，并在《Microsoft Flight Simulator》中首次走出飞机，探索 27 个高度详尽的生物群落，这里有数百种植被物种，以及动态创建的细节，包括草、岩石和花朵，所有这些都受到季节变化的影响。 全新的光度测量照明系统比以往更准确地呈现世界，增强的天气功能，如新的云类型、极光和其他天气现象，带来了新鲜而引人入胜的气象体验. <br><br><span class="about_media"><img class="about_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2537590/extras/b6626ea6c18464e920ca68f817bb9f85.avif?t=1780854662" data-big-src=https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2537590/extras_big/b6626ea6c18464e920ca68f817bb9f85.avif?t=1780854662 width=800 height=160 /></span><br><br>整个世界因全球范围内自然栖息地中的丰富陆地野生动物和自由放养的牲畜而生机勃勃。海洋和水道中充斥着活灵活现的全球海上交通，从大型油轮和货船到拖网渔船、拖船等应有尽有。丰富多彩、地域准确的人类形象呈现，为全球的机场、飞机和客舱注入了生机。增强的真实世界空中交通，数百架精确描绘的飞机模型和数十种官方授权的涂装使了天空和机场停机坪生机勃勃.<br><br><span class="about_media"><img class="about_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2537590/extras/5e8cd98d17c4b859df4bd196b036e45b.avif?t=1780854662" data-big-src=https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2537590/extras_big/5e8cd98d17c4b859df4bd196b036e45b.avif?t=1780854662 width=800 height=160 /></span><br><br><br><br><br><strong>Microsoft Flight Simulator 2024 Editions</strong><br><br><span class="about_media"><img class="about_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2537590/extras/d34f274c968163974e278ad76857bf1a.avif?t=1780854662" data-big-src=https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2537590/extras_big/d34f274c968163974e278ad76857bf1a.avif?t=1780854662 width=800 height=840 /></span><br><br><strong> 标准版</strong><br>在《Microsoft Flight Simulator 2024》中，驾驶我们庞大的标准版机队探索世界，将模拟体验提升至全新高度，开启你的飞行生涯。标准版包含超过 65 架飞机和 150 座手工构建的机场.<br><br><ul class="about_ul"><li>Aero Vodochody L-39<br></li><li>Aeroelvira Optica<br></li><li>Air Tractor AT-802<br></li><li>Airbus A310-300<br></li><li>Airbus A320neo<br></li><li>Airbus A321LR<br></li><li>Airbus A330-200 / 200F / 300<br></li><li>Airbus A330-743L Beluga XL<br></li><li>Airbus A400M Atlas<br></li><li>Airbus Helicopters H125<br></li><li>Airship Industries Skyship 600<br></li><li>Archer Midnight<br></li><li>Aviat Pitts Special S1S<br></li><li>Aviat Pitts Special S2S<br></li><li>Beechcraft Bonanza G36<br></li><li>Beechcraft King Air 350i<br></li><li>Bell 407G<br></li><li>Boeing 737 MAX 8<br></li><li>Boeing 747-8I &amp; 8F<br></li><li>Boeing F/A-18E<br></li><li>Cessna 152<br></li><li>Cessna 172 Skyhawk (GP)<br></li><li>Cessna 208 Grand Caravan Ex<br></li><li>Cessna 400 Corvalis TT<br></li><li>Cessna Citation CJ4<br></li><li>CGS Hawk Arrow II<br></li><li>Cirrus Vision SF50<br></li><li>Cubcrafter NX-Cub<br></li><li>Cubcrafter X-Cub<br></li><li>Curtiss JN-4 &quot;Jenny&quot;<br></li><li>Daher TBM 930<br></li><li>De Havilland Canada CL-415<br></li><li>De Havilland Canada DHC-2 Beaver<br></li><li>De Havilland Canada DHC-6 Twin Otter<br></li><li>DG Aviation DG 1001E<br></li><li>DG Aviation LS-8<br></li><li>Diamond DA40 NG<br></li><li>Diamond DA62<br></li><li>Douglas Aircraft Company DC-3<br></li><li>Draco X<br></li><li>Erickson S-64 Aircrane<br></li><li>Extra E330<br></li><li>Fairchild Republic A-10 Thunderbolt II Warthog<br></li><li>Flight Design CTSL<br></li><li>Grumman G-21A Goose<br></li><li>Guimbal Cabri G2<br></li><li>Heart Aerospace ES-30<br></li><li>Hot Air Balloon N/A<br></li><li>Hot Air Balloon Motor FlyDoo<br></li><li>Hughes H-4 Hercules &quot;Spruce Goose&quot;<br></li><li>Icon A5<br></li><li>Jetson Aero Jetson One<br></li><li>JMB VL3<br></li><li>Joby Aviation S4<br></li><li>Magni M-24 Orion<br></li><li>MX Aircraft Company MXS-R<br></li><li>North American P-51<br></li><li>North American T-6 Texan<br></li><li>Pilatus PC-6 Porter<br></li><li>Pilatus PC-12 NGX<br></li><li>Powrachute Sky Rascal<br></li><li>Robin CAP 10<br></li><li>Robin DR400-100 Cadet<br></li><li>Robinson R66<br></li><li>Ryan NYP &quot;Spirit of St. Louis&quot;<br></li><li>Stemme S12-G<br></li><li>Volocopter Volocity<br></li><li>Wright Cycle Company Wright Flyer<br></li><li>Zivko Aeronautics Edge 540<br></li><li>Zlin Aviation Savage Cub</li></ul><br><strong> 豪华版</strong><br>豪华版包含标准版的所有内容，外加 10 架飞机和 5 座额外手工构建的国际机场。.<br><br><ul class="about_ul"><li>Amphibian Aerospace Albatross G111/HU<br></li><li>Beechcraft Baron G58<br></li><li>Cessna 152 Aerobat<br></li><li>Cessna 172 (SP)<br></li><li>Cessna 188 AGTruck<br></li><li>Cessna 404 Titan<br></li><li>Cessna 408 SkyCourier<br></li><li>Diamond DA40 TDI<br></li><li>Diamond DV20<br></li><li>Dornier SeaStar</li></ul><br><strong> 高级豪华版</strong><br>高级豪华版包含标准版的所有内容，外加 25 架飞机和 10 座额外手工构建的国际机场。<br><br><ul class="about_ul"><li>Airbus Helicopter H225<br></li><li>Beechcraft C90 GTX King Air<br></li><li>Boeing 747-400 Global Supertanker<br></li><li>Boeing 747-400 LCE Dreamlifter<br></li><li>Boeing 787-10 Dreamliner<br></li><li>Boeing C-17 Globemaster III<br></li><li>Boeing CH47D Chinook<br></li><li>Cessna Citation Longitude<br></li><li>Cirrus Aircraft SR22<br></li><li>Pilatus PC-24<br></li><li>Pipistrel Taurus M<br></li><li>Pipistrel Virus SW 121<br></li><li>Saab 340B<br></li><li>Zlin Aviation Savage Norden<br></li><li>Zlin Aviation Shock Ultra</li></ul><br><strong> 飞行员版</strong><br>飞行员版包含高级豪华版的所有内容，外加 2021 年至 2024 年间为《Microsoft Flight Simulator》开发的全部 30 架由 Microsoft 发布的 Marketplace 飞机。<br><br><ul class="about_ul"><li>Aero Ae-45 / Ae-145<br></li><li>Antonov An-2<br></li><li>Antonov An-225<br></li><li>ATR 42-600 / 72-600<br></li><li>Beechcraft Bonanza V35<br></li><li>Beechcraft Model 17 Staggerwing<br></li><li>Beechcraft Model 18 Twin Beech<br></li><li>Bell Helicopter 47J Ranger<br></li><li>Boeing 307 Stratoliner<br></li><li>Boeing 707-320C<br></li><li>Cessna 195 Businessliner<br></li><li>Cessna 207T<br></li><li>Curtiss C-46 Commando<br></li><li>De Havilland Canada DHC-4 Caribou<br></li><li>Dornier Do J Wal<br></li><li>Dornier Do 31<br></li><li>Dornier Do X<br></li><li>Douglas Aircraft Company &amp; Waco C-47D Skytrain &amp; CG-4A<br></li><li>Focke-Wulff 200 Condor<br></li><li>Fokker F.VII<br></li><li>Ford	4AT Trimotor<br></li><li>Granville Gee Bee R2 / Z<br></li><li>Junkers F13<br></li><li>Junkers JU 52<br></li><li>Latécoère 631<br></li><li>Mitsubishi Heavy Industries MU-2<br></li><li>Saab 17 B<br></li><li>Savoia-Marcketti S.55<br></li><li>Short SC.7 Skyvan<br></li><li>Westland Scout / Wasp</li></ul></div>
   </div>
 </section>
 
@@ -620,24 +679,76 @@ body {
 <script>
 // 媒体数据
 const mediaItems = [
-  {"type": "video", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257352793/movie_max.mp4", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257352793/1b6349f98dd58dd4ceb07d53b0b87fa28bd1aca1/movie_600x337.jpg?t=1780854661"},
-  {"type": "video", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257058239/movie_max.mp4", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257058239/movie.293x165.jpg?t=1727283024"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2537590/ss_62dee3ea5e0ef5989a33b93eecab18c41d865b72.1920x1080.jpg?t=1780854662", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2537590/ss_62dee3ea5e0ef5989a33b93eecab18c41d865b72.1920x1080.jpg?t=1780854662"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2537590/ss_2c5ad31f74f8787cd1f2180ec3001d6b6d46b8f9.1920x1080.jpg?t=1780854662", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2537590/ss_2c5ad31f74f8787cd1f2180ec3001d6b6d46b8f9.1920x1080.jpg?t=1780854662"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2537590/ss_632088560168c4be6e1b8c6b85fbf6901220ca71.1920x1080.jpg?t=1780854662", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2537590/ss_632088560168c4be6e1b8c6b85fbf6901220ca71.1920x1080.jpg?t=1780854662"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2537590/ss_b4cdc13836299a875d57b3a5b17f845eef131930.1920x1080.jpg?t=1780854662", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2537590/ss_b4cdc13836299a875d57b3a5b17f845eef131930.1920x1080.jpg?t=1780854662"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2537590/ss_b031d4853f9ec7bb4b353410a75cabc5d770b9a0.1920x1080.jpg?t=1780854662", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2537590/ss_b031d4853f9ec7bb4b353410a75cabc5d770b9a0.1920x1080.jpg?t=1780854662"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2537590/ss_9bccd11f151b75c3b54dbaa0a972715606102925.1920x1080.jpg?t=1780854662", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2537590/ss_9bccd11f151b75c3b54dbaa0a972715606102925.1920x1080.jpg?t=1780854662"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2537590/ss_36d622f53dcfb8b1564a1edff4647bd487b10958.1920x1080.jpg?t=1780854662", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2537590/ss_36d622f53dcfb8b1564a1edff4647bd487b10958.1920x1080.jpg?t=1780854662"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2537590/ss_f2d3074f57e94210c2e1d48341a644785c52d2ae.1920x1080.jpg?t=1780854662", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2537590/ss_f2d3074f57e94210c2e1d48341a644785c52d2ae.1920x1080.jpg?t=1780854662"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2537590/ss_868397f04f4b30ffca3e76f42a6ebc252f954777.1920x1080.jpg?t=1780854662", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2537590/ss_868397f04f4b30ffca3e76f42a6ebc252f954777.1920x1080.jpg?t=1780854662"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2537590/ss_860e895e1e8ada3b3db5d85743d1caff35650704.1920x1080.jpg?t=1780854662", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2537590/ss_860e895e1e8ada3b3db5d85743d1caff35650704.1920x1080.jpg?t=1780854662"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2537590/ss_d60dc790af18a3aa6fd71b1ba835b39a4add84bc.1920x1080.jpg?t=1780854662", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2537590/ss_d60dc790af18a3aa6fd71b1ba835b39a4add84bc.1920x1080.jpg?t=1780854662"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2537590/ss_d3edc204e690a40538dc8f91171b8ba52497d42f.1920x1080.jpg?t=1780854662", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2537590/ss_d3edc204e690a40538dc8f91171b8ba52497d42f.1920x1080.jpg?t=1780854662"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2537590/ss_d9ee5342a23df208728bc2d062e34c2fcdc6194f.1920x1080.jpg?t=1780854662", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2537590/ss_d9ee5342a23df208728bc2d062e34c2fcdc6194f.1920x1080.jpg?t=1780854662"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2537590/ss_9539a4b6c09539dc61adcb06bc01e4f72785d106.1920x1080.jpg?t=1780854662", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2537590/ss_9539a4b6c09539dc61adcb06bc01e4f72785d106.1920x1080.jpg?t=1780854662"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2537590/ss_5ec36e4ebb03c43fcc5d659d9a2d6d55384541e7.1920x1080.jpg?t=1780854662", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2537590/ss_5ec36e4ebb03c43fcc5d659d9a2d6d55384541e7.1920x1080.jpg?t=1780854662"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2537590/ss_95930ffacabdc250ae4b00c4229da1b279d53766.1920x1080.jpg?t=1780854662", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2537590/ss_95930ffacabdc250ae4b00c4229da1b279d53766.1920x1080.jpg?t=1780854662"}
+  {
+    "type": "video",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257352793/movie_max.mp4",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257352793/1b6349f98dd58dd4ceb07d53b0b87fa28bd1aca1/movie_600x337.jpg?t=1780854661"
+  },
+  {
+    "type": "video",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257058239/movie_max.mp4",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257058239/movie.293x165.jpg?t=1727283024"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2537590/ss_62dee3ea5e0ef5989a33b93eecab18c41d865b72.1920x1080.jpg?t=1780854662",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2537590/ss_62dee3ea5e0ef5989a33b93eecab18c41d865b72.1920x1080.jpg?t=1780854662"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2537590/ss_2c5ad31f74f8787cd1f2180ec3001d6b6d46b8f9.1920x1080.jpg?t=1780854662",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2537590/ss_2c5ad31f74f8787cd1f2180ec3001d6b6d46b8f9.1920x1080.jpg?t=1780854662"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2537590/ss_632088560168c4be6e1b8c6b85fbf6901220ca71.1920x1080.jpg?t=1780854662",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2537590/ss_632088560168c4be6e1b8c6b85fbf6901220ca71.1920x1080.jpg?t=1780854662"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2537590/ss_b4cdc13836299a875d57b3a5b17f845eef131930.1920x1080.jpg?t=1780854662",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2537590/ss_b4cdc13836299a875d57b3a5b17f845eef131930.1920x1080.jpg?t=1780854662"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2537590/ss_b031d4853f9ec7bb4b353410a75cabc5d770b9a0.1920x1080.jpg?t=1780854662",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2537590/ss_b031d4853f9ec7bb4b353410a75cabc5d770b9a0.1920x1080.jpg?t=1780854662"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2537590/ss_9bccd11f151b75c3b54dbaa0a972715606102925.1920x1080.jpg?t=1780854662",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2537590/ss_9bccd11f151b75c3b54dbaa0a972715606102925.1920x1080.jpg?t=1780854662"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2537590/ss_36d622f53dcfb8b1564a1edff4647bd487b10958.1920x1080.jpg?t=1780854662",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2537590/ss_36d622f53dcfb8b1564a1edff4647bd487b10958.1920x1080.jpg?t=1780854662"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2537590/ss_f2d3074f57e94210c2e1d48341a644785c52d2ae.1920x1080.jpg?t=1780854662",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2537590/ss_f2d3074f57e94210c2e1d48341a644785c52d2ae.1920x1080.jpg?t=1780854662"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2537590/ss_868397f04f4b30ffca3e76f42a6ebc252f954777.1920x1080.jpg?t=1780854662",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2537590/ss_868397f04f4b30ffca3e76f42a6ebc252f954777.1920x1080.jpg?t=1780854662"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2537590/ss_860e895e1e8ada3b3db5d85743d1caff35650704.1920x1080.jpg?t=1780854662",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2537590/ss_860e895e1e8ada3b3db5d85743d1caff35650704.1920x1080.jpg?t=1780854662"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2537590/ss_d60dc790af18a3aa6fd71b1ba835b39a4add84bc.1920x1080.jpg?t=1780854662",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2537590/ss_d60dc790af18a3aa6fd71b1ba835b39a4add84bc.1920x1080.jpg?t=1780854662"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2537590/ss_d3edc204e690a40538dc8f91171b8ba52497d42f.1920x1080.jpg?t=1780854662",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2537590/ss_d3edc204e690a40538dc8f91171b8ba52497d42f.1920x1080.jpg?t=1780854662"
+  }
 ];
 
 let currentIndex = 0;

@@ -509,6 +509,51 @@ body {
     height: 45px;
   }
 }
+
+/* Steam 关于此游戏内容 */
+.content-block .about_para {
+  margin-bottom: 0.9rem;
+  color: var(--text-secondary);
+  font-size: 0.9375rem;
+  line-height: 1.75;
+}
+.content-block .about_media {
+  display: block;
+  max-width: 100%;
+  margin: 1rem 0;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #000;
+}
+.content-block .about_img {
+  max-width: 100% !important;
+  width: 100% !important;
+  height: auto !important;
+  display: block;
+  border-radius: 8px;
+}
+.content-block video.about_img {
+  width: 100% !important;
+  max-height: 480px;
+  object-fit: contain;
+  background: #000;
+}
+.content-block .about_ul {
+  list-style: none;
+  padding-left: 0;
+}
+.content-block .about_ul li {
+  padding-left: 1.25rem;
+  position: relative;
+  margin-bottom: 0.5rem;
+}
+.content-block .about_ul li:before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+}
+
 </style>
 </head>
 <body>
@@ -523,7 +568,7 @@ body {
 <section class="hero">
   <div class="container">
     <div class="hero-cover">
-      <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/20900/library_600x900.jpg" alt="巫师 1">
+      <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/20900/header.jpg" alt="巫师 1">
     </div>
     <div class="hero-info">
       <h1>巫师 1</h1>
@@ -531,7 +576,7 @@ body {
       
       <div class="meta-tags">
         <span class="meta-tag year">2007</span>
-        <span class="meta-tag score">⭐ </span>
+        <span class="meta-tag score">⭐ 86</span>
       </div>
       
       <div class="info-row">
@@ -557,12 +602,24 @@ body {
   <div class="media-gallery">
     <!-- 主图显示区域 -->
     <div class="media-main" id="mediaMain">
-      <img src="" alt="Cover">
+      <video controls playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5089/movie.jpg?t=1447351466" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5089/movie_max.mp4" style="width:100%;height:100%;object-fit:contain;background:#000"></video>
     </div>
     
     <!-- 缩略图bar -->
     <div class="media-thumbnails" id="mediaThumbnails">
-      
+      <div class="media-thumb active" data-index="0"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5089/movie.jpg?t=1447351466" alt="Video"></div>
+<div class="media-thumb" data-index="1"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/20900/ss_65cf24359fc027e3fed0cc83aa3468ac9721e552.1920x1080.jpg?t=1749200362" alt="Screenshot"></div>
+<div class="media-thumb" data-index="2"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/20900/ss_b26db23a0b4b4e07a6466c84f009cbdbb13091f7.1920x1080.jpg?t=1749200362" alt="Screenshot"></div>
+<div class="media-thumb" data-index="3"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/20900/ss_d7ba4953579962c88961cfd4dcd458f8b0b48424.1920x1080.jpg?t=1749200362" alt="Screenshot"></div>
+<div class="media-thumb" data-index="4"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/20900/ss_382f8f6e8bb2f0f5e3264d2096b643adb859bc48.1920x1080.jpg?t=1749200362" alt="Screenshot"></div>
+<div class="media-thumb" data-index="5"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/20900/ss_42584d3d39fd9b84ad2b2922485aa89ab504e0a0.1920x1080.jpg?t=1749200362" alt="Screenshot"></div>
+<div class="media-thumb" data-index="6"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/20900/ss_7690c53d247a0d52f338e6fcc8be0fb9898536d1.1920x1080.jpg?t=1749200362" alt="Screenshot"></div>
+<div class="media-thumb" data-index="7"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/20900/ss_995cf6cab41b23e2cafa9a719f0a3f27d05e6bb1.1920x1080.jpg?t=1749200362" alt="Screenshot"></div>
+<div class="media-thumb" data-index="8"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/20900/ss_ddd36794809eb8c9e9e11270f217ddcd7bfb4d39.1920x1080.jpg?t=1749200362" alt="Screenshot"></div>
+<div class="media-thumb" data-index="9"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/20900/0000005381.1920x1080.jpg?t=1749200362" alt="Screenshot"></div>
+<div class="media-thumb" data-index="10"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/20900/0000005382.1920x1080.jpg?t=1749200362" alt="Screenshot"></div>
+<div class="media-thumb" data-index="11"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/20900/0000005384.1920x1080.jpg?t=1749200362" alt="Screenshot"></div>
+<div class="media-thumb" data-index="12"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/20900/0000005386.1920x1080.jpg?t=1749200362" alt="Screenshot"></div>
     </div>
   </div>
 </section>
@@ -571,7 +628,7 @@ body {
 <section class="content-section">
   <div class="content-block">
     <h2>关于此游戏</h2>
-    <div></div>
+    <div>角色扮演游戏《巫师》的故事发生在一个道德准绳模糊的黑暗奇幻世界。本作着眼于剧情和角色的发展。除了打破善恶的边界之外，游戏同时也糅合了强调战术深度的即时战斗系统。<br><br>您将扮演猎魔人利维亚的杰洛特。随着各方势力为了掌控世界争相逐鹿，交织的阴谋将您也卷入其中。玩家将会在这款游戏中做出艰难的抉择，接受的相应的后果，投身一段无与伦比的传奇。<br><br><span class="about_media"><video class="about_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/20900/extras/0df6d09108d165f0f159300b3c7d4582.poster.avif?t=1749200362" width=600 height=338 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/20900/extras/0df6d09108d165f0f159300b3c7d4582.webm?t=1749200362" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/20900/extras/0df6d09108d165f0f159300b3c7d4582.mp4?t=1749200362" type="video/mp4"></video></span><h2 class="bb_tag" >游戏特色</h2><strong>利维亚的杰洛特：独一无二的主人公</strong><br><ul class="about_ul"><li>化身为魅力超群的剑术大师，猎杀怪物的专家利维亚的杰洛特。<br></li><li>250 种特殊能力、战斗技巧和魔法可供选择，让您打造出和自己的游戏风格最为契合的角色。</li></ul><span class="about_media"><video class="about_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/20900/extras/f65b62d4d02d3ee1e11b3d942fbb48c7.poster.avif?t=1749200362" width=600 height=338 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/20900/extras/f65b62d4d02d3ee1e11b3d942fbb48c7.webm?t=1749200362" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/20900/extras/f65b62d4d02d3ee1e11b3d942fbb48c7.mp4?t=1749200362" type="video/mp4"></video></span><br><br><strong>脱胎于文学著作的原创奇幻世界</strong><br><ul class="about_ul"><li>以著名波兰作家安德烈·斯帕克沃斯基的创作为蓝本，带您领略一个并非黑白善恶皆分明的严酷奇幻世界。</li></ul><br><strong>非线性叙事</strong><br><ul class="about_ul"><li>身临其境体验一段充满跌宕起伏的史诗剧情，两难的道德选择更是会对故事的发展造成不可磨灭的影响。<br></li><li>通过不同的方式来完成任务，见证您的行为如何左右着情节走向高潮，并且在最终迎来三段迥异的结局。</li></ul><br><strong>叹为观止的战术动作</strong><br><ul class="about_ul"><li>游戏的即时战斗基于真实中世纪剑术而制作，表现细腻直观。<br></li><li>使用六种战斗风格、数十种魔药、复杂的炼金系统、可改造的武器和强大的魔法进行战斗。为流畅的即时体验添加战术深度。<br></li><li>本作在法兰克福著名的 Metric Minds 工作室邀请中世纪搏击专家进行动态捕捉，进而制作出多达 600 段华丽逼真的游戏战斗动画。</li></ul><span class="about_media"><video class="about_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/20900/extras/761d0a98adb7a52bb6987343b4948410.poster.avif?t=1749200362" width=600 height=338 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/20900/extras/761d0a98adb7a52bb6987343b4948410.webm?t=1749200362" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/20900/extras/761d0a98adb7a52bb6987343b4948410.mp4?t=1749200362" type="video/mp4"></video></span><h2 class="bb_tag" >关于《巫师：加强版》</h2>备受好评的玩法让原版游戏包揽 90 多项行业大奖。除此之外，《巫师：加强版》还在游戏性和技术层面上进行了一系列的改良。<br><ul class="about_ul"><li><strong>质量上乘的对话和过场：</strong>重新编写和录制超过 5000 句英语对话，彻底重制德语版本。超过 200 段新的姿态动画使得游戏体验更加连贯，角色在对话和过场中的表现愈发生动。<br></li><li><strong>强化物品栏：</strong>炼金原料单独摆放。简单的整理堆叠功能让物品管理和使用更加流畅。<br></li><li><strong>技术加强：</strong>多项技术改良，包括大幅减少读盘时间、改善游戏稳定性和战斗响应、加快物品栏的读取速度、开关自动存盘功能的选项等等。<br></li><li><strong>角色多样化系统：</strong>该系统将会为数十个游戏模型生成随机外观，从而进一步增加怪物和 NPC 的多样性。</li></ul><br>《巫师：加强版》内含以下特典：<br><ul class="about_ul"><li>交互式漫画书<br></li><li>迪精冒险编辑器<br></li><li>两段游戏时长超过 5 小时的新冒险<br></li><li>官方原声<br></li><li>《巫师》致敬原声专辑<br></li><li>花絮视频<br></li><li>官方游戏攻略<br></li><li>两张巫师世界地图</li></ul></div>
   </div>
 </section>
 
@@ -592,7 +649,71 @@ body {
 <script>
 // 媒体数据
 const mediaItems = [
-  
+  {
+    "type": "video",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5089/movie_max.mp4",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5089/movie.jpg?t=1447351466"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/20900/ss_65cf24359fc027e3fed0cc83aa3468ac9721e552.1920x1080.jpg?t=1749200362",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/20900/ss_65cf24359fc027e3fed0cc83aa3468ac9721e552.1920x1080.jpg?t=1749200362"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/20900/ss_b26db23a0b4b4e07a6466c84f009cbdbb13091f7.1920x1080.jpg?t=1749200362",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/20900/ss_b26db23a0b4b4e07a6466c84f009cbdbb13091f7.1920x1080.jpg?t=1749200362"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/20900/ss_d7ba4953579962c88961cfd4dcd458f8b0b48424.1920x1080.jpg?t=1749200362",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/20900/ss_d7ba4953579962c88961cfd4dcd458f8b0b48424.1920x1080.jpg?t=1749200362"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/20900/ss_382f8f6e8bb2f0f5e3264d2096b643adb859bc48.1920x1080.jpg?t=1749200362",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/20900/ss_382f8f6e8bb2f0f5e3264d2096b643adb859bc48.1920x1080.jpg?t=1749200362"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/20900/ss_42584d3d39fd9b84ad2b2922485aa89ab504e0a0.1920x1080.jpg?t=1749200362",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/20900/ss_42584d3d39fd9b84ad2b2922485aa89ab504e0a0.1920x1080.jpg?t=1749200362"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/20900/ss_7690c53d247a0d52f338e6fcc8be0fb9898536d1.1920x1080.jpg?t=1749200362",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/20900/ss_7690c53d247a0d52f338e6fcc8be0fb9898536d1.1920x1080.jpg?t=1749200362"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/20900/ss_995cf6cab41b23e2cafa9a719f0a3f27d05e6bb1.1920x1080.jpg?t=1749200362",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/20900/ss_995cf6cab41b23e2cafa9a719f0a3f27d05e6bb1.1920x1080.jpg?t=1749200362"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/20900/ss_ddd36794809eb8c9e9e11270f217ddcd7bfb4d39.1920x1080.jpg?t=1749200362",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/20900/ss_ddd36794809eb8c9e9e11270f217ddcd7bfb4d39.1920x1080.jpg?t=1749200362"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/20900/0000005381.1920x1080.jpg?t=1749200362",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/20900/0000005381.1920x1080.jpg?t=1749200362"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/20900/0000005382.1920x1080.jpg?t=1749200362",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/20900/0000005382.1920x1080.jpg?t=1749200362"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/20900/0000005384.1920x1080.jpg?t=1749200362",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/20900/0000005384.1920x1080.jpg?t=1749200362"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/20900/0000005386.1920x1080.jpg?t=1749200362",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/20900/0000005386.1920x1080.jpg?t=1749200362"
+  }
 ];
 
 let currentIndex = 0;

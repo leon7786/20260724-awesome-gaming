@@ -509,6 +509,51 @@ body {
     height: 45px;
   }
 }
+
+/* Steam 关于此游戏内容 */
+.content-block .about_para {
+  margin-bottom: 0.9rem;
+  color: var(--text-secondary);
+  font-size: 0.9375rem;
+  line-height: 1.75;
+}
+.content-block .about_media {
+  display: block;
+  max-width: 100%;
+  margin: 1rem 0;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #000;
+}
+.content-block .about_img {
+  max-width: 100% !important;
+  width: 100% !important;
+  height: auto !important;
+  display: block;
+  border-radius: 8px;
+}
+.content-block video.about_img {
+  width: 100% !important;
+  max-height: 480px;
+  object-fit: contain;
+  background: #000;
+}
+.content-block .about_ul {
+  list-style: none;
+  padding-left: 0;
+}
+.content-block .about_ul li {
+  padding-left: 1.25rem;
+  position: relative;
+  margin-bottom: 0.5rem;
+}
+.content-block .about_ul li:before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+}
+
 </style>
 </head>
 <body>
@@ -523,7 +568,7 @@ body {
 <section class="hero">
   <div class="container">
     <div class="hero-cover">
-      <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/289650/library_600x900.jpg" alt="刺客信条：大革命">
+      <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/289650/header.jpg" alt="刺客信条：大革命">
     </div>
     <div class="hero-info">
       <h1>刺客信条：大革命</h1>
@@ -558,12 +603,24 @@ body {
   <div class="media-gallery">
     <!-- 主图显示区域 -->
     <div class="media-main" id="mediaMain">
-      <img src="" alt="Loading">
+      <video controls playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2033584/movie.293x165.jpg?t=1447362829" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2033584/movie_max.mp4" style="width:100%;height:100%;object-fit:contain;background:#000"></video>
     </div>
     
     <!-- 缩略图bar -->
     <div class="media-thumbnails" id="mediaThumbnails">
-      <div class="media-thumb active" data-index="0"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2033803/movie.293x165.jpg?t=1447363033" alt="Video"></div>
+      <div class="media-thumb active" data-index="0"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2033584/movie.293x165.jpg?t=1447362829" alt="Video"></div>
+<div class="media-thumb" data-index="1"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2033585/movie.293x165.jpg?t=1447362829" alt="Video"></div>
+<div class="media-thumb" data-index="2"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2034839/movie.293x165.jpg?t=1447364040" alt="Video"></div>
+<div class="media-thumb" data-index="3"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2034841/movie.293x165.jpg?t=1447364042" alt="Video"></div>
+<div class="media-thumb" data-index="4"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2034862/movie.293x165.jpg?t=1447364084" alt="Video"></div>
+<div class="media-thumb" data-index="5"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2035308/movie.293x165.jpg?t=1447364659" alt="Video"></div>
+<div class="media-thumb" data-index="6"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/289650/ss_19c1c8d52d714fe8d0a0277c36832b4e0ad5def3.1920x1080.jpg?t=1773328332" alt="Screenshot"></div>
+<div class="media-thumb" data-index="7"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/289650/ss_d825c8fd7c5472d17732bf3480760dd88924e551.1920x1080.jpg?t=1773328332" alt="Screenshot"></div>
+<div class="media-thumb" data-index="8"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/289650/ss_42c6e1765549541d5576ec5bdb01cbc45f376444.1920x1080.jpg?t=1773328332" alt="Screenshot"></div>
+<div class="media-thumb" data-index="9"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/289650/ss_facd76eb6789402e9caea63d0d0b18b84abdabae.1920x1080.jpg?t=1773328332" alt="Screenshot"></div>
+<div class="media-thumb" data-index="10"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/289650/ss_adc858ddceb956fa7e653e6190957a4712f6c05e.1920x1080.jpg?t=1773328332" alt="Screenshot"></div>
+<div class="media-thumb" data-index="11"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/289650/ss_74122312de60a4f3e951e25f41dcd8f5f779a523.1920x1080.jpg?t=1773328332" alt="Screenshot"></div>
+    </div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2033803/movie.293x165.jpg?t=1447363033" alt="Video"></div>
       <div class="media-thumb" data-index="1"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/289650/ss_19c1c8d52d714fe8d0a0277c36832b4e0ad5def3.600x338.jpg?t=1773328332" alt="Screenshot"></div>
       <div class="media-thumb" data-index="2"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/289650/ss_d825c8fd7c5472d17732bf3480760dd88924e551.600x338.jpg?t=1773328332" alt="Screenshot"></div>
       <div class="media-thumb" data-index="3"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/289650/ss_42c6e1765549541d5576ec5bdb01cbc45f376444.600x338.jpg?t=1773328332" alt="Screenshot"></div>
@@ -578,8 +635,7 @@ body {
 <section class="content-section">
   <div class="content-block">
     <h2>关于此游戏</h2>
-    <div>
-<h2 class="bb_tag" >无情的新世界，凶猛的新主角</h2><p class="bb_paragraph" >扮演全新一代刺客阿尔诺，掌握比前辈们更加致命的手段。你的猎物将面对各种强劲武器，比如兼备十字弓功能的袖剑“幻刃”。</p><p class="bb_paragraph" ><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/289650/extras/4a1fae13143b814108062fa5bd618003.poster.avif?t=1773328332" width=600 height=338 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/289650/extras/4a1fae13143b814108062fa5bd618003.webm?t=1773328332" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/289650/extras/4a1fae13143b814108062fa5bd618003.mp4?t=1773328332" type="video/mp4"></video></span></p><h2 class="bb_tag" >体验无缝糅合跑酷、战斗、潜行的玩法</h2><p class="bb_paragraph" >通过无缝跑酷、全新战斗系统以及改进的潜行玩法，随心所欲操控你的刺客角色。</p><p class="bb_paragraph" ><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/289650/extras/0fc50968572ac193611e66d23e8c39b3.poster.avif?t=1773328332" width=600 height=338 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/289650/extras/0fc50968572ac193611e66d23e8c39b3.webm?t=1773328332" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/289650/extras/0fc50968572ac193611e66d23e8c39b3.mp4?t=1773328332" type="video/mp4"></video></span></p><h2 class="bb_tag" >探索风云变幻的巴黎</h2><p class="bb_paragraph" >原本优雅的魅力之都，燃起了恐怖混乱的革命之火。你将在这个全比例还原的开放世界中，亲眼见证令人惊叹的历史篇章。从攻占巴士底狱到处决路易十六国王，一桩桩关键事件将彻底改变巴黎街头的面貌，最终决定法国的命运。</p><p class="bb_paragraph" ><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/289650/extras/e9e06d81088adff9aa05e8837c768939.poster.avif?t=1773328332" width=600 height=338 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/289650/extras/e9e06d81088adff9aa05e8837c768939.webm?t=1773328332" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/289650/extras/e9e06d81088adff9aa05e8837c768939.mp4?t=1773328332" type="video/mp4"></video></span></p>    </div>
+    <div><h2 class="bb_tag" >无情的新世界，凶猛的新主角</h2><p class="about_para" >扮演全新一代刺客阿尔诺，掌握比前辈们更加致命的手段。你的猎物将面对各种强劲武器，比如兼备十字弓功能的袖剑“幻刃”。</p><p class="about_para" ><span class="about_media"><video class="about_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/289650/extras/4a1fae13143b814108062fa5bd618003.poster.avif?t=1773328332" width=600 height=338 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/289650/extras/4a1fae13143b814108062fa5bd618003.webm?t=1773328332" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/289650/extras/4a1fae13143b814108062fa5bd618003.mp4?t=1773328332" type="video/mp4"></video></span></p><h2 class="bb_tag" >体验无缝糅合跑酷、战斗、潜行的玩法</h2><p class="about_para" >通过无缝跑酷、全新战斗系统以及改进的潜行玩法，随心所欲操控你的刺客角色。</p><p class="about_para" ><span class="about_media"><video class="about_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/289650/extras/0fc50968572ac193611e66d23e8c39b3.poster.avif?t=1773328332" width=600 height=338 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/289650/extras/0fc50968572ac193611e66d23e8c39b3.webm?t=1773328332" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/289650/extras/0fc50968572ac193611e66d23e8c39b3.mp4?t=1773328332" type="video/mp4"></video></span></p><h2 class="bb_tag" >探索风云变幻的巴黎</h2><p class="about_para" >原本优雅的魅力之都，燃起了恐怖混乱的革命之火。你将在这个全比例还原的开放世界中，亲眼见证令人惊叹的历史篇章。从攻占巴士底狱到处决路易十六国王，一桩桩关键事件将彻底改变巴黎街头的面貌，最终决定法国的命运。</p><p class="about_para" ><span class="about_media"><video class="about_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/289650/extras/e9e06d81088adff9aa05e8837c768939.poster.avif?t=1773328332" width=600 height=338 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/289650/extras/e9e06d81088adff9aa05e8837c768939.webm?t=1773328332" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/289650/extras/e9e06d81088adff9aa05e8837c768939.mp4?t=1773328332" type="video/mp4"></video></span></p></div>
   </div>
 </section>
 
@@ -610,13 +666,66 @@ body {
 <script>
 // 媒体数据
 const mediaItems = [
-  {"type": "video", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2033803/movie_max.mp4", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2033803/movie.293x165.jpg?t=1447363033"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/289650/ss_19c1c8d52d714fe8d0a0277c36832b4e0ad5def3.1920x1080.jpg?t=1773328332", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/289650/ss_19c1c8d52d714fe8d0a0277c36832b4e0ad5def3.600x338.jpg?t=1773328332"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/289650/ss_d825c8fd7c5472d17732bf3480760dd88924e551.1920x1080.jpg?t=1773328332", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/289650/ss_d825c8fd7c5472d17732bf3480760dd88924e551.600x338.jpg?t=1773328332"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/289650/ss_42c6e1765549541d5576ec5bdb01cbc45f376444.1920x1080.jpg?t=1773328332", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/289650/ss_42c6e1765549541d5576ec5bdb01cbc45f376444.600x338.jpg?t=1773328332"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/289650/ss_facd76eb6789402e9caea63d0d0b18b84abdabae.1920x1080.jpg?t=1773328332", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/289650/ss_facd76eb6789402e9caea63d0d0b18b84abdabae.600x338.jpg?t=1773328332"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/289650/ss_adc858ddceb956fa7e653e6190957a4712f6c05e.1920x1080.jpg?t=1773328332", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/289650/ss_adc858ddceb956fa7e653e6190957a4712f6c05e.600x338.jpg?t=1773328332"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/289650/ss_74122312de60a4f3e951e25f41dcd8f5f779a523.1920x1080.jpg?t=1773328332", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/289650/ss_74122312de60a4f3e951e25f41dcd8f5f779a523.600x338.jpg?t=1773328332"}
+  {
+    "type": "video",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2033584/movie_max.mp4",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2033584/movie.293x165.jpg?t=1447362829"
+  },
+  {
+    "type": "video",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2033585/movie_max.mp4",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2033585/movie.293x165.jpg?t=1447362829"
+  },
+  {
+    "type": "video",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2034839/movie_max.mp4",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2034839/movie.293x165.jpg?t=1447364040"
+  },
+  {
+    "type": "video",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2034841/movie_max.mp4",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2034841/movie.293x165.jpg?t=1447364042"
+  },
+  {
+    "type": "video",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2034862/movie_max.mp4",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2034862/movie.293x165.jpg?t=1447364084"
+  },
+  {
+    "type": "video",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2035308/movie_max.mp4",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2035308/movie.293x165.jpg?t=1447364659"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/289650/ss_19c1c8d52d714fe8d0a0277c36832b4e0ad5def3.1920x1080.jpg?t=1773328332",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/289650/ss_19c1c8d52d714fe8d0a0277c36832b4e0ad5def3.1920x1080.jpg?t=1773328332"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/289650/ss_d825c8fd7c5472d17732bf3480760dd88924e551.1920x1080.jpg?t=1773328332",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/289650/ss_d825c8fd7c5472d17732bf3480760dd88924e551.1920x1080.jpg?t=1773328332"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/289650/ss_42c6e1765549541d5576ec5bdb01cbc45f376444.1920x1080.jpg?t=1773328332",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/289650/ss_42c6e1765549541d5576ec5bdb01cbc45f376444.1920x1080.jpg?t=1773328332"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/289650/ss_facd76eb6789402e9caea63d0d0b18b84abdabae.1920x1080.jpg?t=1773328332",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/289650/ss_facd76eb6789402e9caea63d0d0b18b84abdabae.1920x1080.jpg?t=1773328332"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/289650/ss_adc858ddceb956fa7e653e6190957a4712f6c05e.1920x1080.jpg?t=1773328332",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/289650/ss_adc858ddceb956fa7e653e6190957a4712f6c05e.1920x1080.jpg?t=1773328332"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/289650/ss_74122312de60a4f3e951e25f41dcd8f5f779a523.1920x1080.jpg?t=1773328332",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/289650/ss_74122312de60a4f3e951e25f41dcd8f5f779a523.1920x1080.jpg?t=1773328332"
+  }
 ];
 
 let currentIndex = 0;

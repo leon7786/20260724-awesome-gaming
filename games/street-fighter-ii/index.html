@@ -509,6 +509,51 @@ body {
     height: 45px;
   }
 }
+
+/* Steam 关于此游戏内容 */
+.content-block .about_para {
+  margin-bottom: 0.9rem;
+  color: var(--text-secondary);
+  font-size: 0.9375rem;
+  line-height: 1.75;
+}
+.content-block .about_media {
+  display: block;
+  max-width: 100%;
+  margin: 1rem 0;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #000;
+}
+.content-block .about_img {
+  max-width: 100% !important;
+  width: 100% !important;
+  height: auto !important;
+  display: block;
+  border-radius: 8px;
+}
+.content-block video.about_img {
+  width: 100% !important;
+  max-height: 480px;
+  object-fit: contain;
+  background: #000;
+}
+.content-block .about_ul {
+  list-style: none;
+  padding-left: 0;
+}
+.content-block .about_ul li {
+  padding-left: 1.25rem;
+  position: relative;
+  margin-bottom: 0.5rem;
+}
+.content-block .about_ul li:before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+}
+
 </style>
 </head>
 <body>
@@ -523,7 +568,7 @@ body {
 <section class="hero">
   <div class="container">
     <div class="hero-cover">
-      <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3410460/library_600x900.jpg" alt="街头霸王 II">
+      <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3410460/b0b143e069bde0ff6980e63b32c3bef76228ecd3/header.jpg" alt="街头霸王 II">
     </div>
     <div class="hero-info">
       <h1>街头霸王 II</h1>
@@ -563,6 +608,7 @@ body {
     <!-- 缩略图bar -->
     <div class="media-thumbnails" id="mediaThumbnails">
       <div class="media-thumb active" data-index="0"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3410460/faa9fd02899849d51335907e0104cfc7e4003fd4/ss_faa9fd02899849d51335907e0104cfc7e4003fd4.1920x1080.jpg?t=1784618229" alt="Screenshot"></div>
+    </div>
 
     </div>
   </div>
@@ -572,7 +618,19 @@ body {
 <section class="content-section">
   <div class="content-block">
     <h2>关于此游戏</h2>
-    <div>Year 3 Character Pass 　┗追加角色4位（Sagat, C. Viper, Alex, Ingrid） 　┗4位追加角色的颜色：装扮1 颜色 3-10 　┗特典：3,000张Drive Ticket</div>
+    <div>Year 3 Character Pass<br />
+　┗追加角色4位（Sagat, C. Viper, Alex, Ingrid）<br />
+　┗4位追加角色的颜色：装扮1 颜色 3-10<br />
+　┗特典：3,000张Drive Ticket<br />
+<br />
+■推出时间表<br />
+Sagat Update - Summer 2025<br />
+C. Viper Update - Autumn 2025<br />
+Alex Update - Early Spring 2026<br />
+Ingrid Update - Late Spring 2026<br />
+<br />
+※追加内容将逐步解锁。<br />
+※有关商品详情及发布时间表请浏览官方网站。</div>
   </div>
 </section>
 
@@ -592,7 +650,11 @@ body {
 <script>
 // 媒体数据
 const mediaItems = [
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3410460/faa9fd02899849d51335907e0104cfc7e4003fd4/ss_faa9fd02899849d51335907e0104cfc7e4003fd4.1920x1080.jpg?t=1784618229", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3410460/faa9fd02899849d51335907e0104cfc7e4003fd4/ss_faa9fd02899849d51335907e0104cfc7e4003fd4.1920x1080.jpg?t=1784618229"}
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3410460/faa9fd02899849d51335907e0104cfc7e4003fd4/ss_faa9fd02899849d51335907e0104cfc7e4003fd4.1920x1080.jpg?t=1784618229",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3410460/faa9fd02899849d51335907e0104cfc7e4003fd4/ss_faa9fd02899849d51335907e0104cfc7e4003fd4.1920x1080.jpg?t=1784618229"
+  }
 ];
 
 let currentIndex = 0;

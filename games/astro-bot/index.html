@@ -509,6 +509,51 @@ body {
     height: 45px;
   }
 }
+
+/* Steam 关于此游戏内容 */
+.content-block .about_para {
+  margin-bottom: 0.9rem;
+  color: var(--text-secondary);
+  font-size: 0.9375rem;
+  line-height: 1.75;
+}
+.content-block .about_media {
+  display: block;
+  max-width: 100%;
+  margin: 1rem 0;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #000;
+}
+.content-block .about_img {
+  max-width: 100% !important;
+  width: 100% !important;
+  height: auto !important;
+  display: block;
+  border-radius: 8px;
+}
+.content-block video.about_img {
+  width: 100% !important;
+  max-height: 480px;
+  object-fit: contain;
+  background: #000;
+}
+.content-block .about_ul {
+  list-style: none;
+  padding-left: 0;
+}
+.content-block .about_ul li {
+  padding-left: 1.25rem;
+  position: relative;
+  margin-bottom: 0.5rem;
+}
+.content-block .about_ul li:before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+}
+
 </style>
 </head>
 <body>
@@ -557,12 +602,14 @@ body {
   <div class="media-gallery">
     <!-- 主图显示区域 -->
     <div class="media-main" id="mediaMain">
-      <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2232520/ss_9458dbfb1da60fa6b325a5dea19cfa629fc39003.1920x1080.jpg?t=1750958167" alt="Screenshot">
+      <video controls playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257002484/movie.293x165.jpg?t=1709909727" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257002484/movie_max.mp4" style="width:100%;height:100%;object-fit:contain;background:#000"></video>
     </div>
     
     <!-- 缩略图bar -->
     <div class="media-thumbnails" id="mediaThumbnails">
-      <div class="media-thumb active" data-index="0"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2232520/ss_9458dbfb1da60fa6b325a5dea19cfa629fc39003.1920x1080.jpg?t=1750958167" alt="Screenshot"></div>
+      <div class="media-thumb active" data-index="0"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257002484/movie.293x165.jpg?t=1709909727" alt="Video"></div>
+<div class="media-thumb" data-index="1"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2232520/ss_9458dbfb1da60fa6b325a5dea19cfa629fc39003.1920x1080.jpg?t=1750958167" alt="Screenshot"></div>
+    </div>
 
     </div>
   </div>
@@ -572,7 +619,9 @@ body {
 <section class="content-section">
   <div class="content-block">
     <h2>关于此游戏</h2>
-    <div>经典对上经典。游戏惺惺相惜。英雄敬重...您懂我的意思。 PlayStation®平台游戏皇室的两位白金王子终于相遇了，麻布仔的全新超凡ASTRO BOT服装首次亮相。 需具备网络连接才能获取可下载内容。</div>
+    <div>经典对上经典。游戏惺惺相惜。英雄敬重...您懂我的意思。<br />
+PlayStation®平台游戏皇室的两位白金王子终于相遇了，麻布仔的全新超凡ASTRO BOT服装首次亮相。<br />
+需具备网络连接才能获取可下载内容。</div>
   </div>
 </section>
 
@@ -593,7 +642,16 @@ body {
 <script>
 // 媒体数据
 const mediaItems = [
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2232520/ss_9458dbfb1da60fa6b325a5dea19cfa629fc39003.1920x1080.jpg?t=1750958167", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2232520/ss_9458dbfb1da60fa6b325a5dea19cfa629fc39003.1920x1080.jpg?t=1750958167"}
+  {
+    "type": "video",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257002484/movie_max.mp4",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257002484/movie.293x165.jpg?t=1709909727"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2232520/ss_9458dbfb1da60fa6b325a5dea19cfa629fc39003.1920x1080.jpg?t=1750958167",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2232520/ss_9458dbfb1da60fa6b325a5dea19cfa629fc39003.1920x1080.jpg?t=1750958167"
+  }
 ];
 
 let currentIndex = 0;

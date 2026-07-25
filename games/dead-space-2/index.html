@@ -509,6 +509,51 @@ body {
     height: 45px;
   }
 }
+
+/* Steam 关于此游戏内容 */
+.content-block .about_para {
+  margin-bottom: 0.9rem;
+  color: var(--text-secondary);
+  font-size: 0.9375rem;
+  line-height: 1.75;
+}
+.content-block .about_media {
+  display: block;
+  max-width: 100%;
+  margin: 1rem 0;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #000;
+}
+.content-block .about_img {
+  max-width: 100% !important;
+  width: 100% !important;
+  height: auto !important;
+  display: block;
+  border-radius: 8px;
+}
+.content-block video.about_img {
+  width: 100% !important;
+  max-height: 480px;
+  object-fit: contain;
+  background: #000;
+}
+.content-block .about_ul {
+  list-style: none;
+  padding-left: 0;
+}
+.content-block .about_ul li {
+  padding-left: 1.25rem;
+  position: relative;
+  margin-bottom: 0.5rem;
+}
+.content-block .about_ul li:before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+}
+
 </style>
 </head>
 <body>
@@ -523,7 +568,7 @@ body {
 <section class="hero">
   <div class="container">
     <div class="hero-cover">
-      <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/47780/library_600x900.jpg" alt="死亡空间 2">
+      <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/47780/header.jpg" alt="死亡空间 2">
     </div>
     <div class="hero-info">
       <h1>死亡空间 2</h1>
@@ -558,12 +603,24 @@ body {
   <div class="media-gallery">
     <!-- 主图显示区域 -->
     <div class="media-main" id="mediaMain">
-      <img src="" alt="Loading">
+      <video controls playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/80568/movie.293x165.jpg?t=1585427334" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/80568/movie_max.mp4" style="width:100%;height:100%;object-fit:contain;background:#000"></video>
     </div>
     
     <!-- 缩略图bar -->
     <div class="media-thumbnails" id="mediaThumbnails">
       <div class="media-thumb active" data-index="0"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/80568/movie.293x165.jpg?t=1585427334" alt="Video"></div>
+<div class="media-thumb" data-index="1"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/80569/movie.293x165.jpg?t=1447353886" alt="Video"></div>
+<div class="media-thumb" data-index="2"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/47780/ss_6e1ba90fc5b7cc8ad7079dc979bd16ff359a32a0.1920x1080.jpg?t=1782255426" alt="Screenshot"></div>
+<div class="media-thumb" data-index="3"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/47780/ss_94e2474db485a8d94e5a8063160321b45b77f299.1920x1080.jpg?t=1782255426" alt="Screenshot"></div>
+<div class="media-thumb" data-index="4"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/47780/ss_9f45000d88cef3122b540fd3fcbbcb9cf254a777.1920x1080.jpg?t=1782255426" alt="Screenshot"></div>
+<div class="media-thumb" data-index="5"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/47780/ss_9c30bec7afc2af52288d769d67a4894d46d31d53.1920x1080.jpg?t=1782255426" alt="Screenshot"></div>
+<div class="media-thumb" data-index="6"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/47780/ss_bc2552aed0b045a4f32ccbb7da8558b349f8bc9a.1920x1080.jpg?t=1782255426" alt="Screenshot"></div>
+<div class="media-thumb" data-index="7"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/47780/ss_f2e807c95fd902bcdda6b8a5285cd2371b47f788.1920x1080.jpg?t=1782255426" alt="Screenshot"></div>
+<div class="media-thumb" data-index="8"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/47780/ss_b1b3638ff1a9c04bbb11272b7ae3b5f5084ed54c.1920x1080.jpg?t=1782255426" alt="Screenshot"></div>
+<div class="media-thumb" data-index="9"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/47780/ss_23fd1a50cbee113250b2ec5ee028ae94851cb02f.1920x1080.jpg?t=1782255426" alt="Screenshot"></div>
+<div class="media-thumb" data-index="10"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/47780/ss_ef97bf13d4d0c8d1a5e7a7de64bb962d83beaa6d.1920x1080.jpg?t=1782255426" alt="Screenshot"></div>
+<div class="media-thumb" data-index="11"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/47780/ss_b923d47bc6afb511059d5d11dcc14ee7d5f669ee.1920x1080.jpg?t=1782255426" alt="Screenshot"></div>
+    </div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/80568/movie.293x165.jpg?t=1585427334" alt="Video"></div>
 <div class="media-thumb " data-index="1"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/80569/movie.293x165.jpg?t=1447353886" alt="Video"></div>
 <div class="media-thumb " data-index="2"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/47780/ss_6e1ba90fc5b7cc8ad7079dc979bd16ff359a32a0.1920x1080.jpg?t=1782255426" alt="Screenshot"></div>
 <div class="media-thumb " data-index="3"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/47780/ss_94e2474db485a8d94e5a8063160321b45b77f299.1920x1080.jpg?t=1782255426" alt="Screenshot"></div>
@@ -584,7 +641,7 @@ body {
 <section class="content-section">
   <div class="content-block">
     <h2>关于此游戏</h2>
-    <div><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/47780/extras/563a0569872cb21a4963eb8d9eccabfa.avif?t=1782255426" width=610 height=120 /></span><br><br>In Dead Space™ 2, you join Isaac Clarke, the Systems Engineer from Dead Space, as he wakes up three years after the horrific events on the USG Ishimura. The Ishimura was a Planetcracker-class starship besieged by grotesque reanimations of its dead crew, known as “Necromorphs.”<br><br>After unearthing a strange artifact known as the Marker, Isaac finds himself on the Sprawl, a giant space station in orbit around Saturn. Unable to remember how he got here and plagued with demented visions of his dead girlfriend Nicole, he must survive another nightmarish outbreak of Necromorphs as he fights his way towards an answer he hopes will end all the chaos.<br><br><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/47780/extras/25f327121fe84cee6ecc18110db8998f.avif?t=1782255426" width=666 height=196 /></span><h2 class="bb_tag" >Key Features:</h2><ul class="bb_ul"><li>Tear through space with full 360 degree movement.<br></li><li>Wield a set of devastating tools to bring the terror to space. Impale Necromorphs into the walls with the Javelin, use improved telekinesis to turn limbs into deadly weapons, plant powerful dismembering trip mines, or create a hull-breach to suck a group of monsters out into space.<br></li><li>Fire up Isaac’s suit boosters to rocket around in zero gravity like never before. Explore the depths of the Sprawl and encounter new weightless combat and physics-based puzzles with full 360⁰ movement.</li></ul></div>
+    <div><span class="about_media"><img class="about_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/47780/extras/563a0569872cb21a4963eb8d9eccabfa.avif?t=1782255426" width=610 height=120 /></span><br><br>In Dead Space™ 2, you join Isaac Clarke, the Systems Engineer from Dead Space, as he wakes up three years after the horrific events on the USG Ishimura. The Ishimura was a Planetcracker-class starship besieged by grotesque reanimations of its dead crew, known as “Necromorphs.”<br><br>After unearthing a strange artifact known as the Marker, Isaac finds himself on the Sprawl, a giant space station in orbit around Saturn. Unable to remember how he got here and plagued with demented visions of his dead girlfriend Nicole, he must survive another nightmarish outbreak of Necromorphs as he fights his way towards an answer he hopes will end all the chaos.<br><br><span class="about_media"><img class="about_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/47780/extras/25f327121fe84cee6ecc18110db8998f.avif?t=1782255426" width=666 height=196 /></span><h2 class="bb_tag" >Key Features:</h2><ul class="about_ul"><li>Tear through space with full 360 degree movement.<br></li><li>Wield a set of devastating tools to bring the terror to space. Impale Necromorphs into the walls with the Javelin, use improved telekinesis to turn limbs into deadly weapons, plant powerful dismembering trip mines, or create a hull-breach to suck a group of monsters out into space.<br></li><li>Fire up Isaac’s suit boosters to rocket around in zero gravity like never before. Explore the depths of the Sprawl and encounter new weightless combat and physics-based puzzles with full 360⁰ movement.</li></ul></div>
   </div>
 </section>
 
@@ -613,18 +670,66 @@ body {
 <script>
 // 媒体数据
 const mediaItems = [
-  {"type": "video", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/80568/movie_max.mp4", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/80568/movie.293x165.jpg?t=1585427334"},
-  {"type": "video", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/80569/movie_max.mp4", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/80569/movie.293x165.jpg?t=1447353886"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/47780/ss_6e1ba90fc5b7cc8ad7079dc979bd16ff359a32a0.1920x1080.jpg?t=1782255426", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/47780/ss_6e1ba90fc5b7cc8ad7079dc979bd16ff359a32a0.1920x1080.jpg?t=1782255426"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/47780/ss_94e2474db485a8d94e5a8063160321b45b77f299.1920x1080.jpg?t=1782255426", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/47780/ss_94e2474db485a8d94e5a8063160321b45b77f299.1920x1080.jpg?t=1782255426"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/47780/ss_9f45000d88cef3122b540fd3fcbbcb9cf254a777.1920x1080.jpg?t=1782255426", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/47780/ss_9f45000d88cef3122b540fd3fcbbcb9cf254a777.1920x1080.jpg?t=1782255426"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/47780/ss_9c30bec7afc2af52288d769d67a4894d46d31d53.1920x1080.jpg?t=1782255426", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/47780/ss_9c30bec7afc2af52288d769d67a4894d46d31d53.1920x1080.jpg?t=1782255426"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/47780/ss_bc2552aed0b045a4f32ccbb7da8558b349f8bc9a.1920x1080.jpg?t=1782255426", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/47780/ss_bc2552aed0b045a4f32ccbb7da8558b349f8bc9a.1920x1080.jpg?t=1782255426"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/47780/ss_f2e807c95fd902bcdda6b8a5285cd2371b47f788.1920x1080.jpg?t=1782255426", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/47780/ss_f2e807c95fd902bcdda6b8a5285cd2371b47f788.1920x1080.jpg?t=1782255426"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/47780/ss_b1b3638ff1a9c04bbb11272b7ae3b5f5084ed54c.1920x1080.jpg?t=1782255426", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/47780/ss_b1b3638ff1a9c04bbb11272b7ae3b5f5084ed54c.1920x1080.jpg?t=1782255426"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/47780/ss_23fd1a50cbee113250b2ec5ee028ae94851cb02f.1920x1080.jpg?t=1782255426", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/47780/ss_23fd1a50cbee113250b2ec5ee028ae94851cb02f.1920x1080.jpg?t=1782255426"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/47780/ss_ef97bf13d4d0c8d1a5e7a7de64bb962d83beaa6d.1920x1080.jpg?t=1782255426", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/47780/ss_ef97bf13d4d0c8d1a5e7a7de64bb962d83beaa6d.1920x1080.jpg?t=1782255426"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/47780/ss_b923d47bc6afb511059d5d11dcc14ee7d5f669ee.1920x1080.jpg?t=1782255426", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/47780/ss_b923d47bc6afb511059d5d11dcc14ee7d5f669ee.1920x1080.jpg?t=1782255426"}
+  {
+    "type": "video",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/80568/movie_max.mp4",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/80568/movie.293x165.jpg?t=1585427334"
+  },
+  {
+    "type": "video",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/80569/movie_max.mp4",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/80569/movie.293x165.jpg?t=1447353886"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/47780/ss_6e1ba90fc5b7cc8ad7079dc979bd16ff359a32a0.1920x1080.jpg?t=1782255426",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/47780/ss_6e1ba90fc5b7cc8ad7079dc979bd16ff359a32a0.1920x1080.jpg?t=1782255426"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/47780/ss_94e2474db485a8d94e5a8063160321b45b77f299.1920x1080.jpg?t=1782255426",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/47780/ss_94e2474db485a8d94e5a8063160321b45b77f299.1920x1080.jpg?t=1782255426"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/47780/ss_9f45000d88cef3122b540fd3fcbbcb9cf254a777.1920x1080.jpg?t=1782255426",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/47780/ss_9f45000d88cef3122b540fd3fcbbcb9cf254a777.1920x1080.jpg?t=1782255426"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/47780/ss_9c30bec7afc2af52288d769d67a4894d46d31d53.1920x1080.jpg?t=1782255426",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/47780/ss_9c30bec7afc2af52288d769d67a4894d46d31d53.1920x1080.jpg?t=1782255426"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/47780/ss_bc2552aed0b045a4f32ccbb7da8558b349f8bc9a.1920x1080.jpg?t=1782255426",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/47780/ss_bc2552aed0b045a4f32ccbb7da8558b349f8bc9a.1920x1080.jpg?t=1782255426"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/47780/ss_f2e807c95fd902bcdda6b8a5285cd2371b47f788.1920x1080.jpg?t=1782255426",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/47780/ss_f2e807c95fd902bcdda6b8a5285cd2371b47f788.1920x1080.jpg?t=1782255426"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/47780/ss_b1b3638ff1a9c04bbb11272b7ae3b5f5084ed54c.1920x1080.jpg?t=1782255426",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/47780/ss_b1b3638ff1a9c04bbb11272b7ae3b5f5084ed54c.1920x1080.jpg?t=1782255426"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/47780/ss_23fd1a50cbee113250b2ec5ee028ae94851cb02f.1920x1080.jpg?t=1782255426",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/47780/ss_23fd1a50cbee113250b2ec5ee028ae94851cb02f.1920x1080.jpg?t=1782255426"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/47780/ss_ef97bf13d4d0c8d1a5e7a7de64bb962d83beaa6d.1920x1080.jpg?t=1782255426",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/47780/ss_ef97bf13d4d0c8d1a5e7a7de64bb962d83beaa6d.1920x1080.jpg?t=1782255426"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/47780/ss_b923d47bc6afb511059d5d11dcc14ee7d5f669ee.1920x1080.jpg?t=1782255426",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/47780/ss_b923d47bc6afb511059d5d11dcc14ee7d5f669ee.1920x1080.jpg?t=1782255426"
+  }
 ];
 
 let currentIndex = 0;

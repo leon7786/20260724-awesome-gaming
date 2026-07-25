@@ -509,6 +509,51 @@ body {
     height: 45px;
   }
 }
+
+/* Steam 关于此游戏内容 */
+.content-block .about_para {
+  margin-bottom: 0.9rem;
+  color: var(--text-secondary);
+  font-size: 0.9375rem;
+  line-height: 1.75;
+}
+.content-block .about_media {
+  display: block;
+  max-width: 100%;
+  margin: 1rem 0;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #000;
+}
+.content-block .about_img {
+  max-width: 100% !important;
+  width: 100% !important;
+  height: auto !important;
+  display: block;
+  border-radius: 8px;
+}
+.content-block video.about_img {
+  width: 100% !important;
+  max-height: 480px;
+  object-fit: contain;
+  background: #000;
+}
+.content-block .about_ul {
+  list-style: none;
+  padding-left: 0;
+}
+.content-block .about_ul li {
+  padding-left: 1.25rem;
+  position: relative;
+  margin-bottom: 0.5rem;
+}
+.content-block .about_ul li:before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+}
+
 </style>
 </head>
 <body>
@@ -523,7 +568,7 @@ body {
 <section class="hero">
   <div class="container">
     <div class="hero-cover">
-      <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/238010/library_600x900.jpg" alt="杀出重围：人类革命">
+      <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/238010/header.jpg" alt="杀出重围：人类革命">
     </div>
     <div class="hero-info">
       <h1>杀出重围：人类革命</h1>
@@ -558,12 +603,22 @@ body {
   <div class="media-gallery">
     <!-- 主图显示区域 -->
     <div class="media-main" id="mediaMain">
-      <img src="" alt="Loading">
+      <video controls playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256664022/movie.293x165.jpg?t=1462892845" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256664022/movie_max.mp4" style="width:100%;height:100%;object-fit:contain;background:#000"></video>
     </div>
     
     <!-- 缩略图bar -->
     <div class="media-thumbnails" id="mediaThumbnails">
-      <div class="media-thumb active" data-index="0"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256664021/movie.293x165.jpg?t=1462892822" alt="Video"></div>
+      <div class="media-thumb active" data-index="0"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256664022/movie.293x165.jpg?t=1462892845" alt="Video"></div>
+<div class="media-thumb" data-index="1"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/238010/ss_33f23de4cf18cbf6f676902096337716f9e19a52.1920x1080.jpg?t=1779722099" alt="Screenshot"></div>
+<div class="media-thumb" data-index="2"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/238010/ss_69362b98ecc4d707a5c92853539b60e0d622d268.1920x1080.jpg?t=1779722099" alt="Screenshot"></div>
+<div class="media-thumb" data-index="3"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/238010/ss_af1341ecafdca9be97d32620d957a384dce5f4ad.1920x1080.jpg?t=1779722099" alt="Screenshot"></div>
+<div class="media-thumb" data-index="4"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/238010/ss_7d267c74e90ac41f50733e927ae3d1718834750c.1920x1080.jpg?t=1779722099" alt="Screenshot"></div>
+<div class="media-thumb" data-index="5"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/238010/ss_6405f44fb0e370d5cebd269940089d26bedf0796.1920x1080.jpg?t=1779722099" alt="Screenshot"></div>
+<div class="media-thumb" data-index="6"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/238010/ss_ff47f7eca7095a53711d96ac82cd31922f53a80c.1920x1080.jpg?t=1779722099" alt="Screenshot"></div>
+<div class="media-thumb" data-index="7"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/238010/ss_0dd5588d5aa6628ef25f52d400c74157ca503157.1920x1080.jpg?t=1779722099" alt="Screenshot"></div>
+<div class="media-thumb" data-index="8"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/238010/ss_1ed08cb931bb2328ece066bf18db3a04de476f1d.1920x1080.jpg?t=1779722099" alt="Screenshot"></div>
+<div class="media-thumb" data-index="9"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/238010/ss_88307e700a6eb964411c85dac9054b085abbe7d0.1920x1080.jpg?t=1779722099" alt="Screenshot"></div>
+    </div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256664021/movie.293x165.jpg?t=1462892822" alt="Video"></div>
 <div class="media-thumb " data-index="1"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/238010/ss_33f23de4cf18cbf6f676902096337716f9e19a52.1920x1080.jpg?t=1779722099" alt="Screenshot"></div>
 <div class="media-thumb " data-index="2"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/238010/ss_69362b98ecc4d707a5c92853539b60e0d622d268.1920x1080.jpg?t=1779722099" alt="Screenshot"></div>
 <div class="media-thumb " data-index="3"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/238010/ss_af1341ecafdca9be97d32620d957a384dce5f4ad.1920x1080.jpg?t=1779722099" alt="Screenshot"></div>
@@ -582,7 +637,7 @@ body {
 <section class="content-section">
   <div class="content-block">
     <h2>关于此游戏</h2>
-    <div>You play Adam Jensen, an ex-SWAT specialist who's been handpicked to oversee the defensive needs of one of America's most experimental biotechnology firms. Your job is to safeguard company secrets, but when a black ops team breaks in and kills the very scientists you were hired to protect, everything you thought you knew about your job changes.<h2 class="bb_tag" >Key Features:</h2><ul class="bb_ul"><li><strong>A divided near-future:</strong> discover a time of great technological advancement, but also a time of chaos and conspiracy. Mechanical augmentations of the human body have divided society between those who can afford them, and those who can’t. Opposing forces conspire from the shadow to control the destiny of mankind: a human revolution is coming.<br></li><li><strong>A perfect mix of action and role-play:</strong> the game uniquely combines action-packed close-quarters takedowns with intense shooting, offering a vast array of character augmentations and upgrades for the many weapons at your disposal. Unlock new abilities and increase your stealth, social, hacking or combat skills: the game rewards all styles of play and approaches. Determine how you want your character to evolve, based on how you want to play the game.<br></li><li><strong>Choices and consequences:</strong> shoot your way through the enemies, sneak up behind them without being traced, hack systems to retrieve crucial information, or use your social skills to extract information from key characters – there are always choices, multiple approaches, multiple paths and multiple tools at your disposal. Choose your playing style and face the consequences of your actions: you decide how the story unfolds in his enhanced storyline featuring the full integration of &quot;The Missing Link&quot; and &quot;Tongs Mission&quot;. Find more  ways to defeat the new and improved Boss Fights, use the Newgame+ feature to replay the story with your previously acquired augmentations.  Learn more about the game with the developers commentaries in ENGLISH ONLY and the original &quot;Making of&quot;video.</li></ul></div>
+    <div>You play Adam Jensen, an ex-SWAT specialist who's been handpicked to oversee the defensive needs of one of America's most experimental biotechnology firms. Your job is to safeguard company secrets, but when a black ops team breaks in and kills the very scientists you were hired to protect, everything you thought you knew about your job changes.<h2 class="bb_tag" >Key Features:</h2><ul class="about_ul"><li><strong>A divided near-future:</strong> discover a time of great technological advancement, but also a time of chaos and conspiracy. Mechanical augmentations of the human body have divided society between those who can afford them, and those who can’t. Opposing forces conspire from the shadow to control the destiny of mankind: a human revolution is coming.<br></li><li><strong>A perfect mix of action and role-play:</strong> the game uniquely combines action-packed close-quarters takedowns with intense shooting, offering a vast array of character augmentations and upgrades for the many weapons at your disposal. Unlock new abilities and increase your stealth, social, hacking or combat skills: the game rewards all styles of play and approaches. Determine how you want your character to evolve, based on how you want to play the game.<br></li><li><strong>Choices and consequences:</strong> shoot your way through the enemies, sneak up behind them without being traced, hack systems to retrieve crucial information, or use your social skills to extract information from key characters – there are always choices, multiple approaches, multiple paths and multiple tools at your disposal. Choose your playing style and face the consequences of your actions: you decide how the story unfolds in his enhanced storyline featuring the full integration of &quot;The Missing Link&quot; and &quot;Tongs Mission&quot;. Find more  ways to defeat the new and improved Boss Fights, use the Newgame+ feature to replay the story with your previously acquired augmentations.  Learn more about the game with the developers commentaries in ENGLISH ONLY and the original &quot;Making of&quot;video.</li></ul></div>
   </div>
 </section>
 
@@ -611,16 +666,56 @@ body {
 <script>
 // 媒体数据
 const mediaItems = [
-  {"type": "video", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256664021/movie_max.mp4", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256664021/movie.293x165.jpg?t=1462892822"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/238010/ss_33f23de4cf18cbf6f676902096337716f9e19a52.1920x1080.jpg?t=1779722099", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/238010/ss_33f23de4cf18cbf6f676902096337716f9e19a52.1920x1080.jpg?t=1779722099"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/238010/ss_69362b98ecc4d707a5c92853539b60e0d622d268.1920x1080.jpg?t=1779722099", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/238010/ss_69362b98ecc4d707a5c92853539b60e0d622d268.1920x1080.jpg?t=1779722099"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/238010/ss_af1341ecafdca9be97d32620d957a384dce5f4ad.1920x1080.jpg?t=1779722099", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/238010/ss_af1341ecafdca9be97d32620d957a384dce5f4ad.1920x1080.jpg?t=1779722099"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/238010/ss_7d267c74e90ac41f50733e927ae3d1718834750c.1920x1080.jpg?t=1779722099", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/238010/ss_7d267c74e90ac41f50733e927ae3d1718834750c.1920x1080.jpg?t=1779722099"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/238010/ss_6405f44fb0e370d5cebd269940089d26bedf0796.1920x1080.jpg?t=1779722099", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/238010/ss_6405f44fb0e370d5cebd269940089d26bedf0796.1920x1080.jpg?t=1779722099"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/238010/ss_ff47f7eca7095a53711d96ac82cd31922f53a80c.1920x1080.jpg?t=1779722099", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/238010/ss_ff47f7eca7095a53711d96ac82cd31922f53a80c.1920x1080.jpg?t=1779722099"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/238010/ss_0dd5588d5aa6628ef25f52d400c74157ca503157.1920x1080.jpg?t=1779722099", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/238010/ss_0dd5588d5aa6628ef25f52d400c74157ca503157.1920x1080.jpg?t=1779722099"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/238010/ss_1ed08cb931bb2328ece066bf18db3a04de476f1d.1920x1080.jpg?t=1779722099", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/238010/ss_1ed08cb931bb2328ece066bf18db3a04de476f1d.1920x1080.jpg?t=1779722099"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/238010/ss_88307e700a6eb964411c85dac9054b085abbe7d0.1920x1080.jpg?t=1779722099", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/238010/ss_88307e700a6eb964411c85dac9054b085abbe7d0.1920x1080.jpg?t=1779722099"}
+  {
+    "type": "video",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256664022/movie_max.mp4",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256664022/movie.293x165.jpg?t=1462892845"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/238010/ss_33f23de4cf18cbf6f676902096337716f9e19a52.1920x1080.jpg?t=1779722099",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/238010/ss_33f23de4cf18cbf6f676902096337716f9e19a52.1920x1080.jpg?t=1779722099"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/238010/ss_69362b98ecc4d707a5c92853539b60e0d622d268.1920x1080.jpg?t=1779722099",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/238010/ss_69362b98ecc4d707a5c92853539b60e0d622d268.1920x1080.jpg?t=1779722099"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/238010/ss_af1341ecafdca9be97d32620d957a384dce5f4ad.1920x1080.jpg?t=1779722099",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/238010/ss_af1341ecafdca9be97d32620d957a384dce5f4ad.1920x1080.jpg?t=1779722099"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/238010/ss_7d267c74e90ac41f50733e927ae3d1718834750c.1920x1080.jpg?t=1779722099",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/238010/ss_7d267c74e90ac41f50733e927ae3d1718834750c.1920x1080.jpg?t=1779722099"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/238010/ss_6405f44fb0e370d5cebd269940089d26bedf0796.1920x1080.jpg?t=1779722099",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/238010/ss_6405f44fb0e370d5cebd269940089d26bedf0796.1920x1080.jpg?t=1779722099"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/238010/ss_ff47f7eca7095a53711d96ac82cd31922f53a80c.1920x1080.jpg?t=1779722099",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/238010/ss_ff47f7eca7095a53711d96ac82cd31922f53a80c.1920x1080.jpg?t=1779722099"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/238010/ss_0dd5588d5aa6628ef25f52d400c74157ca503157.1920x1080.jpg?t=1779722099",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/238010/ss_0dd5588d5aa6628ef25f52d400c74157ca503157.1920x1080.jpg?t=1779722099"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/238010/ss_1ed08cb931bb2328ece066bf18db3a04de476f1d.1920x1080.jpg?t=1779722099",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/238010/ss_1ed08cb931bb2328ece066bf18db3a04de476f1d.1920x1080.jpg?t=1779722099"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/238010/ss_88307e700a6eb964411c85dac9054b085abbe7d0.1920x1080.jpg?t=1779722099",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/238010/ss_88307e700a6eb964411c85dac9054b085abbe7d0.1920x1080.jpg?t=1779722099"
+  }
 ];
 
 let currentIndex = 0;

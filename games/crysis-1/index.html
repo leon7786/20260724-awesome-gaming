@@ -509,6 +509,51 @@ body {
     height: 45px;
   }
 }
+
+/* Steam 关于此游戏内容 */
+.content-block .about_para {
+  margin-bottom: 0.9rem;
+  color: var(--text-secondary);
+  font-size: 0.9375rem;
+  line-height: 1.75;
+}
+.content-block .about_media {
+  display: block;
+  max-width: 100%;
+  margin: 1rem 0;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #000;
+}
+.content-block .about_img {
+  max-width: 100% !important;
+  width: 100% !important;
+  height: auto !important;
+  display: block;
+  border-radius: 8px;
+}
+.content-block video.about_img {
+  width: 100% !important;
+  max-height: 480px;
+  object-fit: contain;
+  background: #000;
+}
+.content-block .about_ul {
+  list-style: none;
+  padding-left: 0;
+}
+.content-block .about_ul li {
+  padding-left: 1.25rem;
+  position: relative;
+  margin-bottom: 0.5rem;
+}
+.content-block .about_ul li:before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+}
+
 </style>
 </head>
 <body>
@@ -523,7 +568,7 @@ body {
 <section class="hero">
   <div class="container">
     <div class="hero-cover">
-      <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/17300/library_600x900.jpg" alt="孤岛危机 1">
+      <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/17300/header.jpg" alt="孤岛危机 1">
     </div>
     <div class="hero-info">
       <h1>孤岛危机 1</h1>
@@ -531,7 +576,7 @@ body {
       
       <div class="meta-tags">
         <span class="meta-tag year">2007</span>
-        <span class="meta-tag score">⭐ </span>
+        <span class="meta-tag score">⭐ 91</span>
       </div>
       
       <div class="info-row">
@@ -557,12 +602,17 @@ body {
   <div class="media-gallery">
     <!-- 主图显示区域 -->
     <div class="media-main" id="mediaMain">
-      <img src="" alt="Cover">
+      <video controls playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5085/movie.jpg?t=1447351462" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5085/movie_max.mp4" style="width:100%;height:100%;object-fit:contain;background:#000"></video>
     </div>
     
     <!-- 缩略图bar -->
     <div class="media-thumbnails" id="mediaThumbnails">
-      
+      <div class="media-thumb active" data-index="0"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5085/movie.jpg?t=1447351462" alt="Video"></div>
+<div class="media-thumb" data-index="1"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/17300/0000005235.1920x1080.jpg?t=1777495390" alt="Screenshot"></div>
+<div class="media-thumb" data-index="2"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/17300/0000005236.1920x1080.jpg?t=1777495390" alt="Screenshot"></div>
+<div class="media-thumb" data-index="3"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/17300/0000005237.1920x1080.jpg?t=1777495390" alt="Screenshot"></div>
+<div class="media-thumb" data-index="4"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/17300/0000005238.1920x1080.jpg?t=1777495390" alt="Screenshot"></div>
+<div class="media-thumb" data-index="5"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/17300/0000005239.1920x1080.jpg?t=1777495390" alt="Screenshot"></div>
     </div>
   </div>
 </section>
@@ -571,7 +621,7 @@ body {
 <section class="content-section">
   <div class="content-block">
     <h2>关于此游戏</h2>
-    <div></div>
+    <div><ul class="about_ul"><li><strong>适应生存</strong>  史诗般的故事让玩家深入不断变化的游戏世界，迫使他们改变战术及应对策略来征服战场，战场环境变化多端，包括冰冻丛林以及零重力异形空间。<br></li><li><strong>穿上纳米服！</strong>  一件高科技的纳米服可以帮助玩家在战场上随机应变，提升战斗力。玩家可以强化速度，力量，盔甲并且隐身。创造战术应对各种环境<br></li><li><strong>自定义武器部件</strong> 格式各样的武器配件赋予玩家前所未有的自由度，自行调整武器样式。利用实验型武器，从 Ceph 手里抢来的武器击倒敌人，并且可以运用燃烧弹，催眠弹来协助进攻。<br></li><li><strong>来吧，探索，征服世界</strong> 聪明的人工智能让玩家必须采取各种战术进行应对。枪快并没有太大优势 — 玩家必须率先宣战，不可被敌人抢先进攻。<br></li><li><strong>零重力的游戏体验</strong>  在一切都与平常不同的零重力空间与 Ceph 交战，玩家必须适应零重力下的移动以及武器后座力等等。<br></li><li><strong>次世代的游戏画面</strong>  游戏使用 Crytek 的 CryENGINE 2™ 制作 , Crysis 的视觉效果将 “登峰造极&quot; 。游戏完全支持 DX10 以及可调整的画面选项，即使你的电脑很旧，依然可以玩这款游戏。<br></li><li><strong>开放，真实的世界</strong>  在 Crysis 完全开放的世界里，你可以自行选择线路。摧毁路障，驾驶各种载具（包括垂直升降机以及船只），并且可以利用环境对付你的敌人。<br></li><li><strong>线上对战</strong>  功能完整，并且最多支持 32 名玩家线上对战。对于追求刺激的玩家来说，选择 Instant Action 模式或者去寻找经济与载具合二为一的 PowerStruggle 模式。</li></ul></div>
   </div>
 </section>
 
@@ -591,7 +641,36 @@ body {
 <script>
 // 媒体数据
 const mediaItems = [
-  
+  {
+    "type": "video",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5085/movie_max.mp4",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5085/movie.jpg?t=1447351462"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/17300/0000005235.1920x1080.jpg?t=1777495390",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/17300/0000005235.1920x1080.jpg?t=1777495390"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/17300/0000005236.1920x1080.jpg?t=1777495390",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/17300/0000005236.1920x1080.jpg?t=1777495390"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/17300/0000005237.1920x1080.jpg?t=1777495390",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/17300/0000005237.1920x1080.jpg?t=1777495390"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/17300/0000005238.1920x1080.jpg?t=1777495390",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/17300/0000005238.1920x1080.jpg?t=1777495390"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/17300/0000005239.1920x1080.jpg?t=1777495390",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/17300/0000005239.1920x1080.jpg?t=1777495390"
+  }
 ];
 
 let currentIndex = 0;

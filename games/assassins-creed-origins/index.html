@@ -509,6 +509,51 @@ body {
     height: 45px;
   }
 }
+
+/* Steam 关于此游戏内容 */
+.content-block .about_para {
+  margin-bottom: 0.9rem;
+  color: var(--text-secondary);
+  font-size: 0.9375rem;
+  line-height: 1.75;
+}
+.content-block .about_media {
+  display: block;
+  max-width: 100%;
+  margin: 1rem 0;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #000;
+}
+.content-block .about_img {
+  max-width: 100% !important;
+  width: 100% !important;
+  height: auto !important;
+  display: block;
+  border-radius: 8px;
+}
+.content-block video.about_img {
+  width: 100% !important;
+  max-height: 480px;
+  object-fit: contain;
+  background: #000;
+}
+.content-block .about_ul {
+  list-style: none;
+  padding-left: 0;
+}
+.content-block .about_ul li {
+  padding-left: 1.25rem;
+  position: relative;
+  margin-bottom: 0.5rem;
+}
+.content-block .about_ul li:before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+}
+
 </style>
 </head>
 <body>
@@ -523,7 +568,7 @@ body {
 <section class="hero">
   <div class="container">
     <div class="hero-cover">
-      <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/582160/library_600x900.jpg" alt="刺客信条：起源">
+      <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/582160/header.jpg" alt="刺客信条：起源">
     </div>
     <div class="hero-info">
       <h1>刺客信条：起源</h1>
@@ -558,12 +603,22 @@ body {
   <div class="media-gallery">
     <!-- 主图显示区域 -->
     <div class="media-main" id="mediaMain">
-      <img src="" alt="Loading">
+      <video controls playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256699400/movie.293x165.jpg?t=1509076784" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256699400/movie_max.mp4" style="width:100%;height:100%;object-fit:contain;background:#000"></video>
     </div>
     
     <!-- 缩略图bar -->
     <div class="media-thumbnails" id="mediaThumbnails">
-      <div class="media-thumb active" data-index="0"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256686955/movie.293x165.jpg?t=1506610148" alt="Video"></div>
+      <div class="media-thumb active" data-index="0"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256699400/movie.293x165.jpg?t=1509076784" alt="Video"></div>
+<div class="media-thumb" data-index="1"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256699402/movie.293x165.jpg?t=1509076793" alt="Video"></div>
+<div class="media-thumb" data-index="2"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256699401/movie.293x165.jpg?t=1509076805" alt="Video"></div>
+<div class="media-thumb" data-index="3"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256699403/movie.293x165.jpg?t=1509076816" alt="Video"></div>
+<div class="media-thumb" data-index="4"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/582160/ss_1a0ab42e93e51c48ad9a6bda7f408958e09a43b0.1920x1080.jpg?t=1777477123" alt="Screenshot"></div>
+<div class="media-thumb" data-index="5"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/582160/ss_c4a4545f51c6836ac11c31427944fc7df813edfb.1920x1080.jpg?t=1777477123" alt="Screenshot"></div>
+<div class="media-thumb" data-index="6"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/582160/ss_7edc3de6db0e6391158863f766c334c6eab1dbaa.1920x1080.jpg?t=1777477123" alt="Screenshot"></div>
+<div class="media-thumb" data-index="7"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/582160/ss_fbed28aec9059db9477e9bf8fb2ffa92c3ea9e56.1920x1080.jpg?t=1777477123" alt="Screenshot"></div>
+<div class="media-thumb" data-index="8"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/582160/ss_06861f6dd939c78a919db95bb8e75506216d3eb4.1920x1080.jpg?t=1777477123" alt="Screenshot"></div>
+<div class="media-thumb" data-index="9"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/582160/ss_4de2c8e9d81b3855bbee2708381aa7a56810ba70.1920x1080.jpg?t=1777477123" alt="Screenshot"></div>
+    </div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256686955/movie.293x165.jpg?t=1506610148" alt="Video"></div>
       <div class="media-thumb" data-index="1"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256699361/movie.293x165.jpg?t=1509030855" alt="Video"></div>
       <div class="media-thumb" data-index="2"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/582160/ss_1a0ab42e93e51c48ad9a6bda7f408958e09a43b0.600x338.jpg?t=1777477123" alt="Screenshot"></div>
       <div class="media-thumb" data-index="3"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/582160/ss_c4a4545f51c6836ac11c31427944fc7df813edfb.600x338.jpg?t=1777477123" alt="Screenshot"></div>
@@ -579,8 +634,7 @@ body {
 <section class="content-section">
   <div class="content-block">
     <h2>关于此游戏</h2>
-    <div>
-<h2 class="bb_tag" >广袤国度，等你探索</h2><p class="bb_paragraph" >从沙漠到绿洲，从地中海到吉萨古墓，沿着尼罗河顺流而下，战胜危险的远古势力、凶猛野兽，探索这片广阔无垠又充满未知的大地。</p><p class="bb_paragraph" ><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/582160/extras/c003630f44e0b918cfdb9f2219baf60d.poster.avif?t=1777477123" width=600 height=338 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/582160/extras/c003630f44e0b918cfdb9f2219baf60d.webm?t=1777477123" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/582160/extras/c003630f44e0b918cfdb9f2219baf60d.mp4?t=1777477123" type="video/mp4"></video></span></p><h2 class="bb_tag" >为角色扮演增添动作玩法</h2><p class="bb_paragraph" >体验全新的战斗方式。搜刮、使用数十种不同稀有度和属性的武器。探索深度成长系统，通过独特的强大头目来考验你的本领。</p><p class="bb_paragraph" ><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/582160/extras/934f4d1fe562c562a4777d445b955d9d.poster.avif?t=1777477123" width=600 height=338 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/582160/extras/934f4d1fe562c562a4777d445b955d9d.webm?t=1777477123" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/582160/extras/934f4d1fe562c562a4777d445b955d9d.mp4?t=1777477123" type="video/mp4"></video></span></p><h2 class="bb_tag" >每次游玩都有新的故事</h2><p class="bb_paragraph" >从富贵名流到落魄流浪者，结交个性分明的角色，体验丰富多彩的任务与扣人心弦的故事。</p><p class="bb_paragraph" ><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/582160/extras/8850a549918af5322e26fdc9d2250ad3.poster.avif?t=1777477123" width=600 height=338 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/582160/extras/8850a549918af5322e26fdc9d2250ad3.webm?t=1777477123" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/582160/extras/8850a549918af5322e26fdc9d2250ad3.mp4?t=1777477123" type="video/mp4"></video></span></p>    </div>
+    <div><h2 class="bb_tag" >广袤国度，等你探索</h2><p class="about_para" >从沙漠到绿洲，从地中海到吉萨古墓，沿着尼罗河顺流而下，战胜危险的远古势力、凶猛野兽，探索这片广阔无垠又充满未知的大地。</p><p class="about_para" ><span class="about_media"><video class="about_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/582160/extras/c003630f44e0b918cfdb9f2219baf60d.poster.avif?t=1777477123" width=600 height=338 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/582160/extras/c003630f44e0b918cfdb9f2219baf60d.webm?t=1777477123" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/582160/extras/c003630f44e0b918cfdb9f2219baf60d.mp4?t=1777477123" type="video/mp4"></video></span></p><h2 class="bb_tag" >为角色扮演增添动作玩法</h2><p class="about_para" >体验全新的战斗方式。搜刮、使用数十种不同稀有度和属性的武器。探索深度成长系统，通过独特的强大头目来考验你的本领。</p><p class="about_para" ><span class="about_media"><video class="about_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/582160/extras/934f4d1fe562c562a4777d445b955d9d.poster.avif?t=1777477123" width=600 height=338 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/582160/extras/934f4d1fe562c562a4777d445b955d9d.webm?t=1777477123" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/582160/extras/934f4d1fe562c562a4777d445b955d9d.mp4?t=1777477123" type="video/mp4"></video></span></p><h2 class="bb_tag" >每次游玩都有新的故事</h2><p class="about_para" >从富贵名流到落魄流浪者，结交个性分明的角色，体验丰富多彩的任务与扣人心弦的故事。</p><p class="about_para" ><span class="about_media"><video class="about_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/582160/extras/8850a549918af5322e26fdc9d2250ad3.poster.avif?t=1777477123" width=600 height=338 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/582160/extras/8850a549918af5322e26fdc9d2250ad3.webm?t=1777477123" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/582160/extras/8850a549918af5322e26fdc9d2250ad3.mp4?t=1777477123" type="video/mp4"></video></span></p></div>
   </div>
 </section>
 
@@ -611,14 +665,56 @@ body {
 <script>
 // 媒体数据
 const mediaItems = [
-  {"type": "video", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256686955/movie_max.mp4", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256686955/movie.293x165.jpg?t=1506610148"},
-  {"type": "video", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256699361/movie_max.mp4", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256699361/movie.293x165.jpg?t=1509030855"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/582160/ss_1a0ab42e93e51c48ad9a6bda7f408958e09a43b0.1920x1080.jpg?t=1777477123", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/582160/ss_1a0ab42e93e51c48ad9a6bda7f408958e09a43b0.600x338.jpg?t=1777477123"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/582160/ss_c4a4545f51c6836ac11c31427944fc7df813edfb.1920x1080.jpg?t=1777477123", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/582160/ss_c4a4545f51c6836ac11c31427944fc7df813edfb.600x338.jpg?t=1777477123"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/582160/ss_7edc3de6db0e6391158863f766c334c6eab1dbaa.1920x1080.jpg?t=1777477123", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/582160/ss_7edc3de6db0e6391158863f766c334c6eab1dbaa.600x338.jpg?t=1777477123"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/582160/ss_fbed28aec9059db9477e9bf8fb2ffa92c3ea9e56.1920x1080.jpg?t=1777477123", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/582160/ss_fbed28aec9059db9477e9bf8fb2ffa92c3ea9e56.600x338.jpg?t=1777477123"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/582160/ss_06861f6dd939c78a919db95bb8e75506216d3eb4.1920x1080.jpg?t=1777477123", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/582160/ss_06861f6dd939c78a919db95bb8e75506216d3eb4.600x338.jpg?t=1777477123"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/582160/ss_4de2c8e9d81b3855bbee2708381aa7a56810ba70.1920x1080.jpg?t=1777477123", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/582160/ss_4de2c8e9d81b3855bbee2708381aa7a56810ba70.600x338.jpg?t=1777477123"}
+  {
+    "type": "video",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256699400/movie_max.mp4",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256699400/movie.293x165.jpg?t=1509076784"
+  },
+  {
+    "type": "video",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256699402/movie_max.mp4",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256699402/movie.293x165.jpg?t=1509076793"
+  },
+  {
+    "type": "video",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256699401/movie_max.mp4",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256699401/movie.293x165.jpg?t=1509076805"
+  },
+  {
+    "type": "video",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256699403/movie_max.mp4",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256699403/movie.293x165.jpg?t=1509076816"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/582160/ss_1a0ab42e93e51c48ad9a6bda7f408958e09a43b0.1920x1080.jpg?t=1777477123",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/582160/ss_1a0ab42e93e51c48ad9a6bda7f408958e09a43b0.1920x1080.jpg?t=1777477123"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/582160/ss_c4a4545f51c6836ac11c31427944fc7df813edfb.1920x1080.jpg?t=1777477123",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/582160/ss_c4a4545f51c6836ac11c31427944fc7df813edfb.1920x1080.jpg?t=1777477123"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/582160/ss_7edc3de6db0e6391158863f766c334c6eab1dbaa.1920x1080.jpg?t=1777477123",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/582160/ss_7edc3de6db0e6391158863f766c334c6eab1dbaa.1920x1080.jpg?t=1777477123"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/582160/ss_fbed28aec9059db9477e9bf8fb2ffa92c3ea9e56.1920x1080.jpg?t=1777477123",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/582160/ss_fbed28aec9059db9477e9bf8fb2ffa92c3ea9e56.1920x1080.jpg?t=1777477123"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/582160/ss_06861f6dd939c78a919db95bb8e75506216d3eb4.1920x1080.jpg?t=1777477123",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/582160/ss_06861f6dd939c78a919db95bb8e75506216d3eb4.1920x1080.jpg?t=1777477123"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/582160/ss_4de2c8e9d81b3855bbee2708381aa7a56810ba70.1920x1080.jpg?t=1777477123",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/582160/ss_4de2c8e9d81b3855bbee2708381aa7a56810ba70.1920x1080.jpg?t=1777477123"
+  }
 ];
 
 let currentIndex = 0;

@@ -509,6 +509,51 @@ body {
     height: 45px;
   }
 }
+
+/* Steam 关于此游戏内容 */
+.content-block .about_para {
+  margin-bottom: 0.9rem;
+  color: var(--text-secondary);
+  font-size: 0.9375rem;
+  line-height: 1.75;
+}
+.content-block .about_media {
+  display: block;
+  max-width: 100%;
+  margin: 1rem 0;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #000;
+}
+.content-block .about_img {
+  max-width: 100% !important;
+  width: 100% !important;
+  height: auto !important;
+  display: block;
+  border-radius: 8px;
+}
+.content-block video.about_img {
+  width: 100% !important;
+  max-height: 480px;
+  object-fit: contain;
+  background: #000;
+}
+.content-block .about_ul {
+  list-style: none;
+  padding-left: 0;
+}
+.content-block .about_ul li {
+  padding-left: 1.25rem;
+  position: relative;
+  margin-bottom: 0.5rem;
+}
+.content-block .about_ul li:before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+}
+
 </style>
 </head>
 <body>
@@ -523,7 +568,7 @@ body {
 <section class="hero">
   <div class="container">
     <div class="hero-cover">
-      <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1293830/library_600x900.jpg" alt="极限竞速：地平线4">
+      <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1293830/header_schinese.jpg" alt="极限竞速：地平线4">
     </div>
     <div class="hero-info">
       <h1>极限竞速：地平线4</h1>
@@ -558,12 +603,25 @@ body {
   <div class="media-gallery">
     <!-- 主图显示区域 -->
     <div class="media-main" id="mediaMain">
-      <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4610350/263b660aefd11a9c73e8010b7b29db4b77f955ef/ss_263b660aefd11a9c73e8010b7b29db4b77f955ef.1920x1080.jpg?t=1783004434" alt="Screenshot">
+      <video controls playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256820708/movie.293x165.jpg?t=1612810771" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256820708/movie_max.mp4" style="width:100%;height:100%;object-fit:contain;background:#000"></video>
     </div>
     
     <!-- 缩略图bar -->
     <div class="media-thumbnails" id="mediaThumbnails">
-      <div class="media-thumb active" data-index="0"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4610350/263b660aefd11a9c73e8010b7b29db4b77f955ef/ss_263b660aefd11a9c73e8010b7b29db4b77f955ef.1920x1080.jpg?t=1783004434" alt="Screenshot"></div>
+      <div class="media-thumb active" data-index="0"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256820708/movie.293x165.jpg?t=1612810771" alt="Video"></div>
+<div class="media-thumb" data-index="1"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1293830/ss_e88792a0331f460d913ac05203f7c1b12112b14c.1920x1080.jpg?t=1734336342" alt="Screenshot"></div>
+<div class="media-thumb" data-index="2"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1293830/ss_d2046bdb2f6acdf9b88c3c168e9eaec38495f063.1920x1080.jpg?t=1734336342" alt="Screenshot"></div>
+<div class="media-thumb" data-index="3"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1293830/ss_e872c3153b246b4f595d7106976c6e63d4185c45.1920x1080.jpg?t=1734336342" alt="Screenshot"></div>
+<div class="media-thumb" data-index="4"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1293830/ss_56d3181c30a7975a46c4f2d8391861890508d7ba.1920x1080.jpg?t=1734336342" alt="Screenshot"></div>
+<div class="media-thumb" data-index="5"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1293830/ss_66354376f93c5581628e8564e663104cbb201665.1920x1080.jpg?t=1734336342" alt="Screenshot"></div>
+<div class="media-thumb" data-index="6"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1293830/ss_6aff9bfcaeb460988148efe3c83448fd93e6641a.1920x1080.jpg?t=1734336342" alt="Screenshot"></div>
+<div class="media-thumb" data-index="7"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1293830/ss_34be8257854f966bc323eccefc4df91ba6062bfe.1920x1080.jpg?t=1734336342" alt="Screenshot"></div>
+<div class="media-thumb" data-index="8"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1293830/ss_1b6f2f86ea117a38d5b527e62ab030a930db972f.1920x1080.jpg?t=1734336342" alt="Screenshot"></div>
+<div class="media-thumb" data-index="9"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1293830/ss_f79c110d699dadfdb6945984a65a2aa825787075.1920x1080.jpg?t=1734336342" alt="Screenshot"></div>
+<div class="media-thumb" data-index="10"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1293830/ss_f92439ec8b8be406b1a42beec98195c3ac82e4c3.1920x1080.jpg?t=1734336342" alt="Screenshot"></div>
+<div class="media-thumb" data-index="11"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1293830/ss_ae4d2485f415b08ba4c00195d29680369e23405a.1920x1080.jpg?t=1734336342" alt="Screenshot"></div>
+<div class="media-thumb" data-index="12"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1293830/ss_e38c55bd04ac05d3eb319f92981565df735882f0.1920x1080.jpg?t=1734336342" alt="Screenshot"></div>
+    </div>
 
     </div>
   </div>
@@ -573,7 +631,7 @@ body {
 <section class="content-section">
   <div class="content-block">
     <h2>关于此游戏</h2>
-    <div><p class="bb_paragraph" >Forza Horizon 6 1998 Nissan Skyline GT-R 40th Anniversary</p></div>
+    <div>在世界上最盛大的汽车嘉年华上，不断变化的赛季改变着一切。单枪匹马或者与其他人组队，在一个共享开放世界中探索美丽而富有历史气息的英国。收集、改装和驾驶超过 450 辆车辆。尽情竞速、表演特技、创造和探索：选择您专属的方式来成为地平线中的超级巨星。<br><br><span class="about_media"><video class="about_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1293830/extras/f7c5121572ce64e09c855ad22f4fea34.poster.avif?t=1734336342" width=600 height=100 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1293830/extras/f7c5121572ce64e09c855ad22f4fea34.webm?t=1734336342" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1293830/extras/f7c5121572ce64e09c855ad22f4fea34.mp4?t=1734336342" type="video/mp4"></video></span><br><strong>收集超过 450 辆车辆</strong><br>尽情享受包含超过 100 个授权车厂的最庞大和最多元化地平线车辆名单。<h2 class="bb_tag" ></h2><span class="about_media"><video class="about_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1293830/extras/71c4de2cd2f84fb912ebdfc5c73cfeb1.poster.avif?t=1734336342" width=600 height=100 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1293830/extras/71c4de2cd2f84fb912ebdfc5c73cfeb1.webm?t=1734336342" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1293830/extras/71c4de2cd2f84fb912ebdfc5c73cfeb1.mp4?t=1734336342" type="video/mp4"></video></span><br><strong>尽情竞速、表演特技、创造和探索。</strong><br>在全新开放式剧情中，您做的任何事情都能推进您的游戏进度。<h2 class="bb_tag" ></h2><span class="about_media"><video class="about_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1293830/extras/a66b131a159930da723764394f4fbd5d.poster.avif?t=1734336342" width=600 height=100 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1293830/extras/a66b131a159930da723764394f4fbd5d.webm?t=1734336342" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1293830/extras/a66b131a159930da723764394f4fbd5d.mp4?t=1734336342" type="video/mp4"></video></span><br><strong>探索开放世界</strong><br>现实玩家将遍布在您的世界中。所有游戏玩家都能在同一时间体验时间、天气和四季的变化。<h2 class="bb_tag" ></h2><span class="about_media"><video class="about_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1293830/extras/4ab994c8c03f6c0ea519a3904d0b192c.poster.avif?t=1734336342" width=600 height=100 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1293830/extras/4ab994c8c03f6c0ea519a3904d0b192c.webm?t=1734336342" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1293830/extras/4ab994c8c03f6c0ea519a3904d0b192c.mp4?t=1734336342" type="video/mp4"></video></span><br><strong>探索美丽而富有历史气息的英国</strong><br>体验您从未见过的英国。在壮丽的原生 4K 和 HDR 中探索湖泊、山谷、城堡和美不胜收的风景。</div>
   </div>
 </section>
 
@@ -604,7 +662,71 @@ body {
 <script>
 // 媒体数据
 const mediaItems = [
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4610350/263b660aefd11a9c73e8010b7b29db4b77f955ef/ss_263b660aefd11a9c73e8010b7b29db4b77f955ef.1920x1080.jpg?t=1783004434", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4610350/263b660aefd11a9c73e8010b7b29db4b77f955ef/ss_263b660aefd11a9c73e8010b7b29db4b77f955ef.1920x1080.jpg?t=1783004434"}
+  {
+    "type": "video",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256820708/movie_max.mp4",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256820708/movie.293x165.jpg?t=1612810771"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1293830/ss_e88792a0331f460d913ac05203f7c1b12112b14c.1920x1080.jpg?t=1734336342",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1293830/ss_e88792a0331f460d913ac05203f7c1b12112b14c.1920x1080.jpg?t=1734336342"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1293830/ss_d2046bdb2f6acdf9b88c3c168e9eaec38495f063.1920x1080.jpg?t=1734336342",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1293830/ss_d2046bdb2f6acdf9b88c3c168e9eaec38495f063.1920x1080.jpg?t=1734336342"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1293830/ss_e872c3153b246b4f595d7106976c6e63d4185c45.1920x1080.jpg?t=1734336342",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1293830/ss_e872c3153b246b4f595d7106976c6e63d4185c45.1920x1080.jpg?t=1734336342"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1293830/ss_56d3181c30a7975a46c4f2d8391861890508d7ba.1920x1080.jpg?t=1734336342",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1293830/ss_56d3181c30a7975a46c4f2d8391861890508d7ba.1920x1080.jpg?t=1734336342"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1293830/ss_66354376f93c5581628e8564e663104cbb201665.1920x1080.jpg?t=1734336342",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1293830/ss_66354376f93c5581628e8564e663104cbb201665.1920x1080.jpg?t=1734336342"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1293830/ss_6aff9bfcaeb460988148efe3c83448fd93e6641a.1920x1080.jpg?t=1734336342",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1293830/ss_6aff9bfcaeb460988148efe3c83448fd93e6641a.1920x1080.jpg?t=1734336342"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1293830/ss_34be8257854f966bc323eccefc4df91ba6062bfe.1920x1080.jpg?t=1734336342",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1293830/ss_34be8257854f966bc323eccefc4df91ba6062bfe.1920x1080.jpg?t=1734336342"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1293830/ss_1b6f2f86ea117a38d5b527e62ab030a930db972f.1920x1080.jpg?t=1734336342",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1293830/ss_1b6f2f86ea117a38d5b527e62ab030a930db972f.1920x1080.jpg?t=1734336342"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1293830/ss_f79c110d699dadfdb6945984a65a2aa825787075.1920x1080.jpg?t=1734336342",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1293830/ss_f79c110d699dadfdb6945984a65a2aa825787075.1920x1080.jpg?t=1734336342"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1293830/ss_f92439ec8b8be406b1a42beec98195c3ac82e4c3.1920x1080.jpg?t=1734336342",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1293830/ss_f92439ec8b8be406b1a42beec98195c3ac82e4c3.1920x1080.jpg?t=1734336342"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1293830/ss_ae4d2485f415b08ba4c00195d29680369e23405a.1920x1080.jpg?t=1734336342",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1293830/ss_ae4d2485f415b08ba4c00195d29680369e23405a.1920x1080.jpg?t=1734336342"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1293830/ss_e38c55bd04ac05d3eb319f92981565df735882f0.1920x1080.jpg?t=1734336342",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1293830/ss_e38c55bd04ac05d3eb319f92981565df735882f0.1920x1080.jpg?t=1734336342"
+  }
 ];
 
 let currentIndex = 0;

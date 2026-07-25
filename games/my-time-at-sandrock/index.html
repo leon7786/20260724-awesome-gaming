@@ -509,6 +509,51 @@ body {
     height: 45px;
   }
 }
+
+/* Steam 关于此游戏内容 */
+.content-block .about_para {
+  margin-bottom: 0.9rem;
+  color: var(--text-secondary);
+  font-size: 0.9375rem;
+  line-height: 1.75;
+}
+.content-block .about_media {
+  display: block;
+  max-width: 100%;
+  margin: 1rem 0;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #000;
+}
+.content-block .about_img {
+  max-width: 100% !important;
+  width: 100% !important;
+  height: auto !important;
+  display: block;
+  border-radius: 8px;
+}
+.content-block video.about_img {
+  width: 100% !important;
+  max-height: 480px;
+  object-fit: contain;
+  background: #000;
+}
+.content-block .about_ul {
+  list-style: none;
+  padding-left: 0;
+}
+.content-block .about_ul li {
+  padding-left: 1.25rem;
+  position: relative;
+  margin-bottom: 0.5rem;
+}
+.content-block .about_ul li:before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+}
+
 </style>
 </head>
 <body>
@@ -523,7 +568,7 @@ body {
 <section class="hero">
   <div class="container">
     <div class="hero-cover">
-      <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/library_600x900.jpg" alt="沙石镇时光">
+      <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/header_schinese.jpg" alt="沙石镇时光">
     </div>
     <div class="hero-info">
       <h1>沙石镇时光</h1>
@@ -558,12 +603,30 @@ body {
   <div class="media-gallery">
     <!-- 主图显示区域 -->
     <div class="media-main" id="mediaMain">
-      <img src="" alt="Loading">
+      <video controls playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257026410/movie.293x165.jpg?t=1716909203" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257026410/movie_max.mp4" style="width:100%;height:100%;object-fit:contain;background:#000"></video>
     </div>
     
     <!-- 缩略图bar -->
     <div class="media-thumbnails" id="mediaThumbnails">
       <div class="media-thumb active" data-index="0"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257026410/movie.293x165.jpg?t=1716909203" alt="Video"></div>
+<div class="media-thumb" data-index="1"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256990429/movie.293x165.jpg?t=1703182634" alt="Video"></div>
+<div class="media-thumb" data-index="2"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256979728/movie.293x165.jpg?t=1698936407" alt="Video"></div>
+<div class="media-thumb" data-index="3"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256978643/movie.293x165.jpg?t=1698389495" alt="Video"></div>
+<div class="media-thumb" data-index="4"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256974574/movie.293x165.jpg?t=1696860595" alt="Video"></div>
+<div class="media-thumb" data-index="5"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256969781/movie.293x165.jpg?t=1694774272" alt="Video"></div>
+<div class="media-thumb" data-index="6"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/ss_c424c0e45220e6d83242671e6594cacaf2d0dc06.1920x1080.jpg?t=1784773821" alt="Screenshot"></div>
+<div class="media-thumb" data-index="7"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/ss_18bf600d67dfe6d7523e44bd5ceba493039554e8.1920x1080.jpg?t=1784773821" alt="Screenshot"></div>
+<div class="media-thumb" data-index="8"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/ss_f8f27dba8e12c6f71c2f6463ecb27f4ac62269ac.1920x1080.jpg?t=1784773821" alt="Screenshot"></div>
+<div class="media-thumb" data-index="9"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/ss_7cf0ec2cb855b1cf29280e9c5ba9009561e6ec58.1920x1080.jpg?t=1784773821" alt="Screenshot"></div>
+<div class="media-thumb" data-index="10"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/ss_bd7ee0f57c3dad5e8759b92b0ed33ab8a6dd3e46.1920x1080.jpg?t=1784773821" alt="Screenshot"></div>
+<div class="media-thumb" data-index="11"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/ss_995acc0e2bcee1f67348a7bfeb9c4f366a8a8126.1920x1080.jpg?t=1784773821" alt="Screenshot"></div>
+<div class="media-thumb" data-index="12"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/ss_b36ac3a5c05787c207afec0962c13f93550cf0ca.1920x1080.jpg?t=1784773821" alt="Screenshot"></div>
+<div class="media-thumb" data-index="13"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/ss_9a8c323b1aaa8a2d8618557c371f782d37877f3f.1920x1080.jpg?t=1784773821" alt="Screenshot"></div>
+<div class="media-thumb" data-index="14"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/ss_bd5199c6a183093b04da93b3efcc38c1f78e54a6.1920x1080.jpg?t=1784773821" alt="Screenshot"></div>
+<div class="media-thumb" data-index="15"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/ss_730b674aa925a5cfb9a2d24386727fbb16148038.1920x1080.jpg?t=1784773821" alt="Screenshot"></div>
+<div class="media-thumb" data-index="16"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/ss_8cd993e8952ba2ed623c5b36a70f0870f1c82de9.1920x1080.jpg?t=1784773821" alt="Screenshot"></div>
+<div class="media-thumb" data-index="17"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/ss_c33315bb33ca6122c9f0e4ccc19f4d336674b738.1920x1080.jpg?t=1784773821" alt="Screenshot"></div>
+    </div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257026410/movie.293x165.jpg?t=1716909203" alt="Video"></div>
 <div class="media-thumb " data-index="1"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256990429/movie.293x165.jpg?t=1703182634" alt="Video"></div>
 <div class="media-thumb " data-index="2"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256979728/movie.293x165.jpg?t=1698936407" alt="Video"></div>
 <div class="media-thumb " data-index="3"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256978643/movie.293x165.jpg?t=1698389495" alt="Video"></div>
@@ -596,7 +659,7 @@ body {
 <section class="content-section">
   <div class="content-block">
     <h2>关于此游戏</h2>
-    <div>添加愿望单，打折有通知<br><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/ebfeee0ab2dcc54a8b236e820f5db41b.poster.avif?t=1784773821" width=442 height=102 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/ebfeee0ab2dcc54a8b236e820f5db41b.webm?t=1784773821" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/ebfeee0ab2dcc54a8b236e820f5db41b.mp4?t=1784773821" type="video/mp4"></video></span><br><br>尊敬的工坊主，欢迎来到沙石镇！<strong>《沙石镇时光》正式版现已推出，多人在线合作模式也已全面开放，欢迎工坊主们约上小伙伴一起来沙石镇玩~</strong><br><br><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/197010c6d989c5a9a747b76b73a1e5cb.poster.avif?t=1784773821" width=616 height=410 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/197010c6d989c5a9a747b76b73a1e5cb.webm?t=1784773821" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/197010c6d989c5a9a747b76b73a1e5cb.mp4?t=1784773821" type="video/mp4"></video></span><br><strong><br>游戏简介：</strong>荒漠小城沙石镇诚挚而迫切地邀请您。作为新工坊主，您可以在这里用不同的方式收集资源，在专属工坊中创造各种机器和设备，也可以探索广阔的沙漠，深入废墟，搜寻旧世界遗留的古老文物，甚至与怪物斗智斗勇。经营崭新生活也少不了种植，烹饪，养殖，与沙石镇居民建立不同的关系等等丰富多样的玩法。<br><br><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/5be7a1f789c3ecd3f46ba302a78b985d.poster.avif?t=1784773821" width=616 height=72 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/5be7a1f789c3ecd3f46ba302a78b985d.webm?t=1784773821" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/5be7a1f789c3ecd3f46ba302a78b985d.mp4?t=1784773821" type="video/mp4"></video></span><br><br><strong>从无到有，一切尽在您手：</strong>您可以将各种复杂精密的机器排列组合在一起，打造专属于您的工坊，并制作各式各样的工具或设备；您可以通过劳作，将戈壁变成可耕种的肥沃土地，拥有着特色沙漠种植系统的沙石镇时光是您不能错过的种田游戏；您可以扩建栅栏，养上一大堆沙漠地区特有的动物，成为这个小镇首屈一指的牧场主；全新加入的房屋扩建系统，可以让每个玩家都建造出自己独有的房屋，家园升级不再千篇一律。<br><br><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/ca5d12f82c03b1652b2908854c620a98.poster.avif?t=1784773821" width=616 height=300 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/ca5d12f82c03b1652b2908854c620a98.webm?t=1784773821" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/ca5d12f82c03b1652b2908854c620a98.mp4?t=1784773821" type="video/mp4"></video></span><br><br><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/d769663d05db71b96b4cbf6667cae539.poster.avif?t=1784773821" width=616 height=70 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/d769663d05db71b96b4cbf6667cae539.webm?t=1784773821" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/d769663d05db71b96b4cbf6667cae539.mp4?t=1784773821" type="video/mp4"></video></span><br><br><strong>广阔天地，任您畅游:</strong>您可以探索小镇周围的广阔沙漠，深入各种废墟探险；从充满生活气息的城镇到散发神秘色彩的戈壁，各种新奇的怪物，各种沙漠特色坐骑等您来体验。<br><br><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/88bd9fc2d247a4871f67336ccb2e0fee.poster.avif?t=1784773821" width=616 height=300 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/88bd9fc2d247a4871f67336ccb2e0fee.webm?t=1784773821" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/88bd9fc2d247a4871f67336ccb2e0fee.mp4?t=1784773821" type="video/mp4"></video></span><br><br><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/f6a7abe22e682250e2f97ba4d8d45e14.poster.avif?t=1784773821" width=616 height=60 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/f6a7abe22e682250e2f97ba4d8d45e14.webm?t=1784773821" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/f6a7abe22e682250e2f97ba4d8d45e14.mp4?t=1784773821" type="video/mp4"></video></span><br><br><strong>您是沙石镇的超级明星:</strong> 您将会体验到精彩的剧情故事，数以百计的支线任务，可以与超过40个全新的角色互动，发掘他们每个人身上的神秘故事，更有机会和他们中的某些人擦出爱情的花火。<br><br><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/e6ea87ab9e71277093971ec83328743e.poster.avif?t=1784773821" width=616 height=300 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/e6ea87ab9e71277093971ec83328743e.webm?t=1784773821" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/e6ea87ab9e71277093971ec83328743e.mp4?t=1784773821" type="video/mp4"></video></span><br><br><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/0df1fa21721d1131f025a2ce35ff6bc9.poster.avif?t=1784773821" width=616 height=58 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/0df1fa21721d1131f025a2ce35ff6bc9.webm?t=1784773821" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/0df1fa21721d1131f025a2ce35ff6bc9.mp4?t=1784773821" type="video/mp4"></video></span><br><br><strong>全新升级的战斗系统：</strong>通过技能树，您可以学习更多酷炫的战斗技能，使用更多不同的武器。<br><br><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/2e49a6b2a5da12bad573758c3ca3ae84.poster.avif?t=1784773821" width=616 height=300 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/2e49a6b2a5da12bad573758c3ca3ae84.webm?t=1784773821" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/2e49a6b2a5da12bad573758c3ca3ae84.mp4?t=1784773821" type="video/mp4"></video></span><br><br><br><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/13143ba6cf9f1e443fb79ba3df9d34c1.poster.avif?t=1784773821" width=616 height=60 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/13143ba6cf9f1e443fb79ba3df9d34c1.webm?t=1784773821" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/13143ba6cf9f1e443fb79ba3df9d34c1.mp4?t=1784773821" type="video/mp4"></video></span><br><br><strong>更多的？可以有！:</strong> 您可以听到更加生动和动感的音乐，并且体验新的声效技术，让您仅凭声音就能知道身处何方！独特新奇的天气系统，让您体验渺渺黄沙天万里，全新丰富有趣的小游戏，让您在工坊经营之余体验到多彩的沙石镇风土人情。<br><br><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/ea57651fd01d3ede22167dd4de05b1d4.poster.avif?t=1784773821" width=616 height=300 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/ea57651fd01d3ede22167dd4de05b1d4.webm?t=1784773821" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/ea57651fd01d3ede22167dd4de05b1d4.mp4?t=1784773821" type="video/mp4"></video></span><br><br><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/17e2829265b30a71db9022f8f45ea1d0.poster.avif?t=1784773821" width=616 height=72 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/17e2829265b30a71db9022f8f45ea1d0.webm?t=1784773821" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/17e2829265b30a71db9022f8f45ea1d0.mp4?t=1784773821" type="video/mp4"></video></span><br><br><strong>多人在线合作模式现已上线，</strong>您可以和三位知己，共同体验打造梦幻沙漠家园的过程，一起在沙石镇挥洒汗水，享受时光。<br><br><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/2d9a9bc5bf5695a9c234345e6078cc20.poster.avif?t=1784773821" width=616 height=300 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/2d9a9bc5bf5695a9c234345e6078cc20.webm?t=1784773821" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/2d9a9bc5bf5695a9c234345e6078cc20.mp4?t=1784773821" type="video/mp4"></video></span><h2 class="bb_tag" >尊敬的工坊主，愿您在沙石镇度过一段美好的愉悦的游戏人生！</h2></div>
+    <div>添加愿望单，打折有通知<br><span class="about_media"><video class="about_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/ebfeee0ab2dcc54a8b236e820f5db41b.poster.avif?t=1784773821" width=442 height=102 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/ebfeee0ab2dcc54a8b236e820f5db41b.webm?t=1784773821" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/ebfeee0ab2dcc54a8b236e820f5db41b.mp4?t=1784773821" type="video/mp4"></video></span><br><br>尊敬的工坊主，欢迎来到沙石镇！<strong>《沙石镇时光》正式版现已推出，多人在线合作模式也已全面开放，欢迎工坊主们约上小伙伴一起来沙石镇玩~</strong><br><br><span class="about_media"><video class="about_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/197010c6d989c5a9a747b76b73a1e5cb.poster.avif?t=1784773821" width=616 height=410 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/197010c6d989c5a9a747b76b73a1e5cb.webm?t=1784773821" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/197010c6d989c5a9a747b76b73a1e5cb.mp4?t=1784773821" type="video/mp4"></video></span><br><strong><br>游戏简介：</strong>荒漠小城沙石镇诚挚而迫切地邀请您。作为新工坊主，您可以在这里用不同的方式收集资源，在专属工坊中创造各种机器和设备，也可以探索广阔的沙漠，深入废墟，搜寻旧世界遗留的古老文物，甚至与怪物斗智斗勇。经营崭新生活也少不了种植，烹饪，养殖，与沙石镇居民建立不同的关系等等丰富多样的玩法。<br><br><span class="about_media"><video class="about_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/5be7a1f789c3ecd3f46ba302a78b985d.poster.avif?t=1784773821" width=616 height=72 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/5be7a1f789c3ecd3f46ba302a78b985d.webm?t=1784773821" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/5be7a1f789c3ecd3f46ba302a78b985d.mp4?t=1784773821" type="video/mp4"></video></span><br><br><strong>从无到有，一切尽在您手：</strong>您可以将各种复杂精密的机器排列组合在一起，打造专属于您的工坊，并制作各式各样的工具或设备；您可以通过劳作，将戈壁变成可耕种的肥沃土地，拥有着特色沙漠种植系统的沙石镇时光是您不能错过的种田游戏；您可以扩建栅栏，养上一大堆沙漠地区特有的动物，成为这个小镇首屈一指的牧场主；全新加入的房屋扩建系统，可以让每个玩家都建造出自己独有的房屋，家园升级不再千篇一律。<br><br><span class="about_media"><video class="about_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/ca5d12f82c03b1652b2908854c620a98.poster.avif?t=1784773821" width=616 height=300 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/ca5d12f82c03b1652b2908854c620a98.webm?t=1784773821" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/ca5d12f82c03b1652b2908854c620a98.mp4?t=1784773821" type="video/mp4"></video></span><br><br><span class="about_media"><video class="about_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/d769663d05db71b96b4cbf6667cae539.poster.avif?t=1784773821" width=616 height=70 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/d769663d05db71b96b4cbf6667cae539.webm?t=1784773821" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/d769663d05db71b96b4cbf6667cae539.mp4?t=1784773821" type="video/mp4"></video></span><br><br><strong>广阔天地，任您畅游:</strong>您可以探索小镇周围的广阔沙漠，深入各种废墟探险；从充满生活气息的城镇到散发神秘色彩的戈壁，各种新奇的怪物，各种沙漠特色坐骑等您来体验。<br><br><span class="about_media"><video class="about_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/88bd9fc2d247a4871f67336ccb2e0fee.poster.avif?t=1784773821" width=616 height=300 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/88bd9fc2d247a4871f67336ccb2e0fee.webm?t=1784773821" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/88bd9fc2d247a4871f67336ccb2e0fee.mp4?t=1784773821" type="video/mp4"></video></span><br><br><span class="about_media"><video class="about_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/f6a7abe22e682250e2f97ba4d8d45e14.poster.avif?t=1784773821" width=616 height=60 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/f6a7abe22e682250e2f97ba4d8d45e14.webm?t=1784773821" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/f6a7abe22e682250e2f97ba4d8d45e14.mp4?t=1784773821" type="video/mp4"></video></span><br><br><strong>您是沙石镇的超级明星:</strong> 您将会体验到精彩的剧情故事，数以百计的支线任务，可以与超过40个全新的角色互动，发掘他们每个人身上的神秘故事，更有机会和他们中的某些人擦出爱情的花火。<br><br><span class="about_media"><video class="about_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/e6ea87ab9e71277093971ec83328743e.poster.avif?t=1784773821" width=616 height=300 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/e6ea87ab9e71277093971ec83328743e.webm?t=1784773821" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/e6ea87ab9e71277093971ec83328743e.mp4?t=1784773821" type="video/mp4"></video></span><br><br><span class="about_media"><video class="about_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/0df1fa21721d1131f025a2ce35ff6bc9.poster.avif?t=1784773821" width=616 height=58 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/0df1fa21721d1131f025a2ce35ff6bc9.webm?t=1784773821" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/0df1fa21721d1131f025a2ce35ff6bc9.mp4?t=1784773821" type="video/mp4"></video></span><br><br><strong>全新升级的战斗系统：</strong>通过技能树，您可以学习更多酷炫的战斗技能，使用更多不同的武器。<br><br><span class="about_media"><video class="about_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/2e49a6b2a5da12bad573758c3ca3ae84.poster.avif?t=1784773821" width=616 height=300 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/2e49a6b2a5da12bad573758c3ca3ae84.webm?t=1784773821" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/2e49a6b2a5da12bad573758c3ca3ae84.mp4?t=1784773821" type="video/mp4"></video></span><br><br><br><span class="about_media"><video class="about_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/13143ba6cf9f1e443fb79ba3df9d34c1.poster.avif?t=1784773821" width=616 height=60 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/13143ba6cf9f1e443fb79ba3df9d34c1.webm?t=1784773821" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/13143ba6cf9f1e443fb79ba3df9d34c1.mp4?t=1784773821" type="video/mp4"></video></span><br><br><strong>更多的？可以有！:</strong> 您可以听到更加生动和动感的音乐，并且体验新的声效技术，让您仅凭声音就能知道身处何方！独特新奇的天气系统，让您体验渺渺黄沙天万里，全新丰富有趣的小游戏，让您在工坊经营之余体验到多彩的沙石镇风土人情。<br><br><span class="about_media"><video class="about_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/ea57651fd01d3ede22167dd4de05b1d4.poster.avif?t=1784773821" width=616 height=300 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/ea57651fd01d3ede22167dd4de05b1d4.webm?t=1784773821" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/ea57651fd01d3ede22167dd4de05b1d4.mp4?t=1784773821" type="video/mp4"></video></span><br><br><span class="about_media"><video class="about_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/17e2829265b30a71db9022f8f45ea1d0.poster.avif?t=1784773821" width=616 height=72 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/17e2829265b30a71db9022f8f45ea1d0.webm?t=1784773821" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/17e2829265b30a71db9022f8f45ea1d0.mp4?t=1784773821" type="video/mp4"></video></span><br><br><strong>多人在线合作模式现已上线，</strong>您可以和三位知己，共同体验打造梦幻沙漠家园的过程，一起在沙石镇挥洒汗水，享受时光。<br><br><span class="about_media"><video class="about_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/2d9a9bc5bf5695a9c234345e6078cc20.poster.avif?t=1784773821" width=616 height=300 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/2d9a9bc5bf5695a9c234345e6078cc20.webm?t=1784773821" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/extras/2d9a9bc5bf5695a9c234345e6078cc20.mp4?t=1784773821" type="video/mp4"></video></span><h2 class="bb_tag" >尊敬的工坊主，愿您在沙石镇度过一段美好的愉悦的游戏人生！</h2></div>
   </div>
 </section>
 
@@ -628,30 +691,96 @@ body {
 <script>
 // 媒体数据
 const mediaItems = [
-  {"type": "video", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257026410/movie_max.mp4", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257026410/movie.293x165.jpg?t=1716909203"},
-  {"type": "video", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256990429/movie_max.mp4", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256990429/movie.293x165.jpg?t=1703182634"},
-  {"type": "video", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256979728/movie_max.mp4", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256979728/movie.293x165.jpg?t=1698936407"},
-  {"type": "video", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256978643/movie_max.mp4", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256978643/movie.293x165.jpg?t=1698389495"},
-  {"type": "video", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256974574/movie_max.mp4", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256974574/movie.293x165.jpg?t=1696860595"},
-  {"type": "video", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256969781/movie_max.mp4", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256969781/movie.293x165.jpg?t=1694774272"},
-  {"type": "video", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256951408/movie_max.mp4", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256951408/movie.293x165.jpg?t=1686150973"},
-  {"type": "video", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256888285/movie_max.mp4", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256888285/movie.293x165.jpg?t=1656036449"},
-  {"type": "video", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256903142/movie_max.mp4", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256903142/movie.293x165.jpg?t=1663750973"},
-  {"type": "video", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256880906/movie_max.mp4", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256880906/movie.293x165.jpg?t=1653572357"},
-  {"type": "video", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256806147/movie_max.mp4", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256806147/movie.293x165.jpg?t=1603704985"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/ss_c424c0e45220e6d83242671e6594cacaf2d0dc06.1920x1080.jpg?t=1784773821", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/ss_c424c0e45220e6d83242671e6594cacaf2d0dc06.1920x1080.jpg?t=1784773821"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/ss_18bf600d67dfe6d7523e44bd5ceba493039554e8.1920x1080.jpg?t=1784773821", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/ss_18bf600d67dfe6d7523e44bd5ceba493039554e8.1920x1080.jpg?t=1784773821"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/ss_f8f27dba8e12c6f71c2f6463ecb27f4ac62269ac.1920x1080.jpg?t=1784773821", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/ss_f8f27dba8e12c6f71c2f6463ecb27f4ac62269ac.1920x1080.jpg?t=1784773821"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/ss_7cf0ec2cb855b1cf29280e9c5ba9009561e6ec58.1920x1080.jpg?t=1784773821", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/ss_7cf0ec2cb855b1cf29280e9c5ba9009561e6ec58.1920x1080.jpg?t=1784773821"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/ss_bd7ee0f57c3dad5e8759b92b0ed33ab8a6dd3e46.1920x1080.jpg?t=1784773821", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/ss_bd7ee0f57c3dad5e8759b92b0ed33ab8a6dd3e46.1920x1080.jpg?t=1784773821"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/ss_995acc0e2bcee1f67348a7bfeb9c4f366a8a8126.1920x1080.jpg?t=1784773821", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/ss_995acc0e2bcee1f67348a7bfeb9c4f366a8a8126.1920x1080.jpg?t=1784773821"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/ss_b36ac3a5c05787c207afec0962c13f93550cf0ca.1920x1080.jpg?t=1784773821", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/ss_b36ac3a5c05787c207afec0962c13f93550cf0ca.1920x1080.jpg?t=1784773821"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/ss_9a8c323b1aaa8a2d8618557c371f782d37877f3f.1920x1080.jpg?t=1784773821", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/ss_9a8c323b1aaa8a2d8618557c371f782d37877f3f.1920x1080.jpg?t=1784773821"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/ss_bd5199c6a183093b04da93b3efcc38c1f78e54a6.1920x1080.jpg?t=1784773821", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/ss_bd5199c6a183093b04da93b3efcc38c1f78e54a6.1920x1080.jpg?t=1784773821"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/ss_730b674aa925a5cfb9a2d24386727fbb16148038.1920x1080.jpg?t=1784773821", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/ss_730b674aa925a5cfb9a2d24386727fbb16148038.1920x1080.jpg?t=1784773821"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/ss_8cd993e8952ba2ed623c5b36a70f0870f1c82de9.1920x1080.jpg?t=1784773821", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/ss_8cd993e8952ba2ed623c5b36a70f0870f1c82de9.1920x1080.jpg?t=1784773821"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/ss_c33315bb33ca6122c9f0e4ccc19f4d336674b738.1920x1080.jpg?t=1784773821", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/ss_c33315bb33ca6122c9f0e4ccc19f4d336674b738.1920x1080.jpg?t=1784773821"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/ss_35a4cfe1d7705612059667850f6c6dd7a15e3957.1920x1080.jpg?t=1784773821", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/ss_35a4cfe1d7705612059667850f6c6dd7a15e3957.1920x1080.jpg?t=1784773821"}
+  {
+    "type": "video",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257026410/movie_max.mp4",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257026410/movie.293x165.jpg?t=1716909203"
+  },
+  {
+    "type": "video",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256990429/movie_max.mp4",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256990429/movie.293x165.jpg?t=1703182634"
+  },
+  {
+    "type": "video",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256979728/movie_max.mp4",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256979728/movie.293x165.jpg?t=1698936407"
+  },
+  {
+    "type": "video",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256978643/movie_max.mp4",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256978643/movie.293x165.jpg?t=1698389495"
+  },
+  {
+    "type": "video",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256974574/movie_max.mp4",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256974574/movie.293x165.jpg?t=1696860595"
+  },
+  {
+    "type": "video",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256969781/movie_max.mp4",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256969781/movie.293x165.jpg?t=1694774272"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/ss_c424c0e45220e6d83242671e6594cacaf2d0dc06.1920x1080.jpg?t=1784773821",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/ss_c424c0e45220e6d83242671e6594cacaf2d0dc06.1920x1080.jpg?t=1784773821"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/ss_18bf600d67dfe6d7523e44bd5ceba493039554e8.1920x1080.jpg?t=1784773821",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/ss_18bf600d67dfe6d7523e44bd5ceba493039554e8.1920x1080.jpg?t=1784773821"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/ss_f8f27dba8e12c6f71c2f6463ecb27f4ac62269ac.1920x1080.jpg?t=1784773821",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/ss_f8f27dba8e12c6f71c2f6463ecb27f4ac62269ac.1920x1080.jpg?t=1784773821"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/ss_7cf0ec2cb855b1cf29280e9c5ba9009561e6ec58.1920x1080.jpg?t=1784773821",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/ss_7cf0ec2cb855b1cf29280e9c5ba9009561e6ec58.1920x1080.jpg?t=1784773821"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/ss_bd7ee0f57c3dad5e8759b92b0ed33ab8a6dd3e46.1920x1080.jpg?t=1784773821",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/ss_bd7ee0f57c3dad5e8759b92b0ed33ab8a6dd3e46.1920x1080.jpg?t=1784773821"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/ss_995acc0e2bcee1f67348a7bfeb9c4f366a8a8126.1920x1080.jpg?t=1784773821",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/ss_995acc0e2bcee1f67348a7bfeb9c4f366a8a8126.1920x1080.jpg?t=1784773821"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/ss_b36ac3a5c05787c207afec0962c13f93550cf0ca.1920x1080.jpg?t=1784773821",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/ss_b36ac3a5c05787c207afec0962c13f93550cf0ca.1920x1080.jpg?t=1784773821"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/ss_9a8c323b1aaa8a2d8618557c371f782d37877f3f.1920x1080.jpg?t=1784773821",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/ss_9a8c323b1aaa8a2d8618557c371f782d37877f3f.1920x1080.jpg?t=1784773821"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/ss_bd5199c6a183093b04da93b3efcc38c1f78e54a6.1920x1080.jpg?t=1784773821",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/ss_bd5199c6a183093b04da93b3efcc38c1f78e54a6.1920x1080.jpg?t=1784773821"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/ss_730b674aa925a5cfb9a2d24386727fbb16148038.1920x1080.jpg?t=1784773821",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/ss_730b674aa925a5cfb9a2d24386727fbb16148038.1920x1080.jpg?t=1784773821"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/ss_8cd993e8952ba2ed623c5b36a70f0870f1c82de9.1920x1080.jpg?t=1784773821",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/ss_8cd993e8952ba2ed623c5b36a70f0870f1c82de9.1920x1080.jpg?t=1784773821"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/ss_c33315bb33ca6122c9f0e4ccc19f4d336674b738.1920x1080.jpg?t=1784773821",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084600/ss_c33315bb33ca6122c9f0e4ccc19f4d336674b738.1920x1080.jpg?t=1784773821"
+  }
 ];
 
 let currentIndex = 0;

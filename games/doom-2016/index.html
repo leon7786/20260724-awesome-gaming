@@ -509,6 +509,51 @@ body {
     height: 45px;
   }
 }
+
+/* Steam 关于此游戏内容 */
+.content-block .about_para {
+  margin-bottom: 0.9rem;
+  color: var(--text-secondary);
+  font-size: 0.9375rem;
+  line-height: 1.75;
+}
+.content-block .about_media {
+  display: block;
+  max-width: 100%;
+  margin: 1rem 0;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #000;
+}
+.content-block .about_img {
+  max-width: 100% !important;
+  width: 100% !important;
+  height: auto !important;
+  display: block;
+  border-radius: 8px;
+}
+.content-block video.about_img {
+  width: 100% !important;
+  max-height: 480px;
+  object-fit: contain;
+  background: #000;
+}
+.content-block .about_ul {
+  list-style: none;
+  padding-left: 0;
+}
+.content-block .about_ul li {
+  padding-left: 1.25rem;
+  position: relative;
+  margin-bottom: 0.5rem;
+}
+.content-block .about_ul li:before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+}
+
 </style>
 </head>
 <body>
@@ -523,7 +568,7 @@ body {
 <section class="hero">
   <div class="container">
     <div class="hero-cover">
-      <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/379720/library_600x900.jpg" alt="毁灭战士 (2016)">
+      <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/379720/header.jpg" alt="毁灭战士 (2016)">
     </div>
     <div class="hero-info">
       <h1>毁灭战士 (2016)</h1>
@@ -531,7 +576,7 @@ body {
       
       <div class="meta-tags">
         <span class="meta-tag year">2016</span>
-        <span class="meta-tag score">⭐ </span>
+        <span class="meta-tag score">⭐ 85</span>
       </div>
       
       <div class="info-row">
@@ -557,12 +602,27 @@ body {
   <div class="media-gallery">
     <!-- 主图显示区域 -->
     <div class="media-main" id="mediaMain">
-      <img src="" alt="Cover">
+      <video controls playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256664074/movie.293x165.jpg?t=1462985736" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256664074/movie_max.mp4" style="width:100%;height:100%;object-fit:contain;background:#000"></video>
     </div>
     
     <!-- 缩略图bar -->
     <div class="media-thumbnails" id="mediaThumbnails">
-      
+      <div class="media-thumb active" data-index="0"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256664074/movie.293x165.jpg?t=1462985736" alt="Video"></div>
+<div class="media-thumb" data-index="1"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256662459/movie.293x165.jpg?t=1533678952" alt="Video"></div>
+<div class="media-thumb" data-index="2"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256660478/movie.293x165.jpg?t=1533678958" alt="Video"></div>
+<div class="media-thumb" data-index="3"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256677412/movie.293x165.jpg?t=1483472556" alt="Video"></div>
+<div class="media-thumb" data-index="4"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256661566/movie.293x165.jpg?t=1457539245" alt="Video"></div>
+<div class="media-thumb" data-index="5"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/379720/ss_f989e793786bf1d6459da1139a484203efef1447.1920x1080.jpg?t=1750784856" alt="Screenshot"></div>
+<div class="media-thumb" data-index="6"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/379720/ss_ac05e086b8f0580bc95970fbb6f18a7e4fe65404.1920x1080.jpg?t=1750784856" alt="Screenshot"></div>
+<div class="media-thumb" data-index="7"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/379720/ss_d7ee83faf64036494e4a817b8be55b044fbe7c6c.1920x1080.jpg?t=1750784856" alt="Screenshot"></div>
+<div class="media-thumb" data-index="8"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/379720/ss_4c0b80e027b1095db40cd49bf889c39ca03ec02f.1920x1080.jpg?t=1750784856" alt="Screenshot"></div>
+<div class="media-thumb" data-index="9"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/379720/ss_e1b5acc7a55d96190fcd3b0ae04dfe2254e7dc6d.1920x1080.jpg?t=1750784856" alt="Screenshot"></div>
+<div class="media-thumb" data-index="10"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/379720/ss_2053c7628ba42fecb8e472f74565f880f93a0b30.1920x1080.jpg?t=1750784856" alt="Screenshot"></div>
+<div class="media-thumb" data-index="11"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/379720/ss_b128c3d62bbee81bc28801019a506235a75a27b3.1920x1080.jpg?t=1750784856" alt="Screenshot"></div>
+<div class="media-thumb" data-index="12"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/379720/ss_f07aca2fbb96e104cc79709c2a512ffba8a5d2c9.1920x1080.jpg?t=1750784856" alt="Screenshot"></div>
+<div class="media-thumb" data-index="13"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/379720/ss_28e126c5530b5f81726501ec73e51c66fd325bc2.1920x1080.jpg?t=1750784856" alt="Screenshot"></div>
+<div class="media-thumb" data-index="14"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/379720/ss_edf8aef8c8648582ff89fab9a456e1b59f6c0621.1920x1080.jpg?t=1750784856" alt="Screenshot"></div>
+<div class="media-thumb" data-index="15"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/379720/ss_7f6e761fbc85bddf6a1155da703dbf546096dbd4.1920x1080.jpg?t=1750784856" alt="Screenshot"></div>
     </div>
   </div>
 </section>
@@ -571,7 +631,7 @@ body {
 <section class="content-section">
   <div class="content-block">
     <h2>关于此游戏</h2>
-    <div></div>
+    <div>Developed by id software, the studio that pioneered the first-person shooter genre and created multiplayer Deathmatch, DOOM returns as a brutally fun and challenging modern-day shooter experience. Relentless demons, impossibly destructive guns, and fast, fluid movement provide the foundation for intense, first-person combat – whether you’re obliterating demon hordes through the depths of Hell in the single-player campaign, or competing against your friends in numerous multiplayer modes. Expand your gameplay experience using DOOM SnapMap game editor to easily create, play, and share your content with the world. <br><br><span class="about_media"><video class="about_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/379720/extras/aa846253ff9c4727e76f6ca4e4901ef1.poster.avif?t=1750784856" width=626 height=258 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/379720/extras/aa846253ff9c4727e76f6ca4e4901ef1.webm?t=1750784856" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/379720/extras/aa846253ff9c4727e76f6ca4e4901ef1.mp4?t=1750784856" type="video/mp4"></video></span><br><br><strong>STORY:</strong><br>You’ve come here for a reason. The Union Aerospace Corporation’s massive research facility on Mars is overwhelmed by fierce and powerful demons, and only one person stands between their world and ours.  As the lone DOOM Marine, you’ve been activated to do one thing – kill them all.<h2 class="bb_tag" >KEY FEATURES:</h2><ul class="about_ul"><li><strong>A Relentless Campaign</strong><br>There is no taking cover or stopping to regenerate health as you beat back Hell’s raging demon hordes.  Combine your arsenal of futuristic and iconic guns, upgrades, movement and an advanced melee system to knock-down, slash, stomp, crush, and blow apart demons in creative and violent ways. <br><br></li><li><strong>Return of id Multiplayer</strong><br>Dominate your opponents in DOOM’s signature, fast-paced arena-style combat. In both classic and all-new game modes, annihilate your enemies utilizing your personal blend of skill, powerful weapons, vertical movement, and unique power-ups that allow you to play as a demon.<br><br></li><li><strong>Endless Possibilities</strong><br>DOOM SnapMap – a powerful, but easy-to-use game and level editor – allows for limitless gameplay experiences on every platform.  Without any previous experience or special expertise, any player can quickly and easily snap together and visually customize maps, add pre-defined or completely custom gameplay, and even edit game logic to create new modes.  Instantly play your creation, share it with a friend, or make it available to players around the world – all in-game with the push of a button.</li></ul></div>
   </div>
 </section>
 
@@ -591,7 +651,86 @@ body {
 <script>
 // 媒体数据
 const mediaItems = [
-  
+  {
+    "type": "video",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256664074/movie_max.mp4",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256664074/movie.293x165.jpg?t=1462985736"
+  },
+  {
+    "type": "video",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256662459/movie_max.mp4",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256662459/movie.293x165.jpg?t=1533678952"
+  },
+  {
+    "type": "video",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256660478/movie_max.mp4",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256660478/movie.293x165.jpg?t=1533678958"
+  },
+  {
+    "type": "video",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256677412/movie_max.mp4",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256677412/movie.293x165.jpg?t=1483472556"
+  },
+  {
+    "type": "video",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256661566/movie_max.mp4",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256661566/movie.293x165.jpg?t=1457539245"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/379720/ss_f989e793786bf1d6459da1139a484203efef1447.1920x1080.jpg?t=1750784856",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/379720/ss_f989e793786bf1d6459da1139a484203efef1447.1920x1080.jpg?t=1750784856"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/379720/ss_ac05e086b8f0580bc95970fbb6f18a7e4fe65404.1920x1080.jpg?t=1750784856",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/379720/ss_ac05e086b8f0580bc95970fbb6f18a7e4fe65404.1920x1080.jpg?t=1750784856"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/379720/ss_d7ee83faf64036494e4a817b8be55b044fbe7c6c.1920x1080.jpg?t=1750784856",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/379720/ss_d7ee83faf64036494e4a817b8be55b044fbe7c6c.1920x1080.jpg?t=1750784856"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/379720/ss_4c0b80e027b1095db40cd49bf889c39ca03ec02f.1920x1080.jpg?t=1750784856",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/379720/ss_4c0b80e027b1095db40cd49bf889c39ca03ec02f.1920x1080.jpg?t=1750784856"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/379720/ss_e1b5acc7a55d96190fcd3b0ae04dfe2254e7dc6d.1920x1080.jpg?t=1750784856",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/379720/ss_e1b5acc7a55d96190fcd3b0ae04dfe2254e7dc6d.1920x1080.jpg?t=1750784856"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/379720/ss_2053c7628ba42fecb8e472f74565f880f93a0b30.1920x1080.jpg?t=1750784856",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/379720/ss_2053c7628ba42fecb8e472f74565f880f93a0b30.1920x1080.jpg?t=1750784856"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/379720/ss_b128c3d62bbee81bc28801019a506235a75a27b3.1920x1080.jpg?t=1750784856",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/379720/ss_b128c3d62bbee81bc28801019a506235a75a27b3.1920x1080.jpg?t=1750784856"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/379720/ss_f07aca2fbb96e104cc79709c2a512ffba8a5d2c9.1920x1080.jpg?t=1750784856",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/379720/ss_f07aca2fbb96e104cc79709c2a512ffba8a5d2c9.1920x1080.jpg?t=1750784856"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/379720/ss_28e126c5530b5f81726501ec73e51c66fd325bc2.1920x1080.jpg?t=1750784856",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/379720/ss_28e126c5530b5f81726501ec73e51c66fd325bc2.1920x1080.jpg?t=1750784856"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/379720/ss_edf8aef8c8648582ff89fab9a456e1b59f6c0621.1920x1080.jpg?t=1750784856",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/379720/ss_edf8aef8c8648582ff89fab9a456e1b59f6c0621.1920x1080.jpg?t=1750784856"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/379720/ss_7f6e761fbc85bddf6a1155da703dbf546096dbd4.1920x1080.jpg?t=1750784856",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/379720/ss_7f6e761fbc85bddf6a1155da703dbf546096dbd4.1920x1080.jpg?t=1750784856"
+  }
 ];
 
 let currentIndex = 0;

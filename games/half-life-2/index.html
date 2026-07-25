@@ -509,6 +509,51 @@ body {
     height: 45px;
   }
 }
+
+/* Steam 关于此游戏内容 */
+.content-block .about_para {
+  margin-bottom: 0.9rem;
+  color: var(--text-secondary);
+  font-size: 0.9375rem;
+  line-height: 1.75;
+}
+.content-block .about_media {
+  display: block;
+  max-width: 100%;
+  margin: 1rem 0;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #000;
+}
+.content-block .about_img {
+  max-width: 100% !important;
+  width: 100% !important;
+  height: auto !important;
+  display: block;
+  border-radius: 8px;
+}
+.content-block video.about_img {
+  width: 100% !important;
+  max-height: 480px;
+  object-fit: contain;
+  background: #000;
+}
+.content-block .about_ul {
+  list-style: none;
+  padding-left: 0;
+}
+.content-block .about_ul li {
+  padding-left: 1.25rem;
+  position: relative;
+  margin-bottom: 0.5rem;
+}
+.content-block .about_ul li:before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+}
+
 </style>
 </head>
 <body>
@@ -523,7 +568,7 @@ body {
 <section class="hero">
   <div class="container">
     <div class="hero-cover">
-      <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220/library_600x900.jpg" alt="半条命2">
+      <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220/header.jpg" alt="半条命2">
     </div>
     <div class="hero-info">
       <h1>半条命2</h1>
@@ -557,12 +602,26 @@ body {
   <div class="media-gallery">
     <!-- 主图显示区域 -->
     <div class="media-main" id="mediaMain">
-      <img src="" alt="Loading">
+      <video controls playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257074217/2a5d40f3f7cd4a644849a7dae7ee9f9d7fb2074d/movie_600x337.jpg?t=1732069594" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257074217/movie_max.mp4" style="width:100%;height:100%;object-fit:contain;background:#000"></video>
     </div>
     
     <!-- 缩略图bar -->
     <div class="media-thumbnails" id="mediaThumbnails">
-<div class="media-thumb active" data-index="0"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257074217/2a5d40f3f7cd4a644849a7dae7ee9f9d7fb2074d/movie_600x337.jpg?t=1732069594" alt="Video"></div>
+      <div class="media-thumb active" data-index="0"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257074217/2a5d40f3f7cd4a644849a7dae7ee9f9d7fb2074d/movie_600x337.jpg?t=1732069594" alt="Video"></div>
+<div class="media-thumb" data-index="1"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/904/003a9a6063e5f154f7244aa5b55e16ddeb390dc4/movie_600x337.jpg?t=1732069598" alt="Video"></div>
+<div class="media-thumb" data-index="2"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220/ss_47b4105b396de408cb8b6b4f358c69e5e2a62dae.1920x1080.jpg?t=1745368545" alt="Screenshot"></div>
+<div class="media-thumb" data-index="3"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220/ss_0e499071a60a20b24149ad65a8edb769250f2921.1920x1080.jpg?t=1745368545" alt="Screenshot"></div>
+<div class="media-thumb" data-index="4"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220/ss_ffb00abd45012680e4f209355ec81f961b6dd1fb.1920x1080.jpg?t=1745368545" alt="Screenshot"></div>
+<div class="media-thumb" data-index="5"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220/ss_b822a29b3804e05ab9517cac99a5d978d109a32b.1920x1080.jpg?t=1745368545" alt="Screenshot"></div>
+<div class="media-thumb" data-index="6"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220/ss_c400361f185800786ea984e795f2a0dd4afee990.1920x1080.jpg?t=1745368545" alt="Screenshot"></div>
+<div class="media-thumb" data-index="7"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220/ss_a2aeefb3ad34c46af5c381ff03ac0973892f5530.1920x1080.jpg?t=1745368545" alt="Screenshot"></div>
+<div class="media-thumb" data-index="8"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220/ss_394f4ad714937db2cc90545972b318ddb6db7231.1920x1080.jpg?t=1745368545" alt="Screenshot"></div>
+<div class="media-thumb" data-index="9"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220/ss_412b0e9f8285d3695d0b39840da41c184dff591a.1920x1080.jpg?t=1745368545" alt="Screenshot"></div>
+<div class="media-thumb" data-index="10"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220/ss_93d1112a93572b2826a02456db4195c07bd2221a.1920x1080.jpg?t=1745368545" alt="Screenshot"></div>
+<div class="media-thumb" data-index="11"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220/ss_ed5532325f508728f8481f0109d662352a519e0a.1920x1080.jpg?t=1745368545" alt="Screenshot"></div>
+<div class="media-thumb" data-index="12"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220/ss_4e76506add2af0c438d3c4bc810ccb823353fd13.1920x1080.jpg?t=1745368545" alt="Screenshot"></div>
+<div class="media-thumb" data-index="13"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220/ss_8d6f9f74b33e2b0b296c6bff9836085e063b2d2f.1920x1080.jpg?t=1745368545" alt="Screenshot"></div>
+    </div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257074217/2a5d40f3f7cd4a644849a7dae7ee9f9d7fb2074d/movie_600x337.jpg?t=1732069594" alt="Video"></div>
 <div class="media-thumb" data-index="1"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/904/003a9a6063e5f154f7244aa5b55e16ddeb390dc4/movie_600x337.jpg?t=1732069598" alt="Video"></div>
 <div class="media-thumb" data-index="2"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220/ss_47b4105b396de408cb8b6b4f358c69e5e2a62dae.1920x1080.jpg?t=1745368545" alt="Screenshot"></div>
 <div class="media-thumb" data-index="3"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220/ss_0e499071a60a20b24149ad65a8edb769250f2921.1920x1080.jpg?t=1745368545" alt="Screenshot"></div>
@@ -584,7 +643,7 @@ body {
 <section class="content-section">
   <div class="content-block">
     <h2>关于此游戏</h2>
-    <div><p class="bb_paragraph" ><strong>七小时战役失利。 地球俯首称臣。 黑山基地事件已经成为遥远的记忆。</strong>玩家再次拿起科学家戈登·弗里曼的撬棍，他发现自己身处一个被外星生物侵占的地球。这时的地球正被掠夺殆尽，资源枯竭，人口衰减。 弗里曼被迫承担起拯救世界的艰巨任务，以解除他在黑山基地不慎引发的灾难。 而许多他关心的人都指望他能成功。</p><p class="bb_paragraph" >《半衰期2》是一款具有里程碑意义的第一人称射击游戏，“塑造了下一代游戏框架”（PC Gamer）。 《半衰期2》中的战役引人入胜，所构建的沉浸式世界达到前所未有的高度，所呈现的物理规律更上一层楼，战争场面扣人心弦。</p><p class="bb_paragraph" > </p><h2 class="bb_tag" >包含《半衰期2：第一章》和《半衰期2：第二章》扩展内容</h2><p class="bb_paragraph" >《半衰期2》的故事在《第一章》和《第二章》中继续，这二者是设定在基础游戏之后的完整《半衰期》冒险体验。 玩家可从主菜单进入扩展内容，在通关一个后，将自动进入下一个。</p><p class="bb_paragraph" ><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220/extras/363ed9ea180fe9d548521b2cc18d8c22.avif?t=1745368545" data-big-src=https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220/extras_big/363ed9ea180fe9d548521b2cc18d8c22.avif?t=1745368545 width=800 height=330 /></span></p><h2 class="bb_tag" >Half-Life 2: Deathmatch</h2><p class="bb_paragraph" > 设定于《半衰期2》宇宙中的快节奏多人动作游戏！ 《半衰期2》的物理效果将死亡竞赛模式提升到了一个新的高度。 直接进入死亡竞赛模式，或加入联合军 VS 反抗军的团队模式。 今天就来试试用马桶砸好友的滋味！ <strong>购买《半衰期2》后会自动加入您的 Steam 库中。</strong></p><p class="bb_paragraph" ><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220/extras/7297f35bf74ad59802e5da47afb783cd.avif?t=1745368545" data-big-src=https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220/extras_big/7297f35bf74ad59802e5da47afb783cd.avif?t=1745368545 width=800 height=342 /></span></p><h2 class="bb_tag" >Steam 创意工坊</h2><p class="bb_paragraph" >可以玩到社区创建的整个战役，或将武器、敌人、用户界面等替换为社区创建的内容。</p></div>
+    <div><p class="about_para" ><strong>七小时战役失利。 地球俯首称臣。 黑山基地事件已经成为遥远的记忆。</strong>玩家再次拿起科学家戈登·弗里曼的撬棍，他发现自己身处一个被外星生物侵占的地球。这时的地球正被掠夺殆尽，资源枯竭，人口衰减。 弗里曼被迫承担起拯救世界的艰巨任务，以解除他在黑山基地不慎引发的灾难。 而许多他关心的人都指望他能成功。</p><p class="about_para" >《半衰期2》是一款具有里程碑意义的第一人称射击游戏，“塑造了下一代游戏框架”（PC Gamer）。 《半衰期2》中的战役引人入胜，所构建的沉浸式世界达到前所未有的高度，所呈现的物理规律更上一层楼，战争场面扣人心弦。</p><p class="about_para" > </p><h2 class="bb_tag" >包含《半衰期2：第一章》和《半衰期2：第二章》扩展内容</h2><p class="about_para" >《半衰期2》的故事在《第一章》和《第二章》中继续，这二者是设定在基础游戏之后的完整《半衰期》冒险体验。 玩家可从主菜单进入扩展内容，在通关一个后，将自动进入下一个。</p><p class="about_para" ><span class="about_media"><img class="about_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220/extras/363ed9ea180fe9d548521b2cc18d8c22.avif?t=1745368545" data-big-src=https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220/extras_big/363ed9ea180fe9d548521b2cc18d8c22.avif?t=1745368545 width=800 height=330 /></span></p><h2 class="bb_tag" >Half-Life 2: Deathmatch</h2><p class="about_para" > 设定于《半衰期2》宇宙中的快节奏多人动作游戏！ 《半衰期2》的物理效果将死亡竞赛模式提升到了一个新的高度。 直接进入死亡竞赛模式，或加入联合军 VS 反抗军的团队模式。 今天就来试试用马桶砸好友的滋味！ <strong>购买《半衰期2》后会自动加入您的 Steam 库中。</strong></p><p class="about_para" ><span class="about_media"><img class="about_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220/extras/7297f35bf74ad59802e5da47afb783cd.avif?t=1745368545" data-big-src=https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220/extras_big/7297f35bf74ad59802e5da47afb783cd.avif?t=1745368545 width=800 height=342 /></span></p><h2 class="bb_tag" >Steam 创意工坊</h2><p class="about_para" >可以玩到社区创建的整个战役，或将武器、敌人、用户界面等替换为社区创建的内容。</p></div>
   </div>
 </section>
 

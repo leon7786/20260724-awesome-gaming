@@ -509,6 +509,51 @@ body {
     height: 45px;
   }
 }
+
+/* Steam 关于此游戏内容 */
+.content-block .about_para {
+  margin-bottom: 0.9rem;
+  color: var(--text-secondary);
+  font-size: 0.9375rem;
+  line-height: 1.75;
+}
+.content-block .about_media {
+  display: block;
+  max-width: 100%;
+  margin: 1rem 0;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #000;
+}
+.content-block .about_img {
+  max-width: 100% !important;
+  width: 100% !important;
+  height: auto !important;
+  display: block;
+  border-radius: 8px;
+}
+.content-block video.about_img {
+  width: 100% !important;
+  max-height: 480px;
+  object-fit: contain;
+  background: #000;
+}
+.content-block .about_ul {
+  list-style: none;
+  padding-left: 0;
+}
+.content-block .about_ul li {
+  padding-left: 1.25rem;
+  position: relative;
+  margin-bottom: 0.5rem;
+}
+.content-block .about_ul li:before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+}
+
 </style>
 </head>
 <body>
@@ -523,7 +568,7 @@ body {
 <section class="hero">
   <div class="container">
     <div class="hero-cover">
-      <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2379780/library_600x900.jpg" alt="小丑牌">
+      <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2379780/7a85430784e4d613cdb0547414d8cf16ffa45747/header.jpg" alt="小丑牌">
     </div>
     <div class="hero-info">
       <h1>小丑牌</h1>
@@ -532,7 +577,7 @@ body {
       <div class="meta-tags">
         <span class="meta-tag year">2024</span>
         <span class="meta-tag">休闲, 独立, 策略</span>
-        <span class="meta-tag score">⭐ 98</span>
+        <span class="meta-tag score">⭐ 90</span>
       </div>
       
       <div class="info-row">
@@ -558,12 +603,25 @@ body {
   <div class="media-gallery">
     <!-- 主图显示区域 -->
     <div class="media-main" id="mediaMain">
-      <img src="" alt="Loading">
+      <video controls playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257198110/8a0ee295b28d9650b4176336600ef70c204209a0/movie_600x337.jpg?t=1759138871" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257198110/movie_max.mp4" style="width:100%;height:100%;object-fit:contain;background:#000"></video>
     </div>
     
     <!-- 缩略图bar -->
     <div class="media-thumbnails" id="mediaThumbnails">
       <div class="media-thumb active" data-index="0"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257198110/8a0ee295b28d9650b4176336600ef70c204209a0/movie_600x337.jpg?t=1759138871" alt="Video"></div>
+<div class="media-thumb" data-index="1"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2379780/96208723dbedef49d71bf1b0a74aee1689018c50/ss_96208723dbedef49d71bf1b0a74aee1689018c50.1920x1080.jpg?t=1781540048" alt="Screenshot"></div>
+<div class="media-thumb" data-index="2"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2379780/ss_4862112e5030f74a5818cd4c31347d699ac5adf3.1920x1080.jpg?t=1781540048" alt="Screenshot"></div>
+<div class="media-thumb" data-index="3"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2379780/ss_3be65a7dd3be072d567e11883d208861a7e959fa.1920x1080.jpg?t=1781540048" alt="Screenshot"></div>
+<div class="media-thumb" data-index="4"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2379780/ss_e32ac94d7d1d6be7dd015d78f2b52aeb4cc282ed.1920x1080.jpg?t=1781540048" alt="Screenshot"></div>
+<div class="media-thumb" data-index="5"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2379780/ss_b8455573ec1fd2c9412f22bd8df05f2d8027a95b.1920x1080.jpg?t=1781540048" alt="Screenshot"></div>
+<div class="media-thumb" data-index="6"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2379780/ss_075cb45cbfa97d8139fb11f21667d6e35f908640.1920x1080.jpg?t=1781540048" alt="Screenshot"></div>
+<div class="media-thumb" data-index="7"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2379780/ss_ae055e0e583ac65000920ce33511df73f40814f4.1920x1080.jpg?t=1781540048" alt="Screenshot"></div>
+<div class="media-thumb" data-index="8"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2379780/ss_204350350761316ad3aa8b0184689f3f93e01f7b.1920x1080.jpg?t=1781540048" alt="Screenshot"></div>
+<div class="media-thumb" data-index="9"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2379780/ss_ddee13031ad8ba66ac7806a46f6e5519d32e767d.1920x1080.jpg?t=1781540048" alt="Screenshot"></div>
+<div class="media-thumb" data-index="10"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2379780/d8bca9a646921db5ecd24c25571b79e4ff15aa60/ss_d8bca9a646921db5ecd24c25571b79e4ff15aa60.1920x1080.jpg?t=1781540048" alt="Screenshot"></div>
+<div class="media-thumb" data-index="11"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2379780/ss_e52b658ebc79c633063e58d77e73ca9750e01039.1920x1080.jpg?t=1781540048" alt="Screenshot"></div>
+<div class="media-thumb" data-index="12"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2379780/ss_5ab29592c9b5cafe5ce787740afc411eecb9664a.1920x1080.jpg?t=1781540048" alt="Screenshot"></div>
+    </div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257198110/8a0ee295b28d9650b4176336600ef70c204209a0/movie_600x337.jpg?t=1759138871" alt="Video"></div>
 <div class="media-thumb " data-index="1"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2379780/96208723dbedef49d71bf1b0a74aee1689018c50/ss_96208723dbedef49d71bf1b0a74aee1689018c50.1920x1080.jpg?t=1781540048" alt="Screenshot"></div>
 <div class="media-thumb " data-index="2"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2379780/ss_4862112e5030f74a5818cd4c31347d699ac5adf3.1920x1080.jpg?t=1781540048" alt="Screenshot"></div>
 <div class="media-thumb " data-index="3"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2379780/ss_3be65a7dd3be072d567e11883d208861a7e959fa.1920x1080.jpg?t=1781540048" alt="Screenshot"></div>
@@ -585,7 +643,7 @@ body {
 <section class="content-section">
   <div class="content-block">
     <h2>关于此游戏</h2>
-    <div><strong>Balatro是一款以扑克为灵感的魔幻建牌游戏，你将全情投入于打造强大的增效并取得巨大胜利。</strong><br><br><br><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline crossorigin="anonymous" poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2379780/extras/d5b3b51f8b55febc8dd08a443d126907.poster.avif?t=1781540048" width=780 height=190 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2379780/extras/d5b3b51f8b55febc8dd08a443d126907.webm?t=1781540048" type="video/webm; codecs=vp9"></video></span><br><strong>无尽可能 易学难精</strong><br><br>将有效的扑克手牌与独特的小丑牌相结合，打造不同的增效和策略。赢得足够的筹码，打破盲注的奸计，同时在游戏过程中揭示隐藏的奖励牌手和牌组。为了到达终极盲注、击败最终赌注并稳操胜券，你需要尽一切可能获取优势。<br><br><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline crossorigin="anonymous" poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2379780/extras/5f6a6f99b54a68f6c070208eb4fc816f.poster.avif?t=1781540048" width=780 height=240 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2379780/extras/5f6a6f99b54a68f6c070208eb4fc816f.webm?t=1781540048" type="video/webm; codecs=vp9"></video></span><br><ul class="bb_ul"><li>一场扑克风格的终极博弈之旅。<br></li><li>无尽可能 - 每一次抽牌、弃牌和小丑牌的出现都可能彻底改变你的游戏进程。<br></li><li>深度战役模式，包括8种不同难度，还有挑战、每日通关和自定义游戏模式。</li></ul><br><br><br><br><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline crossorigin="anonymous" poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2379780/extras/3709bdd6d508e2351303497ef0677f0d.poster.avif?t=1781540048" width=780 height=190 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2379780/extras/3709bdd6d508e2351303497ef0677f0d.webm?t=1781540048" type="video/webm; codecs=vp9"></video></span><br><strong>打破游戏界限</strong><br><br>灵活运用一系列强大的工具：不同的牌组、小丑牌、塔罗牌、星球牌、幽灵牌和代金券。利用这些多面手工具，点燃连击狂潮，为你的扑克手牌制造出让人兴奋、肾上腺素飙升的增效。<br><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline crossorigin="anonymous" poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2379780/extras/065599625dbc7a1712d0ea315940df38.poster.avif?t=1781540048" width=780 height=316 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2379780/extras/065599625dbc7a1712d0ea315940df38.webm?t=1781540048" type="video/webm; codecs=vp9"></video></span><br><ul class="bb_ul"><li>150张小丑牌，每张都有独特的能力<br></li><li>15副不同牌组，每轮游戏可供选择的修改器各不相同<br></li><li>每张小丑牌有5种潜在变体，增加额外的能力<br></li><li>22种塔罗牌变体，可增强你的普通扑克牌<br></li><li>11张星球牌，助你提升可能获得的扑克手牌<br></li><li>32种代金券，可为当前回合提供永久性增益</li></ul><br><br><br><br><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline crossorigin="anonymous" poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2379780/extras/d01e8b80fbdc100d195fce0f5f27b63b.poster.avif?t=1781540048" width=780 height=190 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2379780/extras/d01e8b80fbdc100d195fce0f5f27b63b.webm?t=1781540048" type="video/webm; codecs=vp9"></video></span><br><strong>找到自己的节奏</strong><br><br>沉浸在Balatro别具特色的迷幻世界中。让合成波音乐声音的冲击萦绕耳际 - 放松心情，逃离日常琐事，准备进入终极的回合制游戏状态。<br><br><ul class="bb_ul"><li>通过每轮游戏不断完善你的收藏，发现新的卡牌和秘密。<br></li><li>利用详尽的屏幕统计来研究你的最佳牌组、最常使用的小丑牌等等！<br></li><li>沉浸在CRT风格的像素艺术中，享受细致的、手工雕刻的画面。</li></ul><br><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline crossorigin="anonymous" poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2379780/extras/3bf854ed6d6623c9940b8281d4c115e0.poster.avif?t=1781540048" width=780 height=240 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2379780/extras/3bf854ed6d6623c9940b8281d4c115e0.webm?t=1781540048" type="video/webm; codecs=vp9"></video></span></div>
+    <div><strong>Balatro是一款以扑克为灵感的魔幻建牌游戏，你将全情投入于打造强大的增效并取得巨大胜利。</strong><br><br><br><span class="about_media"><video class="about_img" autoplay muted loop playsinline crossorigin="anonymous" poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2379780/extras/d5b3b51f8b55febc8dd08a443d126907.poster.avif?t=1781540048" width=780 height=190 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2379780/extras/d5b3b51f8b55febc8dd08a443d126907.webm?t=1781540048" type="video/webm; codecs=vp9"></video></span><br><strong>无尽可能 易学难精</strong><br><br>将有效的扑克手牌与独特的小丑牌相结合，打造不同的增效和策略。赢得足够的筹码，打破盲注的奸计，同时在游戏过程中揭示隐藏的奖励牌手和牌组。为了到达终极盲注、击败最终赌注并稳操胜券，你需要尽一切可能获取优势。<br><br><span class="about_media"><video class="about_img" autoplay muted loop playsinline crossorigin="anonymous" poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2379780/extras/5f6a6f99b54a68f6c070208eb4fc816f.poster.avif?t=1781540048" width=780 height=240 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2379780/extras/5f6a6f99b54a68f6c070208eb4fc816f.webm?t=1781540048" type="video/webm; codecs=vp9"></video></span><br><ul class="about_ul"><li>一场扑克风格的终极博弈之旅。<br></li><li>无尽可能 - 每一次抽牌、弃牌和小丑牌的出现都可能彻底改变你的游戏进程。<br></li><li>深度战役模式，包括8种不同难度，还有挑战、每日通关和自定义游戏模式。</li></ul><br><br><br><br><span class="about_media"><video class="about_img" autoplay muted loop playsinline crossorigin="anonymous" poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2379780/extras/3709bdd6d508e2351303497ef0677f0d.poster.avif?t=1781540048" width=780 height=190 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2379780/extras/3709bdd6d508e2351303497ef0677f0d.webm?t=1781540048" type="video/webm; codecs=vp9"></video></span><br><strong>打破游戏界限</strong><br><br>灵活运用一系列强大的工具：不同的牌组、小丑牌、塔罗牌、星球牌、幽灵牌和代金券。利用这些多面手工具，点燃连击狂潮，为你的扑克手牌制造出让人兴奋、肾上腺素飙升的增效。<br><span class="about_media"><video class="about_img" autoplay muted loop playsinline crossorigin="anonymous" poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2379780/extras/065599625dbc7a1712d0ea315940df38.poster.avif?t=1781540048" width=780 height=316 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2379780/extras/065599625dbc7a1712d0ea315940df38.webm?t=1781540048" type="video/webm; codecs=vp9"></video></span><br><ul class="about_ul"><li>150张小丑牌，每张都有独特的能力<br></li><li>15副不同牌组，每轮游戏可供选择的修改器各不相同<br></li><li>每张小丑牌有5种潜在变体，增加额外的能力<br></li><li>22种塔罗牌变体，可增强你的普通扑克牌<br></li><li>11张星球牌，助你提升可能获得的扑克手牌<br></li><li>32种代金券，可为当前回合提供永久性增益</li></ul><br><br><br><br><span class="about_media"><video class="about_img" autoplay muted loop playsinline crossorigin="anonymous" poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2379780/extras/d01e8b80fbdc100d195fce0f5f27b63b.poster.avif?t=1781540048" width=780 height=190 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2379780/extras/d01e8b80fbdc100d195fce0f5f27b63b.webm?t=1781540048" type="video/webm; codecs=vp9"></video></span><br><strong>找到自己的节奏</strong><br><br>沉浸在Balatro别具特色的迷幻世界中。让合成波音乐声音的冲击萦绕耳际 - 放松心情，逃离日常琐事，准备进入终极的回合制游戏状态。<br><br><ul class="about_ul"><li>通过每轮游戏不断完善你的收藏，发现新的卡牌和秘密。<br></li><li>利用详尽的屏幕统计来研究你的最佳牌组、最常使用的小丑牌等等！<br></li><li>沉浸在CRT风格的像素艺术中，享受细致的、手工雕刻的画面。</li></ul><br><span class="about_media"><video class="about_img" autoplay muted loop playsinline crossorigin="anonymous" poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2379780/extras/3bf854ed6d6623c9940b8281d4c115e0.poster.avif?t=1781540048" width=780 height=240 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2379780/extras/3bf854ed6d6623c9940b8281d4c115e0.webm?t=1781540048" type="video/webm; codecs=vp9"></video></span></div>
   </div>
 </section>
 
@@ -617,19 +675,71 @@ body {
 <script>
 // 媒体数据
 const mediaItems = [
-  {"type": "video", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257198110/movie_max.mp4", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257198110/8a0ee295b28d9650b4176336600ef70c204209a0/movie_600x337.jpg?t=1759138871"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2379780/96208723dbedef49d71bf1b0a74aee1689018c50/ss_96208723dbedef49d71bf1b0a74aee1689018c50.1920x1080.jpg?t=1781540048", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2379780/96208723dbedef49d71bf1b0a74aee1689018c50/ss_96208723dbedef49d71bf1b0a74aee1689018c50.1920x1080.jpg?t=1781540048"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2379780/ss_4862112e5030f74a5818cd4c31347d699ac5adf3.1920x1080.jpg?t=1781540048", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2379780/ss_4862112e5030f74a5818cd4c31347d699ac5adf3.1920x1080.jpg?t=1781540048"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2379780/ss_3be65a7dd3be072d567e11883d208861a7e959fa.1920x1080.jpg?t=1781540048", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2379780/ss_3be65a7dd3be072d567e11883d208861a7e959fa.1920x1080.jpg?t=1781540048"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2379780/ss_e32ac94d7d1d6be7dd015d78f2b52aeb4cc282ed.1920x1080.jpg?t=1781540048", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2379780/ss_e32ac94d7d1d6be7dd015d78f2b52aeb4cc282ed.1920x1080.jpg?t=1781540048"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2379780/ss_b8455573ec1fd2c9412f22bd8df05f2d8027a95b.1920x1080.jpg?t=1781540048", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2379780/ss_b8455573ec1fd2c9412f22bd8df05f2d8027a95b.1920x1080.jpg?t=1781540048"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2379780/ss_075cb45cbfa97d8139fb11f21667d6e35f908640.1920x1080.jpg?t=1781540048", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2379780/ss_075cb45cbfa97d8139fb11f21667d6e35f908640.1920x1080.jpg?t=1781540048"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2379780/ss_ae055e0e583ac65000920ce33511df73f40814f4.1920x1080.jpg?t=1781540048", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2379780/ss_ae055e0e583ac65000920ce33511df73f40814f4.1920x1080.jpg?t=1781540048"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2379780/ss_204350350761316ad3aa8b0184689f3f93e01f7b.1920x1080.jpg?t=1781540048", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2379780/ss_204350350761316ad3aa8b0184689f3f93e01f7b.1920x1080.jpg?t=1781540048"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2379780/ss_ddee13031ad8ba66ac7806a46f6e5519d32e767d.1920x1080.jpg?t=1781540048", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2379780/ss_ddee13031ad8ba66ac7806a46f6e5519d32e767d.1920x1080.jpg?t=1781540048"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2379780/d8bca9a646921db5ecd24c25571b79e4ff15aa60/ss_d8bca9a646921db5ecd24c25571b79e4ff15aa60.1920x1080.jpg?t=1781540048", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2379780/d8bca9a646921db5ecd24c25571b79e4ff15aa60/ss_d8bca9a646921db5ecd24c25571b79e4ff15aa60.1920x1080.jpg?t=1781540048"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2379780/ss_e52b658ebc79c633063e58d77e73ca9750e01039.1920x1080.jpg?t=1781540048", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2379780/ss_e52b658ebc79c633063e58d77e73ca9750e01039.1920x1080.jpg?t=1781540048"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2379780/ss_5ab29592c9b5cafe5ce787740afc411eecb9664a.1920x1080.jpg?t=1781540048", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2379780/ss_5ab29592c9b5cafe5ce787740afc411eecb9664a.1920x1080.jpg?t=1781540048"}
+  {
+    "type": "video",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257198110/movie_max.mp4",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257198110/8a0ee295b28d9650b4176336600ef70c204209a0/movie_600x337.jpg?t=1759138871"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2379780/96208723dbedef49d71bf1b0a74aee1689018c50/ss_96208723dbedef49d71bf1b0a74aee1689018c50.1920x1080.jpg?t=1781540048",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2379780/96208723dbedef49d71bf1b0a74aee1689018c50/ss_96208723dbedef49d71bf1b0a74aee1689018c50.1920x1080.jpg?t=1781540048"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2379780/ss_4862112e5030f74a5818cd4c31347d699ac5adf3.1920x1080.jpg?t=1781540048",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2379780/ss_4862112e5030f74a5818cd4c31347d699ac5adf3.1920x1080.jpg?t=1781540048"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2379780/ss_3be65a7dd3be072d567e11883d208861a7e959fa.1920x1080.jpg?t=1781540048",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2379780/ss_3be65a7dd3be072d567e11883d208861a7e959fa.1920x1080.jpg?t=1781540048"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2379780/ss_e32ac94d7d1d6be7dd015d78f2b52aeb4cc282ed.1920x1080.jpg?t=1781540048",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2379780/ss_e32ac94d7d1d6be7dd015d78f2b52aeb4cc282ed.1920x1080.jpg?t=1781540048"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2379780/ss_b8455573ec1fd2c9412f22bd8df05f2d8027a95b.1920x1080.jpg?t=1781540048",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2379780/ss_b8455573ec1fd2c9412f22bd8df05f2d8027a95b.1920x1080.jpg?t=1781540048"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2379780/ss_075cb45cbfa97d8139fb11f21667d6e35f908640.1920x1080.jpg?t=1781540048",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2379780/ss_075cb45cbfa97d8139fb11f21667d6e35f908640.1920x1080.jpg?t=1781540048"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2379780/ss_ae055e0e583ac65000920ce33511df73f40814f4.1920x1080.jpg?t=1781540048",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2379780/ss_ae055e0e583ac65000920ce33511df73f40814f4.1920x1080.jpg?t=1781540048"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2379780/ss_204350350761316ad3aa8b0184689f3f93e01f7b.1920x1080.jpg?t=1781540048",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2379780/ss_204350350761316ad3aa8b0184689f3f93e01f7b.1920x1080.jpg?t=1781540048"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2379780/ss_ddee13031ad8ba66ac7806a46f6e5519d32e767d.1920x1080.jpg?t=1781540048",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2379780/ss_ddee13031ad8ba66ac7806a46f6e5519d32e767d.1920x1080.jpg?t=1781540048"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2379780/d8bca9a646921db5ecd24c25571b79e4ff15aa60/ss_d8bca9a646921db5ecd24c25571b79e4ff15aa60.1920x1080.jpg?t=1781540048",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2379780/d8bca9a646921db5ecd24c25571b79e4ff15aa60/ss_d8bca9a646921db5ecd24c25571b79e4ff15aa60.1920x1080.jpg?t=1781540048"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2379780/ss_e52b658ebc79c633063e58d77e73ca9750e01039.1920x1080.jpg?t=1781540048",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2379780/ss_e52b658ebc79c633063e58d77e73ca9750e01039.1920x1080.jpg?t=1781540048"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2379780/ss_5ab29592c9b5cafe5ce787740afc411eecb9664a.1920x1080.jpg?t=1781540048",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2379780/ss_5ab29592c9b5cafe5ce787740afc411eecb9664a.1920x1080.jpg?t=1781540048"
+  }
 ];
 
 let currentIndex = 0;

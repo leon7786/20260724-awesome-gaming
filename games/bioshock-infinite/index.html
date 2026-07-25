@@ -509,6 +509,51 @@ body {
     height: 45px;
   }
 }
+
+/* Steam 关于此游戏内容 */
+.content-block .about_para {
+  margin-bottom: 0.9rem;
+  color: var(--text-secondary);
+  font-size: 0.9375rem;
+  line-height: 1.75;
+}
+.content-block .about_media {
+  display: block;
+  max-width: 100%;
+  margin: 1rem 0;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #000;
+}
+.content-block .about_img {
+  max-width: 100% !important;
+  width: 100% !important;
+  height: auto !important;
+  display: block;
+  border-radius: 8px;
+}
+.content-block video.about_img {
+  width: 100% !important;
+  max-height: 480px;
+  object-fit: contain;
+  background: #000;
+}
+.content-block .about_ul {
+  list-style: none;
+  padding-left: 0;
+}
+.content-block .about_ul li {
+  padding-left: 1.25rem;
+  position: relative;
+  margin-bottom: 0.5rem;
+}
+.content-block .about_ul li:before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+}
+
 </style>
 </head>
 <body>
@@ -523,7 +568,7 @@ body {
 <section class="hero">
   <div class="container">
     <div class="hero-cover">
-      <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/8870/library_600x900.jpg" alt="生化奇兵：无限">
+      <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/8870/header.jpg" alt="生化奇兵：无限">
     </div>
     <div class="hero-info">
       <h1>生化奇兵：无限</h1>
@@ -557,12 +602,24 @@ body {
   <div class="media-gallery">
     <!-- 主图显示区域 -->
     <div class="media-main" id="mediaMain">
-      <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/8870/ss_26e2d983948edfb911db3e0d2c3679900b4ef9fa.1920x1080.jpg?t=1728673518" alt="Screenshot">
+      <video controls playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2028471/movie.293x165.jpg?t=1447357639" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2028471/movie_max.mp4" style="width:100%;height:100%;object-fit:contain;background:#000"></video>
     </div>
     
     <!-- 缩略图bar -->
     <div class="media-thumbnails" id="mediaThumbnails">
-      <div class="media-thumb active" data-index="0"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/8870/ss_26e2d983948edfb911db3e0d2c3679900b4ef9fa.1920x1080.jpg?t=1728673518" alt="Screenshot"></div>
+      <div class="media-thumb active" data-index="0"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2028471/movie.293x165.jpg?t=1447357639" alt="Video"></div>
+<div class="media-thumb" data-index="1"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2028345/movie.293x165.jpg?t=1447357360" alt="Video"></div>
+<div class="media-thumb" data-index="2"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2028377/movie.293x165.jpg?t=1447357456" alt="Video"></div>
+<div class="media-thumb" data-index="3"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/8870/ss_26e2d983948edfb911db3e0d2c3679900b4ef9fa.1920x1080.jpg?t=1728673518" alt="Screenshot"></div>
+<div class="media-thumb" data-index="4"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/8870/ss_c6f3fbf3e9f4cb1777462150203a7174608dfcd9.1920x1080.jpg?t=1728673518" alt="Screenshot"></div>
+<div class="media-thumb" data-index="5"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/8870/ss_dc76723504ce89c1ed1f66fd468682ba76548c32.1920x1080.jpg?t=1728673518" alt="Screenshot"></div>
+<div class="media-thumb" data-index="6"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/8870/ss_37f25110f8d76335ddbc29a381bc6961e209acf6.1920x1080.jpg?t=1728673518" alt="Screenshot"></div>
+<div class="media-thumb" data-index="7"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/8870/ss_d45294620026ff41f7e6b8610c6d60e13645fbf3.1920x1080.jpg?t=1728673518" alt="Screenshot"></div>
+<div class="media-thumb" data-index="8"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/8870/ss_fd6f5de55332f6c3cd119a01a9e017e840765c0e.1920x1080.jpg?t=1728673518" alt="Screenshot"></div>
+<div class="media-thumb" data-index="9"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/8870/ss_3a364ffdcd2c1eeb3957435c624fc7c383d8cb69.1920x1080.jpg?t=1728673518" alt="Screenshot"></div>
+<div class="media-thumb" data-index="10"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/8870/ss_4616da02724c2beaa8afc74a501929d27a65542a.1920x1080.jpg?t=1728673518" alt="Screenshot"></div>
+<div class="media-thumb" data-index="11"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/8870/ss_e98deaf0e334206b84c2462276aee98107fa20d0.1920x1080.jpg?t=1728673518" alt="Screenshot"></div>
+    </div>
 <div class="media-thumb " data-index="1"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/8870/ss_c6f3fbf3e9f4cb1777462150203a7174608dfcd9.1920x1080.jpg?t=1728673518" alt="Screenshot"></div>
 <div class="media-thumb " data-index="2"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/8870/ss_dc76723504ce89c1ed1f66fd468682ba76548c32.1920x1080.jpg?t=1728673518" alt="Screenshot"></div>
 <div class="media-thumb " data-index="3"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/8870/ss_37f25110f8d76335ddbc29a381bc6961e209acf6.1920x1080.jpg?t=1728673518" alt="Screenshot"></div>
@@ -577,7 +634,7 @@ body {
 <section class="content-section">
   <div class="content-block">
     <h2>关于此游戏</h2>
-    <div>Indebted to the wrong people, with his life on the line, veteran of the U.S. Cavalry and now hired gun, Booker DeWitt has only one opportunity to wipe his slate clean. He must rescue Elizabeth, a mysterious girl imprisoned since childhood and locked up in the flying city of Columbia.</div>
+    <div>Indebted to the wrong people, with his life on the line, veteran of the U.S. Cavalry and now hired gun, Booker DeWitt has only one opportunity to wipe his slate clean. He must rescue Elizabeth, a mysterious girl imprisoned since childhood and locked up in the flying city of Columbia. Forced to trust one another, Booker and Elizabeth form a powerful bond during their daring escape. Together, they learn to harness an expanding arsenal of weapons and abilities, as they fight on zeppelins in the clouds, along high-speed Sky-Lines, and down in the streets of Columbia, all while surviving the threats of the air-city and uncovering its dark secret.<h2 class="bb_tag" >Key Features</h2><ul class="about_ul"><li>	<strong>The City in the Sky</strong> – Leave the depths of Rapture to soar among the clouds of Columbia. A technological marvel, the flying city is a beautiful and vibrant world that holds a very dark secret. <br></li><li>	<strong>Unlikely Mission</strong> – Set in 1912, hired gun Booker DeWitt must rescue a mysterious girl from the sky-city of Columbia or never leave it alive. <br></li><li>	<strong>Whip, Zip, and Kill</strong> – Turn the city’s Sky-Lines into weaponized roller coasters as you zip through the flying city and dish out fatal hands-on punishment.<br></li><li>	<strong>Tear Through Time</strong> – Open Tears in time and space to shape the battlefield and turn the tide in combat by pulling weapons, turrets, and other resources out of thin air.<br></li><li>	<strong>Vigorous Powers</strong> – Throw explosive fireballs, shoot lightning, and release murders of crows as devastatingly powerful Vigors surge through your body to be unleashed against all that oppose you. <br></li><li>	<strong>Custom Combat Experience</strong> – With deadly weapons in one hand, powerful Vigors in the other, and the ability to open Tears in time and space, fight your own way through the floating city of Columbia to rescue Elizabeth and reach freedom. <br></li><li>	<strong>1999 Mode</strong> – Upon finishing BioShock Infinite, the player can unlock a game mode called “1999 Mode” that gives experienced players a taste of the kind of design and balance that hardcore gamers enjoyed back in the 20th century.</li></ul></div>
   </div>
 </section>
 
@@ -597,12 +654,66 @@ body {
 <script>
 // 媒体数据
 const mediaItems = [
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/8870/ss_26e2d983948edfb911db3e0d2c3679900b4ef9fa.1920x1080.jpg?t=1728673518", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/8870/ss_26e2d983948edfb911db3e0d2c3679900b4ef9fa.1920x1080.jpg?t=1728673518"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/8870/ss_c6f3fbf3e9f4cb1777462150203a7174608dfcd9.1920x1080.jpg?t=1728673518", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/8870/ss_c6f3fbf3e9f4cb1777462150203a7174608dfcd9.1920x1080.jpg?t=1728673518"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/8870/ss_dc76723504ce89c1ed1f66fd468682ba76548c32.1920x1080.jpg?t=1728673518", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/8870/ss_dc76723504ce89c1ed1f66fd468682ba76548c32.1920x1080.jpg?t=1728673518"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/8870/ss_37f25110f8d76335ddbc29a381bc6961e209acf6.1920x1080.jpg?t=1728673518", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/8870/ss_37f25110f8d76335ddbc29a381bc6961e209acf6.1920x1080.jpg?t=1728673518"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/8870/ss_d45294620026ff41f7e6b8610c6d60e13645fbf3.1920x1080.jpg?t=1728673518", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/8870/ss_d45294620026ff41f7e6b8610c6d60e13645fbf3.1920x1080.jpg?t=1728673518"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/8870/ss_fd6f5de55332f6c3cd119a01a9e017e840765c0e.1920x1080.jpg?t=1728673518", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/8870/ss_fd6f5de55332f6c3cd119a01a9e017e840765c0e.1920x1080.jpg?t=1728673518"}
+  {
+    "type": "video",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2028471/movie_max.mp4",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2028471/movie.293x165.jpg?t=1447357639"
+  },
+  {
+    "type": "video",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2028345/movie_max.mp4",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2028345/movie.293x165.jpg?t=1447357360"
+  },
+  {
+    "type": "video",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2028377/movie_max.mp4",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2028377/movie.293x165.jpg?t=1447357456"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/8870/ss_26e2d983948edfb911db3e0d2c3679900b4ef9fa.1920x1080.jpg?t=1728673518",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/8870/ss_26e2d983948edfb911db3e0d2c3679900b4ef9fa.1920x1080.jpg?t=1728673518"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/8870/ss_c6f3fbf3e9f4cb1777462150203a7174608dfcd9.1920x1080.jpg?t=1728673518",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/8870/ss_c6f3fbf3e9f4cb1777462150203a7174608dfcd9.1920x1080.jpg?t=1728673518"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/8870/ss_dc76723504ce89c1ed1f66fd468682ba76548c32.1920x1080.jpg?t=1728673518",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/8870/ss_dc76723504ce89c1ed1f66fd468682ba76548c32.1920x1080.jpg?t=1728673518"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/8870/ss_37f25110f8d76335ddbc29a381bc6961e209acf6.1920x1080.jpg?t=1728673518",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/8870/ss_37f25110f8d76335ddbc29a381bc6961e209acf6.1920x1080.jpg?t=1728673518"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/8870/ss_d45294620026ff41f7e6b8610c6d60e13645fbf3.1920x1080.jpg?t=1728673518",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/8870/ss_d45294620026ff41f7e6b8610c6d60e13645fbf3.1920x1080.jpg?t=1728673518"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/8870/ss_fd6f5de55332f6c3cd119a01a9e017e840765c0e.1920x1080.jpg?t=1728673518",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/8870/ss_fd6f5de55332f6c3cd119a01a9e017e840765c0e.1920x1080.jpg?t=1728673518"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/8870/ss_3a364ffdcd2c1eeb3957435c624fc7c383d8cb69.1920x1080.jpg?t=1728673518",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/8870/ss_3a364ffdcd2c1eeb3957435c624fc7c383d8cb69.1920x1080.jpg?t=1728673518"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/8870/ss_4616da02724c2beaa8afc74a501929d27a65542a.1920x1080.jpg?t=1728673518",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/8870/ss_4616da02724c2beaa8afc74a501929d27a65542a.1920x1080.jpg?t=1728673518"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/8870/ss_e98deaf0e334206b84c2462276aee98107fa20d0.1920x1080.jpg?t=1728673518",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/8870/ss_e98deaf0e334206b84c2462276aee98107fa20d0.1920x1080.jpg?t=1728673518"
+  }
 ];
 
 let currentIndex = 0;

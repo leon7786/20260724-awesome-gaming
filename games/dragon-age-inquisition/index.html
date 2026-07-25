@@ -509,6 +509,51 @@ body {
     height: 45px;
   }
 }
+
+/* Steam 关于此游戏内容 */
+.content-block .about_para {
+  margin-bottom: 0.9rem;
+  color: var(--text-secondary);
+  font-size: 0.9375rem;
+  line-height: 1.75;
+}
+.content-block .about_media {
+  display: block;
+  max-width: 100%;
+  margin: 1rem 0;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #000;
+}
+.content-block .about_img {
+  max-width: 100% !important;
+  width: 100% !important;
+  height: auto !important;
+  display: block;
+  border-radius: 8px;
+}
+.content-block video.about_img {
+  width: 100% !important;
+  max-height: 480px;
+  object-fit: contain;
+  background: #000;
+}
+.content-block .about_ul {
+  list-style: none;
+  padding-left: 0;
+}
+.content-block .about_ul li {
+  padding-left: 1.25rem;
+  position: relative;
+  margin-bottom: 0.5rem;
+}
+.content-block .about_ul li:before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+}
+
 </style>
 </head>
 <body>
@@ -523,7 +568,7 @@ body {
 <section class="hero">
   <div class="container">
     <div class="hero-cover">
-      <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1222690/library_600x900.jpg" alt="龙腾世纪：审判">
+      <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1222690/header.jpg" alt="龙腾世纪：审判">
     </div>
     <div class="hero-info">
       <h1>龙腾世纪：审判</h1>
@@ -558,12 +603,23 @@ body {
   <div class="media-gallery">
     <!-- 主图显示区域 -->
     <div class="media-main" id="mediaMain">
-      <img src="" alt="Loading">
+      <video controls playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256823694/movie.293x165.jpg?t=1614197127" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256823694/movie_max.mp4" style="width:100%;height:100%;object-fit:contain;background:#000"></video>
     </div>
     
     <!-- 缩略图bar -->
     <div class="media-thumbnails" id="mediaThumbnails">
       <div class="media-thumb active" data-index="0"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256823694/movie.293x165.jpg?t=1614197127" alt="Video"></div>
+<div class="media-thumb" data-index="1"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256786306/movie.293x165.jpg?t=1591282605" alt="Video"></div>
+<div class="media-thumb" data-index="2"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256791237/movie.293x165.jpg?t=1593442860" alt="Video"></div>
+<div class="media-thumb" data-index="3"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256791510/movie.293x165.jpg?t=1593638516" alt="Video"></div>
+<div class="media-thumb" data-index="4"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256791506/movie.293x165.jpg?t=1593638526" alt="Video"></div>
+<div class="media-thumb" data-index="5"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256791502/movie.293x165.jpg?t=1593638536" alt="Video"></div>
+<div class="media-thumb" data-index="6"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1222690/ss_4c90bdbb1c2567edec0778f2e8956d1a8ff1b4c3.1920x1080.jpg?t=1779987585" alt="Screenshot"></div>
+<div class="media-thumb" data-index="7"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1222690/ss_a106df995b9051e24ebe5abdec168ea3495bfda4.1920x1080.jpg?t=1779987585" alt="Screenshot"></div>
+<div class="media-thumb" data-index="8"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1222690/ss_e8e2d622313d983fc9eb3fd824a2e0401c247780.1920x1080.jpg?t=1779987585" alt="Screenshot"></div>
+<div class="media-thumb" data-index="9"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1222690/ss_df4fb7825aef29e53e4b3e5dbb6c8dc6cd6e16d9.1920x1080.jpg?t=1779987585" alt="Screenshot"></div>
+<div class="media-thumb" data-index="10"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1222690/ss_428d0d34e11bd8fad4f4f4fb0fd3245d632e6bb7.1920x1080.jpg?t=1779987585" alt="Screenshot"></div>
+    </div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256823694/movie.293x165.jpg?t=1614197127" alt="Video"></div>
 <div class="media-thumb " data-index="1"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256786306/movie.293x165.jpg?t=1591282605" alt="Video"></div>
 <div class="media-thumb " data-index="2"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256791237/movie.293x165.jpg?t=1593442860" alt="Video"></div>
 <div class="media-thumb " data-index="3"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256791510/movie.293x165.jpg?t=1593638516" alt="Video"></div>
@@ -583,7 +639,7 @@ body {
 <section class="content-section">
   <div class="content-block">
     <h2>关于此游戏</h2>
-    <div>苍穹撕裂，混沌降临，世界呼唤英雄。在《龙腾世纪：审判》年度版中化身塞达斯的拯救者。您就是审判官，肩负着拯救世界的使命。但前方的路上少不了各种艰难抉择。塞达斯是一片纷争之地。即便在恶魔大举入侵之时，派系间的战争也未曾中断。那您呢？您和您的勇士们是唯一能够一统乱局的力量。您的职责就是领导他们……或者堕落下去。<br><br><strong>引人入胜的叙事情节，您的选择决定故事走向</strong> — 在《审判》历程中，您不只是要决定每场战斗的参战人选，还要做出影响塞达斯未来的重要决定。每种选择都承载了分量，您的行动可能会带来各种结果。《审判》为您创造了一段高度个性化的经历，走错一步就可能引发一系列改变世界面貌的事件，这让您的塞达斯和英雄们真正地与众不同。<br><br><strong>一个正待发现的广袤世界</strong> — 塞达斯世界拥有前所未见的规模，细腻程度也远超既往；辽阔开放的世界，等您前来探索。发现可让您满载而归的敌人。探索隐秘洞穴，内有各种生物潜伏。塞达斯地域辽阔且危机四伏，但能否揭露它的秘密将决定成败。<br><br><strong>紧张激烈的策略对战</strong> — 《龙腾世纪：审判》中没有所谓的错误玩法……除了那些能害您送命的玩法。幸运的是，您可选择使用战略视野，让您在战斗中获得天眼优势。此视野中，时间将停止，但如果这不是您的风格，您大可以向前猛冲，并举起十字弓猛射。<br><br>年度版内容：<br><ul class="bb_ul"><li>游戏本体<br></li><li>审判之焰武器、护甲和披甲坐骑<br></li><li>《龙腾世纪》多人豪华版宝箱<br></li><li>天境王座、红鹿海拉和沼泽独角兽<br></li><li>哈肯之颌 DLC 内容包<br></li><li>血统 DLC 内容包<br></li><li>入侵者 DLC 内容包<br></li><li>亚瓦尔的战利品：获得 5 个全新坐骑、2 套全新护甲以及新的自定义选项用来打造您的天境基地。<br></li><li>库纳利的战利品：获得 1 个披甲坐骑、全新护甲套装（其中包含一套大将军风格的护甲）以及天境物品。</li></ul><br><strong>《哈肯之颌》DLC</strong><br>探索最后的审判官和他所猎杀的巨龙的命运。<br><br><strong>《血统》DLC</strong><br>深入地下，找到威胁塞达斯的神秘地震的源头。<br><br><strong>《入侵者》DLC</strong><br>随着新威胁的出现，您需要决定审判庭最终命运的走向。</div>
+    <div>苍穹撕裂，混沌降临，世界呼唤英雄。在《龙腾世纪：审判》年度版中化身塞达斯的拯救者。您就是审判官，肩负着拯救世界的使命。但前方的路上少不了各种艰难抉择。塞达斯是一片纷争之地。即便在恶魔大举入侵之时，派系间的战争也未曾中断。那您呢？您和您的勇士们是唯一能够一统乱局的力量。您的职责就是领导他们……或者堕落下去。<br><br><strong>引人入胜的叙事情节，您的选择决定故事走向</strong> — 在《审判》历程中，您不只是要决定每场战斗的参战人选，还要做出影响塞达斯未来的重要决定。每种选择都承载了分量，您的行动可能会带来各种结果。《审判》为您创造了一段高度个性化的经历，走错一步就可能引发一系列改变世界面貌的事件，这让您的塞达斯和英雄们真正地与众不同。<br><br><strong>一个正待发现的广袤世界</strong> — 塞达斯世界拥有前所未见的规模，细腻程度也远超既往；辽阔开放的世界，等您前来探索。发现可让您满载而归的敌人。探索隐秘洞穴，内有各种生物潜伏。塞达斯地域辽阔且危机四伏，但能否揭露它的秘密将决定成败。<br><br><strong>紧张激烈的策略对战</strong> — 《龙腾世纪：审判》中没有所谓的错误玩法……除了那些能害您送命的玩法。幸运的是，您可选择使用战略视野，让您在战斗中获得天眼优势。此视野中，时间将停止，但如果这不是您的风格，您大可以向前猛冲，并举起十字弓猛射。<br><br>年度版内容：<br><ul class="about_ul"><li>游戏本体<br></li><li>审判之焰武器、护甲和披甲坐骑<br></li><li>《龙腾世纪》多人豪华版宝箱<br></li><li>天境王座、红鹿海拉和沼泽独角兽<br></li><li>哈肯之颌 DLC 内容包<br></li><li>血统 DLC 内容包<br></li><li>入侵者 DLC 内容包<br></li><li>亚瓦尔的战利品：获得 5 个全新坐骑、2 套全新护甲以及新的自定义选项用来打造您的天境基地。<br></li><li>库纳利的战利品：获得 1 个披甲坐骑、全新护甲套装（其中包含一套大将军风格的护甲）以及天境物品。</li></ul><br><strong>《哈肯之颌》DLC</strong><br>探索最后的审判官和他所猎杀的巨龙的命运。<br><br><strong>《血统》DLC</strong><br>深入地下，找到威胁塞达斯的神秘地震的源头。<br><br><strong>《入侵者》DLC</strong><br>随着新威胁的出现，您需要决定审判庭最终命运的走向。</div>
   </div>
 </section>
 
@@ -612,17 +668,61 @@ body {
 <script>
 // 媒体数据
 const mediaItems = [
-  {"type": "video", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256823694/movie_max.mp4", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256823694/movie.293x165.jpg?t=1614197127"},
-  {"type": "video", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256786306/movie_max.mp4", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256786306/movie.293x165.jpg?t=1591282605"},
-  {"type": "video", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256791237/movie_max.mp4", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256791237/movie.293x165.jpg?t=1593442860"},
-  {"type": "video", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256791510/movie_max.mp4", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256791510/movie.293x165.jpg?t=1593638516"},
-  {"type": "video", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256791506/movie_max.mp4", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256791506/movie.293x165.jpg?t=1593638526"},
-  {"type": "video", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256791502/movie_max.mp4", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256791502/movie.293x165.jpg?t=1593638536"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1222690/ss_4c90bdbb1c2567edec0778f2e8956d1a8ff1b4c3.1920x1080.jpg?t=1779987585", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1222690/ss_4c90bdbb1c2567edec0778f2e8956d1a8ff1b4c3.1920x1080.jpg?t=1779987585"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1222690/ss_a106df995b9051e24ebe5abdec168ea3495bfda4.1920x1080.jpg?t=1779987585", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1222690/ss_a106df995b9051e24ebe5abdec168ea3495bfda4.1920x1080.jpg?t=1779987585"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1222690/ss_e8e2d622313d983fc9eb3fd824a2e0401c247780.1920x1080.jpg?t=1779987585", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1222690/ss_e8e2d622313d983fc9eb3fd824a2e0401c247780.1920x1080.jpg?t=1779987585"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1222690/ss_df4fb7825aef29e53e4b3e5dbb6c8dc6cd6e16d9.1920x1080.jpg?t=1779987585", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1222690/ss_df4fb7825aef29e53e4b3e5dbb6c8dc6cd6e16d9.1920x1080.jpg?t=1779987585"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1222690/ss_428d0d34e11bd8fad4f4f4fb0fd3245d632e6bb7.1920x1080.jpg?t=1779987585", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1222690/ss_428d0d34e11bd8fad4f4f4fb0fd3245d632e6bb7.1920x1080.jpg?t=1779987585"}
+  {
+    "type": "video",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256823694/movie_max.mp4",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256823694/movie.293x165.jpg?t=1614197127"
+  },
+  {
+    "type": "video",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256786306/movie_max.mp4",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256786306/movie.293x165.jpg?t=1591282605"
+  },
+  {
+    "type": "video",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256791237/movie_max.mp4",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256791237/movie.293x165.jpg?t=1593442860"
+  },
+  {
+    "type": "video",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256791510/movie_max.mp4",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256791510/movie.293x165.jpg?t=1593638516"
+  },
+  {
+    "type": "video",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256791506/movie_max.mp4",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256791506/movie.293x165.jpg?t=1593638526"
+  },
+  {
+    "type": "video",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256791502/movie_max.mp4",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256791502/movie.293x165.jpg?t=1593638536"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1222690/ss_4c90bdbb1c2567edec0778f2e8956d1a8ff1b4c3.1920x1080.jpg?t=1779987585",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1222690/ss_4c90bdbb1c2567edec0778f2e8956d1a8ff1b4c3.1920x1080.jpg?t=1779987585"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1222690/ss_a106df995b9051e24ebe5abdec168ea3495bfda4.1920x1080.jpg?t=1779987585",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1222690/ss_a106df995b9051e24ebe5abdec168ea3495bfda4.1920x1080.jpg?t=1779987585"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1222690/ss_e8e2d622313d983fc9eb3fd824a2e0401c247780.1920x1080.jpg?t=1779987585",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1222690/ss_e8e2d622313d983fc9eb3fd824a2e0401c247780.1920x1080.jpg?t=1779987585"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1222690/ss_df4fb7825aef29e53e4b3e5dbb6c8dc6cd6e16d9.1920x1080.jpg?t=1779987585",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1222690/ss_df4fb7825aef29e53e4b3e5dbb6c8dc6cd6e16d9.1920x1080.jpg?t=1779987585"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1222690/ss_428d0d34e11bd8fad4f4f4fb0fd3245d632e6bb7.1920x1080.jpg?t=1779987585",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1222690/ss_428d0d34e11bd8fad4f4f4fb0fd3245d632e6bb7.1920x1080.jpg?t=1779987585"
+  }
 ];
 
 let currentIndex = 0;

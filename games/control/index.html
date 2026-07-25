@@ -509,6 +509,51 @@ body {
     height: 45px;
   }
 }
+
+/* Steam 关于此游戏内容 */
+.content-block .about_para {
+  margin-bottom: 0.9rem;
+  color: var(--text-secondary);
+  font-size: 0.9375rem;
+  line-height: 1.75;
+}
+.content-block .about_media {
+  display: block;
+  max-width: 100%;
+  margin: 1rem 0;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #000;
+}
+.content-block .about_img {
+  max-width: 100% !important;
+  width: 100% !important;
+  height: auto !important;
+  display: block;
+  border-radius: 8px;
+}
+.content-block video.about_img {
+  width: 100% !important;
+  max-height: 480px;
+  object-fit: contain;
+  background: #000;
+}
+.content-block .about_ul {
+  list-style: none;
+  padding-left: 0;
+}
+.content-block .about_ul li {
+  padding-left: 1.25rem;
+  position: relative;
+  margin-bottom: 0.5rem;
+}
+.content-block .about_ul li:before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+}
+
 </style>
 </head>
 <body>
@@ -523,7 +568,7 @@ body {
 <section class="hero">
   <div class="container">
     <div class="hero-cover">
-      <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/870780/library_600x900.jpg" alt="控制">
+      <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/870780/ec621653454cdad232187af4eb79f23c05aceca5/header.jpg" alt="控制">
     </div>
     <div class="hero-info">
       <h1>控制</h1>
@@ -532,7 +577,7 @@ body {
       <div class="meta-tags">
         <span class="meta-tag year">2019</span>
         <span class="meta-tag">动作, 冒险, 角色扮演</span>
-        <span class="meta-tag score">⭐ 92</span>
+        <span class="meta-tag score">⭐ 85</span>
       </div>
       
       <div class="info-row">
@@ -558,12 +603,23 @@ body {
   <div class="media-gallery">
     <!-- 主图显示区域 -->
     <div class="media-main" id="mediaMain">
-      <img src="" alt="Loading">
+      <video controls playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256795678/movie.293x165.jpg?t=1599146473" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256795678/movie_max.mp4" style="width:100%;height:100%;object-fit:contain;background:#000"></video>
     </div>
     
     <!-- 缩略图bar -->
     <div class="media-thumbnails" id="mediaThumbnails">
-      <div class="media-thumb active" data-index="0"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257354335/87381c3dbda2124374b014414d57e0b34b63f727/movie_600x337.jpg?t=1781012142" alt="Video"></div>
+      <div class="media-thumb active" data-index="0"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256795678/movie.293x165.jpg?t=1599146473" alt="Video"></div>
+<div class="media-thumb" data-index="1"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256795672/movie.293x165.jpg?t=1599146511" alt="Video"></div>
+<div class="media-thumb" data-index="2"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256795958/movie.293x165.jpg?t=1597237257" alt="Video"></div>
+<div class="media-thumb" data-index="3"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/870780/ss_8376498631b089e52fb5c75ffe119e0de5e6aed1.1920x1080.jpg?t=1781607969" alt="Screenshot"></div>
+<div class="media-thumb" data-index="4"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/870780/ss_5a16ce565951479e142c56a23f19d88333d84945.1920x1080.jpg?t=1781607969" alt="Screenshot"></div>
+<div class="media-thumb" data-index="5"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/870780/ss_c038bb7b20d72ba5d33cc95f7235aefa0b84a706.1920x1080.jpg?t=1781607969" alt="Screenshot"></div>
+<div class="media-thumb" data-index="6"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/870780/ss_949cf39deee737fec3aadff903ec5311dd22bdab.1920x1080.jpg?t=1781607969" alt="Screenshot"></div>
+<div class="media-thumb" data-index="7"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/870780/ss_455ab81ea90f5668ff384d60d68baef1e2e74e55.1920x1080.jpg?t=1781607969" alt="Screenshot"></div>
+<div class="media-thumb" data-index="8"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/870780/ss_165fb4ca28f4db79b878e8c56ba6502e782c0bb2.1920x1080.jpg?t=1781607969" alt="Screenshot"></div>
+<div class="media-thumb" data-index="9"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/870780/ss_06b7e4baac0ac7f2ecfcc8d3198f707339c6296f.1920x1080.jpg?t=1781607969" alt="Screenshot"></div>
+<div class="media-thumb" data-index="10"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/870780/ss_f99238da0d48a784c675c464bf1d83d9cb3ff5ac.1920x1080.jpg?t=1781607969" alt="Screenshot"></div>
+    </div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257354335/87381c3dbda2124374b014414d57e0b34b63f727/movie_600x337.jpg?t=1781012142" alt="Video"></div>
 <div class="media-thumb " data-index="1"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257347370/1bf4a657cdc686b72ca1a86a8c04941f0515e7ae/movie_600x337.jpg?t=1780436764" alt="Video"></div>
 <div class="media-thumb " data-index="2"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257286569/39e27476109ddb722a4b1ecf042161794f7a8e54/movie_600x337.jpg?t=1770986094" alt="Video"></div>
 <div class="media-thumb " data-index="3"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257243449/329c74066fd71bcd794d9387d88bbecc3091c94c/movie_600x337.jpg?t=1765507054" alt="Video"></div>
@@ -586,7 +642,7 @@ body {
 <section class="content-section">
   <div class="content-block">
     <h2>关于此游戏</h2>
-    <div><p class="bb_paragraph" >迪伦·法登遭联邦控制局（FBC）监禁多年。随着超自然危机愈演愈烈，曾将他囚禁之人又把他推到了战斗一线。<br><br>神秘的宇宙实体正在篡改现实世界的法则，而迪伦肩负起了与之对抗的重任。如今他必须驾驭新的力量，主动迎击肆虐曼哈顿的无数威胁。<br><br>重返屡获殊荣的《控制》世界，在续作中与迪伦并肩探索广阔的腐化都市。混沌希斯四处蔓延，侵入性微生物霉菌疯狂滋长，种种扭曲的超自然威胁正席卷全城，有待逐一肃清。<br><br>在全面激发超自然潜能的过程中，迪伦还要寻找身为控制局局长的姐姐杰西·法登，揭开重重谜团，并遏制从太古屋散逸的危险力量，以免现实世界分崩离析。</p><h2 class="bb_tag" ><strong>步入扭曲现实</strong></h2><p class="bb_paragraph" >踏入宏大、奇异而又惊心动魄的世界，探索满目疮痍的曼哈顿。<br><br>穿梭于颠倒感知的奇异之地，在扭曲纵横的重力异常中摸爬滚打。空间的错乱不仅为解谜赋予了新维度，更让战斗充满了变数与博弈。<br><br>不可名状的力量正在重塑城市轮廓、改写现实法则。在这场巨变之中，与新老伙伴并肩，踏上险象环生却又暗藏转机的征途。</p><p class="bb_paragraph" ></p><p class="bb_paragraph" ><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3669870/extras/a781ba775646b4aa744fd57a6c9e8f75.poster.avif?t=1784555062" width=1170 height=498 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3669870/extras/a781ba775646b4aa744fd57a6c9e8f75.webm?t=1784555062" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3669870/extras/a781ba775646b4aa744fd57a6c9e8f75.mp4?t=1784555062" type="video/mp4"></video></span></p><h2 class="bb_tag" ><strong>驾驭超自然之力</strong></h2><p class="bb_paragraph" >追溯迪伦的过往经历，以此洞悉当下的困局。深挖联邦控制局的核心运作机密，揭露威胁人类的恐怖真相。<br><br>调动体内那股亟待掌控的力量，决定异能的具体形态与演变方向。<br><br>利用深度成长系统，定义迪伦如何应对步步紧逼的危机。随着迪伦从昔日的实验对象蜕变为强大的超自然武器，建立联结将是他守护人性的关键。</p><p class="bb_paragraph" ></p><p class="bb_paragraph" ><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3669870/extras/1efe1ec5b4dd623a5f5b429dae9735ca.poster.avif?t=1784555062" width=1170 height=498 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3669870/extras/1efe1ec5b4dd623a5f5b429dae9735ca.webm?t=1784555062" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3669870/extras/1efe1ec5b4dd623a5f5b429dae9735ca.mp4?t=1784555062" type="video/mp4"></video></span></p><h2 class="bb_tag" ><strong>战局瞬息万变，武器随之进化</strong></h2><p class="bb_paragraph" >直面不断演化的威胁，依托周遭环境，施展元素能力，善用迪伦的变形近战武器——异变者，借此释放原始之力。<br><br>驾驭异变者的多样致命形态：既能双手持锤，挥出碎骨重击，又能流畅切换为迅捷精准的双持利刃。这件超自然武器变形自如，可助你从容应对一切挑战。</p><p class="bb_paragraph" ></p><p class="bb_paragraph" ><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3669870/extras/788ffe8eecc135a1bd840fdf5c7f09c3.poster.avif?t=1784555062" width=1170 height=498 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3669870/extras/788ffe8eecc135a1bd840fdf5c7f09c3.webm?t=1784555062" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3669870/extras/788ffe8eecc135a1bd840fdf5c7f09c3.mp4?t=1784555062" type="video/mp4"></video></span></p><h2 class="bb_tag" ><strong>承载共同使命，直面全新威胁</strong></h2><p class="bb_paragraph" >联邦控制局局长杰西·法登的封锁已告失效。超自然祸乱冲出太古屋，蔓延至曼哈顿街头，而控制局已无力掌控局面。<br><br>当年，杰西·法登走进太古屋，迎战其中的威胁；而如今，迪伦必须走出这里，遏制外界的灾祸。</p><p class="bb_paragraph" ></p><p class="bb_paragraph" ><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3669870/extras/4b7c3ce40aabe2d8c3bf0d6d666130fd.poster.avif?t=1784555062" width=1170 height=498 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3669870/extras/4b7c3ce40aabe2d8c3bf0d6d666130fd.webm?t=1784555062" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3669870/extras/4b7c3ce40aabe2d8c3bf0d6d666130fd.mp4?t=1784555062" type="video/mp4"></video></span></p></div>
+    <div><p class="about_para" ><strong>CONTROL Ultimate Edition</strong> </p><p class="about_para" ></p><p class="about_para" >CONTROL Ultimate Edition把主游戏和所有之前发布的扩展包（“基础”和“异世界事件”）都收录在一个超值礼包中。  </p><p class="about_para" ></p><p class="about_para" >某种腐败的存在侵入了联邦控制局……只有你有能力阻止它。现在，世界就是你的武器，助你穿越深不可测的环境，歼灭邪恶的敌人，进行史诗般的战斗。收容失败，人类面临着生死关头。你能重新控制局面吗?</p><p class="about_para" ></p><p class="about_para" >《CONTROL》赢得超过80项大奖，游戏画面如同精彩的视觉盛宴，踏上节奏紧张刺激的第三人称动作冒险旅程，让你每一秒都无法松懈。 CONTROL将开放式环境与著名开发团队Remedy Entertainment的标志性世界构建和故事讲述方式相结合，为玩家提供广阔而有强烈满足感的游戏体验。 </p><p class="about_para" ></p><p class="about_para" ></p><p class="about_para" ><strong>主要特色</strong></p><p class="about_para" ></p><p class="about_para" ><strong>揭开神秘的面纱</strong></p><p class="about_para" >你能处理好控制局黑暗的秘密吗？展开史诗级的超自然探险，</p><p class="about_para" >充满了意想不到的角色和怪异的事件，</p><p class="about_para" >寻找你失踪的弟弟，发现你被带到这里</p><p class="about_para" >的原因。</p><p class="about_para" ></p><p class="about_para" ><span class="about_media"><video class="about_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/870780/extras/36cbfb7f49080265daff21b98c7ecd2e.poster.avif?t=1781607969" width=628 height=182 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/870780/extras/36cbfb7f49080265daff21b98c7ecd2e.webm?t=1781607969" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/870780/extras/36cbfb7f49080265daff21b98c7ecd2e.mp4?t=1781607969" type="video/mp4"></video></span></p><p class="about_para" ><strong>一切都能成为你的武器。</strong></p><p class="about_para" >通过改变武器装备和心灵传动能力来释放</p><p class="about_para" >破坏力。利用强大的能力将周围的一切变成致命武器，</p><p class="about_para" >探索消灭敌人的新方法。</p><p class="about_para" ></p><p class="about_para" ><span class="about_media"><video class="about_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/870780/extras/a8a6c674e9a4f4b5bb15e28b9345e4bb.poster.avif?t=1781607969" width=628 height=182 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/870780/extras/a8a6c674e9a4f4b5bb15e28b9345e4bb.webm?t=1781607969" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/870780/extras/a8a6c674e9a4f4b5bb15e28b9345e4bb.mp4?t=1781607969" type="video/mp4"></video></span></p><p class="about_para" ><strong>探索隐藏的世界。</strong></p><p class="about_para" >深入秘密政府机构的邪恶</p><p class="about_para" >空间。探索控制局里变幻莫测的环境，</p><p class="about_para" >结果却发现表象之下总有更多看不到的。</p><p class="about_para" ></p><p class="about_para" ></p><p class="about_para" ><span class="about_media"><video class="about_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/870780/extras/bc4c87d49d6c5d4a6cea7f5d8599910a.poster.avif?t=1781607969" width=628 height=182 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/870780/extras/bc4c87d49d6c5d4a6cea7f5d8599910a.webm?t=1781607969" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/870780/extras/bc4c87d49d6c5d4a6cea7f5d8599910a.mp4?t=1781607969" type="video/mp4"></video></span></p><p class="about_para" ><strong>为了控制而战。</strong></p><p class="about_para" >完成刺激的任务和具有挑战性的头目战与无情的敌人作战，</p><p class="about_para" >获得强大的升级，最大程度地发挥各项能力，</p><p class="about_para" >定制你的武器。</p><p class="about_para" ></p><p class="about_para" ><span class="about_media"><video class="about_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/870780/extras/39ceaa8145ebd2569b7d24d2a0c80f85.poster.avif?t=1781607969" width=628 height=182 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/870780/extras/39ceaa8145ebd2569b7d24d2a0c80f85.webm?t=1781607969" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/870780/extras/39ceaa8145ebd2569b7d24d2a0c80f85.mp4?t=1781607969" type="video/mp4"></video></span></p></div>
   </div>
 </section>
 
@@ -617,20 +673,61 @@ body {
 <script>
 // 媒体数据
 const mediaItems = [
-  {"type": "video", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257354335/movie_max.mp4", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257354335/87381c3dbda2124374b014414d57e0b34b63f727/movie_600x337.jpg?t=1781012142"},
-  {"type": "video", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257347370/movie_max.mp4", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257347370/1bf4a657cdc686b72ca1a86a8c04941f0515e7ae/movie_600x337.jpg?t=1780436764"},
-  {"type": "video", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257286569/movie_max.mp4", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257286569/39e27476109ddb722a4b1ecf042161794f7a8e54/movie_600x337.jpg?t=1770986094"},
-  {"type": "video", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257243449/movie_max.mp4", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257243449/329c74066fd71bcd794d9387d88bbecc3091c94c/movie_600x337.jpg?t=1765507054"},
-  {"type": "video", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257243406/movie_max.mp4", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257243406/872f9e494da3256b762bb753bc20d98eaf318ba7/movie_600x337.jpg?t=1765507066"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3669870/422f3eed36d3033c4b0f4fde485c29b980e49454/ss_422f3eed36d3033c4b0f4fde485c29b980e49454.1920x1080.jpg?t=1784555062", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3669870/422f3eed36d3033c4b0f4fde485c29b980e49454/ss_422f3eed36d3033c4b0f4fde485c29b980e49454.1920x1080.jpg?t=1784555062"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3669870/75b1cde9947eea89eed52cf8f6471683f2e666a9/ss_75b1cde9947eea89eed52cf8f6471683f2e666a9.1920x1080.jpg?t=1784555062", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3669870/75b1cde9947eea89eed52cf8f6471683f2e666a9/ss_75b1cde9947eea89eed52cf8f6471683f2e666a9.1920x1080.jpg?t=1784555062"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3669870/08b6018c06d5125a39ff34a395e0dcfdede8bde8/ss_08b6018c06d5125a39ff34a395e0dcfdede8bde8.1920x1080.jpg?t=1784555062", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3669870/08b6018c06d5125a39ff34a395e0dcfdede8bde8/ss_08b6018c06d5125a39ff34a395e0dcfdede8bde8.1920x1080.jpg?t=1784555062"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3669870/062a27d1b18679df1ecd4faf90af2c3f52e41dc1/ss_062a27d1b18679df1ecd4faf90af2c3f52e41dc1.1920x1080.jpg?t=1784555062", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3669870/062a27d1b18679df1ecd4faf90af2c3f52e41dc1/ss_062a27d1b18679df1ecd4faf90af2c3f52e41dc1.1920x1080.jpg?t=1784555062"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3669870/36eb4c588274f15ea0d958af6db8b2283602cb55/ss_36eb4c588274f15ea0d958af6db8b2283602cb55.1920x1080.jpg?t=1784555062", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3669870/36eb4c588274f15ea0d958af6db8b2283602cb55/ss_36eb4c588274f15ea0d958af6db8b2283602cb55.1920x1080.jpg?t=1784555062"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3669870/78ea62ce924c2629d8d1084b9b9f287418ea2dec/ss_78ea62ce924c2629d8d1084b9b9f287418ea2dec.1920x1080.jpg?t=1784555062", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3669870/78ea62ce924c2629d8d1084b9b9f287418ea2dec/ss_78ea62ce924c2629d8d1084b9b9f287418ea2dec.1920x1080.jpg?t=1784555062"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3669870/8148794f365c4ffa8191559b28a5636650ff5676/ss_8148794f365c4ffa8191559b28a5636650ff5676.1920x1080.jpg?t=1784555062", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3669870/8148794f365c4ffa8191559b28a5636650ff5676/ss_8148794f365c4ffa8191559b28a5636650ff5676.1920x1080.jpg?t=1784555062"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3669870/9e5a502390d8e7afefab61e5f3bfeb8fe9e9a699/ss_9e5a502390d8e7afefab61e5f3bfeb8fe9e9a699.1920x1080.jpg?t=1784555062", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3669870/9e5a502390d8e7afefab61e5f3bfeb8fe9e9a699/ss_9e5a502390d8e7afefab61e5f3bfeb8fe9e9a699.1920x1080.jpg?t=1784555062"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3669870/1f13c2f5acc65d9cf11c34e84284fbd3897b4e3f/ss_1f13c2f5acc65d9cf11c34e84284fbd3897b4e3f.1920x1080.jpg?t=1784555062", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3669870/1f13c2f5acc65d9cf11c34e84284fbd3897b4e3f/ss_1f13c2f5acc65d9cf11c34e84284fbd3897b4e3f.1920x1080.jpg?t=1784555062"}
+  {
+    "type": "video",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256795678/movie_max.mp4",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256795678/movie.293x165.jpg?t=1599146473"
+  },
+  {
+    "type": "video",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256795672/movie_max.mp4",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256795672/movie.293x165.jpg?t=1599146511"
+  },
+  {
+    "type": "video",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256795958/movie_max.mp4",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256795958/movie.293x165.jpg?t=1597237257"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/870780/ss_8376498631b089e52fb5c75ffe119e0de5e6aed1.1920x1080.jpg?t=1781607969",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/870780/ss_8376498631b089e52fb5c75ffe119e0de5e6aed1.1920x1080.jpg?t=1781607969"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/870780/ss_5a16ce565951479e142c56a23f19d88333d84945.1920x1080.jpg?t=1781607969",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/870780/ss_5a16ce565951479e142c56a23f19d88333d84945.1920x1080.jpg?t=1781607969"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/870780/ss_c038bb7b20d72ba5d33cc95f7235aefa0b84a706.1920x1080.jpg?t=1781607969",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/870780/ss_c038bb7b20d72ba5d33cc95f7235aefa0b84a706.1920x1080.jpg?t=1781607969"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/870780/ss_949cf39deee737fec3aadff903ec5311dd22bdab.1920x1080.jpg?t=1781607969",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/870780/ss_949cf39deee737fec3aadff903ec5311dd22bdab.1920x1080.jpg?t=1781607969"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/870780/ss_455ab81ea90f5668ff384d60d68baef1e2e74e55.1920x1080.jpg?t=1781607969",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/870780/ss_455ab81ea90f5668ff384d60d68baef1e2e74e55.1920x1080.jpg?t=1781607969"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/870780/ss_165fb4ca28f4db79b878e8c56ba6502e782c0bb2.1920x1080.jpg?t=1781607969",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/870780/ss_165fb4ca28f4db79b878e8c56ba6502e782c0bb2.1920x1080.jpg?t=1781607969"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/870780/ss_06b7e4baac0ac7f2ecfcc8d3198f707339c6296f.1920x1080.jpg?t=1781607969",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/870780/ss_06b7e4baac0ac7f2ecfcc8d3198f707339c6296f.1920x1080.jpg?t=1781607969"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/870780/ss_f99238da0d48a784c675c464bf1d83d9cb3ff5ac.1920x1080.jpg?t=1781607969",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/870780/ss_f99238da0d48a784c675c464bf1d83d9cb3ff5ac.1920x1080.jpg?t=1781607969"
+  }
 ];
 
 let currentIndex = 0;

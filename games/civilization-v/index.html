@@ -509,6 +509,51 @@ body {
     height: 45px;
   }
 }
+
+/* Steam 关于此游戏内容 */
+.content-block .about_para {
+  margin-bottom: 0.9rem;
+  color: var(--text-secondary);
+  font-size: 0.9375rem;
+  line-height: 1.75;
+}
+.content-block .about_media {
+  display: block;
+  max-width: 100%;
+  margin: 1rem 0;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #000;
+}
+.content-block .about_img {
+  max-width: 100% !important;
+  width: 100% !important;
+  height: auto !important;
+  display: block;
+  border-radius: 8px;
+}
+.content-block video.about_img {
+  width: 100% !important;
+  max-height: 480px;
+  object-fit: contain;
+  background: #000;
+}
+.content-block .about_ul {
+  list-style: none;
+  padding-left: 0;
+}
+.content-block .about_ul li {
+  padding-left: 1.25rem;
+  position: relative;
+  margin-bottom: 0.5rem;
+}
+.content-block .about_ul li:before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+}
+
 </style>
 </head>
 <body>
@@ -523,7 +568,7 @@ body {
 <section class="hero">
   <div class="container">
     <div class="hero-cover">
-      <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/8930/library_600x900.jpg" alt="文明 5">
+      <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/8930/header.jpg" alt="文明 5">
     </div>
     <div class="hero-info">
       <h1>文明 5</h1>
@@ -532,7 +577,7 @@ body {
       <div class="meta-tags">
         <span class="meta-tag year">2010</span>
         <span class="meta-tag">模拟, 策略</span>
-        <span class="meta-tag score">⭐ 79</span>
+        <span class="meta-tag score">⭐ 90</span>
       </div>
       
       <div class="info-row">
@@ -558,12 +603,22 @@ body {
   <div class="media-gallery">
     <!-- 主图显示区域 -->
     <div class="media-main" id="mediaMain">
-      <img src="" alt="Loading">
+      <video controls playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5690/movie.293x165.jpg?t=1447353146" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5690/movie_max.mp4" style="width:100%;height:100%;object-fit:contain;background:#000"></video>
     </div>
     
     <!-- 缩略图bar -->
     <div class="media-thumbnails" id="mediaThumbnails">
-      <div class="media-thumb active" data-index="0"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257338696/53306654da11a9926b0bc4858d40e09a41b0ee19/movie_600x337.jpg?t=1779206409" alt="Video"></div>
+      <div class="media-thumb active" data-index="0"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5690/movie.293x165.jpg?t=1447353146" alt="Video"></div>
+<div class="media-thumb" data-index="1"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/80825/movie.293x165.jpg?t=1447354197" alt="Video"></div>
+<div class="media-thumb" data-index="2"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/80824/movie.293x165.jpg?t=1447354198" alt="Video"></div>
+<div class="media-thumb" data-index="3"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/80682/movie.293x165.jpg?t=1447354028" alt="Video"></div>
+<div class="media-thumb" data-index="4"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/80493/movie.293x165.jpg?t=1447353808" alt="Video"></div>
+<div class="media-thumb" data-index="5"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/8930/ss_7082faf1b0941ddbc4ba9dab5807a9b5e77d72f9.1920x1080.jpg?t=1724341158" alt="Screenshot"></div>
+<div class="media-thumb" data-index="6"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/8930/ss_e6f9ef54f06ffebc9445d8b29d8d2054fa3185d4.1920x1080.jpg?t=1724341158" alt="Screenshot"></div>
+<div class="media-thumb" data-index="7"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/8930/ss_aa383406a5f2979598b543d8f272d3ac145e357a.1920x1080.jpg?t=1724341158" alt="Screenshot"></div>
+<div class="media-thumb" data-index="8"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/8930/ss_84ee7ab3b0148a260359f8d5a78a2ab9033aa695.1920x1080.jpg?t=1724341158" alt="Screenshot"></div>
+<div class="media-thumb" data-index="9"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/8930/ss_5dfcd65b611b35a9dc126335dca2d48ef8180106.1920x1080.jpg?t=1724341158" alt="Screenshot"></div>
+    </div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257338696/53306654da11a9926b0bc4858d40e09a41b0ee19/movie_600x337.jpg?t=1779206409" alt="Video"></div>
 <div class="media-thumb " data-index="1"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257338647/fa6f6ad268d601f2a2504c81ac5743466ce11833/movie_600x337.jpg?t=1779206412" alt="Video"></div>
 <div class="media-thumb " data-index="2"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257281640/dfe3cc062fde318a6809bf9b75d452bfd1586e61/movie_600x337.jpg?t=1770414573" alt="Video"></div>
 <div class="media-thumb " data-index="3"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257096715/6e3e515677811e0b3487464720556b0efd28516b/movie_600x337.jpg?t=1739305017" alt="Video"></div>
@@ -586,7 +641,7 @@ body {
 <section class="content-section">
   <div class="content-block">
     <h2>关于此游戏</h2>
-    <div><p class="bb_paragraph" ><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1295660/extras/e56da1671d3ab096032902e96718cb17.avif?t=1784747260" width=1080 height=2220 /></span></p><p class="bb_paragraph" ></p><p class="bb_paragraph" ><strong>你们的文明会随着时代的变迁而发展，还是能经受住时间的考验？</strong></p><p class="bb_paragraph" ></p><p class="bb_paragraph" > </p><p class="bb_paragraph" > 在《席德·梅尔的 Civilization® VII》中，每个战略决策都影响着你们帝国的独特血脉。 化身历史长河中的传奇领袖，统治帝国，选择你们的文明在人类发展的每个时代如何变化或延续，争取独特的胜利。</p><p class="bb_paragraph" ></p><p class="bb_paragraph" > </p><p class="bb_paragraph" > 利用新的定居点和建筑奇观来发展疆域，利用技术突破来推动进步，并在探索和扩张世界未知区域时，征服竞争对手或与他们合作。在沉浸式单机体验中追求繁荣，或在联机多人游戏中与其他人一起畅玩。*</p><p class="bb_paragraph" ></p><p class="bb_paragraph" > </p><p class="bb_paragraph" > 无论是遵循植根于历史的道路，还是开辟属于自己的前行之路，在《Civilization VII》里，都可以打造你所坚信的事业。 </p><p class="bb_paragraph" ></p><p class="bb_paragraph" style="text-align: center"><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1295660/extras/838947c0e0428af59acf728e33d4a986.poster.avif?t=1784747260" width=780 height=318 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1295660/extras/838947c0e0428af59acf728e33d4a986.webm?t=1784747260" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1295660/extras/838947c0e0428af59acf728e33d4a986.mp4?t=1784747260" type="video/mp4"></video></span></p><p class="bb_paragraph" style="text-align: center"> <strong>随时代发展或经受住时间的考验</strong></p><p class="bb_paragraph" ></p><p class="bb_paragraph" >带领你的帝国走过人类历史的不同时代。贯穿古典时代、探索时代和现代，选择是否要从头到尾带领一个经得起时间考验的文明，让其策略性地演变，在下个时代以新的身份蓬勃发展，或者通过融合来实现折中。在每个时代实现科技、文化、军事和经济里程碑，即可在下一个时代解锁优势，由你决定帝国的发展方向和时机。 </p><p class="bb_paragraph" ></p><p class="bb_paragraph" style="text-align: center"><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1295660/extras/cfb6a6af878a9b6ccf2fc664acb0b55f.poster.avif?t=1784747260" width=780 height=318 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1295660/extras/cfb6a6af878a9b6ccf2fc664acb0b55f.webm?t=1784747260" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1295660/extras/cfb6a6af878a9b6ccf2fc664acb0b55f.mp4?t=1784747260" type="video/mp4"></video></span></p><p class="bb_paragraph" style="text-align: center"><strong> 开始规划你自己的胜利之路</strong></p><p class="bb_paragraph" ></p><p class="bb_paragraph" >通过追求各种独特的凯旋目标（这些目标基于属性，能够提供玩家驱动的体验），塑造帝国的独特故事。随着每个新时代拓展游戏的范围，游戏也带来了借用其他文明元素的机会，解锁新的奖励，并以无数令人兴奋的新方式取得胜利。命令指挥官统一调度军队，利用改进后的战斗机制与敌人交战，在不同战役中通过纪念物配备可调换的领袖加成，以及更多精彩内容。 </p><p class="bb_paragraph" ></p><p class="bb_paragraph" style="text-align: center"><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1295660/extras/98304cec704ecaef4f2ae05b636a94e5.poster.avif?t=1784747260" width=780 height=318 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1295660/extras/98304cec704ecaef4f2ae05b636a94e5.webm?t=1784747260" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1295660/extras/98304cec704ecaef4f2ae05b636a94e5.mp4?t=1784747260" type="video/mp4"></video></span></p><p class="bb_paragraph" style="text-align: center"><strong>化身具有远见卓识的进步领袖</strong></p><p class="bb_paragraph" ></p><p class="bb_paragraph" >化身《Civilization》系列迄今为止最多样化的领袖之一，从以军事力量或政治才能闻名的传统国家元首，到对哲学、科学、人权等领域产生深远影响的远见者，应有尽有。你选择的领袖可以跨越时代，具有独特的能力，有助于强化或调整你的策略，使其从一个时代顺利过渡到下一个时代。在这一系列游戏中，首次允许选择独立于你所选文明的领袖，从而让你能够自由地通过混搭组合来打造全新的策略。 </p><p class="bb_paragraph" ></p><p class="bb_paragraph" style="text-align: center"><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1295660/extras/88b31be232a344deb0570f09b817ccc1.poster.avif?t=1784747260" width=780 height=318 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1295660/extras/88b31be232a344deb0570f09b817ccc1.webm?t=1784747260" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1295660/extras/88b31be232a344deb0570f09b817ccc1.mp4?t=1784747260" type="video/mp4"></video></span></p><p class="bb_paragraph" style="text-align: center"><strong>探索栩栩如生的世界</strong> </p><p class="bb_paragraph" ></p><p class="bb_paragraph" >在这个华丽而充满细节的世界里留下你的印记！你的帝国会通过建筑结构和单位设计展现出丰富多样的文化风格。穿越可通航的河流，探索地图上未被探索的地区，并通过新城市或专业城镇来扩展你的边界。随着渲染精美的领土不断扩大，所有优美景观、充满活力的大都市和新兴的边疆领土将在这片不断变化的景观中无缝连接。  </p><p class="bb_paragraph" ></p><p class="bb_paragraph" style="text-align: center"><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1295660/extras/f02ffce16b2ca3594540ec6b6eeeb62c.poster.avif?t=1784747260" width=780 height=318 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1295660/extras/f02ffce16b2ca3594540ec6b6eeeb62c.webm?t=1784747260" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1295660/extras/f02ffce16b2ca3594540ec6b6eeeb62c.mp4?t=1784747260" type="video/mp4"></video></span></p><p class="bb_paragraph" style="text-align: center"><strong>在多人游戏中测试你的战略气概</strong> </p><p class="bb_paragraph" ></p><p class="bb_paragraph" >在线上与其他玩家竞争，证明你作为伟大领袖的实力。* 多人游戏可以是史诗般的多时代战役，也可以在单一时代中进行，并且PC和主机之间支持跨平台联机，所以无论朋友身在何处，你都可以和他们一起畅玩。</p><p class="bb_paragraph" ></p><p class="bb_paragraph" > </p><p class="bb_paragraph" ></p><p class="bb_paragraph" ><i>*在线游戏和功能（包括进度奖励）须有互联网连接和2K账户（最低年龄要求各有不同）。古典时代和探索时代最多支持五位玩家。现代最多支持八位玩家。某些跨平台多人游戏可能有地图大小限制。适用相关条款。</i></p></div>
+    <div>The Flagship Turn-Based Strategy Game Returns<br><br>Become Ruler of the World by establishing and leading a civilization from the dawn of man into the space age: Wage war, conduct diplomacy, discover new technologies, go head-to-head with some of history’s greatest leaders and build the most powerful empire the world has ever known.<br><br><ul class="about_ul"><li><strong>INVITING PRESENTATION:</strong> Jump right in and play at your own pace with an intuitive interface that eases new players into the game. Veterans will appreciate the depth, detail and control that are highlights of the series.<br></li><li><strong>BELIEVABLE WORLD:</strong> Ultra realistic graphics showcase lush landscapes for you to explore, battle over and claim as your own. <br></li><li><strong>COMMUNITY &amp; MULTIPLAYER:</strong> Compete with players all over the world or locally in LAN matches, mod* the game in unprecedented ways, and install mods directly from an in-game community hub without ever leaving the game. <br></li><li><strong>WIDE SYSTEM COMPATIBILITY:</strong> Civilization V operates on many different systems, from high end desktops to many laptops. <br></li><li><strong>ALL NEW FEATURES:</strong> A new hex-based gameplay grid opens up exciting new combat and build strategies. City States become a new resource in your diplomatic battleground. An improved diplomacy system allows you to negotiate with fully interactive leaders. </li></ul><br>*Modding SDK available as a free download.<br>    <br><strong>Note:</strong> The Mac and Linux + SteamOS versions of Sid Meier's Civilization V are available in English, French, Italian, German and Spanish only.</div>
   </div>
 </section>
 
@@ -616,20 +671,56 @@ body {
 <script>
 // 媒体数据
 const mediaItems = [
-  {"type": "video", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257338696/movie_max.mp4", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257338696/53306654da11a9926b0bc4858d40e09a41b0ee19/movie_600x337.jpg?t=1779206409"},
-  {"type": "video", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257338647/movie_max.mp4", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257338647/fa6f6ad268d601f2a2504c81ac5743466ce11833/movie_600x337.jpg?t=1779206412"},
-  {"type": "video", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257281640/movie_max.mp4", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257281640/dfe3cc062fde318a6809bf9b75d452bfd1586e61/movie_600x337.jpg?t=1770414573"},
-  {"type": "video", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257096715/movie_max.mp4", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257096715/6e3e515677811e0b3487464720556b0efd28516b/movie_600x337.jpg?t=1739305017"},
-  {"type": "video", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257081324/movie_max.mp4", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257081324/24904ec0b18099fa08e370dc57486d02fd5b16cb/movie_600x337.jpg?t=1734055220"},
-  {"type": "video", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257067815/movie_max.mp4", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257067815/abf64388c0ddb30195fa131684aa23aa941fc390/movie_600x337.jpg?t=1729770777"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1295660/a8e4b446968bd5b29c7d8562b1cdc655de2798bf/ss_a8e4b446968bd5b29c7d8562b1cdc655de2798bf.1920x1080.jpg?t=1784747260", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1295660/a8e4b446968bd5b29c7d8562b1cdc655de2798bf/ss_a8e4b446968bd5b29c7d8562b1cdc655de2798bf.1920x1080.jpg?t=1784747260"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1295660/6461e684c0ddb02f3058ea0a4d3d7a7eb3167759/ss_6461e684c0ddb02f3058ea0a4d3d7a7eb3167759.1920x1080.jpg?t=1784747260", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1295660/6461e684c0ddb02f3058ea0a4d3d7a7eb3167759/ss_6461e684c0ddb02f3058ea0a4d3d7a7eb3167759.1920x1080.jpg?t=1784747260"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1295660/925610202aa7ff380a8a62100262605e9049fd40/ss_925610202aa7ff380a8a62100262605e9049fd40.1920x1080.jpg?t=1784747260", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1295660/925610202aa7ff380a8a62100262605e9049fd40/ss_925610202aa7ff380a8a62100262605e9049fd40.1920x1080.jpg?t=1784747260"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1295660/ss_8c1226a5c58447773b03b6c967e9d561d3315fd7.1920x1080.jpg?t=1784747260", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1295660/ss_8c1226a5c58447773b03b6c967e9d561d3315fd7.1920x1080.jpg?t=1784747260"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1295660/ss_ad61e86883bed33711a00965170fc4b4ae785774.1920x1080.jpg?t=1784747260", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1295660/ss_ad61e86883bed33711a00965170fc4b4ae785774.1920x1080.jpg?t=1784747260"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1295660/ss_64cd9528b18dc6deebd96a4f32125b5b49fd27ab.1920x1080.jpg?t=1784747260", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1295660/ss_64cd9528b18dc6deebd96a4f32125b5b49fd27ab.1920x1080.jpg?t=1784747260"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1295660/ss_84b42c86ecf359f5df63f1626b0971d0454ebd3e.1920x1080.jpg?t=1784747260", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1295660/ss_84b42c86ecf359f5df63f1626b0971d0454ebd3e.1920x1080.jpg?t=1784747260"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1295660/ss_ef1f0a6add3e8669f1b4ca33b0ec77a47231d20b.1920x1080.jpg?t=1784747260", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1295660/ss_ef1f0a6add3e8669f1b4ca33b0ec77a47231d20b.1920x1080.jpg?t=1784747260"}
+  {
+    "type": "video",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5690/movie_max.mp4",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5690/movie.293x165.jpg?t=1447353146"
+  },
+  {
+    "type": "video",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/80825/movie_max.mp4",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/80825/movie.293x165.jpg?t=1447354197"
+  },
+  {
+    "type": "video",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/80824/movie_max.mp4",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/80824/movie.293x165.jpg?t=1447354198"
+  },
+  {
+    "type": "video",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/80682/movie_max.mp4",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/80682/movie.293x165.jpg?t=1447354028"
+  },
+  {
+    "type": "video",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/80493/movie_max.mp4",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/80493/movie.293x165.jpg?t=1447353808"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/8930/ss_7082faf1b0941ddbc4ba9dab5807a9b5e77d72f9.1920x1080.jpg?t=1724341158",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/8930/ss_7082faf1b0941ddbc4ba9dab5807a9b5e77d72f9.1920x1080.jpg?t=1724341158"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/8930/ss_e6f9ef54f06ffebc9445d8b29d8d2054fa3185d4.1920x1080.jpg?t=1724341158",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/8930/ss_e6f9ef54f06ffebc9445d8b29d8d2054fa3185d4.1920x1080.jpg?t=1724341158"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/8930/ss_aa383406a5f2979598b543d8f272d3ac145e357a.1920x1080.jpg?t=1724341158",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/8930/ss_aa383406a5f2979598b543d8f272d3ac145e357a.1920x1080.jpg?t=1724341158"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/8930/ss_84ee7ab3b0148a260359f8d5a78a2ab9033aa695.1920x1080.jpg?t=1724341158",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/8930/ss_84ee7ab3b0148a260359f8d5a78a2ab9033aa695.1920x1080.jpg?t=1724341158"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/8930/ss_5dfcd65b611b35a9dc126335dca2d48ef8180106.1920x1080.jpg?t=1724341158",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/8930/ss_5dfcd65b611b35a9dc126335dca2d48ef8180106.1920x1080.jpg?t=1724341158"
+  }
 ];
 
 let currentIndex = 0;

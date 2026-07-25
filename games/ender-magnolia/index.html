@@ -509,6 +509,51 @@ body {
     height: 45px;
   }
 }
+
+/* Steam 关于此游戏内容 */
+.content-block .about_para {
+  margin-bottom: 0.9rem;
+  color: var(--text-secondary);
+  font-size: 0.9375rem;
+  line-height: 1.75;
+}
+.content-block .about_media {
+  display: block;
+  max-width: 100%;
+  margin: 1rem 0;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #000;
+}
+.content-block .about_img {
+  max-width: 100% !important;
+  width: 100% !important;
+  height: auto !important;
+  display: block;
+  border-radius: 8px;
+}
+.content-block video.about_img {
+  width: 100% !important;
+  max-height: 480px;
+  object-fit: contain;
+  background: #000;
+}
+.content-block .about_ul {
+  list-style: none;
+  padding-left: 0;
+}
+.content-block .about_ul li {
+  padding-left: 1.25rem;
+  position: relative;
+  margin-bottom: 0.5rem;
+}
+.content-block .about_ul li:before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+}
+
 </style>
 </head>
 <body>
@@ -523,7 +568,7 @@ body {
 <section class="hero">
   <div class="container">
     <div class="hero-cover">
-      <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2725260/library_600x900.jpg" alt="终焉之玛格诺莉亚">
+      <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2725260/header.jpg" alt="终焉之玛格诺莉亚">
     </div>
     <div class="hero-info">
       <h1>终焉之玛格诺莉亚</h1>
@@ -562,12 +607,20 @@ body {
   <div class="media-gallery">
     <!-- 主图显示区域 -->
     <div class="media-main" id="mediaMain">
-      <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2725260/ss_c45ee191b30c962810816685b26da70eb9f00caf.1920x1080.jpg?t=1740447961" alt="Screenshot">
+      <video controls playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257089837/6dfd6f9614b687e2af4efb1d484c40e19bdb725b/movie_600x337.jpg?t=1737171954" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257089837/movie_max.mp4" style="width:100%;height:100%;object-fit:contain;background:#000"></video>
     </div>
     
     <!-- 缩略图bar -->
     <div class="media-thumbnails" id="mediaThumbnails">
-      <div class="media-thumb active" data-index="0"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2725260/ss_c45ee191b30c962810816685b26da70eb9f00caf.1920x1080.jpg?t=1740447961" alt="Screenshot"></div>
+      <div class="media-thumb active" data-index="0"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257089837/6dfd6f9614b687e2af4efb1d484c40e19bdb725b/movie_600x337.jpg?t=1737171954" alt="Video"></div>
+<div class="media-thumb" data-index="1"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257053407/movie.293x165.jpg?t=1725930034" alt="Video"></div>
+<div class="media-thumb" data-index="2"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257003673/movie.293x165.jpg?t=1708960862" alt="Video"></div>
+<div class="media-thumb" data-index="3"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2725260/ss_c45ee191b30c962810816685b26da70eb9f00caf.1920x1080.jpg?t=1740447961" alt="Screenshot"></div>
+<div class="media-thumb" data-index="4"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2725260/ss_243228c3d50d2a8e145f2762f703ee8b536787d0.1920x1080.jpg?t=1740447961" alt="Screenshot"></div>
+<div class="media-thumb" data-index="5"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2725260/ss_dceb4c03c9e99b8d645ad5c4b93a8540525f1d5c.1920x1080.jpg?t=1740447961" alt="Screenshot"></div>
+<div class="media-thumb" data-index="6"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2725260/ss_4eafac831a7a1f54e5e5d033961501d2d2889261.1920x1080.jpg?t=1740447961" alt="Screenshot"></div>
+<div class="media-thumb" data-index="7"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2725260/ss_61a2e57a1c1ec08e6f4a415bcbdcfcb1dceb544e.1920x1080.jpg?t=1740447961" alt="Screenshot"></div>
+    </div>
 <div class="media-thumb " data-index="1"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2725260/ss_243228c3d50d2a8e145f2762f703ee8b536787d0.1920x1080.jpg?t=1740447961" alt="Screenshot"></div>
 <div class="media-thumb " data-index="2"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2725260/ss_dceb4c03c9e99b8d645ad5c4b93a8540525f1d5c.1920x1080.jpg?t=1740447961" alt="Screenshot"></div>
 <div class="media-thumb " data-index="3"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2725260/ss_4eafac831a7a1f54e5e5d033961501d2d2889261.1920x1080.jpg?t=1740447961" alt="Screenshot"></div>
@@ -581,7 +634,7 @@ body {
 <section class="content-section">
   <div class="content-block">
     <h2>关于此游戏</h2>
-    <div>距《ENDER LILIES》的死亡之雨灾难数十年后， 失控的“人造生命体”带来了毁灭性的破坏。 在这款充满悲情的末日幻想探索动作RPG中， 你将自由地探索绝美却又残酷的世界， 与同伴们一起面对各种各样的强敌。 在救赎人类与人造生命体之旅的尽头，等着你的会是什么呢？</div>
+    <div><p class="about_para" ><span class="about_media"><video class="about_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2725260/extras/6c17078af1dc82543a4d8b20b4b7b028.poster.avif?t=1740447961" width=640 height=180 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2725260/extras/6c17078af1dc82543a4d8b20b4b7b028.webm?t=1740447961" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2725260/extras/6c17078af1dc82543a4d8b20b4b7b028.mp4?t=1740447961" type="video/mp4"></video></span></p><h2 class="bb_tag" >＜故事＞</h2><p class="about_para" >“烟尘之国”——一个因为地底蕴藏的大量魔力资源而繁荣昌盛的国家。</p><p class="about_para" >不断创新而诞生的高科技“人造生命体”，被指望带领国家迈向辉煌的未来。</p><p class="about_para" >谁知从地底涌现的污秽烟雾竟然导致人造生命体发狂，沦为肆虐的怪物。</p><p class="about_para" ></p><p class="about_para" >一名能够救赎人造生命体的调律师“莱拉克”，</p><p class="about_para" >在底层的地下实验场遇到一名与这国家的悲剧有重大关联的人造生命体。</p><p class="about_para" >莱拉克和结下契约的人造生命体一起开始了旅程，</p><p class="about_para" >在浩瀚的烟尘之国寻找失去的记忆和重要的同伴。</p><p class="about_para" ><span class="about_media"><video class="about_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2725260/extras/b15228863592c53db7370a5be1a92a7d.poster.avif?t=1740447961" width=640 height=180 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2725260/extras/b15228863592c53db7370a5be1a92a7d.webm?t=1740447961" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2725260/extras/b15228863592c53db7370a5be1a92a7d.mp4?t=1740447961" type="video/mp4"></video></span></p><p class="about_para" ></p><h2 class="bb_tag" >＜体验＞</h2><p class="about_para" >《终焉之玛格诺利亚》是一款黑暗幻想，2D横版动作RPG游戏。</p><p class="about_para" >游戏中玩家将会探索“烟尘之国”，寻找救赎人类与人造生命体的方法。</p><p class="about_para" >这里是一个魔法强国，结合魔法和机械文明，凌云而立的城区中存在着高度阶级分化。</p><p class="about_para" >被舍弃的旧城区、血染的研究所、庄严的魔术学院、巨大的工厂等等，</p><p class="about_para" >独特的绝美却又残酷的世界将会呈现在你眼前。</p><p class="about_para" >这是死亡之雨灾难数十年后，末世里破坏与再生的故事。</p><p class="about_para" ><span class="about_media"><video class="about_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2725260/extras/3cfb6e21cf3a33c79c4b24ad962480ed.poster.avif?t=1740447961" width=640 height=180 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2725260/extras/3cfb6e21cf3a33c79c4b24ad962480ed.webm?t=1740447961" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2725260/extras/3cfb6e21cf3a33c79c4b24ad962480ed.mp4?t=1740447961" type="video/mp4"></video></span></p><p class="about_para" ></p><p class="about_para" >旅途中你将会碰到众多因为发狂而忘却了帮助人类这项使命的人造生命体。</p><p class="about_para" >战胜可怕的强敌，拯救其灵魂后，各种各样的人造生命体将会成为“莱拉克”的同伴。</p><p class="about_para" >在充满苦难的旅程的尽头，能得到救赎的会是人类，还是人造生命体…</p><p class="about_para" ></p><h2 class="bb_tag" >＜游戏特色＞</h2><p class="about_para" >■超越前作《ENDER LILIES》的探索元素和更加深奥的战斗系统</p><p class="about_para" >・自由探索频临灭绝却又绝美的世界，与同伴携手挑战强敌。</p><p class="about_para" >・尝试多达30种拥有独特功能的同伴技能，找出属于自己的战斗方式。</p><p class="about_para" ></p><p class="about_para" >・装备、遗物、道具等等，收集和成长元素倍增。</p><p class="about_para" >・新增难度设置，既可以挑战如前作般的高难度，也可以安心沉浸于游戏剧情。</p><p class="about_para" ></p><p class="about_para" >■以美妙的2D画风，动画和音乐绘制出的奇幻世界</p><p class="about_para" >・这次游戏的舞台设在“烟尘之国”，人类与人造生命体共存的国度。</p><p class="about_para" >・聆听冒险途中遇到的故事，提供或得到帮助，逼近故事背后的真相。</p><p class="about_para" >・美妙的回忆过场，加上更加丰富的同伴角色对话系统</p><p class="about_para" ></p><h2 class="bb_tag" >＜音乐＞</h2><p class="about_para" >和前作《ENDER LILIES》相同，音乐团体“Mili”将提供全部的乐曲。</p><p class="about_para" >请尽情享受由美妙奇幻的音乐呈现的《终焉之玛格诺利亚》世界。</p></div>
   </div>
 </section>
 
@@ -603,11 +656,46 @@ body {
 <script>
 // 媒体数据
 const mediaItems = [
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2725260/ss_c45ee191b30c962810816685b26da70eb9f00caf.1920x1080.jpg?t=1740447961", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2725260/ss_c45ee191b30c962810816685b26da70eb9f00caf.1920x1080.jpg?t=1740447961"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2725260/ss_243228c3d50d2a8e145f2762f703ee8b536787d0.1920x1080.jpg?t=1740447961", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2725260/ss_243228c3d50d2a8e145f2762f703ee8b536787d0.1920x1080.jpg?t=1740447961"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2725260/ss_dceb4c03c9e99b8d645ad5c4b93a8540525f1d5c.1920x1080.jpg?t=1740447961", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2725260/ss_dceb4c03c9e99b8d645ad5c4b93a8540525f1d5c.1920x1080.jpg?t=1740447961"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2725260/ss_4eafac831a7a1f54e5e5d033961501d2d2889261.1920x1080.jpg?t=1740447961", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2725260/ss_4eafac831a7a1f54e5e5d033961501d2d2889261.1920x1080.jpg?t=1740447961"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2725260/ss_61a2e57a1c1ec08e6f4a415bcbdcfcb1dceb544e.1920x1080.jpg?t=1740447961", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2725260/ss_61a2e57a1c1ec08e6f4a415bcbdcfcb1dceb544e.1920x1080.jpg?t=1740447961"}
+  {
+    "type": "video",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257089837/movie_max.mp4",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257089837/6dfd6f9614b687e2af4efb1d484c40e19bdb725b/movie_600x337.jpg?t=1737171954"
+  },
+  {
+    "type": "video",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257053407/movie_max.mp4",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257053407/movie.293x165.jpg?t=1725930034"
+  },
+  {
+    "type": "video",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257003673/movie_max.mp4",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257003673/movie.293x165.jpg?t=1708960862"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2725260/ss_c45ee191b30c962810816685b26da70eb9f00caf.1920x1080.jpg?t=1740447961",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2725260/ss_c45ee191b30c962810816685b26da70eb9f00caf.1920x1080.jpg?t=1740447961"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2725260/ss_243228c3d50d2a8e145f2762f703ee8b536787d0.1920x1080.jpg?t=1740447961",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2725260/ss_243228c3d50d2a8e145f2762f703ee8b536787d0.1920x1080.jpg?t=1740447961"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2725260/ss_dceb4c03c9e99b8d645ad5c4b93a8540525f1d5c.1920x1080.jpg?t=1740447961",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2725260/ss_dceb4c03c9e99b8d645ad5c4b93a8540525f1d5c.1920x1080.jpg?t=1740447961"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2725260/ss_4eafac831a7a1f54e5e5d033961501d2d2889261.1920x1080.jpg?t=1740447961",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2725260/ss_4eafac831a7a1f54e5e5d033961501d2d2889261.1920x1080.jpg?t=1740447961"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2725260/ss_61a2e57a1c1ec08e6f4a415bcbdcfcb1dceb544e.1920x1080.jpg?t=1740447961",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2725260/ss_61a2e57a1c1ec08e6f4a415bcbdcfcb1dceb544e.1920x1080.jpg?t=1740447961"
+  }
 ];
 
 let currentIndex = 0;

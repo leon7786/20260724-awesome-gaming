@@ -509,6 +509,51 @@ body {
     height: 45px;
   }
 }
+
+/* Steam 关于此游戏内容 */
+.content-block .about_para {
+  margin-bottom: 0.9rem;
+  color: var(--text-secondary);
+  font-size: 0.9375rem;
+  line-height: 1.75;
+}
+.content-block .about_media {
+  display: block;
+  max-width: 100%;
+  margin: 1rem 0;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #000;
+}
+.content-block .about_img {
+  max-width: 100% !important;
+  width: 100% !important;
+  height: auto !important;
+  display: block;
+  border-radius: 8px;
+}
+.content-block video.about_img {
+  width: 100% !important;
+  max-height: 480px;
+  object-fit: contain;
+  background: #000;
+}
+.content-block .about_ul {
+  list-style: none;
+  padding-left: 0;
+}
+.content-block .about_ul li {
+  padding-left: 1.25rem;
+  position: relative;
+  margin-bottom: 0.5rem;
+}
+.content-block .about_ul li:before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+}
+
 </style>
 </head>
 <body>
@@ -523,7 +568,7 @@ body {
 <section class="hero">
   <div class="container">
     <div class="hero-cover">
-      <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4270250/library_600x900.jpg" alt="最终幻想 VII (原版)">
+      <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4270250/22b714ddbd1cbe20d1e6fb22ba9bf3ad50cbac4c/header.jpg" alt="最终幻想 VII (原版)">
     </div>
     <div class="hero-info">
       <h1>最终幻想 VII (原版)</h1>
@@ -563,6 +608,7 @@ body {
     <!-- 缩略图bar -->
     <div class="media-thumbnails" id="mediaThumbnails">
       <div class="media-thumb active" data-index="0"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4270250/fe3d25cd46c893f1c6bfa584be59638083ef8ae4/ss_fe3d25cd46c893f1c6bfa584be59638083ef8ae4.1920x1080.jpg?t=1774941742" alt="Screenshot"></div>
+    </div>
 
     </div>
   </div>
@@ -572,7 +618,7 @@ body {
 <section class="content-section">
   <div class="content-block">
     <h2>关于此游戏</h2>
-    <div>Still going strong more than 20 years on! This FINAL FANTASY VII album includes all the music Nobuo Uematsu composed for the classic game released in 1997. Especially noteworthy tracks include &quot;Those Who Fight&quot; and &quot;One-Winged Angel.&quot;</div>
+    <div><p class="about_para" >Still going strong more than 20 years on!</p><p class="about_para" >This FINAL FANTASY VII album includes all the music Nobuo Uematsu composed for the classic game released in 1997. Especially noteworthy tracks include &quot;Those Who Fight&quot; and &quot;One-Winged Angel.&quot;</p></div>
   </div>
 </section>
 
@@ -592,7 +638,11 @@ body {
 <script>
 // 媒体数据
 const mediaItems = [
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4270250/fe3d25cd46c893f1c6bfa584be59638083ef8ae4/ss_fe3d25cd46c893f1c6bfa584be59638083ef8ae4.1920x1080.jpg?t=1774941742", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4270250/fe3d25cd46c893f1c6bfa584be59638083ef8ae4/ss_fe3d25cd46c893f1c6bfa584be59638083ef8ae4.1920x1080.jpg?t=1774941742"}
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4270250/fe3d25cd46c893f1c6bfa584be59638083ef8ae4/ss_fe3d25cd46c893f1c6bfa584be59638083ef8ae4.1920x1080.jpg?t=1774941742",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4270250/fe3d25cd46c893f1c6bfa584be59638083ef8ae4/ss_fe3d25cd46c893f1c6bfa584be59638083ef8ae4.1920x1080.jpg?t=1774941742"
+  }
 ];
 
 let currentIndex = 0;

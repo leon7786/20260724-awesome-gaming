@@ -509,6 +509,51 @@ body {
     height: 45px;
   }
 }
+
+/* Steam 关于此游戏内容 */
+.content-block .about_para {
+  margin-bottom: 0.9rem;
+  color: var(--text-secondary);
+  font-size: 0.9375rem;
+  line-height: 1.75;
+}
+.content-block .about_media {
+  display: block;
+  max-width: 100%;
+  margin: 1rem 0;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #000;
+}
+.content-block .about_img {
+  max-width: 100% !important;
+  width: 100% !important;
+  height: auto !important;
+  display: block;
+  border-radius: 8px;
+}
+.content-block video.about_img {
+  width: 100% !important;
+  max-height: 480px;
+  object-fit: contain;
+  background: #000;
+}
+.content-block .about_ul {
+  list-style: none;
+  padding-left: 0;
+}
+.content-block .about_ul li {
+  padding-left: 1.25rem;
+  position: relative;
+  margin-bottom: 0.5rem;
+}
+.content-block .about_ul li:before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+}
+
 </style>
 </head>
 <body>
@@ -523,7 +568,7 @@ body {
 <section class="hero">
   <div class="container">
     <div class="hero-cover">
-      <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/library_600x900.jpg" alt="调度员">
+      <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/header.jpg" alt="调度员">
     </div>
     <div class="hero-info">
       <h1>调度员</h1>
@@ -558,12 +603,24 @@ body {
   <div class="media-gallery">
     <!-- 主图显示区域 -->
     <div class="media-main" id="mediaMain">
-      <img src="" alt="Loading">
+      <video controls playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257072977/2a05271da51ec15453a18cc0dbd55efca1e691ad/movie_600x337.jpg?t=1743631114" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257072977/movie_max.mp4" style="width:100%;height:100%;object-fit:contain;background:#000"></video>
     </div>
     
     <!-- 缩略图bar -->
     <div class="media-thumbnails" id="mediaThumbnails">
       <div class="media-thumb active" data-index="0"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257072977/2a05271da51ec15453a18cc0dbd55efca1e691ad/movie_600x337.jpg?t=1743631114" alt="Video"></div>
+<div class="media-thumb" data-index="1"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257199366/85adace0aeaa77b62874c3420c22f1197d38fd5b/movie_600x337.jpg?t=1758121021" alt="Video"></div>
+<div class="media-thumb" data-index="2"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/ss_395c301af733dd84b526d5d6e0e9c4c3446b4a18.1920x1080.jpg?t=1784048711" alt="Screenshot"></div>
+<div class="media-thumb" data-index="3"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/ss_e821251aca2d2f5a6ac255b788cbf6c02904f379.1920x1080.jpg?t=1784048711" alt="Screenshot"></div>
+<div class="media-thumb" data-index="4"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/ss_a2fad5dd7e22186afb390cacbb4071d43a52678b.1920x1080.jpg?t=1784048711" alt="Screenshot"></div>
+<div class="media-thumb" data-index="5"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/ss_6aa03b03ee710fe218e3be4bc54975e4c34d7d8a.1920x1080.jpg?t=1784048711" alt="Screenshot"></div>
+<div class="media-thumb" data-index="6"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/ss_3a9be55a630dc9c9553eda8a1ec5a91b7d46ae01.1920x1080.jpg?t=1784048711" alt="Screenshot"></div>
+<div class="media-thumb" data-index="7"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/ss_f0ee4c607d1594f9482525dd266aac0205206c54.1920x1080.jpg?t=1784048711" alt="Screenshot"></div>
+<div class="media-thumb" data-index="8"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/ss_8a835666501b6569a2f58d8c2583d0e03dcdd828.1920x1080.jpg?t=1784048711" alt="Screenshot"></div>
+<div class="media-thumb" data-index="9"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/ss_926f6369ee5c76038026d83af2d59e49236aac7b.1920x1080.jpg?t=1784048711" alt="Screenshot"></div>
+<div class="media-thumb" data-index="10"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/ss_32dbaa5dabe09fbdef5373c229a1a1b76971328e.1920x1080.jpg?t=1784048711" alt="Screenshot"></div>
+<div class="media-thumb" data-index="11"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/ss_63fae45adf446403f79e87bd910a108b5738d21e.1920x1080.jpg?t=1784048711" alt="Screenshot"></div>
+    </div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257072977/2a05271da51ec15453a18cc0dbd55efca1e691ad/movie_600x337.jpg?t=1743631114" alt="Video"></div>
 <div class="media-thumb " data-index="1"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257199366/85adace0aeaa77b62874c3420c22f1197d38fd5b/movie_600x337.jpg?t=1758121021" alt="Video"></div>
 <div class="media-thumb " data-index="2"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/ss_395c301af733dd84b526d5d6e0e9c4c3446b4a18.1920x1080.jpg?t=1784048711" alt="Screenshot"></div>
 <div class="media-thumb " data-index="3"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/ss_e821251aca2d2f5a6ac255b788cbf6c02904f379.1920x1080.jpg?t=1784048711" alt="Screenshot"></div>
@@ -584,7 +641,7 @@ body {
 <section class="content-section">
   <div class="content-block">
     <h2>关于此游戏</h2>
-    <div><h2 class="bb_tag" >《<strong><i>Dispatch</i></strong>》是一款超级英雄职场喜剧游戏，场景设定在现代的洛杉矶。它的编剧和导演的作品包括《<strong><i>Tales from the Borderlands</i></strong>》、《<strong><i>The Wolf Among Us</i></strong>》。</h2><p class="bb_paragraph" ><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/extras/08bd8194caff314b3877e8a53cb01029.poster.avif?t=1784048711" width=676 height=226 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/extras/08bd8194caff314b3877e8a53cb01029.webm?t=1784048711" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/extras/08bd8194caff314b3877e8a53cb01029.mp4?t=1784048711" type="video/mp4"></video></span></p><p class="bb_paragraph" >你将扮演罗伯特·罗伯逊（Robert Robertson），绰号机甲人（Mecha Man）。你的机甲服在一次与死敌的战斗中被摧毁了，不得已接受了超级英雄派遣中心的工作。这工作不是做英雄，而是担任派遣员。你的责任是改造、管理一群前超级壞蛋组成的团队，处理办公室关系，同时重建你的机甲服，为复仇做准备。</p><p class="bb_paragraph" ></p><p class="bb_paragraph" ><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/extras/586d83627f93a9724013ba68b1f8b71e.poster.avif?t=1784048711" width=676 height=52 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/extras/586d83627f93a9724013ba68b1f8b71e.webm?t=1784048711" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/extras/586d83627f93a9724013ba68b1f8b71e.mp4?t=1784048711" type="video/mp4"></video></span></p><p class="bb_paragraph" ><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/extras/2f392a8c480bd1ae2342363aa9997653.poster.avif?t=1784048711" width=800 height=450 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/extras/2f392a8c480bd1ae2342363aa9997653.webm?t=1784048711" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/extras/2f392a8c480bd1ae2342363aa9997653.mp4?t=1784048711" type="video/mp4"></video></span></p><p class="bb_paragraph" >在《<i>Dispatch</i>》中，你所做的每个决定都会影响故事的发展。从休息室里的玩笑到事故现场的生死攸关的情况，你的选择都会影响你与英雄们的关系及他们的忠诚度，以及你自己的故事的走向。</p><p class="bb_paragraph" ></p><p class="bb_paragraph" ><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/extras/dceb7af16b92e4c3117aafbaa9b7bb1e.poster.avif?t=1784048711" width=676 height=52 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/extras/dceb7af16b92e4c3117aafbaa9b7bb1e.webm?t=1784048711" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/extras/dceb7af16b92e4c3117aafbaa9b7bb1e.mp4?t=1784048711" type="video/mp4"></video></span></p><p class="bb_paragraph" ><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/extras/b41e710d4ffd2988cf4b442825468221.poster.avif?t=1784048711" width=600 height=336 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/extras/b41e710d4ffd2988cf4b442825468221.webm?t=1784048711" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/extras/b41e710d4ffd2988cf4b442825468221.mp4?t=1784048711" type="video/mp4"></video></span></p><p class="bb_paragraph" >使用战略地图查看正在發生中的紧急事故，并派遣合适（或不合适）的英雄来处理这些事故。在做战术决定时，要衡量风险与报酬，要知道每个选择都可能对你的团队和城市产生长期的后果。</p><p class="bb_paragraph" ></p><p class="bb_paragraph" ><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/extras/99ae1052cfeb656ae47aa0e2dc0dea5a.poster.avif?t=1784048711" width=676 height=52 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/extras/99ae1052cfeb656ae47aa0e2dc0dea5a.webm?t=1784048711" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/extras/99ae1052cfeb656ae47aa0e2dc0dea5a.mp4?t=1784048711" type="video/mp4"></video></span></p><p class="bb_paragraph" ><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/extras/ef321860d8b0c1d8b02cbb91c12527e3.poster.avif?t=1784048711" width=800 height=450 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/extras/ef321860d8b0c1d8b02cbb91c12527e3.webm?t=1784048711" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/extras/ef321860d8b0c1d8b02cbb91c12527e3.mp4?t=1784048711" type="video/mp4"></video></span></p><p class="bb_paragraph" >管理英雄有时不仅仅是考量他们的本领。每个英雄都有自己的怪癖、缺陷和包袱，你需要细腻地管理英雄們的差异，才能把团队凝聚在一起。你要提升他们的技能及启发他们的潜力，才能增强他们在紧急事故现场所展现的威力。</p><p class="bb_paragraph" ></p><h2 class="bb_tag" >《<i>Dispatch</i>》融合了故事、策略和幽默，它探索了英雄的真正意义：你可以是穿着披风的英雄，也可以是坐在办公桌后的英雄。</h2><p class="bb_paragraph" ></p><p class="bb_paragraph" ><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/extras/95cbe9a2e0621fa0cf3fc2bbf49d68f7.poster.avif?t=1784048711" width=676 height=226 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/extras/95cbe9a2e0621fa0cf3fc2bbf49d68f7.webm?t=1784048711" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/extras/95cbe9a2e0621fa0cf3fc2bbf49d68f7.mp4?t=1784048711" type="video/mp4"></video></span></p><p class="bb_paragraph" ></p><p class="bb_paragraph" ><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/extras/c98ce3cbd204205ce440b9dc641176b6.poster.avif?t=1784048711" width=676 height=52 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/extras/c98ce3cbd204205ce440b9dc641176b6.webm?t=1784048711" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/extras/c98ce3cbd204205ce440b9dc641176b6.mp4?t=1784048711" type="video/mp4"></video></span></p><p class="bb_paragraph" ><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/extras/9f8915e3019e7b4bcab0dc59873cb9e6.avif?t=1784048711" width=678 height=682 /></span></p><h2 class="bb_tag" >汇聚了来自娱乐各界的明星阵容</h2><ul class="bb_ul"><li><p class="bb_paragraph" ><strong>Aaron Paul（《Breaking Bad》，《Westworld》，《Black Mirror》）</strong></p></li><li><p class="bb_paragraph" ><strong>Laura Bailey（《The Legend of Vox Machina》，《The Last of Us II》，《Marvel's Spider-Man》）</strong></p></li><li><p class="bb_paragraph" ><strong>Erin Yvette（《Hades II》，《The Wolf Among Us》，《Armored Core VI: Fires of Rubicon》）</strong></p></li><li><p class="bb_paragraph" ><strong>MoistCr1TiKaL（Charles White）</strong></p></li><li><p class="bb_paragraph" ><strong>Jacksepticeye（《Sonic Prime》，《River City Girls 1 &amp; 2》，《Bendy and the Ink Machine》）</strong></p></li><li><p class="bb_paragraph" ><strong>Travis Willingham（《The Legend of Vox Machina》，《Critical Role》，《Lego Avengers》）</strong></p></li><li><p class="bb_paragraph" ><strong>Alanah Pearce（《V/H/S Beyond》，《Cyberpunk 2077》，《Gears 5》）</strong></p></li><li><p class="bb_paragraph" ><strong>Lance Cantstopolis</strong> (空手道，舞者，演员）</p></li><li><p class="bb_paragraph" ><strong>Joel Haver</strong> (电影制作人、演员、YouTuber)</p></li><li><p class="bb_paragraph" ><strong>THOT SQUAD</strong> (作曲家：《Pound Cake》，《Hoes Depressed》)</p></li><li><p class="bb_paragraph" ><strong>Yung Gravy</strong>（作曲家：《Betty（Get Money）》，《oops!》）</p></li><li><p class="bb_paragraph" ><strong>Matthew Mercer</strong> (《Critical Role》，《Overwatch》，《Resident Evil 6》)</p></li><li><p class="bb_paragraph" ><strong>Jeffrey Wright</strong> （《American Fiction》，《The Batman》，《Casino Royale》）</p></li></ul><p class="bb_paragraph" ></p><p class="bb_paragraph" ></p><p class="bb_paragraph" ></p><p class="bb_paragraph" ></p></div>
+    <div><h2 class="bb_tag" >《<strong><i>Dispatch</i></strong>》是一款超级英雄职场喜剧游戏，场景设定在现代的洛杉矶。它的编剧和导演的作品包括《<strong><i>Tales from the Borderlands</i></strong>》、《<strong><i>The Wolf Among Us</i></strong>》。</h2><p class="about_para" ><span class="about_media"><video class="about_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/extras/08bd8194caff314b3877e8a53cb01029.poster.avif?t=1784048711" width=676 height=226 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/extras/08bd8194caff314b3877e8a53cb01029.webm?t=1784048711" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/extras/08bd8194caff314b3877e8a53cb01029.mp4?t=1784048711" type="video/mp4"></video></span></p><p class="about_para" >你将扮演罗伯特·罗伯逊（Robert Robertson），绰号机甲人（Mecha Man）。你的机甲服在一次与死敌的战斗中被摧毁了，不得已接受了超级英雄派遣中心的工作。这工作不是做英雄，而是担任派遣员。你的责任是改造、管理一群前超级壞蛋组成的团队，处理办公室关系，同时重建你的机甲服，为复仇做准备。</p><p class="about_para" ></p><p class="about_para" ><span class="about_media"><video class="about_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/extras/586d83627f93a9724013ba68b1f8b71e.poster.avif?t=1784048711" width=676 height=52 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/extras/586d83627f93a9724013ba68b1f8b71e.webm?t=1784048711" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/extras/586d83627f93a9724013ba68b1f8b71e.mp4?t=1784048711" type="video/mp4"></video></span></p><p class="about_para" ><span class="about_media"><video class="about_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/extras/2f392a8c480bd1ae2342363aa9997653.poster.avif?t=1784048711" width=800 height=450 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/extras/2f392a8c480bd1ae2342363aa9997653.webm?t=1784048711" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/extras/2f392a8c480bd1ae2342363aa9997653.mp4?t=1784048711" type="video/mp4"></video></span></p><p class="about_para" >在《<i>Dispatch</i>》中，你所做的每个决定都会影响故事的发展。从休息室里的玩笑到事故现场的生死攸关的情况，你的选择都会影响你与英雄们的关系及他们的忠诚度，以及你自己的故事的走向。</p><p class="about_para" ></p><p class="about_para" ><span class="about_media"><video class="about_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/extras/dceb7af16b92e4c3117aafbaa9b7bb1e.poster.avif?t=1784048711" width=676 height=52 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/extras/dceb7af16b92e4c3117aafbaa9b7bb1e.webm?t=1784048711" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/extras/dceb7af16b92e4c3117aafbaa9b7bb1e.mp4?t=1784048711" type="video/mp4"></video></span></p><p class="about_para" ><span class="about_media"><video class="about_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/extras/b41e710d4ffd2988cf4b442825468221.poster.avif?t=1784048711" width=600 height=336 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/extras/b41e710d4ffd2988cf4b442825468221.webm?t=1784048711" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/extras/b41e710d4ffd2988cf4b442825468221.mp4?t=1784048711" type="video/mp4"></video></span></p><p class="about_para" >使用战略地图查看正在發生中的紧急事故，并派遣合适（或不合适）的英雄来处理这些事故。在做战术决定时，要衡量风险与报酬，要知道每个选择都可能对你的团队和城市产生长期的后果。</p><p class="about_para" ></p><p class="about_para" ><span class="about_media"><video class="about_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/extras/99ae1052cfeb656ae47aa0e2dc0dea5a.poster.avif?t=1784048711" width=676 height=52 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/extras/99ae1052cfeb656ae47aa0e2dc0dea5a.webm?t=1784048711" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/extras/99ae1052cfeb656ae47aa0e2dc0dea5a.mp4?t=1784048711" type="video/mp4"></video></span></p><p class="about_para" ><span class="about_media"><video class="about_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/extras/ef321860d8b0c1d8b02cbb91c12527e3.poster.avif?t=1784048711" width=800 height=450 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/extras/ef321860d8b0c1d8b02cbb91c12527e3.webm?t=1784048711" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/extras/ef321860d8b0c1d8b02cbb91c12527e3.mp4?t=1784048711" type="video/mp4"></video></span></p><p class="about_para" >管理英雄有时不仅仅是考量他们的本领。每个英雄都有自己的怪癖、缺陷和包袱，你需要细腻地管理英雄們的差异，才能把团队凝聚在一起。你要提升他们的技能及启发他们的潜力，才能增强他们在紧急事故现场所展现的威力。</p><p class="about_para" ></p><h2 class="bb_tag" >《<i>Dispatch</i>》融合了故事、策略和幽默，它探索了英雄的真正意义：你可以是穿着披风的英雄，也可以是坐在办公桌后的英雄。</h2><p class="about_para" ></p><p class="about_para" ><span class="about_media"><video class="about_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/extras/95cbe9a2e0621fa0cf3fc2bbf49d68f7.poster.avif?t=1784048711" width=676 height=226 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/extras/95cbe9a2e0621fa0cf3fc2bbf49d68f7.webm?t=1784048711" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/extras/95cbe9a2e0621fa0cf3fc2bbf49d68f7.mp4?t=1784048711" type="video/mp4"></video></span></p><p class="about_para" ></p><p class="about_para" ><span class="about_media"><video class="about_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/extras/c98ce3cbd204205ce440b9dc641176b6.poster.avif?t=1784048711" width=676 height=52 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/extras/c98ce3cbd204205ce440b9dc641176b6.webm?t=1784048711" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/extras/c98ce3cbd204205ce440b9dc641176b6.mp4?t=1784048711" type="video/mp4"></video></span></p><p class="about_para" ><span class="about_media"><img class="about_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/extras/9f8915e3019e7b4bcab0dc59873cb9e6.avif?t=1784048711" width=678 height=682 /></span></p><h2 class="bb_tag" >汇聚了来自娱乐各界的明星阵容</h2><ul class="about_ul"><li><p class="about_para" ><strong>Aaron Paul（《Breaking Bad》，《Westworld》，《Black Mirror》）</strong></p></li><li><p class="about_para" ><strong>Laura Bailey（《The Legend of Vox Machina》，《The Last of Us II》，《Marvel's Spider-Man》）</strong></p></li><li><p class="about_para" ><strong>Erin Yvette（《Hades II》，《The Wolf Among Us》，《Armored Core VI: Fires of Rubicon》）</strong></p></li><li><p class="about_para" ><strong>MoistCr1TiKaL（Charles White）</strong></p></li><li><p class="about_para" ><strong>Jacksepticeye（《Sonic Prime》，《River City Girls 1 &amp; 2》，《Bendy and the Ink Machine》）</strong></p></li><li><p class="about_para" ><strong>Travis Willingham（《The Legend of Vox Machina》，《Critical Role》，《Lego Avengers》）</strong></p></li><li><p class="about_para" ><strong>Alanah Pearce（《V/H/S Beyond》，《Cyberpunk 2077》，《Gears 5》）</strong></p></li><li><p class="about_para" ><strong>Lance Cantstopolis</strong> (空手道，舞者，演员）</p></li><li><p class="about_para" ><strong>Joel Haver</strong> (电影制作人、演员、YouTuber)</p></li><li><p class="about_para" ><strong>THOT SQUAD</strong> (作曲家：《Pound Cake》，《Hoes Depressed》)</p></li><li><p class="about_para" ><strong>Yung Gravy</strong>（作曲家：《Betty（Get Money）》，《oops!》）</p></li><li><p class="about_para" ><strong>Matthew Mercer</strong> (《Critical Role》，《Overwatch》，《Resident Evil 6》)</p></li><li><p class="about_para" ><strong>Jeffrey Wright</strong> （《American Fiction》，《The Batman》，《Casino Royale》）</p></li></ul><p class="about_para" ></p><p class="about_para" ></p><p class="about_para" ></p><p class="about_para" ></p></div>
   </div>
 </section>
 
@@ -615,18 +672,66 @@ body {
 <script>
 // 媒体数据
 const mediaItems = [
-  {"type": "video", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257072977/movie_max.mp4", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257072977/2a05271da51ec15453a18cc0dbd55efca1e691ad/movie_600x337.jpg?t=1743631114"},
-  {"type": "video", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257199366/movie_max.mp4", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257199366/85adace0aeaa77b62874c3420c22f1197d38fd5b/movie_600x337.jpg?t=1758121021"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/ss_395c301af733dd84b526d5d6e0e9c4c3446b4a18.1920x1080.jpg?t=1784048711", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/ss_395c301af733dd84b526d5d6e0e9c4c3446b4a18.1920x1080.jpg?t=1784048711"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/ss_e821251aca2d2f5a6ac255b788cbf6c02904f379.1920x1080.jpg?t=1784048711", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/ss_e821251aca2d2f5a6ac255b788cbf6c02904f379.1920x1080.jpg?t=1784048711"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/ss_a2fad5dd7e22186afb390cacbb4071d43a52678b.1920x1080.jpg?t=1784048711", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/ss_a2fad5dd7e22186afb390cacbb4071d43a52678b.1920x1080.jpg?t=1784048711"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/ss_6aa03b03ee710fe218e3be4bc54975e4c34d7d8a.1920x1080.jpg?t=1784048711", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/ss_6aa03b03ee710fe218e3be4bc54975e4c34d7d8a.1920x1080.jpg?t=1784048711"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/ss_3a9be55a630dc9c9553eda8a1ec5a91b7d46ae01.1920x1080.jpg?t=1784048711", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/ss_3a9be55a630dc9c9553eda8a1ec5a91b7d46ae01.1920x1080.jpg?t=1784048711"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/ss_f0ee4c607d1594f9482525dd266aac0205206c54.1920x1080.jpg?t=1784048711", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/ss_f0ee4c607d1594f9482525dd266aac0205206c54.1920x1080.jpg?t=1784048711"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/ss_8a835666501b6569a2f58d8c2583d0e03dcdd828.1920x1080.jpg?t=1784048711", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/ss_8a835666501b6569a2f58d8c2583d0e03dcdd828.1920x1080.jpg?t=1784048711"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/ss_926f6369ee5c76038026d83af2d59e49236aac7b.1920x1080.jpg?t=1784048711", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/ss_926f6369ee5c76038026d83af2d59e49236aac7b.1920x1080.jpg?t=1784048711"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/ss_32dbaa5dabe09fbdef5373c229a1a1b76971328e.1920x1080.jpg?t=1784048711", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/ss_32dbaa5dabe09fbdef5373c229a1a1b76971328e.1920x1080.jpg?t=1784048711"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/ss_63fae45adf446403f79e87bd910a108b5738d21e.1920x1080.jpg?t=1784048711", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/ss_63fae45adf446403f79e87bd910a108b5738d21e.1920x1080.jpg?t=1784048711"}
+  {
+    "type": "video",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257072977/movie_max.mp4",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257072977/2a05271da51ec15453a18cc0dbd55efca1e691ad/movie_600x337.jpg?t=1743631114"
+  },
+  {
+    "type": "video",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257199366/movie_max.mp4",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257199366/85adace0aeaa77b62874c3420c22f1197d38fd5b/movie_600x337.jpg?t=1758121021"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/ss_395c301af733dd84b526d5d6e0e9c4c3446b4a18.1920x1080.jpg?t=1784048711",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/ss_395c301af733dd84b526d5d6e0e9c4c3446b4a18.1920x1080.jpg?t=1784048711"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/ss_e821251aca2d2f5a6ac255b788cbf6c02904f379.1920x1080.jpg?t=1784048711",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/ss_e821251aca2d2f5a6ac255b788cbf6c02904f379.1920x1080.jpg?t=1784048711"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/ss_a2fad5dd7e22186afb390cacbb4071d43a52678b.1920x1080.jpg?t=1784048711",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/ss_a2fad5dd7e22186afb390cacbb4071d43a52678b.1920x1080.jpg?t=1784048711"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/ss_6aa03b03ee710fe218e3be4bc54975e4c34d7d8a.1920x1080.jpg?t=1784048711",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/ss_6aa03b03ee710fe218e3be4bc54975e4c34d7d8a.1920x1080.jpg?t=1784048711"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/ss_3a9be55a630dc9c9553eda8a1ec5a91b7d46ae01.1920x1080.jpg?t=1784048711",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/ss_3a9be55a630dc9c9553eda8a1ec5a91b7d46ae01.1920x1080.jpg?t=1784048711"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/ss_f0ee4c607d1594f9482525dd266aac0205206c54.1920x1080.jpg?t=1784048711",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/ss_f0ee4c607d1594f9482525dd266aac0205206c54.1920x1080.jpg?t=1784048711"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/ss_8a835666501b6569a2f58d8c2583d0e03dcdd828.1920x1080.jpg?t=1784048711",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/ss_8a835666501b6569a2f58d8c2583d0e03dcdd828.1920x1080.jpg?t=1784048711"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/ss_926f6369ee5c76038026d83af2d59e49236aac7b.1920x1080.jpg?t=1784048711",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/ss_926f6369ee5c76038026d83af2d59e49236aac7b.1920x1080.jpg?t=1784048711"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/ss_32dbaa5dabe09fbdef5373c229a1a1b76971328e.1920x1080.jpg?t=1784048711",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/ss_32dbaa5dabe09fbdef5373c229a1a1b76971328e.1920x1080.jpg?t=1784048711"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/ss_63fae45adf446403f79e87bd910a108b5738d21e.1920x1080.jpg?t=1784048711",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2592160/ss_63fae45adf446403f79e87bd910a108b5738d21e.1920x1080.jpg?t=1784048711"
+  }
 ];
 
 let currentIndex = 0;

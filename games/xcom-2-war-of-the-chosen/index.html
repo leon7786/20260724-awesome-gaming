@@ -509,6 +509,51 @@ body {
     height: 45px;
   }
 }
+
+/* Steam 关于此游戏内容 */
+.content-block .about_para {
+  margin-bottom: 0.9rem;
+  color: var(--text-secondary);
+  font-size: 0.9375rem;
+  line-height: 1.75;
+}
+.content-block .about_media {
+  display: block;
+  max-width: 100%;
+  margin: 1rem 0;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #000;
+}
+.content-block .about_img {
+  max-width: 100% !important;
+  width: 100% !important;
+  height: auto !important;
+  display: block;
+  border-radius: 8px;
+}
+.content-block video.about_img {
+  width: 100% !important;
+  max-height: 480px;
+  object-fit: contain;
+  background: #000;
+}
+.content-block .about_ul {
+  list-style: none;
+  padding-left: 0;
+}
+.content-block .about_ul li {
+  padding-left: 1.25rem;
+  position: relative;
+  margin-bottom: 0.5rem;
+}
+.content-block .about_ul li:before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+}
+
 </style>
 </head>
 <body>
@@ -558,12 +603,20 @@ body {
   <div class="media-gallery">
     <!-- 主图显示区域 -->
     <div class="media-main" id="mediaMain">
-      <img src="" alt="Loading">
+      <video controls playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256686863/movie.293x165.jpg?t=1497287911" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256686863/movie_max.mp4" style="width:100%;height:100%;object-fit:contain;background:#000"></video>
     </div>
     
     <!-- 缩略图bar -->
     <div class="media-thumbnails" id="mediaThumbnails">
       <div class="media-thumb active" data-index="0"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256686863/movie.293x165.jpg?t=1497287911" alt="Video"></div>
+<div class="media-thumb" data-index="1"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256689881/movie.293x165.jpg?t=1499876790" alt="Video"></div>
+<div class="media-thumb" data-index="2"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/593380/ss_bac5218209a7c33b0718c6546018244a33be0858.1920x1080.jpg?t=1728669045" alt="Screenshot"></div>
+<div class="media-thumb" data-index="3"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/593380/ss_7085970344a01f227b4b43bd81bc846fa987ea9c.1920x1080.jpg?t=1728669045" alt="Screenshot"></div>
+<div class="media-thumb" data-index="4"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/593380/ss_077e228cdbf84e123360e95cb2f3d886e24a2b31.1920x1080.jpg?t=1728669045" alt="Screenshot"></div>
+<div class="media-thumb" data-index="5"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/593380/ss_2ffbc740db7e25b2a8967f7018845ef1641ab330.1920x1080.jpg?t=1728669045" alt="Screenshot"></div>
+<div class="media-thumb" data-index="6"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/593380/ss_62120d28fbf3e9dfa5f22cdbf3d8abbc82147853.1920x1080.jpg?t=1728669045" alt="Screenshot"></div>
+<div class="media-thumb" data-index="7"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/593380/ss_9c6dc22936d749ac433bf90945035da99c5051ee.1920x1080.jpg?t=1728669045" alt="Screenshot"></div>
+    </div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256686863/movie.293x165.jpg?t=1497287911" alt="Video"></div>
 <div class="media-thumb " data-index="1"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256689881/movie.293x165.jpg?t=1499876790" alt="Video"></div>
 <div class="media-thumb " data-index="2"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/593380/ss_bac5218209a7c33b0718c6546018244a33be0858.1920x1080.jpg?t=1728669045" alt="Screenshot"></div>
 <div class="media-thumb " data-index="3"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/593380/ss_7085970344a01f227b4b43bd81bc846fa987ea9c.1920x1080.jpg?t=1728669045" alt="Screenshot"></div>
@@ -580,7 +633,7 @@ body {
 <section class="content-section">
   <div class="content-block">
     <h2>关于此游戏</h2>
-    <div><i>《XCOM® 2 天选者之战》</i>是2016年度金奖策略游戏的资料片。<br><br><i>《XCOM® 2 天选者之战》</i>替对抗变种人的战争增添了丰富的全新内容，且有额外的反抗军派系加入消弭地球上外星人威胁的行列。为了因应此情势，外星人派出了「天选者」这样的全新敌人，而它的目标只有一个：再次捉住指挥官。这款资料片包含了反制「天选者」的全新英雄兵种、全新敌人、全新任务、环境、并加深了策略游戏内容的深度。<h2 class="bb_tag" >全新派系&amp;英雄兵种</h2><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/593380/extras/11566b04b4211a12bc84fe26025133ea.avif?t=1728669045" width=614 height=178 /></span><br>3支额外派系已经加入到了地球的反抗势力当中——死神、散兵和圣殿骑士——每一支部队都有着各自独特的能力和大相径庭的理念。这些派系能在任务中提供强大的英雄兵种士兵进行协助并在策略层面展现了全新的机会。<h2 class="bb_tag" >天选者</h2><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/593380/extras/097afe11b07e3f87c8aec8f80843e183.avif?t=1728669045" width=614 height=178 /></span><br>天选者是XCOM遇到过的敌人中最为狡诈的，它们在每次新战役中都会有各自独特的能力和弱点。天选者的使命是猎杀指挥官，并且还会绑架、审问并杀戮XCOM的士兵来完成它们的目标。天选者同样能够干扰XCOM的策略并破坏全球的行动。找到并突袭天选者的要塞以此永久地打败敌人吧。<h2 class="bb_tag" >全新的外星人&amp;变种人威胁</h2><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/593380/extras/bf164facbce1bb6f7563c94836dc5762.avif?t=1728669045" width=614 height=178 /></span><br>一种被称为幽灵的全新致命的外星人已经潜入了战场，它能够创造XCOM士兵的黑暗复制体。必须采取全新的战术来反制它，同时还要防备拥有爆炸性攻击能力的变种人净化者以及拥有灵能能力的变种人祭司。<h2 class="bb_tag" >全新环境与任务目标</h2><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/593380/extras/1f9ed78873180a9172e8f3478ec4fc14.avif?t=1728669045" width=614 height=178 /></span><br>在外星人初次入侵时以生化武器摧毁的废弃城市、地下隧道以及异种荒地区域这些全新环境里执行战术任务。<h2 class="bb_tag" >加强的策略层面</h2><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/593380/extras/c5bed00fd8e0651a17ba12e12ee15fcc.avif?t=1728669045" width=614 height=178 /></span><br>在复仇者号上管理XCOM与派系之间的关系并反击天选者的行动。采用全新的反抗军命令来安排你的个人策略。士兵、科学家以及工程师现在可以部署参与隐秘行动，如果行动成功完成就能获得补给以及派系好感度的奖励。<h2 class="bb_tag" >更强的自定义&amp;重玩性</h2><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/593380/extras/93e3bf1fcb58264f9147b66ca4e6ac1d.avif?t=1728669045" width=614 height=178 /></span><br>士兵现在能够和相合的队友产生羁绊并获取全新的能力和技能。军情简报系统将动态地对战术层面添加新的变数，确保让每个任务都能提供独特的挑战。改进的战役选项能够更好地调整游戏的长度和难度。<h2 class="bb_tag" >分享反抗军</h2><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/593380/extras/7d6fdace5e0159abe5c2fa3a0ace0d87.avif?t=1728669045" width=614 height=178 /></span><br>自定义你的士兵们并让他们摆好姿势，然后加上滤镜、文本以及背景来生成只属于你自己的反抗军海报，它能够出现在游戏内并也能与你的好友分享。<br><br>需搭配《<i>XCOM® 2</i>》主游戏（需另购）。</div>
+    <div><i>《XCOM® 2 天选者之战》</i>是2016年度金奖策略游戏的资料片。<br><br><i>《XCOM® 2 天选者之战》</i>替对抗变种人的战争增添了丰富的全新内容，且有额外的反抗军派系加入消弭地球上外星人威胁的行列。为了因应此情势，外星人派出了「天选者」这样的全新敌人，而它的目标只有一个：再次捉住指挥官。这款资料片包含了反制「天选者」的全新英雄兵种、全新敌人、全新任务、环境、并加深了策略游戏内容的深度。<h2 class="bb_tag" >全新派系&amp;英雄兵种</h2><span class="about_media"><img class="about_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/593380/extras/11566b04b4211a12bc84fe26025133ea.avif?t=1728669045" width=614 height=178 /></span><br>3支额外派系已经加入到了地球的反抗势力当中——死神、散兵和圣殿骑士——每一支部队都有着各自独特的能力和大相径庭的理念。这些派系能在任务中提供强大的英雄兵种士兵进行协助并在策略层面展现了全新的机会。<h2 class="bb_tag" >天选者</h2><span class="about_media"><img class="about_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/593380/extras/097afe11b07e3f87c8aec8f80843e183.avif?t=1728669045" width=614 height=178 /></span><br>天选者是XCOM遇到过的敌人中最为狡诈的，它们在每次新战役中都会有各自独特的能力和弱点。天选者的使命是猎杀指挥官，并且还会绑架、审问并杀戮XCOM的士兵来完成它们的目标。天选者同样能够干扰XCOM的策略并破坏全球的行动。找到并突袭天选者的要塞以此永久地打败敌人吧。<h2 class="bb_tag" >全新的外星人&amp;变种人威胁</h2><span class="about_media"><img class="about_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/593380/extras/bf164facbce1bb6f7563c94836dc5762.avif?t=1728669045" width=614 height=178 /></span><br>一种被称为幽灵的全新致命的外星人已经潜入了战场，它能够创造XCOM士兵的黑暗复制体。必须采取全新的战术来反制它，同时还要防备拥有爆炸性攻击能力的变种人净化者以及拥有灵能能力的变种人祭司。<h2 class="bb_tag" >全新环境与任务目标</h2><span class="about_media"><img class="about_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/593380/extras/1f9ed78873180a9172e8f3478ec4fc14.avif?t=1728669045" width=614 height=178 /></span><br>在外星人初次入侵时以生化武器摧毁的废弃城市、地下隧道以及异种荒地区域这些全新环境里执行战术任务。<h2 class="bb_tag" >加强的策略层面</h2><span class="about_media"><img class="about_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/593380/extras/c5bed00fd8e0651a17ba12e12ee15fcc.avif?t=1728669045" width=614 height=178 /></span><br>在复仇者号上管理XCOM与派系之间的关系并反击天选者的行动。采用全新的反抗军命令来安排你的个人策略。士兵、科学家以及工程师现在可以部署参与隐秘行动，如果行动成功完成就能获得补给以及派系好感度的奖励。<h2 class="bb_tag" >更强的自定义&amp;重玩性</h2><span class="about_media"><img class="about_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/593380/extras/93e3bf1fcb58264f9147b66ca4e6ac1d.avif?t=1728669045" width=614 height=178 /></span><br>士兵现在能够和相合的队友产生羁绊并获取全新的能力和技能。军情简报系统将动态地对战术层面添加新的变数，确保让每个任务都能提供独特的挑战。改进的战役选项能够更好地调整游戏的长度和难度。<h2 class="bb_tag" >分享反抗军</h2><span class="about_media"><img class="about_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/593380/extras/7d6fdace5e0159abe5c2fa3a0ace0d87.avif?t=1728669045" width=614 height=178 /></span><br>自定义你的士兵们并让他们摆好姿势，然后加上滤镜、文本以及背景来生成只属于你自己的反抗军海报，它能够出现在游戏内并也能与你的好友分享。<br><br>需搭配《<i>XCOM® 2</i>》主游戏（需另购）。</div>
   </div>
 </section>
 
@@ -609,14 +662,46 @@ body {
 <script>
 // 媒体数据
 const mediaItems = [
-  {"type": "video", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256686863/movie_max.mp4", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256686863/movie.293x165.jpg?t=1497287911"},
-  {"type": "video", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256689881/movie_max.mp4", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256689881/movie.293x165.jpg?t=1499876790"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/593380/ss_bac5218209a7c33b0718c6546018244a33be0858.1920x1080.jpg?t=1728669045", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/593380/ss_bac5218209a7c33b0718c6546018244a33be0858.1920x1080.jpg?t=1728669045"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/593380/ss_7085970344a01f227b4b43bd81bc846fa987ea9c.1920x1080.jpg?t=1728669045", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/593380/ss_7085970344a01f227b4b43bd81bc846fa987ea9c.1920x1080.jpg?t=1728669045"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/593380/ss_077e228cdbf84e123360e95cb2f3d886e24a2b31.1920x1080.jpg?t=1728669045", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/593380/ss_077e228cdbf84e123360e95cb2f3d886e24a2b31.1920x1080.jpg?t=1728669045"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/593380/ss_2ffbc740db7e25b2a8967f7018845ef1641ab330.1920x1080.jpg?t=1728669045", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/593380/ss_2ffbc740db7e25b2a8967f7018845ef1641ab330.1920x1080.jpg?t=1728669045"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/593380/ss_62120d28fbf3e9dfa5f22cdbf3d8abbc82147853.1920x1080.jpg?t=1728669045", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/593380/ss_62120d28fbf3e9dfa5f22cdbf3d8abbc82147853.1920x1080.jpg?t=1728669045"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/593380/ss_9c6dc22936d749ac433bf90945035da99c5051ee.1920x1080.jpg?t=1728669045", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/593380/ss_9c6dc22936d749ac433bf90945035da99c5051ee.1920x1080.jpg?t=1728669045"}
+  {
+    "type": "video",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256686863/movie_max.mp4",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256686863/movie.293x165.jpg?t=1497287911"
+  },
+  {
+    "type": "video",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256689881/movie_max.mp4",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256689881/movie.293x165.jpg?t=1499876790"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/593380/ss_bac5218209a7c33b0718c6546018244a33be0858.1920x1080.jpg?t=1728669045",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/593380/ss_bac5218209a7c33b0718c6546018244a33be0858.1920x1080.jpg?t=1728669045"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/593380/ss_7085970344a01f227b4b43bd81bc846fa987ea9c.1920x1080.jpg?t=1728669045",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/593380/ss_7085970344a01f227b4b43bd81bc846fa987ea9c.1920x1080.jpg?t=1728669045"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/593380/ss_077e228cdbf84e123360e95cb2f3d886e24a2b31.1920x1080.jpg?t=1728669045",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/593380/ss_077e228cdbf84e123360e95cb2f3d886e24a2b31.1920x1080.jpg?t=1728669045"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/593380/ss_2ffbc740db7e25b2a8967f7018845ef1641ab330.1920x1080.jpg?t=1728669045",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/593380/ss_2ffbc740db7e25b2a8967f7018845ef1641ab330.1920x1080.jpg?t=1728669045"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/593380/ss_62120d28fbf3e9dfa5f22cdbf3d8abbc82147853.1920x1080.jpg?t=1728669045",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/593380/ss_62120d28fbf3e9dfa5f22cdbf3d8abbc82147853.1920x1080.jpg?t=1728669045"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/593380/ss_9c6dc22936d749ac433bf90945035da99c5051ee.1920x1080.jpg?t=1728669045",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/593380/ss_9c6dc22936d749ac433bf90945035da99c5051ee.1920x1080.jpg?t=1728669045"
+  }
 ];
 
 let currentIndex = 0;

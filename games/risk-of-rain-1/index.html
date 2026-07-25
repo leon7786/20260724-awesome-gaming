@@ -509,6 +509,51 @@ body {
     height: 45px;
   }
 }
+
+/* Steam 关于此游戏内容 */
+.content-block .about_para {
+  margin-bottom: 0.9rem;
+  color: var(--text-secondary);
+  font-size: 0.9375rem;
+  line-height: 1.75;
+}
+.content-block .about_media {
+  display: block;
+  max-width: 100%;
+  margin: 1rem 0;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #000;
+}
+.content-block .about_img {
+  max-width: 100% !important;
+  width: 100% !important;
+  height: auto !important;
+  display: block;
+  border-radius: 8px;
+}
+.content-block video.about_img {
+  width: 100% !important;
+  max-height: 480px;
+  object-fit: contain;
+  background: #000;
+}
+.content-block .about_ul {
+  list-style: none;
+  padding-left: 0;
+}
+.content-block .about_ul li {
+  padding-left: 1.25rem;
+  position: relative;
+  margin-bottom: 0.5rem;
+}
+.content-block .about_ul li:before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+}
+
 </style>
 </head>
 <body>
@@ -523,7 +568,7 @@ body {
 <section class="hero">
   <div class="container">
     <div class="hero-cover">
-      <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/248820/library_600x900.jpg" alt="雨中冒险 1">
+      <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/248820/header.jpg" alt="雨中冒险 1">
     </div>
     <div class="hero-info">
       <h1>雨中冒险 1</h1>
@@ -531,7 +576,7 @@ body {
       
       <div class="meta-tags">
         <span class="meta-tag year">2013</span>
-        <span class="meta-tag score">⭐ </span>
+        <span class="meta-tag score">⭐ 77</span>
       </div>
       
       <div class="info-row">
@@ -557,12 +602,19 @@ body {
   <div class="media-gallery">
     <!-- 主图显示区域 -->
     <div class="media-main" id="mediaMain">
-      <img src="" alt="Cover">
+      <video controls playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2029758/movie.293x165.jpg?t=1447359202" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2029758/movie_max.mp4" style="width:100%;height:100%;object-fit:contain;background:#000"></video>
     </div>
     
     <!-- 缩略图bar -->
     <div class="media-thumbnails" id="mediaThumbnails">
-      
+      <div class="media-thumb active" data-index="0"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2029758/movie.293x165.jpg?t=1447359202" alt="Video"></div>
+<div class="media-thumb" data-index="1"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/248820/ss_9b26bb93397ea5bbb7906950c4ffa0d6e9203f7d.1920x1080.jpg?t=1782157778" alt="Screenshot"></div>
+<div class="media-thumb" data-index="2"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/248820/ss_9e1919fe4e37de4d153333fb012586fb63cb8999.1920x1080.jpg?t=1782157778" alt="Screenshot"></div>
+<div class="media-thumb" data-index="3"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/248820/ss_1538d1e9b9693caddf83be07670960173e37fa2f.1920x1080.jpg?t=1782157778" alt="Screenshot"></div>
+<div class="media-thumb" data-index="4"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/248820/ss_d470578d7945689fb108cc5e68dc9b2ae12fe528.1920x1080.jpg?t=1782157778" alt="Screenshot"></div>
+<div class="media-thumb" data-index="5"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/248820/ss_20e92e121ba7ada0c21262ee3b78f24e1d6e7866.1920x1080.jpg?t=1782157778" alt="Screenshot"></div>
+<div class="media-thumb" data-index="6"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/248820/ss_631b48c74a1105bf58db0c68ab6c06ae2345d371.1920x1080.jpg?t=1782157778" alt="Screenshot"></div>
+<div class="media-thumb" data-index="7"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/248820/ss_bad30e7c79c66b1717b1259042bf9566762931d4.1920x1080.jpg?t=1782157778" alt="Screenshot"></div>
     </div>
   </div>
 </section>
@@ -571,7 +623,7 @@ body {
 <section class="content-section">
   <div class="content-block">
     <h2>关于此游戏</h2>
-    <div></div>
+    <div>Risk of Rain is an <strong>action platformer</strong> with <strong>roguelike elements</strong>. With <strong>permanent death</strong> as a primary feature, players will have to play their best to get as far as possible. Fight on a mysterious planet with <strong>randomly spawning enemies and bosses</strong>, either alone or with 3 friends in <strong>online co-op</strong>. With over <strong>100 items</strong> at your disposal, you will find the tools you need to find the teleporter back home. Discover a myriad of <strong>randomly chosen stages</strong>, from the desolate forest to the frozen tundra. <br><br>The three main goals for our game are simple: <br><br>     1. Design a game that is randomly generated every play-through, to keep replayability high and fresh. <br><br>     2. Time = difficulty. The higher the in-game time gets, the harder the difficulty gets. Keeping a sense of urgency keeps the game exciting! <br><br>     3. Be enjoyable, regardless of whether you win or lose. No more fussing with complex and non-intuitive gameplay patterns. Players should not blame the game for their loss!<br><br><i>''..joy comes from amassing items, gaining experience and watching your character evolve into a godly killing machine.''</i> - <strong>Joystiq</strong> <br><br><i>''This game is immaculate. The enemy design, the sound effects, the powers, the fights, all of it feels wonderful.''</i> - <strong>Eurogamer</strong><br><br><i>&quot;..a ridiculously compelling procedurally generated side-scrolling platform survivor-me-do, with multiple characters to play as, single and co-op play, and some of the hardest-hitting deaths I've experienced in such games&quot;</i> - <strong>RockPaperShotgun</strong><h2 class="bb_tag" >Key Features</h2><br><ul class="about_ul"><li>Engage in local and online multiplayer with friends and other players from around the world! <br></li><li>Play and unlock 12 unique characters, from the Commando to the Miner to the Engineer. <br></li><li>Fight through hordes of different enemies and bosses, randomly chosen by the game with random abilities and powers. </li></ul><ul class="about_ul"><li>Get lost and discover 10 massive levels with different enemies, shrines, and chests on each one! </li></ul><ul class="about_ul"><li>Recruit the help of a wide variety of drones, from missile drones to healing drones! <br></li><li>Unlock the lore of the game through the item and monster logs! <br></li><li>Unlock new items and characters through difficult achievements to keep the game fresh with each playthrough. <br></li><li>Save your best highscores and stats!</li></ul></div>
   </div>
 </section>
 
@@ -592,7 +644,46 @@ body {
 <script>
 // 媒体数据
 const mediaItems = [
-  
+  {
+    "type": "video",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2029758/movie_max.mp4",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2029758/movie.293x165.jpg?t=1447359202"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/248820/ss_9b26bb93397ea5bbb7906950c4ffa0d6e9203f7d.1920x1080.jpg?t=1782157778",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/248820/ss_9b26bb93397ea5bbb7906950c4ffa0d6e9203f7d.1920x1080.jpg?t=1782157778"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/248820/ss_9e1919fe4e37de4d153333fb012586fb63cb8999.1920x1080.jpg?t=1782157778",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/248820/ss_9e1919fe4e37de4d153333fb012586fb63cb8999.1920x1080.jpg?t=1782157778"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/248820/ss_1538d1e9b9693caddf83be07670960173e37fa2f.1920x1080.jpg?t=1782157778",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/248820/ss_1538d1e9b9693caddf83be07670960173e37fa2f.1920x1080.jpg?t=1782157778"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/248820/ss_d470578d7945689fb108cc5e68dc9b2ae12fe528.1920x1080.jpg?t=1782157778",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/248820/ss_d470578d7945689fb108cc5e68dc9b2ae12fe528.1920x1080.jpg?t=1782157778"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/248820/ss_20e92e121ba7ada0c21262ee3b78f24e1d6e7866.1920x1080.jpg?t=1782157778",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/248820/ss_20e92e121ba7ada0c21262ee3b78f24e1d6e7866.1920x1080.jpg?t=1782157778"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/248820/ss_631b48c74a1105bf58db0c68ab6c06ae2345d371.1920x1080.jpg?t=1782157778",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/248820/ss_631b48c74a1105bf58db0c68ab6c06ae2345d371.1920x1080.jpg?t=1782157778"
+  },
+  {
+    "type": "image",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/248820/ss_bad30e7c79c66b1717b1259042bf9566762931d4.1920x1080.jpg?t=1782157778",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/248820/ss_bad30e7c79c66b1717b1259042bf9566762931d4.1920x1080.jpg?t=1782157778"
+  }
 ];
 
 let currentIndex = 0;
