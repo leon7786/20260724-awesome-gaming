@@ -551,6 +551,7 @@ body {
     <a href="https://www.gamer520.com/" target="_blank">gamer520</a>
     <a href="https://www.x6d.com/html/96.html" target="_blank">x6d</a>
     <a href="https://github.com/leon7786/20260724-awesome-gaming" target="_blank">GitHub</a>
+    <input type="text" id="searchInput" class="search-input" placeholder="搜索游戏..." oninput="filterBySearch()" />
   </div>
 </nav>
 
@@ -691,8 +692,6 @@ function renderGameCard(game) {
     return `<a href="${dl.url}" class="btn ${btnClass}" target="_blank" onclick="event.stopPropagation()">${name}</a>`;
   }).join('');
   
-  const detailBtn = game.detail ? `<a href="${game.detail}" class="btn btn-primary">详情</a>` : '';
-  
   // 存储大小标签
   let sizeTag = '';
   if (game.size_gb) {
@@ -717,7 +716,6 @@ function renderGameCard(game) {
         </div>
         <div class="game-actions">
           ${dlBtns}
-          ${detailBtn}
         </div>
       </div>
     </div>
