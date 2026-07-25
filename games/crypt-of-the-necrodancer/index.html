@@ -168,75 +168,127 @@ body {
   max-width: 640px;
 }
 
-/* 媒体区域 */
+/* 媒体区域 - Steam风格 */
 .media-section {
   max-width: 1200px;
   margin: 2rem auto;
   padding: 0 2rem;
 }
 
-.media-tabs {
-  display: flex;
-  gap: 0.5rem;
-  margin-bottom: 1rem;
-}
-
-.media-tab {
+.media-gallery {
   background: var(--surface);
-  border: 1px solid var(--border);
-  color: var(--text-secondary);
-  padding: 0.5rem 1.25rem;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 0.875rem;
-  font-weight: 500;
-  transition: all 0.2s;
-}
-
-.media-tab:hover {
-  border-color: var(--accent);
-  color: var(--accent);
-}
-
-.media-tab.active {
-  background: var(--accent);
-  color: white;
-  border-color: var(--accent);
-}
-
-.media-player {
   border-radius: var(--radius);
+  border: 1px solid var(--border);
   overflow: hidden;
-  background: #000;
-  aspect-ratio: 16/9;
 }
 
-.media-player video,
-.media-player img {
+/* 主图显示区域 */
+.media-main {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/9;
+  background: #000;
+  overflow: hidden;
+}
+
+.media-main img,
+.media-main video,
+.media-main iframe {
   width: 100%;
   height: 100%;
   object-fit: contain;
+  border: none;
 }
 
-.screenshots-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 0.75rem;
+/* 媒体控制按钮 */
+.media-controls {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  display: flex;
+  gap: 0.5rem;
+  z-index: 10;
 }
 
-.screenshots-grid img {
-  width: 100%;
-  aspect-ratio: 16/9;
-  object-fit: cover;
-  border-radius: 8px;
+.media-control-btn {
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
   cursor: pointer;
+  font-size: 0.875rem;
   transition: all 0.2s;
-  border: 1px solid var(--border);
 }
 
-.screenshots-grid img:hover {
-  transform: scale(1.02);
-  box-shadow: var(--shadow);
+.media-control-btn:hover {
+  background: rgba(0, 0, 0, 0.9);
+}
+
+/* 缩略图bar */
+.media-thumbnails {
+  display: flex;
+  gap: 0.5rem;
+  padding: 1rem;
+  overflow-x: auto;
+  background: #f9fafb;
+  border-top: 1px solid var(--border);
+}
+
+.media-thumbnails::-webkit-scrollbar {
+  height: 6px;
+}
+
+.media-thumbnails::-webkit-scrollbar-track {
+  background: #f3f4f6;
+}
+
+.media-thumbnails::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 3px;
+}
+
+.media-thumb {
+  flex-shrink: 0;
+  width: 120px;
+  height: 67.5px;
+  border-radius: 6px;
+  overflow: hidden;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all 0.2s;
+  position: relative;
+}
+
+.media-thumb:hover {
+  border-color: var(--accent);
+  transform: scale(1.05);
+}
+
+.media-thumb.active {
+  border-color: var(--accent);
+}
+
+.media-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.media-thumb .play-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
 }
 
 /* 内容区域 */
@@ -411,6 +463,10 @@ body {
   .sys-req {
     grid-template-columns: 1fr;
   }
+  .media-thumb {
+    width: 100px;
+    height: 56.25px;
+  }
 }
 
 @media (max-width: 640px) {
@@ -425,6 +481,10 @@ body {
   .content-block,
   .download-block {
     padding: 1.5rem;
+  }
+  .media-thumb {
+    width: 80px;
+    height: 45px;
   }
 }
 </style>
@@ -473,22 +533,25 @@ body {
 
 <!-- 媒体区域 -->
 <section class="media-section">
-  <div class="media-tabs">
-    <button class="media-tab active" onclick="showVideo()">▶ 视频</button>
-    <button class="media-tab" onclick="showScreenshots()">🖼 截图</button>
-  </div>
-  
-  <div id="video-container" class="media-player">
+  <div class="media-gallery">
+    <!-- 主图显示区域 -->
+    <div class="media-main" id="mediaMain">
+      <iframe src="https://store.steampowered.com/video/256787507/" frameborder="0" allowfullscreen allow="autoplay; fullscreen"></iframe>
+    </div>
     
-  </div>
-  
-  <div id="screenshots-container" class="screenshots-grid" style="display:none;">
-    <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/247080/ss_849069b2208a21d5adfc00d67e5b8b428e2d0677.1920x1080.jpg?t=1781119569" alt="Screenshot" onclick="window.open(this.src)">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/247080/ss_c71ce52b831f97de9767901cb4c12be9cc578a48.1920x1080.jpg?t=1781119569" alt="Screenshot" onclick="window.open(this.src)">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/247080/ss_2461de2afa2d09e3f68c2781507d285662756a7c.1920x1080.jpg?t=1781119569" alt="Screenshot" onclick="window.open(this.src)">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/247080/ss_ae41b117bb79b845cce9798d92be97cf39f3bbe6.1920x1080.jpg?t=1781119569" alt="Screenshot" onclick="window.open(this.src)">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/247080/ss_a07aff6c2b2b9e431d053b2b145ea644aa21238f.1920x1080.jpg?t=1781119569" alt="Screenshot" onclick="window.open(this.src)">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/247080/ss_59c9bf35abaff6156c781479d13ae70423e2e3e9.1920x1080.jpg?t=1781119569" alt="Screenshot" onclick="window.open(this.src)">
+    <!-- 缩略图bar -->
+    <div class="media-thumbnails" id="mediaThumbnails">
+      <div class="media-thumb active" data-index="0"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256787507/movie.293x165.jpg?t=1595281104" alt="Video"></div>
+<div class="media-thumb " data-index="1"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256785015/movie.293x165.jpg?t=1589233766" alt="Video"></div>
+<div class="media-thumb " data-index="2"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2038794/movie.293x165.jpg?t=1447373419" alt="Video"></div>
+<div class="media-thumb " data-index="3"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/247080/ss_849069b2208a21d5adfc00d67e5b8b428e2d0677.1920x1080.jpg?t=1781119569" alt="Screenshot"></div>
+<div class="media-thumb " data-index="4"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/247080/ss_c71ce52b831f97de9767901cb4c12be9cc578a48.1920x1080.jpg?t=1781119569" alt="Screenshot"></div>
+<div class="media-thumb " data-index="5"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/247080/ss_2461de2afa2d09e3f68c2781507d285662756a7c.1920x1080.jpg?t=1781119569" alt="Screenshot"></div>
+<div class="media-thumb " data-index="6"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/247080/ss_ae41b117bb79b845cce9798d92be97cf39f3bbe6.1920x1080.jpg?t=1781119569" alt="Screenshot"></div>
+<div class="media-thumb " data-index="7"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/247080/ss_a07aff6c2b2b9e431d053b2b145ea644aa21238f.1920x1080.jpg?t=1781119569" alt="Screenshot"></div>
+<div class="media-thumb " data-index="8"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/247080/ss_59c9bf35abaff6156c781479d13ae70423e2e3e9.1920x1080.jpg?t=1781119569" alt="Screenshot"></div>
+
+    </div>
   </div>
 </section>
 
@@ -496,7 +559,7 @@ body {
 <section class="content-section">
   <div class="content-block">
     <h2>关于此游戏</h2>
-    <div><p class="bb_paragraph" ><span class="bb_img_ctn"><video controls class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/247080/extras/1e8b81c67b6be30799f9bb09d3351eb7.poster.avif?t=1781119569" ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/247080/extras/1e8b81c67b6be30799f9bb09d3351eb7.webm?t=1781119569" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/247080/extras/1e8b81c67b6be30799f9bb09d3351eb7.mp4?t=1781119569" type="video/mp4"></video></span></p><h2 class="bb_tag" >伴着节奏，揍翻敌人！</h2><p class="bb_paragraph" >《节奏地牢》是一款屡获殊荣的硬核 Roguelike 节奏游戏。踩着节奏，探索变幻的地牢，大战狂舞的骷髅、僵尸、巨龙等强敌。伴着 Danny Baranowsky 创作的超抓耳原声舞动，还可自行导入你所珍藏的 MP3！</p><p class="bb_paragraph" ></p><p class="bb_paragraph" ><span class="bb_img_ctn"><video controls class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/247080/extras/951a978b9a49af3c74498a2d6a28519f.poster.avif?t=1781119569" ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/247080/extras/951a978b9a49af3c74498a2d6a28519f.webm?t=1781119569" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/247080/extras/951a978b9a49af3c74498a2d6a28519f.mp4?t=1781119569" type="video/mp4"></video></span></p><h2 class="bb_tag" >游戏特色：</h2><ul class="bb_ul"><li><p class="bb_paragraph" >可使用多达 15 名角色攻关地牢，玩法与难点各不相同！</p></li><li><p class="bb_paragraph" >由 Danny Baranowsky 创作的原声带曾获大奖，包含超过 40 首精彩原创音乐！还可根据玩家自己的 MP3 文件生成谱面！</p></li><li><p class="bb_paragraph" >一步一个谐音梗，处处都有冷笑话！</p></li><li><p class="bb_paragraph" >键盘、手柄甚至跳舞毯，全部支持！</p></li><li><p class="bb_paragraph" >官方《弹丸论破》联动角色皮肤，外加官方模组支持！</p></li><li><p class="bb_paragraph" ><strong>额外惊喜：</strong>全部原声音乐均附带 6 个混音版本。混音由 FamilyJules、A_Rival、Chipzel、OCRemix、Girlfriend Records 与 Virt 倾情奉献！</p></li></ul><p class="bb_paragraph" ></p><p class="bb_paragraph" ><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/247080/extras/4e312b8e9bc2086b9d3961b6718b6e4c.avif?t=1781119569" width=614 height=204 /></span></p><h2 class="bb_tag" >金银财宝，任你探寻</h2><p class="bb_paragraph" >收集钻石即可解锁永久升级、获得更强装备，助你深入死灵舞者的老巢。越是深入，你所遭遇的敌人也将越为凶险狡诈。</p><p class="bb_paragraph" ></p><h2 class="bb_tag" >高分速通，巅峰决斗</h2><p class="bb_paragraph" >踩着迪斯科舞步深入地牢，并不妨碍勇攀高峰。无论你的目标是最高分数还是最快通关，都有活跃而忠实的玩家社区与你相互切磋；项目既有长远目标，也有每日挑战，每名角色都有属于自己的赛道。</p></div>
+    <div><p class="bb_paragraph" ><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/247080/extras/1e8b81c67b6be30799f9bb09d3351eb7.poster.avif?t=1781119569" width=600 height=224 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/247080/extras/1e8b81c67b6be30799f9bb09d3351eb7.webm?t=1781119569" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/247080/extras/1e8b81c67b6be30799f9bb09d3351eb7.mp4?t=1781119569" type="video/mp4"></video></span></p><h2 class="bb_tag" >伴着节奏，揍翻敌人！</h2><p class="bb_paragraph" >《节奏地牢》是一款屡获殊荣的硬核 Roguelike 节奏游戏。踩着节奏，探索变幻的地牢，大战狂舞的骷髅、僵尸、巨龙等强敌。伴着 Danny Baranowsky 创作的超抓耳原声舞动，还可自行导入你所珍藏的 MP3！</p><p class="bb_paragraph" ></p><p class="bb_paragraph" ><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/247080/extras/951a978b9a49af3c74498a2d6a28519f.poster.avif?t=1781119569" width=600 height=224 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/247080/extras/951a978b9a49af3c74498a2d6a28519f.webm?t=1781119569" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/247080/extras/951a978b9a49af3c74498a2d6a28519f.mp4?t=1781119569" type="video/mp4"></video></span></p><h2 class="bb_tag" >游戏特色：</h2><ul class="bb_ul"><li><p class="bb_paragraph" >可使用多达 15 名角色攻关地牢，玩法与难点各不相同！</p></li><li><p class="bb_paragraph" >由 Danny Baranowsky 创作的原声带曾获大奖，包含超过 40 首精彩原创音乐！还可根据玩家自己的 MP3 文件生成谱面！</p></li><li><p class="bb_paragraph" >一步一个谐音梗，处处都有冷笑话！</p></li><li><p class="bb_paragraph" >键盘、手柄甚至跳舞毯，全部支持！</p></li><li><p class="bb_paragraph" >官方《弹丸论破》联动角色皮肤，外加官方模组支持！</p></li><li><p class="bb_paragraph" ><strong>额外惊喜：</strong>全部原声音乐均附带 6 个混音版本。混音由 FamilyJules、A_Rival、Chipzel、OCRemix、Girlfriend Records 与 Virt 倾情奉献！</p></li></ul><p class="bb_paragraph" ></p><p class="bb_paragraph" ><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/247080/extras/4e312b8e9bc2086b9d3961b6718b6e4c.avif?t=1781119569" width=614 height=204 /></span></p><h2 class="bb_tag" >金银财宝，任你探寻</h2><p class="bb_paragraph" >收集钻石即可解锁永久升级、获得更强装备，助你深入死灵舞者的老巢。越是深入，你所遭遇的敌人也将越为凶险狡诈。</p><p class="bb_paragraph" ></p><h2 class="bb_tag" >高分速通，巅峰决斗</h2><p class="bb_paragraph" >踩着迪斯科舞步深入地牢，并不妨碍勇攀高峰。无论你的目标是最高分数还是最快通关，都有活跃而忠实的玩家社区与你相互切磋；项目既有长远目标，也有每日挑战，每名角色都有属于自己的赛道。</p></div>
   </div>
 </section>
 
@@ -513,26 +576,68 @@ body {
 </section>
 
 <!-- 系统需求 -->
-<section class="content-section"><div class="content-block"><h2>系统需求</h2><div class="sys-req">
-<div class="sys-req-col"><h4>最低配置</h4><ul><strong>最低配置:</strong><br><ul class="bb_ul"><li><strong>操作系统 *:</strong> Windows XP, service pack 3<br></li><li><strong>处理器:</strong> 2GHz<br></li><li><strong>内存:</strong> 1000 MB RAM<br></li><li><strong>显卡:</strong> 512MB VRAM<br></li><li><strong>存储空间:</strong> 需要 1600 MB 可用空间</li></ul></ul></div>
 
-</div></div></section>
+<section class="content-section">
+  <div class="container">
+    <div class="content-block">
+      <h2>系统需求</h2>
+      <div class="sys-req">
+        <div class="sys-req-col"><h4>最低配置</h4><div><strong>最低配置:</strong><br><ul class="bb_ul"><li><strong>操作系统 *:</strong> Windows XP, service pack 3<br></li><li><strong>处理器:</strong> 2GHz<br></li><li><strong>内存:</strong> 1000 MB RAM<br></li><li><strong>显卡:</strong> 512MB VRAM<br></li><li><strong>存储空间:</strong> 需要 1600 MB 可用空间</li></ul></div></div>
+        
+      </div>
+    </div>
+  </div>
+</section>
 
 <script>
-function showVideo() {
-  document.getElementById('video-container').style.display = 'block';
-  document.getElementById('screenshots-container').style.display = 'none';
-  document.querySelectorAll('.media-tab').forEach(t => t.classList.remove('active'));
-  event.target.classList.add('active');
+// 媒体数据
+const mediaItems = [
+  {"type": "video", "url": "https://store.steampowered.com/video/256787507/", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256787507/movie.293x165.jpg?t=1595281104"},
+  {"type": "video", "url": "https://store.steampowered.com/video/256785015/", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256785015/movie.293x165.jpg?t=1589233766"},
+  {"type": "video", "url": "https://store.steampowered.com/video/2038794/", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2038794/movie.293x165.jpg?t=1447373419"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/247080/ss_849069b2208a21d5adfc00d67e5b8b428e2d0677.1920x1080.jpg?t=1781119569", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/247080/ss_849069b2208a21d5adfc00d67e5b8b428e2d0677.1920x1080.jpg?t=1781119569"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/247080/ss_c71ce52b831f97de9767901cb4c12be9cc578a48.1920x1080.jpg?t=1781119569", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/247080/ss_c71ce52b831f97de9767901cb4c12be9cc578a48.1920x1080.jpg?t=1781119569"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/247080/ss_2461de2afa2d09e3f68c2781507d285662756a7c.1920x1080.jpg?t=1781119569", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/247080/ss_2461de2afa2d09e3f68c2781507d285662756a7c.1920x1080.jpg?t=1781119569"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/247080/ss_ae41b117bb79b845cce9798d92be97cf39f3bbe6.1920x1080.jpg?t=1781119569", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/247080/ss_ae41b117bb79b845cce9798d92be97cf39f3bbe6.1920x1080.jpg?t=1781119569"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/247080/ss_a07aff6c2b2b9e431d053b2b145ea644aa21238f.1920x1080.jpg?t=1781119569", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/247080/ss_a07aff6c2b2b9e431d053b2b145ea644aa21238f.1920x1080.jpg?t=1781119569"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/247080/ss_59c9bf35abaff6156c781479d13ae70423e2e3e9.1920x1080.jpg?t=1781119569", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/247080/ss_59c9bf35abaff6156c781479d13ae70423e2e3e9.1920x1080.jpg?t=1781119569"}
+];
+
+let currentIndex = 0;
+
+// 切换到指定媒体
+function switchMedia(index) {
+  if (index < 0 || index >= mediaItems.length) return;
+  
+  currentIndex = index;
+  const item = mediaItems[index];
+  const mainEl = document.getElementById('mediaMain');
+  
+  if (item.type === 'video') {
+    // 使用Steam视频嵌入
+    mainEl.innerHTML = `<iframe src="${item.url}" frameborder="0" allowfullscreen allow="autoplay; fullscreen"></iframe>`;
+  } else {
+    mainEl.innerHTML = `<img src="${item.url}" alt="Screenshot">`;
+  }
+  
+  // 更新缩略图active状态
+  document.querySelectorAll('.media-thumb').forEach((thumb, i) => {
+    thumb.classList.toggle('active', i === index);
+  });
 }
 
-function showScreenshots() {
-  const vc = document.getElementById('video-container');
-  if (vc) vc.style.display = 'none';
-  document.getElementById('screenshots-container').style.display = 'grid';
-  document.querySelectorAll('.media-tab').forEach(t => t.classList.remove('active'));
-  event.target.classList.add('active');
-}
+// 初始化
+document.addEventListener('DOMContentLoaded', () => {
+  // 绑定缩略图点击事件
+  document.querySelectorAll('.media-thumb').forEach((thumb, index) => {
+    thumb.addEventListener('click', () => switchMedia(index));
+  });
+  
+  // 设置初始状态
+  if (mediaItems.length > 0) {
+    switchMedia(0);
+  }
+});
 </script>
 
 </body>

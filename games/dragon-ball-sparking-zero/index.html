@@ -168,75 +168,127 @@ body {
   max-width: 640px;
 }
 
-/* 媒体区域 */
+/* 媒体区域 - Steam风格 */
 .media-section {
   max-width: 1200px;
   margin: 2rem auto;
   padding: 0 2rem;
 }
 
-.media-tabs {
-  display: flex;
-  gap: 0.5rem;
-  margin-bottom: 1rem;
-}
-
-.media-tab {
+.media-gallery {
   background: var(--surface);
-  border: 1px solid var(--border);
-  color: var(--text-secondary);
-  padding: 0.5rem 1.25rem;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 0.875rem;
-  font-weight: 500;
-  transition: all 0.2s;
-}
-
-.media-tab:hover {
-  border-color: var(--accent);
-  color: var(--accent);
-}
-
-.media-tab.active {
-  background: var(--accent);
-  color: white;
-  border-color: var(--accent);
-}
-
-.media-player {
   border-radius: var(--radius);
+  border: 1px solid var(--border);
   overflow: hidden;
-  background: #000;
-  aspect-ratio: 16/9;
 }
 
-.media-player video,
-.media-player img {
+/* 主图显示区域 */
+.media-main {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/9;
+  background: #000;
+  overflow: hidden;
+}
+
+.media-main img,
+.media-main video,
+.media-main iframe {
   width: 100%;
   height: 100%;
   object-fit: contain;
+  border: none;
 }
 
-.screenshots-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 0.75rem;
+/* 媒体控制按钮 */
+.media-controls {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  display: flex;
+  gap: 0.5rem;
+  z-index: 10;
 }
 
-.screenshots-grid img {
-  width: 100%;
-  aspect-ratio: 16/9;
-  object-fit: cover;
-  border-radius: 8px;
+.media-control-btn {
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
   cursor: pointer;
+  font-size: 0.875rem;
   transition: all 0.2s;
-  border: 1px solid var(--border);
 }
 
-.screenshots-grid img:hover {
-  transform: scale(1.02);
-  box-shadow: var(--shadow);
+.media-control-btn:hover {
+  background: rgba(0, 0, 0, 0.9);
+}
+
+/* 缩略图bar */
+.media-thumbnails {
+  display: flex;
+  gap: 0.5rem;
+  padding: 1rem;
+  overflow-x: auto;
+  background: #f9fafb;
+  border-top: 1px solid var(--border);
+}
+
+.media-thumbnails::-webkit-scrollbar {
+  height: 6px;
+}
+
+.media-thumbnails::-webkit-scrollbar-track {
+  background: #f3f4f6;
+}
+
+.media-thumbnails::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 3px;
+}
+
+.media-thumb {
+  flex-shrink: 0;
+  width: 120px;
+  height: 67.5px;
+  border-radius: 6px;
+  overflow: hidden;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all 0.2s;
+  position: relative;
+}
+
+.media-thumb:hover {
+  border-color: var(--accent);
+  transform: scale(1.05);
+}
+
+.media-thumb.active {
+  border-color: var(--accent);
+}
+
+.media-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.media-thumb .play-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
 }
 
 /* 内容区域 */
@@ -411,6 +463,10 @@ body {
   .sys-req {
     grid-template-columns: 1fr;
   }
+  .media-thumb {
+    width: 100px;
+    height: 56.25px;
+  }
 }
 
 @media (max-width: 640px) {
@@ -425,6 +481,10 @@ body {
   .content-block,
   .download-block {
     padding: 1.5rem;
+  }
+  .media-thumb {
+    width: 80px;
+    height: 45px;
   }
 }
 </style>
@@ -473,24 +533,27 @@ body {
 
 <!-- 媒体区域 -->
 <section class="media-section">
-  <div class="media-tabs">
-    <button class="media-tab active" onclick="showVideo()">▶ 视频</button>
-    <button class="media-tab" onclick="showScreenshots()">🖼 截图</button>
-  </div>
-  
-  <div id="video-container" class="media-player">
+  <div class="media-gallery">
+    <!-- 主图显示区域 -->
+    <div class="media-main" id="mediaMain">
+      <iframe src="https://store.steampowered.com/video/257033826/" frameborder="0" allowfullscreen allow="autoplay; fullscreen"></iframe>
+    </div>
     
-  </div>
-  
-  <div id="screenshots-container" class="screenshots-grid" style="display:none;">
-    <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1790600/ss_11942c933c595bf0188d5ee22f6f6a7ed3cdf7d9.1920x1080.jpg?t=1758754863" alt="Screenshot" onclick="window.open(this.src)">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1790600/ss_edf6973923cb0d2ad72acecc014262a6de55a608.1920x1080.jpg?t=1758754863" alt="Screenshot" onclick="window.open(this.src)">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1790600/ss_f4ec953421c54bf74bdca77ceed361ad7b509858.1920x1080.jpg?t=1758754863" alt="Screenshot" onclick="window.open(this.src)">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1790600/ss_90f5785f89a9882a7f33fd5a812a7e7384720afd.1920x1080.jpg?t=1758754863" alt="Screenshot" onclick="window.open(this.src)">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1790600/ss_72cb10fb8f0c7554e932257450b19189534a846d.1920x1080.jpg?t=1758754863" alt="Screenshot" onclick="window.open(this.src)">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1790600/ss_80d442d735c80a31c78696aeaaae08c0bf843a0f.1920x1080.jpg?t=1758754863" alt="Screenshot" onclick="window.open(this.src)">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1790600/ss_119e7890b990201c6ca61280a76851dc0ced05f9.1920x1080.jpg?t=1758754863" alt="Screenshot" onclick="window.open(this.src)">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1790600/ss_6389b6aef0ecaa3f6cc1e36dcfb145c6fcb70a75.1920x1080.jpg?t=1758754863" alt="Screenshot" onclick="window.open(this.src)">
+    <!-- 缩略图bar -->
+    <div class="media-thumbnails" id="mediaThumbnails">
+      <div class="media-thumb active" data-index="0"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257033826/movie.293x165.jpg?t=1719379661" alt="Video"></div>
+<div class="media-thumb " data-index="1"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256997887/movie.293x165.jpg?t=1706853085" alt="Video"></div>
+<div class="media-thumb " data-index="2"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256987594/movie.293x165.jpg?t=1702358058" alt="Video"></div>
+<div class="media-thumb " data-index="3"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1790600/ss_11942c933c595bf0188d5ee22f6f6a7ed3cdf7d9.1920x1080.jpg?t=1758754863" alt="Screenshot"></div>
+<div class="media-thumb " data-index="4"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1790600/ss_edf6973923cb0d2ad72acecc014262a6de55a608.1920x1080.jpg?t=1758754863" alt="Screenshot"></div>
+<div class="media-thumb " data-index="5"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1790600/ss_f4ec953421c54bf74bdca77ceed361ad7b509858.1920x1080.jpg?t=1758754863" alt="Screenshot"></div>
+<div class="media-thumb " data-index="6"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1790600/ss_90f5785f89a9882a7f33fd5a812a7e7384720afd.1920x1080.jpg?t=1758754863" alt="Screenshot"></div>
+<div class="media-thumb " data-index="7"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1790600/ss_72cb10fb8f0c7554e932257450b19189534a846d.1920x1080.jpg?t=1758754863" alt="Screenshot"></div>
+<div class="media-thumb " data-index="8"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1790600/ss_80d442d735c80a31c78696aeaaae08c0bf843a0f.1920x1080.jpg?t=1758754863" alt="Screenshot"></div>
+<div class="media-thumb " data-index="9"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1790600/ss_119e7890b990201c6ca61280a76851dc0ced05f9.1920x1080.jpg?t=1758754863" alt="Screenshot"></div>
+<div class="media-thumb " data-index="10"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1790600/ss_6389b6aef0ecaa3f6cc1e36dcfb145c6fcb70a75.1920x1080.jpg?t=1758754863" alt="Screenshot"></div>
+
+    </div>
   </div>
 </section>
 
@@ -498,7 +561,7 @@ body {
 <section class="content-section">
   <div class="content-block">
     <h2>关于此游戏</h2>
-    <div><span class="bb_img_ctn"><video controls class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1790600/extras/7461ec0591917eac6da99fbc7a186369.poster.avif?t=1758754863" ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1790600/extras/7461ec0591917eac6da99fbc7a186369.webm?t=1758754863" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1790600/extras/7461ec0591917eac6da99fbc7a186369.mp4?t=1758754863" type="video/mp4"></video></span><br>“七龙珠 电光炸裂！ZERO”堂堂登场！本作超越“七龙珠Z 电光炸裂！”（即过去“七龙珠Z Sparking!”）到达新的境界。化身超战士，来体验惊天动地，突破极限的七龙珠战斗吧！<br><br>史无前例丰富的角色阵容<br>收录包括龙珠Z、龙珠超、龙珠GT以及部分电影版，总计超过180名战士的力量。每位角色都有独特的能力、变身以及技巧。<br><br>让你拥有毁灭性的力量，成为七龙珠史上最强的战士！<br><br>身临其境的3D对战<br><span class="bb_img_ctn"><video controls class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1790600/extras/c7bcdd152786226debf1ac47f4ff94f7.poster.avif?t=1758754863" ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1790600/extras/c7bcdd152786226debf1ac47f4ff94f7.webm?t=1758754863" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1790600/extras/c7bcdd152786226debf1ac47f4ff94f7.mp4?t=1758754863" type="video/mp4"></video></span><br>加入紧张刺激的高速3D对战，忠实呈现动画与游戏系列作，拥有令人叹为观止的视觉效果及写实的战斗动作，例如光束冲突、突击攻击等令人目不暇给的高速战斗，甚至也有足以毁灭星球的终极攻击。<br><br>与对手切磋激励<br><span class="bb_img_ctn"><video controls class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1790600/extras/542eb2d06e34244b7041b2cca73c5f08.poster.avif?t=1758754863" ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1790600/extras/542eb2d06e34244b7041b2cca73c5f08.webm?t=1758754863" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1790600/extras/542eb2d06e34244b7041b2cca73c5f08.mp4?t=1758754863" type="video/mp4"></video></span><br>可以在线挑战其他玩家来测试自己的招式，也可以与友人席地而坐游玩离线对战！全力以赴横扫各种比赛模式，达成胜利条件以夺得冠军吧。<br><br>开疆辟土<br><span class="bb_img_ctn"><video controls class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1790600/extras/0bff029d8070ea7dc23b0c59fc57363d.poster.avif?t=1758754863" ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1790600/extras/0bff029d8070ea7dc23b0c59fc57363d.webm?t=1758754863" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1790600/extras/0bff029d8070ea7dc23b0c59fc57363d.mp4?t=1758754863" type="video/mp4"></video></span><br>原创故事备受喜爱，战胜其中充满张力的战斗吧，也可以探索并邂逅钟爱的Z战士与其他角色。透过八名角色的视角体验剧情，观赏过场动画重温系列作中你最喜欢的时刻！<br><br>创造、玩乐、分享<br><span class="bb_img_ctn"><video controls class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1790600/extras/f8e27c9a5367dbb391870b6f294558d8.poster.avif?t=1758754863" ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1790600/extras/f8e27c9a5367dbb391870b6f294558d8.webm?t=1758754863" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1790600/extras/f8e27c9a5367dbb391870b6f294558d8.mp4?t=1758754863" type="video/mp4"></video></span><br>不只再现七龙珠的故事中最热血的战斗，也可以为最爱的角色设计梦想中的战斗故事！分享你的作品给其他粉丝，体验来自世界各地天马行空的想象力。<br><br>※另有发售其他版本，请留意勿重复购买。</div>
+    <div><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1790600/extras/7461ec0591917eac6da99fbc7a186369.poster.avif?t=1758754863" width=616 height=236 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1790600/extras/7461ec0591917eac6da99fbc7a186369.webm?t=1758754863" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1790600/extras/7461ec0591917eac6da99fbc7a186369.mp4?t=1758754863" type="video/mp4"></video></span><br>“七龙珠 电光炸裂！ZERO”堂堂登场！本作超越“七龙珠Z 电光炸裂！”（即过去“七龙珠Z Sparking!”）到达新的境界。化身超战士，来体验惊天动地，突破极限的七龙珠战斗吧！<br><br>史无前例丰富的角色阵容<br>收录包括龙珠Z、龙珠超、龙珠GT以及部分电影版，总计超过180名战士的力量。每位角色都有独特的能力、变身以及技巧。<br><br>让你拥有毁灭性的力量，成为七龙珠史上最强的战士！<br><br>身临其境的3D对战<br><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1790600/extras/c7bcdd152786226debf1ac47f4ff94f7.poster.avif?t=1758754863" width=616 height=236 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1790600/extras/c7bcdd152786226debf1ac47f4ff94f7.webm?t=1758754863" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1790600/extras/c7bcdd152786226debf1ac47f4ff94f7.mp4?t=1758754863" type="video/mp4"></video></span><br>加入紧张刺激的高速3D对战，忠实呈现动画与游戏系列作，拥有令人叹为观止的视觉效果及写实的战斗动作，例如光束冲突、突击攻击等令人目不暇给的高速战斗，甚至也有足以毁灭星球的终极攻击。<br><br>与对手切磋激励<br><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1790600/extras/542eb2d06e34244b7041b2cca73c5f08.poster.avif?t=1758754863" width=616 height=236 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1790600/extras/542eb2d06e34244b7041b2cca73c5f08.webm?t=1758754863" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1790600/extras/542eb2d06e34244b7041b2cca73c5f08.mp4?t=1758754863" type="video/mp4"></video></span><br>可以在线挑战其他玩家来测试自己的招式，也可以与友人席地而坐游玩离线对战！全力以赴横扫各种比赛模式，达成胜利条件以夺得冠军吧。<br><br>开疆辟土<br><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1790600/extras/0bff029d8070ea7dc23b0c59fc57363d.poster.avif?t=1758754863" width=616 height=236 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1790600/extras/0bff029d8070ea7dc23b0c59fc57363d.webm?t=1758754863" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1790600/extras/0bff029d8070ea7dc23b0c59fc57363d.mp4?t=1758754863" type="video/mp4"></video></span><br>原创故事备受喜爱，战胜其中充满张力的战斗吧，也可以探索并邂逅钟爱的Z战士与其他角色。透过八名角色的视角体验剧情，观赏过场动画重温系列作中你最喜欢的时刻！<br><br>创造、玩乐、分享<br><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1790600/extras/f8e27c9a5367dbb391870b6f294558d8.poster.avif?t=1758754863" width=616 height=236 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1790600/extras/f8e27c9a5367dbb391870b6f294558d8.webm?t=1758754863" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1790600/extras/f8e27c9a5367dbb391870b6f294558d8.mp4?t=1758754863" type="video/mp4"></video></span><br>不只再现七龙珠的故事中最热血的战斗，也可以为最爱的角色设计梦想中的战斗故事！分享你的作品给其他粉丝，体验来自世界各地天马行空的想象力。<br><br>※另有发售其他版本，请留意勿重复购买。</div>
   </div>
 </section>
 
@@ -514,26 +577,70 @@ body {
 </section>
 
 <!-- 系统需求 -->
-<section class="content-section"><div class="content-block"><h2>系统需求</h2><div class="sys-req">
-<div class="sys-req-col"><h4>最低配置</h4><ul><strong>最低配置:</strong><br><ul class="bb_ul"><li>需要 64 位处理器和操作系统<br></li><li><strong>操作系统:</strong> Windows 10<br></li><li><strong>处理器:</strong> Intel Core i5-9600K / AMD Ryzen 5 2600<br></li><li><strong>内存:</strong> 8 GB RAM<br></li><li><strong>显卡:</strong> Nvidia GeForce GTX 980 / AMD Radeon RX 590 / Intel Arc A750<br></li><li><strong>DirectX 版本:</strong> 12<br></li><li><strong>存储空间:</strong> 需要 29 GB 可用空间<br></li><li><strong>附注事项:</strong> Estimated performance: 1080p/60fps with graphics settings at &quot;Low&quot;. Framerate might drop in graphics-intensive scenes. - 64-bit processor and operating system are required.</li></ul></ul></div>
-<div class="sys-req-col"><h4>推荐配置</h4><ul><strong>推荐配置:</strong><br><ul class="bb_ul"><li>需要 64 位处理器和操作系统<br></li><li><strong>操作系统:</strong> Windows 10 / Windows 11<br></li><li><strong>处理器:</strong> Intel Core i7-9700K / AMD Ryzen 5 3600<br></li><li><strong>内存:</strong> 16 GB RAM<br></li><li><strong>显卡:</strong> Nvidia GeForce RTX 2060 / AMD Radeon RX Vega 64<br></li><li><strong>DirectX 版本:</strong> 12<br></li><li><strong>存储空间:</strong> 需要 29 GB 可用空间<br></li><li><strong>附注事项:</strong> Estimated performance: 1080p/60fps with graphics settings at &quot;High&quot;. Framerate might drop in graphics-intensive scenes. - 64-bit processor and operating system are required. - Windows 10 (Version 1809 or later) and a 4GB VRAM GPU (graphics board or video card) are required for DirectX 12 API.</li></ul></ul></div>
-</div></div></section>
+
+<section class="content-section">
+  <div class="container">
+    <div class="content-block">
+      <h2>系统需求</h2>
+      <div class="sys-req">
+        <div class="sys-req-col"><h4>最低配置</h4><div><strong>最低配置:</strong><br><ul class="bb_ul"><li>需要 64 位处理器和操作系统<br></li><li><strong>操作系统:</strong> Windows 10<br></li><li><strong>处理器:</strong> Intel Core i5-9600K / AMD Ryzen 5 2600<br></li><li><strong>内存:</strong> 8 GB RAM<br></li><li><strong>显卡:</strong> Nvidia GeForce GTX 980 / AMD Radeon RX 590 / Intel Arc A750<br></li><li><strong>DirectX 版本:</strong> 12<br></li><li><strong>存储空间:</strong> 需要 29 GB 可用空间<br></li><li><strong>附注事项:</strong> Estimated performance: 1080p/60fps with graphics settings at &quot;Low&quot;. Framerate might drop in graphics-intensive scenes. - 64-bit processor and operating system are required.</li></ul></div></div>
+        <div class="sys-req-col"><h4>推荐配置</h4><div><strong>推荐配置:</strong><br><ul class="bb_ul"><li>需要 64 位处理器和操作系统<br></li><li><strong>操作系统:</strong> Windows 10 / Windows 11<br></li><li><strong>处理器:</strong> Intel Core i7-9700K / AMD Ryzen 5 3600<br></li><li><strong>内存:</strong> 16 GB RAM<br></li><li><strong>显卡:</strong> Nvidia GeForce RTX 2060 / AMD Radeon RX Vega 64<br></li><li><strong>DirectX 版本:</strong> 12<br></li><li><strong>存储空间:</strong> 需要 29 GB 可用空间<br></li><li><strong>附注事项:</strong> Estimated performance: 1080p/60fps with graphics settings at &quot;High&quot;. Framerate might drop in graphics-intensive scenes. - 64-bit processor and operating system are required. - Windows 10 (Version 1809 or later) and a 4GB VRAM GPU (graphics board or video card) are required for DirectX 12 API.</li></ul></div></div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <script>
-function showVideo() {
-  document.getElementById('video-container').style.display = 'block';
-  document.getElementById('screenshots-container').style.display = 'none';
-  document.querySelectorAll('.media-tab').forEach(t => t.classList.remove('active'));
-  event.target.classList.add('active');
+// 媒体数据
+const mediaItems = [
+  {"type": "video", "url": "https://store.steampowered.com/video/257033826/", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257033826/movie.293x165.jpg?t=1719379661"},
+  {"type": "video", "url": "https://store.steampowered.com/video/256997887/", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256997887/movie.293x165.jpg?t=1706853085"},
+  {"type": "video", "url": "https://store.steampowered.com/video/256987594/", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256987594/movie.293x165.jpg?t=1702358058"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1790600/ss_11942c933c595bf0188d5ee22f6f6a7ed3cdf7d9.1920x1080.jpg?t=1758754863", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1790600/ss_11942c933c595bf0188d5ee22f6f6a7ed3cdf7d9.1920x1080.jpg?t=1758754863"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1790600/ss_edf6973923cb0d2ad72acecc014262a6de55a608.1920x1080.jpg?t=1758754863", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1790600/ss_edf6973923cb0d2ad72acecc014262a6de55a608.1920x1080.jpg?t=1758754863"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1790600/ss_f4ec953421c54bf74bdca77ceed361ad7b509858.1920x1080.jpg?t=1758754863", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1790600/ss_f4ec953421c54bf74bdca77ceed361ad7b509858.1920x1080.jpg?t=1758754863"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1790600/ss_90f5785f89a9882a7f33fd5a812a7e7384720afd.1920x1080.jpg?t=1758754863", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1790600/ss_90f5785f89a9882a7f33fd5a812a7e7384720afd.1920x1080.jpg?t=1758754863"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1790600/ss_72cb10fb8f0c7554e932257450b19189534a846d.1920x1080.jpg?t=1758754863", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1790600/ss_72cb10fb8f0c7554e932257450b19189534a846d.1920x1080.jpg?t=1758754863"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1790600/ss_80d442d735c80a31c78696aeaaae08c0bf843a0f.1920x1080.jpg?t=1758754863", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1790600/ss_80d442d735c80a31c78696aeaaae08c0bf843a0f.1920x1080.jpg?t=1758754863"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1790600/ss_119e7890b990201c6ca61280a76851dc0ced05f9.1920x1080.jpg?t=1758754863", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1790600/ss_119e7890b990201c6ca61280a76851dc0ced05f9.1920x1080.jpg?t=1758754863"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1790600/ss_6389b6aef0ecaa3f6cc1e36dcfb145c6fcb70a75.1920x1080.jpg?t=1758754863", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1790600/ss_6389b6aef0ecaa3f6cc1e36dcfb145c6fcb70a75.1920x1080.jpg?t=1758754863"}
+];
+
+let currentIndex = 0;
+
+// 切换到指定媒体
+function switchMedia(index) {
+  if (index < 0 || index >= mediaItems.length) return;
+  
+  currentIndex = index;
+  const item = mediaItems[index];
+  const mainEl = document.getElementById('mediaMain');
+  
+  if (item.type === 'video') {
+    // 使用Steam视频嵌入
+    mainEl.innerHTML = `<iframe src="${item.url}" frameborder="0" allowfullscreen allow="autoplay; fullscreen"></iframe>`;
+  } else {
+    mainEl.innerHTML = `<img src="${item.url}" alt="Screenshot">`;
+  }
+  
+  // 更新缩略图active状态
+  document.querySelectorAll('.media-thumb').forEach((thumb, i) => {
+    thumb.classList.toggle('active', i === index);
+  });
 }
 
-function showScreenshots() {
-  const vc = document.getElementById('video-container');
-  if (vc) vc.style.display = 'none';
-  document.getElementById('screenshots-container').style.display = 'grid';
-  document.querySelectorAll('.media-tab').forEach(t => t.classList.remove('active'));
-  event.target.classList.add('active');
-}
+// 初始化
+document.addEventListener('DOMContentLoaded', () => {
+  // 绑定缩略图点击事件
+  document.querySelectorAll('.media-thumb').forEach((thumb, index) => {
+    thumb.addEventListener('click', () => switchMedia(index));
+  });
+  
+  // 设置初始状态
+  if (mediaItems.length > 0) {
+    switchMedia(0);
+  }
+});
 </script>
 
 </body>

@@ -168,75 +168,127 @@ body {
   max-width: 640px;
 }
 
-/* 媒体区域 */
+/* 媒体区域 - Steam风格 */
 .media-section {
   max-width: 1200px;
   margin: 2rem auto;
   padding: 0 2rem;
 }
 
-.media-tabs {
-  display: flex;
-  gap: 0.5rem;
-  margin-bottom: 1rem;
-}
-
-.media-tab {
+.media-gallery {
   background: var(--surface);
-  border: 1px solid var(--border);
-  color: var(--text-secondary);
-  padding: 0.5rem 1.25rem;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 0.875rem;
-  font-weight: 500;
-  transition: all 0.2s;
-}
-
-.media-tab:hover {
-  border-color: var(--accent);
-  color: var(--accent);
-}
-
-.media-tab.active {
-  background: var(--accent);
-  color: white;
-  border-color: var(--accent);
-}
-
-.media-player {
   border-radius: var(--radius);
+  border: 1px solid var(--border);
   overflow: hidden;
-  background: #000;
-  aspect-ratio: 16/9;
 }
 
-.media-player video,
-.media-player img {
+/* 主图显示区域 */
+.media-main {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/9;
+  background: #000;
+  overflow: hidden;
+}
+
+.media-main img,
+.media-main video,
+.media-main iframe {
   width: 100%;
   height: 100%;
   object-fit: contain;
+  border: none;
 }
 
-.screenshots-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 0.75rem;
+/* 媒体控制按钮 */
+.media-controls {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  display: flex;
+  gap: 0.5rem;
+  z-index: 10;
 }
 
-.screenshots-grid img {
-  width: 100%;
-  aspect-ratio: 16/9;
-  object-fit: cover;
-  border-radius: 8px;
+.media-control-btn {
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
   cursor: pointer;
+  font-size: 0.875rem;
   transition: all 0.2s;
-  border: 1px solid var(--border);
 }
 
-.screenshots-grid img:hover {
-  transform: scale(1.02);
-  box-shadow: var(--shadow);
+.media-control-btn:hover {
+  background: rgba(0, 0, 0, 0.9);
+}
+
+/* 缩略图bar */
+.media-thumbnails {
+  display: flex;
+  gap: 0.5rem;
+  padding: 1rem;
+  overflow-x: auto;
+  background: #f9fafb;
+  border-top: 1px solid var(--border);
+}
+
+.media-thumbnails::-webkit-scrollbar {
+  height: 6px;
+}
+
+.media-thumbnails::-webkit-scrollbar-track {
+  background: #f3f4f6;
+}
+
+.media-thumbnails::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 3px;
+}
+
+.media-thumb {
+  flex-shrink: 0;
+  width: 120px;
+  height: 67.5px;
+  border-radius: 6px;
+  overflow: hidden;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all 0.2s;
+  position: relative;
+}
+
+.media-thumb:hover {
+  border-color: var(--accent);
+  transform: scale(1.05);
+}
+
+.media-thumb.active {
+  border-color: var(--accent);
+}
+
+.media-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.media-thumb .play-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
 }
 
 /* 内容区域 */
@@ -411,6 +463,10 @@ body {
   .sys-req {
     grid-template-columns: 1fr;
   }
+  .media-thumb {
+    width: 100px;
+    height: 56.25px;
+  }
 }
 
 @media (max-width: 640px) {
@@ -425,6 +481,10 @@ body {
   .content-block,
   .download-block {
     padding: 1.5rem;
+  }
+  .media-thumb {
+    width: 80px;
+    height: 45px;
   }
 }
 </style>
@@ -473,25 +533,28 @@ body {
 
 <!-- 媒体区域 -->
 <section class="media-section">
-  <div class="media-tabs">
-    <button class="media-tab active" onclick="showVideo()">▶ 视频</button>
-    <button class="media-tab" onclick="showScreenshots()">🖼 截图</button>
-  </div>
-  
-  <div id="video-container" class="media-player">
+  <div class="media-gallery">
+    <!-- 主图显示区域 -->
+    <div class="media-main" id="mediaMain">
+      <iframe src="https://store.steampowered.com/video/257350903/" frameborder="0" allowfullscreen allow="autoplay; fullscreen"></iframe>
+    </div>
     
-  </div>
-  
-  <div id="screenshots-container" class="screenshots-grid" style="display:none;">
-    <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/3da24d5f26bfc7456c092c74f2d34931c1f1ce8e/ss_3da24d5f26bfc7456c092c74f2d34931c1f1ce8e.1920x1080.jpg?t=1782281729" alt="Screenshot" onclick="window.open(this.src)">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/0a64f625389e0fcbbd068eabe0f2961edfa5a4b4/ss_0a64f625389e0fcbbd068eabe0f2961edfa5a4b4.1920x1080.jpg?t=1782281729" alt="Screenshot" onclick="window.open(this.src)">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/37f3e67a5718ac0562829ee51ced8984ddd83ca9/ss_37f3e67a5718ac0562829ee51ced8984ddd83ca9.1920x1080.jpg?t=1782281729" alt="Screenshot" onclick="window.open(this.src)">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/bb9296ea7bfcfdb849cb86469d4e2abd1ff3bbec/ss_bb9296ea7bfcfdb849cb86469d4e2abd1ff3bbec.1920x1080.jpg?t=1782281729" alt="Screenshot" onclick="window.open(this.src)">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/236817dcfd784180962a24ded1c4a7652f28ddb8/ss_236817dcfd784180962a24ded1c4a7652f28ddb8.1920x1080.jpg?t=1782281729" alt="Screenshot" onclick="window.open(this.src)">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/a0228a733d7859a6794e3fe1b68f238fe73cea6a/ss_a0228a733d7859a6794e3fe1b68f238fe73cea6a.1920x1080.jpg?t=1782281729" alt="Screenshot" onclick="window.open(this.src)">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/5da0e98620ded277d4fe5b47a1d6413d07831292/ss_5da0e98620ded277d4fe5b47a1d6413d07831292.1920x1080.jpg?t=1782281729" alt="Screenshot" onclick="window.open(this.src)">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/79fe3d68f8db0cd1997b2c782f53e1f2f9d48ff3/ss_79fe3d68f8db0cd1997b2c782f53e1f2f9d48ff3.1920x1080.jpg?t=1782281729" alt="Screenshot" onclick="window.open(this.src)">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/d20e5bad0440f5dcc76fa6d589595fe54aaa566d/ss_d20e5bad0440f5dcc76fa6d589595fe54aaa566d.1920x1080.jpg?t=1782281729" alt="Screenshot" onclick="window.open(this.src)">
+    <!-- 缩略图bar -->
+    <div class="media-thumbnails" id="mediaThumbnails">
+      <div class="media-thumb active" data-index="0"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257350903/d5af9bb816d1b9e0adc20ae74cfb9a6de98dca24/movie_600x337.jpg?t=1780799907" alt="Video"></div>
+<div class="media-thumb " data-index="1"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257343283/44282bac4934456466c2a7d78f2e1786ca8ca092/movie_600x337.jpg?t=1779847837" alt="Video"></div>
+<div class="media-thumb " data-index="2"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257264582/9fbf45f70bbe6c293e814c0a70da798bda8ba49d/movie_600x337.jpg?t=1779847900" alt="Video"></div>
+<div class="media-thumb " data-index="3"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/3da24d5f26bfc7456c092c74f2d34931c1f1ce8e/ss_3da24d5f26bfc7456c092c74f2d34931c1f1ce8e.1920x1080.jpg?t=1782281729" alt="Screenshot"></div>
+<div class="media-thumb " data-index="4"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/0a64f625389e0fcbbd068eabe0f2961edfa5a4b4/ss_0a64f625389e0fcbbd068eabe0f2961edfa5a4b4.1920x1080.jpg?t=1782281729" alt="Screenshot"></div>
+<div class="media-thumb " data-index="5"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/37f3e67a5718ac0562829ee51ced8984ddd83ca9/ss_37f3e67a5718ac0562829ee51ced8984ddd83ca9.1920x1080.jpg?t=1782281729" alt="Screenshot"></div>
+<div class="media-thumb " data-index="6"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/bb9296ea7bfcfdb849cb86469d4e2abd1ff3bbec/ss_bb9296ea7bfcfdb849cb86469d4e2abd1ff3bbec.1920x1080.jpg?t=1782281729" alt="Screenshot"></div>
+<div class="media-thumb " data-index="7"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/236817dcfd784180962a24ded1c4a7652f28ddb8/ss_236817dcfd784180962a24ded1c4a7652f28ddb8.1920x1080.jpg?t=1782281729" alt="Screenshot"></div>
+<div class="media-thumb " data-index="8"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/a0228a733d7859a6794e3fe1b68f238fe73cea6a/ss_a0228a733d7859a6794e3fe1b68f238fe73cea6a.1920x1080.jpg?t=1782281729" alt="Screenshot"></div>
+<div class="media-thumb " data-index="9"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/5da0e98620ded277d4fe5b47a1d6413d07831292/ss_5da0e98620ded277d4fe5b47a1d6413d07831292.1920x1080.jpg?t=1782281729" alt="Screenshot"></div>
+<div class="media-thumb " data-index="10"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/79fe3d68f8db0cd1997b2c782f53e1f2f9d48ff3/ss_79fe3d68f8db0cd1997b2c782f53e1f2f9d48ff3.1920x1080.jpg?t=1782281729" alt="Screenshot"></div>
+<div class="media-thumb " data-index="11"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/d20e5bad0440f5dcc76fa6d589595fe54aaa566d/ss_d20e5bad0440f5dcc76fa6d589595fe54aaa566d.1920x1080.jpg?t=1782281729" alt="Screenshot"></div>
+
+    </div>
   </div>
 </section>
 
@@ -499,7 +562,7 @@ body {
 <section class="content-section">
   <div class="content-block">
     <h2>关于此游戏</h2>
-    <div><p class="bb_paragraph" ><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/extras/60efd4d7fd442b658bc8d33a6940ac97.avif?t=1782281729" width=918 height=282 /></span></p><h2 class="bb_tag" >《魔女：终末旅途》反馈及玩家讨论群</h2><p class="bb_paragraph" >2/3/4群已满，请加1群：</p><p class="bb_paragraph" >1群（未满）：1002550671 </p><p class="bb_paragraph" ><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/extras/b524ceca1185a09b719138e6906ec509.avif?t=1782281729" width=1280 height=300 /></span></p><p class="bb_paragraph" style="text-align: center"><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/extras/0080ca1a30c439e33cf09c32538ee630.avif?t=1782281729" width=1200 height=97 /></span></p><h2 class="bb_tag" >《魔女：终末旅途》是一款带有角色扮演要素的多人合作卡牌Roguelite游戏，你可以自定义魔女们每一天的行程，还可以创造属于自己独一无二的【超级卡牌】！与小伙伴们一起组成魔女小队，来将这个世界摧毁殆尽吧~！</h2><p class="bb_paragraph" ><span class="bb_img_ctn"><video controls class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/extras/004f1aba08333cd31d5ccbb773c41cb5.poster.avif?t=1782281729" ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/extras/004f1aba08333cd31d5ccbb773c41cb5.webm?t=1782281729" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/extras/004f1aba08333cd31d5ccbb773c41cb5.mp4?t=1782281729" type="video/mp4"></video></span></p><p class="bb_paragraph" ><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/extras/b88a69e5923454b8c0772e25ef644d21.avif?t=1782281729" width=17 height=21 /></span> 作为不祥之物的象征，魔女们是名副其实的灾厄之星，在奥尔德林，她们的出现只意味着一件事：世界即将走到尽头。</p><p class="bb_paragraph" ><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/extras/b88a69e5923454b8c0772e25ef644d21.avif?t=1782281729" width=17 height=21 /></span> 她们既是刽子手，也是入殓师，引领魔女的脚步，为世界送上最后一程！</p><p class="bb_paragraph" ><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/extras/eb123a19c199dcc8af5b394a21e72d63.avif?t=1782281729" width=1200 height=188 /></span></p><p class="bb_paragraph" ><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/extras/811fd1ddd7c36bc055d1834d188c5aed.avif?t=1782281729" data-big-src=https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/extras_big/811fd1ddd7c36bc055d1834d188c5aed.avif?t=1782281729 width=800 height=297 /></span></p><p class="bb_paragraph" ><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/extras/b88a69e5923454b8c0772e25ef644d21.avif?t=1782281729" width=17 height=21 /></span> 组建属于你的魔女小队，体验策略卡牌的乐趣~</p><p class="bb_paragraph" ></p><p class="bb_paragraph" ><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/extras/0f63e343ba794a427a7d1c5f68c0708e.avif?t=1782281729" width=1200 height=188 /></span></p><p class="bb_paragraph" ><span class="bb_img_ctn"><video controls class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/extras/b5040a2a13a29f8a0beda1e648a8a172.poster.avif?t=1782281729" ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/extras/b5040a2a13a29f8a0beda1e648a8a172.webm?t=1782281729" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/extras/b5040a2a13a29f8a0beda1e648a8a172.mp4?t=1782281729" type="video/mp4"></video></span></p><p class="bb_paragraph" ><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/extras/b88a69e5923454b8c0772e25ef644d21.avif?t=1782281729" width=17 height=21 /></span> 满足一定条件后，花费一定真理之晶生成合你心意的卡牌</p><p class="bb_paragraph" ><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/extras/b88a69e5923454b8c0772e25ef644d21.avif?t=1782281729" width=17 height=21 /></span> 不希望某张卡牌在游戏中出现……？用属于你自己的卡牌替换它！</p><p class="bb_paragraph" ><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/extras/5b344f848c31a498d7730f4a048fe5a1.avif?t=1782281729" width=1200 height=188 /></span></p><p class="bb_paragraph" ><span class="bb_img_ctn"><video controls class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/extras/3bac59b5df93c78a585b53912320b040.poster.avif?t=1782281729" ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/extras/3bac59b5df93c78a585b53912320b040.webm?t=1782281729" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/extras/3bac59b5df93c78a585b53912320b040.mp4?t=1782281729" type="video/mp4"></video></span></p><p class="bb_paragraph" ><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/extras/b88a69e5923454b8c0772e25ef644d21.avif?t=1782281729" width=17 height=21 /></span> 魔女们无法逆转时间，却可操纵因果。</p><p class="bb_paragraph" ><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/extras/b88a69e5923454b8c0772e25ef644d21.avif?t=1782281729" width=17 height=21 /></span> 你可以自定义魔女们遭遇的事件，在地图界面抽取一定数量的命运牌，并按照自己的心意将他们排列在时间轴上。</p><p class="bb_paragraph" ><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/extras/b88a69e5923454b8c0772e25ef644d21.avif?t=1782281729" width=17 height=21 /></span> 一旦决定好了路线，接下来便会按照你设想的那样行动，一些巧妙的组合或许会让旅途出现更多未知。</p><p class="bb_paragraph" ></p><p class="bb_paragraph" ><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/extras/6f656f90acb73bbd0d1521b03693739f.avif?t=1782281729" width=1200 height=188 /></span></p><p class="bb_paragraph" ></p><p class="bb_paragraph" ><span class="bb_img_ctn"><video controls class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/extras/1afbf25d8ae5e086f181785bb6670e11.poster.avif?t=1782281729" ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/extras/1afbf25d8ae5e086f181785bb6670e11.webm?t=1782281729" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/extras/1afbf25d8ae5e086f181785bb6670e11.mp4?t=1782281729" type="video/mp4"></video></span></p><p class="bb_paragraph" ><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/extras/b88a69e5923454b8c0772e25ef644d21.avif?t=1782281729" width=17 height=21 /></span> 在游戏中，你能获得各种各样的强化魔女的资源</p><p class="bb_paragraph" ><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/extras/b88a69e5923454b8c0772e25ef644d21.avif?t=1782281729" width=17 height=21 /></span> 用卡牌来构筑你的基本卡组，用遗物来建立你的流派，用祝福来强化你的属性。</p><p class="bb_paragraph" ><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/extras/b88a69e5923454b8c0772e25ef644d21.avif?t=1782281729" width=17 height=21 /></span> 你将遭遇具有不同特殊能力的敌人，克制或者被克制，取决于你的选择。</p><p class="bb_paragraph" ></p><h2 class="bb_tag" ><strong>MOD和创意工坊</strong></h2><p class="bb_paragraph" >我们计划在游戏上线后开启创意工坊功能，让玩家们体验各种各样的魔女世界，加入新的卡牌，为魔女们定制新的形象，设计更多的任务，不断给魔女们的世界注入更多活力！</p><p class="bb_paragraph" >B站：@魔女终末旅途</p><p class="bb_paragraph" >小黑盒：@MeowAlive</p><p class="bb_paragraph" >微博：@魔女终末旅途</p><p class="bb_paragraph" >小红书：@MeowAlive</p><p class="bb_paragraph" >抖音：@MeowAlive</p><p class="bb_paragraph" ></p><p class="bb_paragraph" >【加入愿望单！和魔女们一起冒险！】</p><p class="bb_paragraph" ></p></div>
+    <div><p class="bb_paragraph" ><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/extras/60efd4d7fd442b658bc8d33a6940ac97.avif?t=1782281729" width=918 height=282 /></span></p><h2 class="bb_tag" >《魔女：终末旅途》反馈及玩家讨论群</h2><p class="bb_paragraph" >2/3/4群已满，请加1群：</p><p class="bb_paragraph" >1群（未满）：1002550671 </p><p class="bb_paragraph" ><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/extras/b524ceca1185a09b719138e6906ec509.avif?t=1782281729" width=1280 height=300 /></span></p><p class="bb_paragraph" style="text-align: center"><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/extras/0080ca1a30c439e33cf09c32538ee630.avif?t=1782281729" width=1200 height=97 /></span></p><h2 class="bb_tag" >《魔女：终末旅途》是一款带有角色扮演要素的多人合作卡牌Roguelite游戏，你可以自定义魔女们每一天的行程，还可以创造属于自己独一无二的【超级卡牌】！与小伙伴们一起组成魔女小队，来将这个世界摧毁殆尽吧~！</h2><p class="bb_paragraph" ><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/extras/004f1aba08333cd31d5ccbb773c41cb5.poster.avif?t=1782281729" width=1170 height=656 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/extras/004f1aba08333cd31d5ccbb773c41cb5.webm?t=1782281729" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/extras/004f1aba08333cd31d5ccbb773c41cb5.mp4?t=1782281729" type="video/mp4"></video></span></p><p class="bb_paragraph" ><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/extras/b88a69e5923454b8c0772e25ef644d21.avif?t=1782281729" width=17 height=21 /></span> 作为不祥之物的象征，魔女们是名副其实的灾厄之星，在奥尔德林，她们的出现只意味着一件事：世界即将走到尽头。</p><p class="bb_paragraph" ><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/extras/b88a69e5923454b8c0772e25ef644d21.avif?t=1782281729" width=17 height=21 /></span> 她们既是刽子手，也是入殓师，引领魔女的脚步，为世界送上最后一程！</p><p class="bb_paragraph" ><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/extras/eb123a19c199dcc8af5b394a21e72d63.avif?t=1782281729" width=1200 height=188 /></span></p><p class="bb_paragraph" ><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/extras/811fd1ddd7c36bc055d1834d188c5aed.avif?t=1782281729" data-big-src=https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/extras_big/811fd1ddd7c36bc055d1834d188c5aed.avif?t=1782281729 width=800 height=297 /></span></p><p class="bb_paragraph" ><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/extras/b88a69e5923454b8c0772e25ef644d21.avif?t=1782281729" width=17 height=21 /></span> 组建属于你的魔女小队，体验策略卡牌的乐趣~</p><p class="bb_paragraph" ></p><p class="bb_paragraph" ><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/extras/0f63e343ba794a427a7d1c5f68c0708e.avif?t=1782281729" width=1200 height=188 /></span></p><p class="bb_paragraph" ><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/extras/b5040a2a13a29f8a0beda1e648a8a172.poster.avif?t=1782281729" width=1170 height=656 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/extras/b5040a2a13a29f8a0beda1e648a8a172.webm?t=1782281729" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/extras/b5040a2a13a29f8a0beda1e648a8a172.mp4?t=1782281729" type="video/mp4"></video></span></p><p class="bb_paragraph" ><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/extras/b88a69e5923454b8c0772e25ef644d21.avif?t=1782281729" width=17 height=21 /></span> 满足一定条件后，花费一定真理之晶生成合你心意的卡牌</p><p class="bb_paragraph" ><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/extras/b88a69e5923454b8c0772e25ef644d21.avif?t=1782281729" width=17 height=21 /></span> 不希望某张卡牌在游戏中出现……？用属于你自己的卡牌替换它！</p><p class="bb_paragraph" ><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/extras/5b344f848c31a498d7730f4a048fe5a1.avif?t=1782281729" width=1200 height=188 /></span></p><p class="bb_paragraph" ><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/extras/3bac59b5df93c78a585b53912320b040.poster.avif?t=1782281729" width=1170 height=656 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/extras/3bac59b5df93c78a585b53912320b040.webm?t=1782281729" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/extras/3bac59b5df93c78a585b53912320b040.mp4?t=1782281729" type="video/mp4"></video></span></p><p class="bb_paragraph" ><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/extras/b88a69e5923454b8c0772e25ef644d21.avif?t=1782281729" width=17 height=21 /></span> 魔女们无法逆转时间，却可操纵因果。</p><p class="bb_paragraph" ><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/extras/b88a69e5923454b8c0772e25ef644d21.avif?t=1782281729" width=17 height=21 /></span> 你可以自定义魔女们遭遇的事件，在地图界面抽取一定数量的命运牌，并按照自己的心意将他们排列在时间轴上。</p><p class="bb_paragraph" ><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/extras/b88a69e5923454b8c0772e25ef644d21.avif?t=1782281729" width=17 height=21 /></span> 一旦决定好了路线，接下来便会按照你设想的那样行动，一些巧妙的组合或许会让旅途出现更多未知。</p><p class="bb_paragraph" ></p><p class="bb_paragraph" ><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/extras/6f656f90acb73bbd0d1521b03693739f.avif?t=1782281729" width=1200 height=188 /></span></p><p class="bb_paragraph" ></p><p class="bb_paragraph" ><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/extras/1afbf25d8ae5e086f181785bb6670e11.poster.avif?t=1782281729" width=1170 height=656 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/extras/1afbf25d8ae5e086f181785bb6670e11.webm?t=1782281729" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/extras/1afbf25d8ae5e086f181785bb6670e11.mp4?t=1782281729" type="video/mp4"></video></span></p><p class="bb_paragraph" ><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/extras/b88a69e5923454b8c0772e25ef644d21.avif?t=1782281729" width=17 height=21 /></span> 在游戏中，你能获得各种各样的强化魔女的资源</p><p class="bb_paragraph" ><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/extras/b88a69e5923454b8c0772e25ef644d21.avif?t=1782281729" width=17 height=21 /></span> 用卡牌来构筑你的基本卡组，用遗物来建立你的流派，用祝福来强化你的属性。</p><p class="bb_paragraph" ><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/extras/b88a69e5923454b8c0772e25ef644d21.avif?t=1782281729" width=17 height=21 /></span> 你将遭遇具有不同特殊能力的敌人，克制或者被克制，取决于你的选择。</p><p class="bb_paragraph" ></p><h2 class="bb_tag" ><strong>MOD和创意工坊</strong></h2><p class="bb_paragraph" >我们计划在游戏上线后开启创意工坊功能，让玩家们体验各种各样的魔女世界，加入新的卡牌，为魔女们定制新的形象，设计更多的任务，不断给魔女们的世界注入更多活力！</p><p class="bb_paragraph" >B站：@魔女终末旅途</p><p class="bb_paragraph" >小黑盒：@MeowAlive</p><p class="bb_paragraph" >微博：@魔女终末旅途</p><p class="bb_paragraph" >小红书：@MeowAlive</p><p class="bb_paragraph" >抖音：@MeowAlive</p><p class="bb_paragraph" ></p><p class="bb_paragraph" >【加入愿望单！和魔女们一起冒险！】</p><p class="bb_paragraph" ></p></div>
   </div>
 </section>
 
@@ -516,26 +579,71 @@ body {
 </section>
 
 <!-- 系统需求 -->
-<section class="content-section"><div class="content-block"><h2>系统需求</h2><div class="sys-req">
-<div class="sys-req-col"><h4>最低配置</h4><ul><strong>最低配置:</strong><br><ul class="bb_ul"><li><strong>操作系统:</strong> Windows 10/11<br></li><li><strong>处理器:</strong> 2.0 Ghz<br></li><li><strong>内存:</strong> 2 GB RAM<br></li><li><strong>显卡:</strong> 1Gb<br></li><li><strong>DirectX 版本:</strong> 11<br></li><li><strong>存储空间:</strong> 需要 2 GB 可用空间</li></ul></ul></div>
-<div class="sys-req-col"><h4>推荐配置</h4><ul><strong>推荐配置:</strong><br><ul class="bb_ul"><li><strong>操作系统:</strong> Windows 10/11<br></li><li><strong>处理器:</strong> 2.4 GHz<br></li><li><strong>内存:</strong> 4 GB RAM<br></li><li><strong>显卡:</strong> 2Gb<br></li><li><strong>存储空间:</strong> 需要 4 GB 可用空间</li></ul></ul></div>
-</div></div></section>
+
+<section class="content-section">
+  <div class="container">
+    <div class="content-block">
+      <h2>系统需求</h2>
+      <div class="sys-req">
+        <div class="sys-req-col"><h4>最低配置</h4><div><strong>最低配置:</strong><br><ul class="bb_ul"><li><strong>操作系统:</strong> Windows 10/11<br></li><li><strong>处理器:</strong> 2.0 Ghz<br></li><li><strong>内存:</strong> 2 GB RAM<br></li><li><strong>显卡:</strong> 1Gb<br></li><li><strong>DirectX 版本:</strong> 11<br></li><li><strong>存储空间:</strong> 需要 2 GB 可用空间</li></ul></div></div>
+        <div class="sys-req-col"><h4>推荐配置</h4><div><strong>推荐配置:</strong><br><ul class="bb_ul"><li><strong>操作系统:</strong> Windows 10/11<br></li><li><strong>处理器:</strong> 2.4 GHz<br></li><li><strong>内存:</strong> 4 GB RAM<br></li><li><strong>显卡:</strong> 2Gb<br></li><li><strong>存储空间:</strong> 需要 4 GB 可用空间</li></ul></div></div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <script>
-function showVideo() {
-  document.getElementById('video-container').style.display = 'block';
-  document.getElementById('screenshots-container').style.display = 'none';
-  document.querySelectorAll('.media-tab').forEach(t => t.classList.remove('active'));
-  event.target.classList.add('active');
+// 媒体数据
+const mediaItems = [
+  {"type": "video", "url": "https://store.steampowered.com/video/257350903/", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257350903/d5af9bb816d1b9e0adc20ae74cfb9a6de98dca24/movie_600x337.jpg?t=1780799907"},
+  {"type": "video", "url": "https://store.steampowered.com/video/257343283/", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257343283/44282bac4934456466c2a7d78f2e1786ca8ca092/movie_600x337.jpg?t=1779847837"},
+  {"type": "video", "url": "https://store.steampowered.com/video/257264582/", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257264582/9fbf45f70bbe6c293e814c0a70da798bda8ba49d/movie_600x337.jpg?t=1779847900"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/3da24d5f26bfc7456c092c74f2d34931c1f1ce8e/ss_3da24d5f26bfc7456c092c74f2d34931c1f1ce8e.1920x1080.jpg?t=1782281729", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/3da24d5f26bfc7456c092c74f2d34931c1f1ce8e/ss_3da24d5f26bfc7456c092c74f2d34931c1f1ce8e.1920x1080.jpg?t=1782281729"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/0a64f625389e0fcbbd068eabe0f2961edfa5a4b4/ss_0a64f625389e0fcbbd068eabe0f2961edfa5a4b4.1920x1080.jpg?t=1782281729", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/0a64f625389e0fcbbd068eabe0f2961edfa5a4b4/ss_0a64f625389e0fcbbd068eabe0f2961edfa5a4b4.1920x1080.jpg?t=1782281729"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/37f3e67a5718ac0562829ee51ced8984ddd83ca9/ss_37f3e67a5718ac0562829ee51ced8984ddd83ca9.1920x1080.jpg?t=1782281729", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/37f3e67a5718ac0562829ee51ced8984ddd83ca9/ss_37f3e67a5718ac0562829ee51ced8984ddd83ca9.1920x1080.jpg?t=1782281729"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/bb9296ea7bfcfdb849cb86469d4e2abd1ff3bbec/ss_bb9296ea7bfcfdb849cb86469d4e2abd1ff3bbec.1920x1080.jpg?t=1782281729", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/bb9296ea7bfcfdb849cb86469d4e2abd1ff3bbec/ss_bb9296ea7bfcfdb849cb86469d4e2abd1ff3bbec.1920x1080.jpg?t=1782281729"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/236817dcfd784180962a24ded1c4a7652f28ddb8/ss_236817dcfd784180962a24ded1c4a7652f28ddb8.1920x1080.jpg?t=1782281729", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/236817dcfd784180962a24ded1c4a7652f28ddb8/ss_236817dcfd784180962a24ded1c4a7652f28ddb8.1920x1080.jpg?t=1782281729"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/a0228a733d7859a6794e3fe1b68f238fe73cea6a/ss_a0228a733d7859a6794e3fe1b68f238fe73cea6a.1920x1080.jpg?t=1782281729", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/a0228a733d7859a6794e3fe1b68f238fe73cea6a/ss_a0228a733d7859a6794e3fe1b68f238fe73cea6a.1920x1080.jpg?t=1782281729"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/5da0e98620ded277d4fe5b47a1d6413d07831292/ss_5da0e98620ded277d4fe5b47a1d6413d07831292.1920x1080.jpg?t=1782281729", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/5da0e98620ded277d4fe5b47a1d6413d07831292/ss_5da0e98620ded277d4fe5b47a1d6413d07831292.1920x1080.jpg?t=1782281729"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/79fe3d68f8db0cd1997b2c782f53e1f2f9d48ff3/ss_79fe3d68f8db0cd1997b2c782f53e1f2f9d48ff3.1920x1080.jpg?t=1782281729", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/79fe3d68f8db0cd1997b2c782f53e1f2f9d48ff3/ss_79fe3d68f8db0cd1997b2c782f53e1f2f9d48ff3.1920x1080.jpg?t=1782281729"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/d20e5bad0440f5dcc76fa6d589595fe54aaa566d/ss_d20e5bad0440f5dcc76fa6d589595fe54aaa566d.1920x1080.jpg?t=1782281729", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3709430/d20e5bad0440f5dcc76fa6d589595fe54aaa566d/ss_d20e5bad0440f5dcc76fa6d589595fe54aaa566d.1920x1080.jpg?t=1782281729"}
+];
+
+let currentIndex = 0;
+
+// 切换到指定媒体
+function switchMedia(index) {
+  if (index < 0 || index >= mediaItems.length) return;
+  
+  currentIndex = index;
+  const item = mediaItems[index];
+  const mainEl = document.getElementById('mediaMain');
+  
+  if (item.type === 'video') {
+    // 使用Steam视频嵌入
+    mainEl.innerHTML = `<iframe src="${item.url}" frameborder="0" allowfullscreen allow="autoplay; fullscreen"></iframe>`;
+  } else {
+    mainEl.innerHTML = `<img src="${item.url}" alt="Screenshot">`;
+  }
+  
+  // 更新缩略图active状态
+  document.querySelectorAll('.media-thumb').forEach((thumb, i) => {
+    thumb.classList.toggle('active', i === index);
+  });
 }
 
-function showScreenshots() {
-  const vc = document.getElementById('video-container');
-  if (vc) vc.style.display = 'none';
-  document.getElementById('screenshots-container').style.display = 'grid';
-  document.querySelectorAll('.media-tab').forEach(t => t.classList.remove('active'));
-  event.target.classList.add('active');
-}
+// 初始化
+document.addEventListener('DOMContentLoaded', () => {
+  // 绑定缩略图点击事件
+  document.querySelectorAll('.media-thumb').forEach((thumb, index) => {
+    thumb.addEventListener('click', () => switchMedia(index));
+  });
+  
+  // 设置初始状态
+  if (mediaItems.length > 0) {
+    switchMedia(0);
+  }
+});
 </script>
 
 </body>

@@ -168,75 +168,127 @@ body {
   max-width: 640px;
 }
 
-/* 媒体区域 */
+/* 媒体区域 - Steam风格 */
 .media-section {
   max-width: 1200px;
   margin: 2rem auto;
   padding: 0 2rem;
 }
 
-.media-tabs {
-  display: flex;
-  gap: 0.5rem;
-  margin-bottom: 1rem;
-}
-
-.media-tab {
+.media-gallery {
   background: var(--surface);
-  border: 1px solid var(--border);
-  color: var(--text-secondary);
-  padding: 0.5rem 1.25rem;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 0.875rem;
-  font-weight: 500;
-  transition: all 0.2s;
-}
-
-.media-tab:hover {
-  border-color: var(--accent);
-  color: var(--accent);
-}
-
-.media-tab.active {
-  background: var(--accent);
-  color: white;
-  border-color: var(--accent);
-}
-
-.media-player {
   border-radius: var(--radius);
+  border: 1px solid var(--border);
   overflow: hidden;
-  background: #000;
-  aspect-ratio: 16/9;
 }
 
-.media-player video,
-.media-player img {
+/* 主图显示区域 */
+.media-main {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/9;
+  background: #000;
+  overflow: hidden;
+}
+
+.media-main img,
+.media-main video,
+.media-main iframe {
   width: 100%;
   height: 100%;
   object-fit: contain;
+  border: none;
 }
 
-.screenshots-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 0.75rem;
+/* 媒体控制按钮 */
+.media-controls {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  display: flex;
+  gap: 0.5rem;
+  z-index: 10;
 }
 
-.screenshots-grid img {
-  width: 100%;
-  aspect-ratio: 16/9;
-  object-fit: cover;
-  border-radius: 8px;
+.media-control-btn {
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
   cursor: pointer;
+  font-size: 0.875rem;
   transition: all 0.2s;
-  border: 1px solid var(--border);
 }
 
-.screenshots-grid img:hover {
-  transform: scale(1.02);
-  box-shadow: var(--shadow);
+.media-control-btn:hover {
+  background: rgba(0, 0, 0, 0.9);
+}
+
+/* 缩略图bar */
+.media-thumbnails {
+  display: flex;
+  gap: 0.5rem;
+  padding: 1rem;
+  overflow-x: auto;
+  background: #f9fafb;
+  border-top: 1px solid var(--border);
+}
+
+.media-thumbnails::-webkit-scrollbar {
+  height: 6px;
+}
+
+.media-thumbnails::-webkit-scrollbar-track {
+  background: #f3f4f6;
+}
+
+.media-thumbnails::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 3px;
+}
+
+.media-thumb {
+  flex-shrink: 0;
+  width: 120px;
+  height: 67.5px;
+  border-radius: 6px;
+  overflow: hidden;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all 0.2s;
+  position: relative;
+}
+
+.media-thumb:hover {
+  border-color: var(--accent);
+  transform: scale(1.05);
+}
+
+.media-thumb.active {
+  border-color: var(--accent);
+}
+
+.media-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.media-thumb .play-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
 }
 
 /* 内容区域 */
@@ -411,6 +463,10 @@ body {
   .sys-req {
     grid-template-columns: 1fr;
   }
+  .media-thumb {
+    width: 100px;
+    height: 56.25px;
+  }
 }
 
 @media (max-width: 640px) {
@@ -426,6 +482,10 @@ body {
   .download-block {
     padding: 1.5rem;
   }
+  .media-thumb {
+    width: 80px;
+    height: 45px;
+  }
 }
 </style>
 </head>
@@ -434,7 +494,7 @@ body {
 <!-- 顶部导航 -->
 <nav class="topbar">
   <a href="../../index.html">← 返回游戏榜单</a>
-  <a href="https://store.steampowered.com/app/4632830/" target="_blank">Steam 商店页 →</a>
+  <a href="https://store.steampowered.com/app//" target="_blank">Steam 商店页 →</a>
 </nav>
 
 <!-- 游戏头部 -->
@@ -473,20 +533,20 @@ body {
 
 <!-- 媒体区域 -->
 <section class="media-section">
-  <div class="media-tabs">
-    <button class="media-tab active" onclick="showVideo()">▶ 视频</button>
-    <button class="media-tab" onclick="showScreenshots()">🖼 截图</button>
-  </div>
-  
-  <div id="video-container" class="media-player">
+  <div class="media-gallery">
+    <!-- 主图显示区域 -->
+    <div class="media-main" id="mediaMain">
+      <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4632830/082763c0d676bf8c6a9dda243e97574578a2d1da/ss_082763c0d676bf8c6a9dda243e97574578a2d1da.1920x1080.jpg?t=1781192549" alt="Screenshot">
+    </div>
     
-  </div>
-  
-  <div id="screenshots-container" class="screenshots-grid" style="display:none;">
-    <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4632830/082763c0d676bf8c6a9dda243e97574578a2d1da/ss_082763c0d676bf8c6a9dda243e97574578a2d1da.1920x1080.jpg?t=1781192549" alt="Screenshot" onclick="window.open(this.src)">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4632830/72a56a066a14580126feb3cce276e34ab7ca984d/ss_72a56a066a14580126feb3cce276e34ab7ca984d.1920x1080.jpg?t=1781192549" alt="Screenshot" onclick="window.open(this.src)">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4632830/c9a7f23cf354607ecb433541890eddd4f163e615/ss_c9a7f23cf354607ecb433541890eddd4f163e615.1920x1080.jpg?t=1781192549" alt="Screenshot" onclick="window.open(this.src)">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4632830/90f59888a537b1fa89323ed973a16b511dfbba52/ss_90f59888a537b1fa89323ed973a16b511dfbba52.1920x1080.jpg?t=1781192549" alt="Screenshot" onclick="window.open(this.src)">
+    <!-- 缩略图bar -->
+    <div class="media-thumbnails" id="mediaThumbnails">
+      <div class="media-thumb active" data-index="0"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4632830/082763c0d676bf8c6a9dda243e97574578a2d1da/ss_082763c0d676bf8c6a9dda243e97574578a2d1da.1920x1080.jpg?t=1781192549" alt="Screenshot"></div>
+<div class="media-thumb " data-index="1"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4632830/72a56a066a14580126feb3cce276e34ab7ca984d/ss_72a56a066a14580126feb3cce276e34ab7ca984d.1920x1080.jpg?t=1781192549" alt="Screenshot"></div>
+<div class="media-thumb " data-index="2"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4632830/c9a7f23cf354607ecb433541890eddd4f163e615/ss_c9a7f23cf354607ecb433541890eddd4f163e615.1920x1080.jpg?t=1781192549" alt="Screenshot"></div>
+<div class="media-thumb " data-index="3"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4632830/90f59888a537b1fa89323ed973a16b511dfbba52/ss_90f59888a537b1fa89323ed973a16b511dfbba52.1920x1080.jpg?t=1781192549" alt="Screenshot"></div>
+
+    </div>
   </div>
 </section>
 
@@ -513,20 +573,49 @@ body {
 
 
 <script>
-function showVideo() {
-  document.getElementById('video-container').style.display = 'block';
-  document.getElementById('screenshots-container').style.display = 'none';
-  document.querySelectorAll('.media-tab').forEach(t => t.classList.remove('active'));
-  event.target.classList.add('active');
+// 媒体数据
+const mediaItems = [
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4632830/082763c0d676bf8c6a9dda243e97574578a2d1da/ss_082763c0d676bf8c6a9dda243e97574578a2d1da.1920x1080.jpg?t=1781192549", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4632830/082763c0d676bf8c6a9dda243e97574578a2d1da/ss_082763c0d676bf8c6a9dda243e97574578a2d1da.1920x1080.jpg?t=1781192549"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4632830/72a56a066a14580126feb3cce276e34ab7ca984d/ss_72a56a066a14580126feb3cce276e34ab7ca984d.1920x1080.jpg?t=1781192549", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4632830/72a56a066a14580126feb3cce276e34ab7ca984d/ss_72a56a066a14580126feb3cce276e34ab7ca984d.1920x1080.jpg?t=1781192549"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4632830/c9a7f23cf354607ecb433541890eddd4f163e615/ss_c9a7f23cf354607ecb433541890eddd4f163e615.1920x1080.jpg?t=1781192549", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4632830/c9a7f23cf354607ecb433541890eddd4f163e615/ss_c9a7f23cf354607ecb433541890eddd4f163e615.1920x1080.jpg?t=1781192549"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4632830/90f59888a537b1fa89323ed973a16b511dfbba52/ss_90f59888a537b1fa89323ed973a16b511dfbba52.1920x1080.jpg?t=1781192549", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4632830/90f59888a537b1fa89323ed973a16b511dfbba52/ss_90f59888a537b1fa89323ed973a16b511dfbba52.1920x1080.jpg?t=1781192549"}
+];
+
+let currentIndex = 0;
+
+// 切换到指定媒体
+function switchMedia(index) {
+  if (index < 0 || index >= mediaItems.length) return;
+  
+  currentIndex = index;
+  const item = mediaItems[index];
+  const mainEl = document.getElementById('mediaMain');
+  
+  if (item.type === 'video') {
+    // 使用Steam视频嵌入
+    mainEl.innerHTML = `<iframe src="${item.url}" frameborder="0" allowfullscreen allow="autoplay; fullscreen"></iframe>`;
+  } else {
+    mainEl.innerHTML = `<img src="${item.url}" alt="Screenshot">`;
+  }
+  
+  // 更新缩略图active状态
+  document.querySelectorAll('.media-thumb').forEach((thumb, i) => {
+    thumb.classList.toggle('active', i === index);
+  });
 }
 
-function showScreenshots() {
-  const vc = document.getElementById('video-container');
-  if (vc) vc.style.display = 'none';
-  document.getElementById('screenshots-container').style.display = 'grid';
-  document.querySelectorAll('.media-tab').forEach(t => t.classList.remove('active'));
-  event.target.classList.add('active');
-}
+// 初始化
+document.addEventListener('DOMContentLoaded', () => {
+  // 绑定缩略图点击事件
+  document.querySelectorAll('.media-thumb').forEach((thumb, index) => {
+    thumb.addEventListener('click', () => switchMedia(index));
+  });
+  
+  // 设置初始状态
+  if (mediaItems.length > 0) {
+    switchMedia(0);
+  }
+});
 </script>
 
 </body>

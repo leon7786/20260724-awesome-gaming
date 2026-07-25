@@ -168,75 +168,127 @@ body {
   max-width: 640px;
 }
 
-/* 媒体区域 */
+/* 媒体区域 - Steam风格 */
 .media-section {
   max-width: 1200px;
   margin: 2rem auto;
   padding: 0 2rem;
 }
 
-.media-tabs {
-  display: flex;
-  gap: 0.5rem;
-  margin-bottom: 1rem;
-}
-
-.media-tab {
+.media-gallery {
   background: var(--surface);
-  border: 1px solid var(--border);
-  color: var(--text-secondary);
-  padding: 0.5rem 1.25rem;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 0.875rem;
-  font-weight: 500;
-  transition: all 0.2s;
-}
-
-.media-tab:hover {
-  border-color: var(--accent);
-  color: var(--accent);
-}
-
-.media-tab.active {
-  background: var(--accent);
-  color: white;
-  border-color: var(--accent);
-}
-
-.media-player {
   border-radius: var(--radius);
+  border: 1px solid var(--border);
   overflow: hidden;
-  background: #000;
-  aspect-ratio: 16/9;
 }
 
-.media-player video,
-.media-player img {
+/* 主图显示区域 */
+.media-main {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/9;
+  background: #000;
+  overflow: hidden;
+}
+
+.media-main img,
+.media-main video,
+.media-main iframe {
   width: 100%;
   height: 100%;
   object-fit: contain;
+  border: none;
 }
 
-.screenshots-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 0.75rem;
+/* 媒体控制按钮 */
+.media-controls {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  display: flex;
+  gap: 0.5rem;
+  z-index: 10;
 }
 
-.screenshots-grid img {
-  width: 100%;
-  aspect-ratio: 16/9;
-  object-fit: cover;
-  border-radius: 8px;
+.media-control-btn {
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
   cursor: pointer;
+  font-size: 0.875rem;
   transition: all 0.2s;
-  border: 1px solid var(--border);
 }
 
-.screenshots-grid img:hover {
-  transform: scale(1.02);
-  box-shadow: var(--shadow);
+.media-control-btn:hover {
+  background: rgba(0, 0, 0, 0.9);
+}
+
+/* 缩略图bar */
+.media-thumbnails {
+  display: flex;
+  gap: 0.5rem;
+  padding: 1rem;
+  overflow-x: auto;
+  background: #f9fafb;
+  border-top: 1px solid var(--border);
+}
+
+.media-thumbnails::-webkit-scrollbar {
+  height: 6px;
+}
+
+.media-thumbnails::-webkit-scrollbar-track {
+  background: #f3f4f6;
+}
+
+.media-thumbnails::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 3px;
+}
+
+.media-thumb {
+  flex-shrink: 0;
+  width: 120px;
+  height: 67.5px;
+  border-radius: 6px;
+  overflow: hidden;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all 0.2s;
+  position: relative;
+}
+
+.media-thumb:hover {
+  border-color: var(--accent);
+  transform: scale(1.05);
+}
+
+.media-thumb.active {
+  border-color: var(--accent);
+}
+
+.media-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.media-thumb .play-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
 }
 
 /* 内容区域 */
@@ -411,6 +463,10 @@ body {
   .sys-req {
     grid-template-columns: 1fr;
   }
+  .media-thumb {
+    width: 100px;
+    height: 56.25px;
+  }
 }
 
 @media (max-width: 640px) {
@@ -425,6 +481,10 @@ body {
   .content-block,
   .download-block {
     padding: 1.5rem;
+  }
+  .media-thumb {
+    width: 80px;
+    height: 45px;
   }
 }
 </style>
@@ -473,27 +533,28 @@ body {
 
 <!-- 媒体区域 -->
 <section class="media-section">
-  <div class="media-tabs">
-    <button class="media-tab active" onclick="showVideo()">▶ 视频</button>
-    <button class="media-tab" onclick="showScreenshots()">🖼 截图</button>
-  </div>
-  
-  <div id="video-container" class="media-player">
+  <div class="media-gallery">
+    <!-- 主图显示区域 -->
+    <div class="media-main" id="mediaMain">
+      <iframe src="https://store.steampowered.com/video/257051700/" frameborder="0" allowfullscreen allow="autoplay; fullscreen"></iframe>
+    </div>
     
-  </div>
-  
-  <div id="screenshots-container" class="screenshots-grid" style="display:none;">
-    <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2515020/ss_99530c1f839832ceeab2cf3450d5c0905312de47.1920x1080.jpg?t=1773294537" alt="Screenshot" onclick="window.open(this.src)">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2515020/ss_7620e893321e1661bdf821617f349196c2b0019f.1920x1080.jpg?t=1773294537" alt="Screenshot" onclick="window.open(this.src)">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2515020/ss_04ef537e3123d4a8dcbbadccc190cf87dee67783.1920x1080.jpg?t=1773294537" alt="Screenshot" onclick="window.open(this.src)">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2515020/ss_d3aea73c0bea755c7152ee339ebb7f7dfefe8f91.1920x1080.jpg?t=1773294537" alt="Screenshot" onclick="window.open(this.src)">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2515020/ss_90a7849fb556c73db88ac37afb1cce44ac39bfab.1920x1080.jpg?t=1773294537" alt="Screenshot" onclick="window.open(this.src)">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2515020/ss_656229eb5e6846753160378c748d7d32143cf55a.1920x1080.jpg?t=1773294537" alt="Screenshot" onclick="window.open(this.src)">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2515020/ss_1f19a79460eba5d3d7f88bf6488f17c29f374a84.1920x1080.jpg?t=1773294537" alt="Screenshot" onclick="window.open(this.src)">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2515020/ss_cd52855dc62ce1488379d7f831acd4423b05c02a.1920x1080.jpg?t=1773294537" alt="Screenshot" onclick="window.open(this.src)">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2515020/ss_8f22781f1fbea926f39157b5f6600cbbdbe7f930.1920x1080.jpg?t=1773294537" alt="Screenshot" onclick="window.open(this.src)">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2515020/ss_7c550cc10ccf287489a3e63a0c3b08558814e327.1920x1080.jpg?t=1773294537" alt="Screenshot" onclick="window.open(this.src)">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2515020/ss_a3b7190f4bbba01dc589f8a8f23efdf663192091.1920x1080.jpg?t=1773294537" alt="Screenshot" onclick="window.open(this.src)">
+    <!-- 缩略图bar -->
+    <div class="media-thumbnails" id="mediaThumbnails">
+      <div class="media-thumb active" data-index="0"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257051700/movie.293x165.jpg?t=1725447625" alt="Video"></div>
+<div class="media-thumb " data-index="1"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2515020/ss_99530c1f839832ceeab2cf3450d5c0905312de47.1920x1080.jpg?t=1773294537" alt="Screenshot"></div>
+<div class="media-thumb " data-index="2"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2515020/ss_7620e893321e1661bdf821617f349196c2b0019f.1920x1080.jpg?t=1773294537" alt="Screenshot"></div>
+<div class="media-thumb " data-index="3"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2515020/ss_04ef537e3123d4a8dcbbadccc190cf87dee67783.1920x1080.jpg?t=1773294537" alt="Screenshot"></div>
+<div class="media-thumb " data-index="4"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2515020/ss_d3aea73c0bea755c7152ee339ebb7f7dfefe8f91.1920x1080.jpg?t=1773294537" alt="Screenshot"></div>
+<div class="media-thumb " data-index="5"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2515020/ss_90a7849fb556c73db88ac37afb1cce44ac39bfab.1920x1080.jpg?t=1773294537" alt="Screenshot"></div>
+<div class="media-thumb " data-index="6"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2515020/ss_656229eb5e6846753160378c748d7d32143cf55a.1920x1080.jpg?t=1773294537" alt="Screenshot"></div>
+<div class="media-thumb " data-index="7"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2515020/ss_1f19a79460eba5d3d7f88bf6488f17c29f374a84.1920x1080.jpg?t=1773294537" alt="Screenshot"></div>
+<div class="media-thumb " data-index="8"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2515020/ss_cd52855dc62ce1488379d7f831acd4423b05c02a.1920x1080.jpg?t=1773294537" alt="Screenshot"></div>
+<div class="media-thumb " data-index="9"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2515020/ss_8f22781f1fbea926f39157b5f6600cbbdbe7f930.1920x1080.jpg?t=1773294537" alt="Screenshot"></div>
+<div class="media-thumb " data-index="10"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2515020/ss_7c550cc10ccf287489a3e63a0c3b08558814e327.1920x1080.jpg?t=1773294537" alt="Screenshot"></div>
+<div class="media-thumb " data-index="11"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2515020/ss_a3b7190f4bbba01dc589f8a8f23efdf663192091.1920x1080.jpg?t=1773294537" alt="Screenshot"></div>
+
+    </div>
   </div>
 </section>
 
@@ -501,7 +562,7 @@ body {
 <section class="content-section">
   <div class="content-block">
     <h2>关于此游戏</h2>
-    <div>这是――――断绝水晶加护的故事。<br><br>相互争夺母水晶的五个国家。<br>当暂时的平衡被打破时，身上宿有召唤兽的“显化者”的命运开始失控。<br><br><ul class="bb_ul"><li><h2 class="bb_tag" >顶级的故事体验</h2>主角“克莱夫·罗兹菲尔德”受到战火波及，失去了祖国与弟弟。<br>他踏上战场，决定只为复仇而活，在即将迎来死亡的垂暮世界中面对残酷的命运。</li><li><h2 class="bb_tag" >令人惊艳的战斗系统</h2>本作是《FINAL FANTASY》系列第一款正宗动作RPG。体验主角克莱夫·罗兹菲尔德精炼的战斗动作和超大规模的召唤兽激烈对决！<br><br><strong>“召唤兽大战”</strong><br>让召唤兽显化于自身的显化者之间的激战。以宏大规模描绘召唤兽vs召唤兽的大型战斗！<br><span class="bb_img_ctn"><video controls class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2515020/extras/723a70edc75e489fd16286954d6364b6.poster.avif?t=1773294537" ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2515020/extras/723a70edc75e489fd16286954d6364b6.webm?t=1773294537" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2515020/extras/723a70edc75e489fd16286954d6364b6.mp4?t=1773294537" type="video/mp4"></video></span><br><strong>“召唤兽动作”</strong><br>切换寄宿在克莱夫身上的多个召唤兽力量，进行高速战斗！<br><span class="bb_img_ctn"><video controls class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2515020/extras/ffb65ff98094304f064a7173acc56db9.poster.avif?t=1773294537" ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2515020/extras/ffb65ff98094304f064a7173acc56db9.webm?t=1773294537" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2515020/extras/ffb65ff98094304f064a7173acc56db9.mp4?t=1773294537" type="video/mp4"></video></span><br><strong>“聚焦剧情”模式</strong><br>能够以简单的操作来轻松享受正宗动作战斗！游戏充满各种辅助功能，让故事的沉浸感更上一层楼！！<br><span class="bb_img_ctn"><video controls class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2515020/extras/ba87695c3a42018222b9d286674b4b01.poster.avif?t=1773294537" ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2515020/extras/ba87695c3a42018222b9d286674b4b01.webm?t=1773294537" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2515020/extras/ba87695c3a42018222b9d286674b4b01.mp4?t=1773294537" type="video/mp4"></video></span><br>推荐想要深入体验故事的玩家选择“聚焦剧情”模式。<br>只需简单的操作就能发动召唤兽能力或自动闪避敌方攻击，所有人都能在体验畅快战斗的同时，全心沉浸于故事中。<br>当然游戏中也准备了需由玩家亲手完成所有操作的“聚焦动作”模式。可以按照自身喜好自由切换两种模式。</li></ul><h2 class="bb_tag" >■本商品包含以下内容</h2><ul class="bb_ul"><li>《FINAL FANTASY XVI》游戏本篇</li><li>武器“洋葱剑”　※主线剧情需推进至章节《邂逅》。（达成条件后，购入特典将会送至主菜单“系统”的“道具收件箱”。）</li></ul></div>
+    <div>这是――――断绝水晶加护的故事。<br><br>相互争夺母水晶的五个国家。<br>当暂时的平衡被打破时，身上宿有召唤兽的“显化者”的命运开始失控。<br><br><ul class="bb_ul"><li><h2 class="bb_tag" >顶级的故事体验</h2>主角“克莱夫·罗兹菲尔德”受到战火波及，失去了祖国与弟弟。<br>他踏上战场，决定只为复仇而活，在即将迎来死亡的垂暮世界中面对残酷的命运。</li><li><h2 class="bb_tag" >令人惊艳的战斗系统</h2>本作是《FINAL FANTASY》系列第一款正宗动作RPG。体验主角克莱夫·罗兹菲尔德精炼的战斗动作和超大规模的召唤兽激烈对决！<br><br><strong>“召唤兽大战”</strong><br>让召唤兽显化于自身的显化者之间的激战。以宏大规模描绘召唤兽vs召唤兽的大型战斗！<br><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2515020/extras/723a70edc75e489fd16286954d6364b6.poster.avif?t=1773294537" width=616 height=346 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2515020/extras/723a70edc75e489fd16286954d6364b6.webm?t=1773294537" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2515020/extras/723a70edc75e489fd16286954d6364b6.mp4?t=1773294537" type="video/mp4"></video></span><br><strong>“召唤兽动作”</strong><br>切换寄宿在克莱夫身上的多个召唤兽力量，进行高速战斗！<br><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2515020/extras/ffb65ff98094304f064a7173acc56db9.poster.avif?t=1773294537" width=616 height=346 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2515020/extras/ffb65ff98094304f064a7173acc56db9.webm?t=1773294537" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2515020/extras/ffb65ff98094304f064a7173acc56db9.mp4?t=1773294537" type="video/mp4"></video></span><br><strong>“聚焦剧情”模式</strong><br>能够以简单的操作来轻松享受正宗动作战斗！游戏充满各种辅助功能，让故事的沉浸感更上一层楼！！<br><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2515020/extras/ba87695c3a42018222b9d286674b4b01.poster.avif?t=1773294537" width=616 height=346 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2515020/extras/ba87695c3a42018222b9d286674b4b01.webm?t=1773294537" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2515020/extras/ba87695c3a42018222b9d286674b4b01.mp4?t=1773294537" type="video/mp4"></video></span><br>推荐想要深入体验故事的玩家选择“聚焦剧情”模式。<br>只需简单的操作就能发动召唤兽能力或自动闪避敌方攻击，所有人都能在体验畅快战斗的同时，全心沉浸于故事中。<br>当然游戏中也准备了需由玩家亲手完成所有操作的“聚焦动作”模式。可以按照自身喜好自由切换两种模式。</li></ul><h2 class="bb_tag" >■本商品包含以下内容</h2><ul class="bb_ul"><li>《FINAL FANTASY XVI》游戏本篇</li><li>武器“洋葱剑”　※主线剧情需推进至章节《邂逅》。（达成条件后，购入特典将会送至主菜单“系统”的“道具收件箱”。）</li></ul></div>
   </div>
 </section>
 
@@ -518,26 +579,71 @@ body {
 </section>
 
 <!-- 系统需求 -->
-<section class="content-section"><div class="content-block"><h2>系统需求</h2><div class="sys-req">
-<div class="sys-req-col"><h4>最低配置</h4><ul><strong>最低配置:</strong><br><ul class="bb_ul"><li>需要 64 位处理器和操作系统<br></li><li><strong>操作系统:</strong> Windows® 10 / 11 64-bit<br></li><li><strong>处理器:</strong> AMD Ryzen™ 5 1600 / Intel® Core™ i5-8400<br></li><li><strong>内存:</strong> 16 GB RAM<br></li><li><strong>显卡:</strong> AMD Radeon™ RX 5700 / Intel® Arc™ A580 / NVIDIA® GeForce® GTX 1070<br></li><li><strong>DirectX 版本:</strong> 12<br></li><li><strong>存储空间:</strong> 需要 170 GB 可用空间<br></li><li><strong>附注事项:</strong> 30FPS at 720p expected. SSD required. VRAM 8GB or above.</li></ul></ul></div>
-<div class="sys-req-col"><h4>推荐配置</h4><ul><strong>推荐配置:</strong><br><ul class="bb_ul"><li>需要 64 位处理器和操作系统<br></li><li><strong>操作系统:</strong> Windows® 10 / 11 64-bit<br></li><li><strong>处理器:</strong> AMD Ryzen™ 7 5700X / Intel® Core™ i7-10700<br></li><li><strong>内存:</strong> 16 GB RAM<br></li><li><strong>显卡:</strong> AMD Radeon™ RX 6700 XT / NVIDIA® GeForce® RTX 2080<br></li><li><strong>DirectX 版本:</strong> 12<br></li><li><strong>存储空间:</strong> 需要 170 GB 可用空间<br></li><li><strong>附注事项:</strong> 60FPS at 1080p expected. SSD required. VRAM 8GB or above.</li></ul></ul></div>
-</div></div></section>
+
+<section class="content-section">
+  <div class="container">
+    <div class="content-block">
+      <h2>系统需求</h2>
+      <div class="sys-req">
+        <div class="sys-req-col"><h4>最低配置</h4><div><strong>最低配置:</strong><br><ul class="bb_ul"><li>需要 64 位处理器和操作系统<br></li><li><strong>操作系统:</strong> Windows® 10 / 11 64-bit<br></li><li><strong>处理器:</strong> AMD Ryzen™ 5 1600 / Intel® Core™ i5-8400<br></li><li><strong>内存:</strong> 16 GB RAM<br></li><li><strong>显卡:</strong> AMD Radeon™ RX 5700 / Intel® Arc™ A580 / NVIDIA® GeForce® GTX 1070<br></li><li><strong>DirectX 版本:</strong> 12<br></li><li><strong>存储空间:</strong> 需要 170 GB 可用空间<br></li><li><strong>附注事项:</strong> 30FPS at 720p expected. SSD required. VRAM 8GB or above.</li></ul></div></div>
+        <div class="sys-req-col"><h4>推荐配置</h4><div><strong>推荐配置:</strong><br><ul class="bb_ul"><li>需要 64 位处理器和操作系统<br></li><li><strong>操作系统:</strong> Windows® 10 / 11 64-bit<br></li><li><strong>处理器:</strong> AMD Ryzen™ 7 5700X / Intel® Core™ i7-10700<br></li><li><strong>内存:</strong> 16 GB RAM<br></li><li><strong>显卡:</strong> AMD Radeon™ RX 6700 XT / NVIDIA® GeForce® RTX 2080<br></li><li><strong>DirectX 版本:</strong> 12<br></li><li><strong>存储空间:</strong> 需要 170 GB 可用空间<br></li><li><strong>附注事项:</strong> 60FPS at 1080p expected. SSD required. VRAM 8GB or above.</li></ul></div></div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <script>
-function showVideo() {
-  document.getElementById('video-container').style.display = 'block';
-  document.getElementById('screenshots-container').style.display = 'none';
-  document.querySelectorAll('.media-tab').forEach(t => t.classList.remove('active'));
-  event.target.classList.add('active');
+// 媒体数据
+const mediaItems = [
+  {"type": "video", "url": "https://store.steampowered.com/video/257051700/", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257051700/movie.293x165.jpg?t=1725447625"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2515020/ss_99530c1f839832ceeab2cf3450d5c0905312de47.1920x1080.jpg?t=1773294537", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2515020/ss_99530c1f839832ceeab2cf3450d5c0905312de47.1920x1080.jpg?t=1773294537"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2515020/ss_7620e893321e1661bdf821617f349196c2b0019f.1920x1080.jpg?t=1773294537", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2515020/ss_7620e893321e1661bdf821617f349196c2b0019f.1920x1080.jpg?t=1773294537"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2515020/ss_04ef537e3123d4a8dcbbadccc190cf87dee67783.1920x1080.jpg?t=1773294537", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2515020/ss_04ef537e3123d4a8dcbbadccc190cf87dee67783.1920x1080.jpg?t=1773294537"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2515020/ss_d3aea73c0bea755c7152ee339ebb7f7dfefe8f91.1920x1080.jpg?t=1773294537", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2515020/ss_d3aea73c0bea755c7152ee339ebb7f7dfefe8f91.1920x1080.jpg?t=1773294537"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2515020/ss_90a7849fb556c73db88ac37afb1cce44ac39bfab.1920x1080.jpg?t=1773294537", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2515020/ss_90a7849fb556c73db88ac37afb1cce44ac39bfab.1920x1080.jpg?t=1773294537"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2515020/ss_656229eb5e6846753160378c748d7d32143cf55a.1920x1080.jpg?t=1773294537", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2515020/ss_656229eb5e6846753160378c748d7d32143cf55a.1920x1080.jpg?t=1773294537"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2515020/ss_1f19a79460eba5d3d7f88bf6488f17c29f374a84.1920x1080.jpg?t=1773294537", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2515020/ss_1f19a79460eba5d3d7f88bf6488f17c29f374a84.1920x1080.jpg?t=1773294537"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2515020/ss_cd52855dc62ce1488379d7f831acd4423b05c02a.1920x1080.jpg?t=1773294537", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2515020/ss_cd52855dc62ce1488379d7f831acd4423b05c02a.1920x1080.jpg?t=1773294537"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2515020/ss_8f22781f1fbea926f39157b5f6600cbbdbe7f930.1920x1080.jpg?t=1773294537", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2515020/ss_8f22781f1fbea926f39157b5f6600cbbdbe7f930.1920x1080.jpg?t=1773294537"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2515020/ss_7c550cc10ccf287489a3e63a0c3b08558814e327.1920x1080.jpg?t=1773294537", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2515020/ss_7c550cc10ccf287489a3e63a0c3b08558814e327.1920x1080.jpg?t=1773294537"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2515020/ss_a3b7190f4bbba01dc589f8a8f23efdf663192091.1920x1080.jpg?t=1773294537", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2515020/ss_a3b7190f4bbba01dc589f8a8f23efdf663192091.1920x1080.jpg?t=1773294537"}
+];
+
+let currentIndex = 0;
+
+// 切换到指定媒体
+function switchMedia(index) {
+  if (index < 0 || index >= mediaItems.length) return;
+  
+  currentIndex = index;
+  const item = mediaItems[index];
+  const mainEl = document.getElementById('mediaMain');
+  
+  if (item.type === 'video') {
+    // 使用Steam视频嵌入
+    mainEl.innerHTML = `<iframe src="${item.url}" frameborder="0" allowfullscreen allow="autoplay; fullscreen"></iframe>`;
+  } else {
+    mainEl.innerHTML = `<img src="${item.url}" alt="Screenshot">`;
+  }
+  
+  // 更新缩略图active状态
+  document.querySelectorAll('.media-thumb').forEach((thumb, i) => {
+    thumb.classList.toggle('active', i === index);
+  });
 }
 
-function showScreenshots() {
-  const vc = document.getElementById('video-container');
-  if (vc) vc.style.display = 'none';
-  document.getElementById('screenshots-container').style.display = 'grid';
-  document.querySelectorAll('.media-tab').forEach(t => t.classList.remove('active'));
-  event.target.classList.add('active');
-}
+// 初始化
+document.addEventListener('DOMContentLoaded', () => {
+  // 绑定缩略图点击事件
+  document.querySelectorAll('.media-thumb').forEach((thumb, index) => {
+    thumb.addEventListener('click', () => switchMedia(index));
+  });
+  
+  // 设置初始状态
+  if (mediaItems.length > 0) {
+    switchMedia(0);
+  }
+});
 </script>
 
 </body>

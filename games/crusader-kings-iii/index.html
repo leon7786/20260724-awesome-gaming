@@ -168,75 +168,127 @@ body {
   max-width: 640px;
 }
 
-/* 媒体区域 */
+/* 媒体区域 - Steam风格 */
 .media-section {
   max-width: 1200px;
   margin: 2rem auto;
   padding: 0 2rem;
 }
 
-.media-tabs {
-  display: flex;
-  gap: 0.5rem;
-  margin-bottom: 1rem;
-}
-
-.media-tab {
+.media-gallery {
   background: var(--surface);
-  border: 1px solid var(--border);
-  color: var(--text-secondary);
-  padding: 0.5rem 1.25rem;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 0.875rem;
-  font-weight: 500;
-  transition: all 0.2s;
-}
-
-.media-tab:hover {
-  border-color: var(--accent);
-  color: var(--accent);
-}
-
-.media-tab.active {
-  background: var(--accent);
-  color: white;
-  border-color: var(--accent);
-}
-
-.media-player {
   border-radius: var(--radius);
+  border: 1px solid var(--border);
   overflow: hidden;
-  background: #000;
-  aspect-ratio: 16/9;
 }
 
-.media-player video,
-.media-player img {
+/* 主图显示区域 */
+.media-main {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/9;
+  background: #000;
+  overflow: hidden;
+}
+
+.media-main img,
+.media-main video,
+.media-main iframe {
   width: 100%;
   height: 100%;
   object-fit: contain;
+  border: none;
 }
 
-.screenshots-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 0.75rem;
+/* 媒体控制按钮 */
+.media-controls {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  display: flex;
+  gap: 0.5rem;
+  z-index: 10;
 }
 
-.screenshots-grid img {
-  width: 100%;
-  aspect-ratio: 16/9;
-  object-fit: cover;
-  border-radius: 8px;
+.media-control-btn {
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
   cursor: pointer;
+  font-size: 0.875rem;
   transition: all 0.2s;
-  border: 1px solid var(--border);
 }
 
-.screenshots-grid img:hover {
-  transform: scale(1.02);
-  box-shadow: var(--shadow);
+.media-control-btn:hover {
+  background: rgba(0, 0, 0, 0.9);
+}
+
+/* 缩略图bar */
+.media-thumbnails {
+  display: flex;
+  gap: 0.5rem;
+  padding: 1rem;
+  overflow-x: auto;
+  background: #f9fafb;
+  border-top: 1px solid var(--border);
+}
+
+.media-thumbnails::-webkit-scrollbar {
+  height: 6px;
+}
+
+.media-thumbnails::-webkit-scrollbar-track {
+  background: #f3f4f6;
+}
+
+.media-thumbnails::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 3px;
+}
+
+.media-thumb {
+  flex-shrink: 0;
+  width: 120px;
+  height: 67.5px;
+  border-radius: 6px;
+  overflow: hidden;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all 0.2s;
+  position: relative;
+}
+
+.media-thumb:hover {
+  border-color: var(--accent);
+  transform: scale(1.05);
+}
+
+.media-thumb.active {
+  border-color: var(--accent);
+}
+
+.media-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.media-thumb .play-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
 }
 
 /* 内容区域 */
@@ -411,6 +463,10 @@ body {
   .sys-req {
     grid-template-columns: 1fr;
   }
+  .media-thumb {
+    width: 100px;
+    height: 56.25px;
+  }
 }
 
 @media (max-width: 640px) {
@@ -425,6 +481,10 @@ body {
   .content-block,
   .download-block {
     padding: 1.5rem;
+  }
+  .media-thumb {
+    width: 80px;
+    height: 45px;
   }
 }
 </style>
@@ -473,30 +533,33 @@ body {
 
 <!-- 媒体区域 -->
 <section class="media-section">
-  <div class="media-tabs">
-    <button class="media-tab active" onclick="showVideo()">▶ 视频</button>
-    <button class="media-tab" onclick="showScreenshots()">🖼 截图</button>
-  </div>
-  
-  <div id="video-container" class="media-player">
+  <div class="media-gallery">
+    <!-- 主图显示区域 -->
+    <div class="media-main" id="mediaMain">
+      <iframe src="https://store.steampowered.com/video/257057629/" frameborder="0" allowfullscreen allow="autoplay; fullscreen"></iframe>
+    </div>
     
-  </div>
-  
-  <div id="screenshots-container" class="screenshots-grid" style="display:none;">
-    <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/be024ed558784be2f4b8851fdf4a566a369bc5d2/ss_be024ed558784be2f4b8851fdf4a566a369bc5d2.1920x1080.jpg?t=1782466478" alt="Screenshot" onclick="window.open(this.src)">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/e8c1ff71f2a179e53f3418d774317495896da4c4/ss_e8c1ff71f2a179e53f3418d774317495896da4c4.1920x1080.jpg?t=1782466478" alt="Screenshot" onclick="window.open(this.src)">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/3e451095d381ddec634bbe4340896d17af773e61/ss_3e451095d381ddec634bbe4340896d17af773e61.1920x1080.jpg?t=1782466478" alt="Screenshot" onclick="window.open(this.src)">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/c2acb41263c0f51e4a3addfc6822609c0c82b29d/ss_c2acb41263c0f51e4a3addfc6822609c0c82b29d.1920x1080.jpg?t=1782466478" alt="Screenshot" onclick="window.open(this.src)">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/7b2cf6ebaebf297866f662d3d27d1cf04525fdb6/ss_7b2cf6ebaebf297866f662d3d27d1cf04525fdb6.1920x1080.jpg?t=1782466478" alt="Screenshot" onclick="window.open(this.src)">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/4b13b5137182c0977592783d38fa17eada394b10/ss_4b13b5137182c0977592783d38fa17eada394b10.1920x1080.jpg?t=1782466478" alt="Screenshot" onclick="window.open(this.src)">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/b40a53526f506cf2c6f1f22868f91dca34d049c3/ss_b40a53526f506cf2c6f1f22868f91dca34d049c3.1920x1080.jpg?t=1782466478" alt="Screenshot" onclick="window.open(this.src)">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/92420aa861477835e0d26f4d58f181a83a58919a/ss_92420aa861477835e0d26f4d58f181a83a58919a.1920x1080.jpg?t=1782466478" alt="Screenshot" onclick="window.open(this.src)">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/7083b53a52dd563d1d2a0b917a0c1c9487073ec9/ss_7083b53a52dd563d1d2a0b917a0c1c9487073ec9.1920x1080.jpg?t=1782466478" alt="Screenshot" onclick="window.open(this.src)">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/ec38bd3b85dddebb8d8c75f6d9b6a2db3b3f9c61/ss_ec38bd3b85dddebb8d8c75f6d9b6a2db3b3f9c61.1920x1080.jpg?t=1782466478" alt="Screenshot" onclick="window.open(this.src)">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/99e6559226665dddb68ebac2dff81188753e1862/ss_99e6559226665dddb68ebac2dff81188753e1862.1920x1080.jpg?t=1782466478" alt="Screenshot" onclick="window.open(this.src)">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/b8a810717e638e83af5e4dea98bc981d6704a21c/ss_b8a810717e638e83af5e4dea98bc981d6704a21c.1920x1080.jpg?t=1782466478" alt="Screenshot" onclick="window.open(this.src)">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/65884ef615b0a45bb8b21c27a8490418f18331bd/ss_65884ef615b0a45bb8b21c27a8490418f18331bd.1920x1080.jpg?t=1782466478" alt="Screenshot" onclick="window.open(this.src)">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/e22d1a53c76a20f5e597dc56701c1e6a7d6bd156/ss_e22d1a53c76a20f5e597dc56701c1e6a7d6bd156.1920x1080.jpg?t=1782466478" alt="Screenshot" onclick="window.open(this.src)">
+    <!-- 缩略图bar -->
+    <div class="media-thumbnails" id="mediaThumbnails">
+      <div class="media-thumb active" data-index="0"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257057629/movie.293x165.jpg?t=1727193628" alt="Video"></div>
+<div class="media-thumb " data-index="1"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257057619/movie.293x165.jpg?t=1727193633" alt="Video"></div>
+<div class="media-thumb " data-index="2"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257014334/movie.293x165.jpg?t=1712656227" alt="Video"></div>
+<div class="media-thumb " data-index="3"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/be024ed558784be2f4b8851fdf4a566a369bc5d2/ss_be024ed558784be2f4b8851fdf4a566a369bc5d2.1920x1080.jpg?t=1782466478" alt="Screenshot"></div>
+<div class="media-thumb " data-index="4"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/e8c1ff71f2a179e53f3418d774317495896da4c4/ss_e8c1ff71f2a179e53f3418d774317495896da4c4.1920x1080.jpg?t=1782466478" alt="Screenshot"></div>
+<div class="media-thumb " data-index="5"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/3e451095d381ddec634bbe4340896d17af773e61/ss_3e451095d381ddec634bbe4340896d17af773e61.1920x1080.jpg?t=1782466478" alt="Screenshot"></div>
+<div class="media-thumb " data-index="6"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/c2acb41263c0f51e4a3addfc6822609c0c82b29d/ss_c2acb41263c0f51e4a3addfc6822609c0c82b29d.1920x1080.jpg?t=1782466478" alt="Screenshot"></div>
+<div class="media-thumb " data-index="7"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/7b2cf6ebaebf297866f662d3d27d1cf04525fdb6/ss_7b2cf6ebaebf297866f662d3d27d1cf04525fdb6.1920x1080.jpg?t=1782466478" alt="Screenshot"></div>
+<div class="media-thumb " data-index="8"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/4b13b5137182c0977592783d38fa17eada394b10/ss_4b13b5137182c0977592783d38fa17eada394b10.1920x1080.jpg?t=1782466478" alt="Screenshot"></div>
+<div class="media-thumb " data-index="9"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/b40a53526f506cf2c6f1f22868f91dca34d049c3/ss_b40a53526f506cf2c6f1f22868f91dca34d049c3.1920x1080.jpg?t=1782466478" alt="Screenshot"></div>
+<div class="media-thumb " data-index="10"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/92420aa861477835e0d26f4d58f181a83a58919a/ss_92420aa861477835e0d26f4d58f181a83a58919a.1920x1080.jpg?t=1782466478" alt="Screenshot"></div>
+<div class="media-thumb " data-index="11"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/7083b53a52dd563d1d2a0b917a0c1c9487073ec9/ss_7083b53a52dd563d1d2a0b917a0c1c9487073ec9.1920x1080.jpg?t=1782466478" alt="Screenshot"></div>
+<div class="media-thumb " data-index="12"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/ec38bd3b85dddebb8d8c75f6d9b6a2db3b3f9c61/ss_ec38bd3b85dddebb8d8c75f6d9b6a2db3b3f9c61.1920x1080.jpg?t=1782466478" alt="Screenshot"></div>
+<div class="media-thumb " data-index="13"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/99e6559226665dddb68ebac2dff81188753e1862/ss_99e6559226665dddb68ebac2dff81188753e1862.1920x1080.jpg?t=1782466478" alt="Screenshot"></div>
+<div class="media-thumb " data-index="14"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/b8a810717e638e83af5e4dea98bc981d6704a21c/ss_b8a810717e638e83af5e4dea98bc981d6704a21c.1920x1080.jpg?t=1782466478" alt="Screenshot"></div>
+<div class="media-thumb " data-index="15"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/65884ef615b0a45bb8b21c27a8490418f18331bd/ss_65884ef615b0a45bb8b21c27a8490418f18331bd.1920x1080.jpg?t=1782466478" alt="Screenshot"></div>
+<div class="media-thumb " data-index="16"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/e22d1a53c76a20f5e597dc56701c1e6a7d6bd156/ss_e22d1a53c76a20f5e597dc56701c1e6a7d6bd156.1920x1080.jpg?t=1782466478" alt="Screenshot"></div>
+
+    </div>
   </div>
 </section>
 
@@ -504,7 +567,7 @@ body {
 <section class="content-section">
   <div class="content-block">
     <h2>关于此游戏</h2>
-    <div><p class="bb_paragraph" style="text-align: center"><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/extras/f46fed10c65f7a7d9713ad91f6048a61.avif?t=1782466478" width=780 height=200 /></span></p><p class="bb_paragraph" >铸就属于你的传奇——在跨越数个世代的中世纪史诗中，选择你的家世出身，引领你的王朝崛起。战争不过是巩固王权的工具之一，因为真正的战略离不开外交权谋、治国理政与诡诈阴谋。《Crusader Kings III》延续Paradox Development Studio经典系列，在将沉浸式大战略与深度而戏剧性的中世纪角色扮演完美融合上广受好评。 </p><p class="bb_paragraph" ></p><p class="bb_paragraph" style="text-align: center"><span class="bb_img_ctn"><video controls class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/extras/897f130c0b80d9c435162d4256292243.poster.avif?t=1782466478" ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/extras/897f130c0b80d9c435162d4256292243.webm?t=1782466478" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/extras/897f130c0b80d9c435162d4256292243.mp4?t=1782466478" type="video/mp4"></video></span></p><p class="bb_paragraph" style="text-align: center"><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/extras/d5d80e0350b55ac621e6472a204f07c5.webp?t=1782466478" width=615 height=44 /></span></p><ul class="bb_ul"><li><p class="bb_paragraph" > 在考据严谨的中世纪版图上执掌家族命脉，引领宗族开枝散叶。从西元867年、1066年或1178年启程，争夺领地、头衔与封臣，打造配得上高贵血脉的恢弘版图。死亡不过是历史注脚——你的血脉将由继承人所延续，无论精心安排……还是意外横生。</p></li><li><p class="bb_paragraph" >探索生机勃勃的模拟世界：农民与骑士、廷臣与间谍、无赖与弄臣，乃至隐秘恋情。与大量历史角色来往互动——或缠绵悱恻、或暗施背叛、或处以极刑，或悄然施加影响。</p></li><li><p class="bb_paragraph" >纵横广袤的中世纪地图：从北欧雪原至非洲之角，从不列颠群岛至缅甸富饶之地。宣称、征服并统治数以千计的伯爵领、公爵领、王国乃至帝国。</p></li></ul><p class="bb_paragraph" > </p><p class="bb_paragraph" > </p><p class="bb_paragraph" style="text-align: center"><span class="bb_img_ctn"><video controls class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/extras/512802bb26f28bc1f08d749bb4af32a2.poster.avif?t=1782466478" ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/extras/512802bb26f28bc1f08d749bb4af32a2.webm?t=1782466478" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/extras/512802bb26f28bc1f08d749bb4af32a2.mp4?t=1782466478" type="video/mp4"></video></span></p><p class="bb_paragraph" style="text-align: center"><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/extras/4eae021f866be5f881c0b1462e24e8b6.webp?t=1782466478" width=615 height=44 /></span></p><ul class="bb_ul"><li><p class="bb_paragraph" > 每位角色皆跃然纸上，特质与生活方式将决定其行动与计谋。以铁腕统治唤起臣民恐惧，或凭德行善举赢得天下归心。遗传特质将代代相传——无论是惊世智慧，还是愚钝顽疾。</p></li><li><p class="bb_paragraph" >为继承人精心遴选监护人，或亲自教导培育。若子嗣难堪大任，可通过联姻或其他手段将其送走。</p></li><li><p class="bb_paragraph" >自定义统治者与贵族：从外貌到属性，塑造一位完美承袭祖辈美德与恶习的君主。</p></li></ul><p class="bb_paragraph" ></p><p class="bb_paragraph" > </p><p class="bb_paragraph" style="text-align: center"><span class="bb_img_ctn"><video controls class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/extras/40cd9b36945550c1928df592e7cda8da.poster.avif?t=1782466478" ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/extras/40cd9b36945550c1928df592e7cda8da.webm?t=1782466478" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/extras/40cd9b36945550c1928df592e7cda8da.mp4?t=1782466478" type="video/mp4"></video></span></p><p class="bb_paragraph" style="text-align: center"><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/extras/bb373af3e2e49b6508a7e312ed5f7725.webp?t=1782466478" width=615 height=44 /></span></p><ul class="bb_ul"><li><p class="bb_paragraph" > 治理瞬息万变的王国，将头衔分封心腹——或篡夺领主王冠为己所用。警惕各方威胁：躁动的农奴、怀恨的嫔妃皆可能成为心腹大患。</p></li><li><p class="bb_paragraph" >阴影波谲云诡，危险常在暗处涌动。招募密探等各种宵小，对阻碍者实施诋毁、勒索或暗杀。亦可效仿吟游诗人的风流做派，以魅惑之术攫取权柄。</p></li><li><p class="bb_paragraph" >血要流淌成河：集结精锐的兵士与强大的骑士，运筹战场谋略，统御千军万马。劫掠邻邦聚敛财富，或延揽佣兵与教团决胜沙场。 </p></li></ul><p class="bb_paragraph" ></p><p class="bb_paragraph" style="text-align: center"><span class="bb_img_ctn"><video controls class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/extras/b7d5e3c082d88ec1c55709c8a3306eb8.poster.avif?t=1782466478" ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/extras/b7d5e3c082d88ec1c55709c8a3306eb8.webm?t=1782466478" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/extras/b7d5e3c082d88ec1c55709c8a3306eb8.mp4?t=1782466478" type="video/mp4"></video></span></p><p class="bb_paragraph" style="text-align: center"><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/extras/c8afe8cd8c33cbc339423894875c1b4a.webp?t=1782466478" width=615 height=44 /></span></p><ul class="bb_ul"><li><p class="bb_paragraph" > 做一位恪守虔诚的国王，让宗教的权能为己所用；或自创新的信仰，自此流芳千古，抑或遗恨万年。</p></li><li><p class="bb_paragraph" >为你的文化带来革新，修筑巍峨碉堡城塞，增加麾下领土的财富、威望与安全。</p></li><li><p class="bb_paragraph" >万千道路铺陈眼前：体验数以千计动态事件与改变人生的决议，每段际遇皆按能想象到的情况与角色量身定制。有无数的手段可以在史册镌刻下属于你的一页。</p></li></ul></div>
+    <div><p class="bb_paragraph" style="text-align: center"><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/extras/f46fed10c65f7a7d9713ad91f6048a61.avif?t=1782466478" width=780 height=200 /></span></p><p class="bb_paragraph" >铸就属于你的传奇——在跨越数个世代的中世纪史诗中，选择你的家世出身，引领你的王朝崛起。战争不过是巩固王权的工具之一，因为真正的战略离不开外交权谋、治国理政与诡诈阴谋。《Crusader Kings III》延续Paradox Development Studio经典系列，在将沉浸式大战略与深度而戏剧性的中世纪角色扮演完美融合上广受好评。 </p><p class="bb_paragraph" ></p><p class="bb_paragraph" style="text-align: center"><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/extras/897f130c0b80d9c435162d4256292243.poster.avif?t=1782466478" width=780 height=370 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/extras/897f130c0b80d9c435162d4256292243.webm?t=1782466478" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/extras/897f130c0b80d9c435162d4256292243.mp4?t=1782466478" type="video/mp4"></video></span></p><p class="bb_paragraph" style="text-align: center"><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/extras/d5d80e0350b55ac621e6472a204f07c5.webp?t=1782466478" width=615 height=44 /></span></p><ul class="bb_ul"><li><p class="bb_paragraph" > 在考据严谨的中世纪版图上执掌家族命脉，引领宗族开枝散叶。从西元867年、1066年或1178年启程，争夺领地、头衔与封臣，打造配得上高贵血脉的恢弘版图。死亡不过是历史注脚——你的血脉将由继承人所延续，无论精心安排……还是意外横生。</p></li><li><p class="bb_paragraph" >探索生机勃勃的模拟世界：农民与骑士、廷臣与间谍、无赖与弄臣，乃至隐秘恋情。与大量历史角色来往互动——或缠绵悱恻、或暗施背叛、或处以极刑，或悄然施加影响。</p></li><li><p class="bb_paragraph" >纵横广袤的中世纪地图：从北欧雪原至非洲之角，从不列颠群岛至缅甸富饶之地。宣称、征服并统治数以千计的伯爵领、公爵领、王国乃至帝国。</p></li></ul><p class="bb_paragraph" > </p><p class="bb_paragraph" > </p><p class="bb_paragraph" style="text-align: center"><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/extras/512802bb26f28bc1f08d749bb4af32a2.poster.avif?t=1782466478" width=780 height=370 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/extras/512802bb26f28bc1f08d749bb4af32a2.webm?t=1782466478" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/extras/512802bb26f28bc1f08d749bb4af32a2.mp4?t=1782466478" type="video/mp4"></video></span></p><p class="bb_paragraph" style="text-align: center"><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/extras/4eae021f866be5f881c0b1462e24e8b6.webp?t=1782466478" width=615 height=44 /></span></p><ul class="bb_ul"><li><p class="bb_paragraph" > 每位角色皆跃然纸上，特质与生活方式将决定其行动与计谋。以铁腕统治唤起臣民恐惧，或凭德行善举赢得天下归心。遗传特质将代代相传——无论是惊世智慧，还是愚钝顽疾。</p></li><li><p class="bb_paragraph" >为继承人精心遴选监护人，或亲自教导培育。若子嗣难堪大任，可通过联姻或其他手段将其送走。</p></li><li><p class="bb_paragraph" >自定义统治者与贵族：从外貌到属性，塑造一位完美承袭祖辈美德与恶习的君主。</p></li></ul><p class="bb_paragraph" ></p><p class="bb_paragraph" > </p><p class="bb_paragraph" style="text-align: center"><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/extras/40cd9b36945550c1928df592e7cda8da.poster.avif?t=1782466478" width=780 height=370 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/extras/40cd9b36945550c1928df592e7cda8da.webm?t=1782466478" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/extras/40cd9b36945550c1928df592e7cda8da.mp4?t=1782466478" type="video/mp4"></video></span></p><p class="bb_paragraph" style="text-align: center"><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/extras/bb373af3e2e49b6508a7e312ed5f7725.webp?t=1782466478" width=615 height=44 /></span></p><ul class="bb_ul"><li><p class="bb_paragraph" > 治理瞬息万变的王国，将头衔分封心腹——或篡夺领主王冠为己所用。警惕各方威胁：躁动的农奴、怀恨的嫔妃皆可能成为心腹大患。</p></li><li><p class="bb_paragraph" >阴影波谲云诡，危险常在暗处涌动。招募密探等各种宵小，对阻碍者实施诋毁、勒索或暗杀。亦可效仿吟游诗人的风流做派，以魅惑之术攫取权柄。</p></li><li><p class="bb_paragraph" >血要流淌成河：集结精锐的兵士与强大的骑士，运筹战场谋略，统御千军万马。劫掠邻邦聚敛财富，或延揽佣兵与教团决胜沙场。 </p></li></ul><p class="bb_paragraph" ></p><p class="bb_paragraph" style="text-align: center"><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/extras/b7d5e3c082d88ec1c55709c8a3306eb8.poster.avif?t=1782466478" width=780 height=370 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/extras/b7d5e3c082d88ec1c55709c8a3306eb8.webm?t=1782466478" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/extras/b7d5e3c082d88ec1c55709c8a3306eb8.mp4?t=1782466478" type="video/mp4"></video></span></p><p class="bb_paragraph" style="text-align: center"><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/extras/c8afe8cd8c33cbc339423894875c1b4a.webp?t=1782466478" width=615 height=44 /></span></p><ul class="bb_ul"><li><p class="bb_paragraph" > 做一位恪守虔诚的国王，让宗教的权能为己所用；或自创新的信仰，自此流芳千古，抑或遗恨万年。</p></li><li><p class="bb_paragraph" >为你的文化带来革新，修筑巍峨碉堡城塞，增加麾下领土的财富、威望与安全。</p></li><li><p class="bb_paragraph" >万千道路铺陈眼前：体验数以千计动态事件与改变人生的决议，每段际遇皆按能想象到的情况与角色量身定制。有无数的手段可以在史册镌刻下属于你的一页。</p></li></ul></div>
   </div>
 </section>
 
@@ -520,26 +583,76 @@ body {
 </section>
 
 <!-- 系统需求 -->
-<section class="content-section"><div class="content-block"><h2>系统需求</h2><div class="sys-req">
-<div class="sys-req-col"><h4>最低配置</h4><ul><strong>最低配置:</strong><br><ul class="bb_ul"><li>需要 64 位处理器和操作系统<br></li><li><strong>操作系统:</strong> Windows® 10 Home 64 bit<br></li><li><strong>处理器:</strong> Intel Core i5-750 | AMD FX 4300<br></li><li><strong>内存:</strong> 8 GB RAM<br></li><li><strong>显卡:</strong> NVIDIA GeForce GTX 660 | AMD Radeon HD 7870 | Intel Arc A310 | Intel Iris Plus G7 | AMD Radeon Vega 11<br></li><li><strong>存储空间:</strong> 需要 20 GB 可用空间</li></ul></ul></div>
-<div class="sys-req-col"><h4>推荐配置</h4><ul><strong>推荐配置:</strong><br><ul class="bb_ul"><li>需要 64 位处理器和操作系统<br></li><li><strong>操作系统:</strong> Windows® 10 Home 64 bit or Windows® 11<br></li><li><strong>处理器:</strong> Intel Core i5-8400 | AMD Ryzen 5 1600X<br></li><li><strong>内存:</strong> 16 GB RAM<br></li><li><strong>显卡:</strong> NVIDIA GeForce GTX 970 | AMD Radeon RX 480 | Intel Arc A580<br></li><li><strong>存储空间:</strong> 需要 20 GB 可用空间</li></ul></ul></div>
-</div></div></section>
+
+<section class="content-section">
+  <div class="container">
+    <div class="content-block">
+      <h2>系统需求</h2>
+      <div class="sys-req">
+        <div class="sys-req-col"><h4>最低配置</h4><div><strong>最低配置:</strong><br><ul class="bb_ul"><li>需要 64 位处理器和操作系统<br></li><li><strong>操作系统:</strong> Windows® 10 Home 64 bit<br></li><li><strong>处理器:</strong> Intel Core i5-750 | AMD FX 4300<br></li><li><strong>内存:</strong> 8 GB RAM<br></li><li><strong>显卡:</strong> NVIDIA GeForce GTX 660 | AMD Radeon HD 7870 | Intel Arc A310 | Intel Iris Plus G7 | AMD Radeon Vega 11<br></li><li><strong>存储空间:</strong> 需要 20 GB 可用空间</li></ul></div></div>
+        <div class="sys-req-col"><h4>推荐配置</h4><div><strong>推荐配置:</strong><br><ul class="bb_ul"><li>需要 64 位处理器和操作系统<br></li><li><strong>操作系统:</strong> Windows® 10 Home 64 bit or Windows® 11<br></li><li><strong>处理器:</strong> Intel Core i5-8400 | AMD Ryzen 5 1600X<br></li><li><strong>内存:</strong> 16 GB RAM<br></li><li><strong>显卡:</strong> NVIDIA GeForce GTX 970 | AMD Radeon RX 480 | Intel Arc A580<br></li><li><strong>存储空间:</strong> 需要 20 GB 可用空间</li></ul></div></div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <script>
-function showVideo() {
-  document.getElementById('video-container').style.display = 'block';
-  document.getElementById('screenshots-container').style.display = 'none';
-  document.querySelectorAll('.media-tab').forEach(t => t.classList.remove('active'));
-  event.target.classList.add('active');
+// 媒体数据
+const mediaItems = [
+  {"type": "video", "url": "https://store.steampowered.com/video/257057629/", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257057629/movie.293x165.jpg?t=1727193628"},
+  {"type": "video", "url": "https://store.steampowered.com/video/257057619/", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257057619/movie.293x165.jpg?t=1727193633"},
+  {"type": "video", "url": "https://store.steampowered.com/video/257014334/", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257014334/movie.293x165.jpg?t=1712656227"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/be024ed558784be2f4b8851fdf4a566a369bc5d2/ss_be024ed558784be2f4b8851fdf4a566a369bc5d2.1920x1080.jpg?t=1782466478", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/be024ed558784be2f4b8851fdf4a566a369bc5d2/ss_be024ed558784be2f4b8851fdf4a566a369bc5d2.1920x1080.jpg?t=1782466478"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/e8c1ff71f2a179e53f3418d774317495896da4c4/ss_e8c1ff71f2a179e53f3418d774317495896da4c4.1920x1080.jpg?t=1782466478", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/e8c1ff71f2a179e53f3418d774317495896da4c4/ss_e8c1ff71f2a179e53f3418d774317495896da4c4.1920x1080.jpg?t=1782466478"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/3e451095d381ddec634bbe4340896d17af773e61/ss_3e451095d381ddec634bbe4340896d17af773e61.1920x1080.jpg?t=1782466478", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/3e451095d381ddec634bbe4340896d17af773e61/ss_3e451095d381ddec634bbe4340896d17af773e61.1920x1080.jpg?t=1782466478"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/c2acb41263c0f51e4a3addfc6822609c0c82b29d/ss_c2acb41263c0f51e4a3addfc6822609c0c82b29d.1920x1080.jpg?t=1782466478", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/c2acb41263c0f51e4a3addfc6822609c0c82b29d/ss_c2acb41263c0f51e4a3addfc6822609c0c82b29d.1920x1080.jpg?t=1782466478"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/7b2cf6ebaebf297866f662d3d27d1cf04525fdb6/ss_7b2cf6ebaebf297866f662d3d27d1cf04525fdb6.1920x1080.jpg?t=1782466478", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/7b2cf6ebaebf297866f662d3d27d1cf04525fdb6/ss_7b2cf6ebaebf297866f662d3d27d1cf04525fdb6.1920x1080.jpg?t=1782466478"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/4b13b5137182c0977592783d38fa17eada394b10/ss_4b13b5137182c0977592783d38fa17eada394b10.1920x1080.jpg?t=1782466478", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/4b13b5137182c0977592783d38fa17eada394b10/ss_4b13b5137182c0977592783d38fa17eada394b10.1920x1080.jpg?t=1782466478"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/b40a53526f506cf2c6f1f22868f91dca34d049c3/ss_b40a53526f506cf2c6f1f22868f91dca34d049c3.1920x1080.jpg?t=1782466478", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/b40a53526f506cf2c6f1f22868f91dca34d049c3/ss_b40a53526f506cf2c6f1f22868f91dca34d049c3.1920x1080.jpg?t=1782466478"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/92420aa861477835e0d26f4d58f181a83a58919a/ss_92420aa861477835e0d26f4d58f181a83a58919a.1920x1080.jpg?t=1782466478", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/92420aa861477835e0d26f4d58f181a83a58919a/ss_92420aa861477835e0d26f4d58f181a83a58919a.1920x1080.jpg?t=1782466478"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/7083b53a52dd563d1d2a0b917a0c1c9487073ec9/ss_7083b53a52dd563d1d2a0b917a0c1c9487073ec9.1920x1080.jpg?t=1782466478", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/7083b53a52dd563d1d2a0b917a0c1c9487073ec9/ss_7083b53a52dd563d1d2a0b917a0c1c9487073ec9.1920x1080.jpg?t=1782466478"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/ec38bd3b85dddebb8d8c75f6d9b6a2db3b3f9c61/ss_ec38bd3b85dddebb8d8c75f6d9b6a2db3b3f9c61.1920x1080.jpg?t=1782466478", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/ec38bd3b85dddebb8d8c75f6d9b6a2db3b3f9c61/ss_ec38bd3b85dddebb8d8c75f6d9b6a2db3b3f9c61.1920x1080.jpg?t=1782466478"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/99e6559226665dddb68ebac2dff81188753e1862/ss_99e6559226665dddb68ebac2dff81188753e1862.1920x1080.jpg?t=1782466478", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/99e6559226665dddb68ebac2dff81188753e1862/ss_99e6559226665dddb68ebac2dff81188753e1862.1920x1080.jpg?t=1782466478"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/b8a810717e638e83af5e4dea98bc981d6704a21c/ss_b8a810717e638e83af5e4dea98bc981d6704a21c.1920x1080.jpg?t=1782466478", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/b8a810717e638e83af5e4dea98bc981d6704a21c/ss_b8a810717e638e83af5e4dea98bc981d6704a21c.1920x1080.jpg?t=1782466478"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/65884ef615b0a45bb8b21c27a8490418f18331bd/ss_65884ef615b0a45bb8b21c27a8490418f18331bd.1920x1080.jpg?t=1782466478", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/65884ef615b0a45bb8b21c27a8490418f18331bd/ss_65884ef615b0a45bb8b21c27a8490418f18331bd.1920x1080.jpg?t=1782466478"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/e22d1a53c76a20f5e597dc56701c1e6a7d6bd156/ss_e22d1a53c76a20f5e597dc56701c1e6a7d6bd156.1920x1080.jpg?t=1782466478", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/e22d1a53c76a20f5e597dc56701c1e6a7d6bd156/ss_e22d1a53c76a20f5e597dc56701c1e6a7d6bd156.1920x1080.jpg?t=1782466478"}
+];
+
+let currentIndex = 0;
+
+// 切换到指定媒体
+function switchMedia(index) {
+  if (index < 0 || index >= mediaItems.length) return;
+  
+  currentIndex = index;
+  const item = mediaItems[index];
+  const mainEl = document.getElementById('mediaMain');
+  
+  if (item.type === 'video') {
+    // 使用Steam视频嵌入
+    mainEl.innerHTML = `<iframe src="${item.url}" frameborder="0" allowfullscreen allow="autoplay; fullscreen"></iframe>`;
+  } else {
+    mainEl.innerHTML = `<img src="${item.url}" alt="Screenshot">`;
+  }
+  
+  // 更新缩略图active状态
+  document.querySelectorAll('.media-thumb').forEach((thumb, i) => {
+    thumb.classList.toggle('active', i === index);
+  });
 }
 
-function showScreenshots() {
-  const vc = document.getElementById('video-container');
-  if (vc) vc.style.display = 'none';
-  document.getElementById('screenshots-container').style.display = 'grid';
-  document.querySelectorAll('.media-tab').forEach(t => t.classList.remove('active'));
-  event.target.classList.add('active');
-}
+// 初始化
+document.addEventListener('DOMContentLoaded', () => {
+  // 绑定缩略图点击事件
+  document.querySelectorAll('.media-thumb').forEach((thumb, index) => {
+    thumb.addEventListener('click', () => switchMedia(index));
+  });
+  
+  // 设置初始状态
+  if (mediaItems.length > 0) {
+    switchMedia(0);
+  }
+});
 </script>
 
 </body>

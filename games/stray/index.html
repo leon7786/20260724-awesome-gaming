@@ -168,75 +168,127 @@ body {
   max-width: 640px;
 }
 
-/* 媒体区域 */
+/* 媒体区域 - Steam风格 */
 .media-section {
   max-width: 1200px;
   margin: 2rem auto;
   padding: 0 2rem;
 }
 
-.media-tabs {
-  display: flex;
-  gap: 0.5rem;
-  margin-bottom: 1rem;
-}
-
-.media-tab {
+.media-gallery {
   background: var(--surface);
-  border: 1px solid var(--border);
-  color: var(--text-secondary);
-  padding: 0.5rem 1.25rem;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 0.875rem;
-  font-weight: 500;
-  transition: all 0.2s;
-}
-
-.media-tab:hover {
-  border-color: var(--accent);
-  color: var(--accent);
-}
-
-.media-tab.active {
-  background: var(--accent);
-  color: white;
-  border-color: var(--accent);
-}
-
-.media-player {
   border-radius: var(--radius);
+  border: 1px solid var(--border);
   overflow: hidden;
-  background: #000;
-  aspect-ratio: 16/9;
 }
 
-.media-player video,
-.media-player img {
+/* 主图显示区域 */
+.media-main {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/9;
+  background: #000;
+  overflow: hidden;
+}
+
+.media-main img,
+.media-main video,
+.media-main iframe {
   width: 100%;
   height: 100%;
   object-fit: contain;
+  border: none;
 }
 
-.screenshots-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 0.75rem;
+/* 媒体控制按钮 */
+.media-controls {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  display: flex;
+  gap: 0.5rem;
+  z-index: 10;
 }
 
-.screenshots-grid img {
-  width: 100%;
-  aspect-ratio: 16/9;
-  object-fit: cover;
-  border-radius: 8px;
+.media-control-btn {
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
   cursor: pointer;
+  font-size: 0.875rem;
   transition: all 0.2s;
-  border: 1px solid var(--border);
 }
 
-.screenshots-grid img:hover {
-  transform: scale(1.02);
-  box-shadow: var(--shadow);
+.media-control-btn:hover {
+  background: rgba(0, 0, 0, 0.9);
+}
+
+/* 缩略图bar */
+.media-thumbnails {
+  display: flex;
+  gap: 0.5rem;
+  padding: 1rem;
+  overflow-x: auto;
+  background: #f9fafb;
+  border-top: 1px solid var(--border);
+}
+
+.media-thumbnails::-webkit-scrollbar {
+  height: 6px;
+}
+
+.media-thumbnails::-webkit-scrollbar-track {
+  background: #f3f4f6;
+}
+
+.media-thumbnails::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 3px;
+}
+
+.media-thumb {
+  flex-shrink: 0;
+  width: 120px;
+  height: 67.5px;
+  border-radius: 6px;
+  overflow: hidden;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all 0.2s;
+  position: relative;
+}
+
+.media-thumb:hover {
+  border-color: var(--accent);
+  transform: scale(1.05);
+}
+
+.media-thumb.active {
+  border-color: var(--accent);
+}
+
+.media-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.media-thumb .play-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
 }
 
 /* 内容区域 */
@@ -411,6 +463,10 @@ body {
   .sys-req {
     grid-template-columns: 1fr;
   }
+  .media-thumb {
+    width: 100px;
+    height: 56.25px;
+  }
 }
 
 @media (max-width: 640px) {
@@ -425,6 +481,10 @@ body {
   .content-block,
   .download-block {
     padding: 1.5rem;
+  }
+  .media-thumb {
+    width: 80px;
+    height: 45px;
   }
 }
 </style>
@@ -473,26 +533,27 @@ body {
 
 <!-- 媒体区域 -->
 <section class="media-section">
-  <div class="media-tabs">
-    <button class="media-tab active" onclick="showVideo()">▶ 视频</button>
-    <button class="media-tab" onclick="showScreenshots()">🖼 截图</button>
-  </div>
-  
-  <div id="video-container" class="media-player">
+  <div class="media-gallery">
+    <!-- 主图显示区域 -->
+    <div class="media-main" id="mediaMain">
+      <iframe src="https://store.steampowered.com/video/256948715/" frameborder="0" allowfullscreen allow="autoplay; fullscreen"></iframe>
+    </div>
     
-  </div>
-  
-  <div id="screenshots-container" class="screenshots-grid" style="display:none;">
-    <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2356450/ss_5a4779c831dc7be965c3e6cee09b2f0014ea2456.1920x1080.jpg?t=1718170449" alt="Screenshot" onclick="window.open(this.src)">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2356450/ss_2638ba5247c05b6ed29d0f2740fb8e6598efb1e8.1920x1080.jpg?t=1718170449" alt="Screenshot" onclick="window.open(this.src)">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2356450/ss_cc4c5f0436294f8568783d442bdd9ebc2208ab99.1920x1080.jpg?t=1718170449" alt="Screenshot" onclick="window.open(this.src)">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2356450/ss_6663272effed48ef8a12fd84c5fb050aaed9d673.1920x1080.jpg?t=1718170449" alt="Screenshot" onclick="window.open(this.src)">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2356450/ss_93f00d5e07222ff3d5accfb73a8182c96fb777d3.1920x1080.jpg?t=1718170449" alt="Screenshot" onclick="window.open(this.src)">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2356450/ss_eccdb2e32200d5eec6b19b75b8378b3a07a44fad.1920x1080.jpg?t=1718170449" alt="Screenshot" onclick="window.open(this.src)">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2356450/ss_8e821dbc110c675403b62120cb4fc32131adb1d1.1920x1080.jpg?t=1718170449" alt="Screenshot" onclick="window.open(this.src)">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2356450/ss_01086ff49d33dd9957db3fd3c4da0aa317d55ea0.1920x1080.jpg?t=1718170449" alt="Screenshot" onclick="window.open(this.src)">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2356450/ss_ebaa92c55ba98ca5068587ee062fc3afa6e5418b.1920x1080.jpg?t=1718170449" alt="Screenshot" onclick="window.open(this.src)">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2356450/ss_4ddaf2366439146d657ad0ec6dc26c3648ce5d48.1920x1080.jpg?t=1718170449" alt="Screenshot" onclick="window.open(this.src)">
+    <!-- 缩略图bar -->
+    <div class="media-thumbnails" id="mediaThumbnails">
+      <div class="media-thumb active" data-index="0"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256948715/movie.293x165.jpg?t=1685680656" alt="Video"></div>
+<div class="media-thumb " data-index="1"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2356450/ss_5a4779c831dc7be965c3e6cee09b2f0014ea2456.1920x1080.jpg?t=1718170449" alt="Screenshot"></div>
+<div class="media-thumb " data-index="2"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2356450/ss_2638ba5247c05b6ed29d0f2740fb8e6598efb1e8.1920x1080.jpg?t=1718170449" alt="Screenshot"></div>
+<div class="media-thumb " data-index="3"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2356450/ss_cc4c5f0436294f8568783d442bdd9ebc2208ab99.1920x1080.jpg?t=1718170449" alt="Screenshot"></div>
+<div class="media-thumb " data-index="4"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2356450/ss_6663272effed48ef8a12fd84c5fb050aaed9d673.1920x1080.jpg?t=1718170449" alt="Screenshot"></div>
+<div class="media-thumb " data-index="5"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2356450/ss_93f00d5e07222ff3d5accfb73a8182c96fb777d3.1920x1080.jpg?t=1718170449" alt="Screenshot"></div>
+<div class="media-thumb " data-index="6"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2356450/ss_eccdb2e32200d5eec6b19b75b8378b3a07a44fad.1920x1080.jpg?t=1718170449" alt="Screenshot"></div>
+<div class="media-thumb " data-index="7"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2356450/ss_8e821dbc110c675403b62120cb4fc32131adb1d1.1920x1080.jpg?t=1718170449" alt="Screenshot"></div>
+<div class="media-thumb " data-index="8"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2356450/ss_01086ff49d33dd9957db3fd3c4da0aa317d55ea0.1920x1080.jpg?t=1718170449" alt="Screenshot"></div>
+<div class="media-thumb " data-index="9"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2356450/ss_ebaa92c55ba98ca5068587ee062fc3afa6e5418b.1920x1080.jpg?t=1718170449" alt="Screenshot"></div>
+<div class="media-thumb " data-index="10"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2356450/ss_4ddaf2366439146d657ad0ec6dc26c3648ce5d48.1920x1080.jpg?t=1718170449" alt="Screenshot"></div>
+
+    </div>
   </div>
 </section>
 
@@ -500,7 +561,7 @@ body {
 <section class="content-section">
   <div class="content-block">
     <h2>关于此游戏</h2>
-    <div><i>直到那时，桂皮还一无所知。离家出走就会遭罪..！！</i><br><br><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2356450/extras/d361472653ff9af476af521f912ab14a.avif?t=1718170449" width=500 height=414 /></span><br><br><strong><i>[流浪猫的故事2]</i></strong>是<br>有一天随着从窗户飞进来的蝴蝶，出去的家猫桂皮经历的<br>将流浪猫的苦难和逆境融入到以推箱子为基础的拼图和故事的冒险游戏。<h2 class="bb_tag" ><strong>寻找全新场所</strong></h2><span class="bb_img_ctn"><video controls class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2356450/extras/b25428ed73a4154bf80264e38c0aa60d.poster.avif?t=1718170449" ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2356450/extras/b25428ed73a4154bf80264e38c0aa60d.webm?t=1718170449" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2356450/extras/b25428ed73a4154bf80264e38c0aa60d.mp4?t=1718170449" type="video/mp4"></video></span><br><span class="bb_img_ctn"><video controls class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2356450/extras/862d36a1680f6cdedd4f1cb8cb6c980c.poster.avif?t=1718170449" ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2356450/extras/862d36a1680f6cdedd4f1cb8cb6c980c.webm?t=1718170449" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2356450/extras/862d36a1680f6cdedd4f1cb8cb6c980c.mp4?t=1718170449" type="video/mp4"></video></span><br>在生平第一次看到的地方睁开眼睛的桂皮，冒险的尽头是什么呢？ <br>这个未知场所的尽头会有谁呢？桂皮真的能找到主人吗？ <br>突破阻挡桂皮前方的各种拼图，走向新的场所吧。<h2 class="bb_tag" ><strong>饥饿和狩猎</strong></h2><span class="bb_img_ctn"><video controls class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2356450/extras/9dafe239f9acc804f958c28b5c905ee0.poster.avif?t=1718170449" ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2356450/extras/9dafe239f9acc804f958c28b5c905ee0.webm?t=1718170449" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2356450/extras/9dafe239f9acc804f958c28b5c905ee0.mp4?t=1718170449" type="video/mp4"></video></span><br><span class="bb_img_ctn"><video controls class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2356450/extras/45f644afe971604252e4a5f9cb0a744c.poster.avif?t=1718170449" ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2356450/extras/45f644afe971604252e4a5f9cb0a744c.webm?t=1718170449" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2356450/extras/45f644afe971604252e4a5f9cb0a744c.mp4?t=1718170449" type="video/mp4"></video></span><br>桂皮的一天是非常忙碌且饥饿的。<br>可以翻垃圾桶获得食物，但不能获得优质食物。<br>在村子里转转，亲自狩猎老鼠、青蛙等获取食物吧。<h2 class="bb_tag" ><strong>有着各种故事的朋友们</strong></h2><span class="bb_img_ctn"><video controls class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2356450/extras/2482d98e925ea82c172b4e966077afaf.poster.avif?t=1718170449" ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2356450/extras/2482d98e925ea82c172b4e966077afaf.webm?t=1718170449" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2356450/extras/2482d98e925ea82c172b4e966077afaf.mp4?t=1718170449" type="video/mp4"></video></span><br><span class="bb_img_ctn"><video controls class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2356450/extras/89532ed3b94a447599e8c4ee50897118.poster.avif?t=1718170449" ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2356450/extras/89532ed3b94a447599e8c4ee50897118.webm?t=1718170449" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2356450/extras/89532ed3b94a447599e8c4ee50897118.mp4?t=1718170449" type="video/mp4"></video></span><br>在村子里转转的时候，和各种角色相见，并和他们沟通吧。<br>如果送他们喜欢的东西，他们会讲述自己的故事。<br>拥有各种各样故事的可爱的动物朋友们正在等待您。<br><br><br><span class="bb_img_ctn"><video controls class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2356450/extras/13b0a38949a1898f47e2328018850023.poster.avif?t=1718170449" ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2356450/extras/13b0a38949a1898f47e2328018850023.webm?t=1718170449" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2356450/extras/13b0a38949a1898f47e2328018850023.mp4?t=1718170449" type="video/mp4"></video></span><br>桂皮...真的能平安回家吗？<br>请通过游戏确认吧！</div>
+    <div><i>直到那时，桂皮还一无所知。离家出走就会遭罪..！！</i><br><br><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2356450/extras/d361472653ff9af476af521f912ab14a.avif?t=1718170449" width=500 height=414 /></span><br><br><strong><i>[流浪猫的故事2]</i></strong>是<br>有一天随着从窗户飞进来的蝴蝶，出去的家猫桂皮经历的<br>将流浪猫的苦难和逆境融入到以推箱子为基础的拼图和故事的冒险游戏。<h2 class="bb_tag" ><strong>寻找全新场所</strong></h2><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2356450/extras/b25428ed73a4154bf80264e38c0aa60d.poster.avif?t=1718170449" width=600 height=338 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2356450/extras/b25428ed73a4154bf80264e38c0aa60d.webm?t=1718170449" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2356450/extras/b25428ed73a4154bf80264e38c0aa60d.mp4?t=1718170449" type="video/mp4"></video></span><br><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2356450/extras/862d36a1680f6cdedd4f1cb8cb6c980c.poster.avif?t=1718170449" width=600 height=338 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2356450/extras/862d36a1680f6cdedd4f1cb8cb6c980c.webm?t=1718170449" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2356450/extras/862d36a1680f6cdedd4f1cb8cb6c980c.mp4?t=1718170449" type="video/mp4"></video></span><br>在生平第一次看到的地方睁开眼睛的桂皮，冒险的尽头是什么呢？ <br>这个未知场所的尽头会有谁呢？桂皮真的能找到主人吗？ <br>突破阻挡桂皮前方的各种拼图，走向新的场所吧。<h2 class="bb_tag" ><strong>饥饿和狩猎</strong></h2><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2356450/extras/9dafe239f9acc804f958c28b5c905ee0.poster.avif?t=1718170449" width=600 height=338 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2356450/extras/9dafe239f9acc804f958c28b5c905ee0.webm?t=1718170449" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2356450/extras/9dafe239f9acc804f958c28b5c905ee0.mp4?t=1718170449" type="video/mp4"></video></span><br><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2356450/extras/45f644afe971604252e4a5f9cb0a744c.poster.avif?t=1718170449" width=600 height=338 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2356450/extras/45f644afe971604252e4a5f9cb0a744c.webm?t=1718170449" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2356450/extras/45f644afe971604252e4a5f9cb0a744c.mp4?t=1718170449" type="video/mp4"></video></span><br>桂皮的一天是非常忙碌且饥饿的。<br>可以翻垃圾桶获得食物，但不能获得优质食物。<br>在村子里转转，亲自狩猎老鼠、青蛙等获取食物吧。<h2 class="bb_tag" ><strong>有着各种故事的朋友们</strong></h2><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2356450/extras/2482d98e925ea82c172b4e966077afaf.poster.avif?t=1718170449" width=600 height=338 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2356450/extras/2482d98e925ea82c172b4e966077afaf.webm?t=1718170449" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2356450/extras/2482d98e925ea82c172b4e966077afaf.mp4?t=1718170449" type="video/mp4"></video></span><br><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2356450/extras/89532ed3b94a447599e8c4ee50897118.poster.avif?t=1718170449" width=600 height=338 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2356450/extras/89532ed3b94a447599e8c4ee50897118.webm?t=1718170449" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2356450/extras/89532ed3b94a447599e8c4ee50897118.mp4?t=1718170449" type="video/mp4"></video></span><br>在村子里转转的时候，和各种角色相见，并和他们沟通吧。<br>如果送他们喜欢的东西，他们会讲述自己的故事。<br>拥有各种各样故事的可爱的动物朋友们正在等待您。<br><br><br><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2356450/extras/13b0a38949a1898f47e2328018850023.poster.avif?t=1718170449" width=600 height=338 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2356450/extras/13b0a38949a1898f47e2328018850023.webm?t=1718170449" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2356450/extras/13b0a38949a1898f47e2328018850023.mp4?t=1718170449" type="video/mp4"></video></span><br>桂皮...真的能平安回家吗？<br>请通过游戏确认吧！</div>
   </div>
 </section>
 
@@ -517,26 +578,70 @@ body {
 </section>
 
 <!-- 系统需求 -->
-<section class="content-section"><div class="content-block"><h2>系统需求</h2><div class="sys-req">
-<div class="sys-req-col"><h4>最低配置</h4><ul><strong>最低配置:</strong><br><ul class="bb_ul"><li>需要 64 位处理器和操作系统<br></li><li><strong>操作系统:</strong> Win 10 x64<br></li><li><strong>处理器:</strong> Dual Core 2.5 GHz<br></li><li><strong>内存:</strong> 8 GB RAM<br></li><li><strong>显卡:</strong> GeForce GTX 560<br></li><li><strong>DirectX 版本:</strong> 11</li></ul></ul></div>
-<div class="sys-req-col"><h4>推荐配置</h4><ul><strong>推荐配置:</strong><br><ul class="bb_ul"><li>需要 64 位处理器和操作系统<br></li><li><strong>操作系统:</strong> Win 10 x64<br></li><li><strong>处理器:</strong> Quad Core 3.0 GHz<br></li><li><strong>内存:</strong> 8 GB RAM<br></li><li><strong>显卡:</strong> GeForce GTX 660<br></li><li><strong>DirectX 版本:</strong> 12</li></ul></ul></div>
-</div></div></section>
+
+<section class="content-section">
+  <div class="container">
+    <div class="content-block">
+      <h2>系统需求</h2>
+      <div class="sys-req">
+        <div class="sys-req-col"><h4>最低配置</h4><div><strong>最低配置:</strong><br><ul class="bb_ul"><li>需要 64 位处理器和操作系统<br></li><li><strong>操作系统:</strong> Win 10 x64<br></li><li><strong>处理器:</strong> Dual Core 2.5 GHz<br></li><li><strong>内存:</strong> 8 GB RAM<br></li><li><strong>显卡:</strong> GeForce GTX 560<br></li><li><strong>DirectX 版本:</strong> 11</li></ul></div></div>
+        <div class="sys-req-col"><h4>推荐配置</h4><div><strong>推荐配置:</strong><br><ul class="bb_ul"><li>需要 64 位处理器和操作系统<br></li><li><strong>操作系统:</strong> Win 10 x64<br></li><li><strong>处理器:</strong> Quad Core 3.0 GHz<br></li><li><strong>内存:</strong> 8 GB RAM<br></li><li><strong>显卡:</strong> GeForce GTX 660<br></li><li><strong>DirectX 版本:</strong> 12</li></ul></div></div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <script>
-function showVideo() {
-  document.getElementById('video-container').style.display = 'block';
-  document.getElementById('screenshots-container').style.display = 'none';
-  document.querySelectorAll('.media-tab').forEach(t => t.classList.remove('active'));
-  event.target.classList.add('active');
+// 媒体数据
+const mediaItems = [
+  {"type": "video", "url": "https://store.steampowered.com/video/256948715/", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256948715/movie.293x165.jpg?t=1685680656"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2356450/ss_5a4779c831dc7be965c3e6cee09b2f0014ea2456.1920x1080.jpg?t=1718170449", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2356450/ss_5a4779c831dc7be965c3e6cee09b2f0014ea2456.1920x1080.jpg?t=1718170449"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2356450/ss_2638ba5247c05b6ed29d0f2740fb8e6598efb1e8.1920x1080.jpg?t=1718170449", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2356450/ss_2638ba5247c05b6ed29d0f2740fb8e6598efb1e8.1920x1080.jpg?t=1718170449"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2356450/ss_cc4c5f0436294f8568783d442bdd9ebc2208ab99.1920x1080.jpg?t=1718170449", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2356450/ss_cc4c5f0436294f8568783d442bdd9ebc2208ab99.1920x1080.jpg?t=1718170449"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2356450/ss_6663272effed48ef8a12fd84c5fb050aaed9d673.1920x1080.jpg?t=1718170449", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2356450/ss_6663272effed48ef8a12fd84c5fb050aaed9d673.1920x1080.jpg?t=1718170449"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2356450/ss_93f00d5e07222ff3d5accfb73a8182c96fb777d3.1920x1080.jpg?t=1718170449", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2356450/ss_93f00d5e07222ff3d5accfb73a8182c96fb777d3.1920x1080.jpg?t=1718170449"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2356450/ss_eccdb2e32200d5eec6b19b75b8378b3a07a44fad.1920x1080.jpg?t=1718170449", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2356450/ss_eccdb2e32200d5eec6b19b75b8378b3a07a44fad.1920x1080.jpg?t=1718170449"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2356450/ss_8e821dbc110c675403b62120cb4fc32131adb1d1.1920x1080.jpg?t=1718170449", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2356450/ss_8e821dbc110c675403b62120cb4fc32131adb1d1.1920x1080.jpg?t=1718170449"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2356450/ss_01086ff49d33dd9957db3fd3c4da0aa317d55ea0.1920x1080.jpg?t=1718170449", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2356450/ss_01086ff49d33dd9957db3fd3c4da0aa317d55ea0.1920x1080.jpg?t=1718170449"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2356450/ss_ebaa92c55ba98ca5068587ee062fc3afa6e5418b.1920x1080.jpg?t=1718170449", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2356450/ss_ebaa92c55ba98ca5068587ee062fc3afa6e5418b.1920x1080.jpg?t=1718170449"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2356450/ss_4ddaf2366439146d657ad0ec6dc26c3648ce5d48.1920x1080.jpg?t=1718170449", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2356450/ss_4ddaf2366439146d657ad0ec6dc26c3648ce5d48.1920x1080.jpg?t=1718170449"}
+];
+
+let currentIndex = 0;
+
+// 切换到指定媒体
+function switchMedia(index) {
+  if (index < 0 || index >= mediaItems.length) return;
+  
+  currentIndex = index;
+  const item = mediaItems[index];
+  const mainEl = document.getElementById('mediaMain');
+  
+  if (item.type === 'video') {
+    // 使用Steam视频嵌入
+    mainEl.innerHTML = `<iframe src="${item.url}" frameborder="0" allowfullscreen allow="autoplay; fullscreen"></iframe>`;
+  } else {
+    mainEl.innerHTML = `<img src="${item.url}" alt="Screenshot">`;
+  }
+  
+  // 更新缩略图active状态
+  document.querySelectorAll('.media-thumb').forEach((thumb, i) => {
+    thumb.classList.toggle('active', i === index);
+  });
 }
 
-function showScreenshots() {
-  const vc = document.getElementById('video-container');
-  if (vc) vc.style.display = 'none';
-  document.getElementById('screenshots-container').style.display = 'grid';
-  document.querySelectorAll('.media-tab').forEach(t => t.classList.remove('active'));
-  event.target.classList.add('active');
-}
+// 初始化
+document.addEventListener('DOMContentLoaded', () => {
+  // 绑定缩略图点击事件
+  document.querySelectorAll('.media-thumb').forEach((thumb, index) => {
+    thumb.addEventListener('click', () => switchMedia(index));
+  });
+  
+  // 设置初始状态
+  if (mediaItems.length > 0) {
+    switchMedia(0);
+  }
+});
 </script>
 
 </body>

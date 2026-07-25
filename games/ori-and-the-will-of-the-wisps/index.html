@@ -168,75 +168,127 @@ body {
   max-width: 640px;
 }
 
-/* 媒体区域 */
+/* 媒体区域 - Steam风格 */
 .media-section {
   max-width: 1200px;
   margin: 2rem auto;
   padding: 0 2rem;
 }
 
-.media-tabs {
-  display: flex;
-  gap: 0.5rem;
-  margin-bottom: 1rem;
-}
-
-.media-tab {
+.media-gallery {
   background: var(--surface);
-  border: 1px solid var(--border);
-  color: var(--text-secondary);
-  padding: 0.5rem 1.25rem;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 0.875rem;
-  font-weight: 500;
-  transition: all 0.2s;
-}
-
-.media-tab:hover {
-  border-color: var(--accent);
-  color: var(--accent);
-}
-
-.media-tab.active {
-  background: var(--accent);
-  color: white;
-  border-color: var(--accent);
-}
-
-.media-player {
   border-radius: var(--radius);
+  border: 1px solid var(--border);
   overflow: hidden;
-  background: #000;
-  aspect-ratio: 16/9;
 }
 
-.media-player video,
-.media-player img {
+/* 主图显示区域 */
+.media-main {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/9;
+  background: #000;
+  overflow: hidden;
+}
+
+.media-main img,
+.media-main video,
+.media-main iframe {
   width: 100%;
   height: 100%;
   object-fit: contain;
+  border: none;
 }
 
-.screenshots-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 0.75rem;
+/* 媒体控制按钮 */
+.media-controls {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  display: flex;
+  gap: 0.5rem;
+  z-index: 10;
 }
 
-.screenshots-grid img {
-  width: 100%;
-  aspect-ratio: 16/9;
-  object-fit: cover;
-  border-radius: 8px;
+.media-control-btn {
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
   cursor: pointer;
+  font-size: 0.875rem;
   transition: all 0.2s;
-  border: 1px solid var(--border);
 }
 
-.screenshots-grid img:hover {
-  transform: scale(1.02);
-  box-shadow: var(--shadow);
+.media-control-btn:hover {
+  background: rgba(0, 0, 0, 0.9);
+}
+
+/* 缩略图bar */
+.media-thumbnails {
+  display: flex;
+  gap: 0.5rem;
+  padding: 1rem;
+  overflow-x: auto;
+  background: #f9fafb;
+  border-top: 1px solid var(--border);
+}
+
+.media-thumbnails::-webkit-scrollbar {
+  height: 6px;
+}
+
+.media-thumbnails::-webkit-scrollbar-track {
+  background: #f3f4f6;
+}
+
+.media-thumbnails::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 3px;
+}
+
+.media-thumb {
+  flex-shrink: 0;
+  width: 120px;
+  height: 67.5px;
+  border-radius: 6px;
+  overflow: hidden;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all 0.2s;
+  position: relative;
+}
+
+.media-thumb:hover {
+  border-color: var(--accent);
+  transform: scale(1.05);
+}
+
+.media-thumb.active {
+  border-color: var(--accent);
+}
+
+.media-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.media-thumb .play-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
 }
 
 /* 内容区域 */
@@ -411,6 +463,10 @@ body {
   .sys-req {
     grid-template-columns: 1fr;
   }
+  .media-thumb {
+    width: 100px;
+    height: 56.25px;
+  }
 }
 
 @media (max-width: 640px) {
@@ -425,6 +481,10 @@ body {
   .content-block,
   .download-block {
     padding: 1.5rem;
+  }
+  .media-thumb {
+    width: 80px;
+    height: 45px;
   }
 }
 </style>
@@ -473,43 +533,45 @@ body {
 
 <!-- 媒体区域 -->
 <section class="media-section">
-  <div class="media-tabs">
-    <button class="media-tab active" onclick="showVideo()">▶ 视频</button>
-    <button class="media-tab" onclick="showScreenshots()">🖼 截图</button>
-  </div>
-  
-  <div id="video-container" class="media-player">
+  <div class="media-gallery">
+    <!-- 主图显示区域 -->
+    <div class="media-main" id="mediaMain">
+      <iframe src="https://store.steampowered.com/video/256779902/" frameborder="0" allowfullscreen allow="autoplay; fullscreen"></iframe>
+    </div>
     
-  </div>
-  
-  <div id="screenshots-container" class="screenshots-grid" style="display:none;">
-    <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1057090/ss_0cf0ec6681ae5771173790dbc99ddb3bf3b886ad.1920x1080.jpg?t=1759530749" alt="Screenshot" onclick="window.open(this.src)">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1057090/ss_f8ac174b7949e89fe1939a7bd2c471785dee55f0.1920x1080.jpg?t=1759530749" alt="Screenshot" onclick="window.open(this.src)">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1057090/ss_3ae04b208aaff3869f69617c47449ec1d7a06513.1920x1080.jpg?t=1759530749" alt="Screenshot" onclick="window.open(this.src)">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1057090/ss_608e317acbb76258bedcf1a79e6673a61475908f.1920x1080.jpg?t=1759530749" alt="Screenshot" onclick="window.open(this.src)">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1057090/ss_d33bc7bb1d106b841a28d1cf3403fb7b1188252f.1920x1080.jpg?t=1759530749" alt="Screenshot" onclick="window.open(this.src)">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1057090/ss_57ea45c3711319429b19ac62c0a21997b10e1042.1920x1080.jpg?t=1759530749" alt="Screenshot" onclick="window.open(this.src)">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1057090/ss_2d23f9ee1da98b25895c65cf39500e18ee55f7a2.1920x1080.jpg?t=1759530749" alt="Screenshot" onclick="window.open(this.src)">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1057090/ss_360216e1e58b6fbfcf8892b34f9a80e6648815a4.1920x1080.jpg?t=1759530749" alt="Screenshot" onclick="window.open(this.src)">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1057090/ss_1978ac093423e8258d6f7b78259be923d8f1d2e2.1920x1080.jpg?t=1759530749" alt="Screenshot" onclick="window.open(this.src)">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1057090/ss_ef58cebbef92a08648c77d451afd1d57922523a5.1920x1080.jpg?t=1759530749" alt="Screenshot" onclick="window.open(this.src)">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1057090/ss_267ffc537c8328e335f3619a2c84b0a11d476887.1920x1080.jpg?t=1759530749" alt="Screenshot" onclick="window.open(this.src)">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1057090/ss_239fd5eff40e2da82064484ce1694dab30b4f178.1920x1080.jpg?t=1759530749" alt="Screenshot" onclick="window.open(this.src)">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1057090/ss_332602f57287e62e4f5c9e661678e8761fabb44c.1920x1080.jpg?t=1759530749" alt="Screenshot" onclick="window.open(this.src)">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1057090/ss_fa236ce51b1856d46a5a737ab1da4f20ca15801e.1920x1080.jpg?t=1759530749" alt="Screenshot" onclick="window.open(this.src)">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1057090/ss_3461bc5a061cb5f018e885ffed68c9ec74a858c5.1920x1080.jpg?t=1759530749" alt="Screenshot" onclick="window.open(this.src)">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1057090/ss_0e70b5b995b35794a2670e3bf3fef44a25138863.1920x1080.jpg?t=1759530749" alt="Screenshot" onclick="window.open(this.src)">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1057090/ss_9c80cfeeec90bd14262c056b6e924dcf846d6818.1920x1080.jpg?t=1759530749" alt="Screenshot" onclick="window.open(this.src)">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1057090/ss_46c4dd7a4d7b38c8e5b6457c9ad991b22d52eb3d.1920x1080.jpg?t=1759530749" alt="Screenshot" onclick="window.open(this.src)">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1057090/ss_ef0d1606df59247a966e31931884a534a4ad8caa.1920x1080.jpg?t=1759530749" alt="Screenshot" onclick="window.open(this.src)">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1057090/ss_f65b59bc0928a62f1779af33ffba65fc21cbf886.1920x1080.jpg?t=1759530749" alt="Screenshot" onclick="window.open(this.src)">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1057090/ss_5dcb71ffa0a40228f98e1f365d4d6c8b58ca54cf.1920x1080.jpg?t=1759530749" alt="Screenshot" onclick="window.open(this.src)">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1057090/ss_a06937fd929bff05d045252b050da4f6433d5970.1920x1080.jpg?t=1759530749" alt="Screenshot" onclick="window.open(this.src)">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1057090/ss_b9ae1b3f56e458523e62169c8883329eb533107d.1920x1080.jpg?t=1759530749" alt="Screenshot" onclick="window.open(this.src)">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1057090/ss_f65b59bc0928a62f1779af33ffba65fc21cbf886.1920x1080.jpg?t=1759530749" alt="Screenshot" onclick="window.open(this.src)">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1057090/ss_63aabc4b3c4effe7da918598fb5e8e433de5edf9.1920x1080.jpg?t=1759530749" alt="Screenshot" onclick="window.open(this.src)">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1057090/ss_8c4bc1fbddbe83cab34fbf9ebad406355948356e.1920x1080.jpg?t=1759530749" alt="Screenshot" onclick="window.open(this.src)">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1057090/ss_3840db48776afe0a2359e983ade7177283e394fb.1920x1080.jpg?t=1759530749" alt="Screenshot" onclick="window.open(this.src)">
+    <!-- 缩略图bar -->
+    <div class="media-thumbnails" id="mediaThumbnails">
+      <div class="media-thumb active" data-index="0"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256779902/movie.293x165.jpg?t=1585866497" alt="Video"></div>
+<div class="media-thumb " data-index="1"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256769940/movie.293x165.jpg?t=1576271885" alt="Video"></div>
+<div class="media-thumb " data-index="2"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1057090/ss_0cf0ec6681ae5771173790dbc99ddb3bf3b886ad.1920x1080.jpg?t=1759530749" alt="Screenshot"></div>
+<div class="media-thumb " data-index="3"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1057090/ss_f8ac174b7949e89fe1939a7bd2c471785dee55f0.1920x1080.jpg?t=1759530749" alt="Screenshot"></div>
+<div class="media-thumb " data-index="4"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1057090/ss_3ae04b208aaff3869f69617c47449ec1d7a06513.1920x1080.jpg?t=1759530749" alt="Screenshot"></div>
+<div class="media-thumb " data-index="5"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1057090/ss_608e317acbb76258bedcf1a79e6673a61475908f.1920x1080.jpg?t=1759530749" alt="Screenshot"></div>
+<div class="media-thumb " data-index="6"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1057090/ss_d33bc7bb1d106b841a28d1cf3403fb7b1188252f.1920x1080.jpg?t=1759530749" alt="Screenshot"></div>
+<div class="media-thumb " data-index="7"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1057090/ss_57ea45c3711319429b19ac62c0a21997b10e1042.1920x1080.jpg?t=1759530749" alt="Screenshot"></div>
+<div class="media-thumb " data-index="8"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1057090/ss_2d23f9ee1da98b25895c65cf39500e18ee55f7a2.1920x1080.jpg?t=1759530749" alt="Screenshot"></div>
+<div class="media-thumb " data-index="9"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1057090/ss_360216e1e58b6fbfcf8892b34f9a80e6648815a4.1920x1080.jpg?t=1759530749" alt="Screenshot"></div>
+<div class="media-thumb " data-index="10"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1057090/ss_1978ac093423e8258d6f7b78259be923d8f1d2e2.1920x1080.jpg?t=1759530749" alt="Screenshot"></div>
+<div class="media-thumb " data-index="11"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1057090/ss_ef58cebbef92a08648c77d451afd1d57922523a5.1920x1080.jpg?t=1759530749" alt="Screenshot"></div>
+<div class="media-thumb " data-index="12"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1057090/ss_267ffc537c8328e335f3619a2c84b0a11d476887.1920x1080.jpg?t=1759530749" alt="Screenshot"></div>
+<div class="media-thumb " data-index="13"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1057090/ss_239fd5eff40e2da82064484ce1694dab30b4f178.1920x1080.jpg?t=1759530749" alt="Screenshot"></div>
+<div class="media-thumb " data-index="14"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1057090/ss_332602f57287e62e4f5c9e661678e8761fabb44c.1920x1080.jpg?t=1759530749" alt="Screenshot"></div>
+<div class="media-thumb " data-index="15"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1057090/ss_fa236ce51b1856d46a5a737ab1da4f20ca15801e.1920x1080.jpg?t=1759530749" alt="Screenshot"></div>
+<div class="media-thumb " data-index="16"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1057090/ss_3461bc5a061cb5f018e885ffed68c9ec74a858c5.1920x1080.jpg?t=1759530749" alt="Screenshot"></div>
+<div class="media-thumb " data-index="17"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1057090/ss_0e70b5b995b35794a2670e3bf3fef44a25138863.1920x1080.jpg?t=1759530749" alt="Screenshot"></div>
+<div class="media-thumb " data-index="18"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1057090/ss_9c80cfeeec90bd14262c056b6e924dcf846d6818.1920x1080.jpg?t=1759530749" alt="Screenshot"></div>
+<div class="media-thumb " data-index="19"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1057090/ss_46c4dd7a4d7b38c8e5b6457c9ad991b22d52eb3d.1920x1080.jpg?t=1759530749" alt="Screenshot"></div>
+<div class="media-thumb " data-index="20"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1057090/ss_ef0d1606df59247a966e31931884a534a4ad8caa.1920x1080.jpg?t=1759530749" alt="Screenshot"></div>
+<div class="media-thumb " data-index="21"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1057090/ss_f65b59bc0928a62f1779af33ffba65fc21cbf886.1920x1080.jpg?t=1759530749" alt="Screenshot"></div>
+<div class="media-thumb " data-index="22"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1057090/ss_5dcb71ffa0a40228f98e1f365d4d6c8b58ca54cf.1920x1080.jpg?t=1759530749" alt="Screenshot"></div>
+<div class="media-thumb " data-index="23"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1057090/ss_a06937fd929bff05d045252b050da4f6433d5970.1920x1080.jpg?t=1759530749" alt="Screenshot"></div>
+<div class="media-thumb " data-index="24"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1057090/ss_b9ae1b3f56e458523e62169c8883329eb533107d.1920x1080.jpg?t=1759530749" alt="Screenshot"></div>
+<div class="media-thumb " data-index="25"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1057090/ss_f65b59bc0928a62f1779af33ffba65fc21cbf886.1920x1080.jpg?t=1759530749" alt="Screenshot"></div>
+<div class="media-thumb " data-index="26"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1057090/ss_63aabc4b3c4effe7da918598fb5e8e433de5edf9.1920x1080.jpg?t=1759530749" alt="Screenshot"></div>
+<div class="media-thumb " data-index="27"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1057090/ss_8c4bc1fbddbe83cab34fbf9ebad406355948356e.1920x1080.jpg?t=1759530749" alt="Screenshot"></div>
+<div class="media-thumb " data-index="28"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1057090/ss_3840db48776afe0a2359e983ade7177283e394fb.1920x1080.jpg?t=1759530749" alt="Screenshot"></div>
+
+    </div>
   </div>
 </section>
 
@@ -533,26 +595,88 @@ body {
 </section>
 
 <!-- 系统需求 -->
-<section class="content-section"><div class="content-block"><h2>系统需求</h2><div class="sys-req">
-<div class="sys-req-col"><h4>最低配置</h4><ul><strong>最低配置:</strong><br><ul class="bb_ul"><li><strong>操作系统:</strong> Windows 10 Version 18362.0 or higher<br></li><li><strong>处理器:</strong> AMD Athlon X4 | Intel Core i5 4460<br></li><li><strong>内存:</strong> 8 GB RAM<br></li><li><strong>显卡:</strong> Nvidia GTX 950 | AMD R7 370<br></li><li><strong>DirectX 版本:</strong> 11<br></li><li><strong>存储空间:</strong> 需要 20 GB 可用空间</li></ul></ul></div>
-<div class="sys-req-col"><h4>推荐配置</h4><ul><strong>推荐配置:</strong><br><ul class="bb_ul"><li><strong>操作系统:</strong> Windows 10 Version 18362.0 or higher<br></li><li><strong>处理器:</strong> AMD Ryzen 3 | Intel i5 Skylake<br></li><li><strong>内存:</strong> 8 GB RAM<br></li><li><strong>显卡:</strong> Nvidia GTX 970 | AMD RX 570<br></li><li><strong>DirectX 版本:</strong> 11<br></li><li><strong>存储空间:</strong> 需要 20 GB 可用空间</li></ul></ul></div>
-</div></div></section>
+
+<section class="content-section">
+  <div class="container">
+    <div class="content-block">
+      <h2>系统需求</h2>
+      <div class="sys-req">
+        <div class="sys-req-col"><h4>最低配置</h4><div><strong>最低配置:</strong><br><ul class="bb_ul"><li><strong>操作系统:</strong> Windows 10 Version 18362.0 or higher<br></li><li><strong>处理器:</strong> AMD Athlon X4 | Intel Core i5 4460<br></li><li><strong>内存:</strong> 8 GB RAM<br></li><li><strong>显卡:</strong> Nvidia GTX 950 | AMD R7 370<br></li><li><strong>DirectX 版本:</strong> 11<br></li><li><strong>存储空间:</strong> 需要 20 GB 可用空间</li></ul></div></div>
+        <div class="sys-req-col"><h4>推荐配置</h4><div><strong>推荐配置:</strong><br><ul class="bb_ul"><li><strong>操作系统:</strong> Windows 10 Version 18362.0 or higher<br></li><li><strong>处理器:</strong> AMD Ryzen 3 | Intel i5 Skylake<br></li><li><strong>内存:</strong> 8 GB RAM<br></li><li><strong>显卡:</strong> Nvidia GTX 970 | AMD RX 570<br></li><li><strong>DirectX 版本:</strong> 11<br></li><li><strong>存储空间:</strong> 需要 20 GB 可用空间</li></ul></div></div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <script>
-function showVideo() {
-  document.getElementById('video-container').style.display = 'block';
-  document.getElementById('screenshots-container').style.display = 'none';
-  document.querySelectorAll('.media-tab').forEach(t => t.classList.remove('active'));
-  event.target.classList.add('active');
+// 媒体数据
+const mediaItems = [
+  {"type": "video", "url": "https://store.steampowered.com/video/256779902/", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256779902/movie.293x165.jpg?t=1585866497"},
+  {"type": "video", "url": "https://store.steampowered.com/video/256769940/", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256769940/movie.293x165.jpg?t=1576271885"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1057090/ss_0cf0ec6681ae5771173790dbc99ddb3bf3b886ad.1920x1080.jpg?t=1759530749", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1057090/ss_0cf0ec6681ae5771173790dbc99ddb3bf3b886ad.1920x1080.jpg?t=1759530749"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1057090/ss_f8ac174b7949e89fe1939a7bd2c471785dee55f0.1920x1080.jpg?t=1759530749", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1057090/ss_f8ac174b7949e89fe1939a7bd2c471785dee55f0.1920x1080.jpg?t=1759530749"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1057090/ss_3ae04b208aaff3869f69617c47449ec1d7a06513.1920x1080.jpg?t=1759530749", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1057090/ss_3ae04b208aaff3869f69617c47449ec1d7a06513.1920x1080.jpg?t=1759530749"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1057090/ss_608e317acbb76258bedcf1a79e6673a61475908f.1920x1080.jpg?t=1759530749", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1057090/ss_608e317acbb76258bedcf1a79e6673a61475908f.1920x1080.jpg?t=1759530749"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1057090/ss_d33bc7bb1d106b841a28d1cf3403fb7b1188252f.1920x1080.jpg?t=1759530749", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1057090/ss_d33bc7bb1d106b841a28d1cf3403fb7b1188252f.1920x1080.jpg?t=1759530749"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1057090/ss_57ea45c3711319429b19ac62c0a21997b10e1042.1920x1080.jpg?t=1759530749", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1057090/ss_57ea45c3711319429b19ac62c0a21997b10e1042.1920x1080.jpg?t=1759530749"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1057090/ss_2d23f9ee1da98b25895c65cf39500e18ee55f7a2.1920x1080.jpg?t=1759530749", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1057090/ss_2d23f9ee1da98b25895c65cf39500e18ee55f7a2.1920x1080.jpg?t=1759530749"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1057090/ss_360216e1e58b6fbfcf8892b34f9a80e6648815a4.1920x1080.jpg?t=1759530749", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1057090/ss_360216e1e58b6fbfcf8892b34f9a80e6648815a4.1920x1080.jpg?t=1759530749"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1057090/ss_1978ac093423e8258d6f7b78259be923d8f1d2e2.1920x1080.jpg?t=1759530749", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1057090/ss_1978ac093423e8258d6f7b78259be923d8f1d2e2.1920x1080.jpg?t=1759530749"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1057090/ss_ef58cebbef92a08648c77d451afd1d57922523a5.1920x1080.jpg?t=1759530749", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1057090/ss_ef58cebbef92a08648c77d451afd1d57922523a5.1920x1080.jpg?t=1759530749"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1057090/ss_267ffc537c8328e335f3619a2c84b0a11d476887.1920x1080.jpg?t=1759530749", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1057090/ss_267ffc537c8328e335f3619a2c84b0a11d476887.1920x1080.jpg?t=1759530749"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1057090/ss_239fd5eff40e2da82064484ce1694dab30b4f178.1920x1080.jpg?t=1759530749", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1057090/ss_239fd5eff40e2da82064484ce1694dab30b4f178.1920x1080.jpg?t=1759530749"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1057090/ss_332602f57287e62e4f5c9e661678e8761fabb44c.1920x1080.jpg?t=1759530749", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1057090/ss_332602f57287e62e4f5c9e661678e8761fabb44c.1920x1080.jpg?t=1759530749"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1057090/ss_fa236ce51b1856d46a5a737ab1da4f20ca15801e.1920x1080.jpg?t=1759530749", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1057090/ss_fa236ce51b1856d46a5a737ab1da4f20ca15801e.1920x1080.jpg?t=1759530749"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1057090/ss_3461bc5a061cb5f018e885ffed68c9ec74a858c5.1920x1080.jpg?t=1759530749", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1057090/ss_3461bc5a061cb5f018e885ffed68c9ec74a858c5.1920x1080.jpg?t=1759530749"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1057090/ss_0e70b5b995b35794a2670e3bf3fef44a25138863.1920x1080.jpg?t=1759530749", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1057090/ss_0e70b5b995b35794a2670e3bf3fef44a25138863.1920x1080.jpg?t=1759530749"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1057090/ss_9c80cfeeec90bd14262c056b6e924dcf846d6818.1920x1080.jpg?t=1759530749", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1057090/ss_9c80cfeeec90bd14262c056b6e924dcf846d6818.1920x1080.jpg?t=1759530749"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1057090/ss_46c4dd7a4d7b38c8e5b6457c9ad991b22d52eb3d.1920x1080.jpg?t=1759530749", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1057090/ss_46c4dd7a4d7b38c8e5b6457c9ad991b22d52eb3d.1920x1080.jpg?t=1759530749"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1057090/ss_ef0d1606df59247a966e31931884a534a4ad8caa.1920x1080.jpg?t=1759530749", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1057090/ss_ef0d1606df59247a966e31931884a534a4ad8caa.1920x1080.jpg?t=1759530749"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1057090/ss_f65b59bc0928a62f1779af33ffba65fc21cbf886.1920x1080.jpg?t=1759530749", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1057090/ss_f65b59bc0928a62f1779af33ffba65fc21cbf886.1920x1080.jpg?t=1759530749"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1057090/ss_5dcb71ffa0a40228f98e1f365d4d6c8b58ca54cf.1920x1080.jpg?t=1759530749", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1057090/ss_5dcb71ffa0a40228f98e1f365d4d6c8b58ca54cf.1920x1080.jpg?t=1759530749"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1057090/ss_a06937fd929bff05d045252b050da4f6433d5970.1920x1080.jpg?t=1759530749", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1057090/ss_a06937fd929bff05d045252b050da4f6433d5970.1920x1080.jpg?t=1759530749"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1057090/ss_b9ae1b3f56e458523e62169c8883329eb533107d.1920x1080.jpg?t=1759530749", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1057090/ss_b9ae1b3f56e458523e62169c8883329eb533107d.1920x1080.jpg?t=1759530749"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1057090/ss_f65b59bc0928a62f1779af33ffba65fc21cbf886.1920x1080.jpg?t=1759530749", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1057090/ss_f65b59bc0928a62f1779af33ffba65fc21cbf886.1920x1080.jpg?t=1759530749"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1057090/ss_63aabc4b3c4effe7da918598fb5e8e433de5edf9.1920x1080.jpg?t=1759530749", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1057090/ss_63aabc4b3c4effe7da918598fb5e8e433de5edf9.1920x1080.jpg?t=1759530749"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1057090/ss_8c4bc1fbddbe83cab34fbf9ebad406355948356e.1920x1080.jpg?t=1759530749", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1057090/ss_8c4bc1fbddbe83cab34fbf9ebad406355948356e.1920x1080.jpg?t=1759530749"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1057090/ss_3840db48776afe0a2359e983ade7177283e394fb.1920x1080.jpg?t=1759530749", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1057090/ss_3840db48776afe0a2359e983ade7177283e394fb.1920x1080.jpg?t=1759530749"}
+];
+
+let currentIndex = 0;
+
+// 切换到指定媒体
+function switchMedia(index) {
+  if (index < 0 || index >= mediaItems.length) return;
+  
+  currentIndex = index;
+  const item = mediaItems[index];
+  const mainEl = document.getElementById('mediaMain');
+  
+  if (item.type === 'video') {
+    // 使用Steam视频嵌入
+    mainEl.innerHTML = `<iframe src="${item.url}" frameborder="0" allowfullscreen allow="autoplay; fullscreen"></iframe>`;
+  } else {
+    mainEl.innerHTML = `<img src="${item.url}" alt="Screenshot">`;
+  }
+  
+  // 更新缩略图active状态
+  document.querySelectorAll('.media-thumb').forEach((thumb, i) => {
+    thumb.classList.toggle('active', i === index);
+  });
 }
 
-function showScreenshots() {
-  const vc = document.getElementById('video-container');
-  if (vc) vc.style.display = 'none';
-  document.getElementById('screenshots-container').style.display = 'grid';
-  document.querySelectorAll('.media-tab').forEach(t => t.classList.remove('active'));
-  event.target.classList.add('active');
-}
+// 初始化
+document.addEventListener('DOMContentLoaded', () => {
+  // 绑定缩略图点击事件
+  document.querySelectorAll('.media-thumb').forEach((thumb, index) => {
+    thumb.addEventListener('click', () => switchMedia(index));
+  });
+  
+  // 设置初始状态
+  if (mediaItems.length > 0) {
+    switchMedia(0);
+  }
+});
 </script>
 
 </body>

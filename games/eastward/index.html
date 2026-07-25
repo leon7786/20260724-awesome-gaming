@@ -168,75 +168,127 @@ body {
   max-width: 640px;
 }
 
-/* 媒体区域 */
+/* 媒体区域 - Steam风格 */
 .media-section {
   max-width: 1200px;
   margin: 2rem auto;
   padding: 0 2rem;
 }
 
-.media-tabs {
-  display: flex;
-  gap: 0.5rem;
-  margin-bottom: 1rem;
-}
-
-.media-tab {
+.media-gallery {
   background: var(--surface);
-  border: 1px solid var(--border);
-  color: var(--text-secondary);
-  padding: 0.5rem 1.25rem;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 0.875rem;
-  font-weight: 500;
-  transition: all 0.2s;
-}
-
-.media-tab:hover {
-  border-color: var(--accent);
-  color: var(--accent);
-}
-
-.media-tab.active {
-  background: var(--accent);
-  color: white;
-  border-color: var(--accent);
-}
-
-.media-player {
   border-radius: var(--radius);
+  border: 1px solid var(--border);
   overflow: hidden;
-  background: #000;
-  aspect-ratio: 16/9;
 }
 
-.media-player video,
-.media-player img {
+/* 主图显示区域 */
+.media-main {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/9;
+  background: #000;
+  overflow: hidden;
+}
+
+.media-main img,
+.media-main video,
+.media-main iframe {
   width: 100%;
   height: 100%;
   object-fit: contain;
+  border: none;
 }
 
-.screenshots-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 0.75rem;
+/* 媒体控制按钮 */
+.media-controls {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  display: flex;
+  gap: 0.5rem;
+  z-index: 10;
 }
 
-.screenshots-grid img {
-  width: 100%;
-  aspect-ratio: 16/9;
-  object-fit: cover;
-  border-radius: 8px;
+.media-control-btn {
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
   cursor: pointer;
+  font-size: 0.875rem;
   transition: all 0.2s;
-  border: 1px solid var(--border);
 }
 
-.screenshots-grid img:hover {
-  transform: scale(1.02);
-  box-shadow: var(--shadow);
+.media-control-btn:hover {
+  background: rgba(0, 0, 0, 0.9);
+}
+
+/* 缩略图bar */
+.media-thumbnails {
+  display: flex;
+  gap: 0.5rem;
+  padding: 1rem;
+  overflow-x: auto;
+  background: #f9fafb;
+  border-top: 1px solid var(--border);
+}
+
+.media-thumbnails::-webkit-scrollbar {
+  height: 6px;
+}
+
+.media-thumbnails::-webkit-scrollbar-track {
+  background: #f3f4f6;
+}
+
+.media-thumbnails::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 3px;
+}
+
+.media-thumb {
+  flex-shrink: 0;
+  width: 120px;
+  height: 67.5px;
+  border-radius: 6px;
+  overflow: hidden;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all 0.2s;
+  position: relative;
+}
+
+.media-thumb:hover {
+  border-color: var(--accent);
+  transform: scale(1.05);
+}
+
+.media-thumb.active {
+  border-color: var(--accent);
+}
+
+.media-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.media-thumb .play-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
 }
 
 /* 内容区域 */
@@ -411,6 +463,10 @@ body {
   .sys-req {
     grid-template-columns: 1fr;
   }
+  .media-thumb {
+    width: 100px;
+    height: 56.25px;
+  }
 }
 
 @media (max-width: 640px) {
@@ -425,6 +481,10 @@ body {
   .content-block,
   .download-block {
     padding: 1.5rem;
+  }
+  .media-thumb {
+    width: 80px;
+    height: 45px;
   }
 }
 </style>
@@ -473,27 +533,30 @@ body {
 
 <!-- 媒体区域 -->
 <section class="media-section">
-  <div class="media-tabs">
-    <button class="media-tab active" onclick="showVideo()">▶ 视频</button>
-    <button class="media-tab" onclick="showScreenshots()">🖼 截图</button>
-  </div>
-  
-  <div id="video-container" class="media-player">
+  <div class="media-gallery">
+    <!-- 主图显示区域 -->
+    <div class="media-main" id="mediaMain">
+      <iframe src="https://store.steampowered.com/video/256851834/" frameborder="0" allowfullscreen allow="autoplay; fullscreen"></iframe>
+    </div>
     
-  </div>
-  
-  <div id="screenshots-container" class="screenshots-grid" style="display:none;">
-    <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/977880/ss_5d50545b49db3a8502666b4195d2fabd0e31a29d.1920x1080.jpg?t=1782290198" alt="Screenshot" onclick="window.open(this.src)">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/977880/ss_b3512f7576dbdd1e35dd3fb27a04f29174efb00d.1920x1080.jpg?t=1782290198" alt="Screenshot" onclick="window.open(this.src)">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/977880/ss_2c7516dbcfba035a359a2eb7257356809a3f5eaa.1920x1080.jpg?t=1782290198" alt="Screenshot" onclick="window.open(this.src)">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/977880/ss_863e3ce560a5eae579b01cd01d307a5bcb58beef.1920x1080.jpg?t=1782290198" alt="Screenshot" onclick="window.open(this.src)">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/977880/ss_fc97f011126b32f77cbb66a9dc59e22cc353c2b8.1920x1080.jpg?t=1782290198" alt="Screenshot" onclick="window.open(this.src)">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/977880/ss_cde0e802a2ce50572e16be8422479d5b54181577.1920x1080.jpg?t=1782290198" alt="Screenshot" onclick="window.open(this.src)">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/977880/ss_c9a1045cf8d4c65cf0bdf38c4b5de7c9a05a0fb9.1920x1080.jpg?t=1782290198" alt="Screenshot" onclick="window.open(this.src)">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/977880/ss_bf8d65929d363f1b62f632d934eda94ef5188049.1920x1080.jpg?t=1782290198" alt="Screenshot" onclick="window.open(this.src)">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/977880/ss_d33bc97134437987ed89194d04b39f2e4658df20.1920x1080.jpg?t=1782290198" alt="Screenshot" onclick="window.open(this.src)">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/977880/ss_29d7dd0891c88b08d699556ed62fcc37f1aea47f.1920x1080.jpg?t=1782290198" alt="Screenshot" onclick="window.open(this.src)">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/977880/ss_3808968005d3154e95f4ed77c363da176e4dca7c.1920x1080.jpg?t=1782290198" alt="Screenshot" onclick="window.open(this.src)">
+    <!-- 缩略图bar -->
+    <div class="media-thumbnails" id="mediaThumbnails">
+      <div class="media-thumb active" data-index="0"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256851834/movie.293x165.jpg?t=1631782235" alt="Video"></div>
+<div class="media-thumb " data-index="1"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256846420/movie.293x165.jpg?t=1628707362" alt="Video"></div>
+<div class="media-thumb " data-index="2"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256846169/movie.293x165.jpg?t=1628596162" alt="Video"></div>
+<div class="media-thumb " data-index="3"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/977880/ss_5d50545b49db3a8502666b4195d2fabd0e31a29d.1920x1080.jpg?t=1782290198" alt="Screenshot"></div>
+<div class="media-thumb " data-index="4"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/977880/ss_b3512f7576dbdd1e35dd3fb27a04f29174efb00d.1920x1080.jpg?t=1782290198" alt="Screenshot"></div>
+<div class="media-thumb " data-index="5"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/977880/ss_2c7516dbcfba035a359a2eb7257356809a3f5eaa.1920x1080.jpg?t=1782290198" alt="Screenshot"></div>
+<div class="media-thumb " data-index="6"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/977880/ss_863e3ce560a5eae579b01cd01d307a5bcb58beef.1920x1080.jpg?t=1782290198" alt="Screenshot"></div>
+<div class="media-thumb " data-index="7"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/977880/ss_fc97f011126b32f77cbb66a9dc59e22cc353c2b8.1920x1080.jpg?t=1782290198" alt="Screenshot"></div>
+<div class="media-thumb " data-index="8"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/977880/ss_cde0e802a2ce50572e16be8422479d5b54181577.1920x1080.jpg?t=1782290198" alt="Screenshot"></div>
+<div class="media-thumb " data-index="9"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/977880/ss_c9a1045cf8d4c65cf0bdf38c4b5de7c9a05a0fb9.1920x1080.jpg?t=1782290198" alt="Screenshot"></div>
+<div class="media-thumb " data-index="10"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/977880/ss_bf8d65929d363f1b62f632d934eda94ef5188049.1920x1080.jpg?t=1782290198" alt="Screenshot"></div>
+<div class="media-thumb " data-index="11"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/977880/ss_d33bc97134437987ed89194d04b39f2e4658df20.1920x1080.jpg?t=1782290198" alt="Screenshot"></div>
+<div class="media-thumb " data-index="12"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/977880/ss_29d7dd0891c88b08d699556ed62fcc37f1aea47f.1920x1080.jpg?t=1782290198" alt="Screenshot"></div>
+<div class="media-thumb " data-index="13"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/977880/ss_3808968005d3154e95f4ed77c363da176e4dca7c.1920x1080.jpg?t=1782290198" alt="Screenshot"></div>
+
+    </div>
   </div>
 </section>
 
@@ -501,7 +564,7 @@ body {
 <section class="content-section">
   <div class="content-block">
     <h2>关于此游戏</h2>
-    <div><p class="bb_paragraph" style="text-align: center"><span class="bb_img_ctn"><video controls class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/977880/extras/a13ebe5ed790a157158e814636015b98.poster.avif?t=1782290198" ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/977880/extras/a13ebe5ed790a157158e814636015b98.webm?t=1782290198" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/977880/extras/a13ebe5ed790a157158e814636015b98.mp4?t=1782290198" type="video/mp4"></video></span></p><p class="bb_paragraph" ></p><p class="bb_paragraph" >风来之国是一款精致迷人的冒险游戏，来自上海的独立团队<strong>皮克皮</strong>创作。</p><p class="bb_paragraph" ></p><p class="bb_paragraph" ></p><p class="bb_paragraph" >遥远的未来，世界在灾难中分崩离析，仅存的文明奄奄一息。神秘的灾害在大地上横行，摧毁吞噬遭遇它的一切。</p><p class="bb_paragraph" ></p><p class="bb_paragraph" ></p><p class="bb_paragraph" >幸运的人躲进了地下，从此与世隔绝，我们故事从这里开始。那是一个勤奋的矿工和那个神秘的女孩，命运和未知的世界正在呼唤着他们。</p><p class="bb_paragraph" ></p><p class="bb_paragraph" ></p><p class="bb_paragraph" >逃离地下小镇的二人组，将在风来之国开始他们激动人心的冒险。乘上火车，穿越这个世界，遇见美丽的风景和村庄，结识新的伙伴。</p><p class="bb_paragraph" ></p><p class="bb_paragraph" ></p><p class="bb_paragraph" >含有成人幽默和成人话题。</p><p class="bb_paragraph" ></p><p class="bb_paragraph" ></p><h2 class="bb_tag" >特色：</h2><p class="bb_paragraph" style="text-align: center"><span class="bb_img_ctn"><video controls class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/977880/extras/327a218f746fd35258353fe546722313.poster.avif?t=1782290198" ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/977880/extras/327a218f746fd35258353fe546722313.webm?t=1782290198" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/977880/extras/327a218f746fd35258353fe546722313.mp4?t=1782290198" type="video/mp4"></video></span></p><p class="bb_paragraph" ></p><p class="bb_paragraph" >探索奇妙的风来之国。攀上来自远古的列车，横跨衰败土地上新生的世界，拜访热闹的城镇、古怪的营地和暗影幢幢的森林。</p><p class="bb_paragraph" ></p><p class="bb_paragraph" ></p><p class="bb_paragraph" style="text-align: center"><span class="bb_img_ctn"><video controls class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/977880/extras/83b9c71339656c71f1cd99f51d4fade9.poster.avif?t=1782290198" ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/977880/extras/83b9c71339656c71f1cd99f51d4fade9.webm?t=1782290198" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/977880/extras/83b9c71339656c71f1cd99f51d4fade9.mp4?t=1782290198" type="video/mp4"></video></span></p><p class="bb_paragraph" ></p><p class="bb_paragraph" >选择约翰的武器，抵御怪物和凶猛的头目——是“砰砰枪”、还是“火焰权杖”，或者是久经“烤验”的煎锅。不忍心下手？那就试着用珊的能量泡泡锁住他们，飞快地逃离战场。</p><p class="bb_paragraph" > </p><p class="bb_paragraph" ></p><p class="bb_paragraph" style="text-align: center"><span class="bb_img_ctn"><video controls class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/977880/extras/5611d7293baa2dfe2fe14e6933455226.poster.avif?t=1782290198" ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/977880/extras/5611d7293baa2dfe2fe14e6933455226.webm?t=1782290198" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/977880/extras/5611d7293baa2dfe2fe14e6933455226.mp4?t=1782290198" type="video/mp4"></video></span></p><p class="bb_paragraph" ></p><p class="bb_paragraph" >自由地切换约翰和珊，解决谜题；一路奋战杀出迷宫。默契的二人组可以分头行动发现意外的宝藏；也会互相扶持穿越危机四伏的荒野。</p><p class="bb_paragraph" ></p><p class="bb_paragraph" ></p><p class="bb_paragraph" style="text-align: center"><span class="bb_img_ctn"><video controls class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/977880/extras/fbad6ca6c88e6757b6e724cbf6643ef5.poster.avif?t=1782290198" ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/977880/extras/fbad6ca6c88e6757b6e724cbf6643ef5.webm?t=1782290198" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/977880/extras/fbad6ca6c88e6757b6e724cbf6643ef5.mp4?t=1782290198" type="video/mp4"></video></span></p><p class="bb_paragraph" ></p><p class="bb_paragraph" >结识形色各异的人物！感受他们的故事，有古怪幽默，也会温暖人心，但总是妙趣横生。</p><p class="bb_paragraph" ></p><p class="bb_paragraph" ></p><p class="bb_paragraph" style="text-align: center"><span class="bb_img_ctn"><video controls class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/977880/extras/7ae68546580da52157547dd0a24c14e7.poster.avif?t=1782290198" ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/977880/extras/7ae68546580da52157547dd0a24c14e7.webm?t=1782290198" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/977880/extras/7ae68546580da52157547dd0a24c14e7.mp4?t=1782290198" type="video/mp4"></video></span></p><p class="bb_paragraph" ></p><p class="bb_paragraph" >危险的森林，废弃的商场，旧时代的垃圾场，处处都藏着意想不到的食材。经过大厨约翰的手，都将变成地道的风来之国美食。它们可以回复生命，强化战斗，还会有不可预测的效果。</p><p class="bb_paragraph" > </p><p class="bb_paragraph" ></p><p class="bb_paragraph" style="text-align: center"><span class="bb_img_ctn"><video controls class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/977880/extras/78768231d8322729ddde2a01294ed9b1.poster.avif?t=1782290198" ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/977880/extras/78768231d8322729ddde2a01294ed9b1.webm?t=1782290198" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/977880/extras/78768231d8322729ddde2a01294ed9b1.mp4?t=1782290198" type="video/mp4"></video></span></p><p class="bb_paragraph" ></p><p class="bb_paragraph" >曾为<i>《Death Stranding》、《Hohokum》、《The Unfinished Swan》</i>等游戏作曲的<strong>Joel Corelitz</strong>，带来精彩的配乐，激动人心，又丝丝入扣；操刀过<i>《Dust: An Elysian Tail》</i>和<i>《Kingdom Rush》</i>的爱尔兰工作室<strong>Hyperduck Soundworks</strong>负责音效设计。</p><p class="bb_paragraph" ></p><p class="bb_paragraph" ></p><p class="bb_paragraph" >本产品建议年满12岁以上的用户使用。 </p><p class="bb_paragraph" ></p><p class="bb_paragraph" ></p><p class="bb_paragraph" style="text-align: center"><span class="bb_img_ctn"><picture><source srcset="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/977880/extras/795753df848251f7cb3f173c52557aad.apng?t=1782290198"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/977880/extras/795753df848251f7cb3f173c52557aad.poster.avif?t=1782290198" class="bb_img" width=616 height=91 /></picture></span></p></div>
+    <div><p class="bb_paragraph" style="text-align: center"><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/977880/extras/a13ebe5ed790a157158e814636015b98.poster.avif?t=1782290198" width=780 height=122 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/977880/extras/a13ebe5ed790a157158e814636015b98.webm?t=1782290198" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/977880/extras/a13ebe5ed790a157158e814636015b98.mp4?t=1782290198" type="video/mp4"></video></span></p><p class="bb_paragraph" ></p><p class="bb_paragraph" >风来之国是一款精致迷人的冒险游戏，来自上海的独立团队<strong>皮克皮</strong>创作。</p><p class="bb_paragraph" ></p><p class="bb_paragraph" ></p><p class="bb_paragraph" >遥远的未来，世界在灾难中分崩离析，仅存的文明奄奄一息。神秘的灾害在大地上横行，摧毁吞噬遭遇它的一切。</p><p class="bb_paragraph" ></p><p class="bb_paragraph" ></p><p class="bb_paragraph" >幸运的人躲进了地下，从此与世隔绝，我们故事从这里开始。那是一个勤奋的矿工和那个神秘的女孩，命运和未知的世界正在呼唤着他们。</p><p class="bb_paragraph" ></p><p class="bb_paragraph" ></p><p class="bb_paragraph" >逃离地下小镇的二人组，将在风来之国开始他们激动人心的冒险。乘上火车，穿越这个世界，遇见美丽的风景和村庄，结识新的伙伴。</p><p class="bb_paragraph" ></p><p class="bb_paragraph" ></p><p class="bb_paragraph" >含有成人幽默和成人话题。</p><p class="bb_paragraph" ></p><p class="bb_paragraph" ></p><h2 class="bb_tag" >特色：</h2><p class="bb_paragraph" style="text-align: center"><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/977880/extras/327a218f746fd35258353fe546722313.poster.avif?t=1782290198" width=780 height=122 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/977880/extras/327a218f746fd35258353fe546722313.webm?t=1782290198" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/977880/extras/327a218f746fd35258353fe546722313.mp4?t=1782290198" type="video/mp4"></video></span></p><p class="bb_paragraph" ></p><p class="bb_paragraph" >探索奇妙的风来之国。攀上来自远古的列车，横跨衰败土地上新生的世界，拜访热闹的城镇、古怪的营地和暗影幢幢的森林。</p><p class="bb_paragraph" ></p><p class="bb_paragraph" ></p><p class="bb_paragraph" style="text-align: center"><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/977880/extras/83b9c71339656c71f1cd99f51d4fade9.poster.avif?t=1782290198" width=780 height=122 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/977880/extras/83b9c71339656c71f1cd99f51d4fade9.webm?t=1782290198" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/977880/extras/83b9c71339656c71f1cd99f51d4fade9.mp4?t=1782290198" type="video/mp4"></video></span></p><p class="bb_paragraph" ></p><p class="bb_paragraph" >选择约翰的武器，抵御怪物和凶猛的头目——是“砰砰枪”、还是“火焰权杖”，或者是久经“烤验”的煎锅。不忍心下手？那就试着用珊的能量泡泡锁住他们，飞快地逃离战场。</p><p class="bb_paragraph" > </p><p class="bb_paragraph" ></p><p class="bb_paragraph" style="text-align: center"><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/977880/extras/5611d7293baa2dfe2fe14e6933455226.poster.avif?t=1782290198" width=780 height=122 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/977880/extras/5611d7293baa2dfe2fe14e6933455226.webm?t=1782290198" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/977880/extras/5611d7293baa2dfe2fe14e6933455226.mp4?t=1782290198" type="video/mp4"></video></span></p><p class="bb_paragraph" ></p><p class="bb_paragraph" >自由地切换约翰和珊，解决谜题；一路奋战杀出迷宫。默契的二人组可以分头行动发现意外的宝藏；也会互相扶持穿越危机四伏的荒野。</p><p class="bb_paragraph" ></p><p class="bb_paragraph" ></p><p class="bb_paragraph" style="text-align: center"><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/977880/extras/fbad6ca6c88e6757b6e724cbf6643ef5.poster.avif?t=1782290198" width=780 height=122 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/977880/extras/fbad6ca6c88e6757b6e724cbf6643ef5.webm?t=1782290198" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/977880/extras/fbad6ca6c88e6757b6e724cbf6643ef5.mp4?t=1782290198" type="video/mp4"></video></span></p><p class="bb_paragraph" ></p><p class="bb_paragraph" >结识形色各异的人物！感受他们的故事，有古怪幽默，也会温暖人心，但总是妙趣横生。</p><p class="bb_paragraph" ></p><p class="bb_paragraph" ></p><p class="bb_paragraph" style="text-align: center"><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/977880/extras/7ae68546580da52157547dd0a24c14e7.poster.avif?t=1782290198" width=780 height=122 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/977880/extras/7ae68546580da52157547dd0a24c14e7.webm?t=1782290198" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/977880/extras/7ae68546580da52157547dd0a24c14e7.mp4?t=1782290198" type="video/mp4"></video></span></p><p class="bb_paragraph" ></p><p class="bb_paragraph" >危险的森林，废弃的商场，旧时代的垃圾场，处处都藏着意想不到的食材。经过大厨约翰的手，都将变成地道的风来之国美食。它们可以回复生命，强化战斗，还会有不可预测的效果。</p><p class="bb_paragraph" > </p><p class="bb_paragraph" ></p><p class="bb_paragraph" style="text-align: center"><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/977880/extras/78768231d8322729ddde2a01294ed9b1.poster.avif?t=1782290198" width=780 height=122 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/977880/extras/78768231d8322729ddde2a01294ed9b1.webm?t=1782290198" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/977880/extras/78768231d8322729ddde2a01294ed9b1.mp4?t=1782290198" type="video/mp4"></video></span></p><p class="bb_paragraph" ></p><p class="bb_paragraph" >曾为<i>《Death Stranding》、《Hohokum》、《The Unfinished Swan》</i>等游戏作曲的<strong>Joel Corelitz</strong>，带来精彩的配乐，激动人心，又丝丝入扣；操刀过<i>《Dust: An Elysian Tail》</i>和<i>《Kingdom Rush》</i>的爱尔兰工作室<strong>Hyperduck Soundworks</strong>负责音效设计。</p><p class="bb_paragraph" ></p><p class="bb_paragraph" ></p><p class="bb_paragraph" >本产品建议年满12岁以上的用户使用。 </p><p class="bb_paragraph" ></p><p class="bb_paragraph" ></p><p class="bb_paragraph" style="text-align: center"><span class="bb_img_ctn"><picture><source srcset="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/977880/extras/795753df848251f7cb3f173c52557aad.apng?t=1782290198"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/977880/extras/795753df848251f7cb3f173c52557aad.poster.avif?t=1782290198" class="bb_img" width=616 height=91 /></picture></span></p></div>
   </div>
 </section>
 
@@ -510,32 +573,79 @@ body {
   <div class="download-block">
     <h2>📥 下载链接</h2>
     <div class="download-buttons">
-      <p style="color:var(--text-muted)">暂无下载链接</p>
+      <p style="color:#8f98a0;">暂无下载链接</p>
     </div>
   </div>
 </section>
 
 <!-- 系统需求 -->
-<section class="content-section"><div class="content-block"><h2>系统需求</h2><div class="sys-req">
-<div class="sys-req-col"><h4>最低配置</h4><ul><strong>最低配置:</strong><br><ul class="bb_ul"><li>需要 64 位处理器和操作系统<br></li><li><strong>操作系统 *:</strong> Windows 7/8/10<br></li><li><strong>处理器:</strong> Intel i5<br></li><li><strong>内存:</strong> 4 GB RAM<br></li><li><strong>显卡:</strong> Nvidia GTS 450<br></li><li><strong>存储空间:</strong> 需要 2 GB 可用空间<br></li><li><strong>附注事项:</strong> OpenGL 3.2</li></ul></ul></div>
-<div class="sys-req-col"><h4>推荐配置</h4><ul><strong>推荐配置:</strong><br><ul class="bb_ul"><li>需要 64 位处理器和操作系统<br></li><li><strong>操作系统 *:</strong> Windows 7/8/10<br></li><li><strong>处理器:</strong> Intel i5<br></li><li><strong>内存:</strong> 4 GB RAM<br></li><li><strong>显卡:</strong> Nvidia GTX 750 Ti<br></li><li><strong>存储空间:</strong> 需要 2 GB 可用空间<br></li><li><strong>附注事项:</strong> OpenGL 3.2</li></ul></ul></div>
-</div></div></section>
+
+<section class="content-section">
+  <div class="container">
+    <div class="content-block">
+      <h2>系统需求</h2>
+      <div class="sys-req">
+        <div class="sys-req-col"><h4>最低配置</h4><div><strong>最低配置:</strong><br><ul class="bb_ul"><li>需要 64 位处理器和操作系统<br></li><li><strong>操作系统 *:</strong> Windows 7/8/10<br></li><li><strong>处理器:</strong> Intel i5<br></li><li><strong>内存:</strong> 4 GB RAM<br></li><li><strong>显卡:</strong> Nvidia GTS 450<br></li><li><strong>存储空间:</strong> 需要 2 GB 可用空间<br></li><li><strong>附注事项:</strong> OpenGL 3.2</li></ul></div></div>
+        <div class="sys-req-col"><h4>推荐配置</h4><div><strong>推荐配置:</strong><br><ul class="bb_ul"><li>需要 64 位处理器和操作系统<br></li><li><strong>操作系统 *:</strong> Windows 7/8/10<br></li><li><strong>处理器:</strong> Intel i5<br></li><li><strong>内存:</strong> 4 GB RAM<br></li><li><strong>显卡:</strong> Nvidia GTX 750 Ti<br></li><li><strong>存储空间:</strong> 需要 2 GB 可用空间<br></li><li><strong>附注事项:</strong> OpenGL 3.2</li></ul></div></div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <script>
-function showVideo() {
-  document.getElementById('video-container').style.display = 'block';
-  document.getElementById('screenshots-container').style.display = 'none';
-  document.querySelectorAll('.media-tab').forEach(t => t.classList.remove('active'));
-  event.target.classList.add('active');
+// 媒体数据
+const mediaItems = [
+  {"type": "video", "url": "https://store.steampowered.com/video/256851834/", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256851834/movie.293x165.jpg?t=1631782235"},
+  {"type": "video", "url": "https://store.steampowered.com/video/256846420/", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256846420/movie.293x165.jpg?t=1628707362"},
+  {"type": "video", "url": "https://store.steampowered.com/video/256846169/", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256846169/movie.293x165.jpg?t=1628596162"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/977880/ss_5d50545b49db3a8502666b4195d2fabd0e31a29d.1920x1080.jpg?t=1782290198", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/977880/ss_5d50545b49db3a8502666b4195d2fabd0e31a29d.1920x1080.jpg?t=1782290198"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/977880/ss_b3512f7576dbdd1e35dd3fb27a04f29174efb00d.1920x1080.jpg?t=1782290198", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/977880/ss_b3512f7576dbdd1e35dd3fb27a04f29174efb00d.1920x1080.jpg?t=1782290198"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/977880/ss_2c7516dbcfba035a359a2eb7257356809a3f5eaa.1920x1080.jpg?t=1782290198", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/977880/ss_2c7516dbcfba035a359a2eb7257356809a3f5eaa.1920x1080.jpg?t=1782290198"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/977880/ss_863e3ce560a5eae579b01cd01d307a5bcb58beef.1920x1080.jpg?t=1782290198", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/977880/ss_863e3ce560a5eae579b01cd01d307a5bcb58beef.1920x1080.jpg?t=1782290198"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/977880/ss_fc97f011126b32f77cbb66a9dc59e22cc353c2b8.1920x1080.jpg?t=1782290198", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/977880/ss_fc97f011126b32f77cbb66a9dc59e22cc353c2b8.1920x1080.jpg?t=1782290198"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/977880/ss_cde0e802a2ce50572e16be8422479d5b54181577.1920x1080.jpg?t=1782290198", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/977880/ss_cde0e802a2ce50572e16be8422479d5b54181577.1920x1080.jpg?t=1782290198"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/977880/ss_c9a1045cf8d4c65cf0bdf38c4b5de7c9a05a0fb9.1920x1080.jpg?t=1782290198", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/977880/ss_c9a1045cf8d4c65cf0bdf38c4b5de7c9a05a0fb9.1920x1080.jpg?t=1782290198"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/977880/ss_bf8d65929d363f1b62f632d934eda94ef5188049.1920x1080.jpg?t=1782290198", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/977880/ss_bf8d65929d363f1b62f632d934eda94ef5188049.1920x1080.jpg?t=1782290198"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/977880/ss_d33bc97134437987ed89194d04b39f2e4658df20.1920x1080.jpg?t=1782290198", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/977880/ss_d33bc97134437987ed89194d04b39f2e4658df20.1920x1080.jpg?t=1782290198"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/977880/ss_29d7dd0891c88b08d699556ed62fcc37f1aea47f.1920x1080.jpg?t=1782290198", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/977880/ss_29d7dd0891c88b08d699556ed62fcc37f1aea47f.1920x1080.jpg?t=1782290198"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/977880/ss_3808968005d3154e95f4ed77c363da176e4dca7c.1920x1080.jpg?t=1782290198", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/977880/ss_3808968005d3154e95f4ed77c363da176e4dca7c.1920x1080.jpg?t=1782290198"}
+];
+
+let currentIndex = 0;
+
+// 切换到指定媒体
+function switchMedia(index) {
+  if (index < 0 || index >= mediaItems.length) return;
+  
+  currentIndex = index;
+  const item = mediaItems[index];
+  const mainEl = document.getElementById('mediaMain');
+  
+  if (item.type === 'video') {
+    // 使用Steam视频嵌入
+    mainEl.innerHTML = `<iframe src="${item.url}" frameborder="0" allowfullscreen allow="autoplay; fullscreen"></iframe>`;
+  } else {
+    mainEl.innerHTML = `<img src="${item.url}" alt="Screenshot">`;
+  }
+  
+  // 更新缩略图active状态
+  document.querySelectorAll('.media-thumb').forEach((thumb, i) => {
+    thumb.classList.toggle('active', i === index);
+  });
 }
 
-function showScreenshots() {
-  const vc = document.getElementById('video-container');
-  if (vc) vc.style.display = 'none';
-  document.getElementById('screenshots-container').style.display = 'grid';
-  document.querySelectorAll('.media-tab').forEach(t => t.classList.remove('active'));
-  event.target.classList.add('active');
-}
+// 初始化
+document.addEventListener('DOMContentLoaded', () => {
+  // 绑定缩略图点击事件
+  document.querySelectorAll('.media-thumb').forEach((thumb, index) => {
+    thumb.addEventListener('click', () => switchMedia(index));
+  });
+  
+  // 设置初始状态
+  if (mediaItems.length > 0) {
+    switchMedia(0);
+  }
+});
 </script>
 
 </body>

@@ -168,75 +168,127 @@ body {
   max-width: 640px;
 }
 
-/* 媒体区域 */
+/* 媒体区域 - Steam风格 */
 .media-section {
   max-width: 1200px;
   margin: 2rem auto;
   padding: 0 2rem;
 }
 
-.media-tabs {
-  display: flex;
-  gap: 0.5rem;
-  margin-bottom: 1rem;
-}
-
-.media-tab {
+.media-gallery {
   background: var(--surface);
-  border: 1px solid var(--border);
-  color: var(--text-secondary);
-  padding: 0.5rem 1.25rem;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 0.875rem;
-  font-weight: 500;
-  transition: all 0.2s;
-}
-
-.media-tab:hover {
-  border-color: var(--accent);
-  color: var(--accent);
-}
-
-.media-tab.active {
-  background: var(--accent);
-  color: white;
-  border-color: var(--accent);
-}
-
-.media-player {
   border-radius: var(--radius);
+  border: 1px solid var(--border);
   overflow: hidden;
-  background: #000;
-  aspect-ratio: 16/9;
 }
 
-.media-player video,
-.media-player img {
+/* 主图显示区域 */
+.media-main {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/9;
+  background: #000;
+  overflow: hidden;
+}
+
+.media-main img,
+.media-main video,
+.media-main iframe {
   width: 100%;
   height: 100%;
   object-fit: contain;
+  border: none;
 }
 
-.screenshots-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 0.75rem;
+/* 媒体控制按钮 */
+.media-controls {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  display: flex;
+  gap: 0.5rem;
+  z-index: 10;
 }
 
-.screenshots-grid img {
-  width: 100%;
-  aspect-ratio: 16/9;
-  object-fit: cover;
-  border-radius: 8px;
+.media-control-btn {
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
   cursor: pointer;
+  font-size: 0.875rem;
   transition: all 0.2s;
-  border: 1px solid var(--border);
 }
 
-.screenshots-grid img:hover {
-  transform: scale(1.02);
-  box-shadow: var(--shadow);
+.media-control-btn:hover {
+  background: rgba(0, 0, 0, 0.9);
+}
+
+/* 缩略图bar */
+.media-thumbnails {
+  display: flex;
+  gap: 0.5rem;
+  padding: 1rem;
+  overflow-x: auto;
+  background: #f9fafb;
+  border-top: 1px solid var(--border);
+}
+
+.media-thumbnails::-webkit-scrollbar {
+  height: 6px;
+}
+
+.media-thumbnails::-webkit-scrollbar-track {
+  background: #f3f4f6;
+}
+
+.media-thumbnails::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 3px;
+}
+
+.media-thumb {
+  flex-shrink: 0;
+  width: 120px;
+  height: 67.5px;
+  border-radius: 6px;
+  overflow: hidden;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all 0.2s;
+  position: relative;
+}
+
+.media-thumb:hover {
+  border-color: var(--accent);
+  transform: scale(1.05);
+}
+
+.media-thumb.active {
+  border-color: var(--accent);
+}
+
+.media-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.media-thumb .play-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
 }
 
 /* 内容区域 */
@@ -411,6 +463,10 @@ body {
   .sys-req {
     grid-template-columns: 1fr;
   }
+  .media-thumb {
+    width: 100px;
+    height: 56.25px;
+  }
 }
 
 @media (max-width: 640px) {
@@ -426,6 +482,10 @@ body {
   .download-block {
     padding: 1.5rem;
   }
+  .media-thumb {
+    width: 80px;
+    height: 45px;
+  }
 }
 </style>
 </head>
@@ -434,7 +494,7 @@ body {
 <!-- 顶部导航 -->
 <nav class="topbar">
   <a href="../../index.html">← 返回游戏榜单</a>
-  <a href="https://store.steampowered.com/app/297000/" target="_blank">Steam 商店页 →</a>
+  <a href="https://store.steampowered.com/app//" target="_blank">Steam 商店页 →</a>
 </nav>
 
 <!-- 游戏头部 -->
@@ -448,19 +508,19 @@ body {
       <div class="en-name">Heroes of Might and Magic III</div>
       
       <div class="meta-tags">
-        <span class="meta-tag year">2015 年 1 月 28 日</span>
-        <span class="meta-tag">角色扮演, 策略</span>
+        <span class="meta-tag year">1999</span>
+        <span class="meta-tag"></span>
         <span class="meta-tag score">⭐ 65</span>
       </div>
       
       <div class="info-row">
         <div class="info-item">
           <span class="label">开发者</span>
-          <span class="value">Dotemu</span>
+          <span class="value"></span>
         </div>
         <div class="info-item">
           <span class="label">发行商</span>
-          <span class="value">Ubisoft Entertainment</span>
+          <span class="value"></span>
         </div>
       </div>
       
@@ -473,29 +533,22 @@ body {
 
 <!-- 媒体区域 -->
 <section class="media-section">
-  <div class="media-tabs">
-    <button class="media-tab active" onclick="showVideo()">▶ 视频</button>
-    <button class="media-tab" onclick="showScreenshots()">🖼 截图</button>
-  </div>
-  
-  <div id="video-container" class="media-player">
+  <div class="media-gallery">
+    <!-- 主图显示区域 -->
+    <div class="media-main" id="mediaMain">
+      <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/297000/ss_89f4967a8e42185534d99ebad949b57894bb70fd.1920x1080.jpg?t=1699009789" alt="Screenshot">
+    </div>
     
-  </div>
-  
-  <div id="screenshots-container" class="screenshots-grid" style="display:none;">
-    <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/297000/ss_89f4967a8e42185534d99ebad949b57894bb70fd.1920x1080.jpg?t=1699009789" alt="Screenshot" onclick="window.open(this.src)">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/297000/ss_06b7cd77b34ac524c79ba5633de6b279eb434b9d.1920x1080.jpg?t=1699009789" alt="Screenshot" onclick="window.open(this.src)">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/297000/ss_12d48a38009033b68dce541a8a41438590b3d354.1920x1080.jpg?t=1699009789" alt="Screenshot" onclick="window.open(this.src)">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/297000/ss_d2717ddb45b659475a035862804e4de6a2ddc528.1920x1080.jpg?t=1699009789" alt="Screenshot" onclick="window.open(this.src)">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/297000/ss_5deb93632ba780f2e722e7582208da04f4e982bf.1920x1080.jpg?t=1699009789" alt="Screenshot" onclick="window.open(this.src)">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/297000/ss_67b14509cc09710140114a51c0b4c78f98da2da5.1920x1080.jpg?t=1699009789" alt="Screenshot" onclick="window.open(this.src)">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/297000/ss_548367faf1cfa549c88585cb9b01f13b05b05ab7.1920x1080.jpg?t=1699009789" alt="Screenshot" onclick="window.open(this.src)">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/297000/ss_f96fc496be4bb5b47a7afc5a715a682d7f0c59af.1920x1080.jpg?t=1699009789" alt="Screenshot" onclick="window.open(this.src)">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/297000/ss_384415357a46fff044fed7e0ee5b7cf9bfa14562.1920x1080.jpg?t=1699009789" alt="Screenshot" onclick="window.open(this.src)">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/297000/ss_e074f8c496a23e4e3d408fdaa7e0a45940a7c423.1920x1080.jpg?t=1699009789" alt="Screenshot" onclick="window.open(this.src)">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/297000/ss_ac673b05786cd600d3fb726e6027358888536bd5.1920x1080.jpg?t=1699009789" alt="Screenshot" onclick="window.open(this.src)">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/297000/ss_95bf938f7c33659a5d7e6ec64ff55fe846fac91c.1920x1080.jpg?t=1699009789" alt="Screenshot" onclick="window.open(this.src)">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/297000/ss_4dab069aecbe2970f02a18baf59b7ab466db0172.1920x1080.jpg?t=1699009789" alt="Screenshot" onclick="window.open(this.src)">
+    <!-- 缩略图bar -->
+    <div class="media-thumbnails" id="mediaThumbnails">
+      <div class="media-thumb active" data-index="0"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/297000/ss_89f4967a8e42185534d99ebad949b57894bb70fd.1920x1080.jpg?t=1699009789" alt="Screenshot"></div>
+<div class="media-thumb " data-index="1"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/297000/ss_06b7cd77b34ac524c79ba5633de6b279eb434b9d.1920x1080.jpg?t=1699009789" alt="Screenshot"></div>
+<div class="media-thumb " data-index="2"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/297000/ss_12d48a38009033b68dce541a8a41438590b3d354.1920x1080.jpg?t=1699009789" alt="Screenshot"></div>
+<div class="media-thumb " data-index="3"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/297000/ss_d2717ddb45b659475a035862804e4de6a2ddc528.1920x1080.jpg?t=1699009789" alt="Screenshot"></div>
+<div class="media-thumb " data-index="4"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/297000/ss_5deb93632ba780f2e722e7582208da04f4e982bf.1920x1080.jpg?t=1699009789" alt="Screenshot"></div>
+<div class="media-thumb " data-index="5"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/297000/ss_67b14509cc09710140114a51c0b4c78f98da2da5.1920x1080.jpg?t=1699009789" alt="Screenshot"></div>
+
+    </div>
   </div>
 </section>
 
@@ -503,7 +556,7 @@ body {
 <section class="content-section">
   <div class="content-block">
     <h2>关于此游戏</h2>
-    <div>史上最受欢迎的英雄无敌游戏高清回归！<br>十五年后，带你再次领略凯瑟琳-艾恩法斯特皇后的史诗传奇，踏上拯救家园的旅程并重新征服埃拉西亚王国。<br><br>再次打造魔法门世界中英雄们的命运，带领传奇而又强大的生物攻城略地，曾经的经典如今又将为英雄无敌的世界写下浓墨重彩的一笔。<br><br><ul class="bb_ul"><li> 全新高清重制：在高清环境下再次体验英雄无敌III，重新打造的游戏拥有升级的画面并兼容宽屏。<br></li><li> 享受广受好评的英雄无敌III经典游戏体验：7个紧张刺激的战役，超过50张战斗地图以及本地多人模式和地图编辑器。<br></li><li> 全新在线大厅，现已支持Steam：PC版本将支持在线对战，同样也能和网友们交流游戏心得和体验。</li></ul></div>
+    <div>史上最受欢迎的英雄无敌游戏高清回归！ 打造魔法门世界中英雄们的命运，带领传奇而又强大的生物攻城略地，曾经的经典如今又将为英雄无敌的世界写下浓墨重彩的一笔。 魔法门之英雄无敌III是一款回合制策略游戏，最初发行与1999年2月。</div>
   </div>
 </section>
 
@@ -512,32 +565,60 @@ body {
   <div class="download-block">
     <h2>📥 下载链接</h2>
     <div class="download-buttons">
-      <p style="color:var(--text-muted)">暂无下载链接</p>
+      <p style="color:#8f98a0;">暂无下载链接</p>
     </div>
   </div>
 </section>
 
 <!-- 系统需求 -->
-<section class="content-section"><div class="content-block"><h2>系统需求</h2><div class="sys-req">
-<div class="sys-req-col"><h4>最低配置</h4><ul><strong>最低配置:</strong><br><ul class="bb_ul"><li><strong>操作系统 *:</strong> Windows 7 SP1, Windows 8, Windows 8.1 – 支持 32/64位系统<br></li><li><strong>处理器:</strong> Intel Core2 Duo E4400 @ 2.0 GHz 或 AMD Athlon64 X2 3800+ @ 2.0 GHz<br></li><li><strong>内存:</strong> 2 GB RAM<br></li><li><strong>显卡:</strong> nVidia GeForce 8800GT 或 AMD Radeon HD2900 (256MB VRAM 或更高，且支持Shader Model 4.0)<br></li><li><strong>DirectX 版本:</strong> 10<br></li><li><strong>网络:</strong> 宽带互联网连接<br></li><li><strong>声卡:</strong> 兼容DirectX的声卡设备<br></li><li><strong>附注事项:</strong> 发售时支持的显卡种类：nVidia GeForce 8800GT 或更高, GeForce 9, GT200, GT400, GT500, GT600, GT700 系列 AMD Radeon HD2900 或更高, HD3000, HD4000, HD5000, HD6000, HD7000 系列, R系列 。此类显卡的笔记本版本官方宣称不支持本游戏，但可能能够运行。最新经测试 GeForce 驱动：所有nVidia  337.88版本 。最新经测试Radeon驱动：Radeon HD2000, HD3000, HD4000 Catalyst 13.9 版本；Radeon HD5000, HD6000, HD7000, R 系列Catalyst 14.4版本</li></ul></ul></div>
-<div class="sys-req-col"><h4>推荐配置</h4><ul><strong>推荐配置:</strong><br><ul class="bb_ul"><li><strong>操作系统 *:</strong> Windows 7 SP1, Windows 8, Windows 8.1 – 支持 32/64位系统<br></li><li><strong>处理器:</strong> Intel Core2 Duo E6600 @ 2.4 GHz 或 AMD Athlon64 X2 5600+ @ 2.8 Ghz<br></li><li><strong>内存:</strong> 3 GB RAM<br></li><li><strong>显卡:</strong> nVidia GeForce 9800GT 或 AMD Radeon HD3870 (512MB VRAM ，且支持Shader Model 5.0)<br></li><li><strong>DirectX 版本:</strong> 10<br></li><li><strong>声卡:</strong> 兼容DirectX的声卡设备<br></li><li><strong>附注事项:</strong> 发售时支持的显卡种类：nVidia GeForce 8800GT 或更高, GeForce 9, GT200, GT400, GT500, GT600, GT700 系列 AMD Radeon HD2900 或更高, HD3000, HD4000, HD5000, HD6000, HD7000 系列, R系列 。此类显卡的笔记本版本官方宣称不支持本游戏，但可能能够运行。最新经测试 GeForce 驱动：所有nVidia  337.88版本 。最新经测试Radeon驱动：Radeon HD2000, HD3000, HD4000 Catalyst 13.9 版本；Radeon HD5000, HD6000, HD7000, R 系列Catalyst 14.4版本</li></ul></ul></div>
-</div></div></section>
+
 
 <script>
-function showVideo() {
-  document.getElementById('video-container').style.display = 'block';
-  document.getElementById('screenshots-container').style.display = 'none';
-  document.querySelectorAll('.media-tab').forEach(t => t.classList.remove('active'));
-  event.target.classList.add('active');
+// 媒体数据
+const mediaItems = [
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/297000/ss_89f4967a8e42185534d99ebad949b57894bb70fd.1920x1080.jpg?t=1699009789", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/297000/ss_89f4967a8e42185534d99ebad949b57894bb70fd.1920x1080.jpg?t=1699009789"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/297000/ss_06b7cd77b34ac524c79ba5633de6b279eb434b9d.1920x1080.jpg?t=1699009789", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/297000/ss_06b7cd77b34ac524c79ba5633de6b279eb434b9d.1920x1080.jpg?t=1699009789"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/297000/ss_12d48a38009033b68dce541a8a41438590b3d354.1920x1080.jpg?t=1699009789", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/297000/ss_12d48a38009033b68dce541a8a41438590b3d354.1920x1080.jpg?t=1699009789"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/297000/ss_d2717ddb45b659475a035862804e4de6a2ddc528.1920x1080.jpg?t=1699009789", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/297000/ss_d2717ddb45b659475a035862804e4de6a2ddc528.1920x1080.jpg?t=1699009789"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/297000/ss_5deb93632ba780f2e722e7582208da04f4e982bf.1920x1080.jpg?t=1699009789", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/297000/ss_5deb93632ba780f2e722e7582208da04f4e982bf.1920x1080.jpg?t=1699009789"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/297000/ss_67b14509cc09710140114a51c0b4c78f98da2da5.1920x1080.jpg?t=1699009789", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/297000/ss_67b14509cc09710140114a51c0b4c78f98da2da5.1920x1080.jpg?t=1699009789"}
+];
+
+let currentIndex = 0;
+
+// 切换到指定媒体
+function switchMedia(index) {
+  if (index < 0 || index >= mediaItems.length) return;
+  
+  currentIndex = index;
+  const item = mediaItems[index];
+  const mainEl = document.getElementById('mediaMain');
+  
+  if (item.type === 'video') {
+    // 使用Steam视频嵌入
+    mainEl.innerHTML = `<iframe src="${item.url}" frameborder="0" allowfullscreen allow="autoplay; fullscreen"></iframe>`;
+  } else {
+    mainEl.innerHTML = `<img src="${item.url}" alt="Screenshot">`;
+  }
+  
+  // 更新缩略图active状态
+  document.querySelectorAll('.media-thumb').forEach((thumb, i) => {
+    thumb.classList.toggle('active', i === index);
+  });
 }
 
-function showScreenshots() {
-  const vc = document.getElementById('video-container');
-  if (vc) vc.style.display = 'none';
-  document.getElementById('screenshots-container').style.display = 'grid';
-  document.querySelectorAll('.media-tab').forEach(t => t.classList.remove('active'));
-  event.target.classList.add('active');
-}
+// 初始化
+document.addEventListener('DOMContentLoaded', () => {
+  // 绑定缩略图点击事件
+  document.querySelectorAll('.media-thumb').forEach((thumb, index) => {
+    thumb.addEventListener('click', () => switchMedia(index));
+  });
+  
+  // 设置初始状态
+  if (mediaItems.length > 0) {
+    switchMedia(0);
+  }
+});
 </script>
 
 </body>

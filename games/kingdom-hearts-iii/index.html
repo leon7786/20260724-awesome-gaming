@@ -168,75 +168,127 @@ body {
   max-width: 640px;
 }
 
-/* 媒体区域 */
+/* 媒体区域 - Steam风格 */
 .media-section {
   max-width: 1200px;
   margin: 2rem auto;
   padding: 0 2rem;
 }
 
-.media-tabs {
-  display: flex;
-  gap: 0.5rem;
-  margin-bottom: 1rem;
-}
-
-.media-tab {
+.media-gallery {
   background: var(--surface);
-  border: 1px solid var(--border);
-  color: var(--text-secondary);
-  padding: 0.5rem 1.25rem;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 0.875rem;
-  font-weight: 500;
-  transition: all 0.2s;
-}
-
-.media-tab:hover {
-  border-color: var(--accent);
-  color: var(--accent);
-}
-
-.media-tab.active {
-  background: var(--accent);
-  color: white;
-  border-color: var(--accent);
-}
-
-.media-player {
   border-radius: var(--radius);
+  border: 1px solid var(--border);
   overflow: hidden;
-  background: #000;
-  aspect-ratio: 16/9;
 }
 
-.media-player video,
-.media-player img {
+/* 主图显示区域 */
+.media-main {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/9;
+  background: #000;
+  overflow: hidden;
+}
+
+.media-main img,
+.media-main video,
+.media-main iframe {
   width: 100%;
   height: 100%;
   object-fit: contain;
+  border: none;
 }
 
-.screenshots-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 0.75rem;
+/* 媒体控制按钮 */
+.media-controls {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  display: flex;
+  gap: 0.5rem;
+  z-index: 10;
 }
 
-.screenshots-grid img {
-  width: 100%;
-  aspect-ratio: 16/9;
-  object-fit: cover;
-  border-radius: 8px;
+.media-control-btn {
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
   cursor: pointer;
+  font-size: 0.875rem;
   transition: all 0.2s;
-  border: 1px solid var(--border);
 }
 
-.screenshots-grid img:hover {
-  transform: scale(1.02);
-  box-shadow: var(--shadow);
+.media-control-btn:hover {
+  background: rgba(0, 0, 0, 0.9);
+}
+
+/* 缩略图bar */
+.media-thumbnails {
+  display: flex;
+  gap: 0.5rem;
+  padding: 1rem;
+  overflow-x: auto;
+  background: #f9fafb;
+  border-top: 1px solid var(--border);
+}
+
+.media-thumbnails::-webkit-scrollbar {
+  height: 6px;
+}
+
+.media-thumbnails::-webkit-scrollbar-track {
+  background: #f3f4f6;
+}
+
+.media-thumbnails::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 3px;
+}
+
+.media-thumb {
+  flex-shrink: 0;
+  width: 120px;
+  height: 67.5px;
+  border-radius: 6px;
+  overflow: hidden;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all 0.2s;
+  position: relative;
+}
+
+.media-thumb:hover {
+  border-color: var(--accent);
+  transform: scale(1.05);
+}
+
+.media-thumb.active {
+  border-color: var(--accent);
+}
+
+.media-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.media-thumb .play-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
 }
 
 /* 内容区域 */
@@ -411,6 +463,10 @@ body {
   .sys-req {
     grid-template-columns: 1fr;
   }
+  .media-thumb {
+    width: 100px;
+    height: 56.25px;
+  }
 }
 
 @media (max-width: 640px) {
@@ -425,6 +481,10 @@ body {
   .content-block,
   .download-block {
     padding: 1.5rem;
+  }
+  .media-thumb {
+    width: 80px;
+    height: 45px;
   }
 }
 </style>
@@ -473,22 +533,23 @@ body {
 
 <!-- 媒体区域 -->
 <section class="media-section">
-  <div class="media-tabs">
-    <button class="media-tab active" onclick="showVideo()">▶ 视频</button>
-    <button class="media-tab" onclick="showScreenshots()">🖼 截图</button>
-  </div>
-  
-  <div id="video-container" class="media-player">
+  <div class="media-gallery">
+    <!-- 主图显示区域 -->
+    <div class="media-main" id="mediaMain">
+      <iframe src="https://store.steampowered.com/video/257031008/" frameborder="0" allowfullscreen allow="autoplay; fullscreen"></iframe>
+    </div>
     
-  </div>
-  
-  <div id="screenshots-container" class="screenshots-grid" style="display:none;">
-    <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2552450/ss_de7c495984ee64f9413c86d3e1869aa52b27bbab.1920x1080.jpg?t=1779418883" alt="Screenshot" onclick="window.open(this.src)">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2552450/ss_983b0aba649f0a64c4dfe2f50fd8dd752c0f117c.1920x1080.jpg?t=1779418883" alt="Screenshot" onclick="window.open(this.src)">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2552450/ss_20d61dc86009b202e72c17882ff6559d4b97d7f8.1920x1080.jpg?t=1779418883" alt="Screenshot" onclick="window.open(this.src)">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2552450/ss_776704373e66d07aca50486573504edcd84a5c65.1920x1080.jpg?t=1779418883" alt="Screenshot" onclick="window.open(this.src)">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2552450/ss_120c8923014ffd17d8e40384c0fef060ed3c20d0.1920x1080.jpg?t=1779418883" alt="Screenshot" onclick="window.open(this.src)">
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2552450/ss_724f63ed9564929131cf98ff39c631dbb2fd2058.1920x1080.jpg?t=1779418883" alt="Screenshot" onclick="window.open(this.src)">
+    <!-- 缩略图bar -->
+    <div class="media-thumbnails" id="mediaThumbnails">
+      <div class="media-thumb active" data-index="0"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257031008/movie.293x165.jpg?t=1718294898" alt="Video"></div>
+<div class="media-thumb " data-index="1"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2552450/ss_de7c495984ee64f9413c86d3e1869aa52b27bbab.1920x1080.jpg?t=1779418883" alt="Screenshot"></div>
+<div class="media-thumb " data-index="2"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2552450/ss_983b0aba649f0a64c4dfe2f50fd8dd752c0f117c.1920x1080.jpg?t=1779418883" alt="Screenshot"></div>
+<div class="media-thumb " data-index="3"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2552450/ss_20d61dc86009b202e72c17882ff6559d4b97d7f8.1920x1080.jpg?t=1779418883" alt="Screenshot"></div>
+<div class="media-thumb " data-index="4"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2552450/ss_776704373e66d07aca50486573504edcd84a5c65.1920x1080.jpg?t=1779418883" alt="Screenshot"></div>
+<div class="media-thumb " data-index="5"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2552450/ss_120c8923014ffd17d8e40384c0fef060ed3c20d0.1920x1080.jpg?t=1779418883" alt="Screenshot"></div>
+<div class="media-thumb " data-index="6"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2552450/ss_724f63ed9564929131cf98ff39c631dbb2fd2058.1920x1080.jpg?t=1779418883" alt="Screenshot"></div>
+
+    </div>
   </div>
 </section>
 
@@ -496,7 +557,7 @@ body {
 <section class="content-section">
   <div class="content-block">
     <h2>关于此游戏</h2>
-    <div><span class="bb_img_ctn"><video controls class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2552450/extras/ce2a17d988476be3968d980c5c953716.poster.avif?t=1779418883" ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2552450/extras/ce2a17d988476be3968d980c5c953716.webm?t=1779418883" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2552450/extras/ce2a17d988476be3968d980c5c953716.mp4?t=1779418883" type="video/mp4"></video></span><h2 class="bb_tag" >■可获得Steam版购买特典&quot;静寂深夜&quot;钥刃。</h2><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2552450/extras/41246d2e32a020033578b3018b8d0c5f.avif?t=1779418883" width=616 height=250 /></span><h2 class="bb_tag" >■《KINGDOM HEARTS III》</h2>某一天，获得了钥匙型刀剑&quot;钥刃&quot;的少年索拉为了找回他的失散好友里克和凯莉，与奉国王（米奇）之命随行的唐老鸭和高飞一起踏上了旅程 。为了拯救世界，需要同时锁上光明和黑暗两个世界，而他的好友里克选择留在黑暗世界。<br>由于索拉拥有完成&quot;王国之心&quot;所需的&quot;钥刃&quot;，而据说&quot;钥刃&quot;是世界之心和人类心灵的集合体，因此世界的黑暗势力&quot;XIII机关&quot;多次阻挡索拉的去路，并挑发了一连串战斗。<br>索拉等人得知至今因&quot;王国之心&quot;发生的一连串战斗，全都在企图掀起钥刃战争的赛亚诺特大师的计画之中。于是他们为了与黑暗对抗，要想办法找齐７位光明守护者。国王和里克开始找寻身经百战的钥刃使者，索拉、高飞和唐老鸭则为了找出&quot;苏醒之力&quot;，再度踏上巡回各个迪士尼世界的旅程。<br>这是从第一部作品开始的&quot;黑暗探求者篇&quot;的完结篇。 除了以迪士尼世界的舞台展开的故事，更加入皮克斯作品等全新世界，发展出更加庞大的世界观。 另外，除了畅快无比的动作，还有仿佛游乐设施般的华丽特效，以及与迪士尼角色们的合作招式等等，可说是系列史上最出色的战斗系统也是本作特色之一。<br><br><span class="bb_img_ctn"><video controls class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2552450/extras/8010d2cd8f065fe2e83b59176cef71f6.poster.avif?t=1779418883" ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2552450/extras/8010d2cd8f065fe2e83b59176cef71f6.webm?t=1779418883" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2552450/extras/8010d2cd8f065fe2e83b59176cef71f6.mp4?t=1779418883" type="video/mp4"></video></span><h2 class="bb_tag" >■ 《KINGDOM HEARTS III Re Mind》（DLC）</h2>发生在《KINGDOM HEARTS III》剧情高潮中的另一篇章&quot;Re Mind&quot;<br>索拉为了救出凯莉而踏上旅程，来到决战前的钥刃坟场。<br>没有实体的索拉追溯着７位光明守护者的心，体验各个守护者的战斗。 这些皆是索拉从未知晓的故事。<br><br><span class="bb_img_ctn"><video controls class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2552450/extras/60c929fa5ae3f2750e1102ac446db2bd.poster.avif?t=1779418883" ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2552450/extras/60c929fa5ae3f2750e1102ac446db2bd.webm?t=1779418883" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2552450/extras/60c929fa5ae3f2750e1102ac446db2bd.mp4?t=1779418883" type="video/mp4"></video></span></div>
+    <div><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2552450/extras/ce2a17d988476be3968d980c5c953716.poster.avif?t=1779418883" width=614 height=344 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2552450/extras/ce2a17d988476be3968d980c5c953716.webm?t=1779418883" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2552450/extras/ce2a17d988476be3968d980c5c953716.mp4?t=1779418883" type="video/mp4"></video></span><h2 class="bb_tag" >■可获得Steam版购买特典&quot;静寂深夜&quot;钥刃。</h2><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2552450/extras/41246d2e32a020033578b3018b8d0c5f.avif?t=1779418883" width=616 height=250 /></span><h2 class="bb_tag" >■《KINGDOM HEARTS III》</h2>某一天，获得了钥匙型刀剑&quot;钥刃&quot;的少年索拉为了找回他的失散好友里克和凯莉，与奉国王（米奇）之命随行的唐老鸭和高飞一起踏上了旅程 。为了拯救世界，需要同时锁上光明和黑暗两个世界，而他的好友里克选择留在黑暗世界。<br>由于索拉拥有完成&quot;王国之心&quot;所需的&quot;钥刃&quot;，而据说&quot;钥刃&quot;是世界之心和人类心灵的集合体，因此世界的黑暗势力&quot;XIII机关&quot;多次阻挡索拉的去路，并挑发了一连串战斗。<br>索拉等人得知至今因&quot;王国之心&quot;发生的一连串战斗，全都在企图掀起钥刃战争的赛亚诺特大师的计画之中。于是他们为了与黑暗对抗，要想办法找齐７位光明守护者。国王和里克开始找寻身经百战的钥刃使者，索拉、高飞和唐老鸭则为了找出&quot;苏醒之力&quot;，再度踏上巡回各个迪士尼世界的旅程。<br>这是从第一部作品开始的&quot;黑暗探求者篇&quot;的完结篇。 除了以迪士尼世界的舞台展开的故事，更加入皮克斯作品等全新世界，发展出更加庞大的世界观。 另外，除了畅快无比的动作，还有仿佛游乐设施般的华丽特效，以及与迪士尼角色们的合作招式等等，可说是系列史上最出色的战斗系统也是本作特色之一。<br><br><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2552450/extras/8010d2cd8f065fe2e83b59176cef71f6.poster.avif?t=1779418883" width=614 height=344 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2552450/extras/8010d2cd8f065fe2e83b59176cef71f6.webm?t=1779418883" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2552450/extras/8010d2cd8f065fe2e83b59176cef71f6.mp4?t=1779418883" type="video/mp4"></video></span><h2 class="bb_tag" >■ 《KINGDOM HEARTS III Re Mind》（DLC）</h2>发生在《KINGDOM HEARTS III》剧情高潮中的另一篇章&quot;Re Mind&quot;<br>索拉为了救出凯莉而踏上旅程，来到决战前的钥刃坟场。<br>没有实体的索拉追溯着７位光明守护者的心，体验各个守护者的战斗。 这些皆是索拉从未知晓的故事。<br><br><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2552450/extras/60c929fa5ae3f2750e1102ac446db2bd.poster.avif?t=1779418883" width=614 height=344 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2552450/extras/60c929fa5ae3f2750e1102ac446db2bd.webm?t=1779418883" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2552450/extras/60c929fa5ae3f2750e1102ac446db2bd.mp4?t=1779418883" type="video/mp4"></video></span></div>
   </div>
 </section>
 
@@ -513,26 +574,66 @@ body {
 </section>
 
 <!-- 系统需求 -->
-<section class="content-section"><div class="content-block"><h2>系统需求</h2><div class="sys-req">
-<div class="sys-req-col"><h4>最低配置</h4><ul><strong>最低配置:</strong><br><ul class="bb_ul"><li>需要 64 位处理器和操作系统<br></li><li><strong>操作系统:</strong> Windows 10 64-bit (ver.1909 or later)<br></li><li><strong>处理器:</strong> Intel® Core™ i5-3330 / AMD Ryzen™3 1200<br></li><li><strong>内存:</strong> 8 GB RAM<br></li><li><strong>显卡:</strong> NVIDIA® GeForce® GTX 760 (VRAM 2GB) / AMD Radeon™ R7 260X (VRAM 2GB)<br></li><li><strong>DirectX 版本:</strong> 11<br></li><li><strong>存储空间:</strong> 需要 75 GB 可用空间<br></li><li><strong>附注事项:</strong> 30FPS @1280×720</li></ul></ul></div>
-<div class="sys-req-col"><h4>推荐配置</h4><ul><strong>推荐配置:</strong><br><ul class="bb_ul"><li>需要 64 位处理器和操作系统<br></li><li><strong>操作系统:</strong> Windows 10 64-bit (ver.1909 or later)<br></li><li><strong>处理器:</strong> Intel® Core™ i5-7500 / AMD Ryzen™3 3100<br></li><li><strong>内存:</strong> 16 GB RAM<br></li><li><strong>显卡:</strong> NVIDIA® GeForce® GTX 1070 / AMD Radeon™ RX Vega 56<br></li><li><strong>DirectX 版本:</strong> 11<br></li><li><strong>存储空间:</strong> 需要 75 GB 可用空间<br></li><li><strong>附注事项:</strong> 60FPS 1920×1080</li></ul></ul></div>
-</div></div></section>
+
+<section class="content-section">
+  <div class="container">
+    <div class="content-block">
+      <h2>系统需求</h2>
+      <div class="sys-req">
+        <div class="sys-req-col"><h4>最低配置</h4><div><strong>最低配置:</strong><br><ul class="bb_ul"><li>需要 64 位处理器和操作系统<br></li><li><strong>操作系统:</strong> Windows 10 64-bit (ver.1909 or later)<br></li><li><strong>处理器:</strong> Intel® Core™ i5-3330 / AMD Ryzen™3 1200<br></li><li><strong>内存:</strong> 8 GB RAM<br></li><li><strong>显卡:</strong> NVIDIA® GeForce® GTX 760 (VRAM 2GB) / AMD Radeon™ R7 260X (VRAM 2GB)<br></li><li><strong>DirectX 版本:</strong> 11<br></li><li><strong>存储空间:</strong> 需要 75 GB 可用空间<br></li><li><strong>附注事项:</strong> 30FPS @1280×720</li></ul></div></div>
+        <div class="sys-req-col"><h4>推荐配置</h4><div><strong>推荐配置:</strong><br><ul class="bb_ul"><li>需要 64 位处理器和操作系统<br></li><li><strong>操作系统:</strong> Windows 10 64-bit (ver.1909 or later)<br></li><li><strong>处理器:</strong> Intel® Core™ i5-7500 / AMD Ryzen™3 3100<br></li><li><strong>内存:</strong> 16 GB RAM<br></li><li><strong>显卡:</strong> NVIDIA® GeForce® GTX 1070 / AMD Radeon™ RX Vega 56<br></li><li><strong>DirectX 版本:</strong> 11<br></li><li><strong>存储空间:</strong> 需要 75 GB 可用空间<br></li><li><strong>附注事项:</strong> 60FPS 1920×1080</li></ul></div></div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <script>
-function showVideo() {
-  document.getElementById('video-container').style.display = 'block';
-  document.getElementById('screenshots-container').style.display = 'none';
-  document.querySelectorAll('.media-tab').forEach(t => t.classList.remove('active'));
-  event.target.classList.add('active');
+// 媒体数据
+const mediaItems = [
+  {"type": "video", "url": "https://store.steampowered.com/video/257031008/", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257031008/movie.293x165.jpg?t=1718294898"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2552450/ss_de7c495984ee64f9413c86d3e1869aa52b27bbab.1920x1080.jpg?t=1779418883", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2552450/ss_de7c495984ee64f9413c86d3e1869aa52b27bbab.1920x1080.jpg?t=1779418883"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2552450/ss_983b0aba649f0a64c4dfe2f50fd8dd752c0f117c.1920x1080.jpg?t=1779418883", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2552450/ss_983b0aba649f0a64c4dfe2f50fd8dd752c0f117c.1920x1080.jpg?t=1779418883"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2552450/ss_20d61dc86009b202e72c17882ff6559d4b97d7f8.1920x1080.jpg?t=1779418883", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2552450/ss_20d61dc86009b202e72c17882ff6559d4b97d7f8.1920x1080.jpg?t=1779418883"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2552450/ss_776704373e66d07aca50486573504edcd84a5c65.1920x1080.jpg?t=1779418883", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2552450/ss_776704373e66d07aca50486573504edcd84a5c65.1920x1080.jpg?t=1779418883"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2552450/ss_120c8923014ffd17d8e40384c0fef060ed3c20d0.1920x1080.jpg?t=1779418883", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2552450/ss_120c8923014ffd17d8e40384c0fef060ed3c20d0.1920x1080.jpg?t=1779418883"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2552450/ss_724f63ed9564929131cf98ff39c631dbb2fd2058.1920x1080.jpg?t=1779418883", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2552450/ss_724f63ed9564929131cf98ff39c631dbb2fd2058.1920x1080.jpg?t=1779418883"}
+];
+
+let currentIndex = 0;
+
+// 切换到指定媒体
+function switchMedia(index) {
+  if (index < 0 || index >= mediaItems.length) return;
+  
+  currentIndex = index;
+  const item = mediaItems[index];
+  const mainEl = document.getElementById('mediaMain');
+  
+  if (item.type === 'video') {
+    // 使用Steam视频嵌入
+    mainEl.innerHTML = `<iframe src="${item.url}" frameborder="0" allowfullscreen allow="autoplay; fullscreen"></iframe>`;
+  } else {
+    mainEl.innerHTML = `<img src="${item.url}" alt="Screenshot">`;
+  }
+  
+  // 更新缩略图active状态
+  document.querySelectorAll('.media-thumb').forEach((thumb, i) => {
+    thumb.classList.toggle('active', i === index);
+  });
 }
 
-function showScreenshots() {
-  const vc = document.getElementById('video-container');
-  if (vc) vc.style.display = 'none';
-  document.getElementById('screenshots-container').style.display = 'grid';
-  document.querySelectorAll('.media-tab').forEach(t => t.classList.remove('active'));
-  event.target.classList.add('active');
-}
+// 初始化
+document.addEventListener('DOMContentLoaded', () => {
+  // 绑定缩略图点击事件
+  document.querySelectorAll('.media-thumb').forEach((thumb, index) => {
+    thumb.addEventListener('click', () => switchMedia(index));
+  });
+  
+  // 设置初始状态
+  if (mediaItems.length > 0) {
+    switchMedia(0);
+  }
+});
 </script>
 
 </body>
