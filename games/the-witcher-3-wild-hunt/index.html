@@ -67,24 +67,27 @@ body {
   gap: 0.35rem;
   padding: 0.3rem 0.65rem;
   border-radius: 6px;
-  background: linear-gradient(135deg, #1f2937, #374151);
-  color: #fff;
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  text-decoration: none;
   font-size: 0.75rem;
   font-weight: 500;
+  color: #166534;
 }
 
 .mc-inline .mc-num {
   font-size: 0.95rem;
   font-weight: 800;
-  color: #fbbf24;
+  color: #15803d;
 }
 
 .mc-inline .mc-label {
   font-size: 0.6rem;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  color: #9ca3af;
-  border-left: 1px solid #4b5563;
+  color: #166534;
+  opacity: 0.7;
+  border-left: 1px solid #86efac;
   padding-left: 0.35rem;
 }
 
@@ -181,7 +184,7 @@ body {
 /* 下载区域 - 精致小巧 */
 .download-section {
   max-width: 1200px;
-  margin: 2rem auto 3rem;
+  margin: 2.5rem auto 4rem;
   padding: 0 2rem;
 }
 
@@ -189,9 +192,7 @@ body {
   display: flex;
   align-items: center;
   gap: 1.5rem;
-  padding: 1rem 1.5rem;
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
+  padding: 0;
 }
 
 .download-label {
@@ -206,42 +207,44 @@ body {
 .download-pills {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.4rem;
+  gap: 0.6rem;
 }
 
 .download-pill {
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
-  padding: 0.35rem 0.85rem;
-  border-radius: 100px;
-  font-size: 0.75rem;
-  font-weight: 500;
+  padding: 0.5rem 1.2rem;
+  border-radius: 10px;
+  font-size: 0.8rem;
+  font-weight: 600;
   color: var(--text-primary);
   text-decoration: none;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  transition: all 0.2s;
+  background: linear-gradient(180deg, #ffffff 0%, #f3f4f6 100%);
+  border: 1px solid #d1d5db;
+  box-shadow:
+    inset 0 1px 0 #fff,
+    0 1px 2px rgba(0,0,0,0.06),
+    0 2px 4px rgba(0,0,0,0.04);
+  transition: all 0.15s;
   white-space: nowrap;
 }
 
 .download-pill:hover {
-  background: var(--text-primary);
-  color: #fff;
-  border-color: var(--text-primary);
+  background: linear-gradient(180deg, #f9fafb 0%, #e5e7eb 100%);
+  border-color: #9ca3af;
   transform: translateY(-1px);
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  box-shadow:
+    inset 0 1px 0 #fff,
+    0 2px 4px rgba(0,0,0,0.1),
+    0 4px 8px rgba(0,0,0,0.06);
 }
 
-.download-pill .pill-arrow {
-  font-size: 0.7rem;
-  opacity: 0.6;
-  transition: transform 0.2s;
-}
-
-.download-pill:hover .pill-arrow {
-  opacity: 1;
-  transform: translateX(2px);
+.download-pill:active {
+  transform: translateY(1px);
+  box-shadow:
+    inset 0 1px 3px rgba(0,0,0,0.08),
+    0 1px 2px rgba(0,0,0,0.06);
 }
 
 /* 响应式 */
@@ -666,21 +669,7 @@ ul.bb_ul li strong {
   object-fit: cover;
 }
 
-.media-thumb .play-icon {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: rgba(0, 0, 0, 0.7);
-  color: white;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1rem;
-}
+
 
 /* 内容区域 */
 .content-section {
@@ -900,9 +889,9 @@ ul.bb_ul li strong {
   <div class="download-block">
     <span class="download-label">Download</span>
     <div class="download-pills">
-      <a href="https://www.gamer520.com/47649.html" class="download-pill" target="_blank">gamer520<span class="pill-arrow">↗</span></a>
-      <a href="https://www.x6d.com/i-wz-10131.html" class="download-pill" target="_blank">x6d<span class="pill-arrow">↗</span></a>
-      <a href="https://steamzg.com/24239" class="download-pill" target="_blank">steamzg<span class="pill-arrow">↗</span></a>
+      <a href="https://www.gamer520.com/47649.html" class="download-pill" target="_blank">gamer520</a>
+      <a href="https://www.x6d.com/i-wz-10131.html" class="download-pill" target="_blank">x6d</a>
+      <a href="https://steamzg.com/24239" class="download-pill" target="_blank">steamzg</a>
     </div>
   </div>
 </section>
