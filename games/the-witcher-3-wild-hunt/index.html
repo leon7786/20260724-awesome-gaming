@@ -36,77 +36,56 @@ body {
 .topbar {
   background: var(--surface);
   border-bottom: 1px solid var(--border);
-  padding: 0 2rem;
+  padding: 0.75rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   position: sticky;
   top: 0;
   z-index: 100;
 }
 
-.topbar .topbar-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 52px;
-}
-
-.topbar-left {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-.topbar-left a {
+.topbar a {
   color: var(--text-secondary);
   text-decoration: none;
-  font-size: 0.8rem;
+  font-size: 0.875rem;
   font-weight: 500;
-  padding: 0.35rem 0.75rem;
-  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
   transition: all 0.2s;
 }
 
-.topbar-left a:hover {
-  background: #f3f4f6;
-  color: var(--text-primary);
+.topbar a:hover {
+  background: var(--accent-light);
+  color: var(--accent);
 }
 
-/* Metacritic 评分徽章 */
-.metacritic-badge {
+/* Metacritic 评分徽章（内嵌到 meta-tags） */
+.mc-inline {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.35rem 0.9rem;
-  background: linear-gradient(135deg, #1f2937 0%, #374151 100%);
+  gap: 0.35rem;
+  padding: 0.3rem 0.65rem;
   border-radius: 6px;
+  background: linear-gradient(135deg, #1f2937, #374151);
   color: #fff;
   font-size: 0.75rem;
   font-weight: 500;
-  text-decoration: none;
-  transition: all 0.2s;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.12);
 }
 
-.metacritic-badge:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-}
-
-.metacritic-badge .mc-score {
-  font-size: 1rem;
+.mc-inline .mc-num {
+  font-size: 0.95rem;
   font-weight: 800;
   color: #fbbf24;
-  letter-spacing: -0.02em;
 }
 
-.metacritic-badge .mc-label {
-  font-size: 0.65rem;
+.mc-inline .mc-label {
+  font-size: 0.6rem;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   color: #9ca3af;
   border-left: 1px solid #4b5563;
-  padding-left: 0.5rem;
+  padding-left: 0.35rem;
 }
 
 /* 系统需求 */
@@ -199,7 +178,7 @@ body {
   font-weight: 600;
 }
 
-/* 下载区域 - 现代设计 */
+/* 下载区域 - 精致小巧 */
 .download-section {
   max-width: 1200px;
   margin: 2rem auto 3rem;
@@ -207,82 +186,62 @@ body {
 }
 
 .download-block {
-  background: var(--surface);
-  border-radius: var(--radius);
-  border: 1px solid var(--border);
-  padding: 1.5rem;
-}
-
-.download-block h2 {
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--text-primary);
-  margin-bottom: 1rem;
-  padding-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1rem 1.5rem;
+  border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
 }
 
-.download-list {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.download-item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.75rem 1rem;
-  border-radius: 8px;
-  text-decoration: none;
-  transition: all 0.2s;
-  border: 1px solid transparent;
-}
-
-.download-item:hover {
-  background: #f9fafb;
-  border-color: var(--border);
-}
-
-.download-item-left {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
-
-.download-item-icon {
-  width: 36px;
-  height: 36px;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1rem;
-  background: linear-gradient(135deg, #f3f4f6, #e5e7eb);
-  color: var(--text-primary);
-}
-
-.download-item-info .name {
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--text-primary);
-}
-
-.download-item-info .desc {
+.download-label {
   font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
   color: var(--text-muted);
-  margin-top: 0.15rem;
+  flex-shrink: 0;
 }
 
-.download-item-arrow {
-  font-size: 0.85rem;
-  color: var(--text-muted);
-  transition: transform 0.2s, color 0.2s;
+.download-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
 }
 
-.download-item:hover .download-item-arrow {
-  transform: translateX(4px);
-  color: var(--accent);
+.download-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: 100px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  text-decoration: none;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.download-pill:hover {
+  background: var(--text-primary);
+  color: #fff;
+  border-color: var(--text-primary);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.download-pill .pill-arrow {
+  font-size: 0.7rem;
+  opacity: 0.6;
+  transition: transform 0.2s;
+}
+
+.download-pill:hover .pill-arrow {
+  opacity: 1;
+  transform: translateX(2px);
 }
 
 /* 响应式 */
@@ -337,6 +296,19 @@ body {
   }
   .metacritic-badge .mc-label {
     display: none;
+  }
+  .download-block {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+  .download-pills {
+    width: 100%;
+  }
+  .download-pill {
+    flex: 1;
+    justify-content: center;
+    min-width: 0;
   }
 }
 
@@ -837,16 +809,8 @@ ul.bb_ul li strong {
 
 <!-- 顶部导航 -->
 <nav class="topbar">
-  <div class="topbar-inner">
-    <div class="topbar-left">
-      <a href="../../index.html">← 返回游戏榜单</a>
-      <a href="https://store.steampowered.com/app/292030/" target="_blank">Steam 商店页</a>
-      <a href="https://www.metacritic.com/game/pc/the-witcher-3-wild-hunt" class="metacritic-badge" target="_blank">
-        <span class="mc-score">93</span>
-        <span class="mc-label">Metacritic</span>
-      </a>
-    </div>
-  </div>
+  <a href="../../index.html">← 返回游戏榜单</a>
+  <a href="https://store.steampowered.com/app/292030/" target="_blank">Steam 商店页 →</a>
 </nav>
 
 <!-- 游戏头部 -->
@@ -862,7 +826,10 @@ ul.bb_ul li strong {
       <div class="meta-tags">
         <span class="meta-tag year">2015</span>
         <span class="meta-tag">口碑Top · 销量Top</span>
-        <span class="meta-tag score">⭐ 96</span>
+        <a href="https://www.metacritic.com/game/pc/the-witcher-3-wild-hunt" class="mc-inline" target="_blank">
+          <span class="mc-num">93</span>
+          <span class="mc-label">Metacritic</span>
+        </a>
       </div>
       
       <div class="info-row">
@@ -931,38 +898,11 @@ ul.bb_ul li strong {
 
 <section class="download-section">
   <div class="download-block">
-    <h2>📥 下载链接</h2>
-    <div class="download-list">
-      <a href="https://www.gamer520.com/47649.html" class="download-item" target="_blank">
-        <div class="download-item-left">
-          <div class="download-item-icon">🎮</div>
-          <div class="download-item-info">
-            <div class="name">gamer520</div>
-            <div class="desc">PC 破解版 · 解压密码：laoquzhang.com</div>
-          </div>
-        </div>
-        <span class="download-item-arrow">→</span>
-      </a>
-      <a href="https://www.x6d.com/i-wz-10131.html" class="download-item" target="_blank">
-        <div class="download-item-left">
-          <div class="download-item-icon">📦</div>
-          <div class="download-item-info">
-            <div class="name">x6d</div>
-            <div class="desc">多网盘下载 · 见页面说明</div>
-          </div>
-        </div>
-        <span class="download-item-arrow">→</span>
-      </a>
-      <a href="https://steamzg.com/24239" class="download-item" target="_blank">
-        <div class="download-item-left">
-          <div class="download-item-icon">🔗</div>
-          <div class="download-item-info">
-            <div class="name">steamzg</div>
-            <div class="desc">游戏下载 · 备用链接</div>
-          </div>
-        </div>
-        <span class="download-item-arrow">→</span>
-      </a>
+    <span class="download-label">Download</span>
+    <div class="download-pills">
+      <a href="https://www.gamer520.com/47649.html" class="download-pill" target="_blank">gamer520<span class="pill-arrow">↗</span></a>
+      <a href="https://www.x6d.com/i-wz-10131.html" class="download-pill" target="_blank">x6d<span class="pill-arrow">↗</span></a>
+      <a href="https://steamzg.com/24239" class="download-pill" target="_blank">steamzg<span class="pill-arrow">↗</span></a>
     </div>
   </div>
 </section>
