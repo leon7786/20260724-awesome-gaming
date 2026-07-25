@@ -219,36 +219,6 @@ body {
 .media-thumb.active {
   box-shadow: 0 0 0 2px rgba(59,130,246,0.25);
 }
-/* 缩略图滚动箭头提示 */
-.media-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  background: rgba(27, 40, 56, 0.78);
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 12px;
-  font-weight: 700;
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity 0.2s ease;
-  z-index: 5;
-}
-.media-arrow.left { left: 4px; }
-.media-arrow.right { right: 4px; }
-.media-thumbnails-wrap {
-  position: relative;
-  overflow: hidden;
-}
-.media-thumbnails-wrap:hover .media-arrow.show {
-  opacity: 1;
-}
-
 
 /* 媒体控制按钮 */
 .media-controls {
@@ -345,7 +315,7 @@ body {
 
 /* 内容区域 */
 .content-section {
-  max-width: 940px; /* Steam 正文宽度 */
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 2rem 2rem;
 }
@@ -539,51 +509,6 @@ body {
     height: 45px;
   }
 }
-
-/* Steam 关于此游戏内容 */
-.content-block .about_para {
-  margin-bottom: 0.9rem;
-  color: var(--text-secondary);
-  font-size: 0.9375rem;
-  line-height: 1.75;
-}
-.content-block .about_media {
-  display: block;
-  max-width: 100%;
-  margin: 1rem 0;
-  overflow: hidden;
-  border-radius: 8px;
-  background: #000;
-}
-.content-block .about_img {
-  max-width: 100% !important;
-  width: 100% !important;
-  height: auto !important;
-  display: block;
-  border-radius: 8px;
-}
-.content-block video.about_img {
-  width: 100% !important;
-  max-height: 480px;
-  object-fit: contain;
-  background: #000;
-}
-.content-block .about_ul {
-  list-style: none;
-  padding-left: 0;
-}
-.content-block .about_ul li {
-  padding-left: 1.25rem;
-  position: relative;
-  margin-bottom: 0.5rem;
-}
-.content-block .about_ul li:before {
-  content: "•";
-  position: absolute;
-  left: 0;
-  color: var(--accent);
-}
-
 </style>
 </head>
 <body>
@@ -598,7 +523,7 @@ body {
 <section class="hero">
   <div class="container">
     <div class="hero-cover">
-      <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2694490/24eeddcbda17903f03d819588757e40845f8115f/header.jpg" alt="流放之路 2 (EA)">
+      <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2694490/library_600x900.jpg" alt="流放之路 2 (EA)">
     </div>
     <div class="hero-info">
       <h1>流放之路 2 (EA)</h1>
@@ -632,30 +557,12 @@ body {
   <div class="media-gallery">
     <!-- 主图显示区域 -->
     <div class="media-main" id="mediaMain">
-      <video controls playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257333111/3b622c23af7956dd081c7e69ac6e943e92727388/movie_600x337.jpg?t=1778192065" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257333111/movie_max.mp4" style="width:100%;height:100%;object-fit:contain;background:#000"></video>
+      <img src="" alt="Cover">
     </div>
     
     <!-- 缩略图bar -->
-    <div class="media-thumbnails-wrap" id="mediaThumbnailsWrap">
-      <div class="media-thumbnails" id="mediaThumbnails">
-      <div class="media-thumb active" data-index="0"><div class="play-icon">▶</div>      </div>
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257333111/3b622c23af7956dd081c7e69ac6e943e92727388/movie_600x337.jpg?t=1778192065" alt="Video"></div>
-<div class="media-thumb" data-index="1"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257243769/538401abe87d946389f5120aafe2bd1ca8a3b9fc/movie_600x337.jpg?t=1764888649" alt="Video"></div>
-<div class="media-thumb" data-index="2"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257243774/a8711ffa82d51edc14142076694ce7bd98864592/movie_600x337.jpg?t=1764888650" alt="Video"></div>
-<div class="media-thumb" data-index="3"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257186341/5f94e168a92df780c3ba210945d63e3aed0dfa43/movie_600x337.jpg?t=1755739001" alt="Video"></div>
-<div class="media-thumb" data-index="4"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257075660/3a53472004dab79e94c458516d1d23d5c34c86c6/movie_600x337.jpg?t=1764888651" alt="Video"></div>
-<div class="media-thumb" data-index="5"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2694490/f4676d0b868f78aef63d15833a1d96afc76dc8d2/ss_f4676d0b868f78aef63d15833a1d96afc76dc8d2.1920x1080.jpg?t=1781573777" alt="Screenshot"></div>
-<div class="media-thumb" data-index="6"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2694490/1ce58962d3ffb1a824a42dd2ca0ead64c7597fdf/ss_1ce58962d3ffb1a824a42dd2ca0ead64c7597fdf.1920x1080.jpg?t=1781573777" alt="Screenshot"></div>
-<div class="media-thumb" data-index="7"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2694490/07c21f3e884059d85bc2ed0213d71cd99a5499b5/ss_07c21f3e884059d85bc2ed0213d71cd99a5499b5.1920x1080.jpg?t=1781573777" alt="Screenshot"></div>
-<div class="media-thumb" data-index="8"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2694490/e8d9749bf7885a38c2db8c4ba64e55fd376b4715/ss_e8d9749bf7885a38c2db8c4ba64e55fd376b4715.1920x1080.jpg?t=1781573777" alt="Screenshot"></div>
-<div class="media-thumb" data-index="9"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2694490/88c9dccd5619feb31707ed5f5e549e5aba6de0ec/ss_88c9dccd5619feb31707ed5f5e549e5aba6de0ec.1920x1080.jpg?t=1781573777" alt="Screenshot"></div>
-<div class="media-thumb" data-index="10"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2694490/e5d757b94801daf70836c1686208ed6d39785b36/ss_e5d757b94801daf70836c1686208ed6d39785b36.1920x1080.jpg?t=1781573777" alt="Screenshot"></div>
-<div class="media-thumb" data-index="11"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2694490/e2d559c229fc8e66cefae1f19370fa4ccd2fc712/ss_e2d559c229fc8e66cefae1f19370fa4ccd2fc712.1920x1080.jpg?t=1781573777" alt="Screenshot"></div>
-<div class="media-thumb" data-index="12"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2694490/2430433b358a16fe2c9dd4b883eb955d8a252c3c/ss_2430433b358a16fe2c9dd4b883eb955d8a252c3c.1920x1080.jpg?t=1781573777" alt="Screenshot"></div>
-<div class="media-thumb" data-index="13"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2694490/69140f666c152c1af0cefb077fbc0b770f87e569/ss_69140f666c152c1af0cefb077fbc0b770f87e569.1920x1080.jpg?t=1781573777" alt="Screenshot"></div>
-<div class="media-thumb" data-index="14"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2694490/033b9250c0e77bf1767bd26fd104bc2680378ffe/ss_033b9250c0e77bf1767bd26fd104bc2680378ffe.1920x1080.jpg?t=1781573777" alt="Screenshot"></div>
-<div class="media-thumb" data-index="15"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2694490/c0d1566648358ceff13c63c98addbe832a9e066d/ss_c0d1566648358ceff13c63c98addbe832a9e066d.1920x1080.jpg?t=1781573777" alt="Screenshot"></div>
-<div class="media-thumb" data-index="16"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2694490/cfee74ea0e4abcd5617b65b789b53541df3b5a31/ss_cfee74ea0e4abcd5617b65b789b53541df3b5a31.1920x1080.jpg?t=1781573777" alt="Screenshot"></div>
+    <div class="media-thumbnails" id="mediaThumbnails">
+      
     </div>
   </div>
 </section>
@@ -664,7 +571,7 @@ body {
 <section class="content-section">
   <div class="content-block">
     <h2>关于此游戏</h2>
-    <div><p class="about_para" >Path of Exile 2 is a next generation Action RPG from Grinding Gear Games, featuring co-op for up to six players. Path of Exile 2 takes place in the land of Wraeclast, a dark continent populated by unique cultures, ancient secrets, and monstrous dangers. A sinister threat, long thought destroyed, has begun creeping back on the edge of civilisation, driving people mad and sickening the land with Corruption. </p><p class="about_para" >Path of Exile 2 features a brand new campaign with six acts, 100 distinct environments, 600 monsters and 100 bosses. </p><h2 class="bb_tag" >Key Features</h2><ul class="about_ul"><li><p class="about_para" ><strong>Twelve Character Classes</strong><br>Path of Exile 2 features twelve character classes, two for every combination of Strength, Dexterity and Intelligence. While each of the class variants focuses on a different playstyle, they're just a starting point. You can combine skills from many classes together to create your ideal character build.<br><br>Each of the twelve character classes has its own three Ascendancy specialisations, resulting in a total of 36 Ascendancy Classes to pick between.<br><br></p></li><li><p class="about_para" ><strong>New Skill Gem System</strong><br>Path of Exile 2 features 240 Skill Gems that grant devastating active skills and 200 Support Gems that modify their behaviour. Combine these together to create your perfect build.<br><br>This is the next generation of Path of Exile's famous skill system. Support Gems are now socketed directly into Skill Gems, removing many of the frustrations present in the old system while maintaining all the previous depth. It's now possible to six-link every skill your character uses.</p></li><li><p class="about_para" ><strong>Dual-specialise your Passive Skill Tree</strong><br>Path of Exile's iconic Passive Skill Tree has made a return, with 1,500 skills that allow you to completely customise your gameplay experience. It now features Dual Specialisation, the ability to allocate some passive skill points to two different sets of skills. They engage whenever the appropriate weapon or skill type is used. For example, you can have some points allocated to both daggers and traps, or ice and lightning, and as you swap between attacks, the appropriate skill points will apply. This lets you specialise in multiple areas without opportunity cost.<br><br></p></li><li><p class="about_para" ><strong>Uncover All-new Items</strong><br>Path of Exile 2 features 700 equipment base types and every single one has its own unique item you can find. You can augment your arsenal with new weapons such as Spears, Crossbows and Flails, as well as supplementary items like Focuses, Traps and redesigned Sceptres.</p></li><li><p class="about_para" ><strong>Encounter Unique Bosses</strong> <br>In Path of Exile 2, every area of the Campaign contains a boss encounter. There's over a hundred bosses to fight as you make your way through the Acts and they all have unique mechanics to learn.</p></li><li><p class="about_para" ><strong>Explore a New Endgame </strong><br>Completing the campaign is just the beginning. The endgame in Path of Exile 2 includes countless areas in different biomes, powerful crafting, challenging bosses, unique encounters and much more. Unlock new paths and explore further into the world.        <br>      <br> As you progress through the endgame, you will gain access to special passive trees that can boost the rewards of your maps and change the way the various endgame mechanics work. These trees will make your maps more rewarding but also more difficult.      <br>       <br>Path of Exile 2 introduces sequels to several leagues from Path of Exile. While their mechanics are familiar, the monsters, bosses, rewards and progression are all new.</p></li><li><p class="about_para" ><strong>Fair-To-Play. Never Pay-To-Win. </strong><br>Path of Exile 2 is a separate game to the original Path of Exile. We will continue to offer expansions for both games going forward. They  will never be &quot;pay to win&quot;. Purchases are shared between the two games.</p></li></ul></div>
+    <div></div>
   </div>
 </section>
 
@@ -684,91 +591,7 @@ body {
 <script>
 // 媒体数据
 const mediaItems = [
-  {
-    "type": "video",
-    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257333111/movie_max.mp4",
-    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257333111/3b622c23af7956dd081c7e69ac6e943e92727388/movie_600x337.jpg?t=1778192065"
-  },
-  {
-    "type": "video",
-    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257243769/movie_max.mp4",
-    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257243769/538401abe87d946389f5120aafe2bd1ca8a3b9fc/movie_600x337.jpg?t=1764888649"
-  },
-  {
-    "type": "video",
-    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257243774/movie_max.mp4",
-    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257243774/a8711ffa82d51edc14142076694ce7bd98864592/movie_600x337.jpg?t=1764888650"
-  },
-  {
-    "type": "video",
-    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257186341/movie_max.mp4",
-    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257186341/5f94e168a92df780c3ba210945d63e3aed0dfa43/movie_600x337.jpg?t=1755739001"
-  },
-  {
-    "type": "video",
-    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257075660/movie_max.mp4",
-    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257075660/3a53472004dab79e94c458516d1d23d5c34c86c6/movie_600x337.jpg?t=1764888651"
-  },
-  {
-    "type": "image",
-    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2694490/f4676d0b868f78aef63d15833a1d96afc76dc8d2/ss_f4676d0b868f78aef63d15833a1d96afc76dc8d2.1920x1080.jpg?t=1781573777",
-    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2694490/f4676d0b868f78aef63d15833a1d96afc76dc8d2/ss_f4676d0b868f78aef63d15833a1d96afc76dc8d2.1920x1080.jpg?t=1781573777"
-  },
-  {
-    "type": "image",
-    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2694490/1ce58962d3ffb1a824a42dd2ca0ead64c7597fdf/ss_1ce58962d3ffb1a824a42dd2ca0ead64c7597fdf.1920x1080.jpg?t=1781573777",
-    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2694490/1ce58962d3ffb1a824a42dd2ca0ead64c7597fdf/ss_1ce58962d3ffb1a824a42dd2ca0ead64c7597fdf.1920x1080.jpg?t=1781573777"
-  },
-  {
-    "type": "image",
-    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2694490/07c21f3e884059d85bc2ed0213d71cd99a5499b5/ss_07c21f3e884059d85bc2ed0213d71cd99a5499b5.1920x1080.jpg?t=1781573777",
-    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2694490/07c21f3e884059d85bc2ed0213d71cd99a5499b5/ss_07c21f3e884059d85bc2ed0213d71cd99a5499b5.1920x1080.jpg?t=1781573777"
-  },
-  {
-    "type": "image",
-    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2694490/e8d9749bf7885a38c2db8c4ba64e55fd376b4715/ss_e8d9749bf7885a38c2db8c4ba64e55fd376b4715.1920x1080.jpg?t=1781573777",
-    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2694490/e8d9749bf7885a38c2db8c4ba64e55fd376b4715/ss_e8d9749bf7885a38c2db8c4ba64e55fd376b4715.1920x1080.jpg?t=1781573777"
-  },
-  {
-    "type": "image",
-    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2694490/88c9dccd5619feb31707ed5f5e549e5aba6de0ec/ss_88c9dccd5619feb31707ed5f5e549e5aba6de0ec.1920x1080.jpg?t=1781573777",
-    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2694490/88c9dccd5619feb31707ed5f5e549e5aba6de0ec/ss_88c9dccd5619feb31707ed5f5e549e5aba6de0ec.1920x1080.jpg?t=1781573777"
-  },
-  {
-    "type": "image",
-    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2694490/e5d757b94801daf70836c1686208ed6d39785b36/ss_e5d757b94801daf70836c1686208ed6d39785b36.1920x1080.jpg?t=1781573777",
-    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2694490/e5d757b94801daf70836c1686208ed6d39785b36/ss_e5d757b94801daf70836c1686208ed6d39785b36.1920x1080.jpg?t=1781573777"
-  },
-  {
-    "type": "image",
-    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2694490/e2d559c229fc8e66cefae1f19370fa4ccd2fc712/ss_e2d559c229fc8e66cefae1f19370fa4ccd2fc712.1920x1080.jpg?t=1781573777",
-    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2694490/e2d559c229fc8e66cefae1f19370fa4ccd2fc712/ss_e2d559c229fc8e66cefae1f19370fa4ccd2fc712.1920x1080.jpg?t=1781573777"
-  },
-  {
-    "type": "image",
-    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2694490/2430433b358a16fe2c9dd4b883eb955d8a252c3c/ss_2430433b358a16fe2c9dd4b883eb955d8a252c3c.1920x1080.jpg?t=1781573777",
-    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2694490/2430433b358a16fe2c9dd4b883eb955d8a252c3c/ss_2430433b358a16fe2c9dd4b883eb955d8a252c3c.1920x1080.jpg?t=1781573777"
-  },
-  {
-    "type": "image",
-    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2694490/69140f666c152c1af0cefb077fbc0b770f87e569/ss_69140f666c152c1af0cefb077fbc0b770f87e569.1920x1080.jpg?t=1781573777",
-    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2694490/69140f666c152c1af0cefb077fbc0b770f87e569/ss_69140f666c152c1af0cefb077fbc0b770f87e569.1920x1080.jpg?t=1781573777"
-  },
-  {
-    "type": "image",
-    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2694490/033b9250c0e77bf1767bd26fd104bc2680378ffe/ss_033b9250c0e77bf1767bd26fd104bc2680378ffe.1920x1080.jpg?t=1781573777",
-    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2694490/033b9250c0e77bf1767bd26fd104bc2680378ffe/ss_033b9250c0e77bf1767bd26fd104bc2680378ffe.1920x1080.jpg?t=1781573777"
-  },
-  {
-    "type": "image",
-    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2694490/c0d1566648358ceff13c63c98addbe832a9e066d/ss_c0d1566648358ceff13c63c98addbe832a9e066d.1920x1080.jpg?t=1781573777",
-    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2694490/c0d1566648358ceff13c63c98addbe832a9e066d/ss_c0d1566648358ceff13c63c98addbe832a9e066d.1920x1080.jpg?t=1781573777"
-  },
-  {
-    "type": "image",
-    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2694490/cfee74ea0e4abcd5617b65b789b53541df3b5a31/ss_cfee74ea0e4abcd5617b65b789b53541df3b5a31.1920x1080.jpg?t=1781573777",
-    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2694490/cfee74ea0e4abcd5617b65b789b53541df3b5a31/ss_cfee74ea0e4abcd5617b65b789b53541df3b5a31.1920x1080.jpg?t=1781573777"
-  }
+  
 ];
 
 let currentIndex = 0;
@@ -824,41 +647,6 @@ document.addEventListener('DOMContentLoaded', () => {
   if (mediaItems.length > 0) {
     switchMedia(0);
   }
-
-  // 缩略图滚动箭头提示
-  const thumbsWrap = document.getElementById('mediaThumbnailsWrap') || document.querySelector('.media-thumbnails-wrap');
-  const bar = document.getElementById('mediaThumbnails');
-  if (bar && thumbsWrap) {
-    const leftArrow = thumbsWrap.querySelector('.media-arrow.left') || (() => {
-      const el = document.createElement('div');
-      el.className = 'media-arrow left';
-      el.innerHTML = '\u2039';
-      thumbsWrap.appendChild(el);
-      return el;
-    })();
-    const rightArrow = thumbsWrap.querySelector('.media-arrow.right') || (() => {
-      const el = document.createElement('div');
-      el.className = 'media-arrow right';
-      el.innerHTML = '\u203A';
-      thumbsWrap.appendChild(el);
-      return el;
-    })();
-    function updateArrows() {
-      const left = bar.scrollLeft;
-      const maxLeft = bar.scrollWidth - bar.clientWidth;
-      if (maxLeft <= 0) {
-        leftArrow.classList.remove('show');
-        rightArrow.classList.remove('show');
-        return;
-      }
-      leftArrow.classList.toggle('show', left > 1);
-      rightArrow.classList.toggle('show', left < maxLeft - 1);
-    }
-    bar.addEventListener('scroll', updateArrows);
-    window.addEventListener('resize', updateArrows);
-    updateArrows();
-  }
-
 });
 </script>
 

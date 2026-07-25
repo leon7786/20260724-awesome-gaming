@@ -1,5 +1,4 @@
-<!DO      </div>
-CTYPE html>
+<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
@@ -220,36 +219,6 @@ body {
 .media-thumb.active {
   box-shadow: 0 0 0 2px rgba(59,130,246,0.25);
 }
-/* 缩略图滚动箭头提示 */
-.media-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  background: rgba(27, 40, 56, 0.78);
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 12px;
-  font-weight: 700;
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity 0.2s ease;
-  z-index: 5;
-}
-.media-arrow.left { left: 4px; }
-.media-arrow.right { right: 4px; }
-.media-thumbnails-wrap {
-  position: relative;
-  overflow: hidden;
-}
-.media-thumbnails-wrap:hover .media-arrow.show {
-  opacity: 1;
-}
-
 
 /* 媒体控制按钮 */
 .media-controls {
@@ -346,7 +315,7 @@ body {
 
 /* 内容区域 */
 .content-section {
-  max-width: 940px; /* Steam 正文宽度 */
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 2rem 2rem;
 }
@@ -540,51 +509,6 @@ body {
     height: 45px;
   }
 }
-
-/* Steam 关于此游戏内容 */
-.content-block .about_para {
-  margin-bottom: 0.9rem;
-  color: var(--text-secondary);
-  font-size: 0.9375rem;
-  line-height: 1.75;
-}
-.content-block .about_media {
-  display: block;
-  max-width: 100%;
-  margin: 1rem 0;
-  overflow: hidden;
-  border-radius: 8px;
-  background: #000;
-}
-.content-block .about_img {
-  max-width: 100% !important;
-  width: 100% !important;
-  height: auto !important;
-  display: block;
-  border-radius: 8px;
-}
-.content-block video.about_img {
-  width: 100% !important;
-  max-height: 480px;
-  object-fit: contain;
-  background: #000;
-}
-.content-block .about_ul {
-  list-style: none;
-  padding-left: 0;
-}
-.content-block .about_ul li {
-  padding-left: 1.25rem;
-  position: relative;
-  margin-bottom: 0.5rem;
-}
-.content-block .about_ul li:before {
-  content: "•";
-  position: absolute;
-  left: 0;
-  color: var(--accent);
-}
-
 </style>
 </head>
 <body>
@@ -599,7 +523,7 @@ body {
 <section class="hero">
   <div class="container">
     <div class="hero-cover">
-      <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1259790/header_schinese.jpg" alt="俄罗斯方块">
+      <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1259790/library_600x900.jpg" alt="俄罗斯方块">
     </div>
     <div class="hero-info">
       <h1>俄罗斯方块</h1>
@@ -638,28 +562,12 @@ body {
   <div class="media-gallery">
     <!-- 主图显示区域 -->
     <div class="media-main" id="mediaMain">
-      <video controls playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256826954/movie.293x165.jpg?t=1718358836" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256826954/movie_max.mp4" style="width:100%;height:100%;object-fit:contain;background:#000"></video>
+      <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1259790/ss_fbdcbad179eddd5b83d1b4fd5b46d5ab243f441b.1920x1080.jpg?t=1763679729" alt="Screenshot">
     </div>
     
     <!-- 缩略图bar -->
-    <div class="media-thumbnails-wrap" id="mediaThumbnailsWrap">
-      <div class="media-thumbnails" id="mediaThumbnails">
-      <div class="media-thumb active" data-index="0"><div class="play-icon">▶</div>      </div>
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256826954/movie.293x165.jpg?t=1718358836" alt="Video"></div>
-<div class="media-thumb" data-index="1"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256819887/movie.293x165.jpg?t=1718358840" alt="Video"></div>
-<div class="media-thumb" data-index="2"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256820190/movie.293x165.jpg?t=1718358845" alt="Video"></div>
-<div class="media-thumb" data-index="3"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1259790/ss_fbdcbad179eddd5b83d1b4fd5b46d5ab243f441b.1920x1080.jpg?t=1763679729" alt="Screenshot"></div>
-<div class="media-thumb" data-index="4"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1259790/ss_0b013ab56a0b37740d91467819337b2852577955.1920x1080.jpg?t=1763679729" alt="Screenshot"></div>
-<div class="media-thumb" data-index="5"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1259790/ss_d845eba2e517321d7a8b7db3922e942f8e8f397c.1920x1080.jpg?t=1763679729" alt="Screenshot"></div>
-<div class="media-thumb" data-index="6"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1259790/ss_74e29277a0477c13fe33d95df950de63e6fc26e6.1920x1080.jpg?t=1763679729" alt="Screenshot"></div>
-<div class="media-thumb" data-index="7"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1259790/ss_f126eaa38bc3e8e53d3bfcd62e29917f2b8f12a2.1920x1080.jpg?t=1763679729" alt="Screenshot"></div>
-<div class="media-thumb" data-index="8"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1259790/ss_e6e706fc9918352b60927a15f280fde23154272a.1920x1080.jpg?t=1763679729" alt="Screenshot"></div>
-<div class="media-thumb" data-index="9"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1259790/ss_bd12035b0a67d4277f412d649c3ceee5fa9e9857.1920x1080.jpg?t=1763679729" alt="Screenshot"></div>
-<div class="media-thumb" data-index="10"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1259790/ss_deb4b465acb4896fbc5b1c088297b6e0942c84ce.1920x1080.jpg?t=1763679729" alt="Screenshot"></div>
-<div class="media-thumb" data-index="11"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1259790/ss_2ad002853ab25720ddc8640696dc324a78eaab39.1920x1080.jpg?t=1763679729" alt="Screenshot"></div>
-<div class="media-thumb" data-index="12"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1259790/ss_877b59a25ec93188a6c6424de93defc7aa72793e.1920x1080.jpg?t=1763679729" alt="Screenshot"></div>
-<div class="media-thumb" data-index="13"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1259790/ss_4c7b950409e462cd3e08fb292a09d0ee0977836b.1920x1080.jpg?t=1763679729" alt="Screenshot"></div>
-    </div>
+    <div class="media-thumbnails" id="mediaThumbnails">
+      <div class="media-thumb active" data-index="0"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1259790/ss_fbdcbad179eddd5b83d1b4fd5b46d5ab243f441b.1920x1080.jpg?t=1763679729" alt="Screenshot"></div>
 <div class="media-thumb " data-index="1"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1259790/ss_0b013ab56a0b37740d91467819337b2852577955.1920x1080.jpg?t=1763679729" alt="Screenshot"></div>
 <div class="media-thumb " data-index="2"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1259790/ss_d845eba2e517321d7a8b7db3922e942f8e8f397c.1920x1080.jpg?t=1763679729" alt="Screenshot"></div>
 <div class="media-thumb " data-index="3"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1259790/ss_74e29277a0477c13fe33d95df950de63e6fc26e6.1920x1080.jpg?t=1763679729" alt="Screenshot"></div>
@@ -674,7 +582,7 @@ body {
 <section class="content-section">
   <div class="content-block">
     <h2>关于此游戏</h2>
-    <div><strong>两款传奇游戏再度联手，隆重推出《Ultimate Puzzle Match》</strong><br>深受欢迎的日本解谜游戏《Puyo Puyo》系列和世界著名的《Tetris®》游戏系列再次合作，为各位玩家提供更多乐趣，尽情爆破气泡和清除方块吧！<br><br><br> <strong>竞技模式和合作玩法</strong> <br>参与在线战局或在线下游玩，可容纳多达4名玩家，其中包括竞技性质的解谜联盟（Puzzle Leagues）和全新在线合作头目突袭战（Boss Raid）模式。<br><br> <strong>各种新旧角色，还有蓝毛角色</strong> <br>一众新旧角色供你选择，其中包括刺猬索尼克、Marle、拉菲索和和The Ocean Prince。<br><br> <strong>拯救一两个世界</strong> <br>在冒险模式种探索全新游戏地图，体验全新故事剧情：与角色一同横跨相互融合的世界，拯救同伴免受黑暗侵袭。提升角色的生命值、魔法值、攻击、防御和恢复，从而增强角色以便应付技能战模式。<br><br> <strong>以角色扮演游戏为灵感的全新技能战 (Skill Battle)</strong> <br>参与刺激好玩的技能战模式，测试你的实力。在此模式中，强力的角色技能可改变比赛环境，从恢复生命值、改变魔法气泡颜色到清除整排方块等。小心谨慎地作出选择：打造拥有互补性技能的团队、装备强力的道具卡，并在战斗中随时注意自己的生命值和魔法值！<br><br> <strong>不清楚游玩方法</strong> <br>通过设计全面的教程模式（共包括超过150个互动式教程），锻炼你的解密能力。<br><br> <strong>乐趣无穷</strong> <br>重玩关卡以获得更多奖励、体验各种不同难度、测试你最喜爱的游玩模式，并解锁新角色、背景和额外关卡等。</div>
+    <div>深受欢迎的日本解谜游戏《Puyo Puyo》系列和世界著名的《Tetris®》游戏系列再次合作，为各位玩家提供更多乐趣。赶快游玩《Puyo Puyo Tetris 2》，尽情爆破气泡和清除方块吧！</div>
   </div>
 </section>
 
@@ -696,76 +604,12 @@ body {
 <script>
 // 媒体数据
 const mediaItems = [
-  {
-    "type": "video",
-    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256826954/movie_max.mp4",
-    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256826954/movie.293x165.jpg?t=1718358836"
-  },
-  {
-    "type": "video",
-    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256819887/movie_max.mp4",
-    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256819887/movie.293x165.jpg?t=1718358840"
-  },
-  {
-    "type": "video",
-    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256820190/movie_max.mp4",
-    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256820190/movie.293x165.jpg?t=1718358845"
-  },
-  {
-    "type": "image",
-    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1259790/ss_fbdcbad179eddd5b83d1b4fd5b46d5ab243f441b.1920x1080.jpg?t=1763679729",
-    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1259790/ss_fbdcbad179eddd5b83d1b4fd5b46d5ab243f441b.1920x1080.jpg?t=1763679729"
-  },
-  {
-    "type": "image",
-    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1259790/ss_0b013ab56a0b37740d91467819337b2852577955.1920x1080.jpg?t=1763679729",
-    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1259790/ss_0b013ab56a0b37740d91467819337b2852577955.1920x1080.jpg?t=1763679729"
-  },
-  {
-    "type": "image",
-    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1259790/ss_d845eba2e517321d7a8b7db3922e942f8e8f397c.1920x1080.jpg?t=1763679729",
-    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1259790/ss_d845eba2e517321d7a8b7db3922e942f8e8f397c.1920x1080.jpg?t=1763679729"
-  },
-  {
-    "type": "image",
-    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1259790/ss_74e29277a0477c13fe33d95df950de63e6fc26e6.1920x1080.jpg?t=1763679729",
-    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1259790/ss_74e29277a0477c13fe33d95df950de63e6fc26e6.1920x1080.jpg?t=1763679729"
-  },
-  {
-    "type": "image",
-    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1259790/ss_f126eaa38bc3e8e53d3bfcd62e29917f2b8f12a2.1920x1080.jpg?t=1763679729",
-    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1259790/ss_f126eaa38bc3e8e53d3bfcd62e29917f2b8f12a2.1920x1080.jpg?t=1763679729"
-  },
-  {
-    "type": "image",
-    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1259790/ss_e6e706fc9918352b60927a15f280fde23154272a.1920x1080.jpg?t=1763679729",
-    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1259790/ss_e6e706fc9918352b60927a15f280fde23154272a.1920x1080.jpg?t=1763679729"
-  },
-  {
-    "type": "image",
-    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1259790/ss_bd12035b0a67d4277f412d649c3ceee5fa9e9857.1920x1080.jpg?t=1763679729",
-    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1259790/ss_bd12035b0a67d4277f412d649c3ceee5fa9e9857.1920x1080.jpg?t=1763679729"
-  },
-  {
-    "type": "image",
-    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1259790/ss_deb4b465acb4896fbc5b1c088297b6e0942c84ce.1920x1080.jpg?t=1763679729",
-    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1259790/ss_deb4b465acb4896fbc5b1c088297b6e0942c84ce.1920x1080.jpg?t=1763679729"
-  },
-  {
-    "type": "image",
-    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1259790/ss_2ad002853ab25720ddc8640696dc324a78eaab39.1920x1080.jpg?t=1763679729",
-    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1259790/ss_2ad002853ab25720ddc8640696dc324a78eaab39.1920x1080.jpg?t=1763679729"
-  },
-  {
-    "type": "image",
-    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1259790/ss_877b59a25ec93188a6c6424de93defc7aa72793e.1920x1080.jpg?t=1763679729",
-    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1259790/ss_877b59a25ec93188a6c6424de93defc7aa72793e.1920x1080.jpg?t=1763679729"
-  },
-  {
-    "type": "image",
-    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1259790/ss_4c7b950409e462cd3e08fb292a09d0ee0977836b.1920x1080.jpg?t=1763679729",
-    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1259790/ss_4c7b950409e462cd3e08fb292a09d0ee0977836b.1920x1080.jpg?t=1763679729"
-  }
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1259790/ss_fbdcbad179eddd5b83d1b4fd5b46d5ab243f441b.1920x1080.jpg?t=1763679729", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1259790/ss_fbdcbad179eddd5b83d1b4fd5b46d5ab243f441b.1920x1080.jpg?t=1763679729"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1259790/ss_0b013ab56a0b37740d91467819337b2852577955.1920x1080.jpg?t=1763679729", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1259790/ss_0b013ab56a0b37740d91467819337b2852577955.1920x1080.jpg?t=1763679729"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1259790/ss_d845eba2e517321d7a8b7db3922e942f8e8f397c.1920x1080.jpg?t=1763679729", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1259790/ss_d845eba2e517321d7a8b7db3922e942f8e8f397c.1920x1080.jpg?t=1763679729"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1259790/ss_74e29277a0477c13fe33d95df950de63e6fc26e6.1920x1080.jpg?t=1763679729", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1259790/ss_74e29277a0477c13fe33d95df950de63e6fc26e6.1920x1080.jpg?t=1763679729"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1259790/ss_f126eaa38bc3e8e53d3bfcd62e29917f2b8f12a2.1920x1080.jpg?t=1763679729", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1259790/ss_f126eaa38bc3e8e53d3bfcd62e29917f2b8f12a2.1920x1080.jpg?t=1763679729"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1259790/ss_e6e706fc9918352b60927a15f280fde23154272a.1920x1080.jpg?t=1763679729", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1259790/ss_e6e706fc9918352b60927a15f280fde23154272a.1920x1080.jpg?t=1763679729"}
 ];
 
 let currentIndex = 0;
@@ -821,41 +665,6 @@ document.addEventListener('DOMContentLoaded', () => {
   if (mediaItems.length > 0) {
     switchMedia(0);
   }
-
-  // 缩略图滚动箭头提示
-  const thumbsWrap = document.getElementById('mediaThumbnailsWrap') || document.querySelector('.media-thumbnails-wrap');
-  const bar = document.getElementById('mediaThumbnails');
-  if (bar && thumbsWrap) {
-    const leftArrow = thumbsWrap.querySelector('.media-arrow.left') || (() => {
-      const el = document.createElement('div');
-      el.className = 'media-arrow left';
-      el.innerHTML = '\u2039';
-      thumbsWrap.appendChild(el);
-      return el;
-    })();
-    const rightArrow = thumbsWrap.querySelector('.media-arrow.right') || (() => {
-      const el = document.createElement('div');
-      el.className = 'media-arrow right';
-      el.innerHTML = '\u203A';
-      thumbsWrap.appendChild(el);
-      return el;
-    })();
-    function updateArrows() {
-      const left = bar.scrollLeft;
-      const maxLeft = bar.scrollWidth - bar.clientWidth;
-      if (maxLeft <= 0) {
-        leftArrow.classList.remove('show');
-        rightArrow.classList.remove('show');
-        return;
-      }
-      leftArrow.classList.toggle('show', left > 1);
-      rightArrow.classList.toggle('show', left < maxLeft - 1);
-    }
-    bar.addEventListener('scroll', updateArrows);
-    window.addEventListener('resize', updateArrows);
-    updateArrows();
-  }
-
 });
 </script>
 

@@ -1,5 +1,4 @@
-<!DO      </div>
-CTYPE html>
+<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
@@ -220,36 +219,6 @@ body {
 .media-thumb.active {
   box-shadow: 0 0 0 2px rgba(59,130,246,0.25);
 }
-/* 缩略图滚动箭头提示 */
-.media-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  background: rgba(27, 40, 56, 0.78);
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 12px;
-  font-weight: 700;
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity 0.2s ease;
-  z-index: 5;
-}
-.media-arrow.left { left: 4px; }
-.media-arrow.right { right: 4px; }
-.media-thumbnails-wrap {
-  position: relative;
-  overflow: hidden;
-}
-.media-thumbnails-wrap:hover .media-arrow.show {
-  opacity: 1;
-}
-
 
 /* 媒体控制按钮 */
 .media-controls {
@@ -346,7 +315,7 @@ body {
 
 /* 内容区域 */
 .content-section {
-  max-width: 940px; /* Steam 正文宽度 */
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 2rem 2rem;
 }
@@ -540,51 +509,6 @@ body {
     height: 45px;
   }
 }
-
-/* Steam 关于此游戏内容 */
-.content-block .about_para {
-  margin-bottom: 0.9rem;
-  color: var(--text-secondary);
-  font-size: 0.9375rem;
-  line-height: 1.75;
-}
-.content-block .about_media {
-  display: block;
-  max-width: 100%;
-  margin: 1rem 0;
-  overflow: hidden;
-  border-radius: 8px;
-  background: #000;
-}
-.content-block .about_img {
-  max-width: 100% !important;
-  width: 100% !important;
-  height: auto !important;
-  display: block;
-  border-radius: 8px;
-}
-.content-block video.about_img {
-  width: 100% !important;
-  max-height: 480px;
-  object-fit: contain;
-  background: #000;
-}
-.content-block .about_ul {
-  list-style: none;
-  padding-left: 0;
-}
-.content-block .about_ul li {
-  padding-left: 1.25rem;
-  position: relative;
-  margin-bottom: 0.5rem;
-}
-.content-block .about_ul li:before {
-  content: "•";
-  position: absolute;
-  left: 0;
-  color: var(--accent);
-}
-
 </style>
 </head>
 <body>
@@ -599,7 +523,7 @@ body {
 <section class="hero">
   <div class="container">
     <div class="hero-cover">
-      <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/200260/header.jpg" alt="蝙蝠侠：阿卡姆之城">
+      <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/200260/library_600x900.jpg" alt="蝙蝠侠：阿卡姆之城">
     </div>
     <div class="hero-info">
       <h1>蝙蝠侠：阿卡姆之城</h1>
@@ -634,26 +558,12 @@ body {
   <div class="media-gallery">
     <!-- 主图显示区域 -->
     <div class="media-main" id="mediaMain">
-      <video controls playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/81216/movie.293x165.jpg?t=1447354901" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/81216/movie_max.mp4" style="width:100%;height:100%;object-fit:contain;background:#000"></video>
+      <img src="" alt="Loading">
     </div>
     
     <!-- 缩略图bar -->
-    <div class="media-thumbnails-wrap" id="mediaThumbnailsWrap">
-      <div class="media-thumbnails" id="mediaThumbnails">
-      <div class="media-thumb active" data-index="0"><div class="play-icon">▶</div>      </div>
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/81216/movie.293x165.jpg?t=1447354901" alt="Video"></div>
-<div class="media-thumb" data-index="1"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/200260/ss_31e817088eb23c1373410e3ea70a933ffbb8dbab.1920x1080.jpg?t=1745964057" alt="Screenshot"></div>
-<div class="media-thumb" data-index="2"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/200260/ss_52f74c49e620871e78d09185d22f89a98438cfe4.1920x1080.jpg?t=1745964057" alt="Screenshot"></div>
-<div class="media-thumb" data-index="3"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/200260/ss_8ff38eebd84802a8f9baf8a6be73bb7803f47ee2.1920x1080.jpg?t=1745964057" alt="Screenshot"></div>
-<div class="media-thumb" data-index="4"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/200260/ss_6dc286958beee539957d5e2249ef9a41257b2407.1920x1080.jpg?t=1745964057" alt="Screenshot"></div>
-<div class="media-thumb" data-index="5"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/200260/ss_ec8041967b7e8e37ff8be2805c6545cf484e682c.1920x1080.jpg?t=1745964057" alt="Screenshot"></div>
-<div class="media-thumb" data-index="6"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/200260/ss_2d9d0a04bec97053c86becd0b26ed7660528ec31.1920x1080.jpg?t=1745964057" alt="Screenshot"></div>
-<div class="media-thumb" data-index="7"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/200260/ss_30a3aa8946e01b5b92c899b22e992d0304615c3c.1920x1080.jpg?t=1745964057" alt="Screenshot"></div>
-<div class="media-thumb" data-index="8"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/200260/ss_e0f44362967426d860f3175788fdbe638a5b8a0c.1920x1080.jpg?t=1745964057" alt="Screenshot"></div>
-<div class="media-thumb" data-index="9"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/200260/ss_25f0b5a9118d298fac833880a4c045e8ae0fcd4e.1920x1080.jpg?t=1745964057" alt="Screenshot"></div>
-<div class="media-thumb" data-index="10"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/200260/ss_bc35461cdb76b0bb993939a254923110cd461ae7.1920x1080.jpg?t=1745964057" alt="Screenshot"></div>
-<div class="media-thumb" data-index="11"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/200260/ss_44554ad8d8678567d70113e835e8d815dcb054e6.1920x1080.jpg?t=1745964057" alt="Screenshot"></div>
-    </div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/81216/movie.293x165.jpg?t=1447354901" alt="Video"></div>
+    <div class="media-thumbnails" id="mediaThumbnails">
+      <div class="media-thumb active" data-index="0"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/81216/movie.293x165.jpg?t=1447354901" alt="Video"></div>
 <div class="media-thumb " data-index="1"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/200260/ss_31e817088eb23c1373410e3ea70a933ffbb8dbab.1920x1080.jpg?t=1745964057" alt="Screenshot"></div>
 <div class="media-thumb " data-index="2"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/200260/ss_52f74c49e620871e78d09185d22f89a98438cfe4.1920x1080.jpg?t=1745964057" alt="Screenshot"></div>
 <div class="media-thumb " data-index="3"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/200260/ss_8ff38eebd84802a8f9baf8a6be73bb7803f47ee2.1920x1080.jpg?t=1745964057" alt="Screenshot"></div>
@@ -674,7 +584,7 @@ body {
 <section class="content-section">
   <div class="content-block">
     <h2>关于此游戏</h2>
-    <div><p class="about_para" >《蝙蝠侠：阿卡姆之城》以《蝙蝠侠：阿卡姆疯人院》紧张刺激、氛围浓厚的环境为基础，让玩家飞越广阔的阿卡姆之城——这里比《蝙蝠侠：阿卡姆疯人院》的游戏世界大五倍——这是哥谭市所有暴徒、匪徒和疯狂犯罪主谋全新的最高安全级别的“家园”。游戏将带来令人难以置信的无赖帮，其中内含猫女、小丑、谜语人、双面人、哈莉·奎茵、企鹅人、急冻人等等哥谭市最危险的罪犯，让玩家切身体验到作为黑暗骑士在哥谭市街头伸张正义的感觉。</p><p class="about_para" >《蝙蝠侠：阿卡姆之城 - 年度游戏版》包含以下 DLC：  </p><ul class="about_ul"><li><p class="about_para" >猫女包</p></li><li><p class="about_para" >夜翼捆绑包</p></li><li><p class="about_para" >罗宾捆绑包</p></li><li><p class="about_para" >哈莉·奎茵的复仇</p></li><li><p class="about_para" >挑战地图包</p></li><li><p class="about_para" >“阿卡姆之城”皮肤包</p></li></ul><p class="about_para" >《蝙蝠侠：阿卡姆之城 - 年度游戏版》包含全新游戏内容、七张地图、三个可玩角色以及 12 款皮肤，超越了原版零售版：</p><ul class="about_ul"><li><p class="about_para" >地图：韦恩庄园、主厅、货运列车、黑面具、小丑嘉年华、冰山会所和蝙蝠洞 </p></li><li><p class="about_para" >可玩角色：猫女、罗宾和夜翼 </p></li><li><p class="about_para" >皮肤：1970 年蝙蝠套装、元年蝙蝠侠、黑暗骑士归来、地球一号蝙蝠侠、未来蝙蝠侠版蝙蝠侠、动画版蝙蝠侠、赛尼斯托军团蝙蝠侠、加长万圣节猫女、动画版猫女、动画版罗宾、红罗宾和动画版夜翼</p></li></ul></div>
+    <div><p class="bb_paragraph" >《蝙蝠侠：阿卡姆之城》以《蝙蝠侠：阿卡姆疯人院》紧张刺激、氛围浓厚的环境为基础，让玩家飞越广阔的阿卡姆之城——这里比《蝙蝠侠：阿卡姆疯人院》的游戏世界大五倍——这是哥谭市所有暴徒、匪徒和疯狂犯罪主谋全新的最高安全级别的“家园”。游戏将带来令人难以置信的无赖帮，其中内含猫女、小丑、谜语人、双面人、哈莉·奎茵、企鹅人、急冻人等等哥谭市最危险的罪犯，让玩家切身体验到作为黑暗骑士在哥谭市街头伸张正义的感觉。</p><p class="bb_paragraph" > </p><p class="bb_paragraph" >《蝙蝠侠：阿卡姆之城 - 年度游戏版》包含以下 DLC：  </p><ul class="bb_ul"><li><p class="bb_paragraph" >猫女包</p></li><li><p class="bb_paragraph" >夜翼捆绑包</p></li><li><p class="bb_paragraph" >罗宾捆绑包</p></li><li><p class="bb_paragraph" >哈莉·奎茵的复仇</p></li><li><p class="bb_paragraph" >挑战地图包</p></li><li><p class="bb_paragraph" >“阿卡姆之城”皮肤包</p><p class="bb_paragraph" ></p></li></ul><p class="bb_paragraph" >《蝙蝠侠：阿卡姆之城 - 年度游戏版》包含全新游戏内容、七张地图、三个可玩角色以及 12 款皮肤，超越了原版零售版：</p><p class="bb_paragraph" ></p><ul class="bb_ul"><li><p class="bb_paragraph" >地图：韦恩庄园、主厅、货运列车、黑面具、小丑嘉年华、冰山会所和蝙蝠洞 </p></li><li><p class="bb_paragraph" >可玩角色：猫女、罗宾和夜翼 </p></li><li><p class="bb_paragraph" >皮肤：1970 年蝙蝠套装、元年蝙蝠侠、黑暗骑士归来、地球一号蝙蝠侠、未来蝙蝠侠版蝙蝠侠、动画版蝙蝠侠、赛尼斯托军团蝙蝠侠、加长万圣节猫女、动画版猫女、动画版罗宾、红罗宾和动画版夜翼</p></li></ul></div>
   </div>
 </section>
 
@@ -703,66 +613,18 @@ body {
 <script>
 // 媒体数据
 const mediaItems = [
-  {
-    "type": "video",
-    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/81216/movie_max.mp4",
-    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/81216/movie.293x165.jpg?t=1447354901"
-  },
-  {
-    "type": "image",
-    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/200260/ss_31e817088eb23c1373410e3ea70a933ffbb8dbab.1920x1080.jpg?t=1745964057",
-    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/200260/ss_31e817088eb23c1373410e3ea70a933ffbb8dbab.1920x1080.jpg?t=1745964057"
-  },
-  {
-    "type": "image",
-    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/200260/ss_52f74c49e620871e78d09185d22f89a98438cfe4.1920x1080.jpg?t=1745964057",
-    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/200260/ss_52f74c49e620871e78d09185d22f89a98438cfe4.1920x1080.jpg?t=1745964057"
-  },
-  {
-    "type": "image",
-    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/200260/ss_8ff38eebd84802a8f9baf8a6be73bb7803f47ee2.1920x1080.jpg?t=1745964057",
-    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/200260/ss_8ff38eebd84802a8f9baf8a6be73bb7803f47ee2.1920x1080.jpg?t=1745964057"
-  },
-  {
-    "type": "image",
-    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/200260/ss_6dc286958beee539957d5e2249ef9a41257b2407.1920x1080.jpg?t=1745964057",
-    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/200260/ss_6dc286958beee539957d5e2249ef9a41257b2407.1920x1080.jpg?t=1745964057"
-  },
-  {
-    "type": "image",
-    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/200260/ss_ec8041967b7e8e37ff8be2805c6545cf484e682c.1920x1080.jpg?t=1745964057",
-    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/200260/ss_ec8041967b7e8e37ff8be2805c6545cf484e682c.1920x1080.jpg?t=1745964057"
-  },
-  {
-    "type": "image",
-    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/200260/ss_2d9d0a04bec97053c86becd0b26ed7660528ec31.1920x1080.jpg?t=1745964057",
-    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/200260/ss_2d9d0a04bec97053c86becd0b26ed7660528ec31.1920x1080.jpg?t=1745964057"
-  },
-  {
-    "type": "image",
-    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/200260/ss_30a3aa8946e01b5b92c899b22e992d0304615c3c.1920x1080.jpg?t=1745964057",
-    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/200260/ss_30a3aa8946e01b5b92c899b22e992d0304615c3c.1920x1080.jpg?t=1745964057"
-  },
-  {
-    "type": "image",
-    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/200260/ss_e0f44362967426d860f3175788fdbe638a5b8a0c.1920x1080.jpg?t=1745964057",
-    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/200260/ss_e0f44362967426d860f3175788fdbe638a5b8a0c.1920x1080.jpg?t=1745964057"
-  },
-  {
-    "type": "image",
-    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/200260/ss_25f0b5a9118d298fac833880a4c045e8ae0fcd4e.1920x1080.jpg?t=1745964057",
-    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/200260/ss_25f0b5a9118d298fac833880a4c045e8ae0fcd4e.1920x1080.jpg?t=1745964057"
-  },
-  {
-    "type": "image",
-    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/200260/ss_bc35461cdb76b0bb993939a254923110cd461ae7.1920x1080.jpg?t=1745964057",
-    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/200260/ss_bc35461cdb76b0bb993939a254923110cd461ae7.1920x1080.jpg?t=1745964057"
-  },
-  {
-    "type": "image",
-    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/200260/ss_44554ad8d8678567d70113e835e8d815dcb054e6.1920x1080.jpg?t=1745964057",
-    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/200260/ss_44554ad8d8678567d70113e835e8d815dcb054e6.1920x1080.jpg?t=1745964057"
-  }
+  {"type": "video", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/81216/movie_max.mp4", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/81216/movie.293x165.jpg?t=1447354901"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/200260/ss_31e817088eb23c1373410e3ea70a933ffbb8dbab.1920x1080.jpg?t=1745964057", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/200260/ss_31e817088eb23c1373410e3ea70a933ffbb8dbab.1920x1080.jpg?t=1745964057"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/200260/ss_52f74c49e620871e78d09185d22f89a98438cfe4.1920x1080.jpg?t=1745964057", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/200260/ss_52f74c49e620871e78d09185d22f89a98438cfe4.1920x1080.jpg?t=1745964057"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/200260/ss_8ff38eebd84802a8f9baf8a6be73bb7803f47ee2.1920x1080.jpg?t=1745964057", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/200260/ss_8ff38eebd84802a8f9baf8a6be73bb7803f47ee2.1920x1080.jpg?t=1745964057"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/200260/ss_6dc286958beee539957d5e2249ef9a41257b2407.1920x1080.jpg?t=1745964057", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/200260/ss_6dc286958beee539957d5e2249ef9a41257b2407.1920x1080.jpg?t=1745964057"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/200260/ss_ec8041967b7e8e37ff8be2805c6545cf484e682c.1920x1080.jpg?t=1745964057", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/200260/ss_ec8041967b7e8e37ff8be2805c6545cf484e682c.1920x1080.jpg?t=1745964057"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/200260/ss_2d9d0a04bec97053c86becd0b26ed7660528ec31.1920x1080.jpg?t=1745964057", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/200260/ss_2d9d0a04bec97053c86becd0b26ed7660528ec31.1920x1080.jpg?t=1745964057"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/200260/ss_30a3aa8946e01b5b92c899b22e992d0304615c3c.1920x1080.jpg?t=1745964057", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/200260/ss_30a3aa8946e01b5b92c899b22e992d0304615c3c.1920x1080.jpg?t=1745964057"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/200260/ss_e0f44362967426d860f3175788fdbe638a5b8a0c.1920x1080.jpg?t=1745964057", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/200260/ss_e0f44362967426d860f3175788fdbe638a5b8a0c.1920x1080.jpg?t=1745964057"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/200260/ss_25f0b5a9118d298fac833880a4c045e8ae0fcd4e.1920x1080.jpg?t=1745964057", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/200260/ss_25f0b5a9118d298fac833880a4c045e8ae0fcd4e.1920x1080.jpg?t=1745964057"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/200260/ss_bc35461cdb76b0bb993939a254923110cd461ae7.1920x1080.jpg?t=1745964057", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/200260/ss_bc35461cdb76b0bb993939a254923110cd461ae7.1920x1080.jpg?t=1745964057"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/200260/ss_44554ad8d8678567d70113e835e8d815dcb054e6.1920x1080.jpg?t=1745964057", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/200260/ss_44554ad8d8678567d70113e835e8d815dcb054e6.1920x1080.jpg?t=1745964057"}
 ];
 
 let currentIndex = 0;
@@ -818,41 +680,6 @@ document.addEventListener('DOMContentLoaded', () => {
   if (mediaItems.length > 0) {
     switchMedia(0);
   }
-
-  // 缩略图滚动箭头提示
-  const thumbsWrap = document.getElementById('mediaThumbnailsWrap') || document.querySelector('.media-thumbnails-wrap');
-  const bar = document.getElementById('mediaThumbnails');
-  if (bar && thumbsWrap) {
-    const leftArrow = thumbsWrap.querySelector('.media-arrow.left') || (() => {
-      const el = document.createElement('div');
-      el.className = 'media-arrow left';
-      el.innerHTML = '\u2039';
-      thumbsWrap.appendChild(el);
-      return el;
-    })();
-    const rightArrow = thumbsWrap.querySelector('.media-arrow.right') || (() => {
-      const el = document.createElement('div');
-      el.className = 'media-arrow right';
-      el.innerHTML = '\u203A';
-      thumbsWrap.appendChild(el);
-      return el;
-    })();
-    function updateArrows() {
-      const left = bar.scrollLeft;
-      const maxLeft = bar.scrollWidth - bar.clientWidth;
-      if (maxLeft <= 0) {
-        leftArrow.classList.remove('show');
-        rightArrow.classList.remove('show');
-        return;
-      }
-      leftArrow.classList.toggle('show', left > 1);
-      rightArrow.classList.toggle('show', left < maxLeft - 1);
-    }
-    bar.addEventListener('scroll', updateArrows);
-    window.addEventListener('resize', updateArrows);
-    updateArrows();
-  }
-
 });
 </script>
 

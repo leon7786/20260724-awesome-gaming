@@ -1,5 +1,4 @@
-<!      </div>
-DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
@@ -220,36 +219,6 @@ body {
 .media-thumb.active {
   box-shadow: 0 0 0 2px rgba(59,130,246,0.25);
 }
-/* 缩略图滚动箭头提示 */
-.media-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  background: rgba(27, 40, 56, 0.78);
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 12px;
-  font-weight: 700;
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity 0.2s ease;
-  z-index: 5;
-}
-.media-arrow.left { left: 4px; }
-.media-arrow.right { right: 4px; }
-.media-thumbnails-wrap {
-  position: relative;
-  overflow: hidden;
-}
-.media-thumbnails-wrap:hover .media-arrow.show {
-  opacity: 1;
-}
-
 
 /* 媒体控制按钮 */
 .media-controls {
@@ -346,7 +315,7 @@ body {
 
 /* 内容区域 */
 .content-section {
-  max-width: 940px; /* Steam 正文宽度 */
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 2rem 2rem;
 }
@@ -540,51 +509,6 @@ body {
     height: 45px;
   }
 }
-
-/* Steam 关于此游戏内容 */
-.content-block .about_para {
-  margin-bottom: 0.9rem;
-  color: var(--text-secondary);
-  font-size: 0.9375rem;
-  line-height: 1.75;
-}
-.content-block .about_media {
-  display: block;
-  max-width: 100%;
-  margin: 1rem 0;
-  overflow: hidden;
-  border-radius: 8px;
-  background: #000;
-}
-.content-block .about_img {
-  max-width: 100% !important;
-  width: 100% !important;
-  height: auto !important;
-  display: block;
-  border-radius: 8px;
-}
-.content-block video.about_img {
-  width: 100% !important;
-  max-height: 480px;
-  object-fit: contain;
-  background: #000;
-}
-.content-block .about_ul {
-  list-style: none;
-  padding-left: 0;
-}
-.content-block .about_ul li {
-  padding-left: 1.25rem;
-  position: relative;
-  margin-bottom: 0.5rem;
-}
-.content-block .about_ul li:before {
-  content: "•";
-  position: absolute;
-  left: 0;
-  color: var(--accent);
-}
-
 </style>
 </head>
 <body>
@@ -599,7 +523,7 @@ body {
 <section class="hero">
   <div class="container">
     <div class="hero-cover">
-      <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3590/header.jpg" alt="植物大战僵尸">
+      <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3590/library_600x900.jpg" alt="植物大战僵尸">
     </div>
     <div class="hero-info">
       <h1>植物大战僵尸</h1>
@@ -607,7 +531,7 @@ body {
       
       <div class="meta-tags">
         <span class="meta-tag year">2009</span>
-        <span class="meta-tag score">⭐ 87</span>
+        <span class="meta-tag score">⭐ 65</span>
       </div>
       
       <div class="info-row">
@@ -633,26 +557,12 @@ body {
   <div class="media-gallery">
     <!-- 主图显示区域 -->
     <div class="media-main" id="mediaMain">
-      <video controls playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/900829/movie.293x165.jpg?t=1584811605" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/900829/movie_max.mp4" style="width:100%;height:100%;object-fit:contain;background:#000"></video>
+      <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3654560/c91b72b9b68246a609e8e8eae208cff42d24ebaa/ss_c91b72b9b68246a609e8e8eae208cff42d24ebaa.1920x1080.jpg?t=1763401327" alt="Screenshot">
     </div>
     
     <!-- 缩略图bar -->
-    <div class="media-thumbnails-wrap" id="mediaThumbnailsWrap">
-      <div class="media-thumbnails" id="mediaThumbnails">
-      <div class="media-thumb active" data-index="0"><div class="play-icon">▶</div>      </div>
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/900829/movie.293x165.jpg?t=1584811605" alt="Video"></div>
-<div class="media-thumb" data-index="1"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/99071/movie.293x165.jpg?t=1584811611" alt="Video"></div>
-<div class="media-thumb" data-index="2"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3590/0000008150.1920x1080.jpg?t=1777394124" alt="Screenshot"></div>
-<div class="media-thumb" data-index="3"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3590/0000008151.1920x1080.jpg?t=1777394124" alt="Screenshot"></div>
-<div class="media-thumb" data-index="4"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3590/0000008152.1920x1080.jpg?t=1777394124" alt="Screenshot"></div>
-<div class="media-thumb" data-index="5"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3590/0000008153.1920x1080.jpg?t=1777394124" alt="Screenshot"></div>
-<div class="media-thumb" data-index="6"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3590/0000008154.1920x1080.jpg?t=1777394124" alt="Screenshot"></div>
-<div class="media-thumb" data-index="7"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3590/0000008155.1920x1080.jpg?t=1777394124" alt="Screenshot"></div>
-<div class="media-thumb" data-index="8"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3590/0000008156.1920x1080.jpg?t=1777394124" alt="Screenshot"></div>
-<div class="media-thumb" data-index="9"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3590/0000008157.1920x1080.jpg?t=1777394124" alt="Screenshot"></div>
-<div class="media-thumb" data-index="10"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3590/0000008160.1920x1080.jpg?t=1777394124" alt="Screenshot"></div>
-<div class="media-thumb" data-index="11"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3590/0000008164.1920x1080.jpg?t=1777394124" alt="Screenshot"></div>
-    </div>
+    <div class="media-thumbnails" id="mediaThumbnails">
+      <div class="media-thumb active" data-index="0"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3654560/c91b72b9b68246a609e8e8eae208cff42d24ebaa/ss_c91b72b9b68246a609e8e8eae208cff42d24ebaa.1920x1080.jpg?t=1763401327" alt="Screenshot"></div>
 <div class="media-thumb " data-index="1"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3654560/01cb3a736faab7db3b0049c4f44f219c149be678/ss_01cb3a736faab7db3b0049c4f44f219c149be678.1920x1080.jpg?t=1763401327" alt="Screenshot"></div>
 <div class="media-thumb " data-index="2"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3654560/a93fc3c20ad60320734eadb2b5821d7e0429587f/ss_a93fc3c20ad60320734eadb2b5821d7e0429587f.1920x1080.jpg?t=1763401327" alt="Screenshot"></div>
 <div class="media-thumb " data-index="3"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3654560/4b1c782b3dd53bf98b06001a1027a0468049854c/ss_4b1c782b3dd53bf98b06001a1027a0468049854c.1920x1080.jpg?t=1763401327" alt="Screenshot"></div>
@@ -666,7 +576,7 @@ body {
 <section class="content-section">
   <div class="content-block">
     <h2>关于此游戏</h2>
-    <div>来自曾开发过宝石迷阵和幻幻球的宝开公司的全新动作策略游戏！<br>     可怕的僵尸即将入侵你的家，唯一的防御方式就是你栽种的植物！武装你的植物，切换他们不同的功能，诸如强悍的豌豆射手或樱桃炸弹，更加快速有效的将僵尸阻挡在入侵的道路上。不同的敌人，不同的玩法构成五种不同的游戏模式，加之夕阳、浓雾以及泳池之类的障碍增加了其挑战性，奇特的游戏乐趣永无止境！<br>     <ul class="about_ul"><li>独特的五种游戏模式：冒险，迷你，益智，生存，再加上毫无压力的禅境花园<br>     </li><li>多达 50 个的冒险模式关卡设定，从白天到夜晚再到浓雾，从房顶到游泳池，场景变化多样<br>     </li><li>游戏共有 26 种不同的僵尸敌人，包括撑杆僵尸，潜水僵尸和开着车子的雪橇车僵尸等，使游戏更具挑战性<br>     </li><li>49 种功能强大，互不相同的植物，并可收集硬币购买宠物蜗牛，升级道具等多种道具！<br>     </li><li>打开图鉴，可以看到植物与僵尸的详细介绍，再加上有趣的“事实”和引用<br>     </li><li>通过“疯狂戴夫店”购买特殊植物和工具，以你能想象得到的方式干掉僵尸<br>     </li><li>精致的游戏画面与声音，同时还更新有奖励型的音乐与视频<br>     </li><li>无限次重玩：不会经历两次同样的事件！<br>     </li><li>解锁全部的 Steam 成就<br>     </li></ul></div>
+    <div>经典游戏《植物大战僵尸》回归，高清重制后带来赏心悦目的画面体验！植物与僵尸之间的最初大战回归，比以往任何时候都更加激烈、欢乐、疯狂！体验该系列的开山之作，现已经过高清重制，丰富的全新秘密等你发现。</div>
   </div>
 </section>
 
@@ -688,66 +598,11 @@ body {
 <script>
 // 媒体数据
 const mediaItems = [
-  {
-    "type": "video",
-    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/900829/movie_max.mp4",
-    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/900829/movie.293x165.jpg?t=1584811605"
-  },
-  {
-    "type": "video",
-    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/99071/movie_max.mp4",
-    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/99071/movie.293x165.jpg?t=1584811611"
-  },
-  {
-    "type": "image",
-    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3590/0000008150.1920x1080.jpg?t=1777394124",
-    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3590/0000008150.1920x1080.jpg?t=1777394124"
-  },
-  {
-    "type": "image",
-    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3590/0000008151.1920x1080.jpg?t=1777394124",
-    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3590/0000008151.1920x1080.jpg?t=1777394124"
-  },
-  {
-    "type": "image",
-    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3590/0000008152.1920x1080.jpg?t=1777394124",
-    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3590/0000008152.1920x1080.jpg?t=1777394124"
-  },
-  {
-    "type": "image",
-    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3590/0000008153.1920x1080.jpg?t=1777394124",
-    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3590/0000008153.1920x1080.jpg?t=1777394124"
-  },
-  {
-    "type": "image",
-    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3590/0000008154.1920x1080.jpg?t=1777394124",
-    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3590/0000008154.1920x1080.jpg?t=1777394124"
-  },
-  {
-    "type": "image",
-    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3590/0000008155.1920x1080.jpg?t=1777394124",
-    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3590/0000008155.1920x1080.jpg?t=1777394124"
-  },
-  {
-    "type": "image",
-    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3590/0000008156.1920x1080.jpg?t=1777394124",
-    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3590/0000008156.1920x1080.jpg?t=1777394124"
-  },
-  {
-    "type": "image",
-    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3590/0000008157.1920x1080.jpg?t=1777394124",
-    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3590/0000008157.1920x1080.jpg?t=1777394124"
-  },
-  {
-    "type": "image",
-    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3590/0000008160.1920x1080.jpg?t=1777394124",
-    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3590/0000008160.1920x1080.jpg?t=1777394124"
-  },
-  {
-    "type": "image",
-    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3590/0000008164.1920x1080.jpg?t=1777394124",
-    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3590/0000008164.1920x1080.jpg?t=1777394124"
-  }
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3654560/c91b72b9b68246a609e8e8eae208cff42d24ebaa/ss_c91b72b9b68246a609e8e8eae208cff42d24ebaa.1920x1080.jpg?t=1763401327", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3654560/c91b72b9b68246a609e8e8eae208cff42d24ebaa/ss_c91b72b9b68246a609e8e8eae208cff42d24ebaa.1920x1080.jpg?t=1763401327"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3654560/01cb3a736faab7db3b0049c4f44f219c149be678/ss_01cb3a736faab7db3b0049c4f44f219c149be678.1920x1080.jpg?t=1763401327", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3654560/01cb3a736faab7db3b0049c4f44f219c149be678/ss_01cb3a736faab7db3b0049c4f44f219c149be678.1920x1080.jpg?t=1763401327"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3654560/a93fc3c20ad60320734eadb2b5821d7e0429587f/ss_a93fc3c20ad60320734eadb2b5821d7e0429587f.1920x1080.jpg?t=1763401327", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3654560/a93fc3c20ad60320734eadb2b5821d7e0429587f/ss_a93fc3c20ad60320734eadb2b5821d7e0429587f.1920x1080.jpg?t=1763401327"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3654560/4b1c782b3dd53bf98b06001a1027a0468049854c/ss_4b1c782b3dd53bf98b06001a1027a0468049854c.1920x1080.jpg?t=1763401327", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3654560/4b1c782b3dd53bf98b06001a1027a0468049854c/ss_4b1c782b3dd53bf98b06001a1027a0468049854c.1920x1080.jpg?t=1763401327"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3654560/37f055a991ab29b79a99ede0d4f46155e5e1dd3e/ss_37f055a991ab29b79a99ede0d4f46155e5e1dd3e.1920x1080.jpg?t=1763401327", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3654560/37f055a991ab29b79a99ede0d4f46155e5e1dd3e/ss_37f055a991ab29b79a99ede0d4f46155e5e1dd3e.1920x1080.jpg?t=1763401327"}
 ];
 
 let currentIndex = 0;
@@ -803,41 +658,6 @@ document.addEventListener('DOMContentLoaded', () => {
   if (mediaItems.length > 0) {
     switchMedia(0);
   }
-
-  // 缩略图滚动箭头提示
-  const thumbsWrap = document.getElementById('mediaThumbnailsWrap') || document.querySelector('.media-thumbnails-wrap');
-  const bar = document.getElementById('mediaThumbnails');
-  if (bar && thumbsWrap) {
-    const leftArrow = thumbsWrap.querySelector('.media-arrow.left') || (() => {
-      const el = document.createElement('div');
-      el.className = 'media-arrow left';
-      el.innerHTML = '\u2039';
-      thumbsWrap.appendChild(el);
-      return el;
-    })();
-    const rightArrow = thumbsWrap.querySelector('.media-arrow.right') || (() => {
-      const el = document.createElement('div');
-      el.className = 'media-arrow right';
-      el.innerHTML = '\u203A';
-      thumbsWrap.appendChild(el);
-      return el;
-    })();
-    function updateArrows() {
-      const left = bar.scrollLeft;
-      const maxLeft = bar.scrollWidth - bar.clientWidth;
-      if (maxLeft <= 0) {
-        leftArrow.classList.remove('show');
-        rightArrow.classList.remove('show');
-        return;
-      }
-      leftArrow.classList.toggle('show', left > 1);
-      rightArrow.classList.toggle('show', left < maxLeft - 1);
-    }
-    bar.addEventListener('scroll', updateArrows);
-    window.addEventListener('resize', updateArrows);
-    updateArrows();
-  }
-
 });
 </script>
 

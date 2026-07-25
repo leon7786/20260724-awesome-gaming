@@ -219,36 +219,6 @@ body {
 .media-thumb.active {
   box-shadow: 0 0 0 2px rgba(59,130,246,0.25);
 }
-/* 缩略图滚动箭头提示 */
-.media-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  background: rgba(27, 40, 56, 0.78);
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 12px;
-  font-weight: 700;
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity 0.2s ease;
-  z-index: 5;
-}
-.media-arrow.left { left: 4px; }
-.media-arrow.right { right: 4px; }
-.media-thumbnails-wrap {
-  position: relative;
-  overflow: hidden;
-}
-.media-thumbnails-wrap:hover .media-arrow.show {
-  opacity: 1;
-}
-
 
 /* 媒体控制按钮 */
 .media-controls {
@@ -345,7 +315,7 @@ body {
 
 /* 内容区域 */
 .content-section {
-  max-width: 940px; /* Steam 正文宽度 */
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 2rem 2rem;
 }
@@ -539,51 +509,6 @@ body {
     height: 45px;
   }
 }
-
-/* Steam 关于此游戏内容 */
-.content-block .about_para {
-  margin-bottom: 0.9rem;
-  color: var(--text-secondary);
-  font-size: 0.9375rem;
-  line-height: 1.75;
-}
-.content-block .about_media {
-  display: block;
-  max-width: 100%;
-  margin: 1rem 0;
-  overflow: hidden;
-  border-radius: 8px;
-  background: #000;
-}
-.content-block .about_img {
-  max-width: 100% !important;
-  width: 100% !important;
-  height: auto !important;
-  display: block;
-  border-radius: 8px;
-}
-.content-block video.about_img {
-  width: 100% !important;
-  max-height: 480px;
-  object-fit: contain;
-  background: #000;
-}
-.content-block .about_ul {
-  list-style: none;
-  padding-left: 0;
-}
-.content-block .about_ul li {
-  padding-left: 1.25rem;
-  position: relative;
-  margin-bottom: 0.5rem;
-}
-.content-block .about_ul li:before {
-  content: "•";
-  position: absolute;
-  left: 0;
-  color: var(--accent);
-}
-
 </style>
 </head>
 <body>
@@ -598,7 +523,7 @@ body {
 <section class="hero">
   <div class="container">
     <div class="hero-cover">
-      <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2280/header.jpg" alt="毁灭战士 (1993)">
+      <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2280/library_600x900.jpg" alt="毁灭战士 (1993)">
     </div>
     <div class="hero-info">
       <h1>毁灭战士 (1993)</h1>
@@ -632,26 +557,12 @@ body {
   <div class="media-gallery">
     <!-- 主图显示区域 -->
     <div class="media-main" id="mediaMain">
-      <video controls playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257043641/movie.293x165.jpg?t=1723132707" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257043641/movie_max.mp4" style="width:100%;height:100%;object-fit:contain;background:#000"></video>
+      <img src="" alt="Cover">
     </div>
     
     <!-- 缩略图bar -->
-    <div class="media-thumbnails-wrap" id="mediaThumbnailsWrap">
-      <div class="media-thumbnails" id="mediaThumbnails">
-      <div class="media-thumb active" data-index="0"><div class="play-icon">▶</div>      </div>
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257043641/movie.293x165.jpg?t=1723132707" alt="Video"></div>
-<div class="media-thumb" data-index="1"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2280/ss_dccbd8eb6b389bf6d943485461265cf1b6aa52f7.1920x1080.jpg?t=1750785073" alt="Screenshot"></div>
-<div class="media-thumb" data-index="2"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2280/ss_e46818d3d16bdb6d8f07d0ca23c1dc05d0073b93.1920x1080.jpg?t=1750785073" alt="Screenshot"></div>
-<div class="media-thumb" data-index="3"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2280/ss_806877de2ec13666c33ec2eed02055585543f23f.1920x1080.jpg?t=1750785073" alt="Screenshot"></div>
-<div class="media-thumb" data-index="4"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2280/ss_75eb1d7b9d343c47fa352bc66a065b006b1b2002.1920x1080.jpg?t=1750785073" alt="Screenshot"></div>
-<div class="media-thumb" data-index="5"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2280/ss_a5e57e91c054298a6c86ac49148225f936101a45.1920x1080.jpg?t=1750785073" alt="Screenshot"></div>
-<div class="media-thumb" data-index="6"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2280/ss_33492406a4fcad478fccd9b8c8ff169d9dece124.1920x1080.jpg?t=1750785073" alt="Screenshot"></div>
-<div class="media-thumb" data-index="7"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2280/ss_3714172f6c26be6aacd532e550fd11a6fe02063d.1920x1080.jpg?t=1750785073" alt="Screenshot"></div>
-<div class="media-thumb" data-index="8"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2280/ss_9d59bc51f2012eff4d45477b92faa8eacf7fd020.1920x1080.jpg?t=1750785073" alt="Screenshot"></div>
-<div class="media-thumb" data-index="9"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2280/ss_ba95f97887b5b07df3947f9b97e326bd9eb22af3.1920x1080.jpg?t=1750785073" alt="Screenshot"></div>
-<div class="media-thumb" data-index="10"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2280/ss_e44c3198e8e748665b4574092319f28a564277e8.1920x1080.jpg?t=1750785073" alt="Screenshot"></div>
-<div class="media-thumb" data-index="11"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2280/ss_05f81f237a6370c3c797af951b42291dc747d199.1920x1080.jpg?t=1750785073" alt="Screenshot"></div>
-<div class="media-thumb" data-index="12"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2280/ss_e89a593007f181c3aa0209e3e4c2a63c9cbfc34a.1920x1080.jpg?t=1750785073" alt="Screenshot"></div>
+    <div class="media-thumbnails" id="mediaThumbnails">
+      
     </div>
   </div>
 </section>
@@ -660,7 +571,7 @@ body {
 <section class="content-section">
   <div class="content-block">
     <h2>关于此游戏</h2>
-    <div>由id Software开发、并于1993年首次发布的《DOOM》开创并普及了第一人称射击游戏，为所有FPS游戏树立了标杆。备受赞誉的续作《DOOM II》紧随其后，于1994年推出。如今，《DOOM》和《DOOM II》的最终全新增强版也已作为组合产品推出。<br><br><strong>玩家可获得：</strong><ul class="about_ul"><li>- 《DOOM》¹<br></li><li>- 《DOOM II》¹<br></li><li>- 《TNT: Evilution》章节<br></li><li>- 《The Plutonia Experiment》章节<br></li><li>- 《Master Levels for DOOM II》资料片<br></li><li>- 《No Rest for the Living》章节<br></li><li>- 《Sigil》章节<br></li><li>- 《Legacy of Rust》（由id Software、Nightdive Studios和MachineGames联手打造的最新章节）<br></li><li>- 内含26张地图的全新死亡竞赛地图包</li></ul><br>《DOOM》和《DOOM II》中共包含187张任务地图和43张死亡竞赛地图，为你带来极其丰富的战斗体验。<br><br><strong>全新增强特性</strong><br>- 在线、跨平台死亡竞赛和最多16名玩家合作模式²<br><br>- 支持社区发布模组，可通过游戏内模组浏览器下载²'³<br><br>- 可在原版的《DOOM》和《DOOM II》MIDI配乐与Andrew Hulshult制作的现代IDKFA版本（包括全新的《DOOM II》录音）之间选择<br><br>- 多线程渲染带来的性能提升，最高可支持4K分辨率⁴ <br><br>- 现可在KEX引擎上运行<br><br>- 兼容BOOM移植版，让25年来由社区精心制作的数百款模组与原版游戏无缝衔接<br><br>- 更多易用性设置选项，包括能提升可读性的现代字体、高对比度模式、文本到语音及语音到文本的多人聊天等功能<br><br>- 新增8种语言支持：墨西哥西班牙语、巴西葡萄牙语、波兰语、俄语、日语、韩语、繁体中文和简体中文<br><br><strong>原有增强特性</strong><br>- 强化视觉效果<br><br>- 支持现代控制器<br><br>- 增加武器轮盘，可快速切换武器<br><br>- 改善键盘与鼠标操作<br><br>- 增加死亡竞赛本地分屏模式，最多可支持4名玩家同时合作<br><br>- 免费提供精选社区模组²'³，包括REKKR、Revolution!、Syringe、Double Impact、Arrival以及更多作品！社区模组制作者的单人游玩模组列表也将不断更新扩充，敬请期待<br><br>- 支持60 FPS帧率和原生16：9宽屏，最高可达1080p分辨率<br><br>- 使用原始硬件设备重现原版游戏音乐<br><br>- 支持快速保存/加载游戏<br><br>- 支持DeHacked模组<br><br><strong>注释</strong><br>¹ Steam平台包含原始DOS版本的《DOOM（1993）》和《DOOM II》。<br><br>² 需要Bethesda.net账户。<br><br>³模组需要单独安装，并占用额外的系统存储空间。<br><br>⁴ 需要兼容的显示器。<br><br><strong>内含游戏概览：</strong><br><strong>经典原版《DOOM （1993）》</strong><br>恶魔突然降临，战友们一一倒下……唯你独存。作为隔绝地狱的最后防线，准备好迎接前所未见的激烈战斗吧。体验发布于1993年的完整原版游戏，内含所有官方内容和第四章《Thy Flesh Consumed》。<br><br><strong>经典原版《DOOM II》</strong><br>地狱入侵了地球，为了拯救世界，你需要以更强大的武器对抗更凶残的恶魔大军。这款备受欢迎的《DOOM（1993》》的续作为玩家带来了威力强大的超级霰弹枪、恶名远播的原罪圣像和更激烈的FPS战斗。<br><br><strong>《TNT: Evilution》章节</strong><br>在木星的一颗卫星上，联合航天公司（UAC）的秘密实验悄然进行。与此同时，一艘被误认为普通补给舰的飞船获准驶入基地。飞船靠近的刹那，恶魔如同破闸而出的洪水汹涌袭来。你的战友们接连倒下，或惨遭屠杀，或沦为僵尸。这一次，生存只是次要，复仇才是关键。<br><br><strong>《The Plutonia Experiment》章节</strong><br>全国顶尖的科学家们竭尽所能，试图封闭七扇连接地狱的跨维度之门。然而，仍有最后一扇传送门依旧敞开。在这危急关头，你独自一人深入那片荒废的基地，直面恶魔守门者。你必须封印最后的那扇门户，阻止僵尸大军席卷世界的脚步。<br><br><strong>《Master Levels for DOOM II》资料片</strong><br>为你带来二十个全新关卡，每一关都延续了原版游戏中紧张刺激的战斗体验和那来自地狱的惊悚氛围。本资料片由独立设计师精心打造，id Software严格监督。<br><br><strong>《Sigil》章节</strong><br>由id Software的联合创始人John Romero亲手打造，《Sigil》作为一部包含18张新地图的章节模组，完美嵌入了《DOOM （1993）》和《DOOM II》的时间线之中。地狱的守护者巴风特用秘密印记干扰了最后的传送门，它那可怕的力量把你送到更加黑暗的地狱领域。你必须在恶魔群中杀出一条血路，打倒撒旦的终极先锋队，最终凯旋而归，成为地球的救世主。<br><br><strong>《Legacy of Rust》章节</strong><br>由id Software、Nightdive Studios和MachineGames联手打造的《Legacy of Rust》是《DOOM》的最新章节，也是自《DOOM II》推出后的首个官方章节，其中增加了新的恶魔和武器。章节分为两部分（共16张地图）：《The Vulcan Abyss》（8张地图）和《Counterfeit Eden》（8张地图）。</div>
+    <div></div>
   </div>
 </section>
 
@@ -680,71 +591,7 @@ body {
 <script>
 // 媒体数据
 const mediaItems = [
-  {
-    "type": "video",
-    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257043641/movie_max.mp4",
-    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257043641/movie.293x165.jpg?t=1723132707"
-  },
-  {
-    "type": "image",
-    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2280/ss_dccbd8eb6b389bf6d943485461265cf1b6aa52f7.1920x1080.jpg?t=1750785073",
-    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2280/ss_dccbd8eb6b389bf6d943485461265cf1b6aa52f7.1920x1080.jpg?t=1750785073"
-  },
-  {
-    "type": "image",
-    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2280/ss_e46818d3d16bdb6d8f07d0ca23c1dc05d0073b93.1920x1080.jpg?t=1750785073",
-    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2280/ss_e46818d3d16bdb6d8f07d0ca23c1dc05d0073b93.1920x1080.jpg?t=1750785073"
-  },
-  {
-    "type": "image",
-    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2280/ss_806877de2ec13666c33ec2eed02055585543f23f.1920x1080.jpg?t=1750785073",
-    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2280/ss_806877de2ec13666c33ec2eed02055585543f23f.1920x1080.jpg?t=1750785073"
-  },
-  {
-    "type": "image",
-    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2280/ss_75eb1d7b9d343c47fa352bc66a065b006b1b2002.1920x1080.jpg?t=1750785073",
-    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2280/ss_75eb1d7b9d343c47fa352bc66a065b006b1b2002.1920x1080.jpg?t=1750785073"
-  },
-  {
-    "type": "image",
-    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2280/ss_a5e57e91c054298a6c86ac49148225f936101a45.1920x1080.jpg?t=1750785073",
-    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2280/ss_a5e57e91c054298a6c86ac49148225f936101a45.1920x1080.jpg?t=1750785073"
-  },
-  {
-    "type": "image",
-    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2280/ss_33492406a4fcad478fccd9b8c8ff169d9dece124.1920x1080.jpg?t=1750785073",
-    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2280/ss_33492406a4fcad478fccd9b8c8ff169d9dece124.1920x1080.jpg?t=1750785073"
-  },
-  {
-    "type": "image",
-    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2280/ss_3714172f6c26be6aacd532e550fd11a6fe02063d.1920x1080.jpg?t=1750785073",
-    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2280/ss_3714172f6c26be6aacd532e550fd11a6fe02063d.1920x1080.jpg?t=1750785073"
-  },
-  {
-    "type": "image",
-    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2280/ss_9d59bc51f2012eff4d45477b92faa8eacf7fd020.1920x1080.jpg?t=1750785073",
-    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2280/ss_9d59bc51f2012eff4d45477b92faa8eacf7fd020.1920x1080.jpg?t=1750785073"
-  },
-  {
-    "type": "image",
-    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2280/ss_ba95f97887b5b07df3947f9b97e326bd9eb22af3.1920x1080.jpg?t=1750785073",
-    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2280/ss_ba95f97887b5b07df3947f9b97e326bd9eb22af3.1920x1080.jpg?t=1750785073"
-  },
-  {
-    "type": "image",
-    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2280/ss_e44c3198e8e748665b4574092319f28a564277e8.1920x1080.jpg?t=1750785073",
-    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2280/ss_e44c3198e8e748665b4574092319f28a564277e8.1920x1080.jpg?t=1750785073"
-  },
-  {
-    "type": "image",
-    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2280/ss_05f81f237a6370c3c797af951b42291dc747d199.1920x1080.jpg?t=1750785073",
-    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2280/ss_05f81f237a6370c3c797af951b42291dc747d199.1920x1080.jpg?t=1750785073"
-  },
-  {
-    "type": "image",
-    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2280/ss_e89a593007f181c3aa0209e3e4c2a63c9cbfc34a.1920x1080.jpg?t=1750785073",
-    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2280/ss_e89a593007f181c3aa0209e3e4c2a63c9cbfc34a.1920x1080.jpg?t=1750785073"
-  }
+  
 ];
 
 let currentIndex = 0;
@@ -800,41 +647,6 @@ document.addEventListener('DOMContentLoaded', () => {
   if (mediaItems.length > 0) {
     switchMedia(0);
   }
-
-  // 缩略图滚动箭头提示
-  const thumbsWrap = document.getElementById('mediaThumbnailsWrap') || document.querySelector('.media-thumbnails-wrap');
-  const bar = document.getElementById('mediaThumbnails');
-  if (bar && thumbsWrap) {
-    const leftArrow = thumbsWrap.querySelector('.media-arrow.left') || (() => {
-      const el = document.createElement('div');
-      el.className = 'media-arrow left';
-      el.innerHTML = '\u2039';
-      thumbsWrap.appendChild(el);
-      return el;
-    })();
-    const rightArrow = thumbsWrap.querySelector('.media-arrow.right') || (() => {
-      const el = document.createElement('div');
-      el.className = 'media-arrow right';
-      el.innerHTML = '\u203A';
-      thumbsWrap.appendChild(el);
-      return el;
-    })();
-    function updateArrows() {
-      const left = bar.scrollLeft;
-      const maxLeft = bar.scrollWidth - bar.clientWidth;
-      if (maxLeft <= 0) {
-        leftArrow.classList.remove('show');
-        rightArrow.classList.remove('show');
-        return;
-      }
-      leftArrow.classList.toggle('show', left > 1);
-      rightArrow.classList.toggle('show', left < maxLeft - 1);
-    }
-    bar.addEventListener('scroll', updateArrows);
-    window.addEventListener('resize', updateArrows);
-    updateArrows();
-  }
-
 });
 </script>
 

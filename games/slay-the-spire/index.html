@@ -1,5 +1,4 @@
-<!DO      </div>
-CTYPE html>
+<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
@@ -220,36 +219,6 @@ body {
 .media-thumb.active {
   box-shadow: 0 0 0 2px rgba(59,130,246,0.25);
 }
-/* 缩略图滚动箭头提示 */
-.media-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  background: rgba(27, 40, 56, 0.78);
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 12px;
-  font-weight: 700;
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity 0.2s ease;
-  z-index: 5;
-}
-.media-arrow.left { left: 4px; }
-.media-arrow.right { right: 4px; }
-.media-thumbnails-wrap {
-  position: relative;
-  overflow: hidden;
-}
-.media-thumbnails-wrap:hover .media-arrow.show {
-  opacity: 1;
-}
-
 
 /* 媒体控制按钮 */
 .media-controls {
@@ -346,7 +315,7 @@ body {
 
 /* 内容区域 */
 .content-section {
-  max-width: 940px; /* Steam 正文宽度 */
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 2rem 2rem;
 }
@@ -540,51 +509,6 @@ body {
     height: 45px;
   }
 }
-
-/* Steam 关于此游戏内容 */
-.content-block .about_para {
-  margin-bottom: 0.9rem;
-  color: var(--text-secondary);
-  font-size: 0.9375rem;
-  line-height: 1.75;
-}
-.content-block .about_media {
-  display: block;
-  max-width: 100%;
-  margin: 1rem 0;
-  overflow: hidden;
-  border-radius: 8px;
-  background: #000;
-}
-.content-block .about_img {
-  max-width: 100% !important;
-  width: 100% !important;
-  height: auto !important;
-  display: block;
-  border-radius: 8px;
-}
-.content-block video.about_img {
-  width: 100% !important;
-  max-height: 480px;
-  object-fit: contain;
-  background: #000;
-}
-.content-block .about_ul {
-  list-style: none;
-  padding-left: 0;
-}
-.content-block .about_ul li {
-  padding-left: 1.25rem;
-  position: relative;
-  margin-bottom: 0.5rem;
-}
-.content-block .about_ul li:before {
-  content: "•";
-  position: absolute;
-  left: 0;
-  color: var(--accent);
-}
-
 </style>
 </head>
 <body>
@@ -599,7 +523,7 @@ body {
 <section class="hero">
   <div class="container">
     <div class="hero-cover">
-      <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2868840/b0958d387dc366211e0f353443710cfcf9fdb020/header.jpg" alt="杀戮尖塔">
+      <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2868840/library_600x900.jpg" alt="杀戮尖塔">
     </div>
     <div class="hero-info">
       <h1>杀戮尖塔</h1>
@@ -634,23 +558,12 @@ body {
   <div class="media-gallery">
     <!-- 主图显示区域 -->
     <div class="media-main" id="mediaMain">
-      <video controls playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257289785/62628f64e43881b4262ff931831322cc7e691881/movie_600x337.jpg?t=1771531786" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257289785/movie_max.mp4" style="width:100%;height:100%;object-fit:contain;background:#000"></video>
+      <img src="" alt="Loading">
     </div>
     
     <!-- 缩略图bar -->
-    <div class="media-thumbnails-wrap" id="mediaThumbnailsWrap">
-      <div class="media-thumbnails" id="mediaThumbnails">
-      <div class="media-thumb active" data-index="0"><div class="play-icon">▶</div>      </div>
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257289785/62628f64e43881b4262ff931831322cc7e691881/movie_600x337.jpg?t=1771531786" alt="Video"></div>
-<div class="media-thumb" data-index="1"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257081846/81696be551162236d10516ebc9c1d21cf75e611d/movie_600x337.jpg?t=1770241819" alt="Video"></div>
-<div class="media-thumb" data-index="2"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257015112/movie.293x165.jpg?t=1712785134" alt="Video"></div>
-<div class="media-thumb" data-index="3"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2868840/1a373a95229aab0cfd97f553ecbe86092364bb9c/ss_1a373a95229aab0cfd97f553ecbe86092364bb9c.1920x1080.jpg?t=1776735385" alt="Screenshot"></div>
-<div class="media-thumb" data-index="4"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2868840/f3af7cb9693b9c4b6a7555227db3fef943db3992/ss_f3af7cb9693b9c4b6a7555227db3fef943db3992.1920x1080.jpg?t=1776735385" alt="Screenshot"></div>
-<div class="media-thumb" data-index="5"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2868840/c3db69efd984ef012ae85c5b426663720152f0a4/ss_c3db69efd984ef012ae85c5b426663720152f0a4.1920x1080.jpg?t=1776735385" alt="Screenshot"></div>
-<div class="media-thumb" data-index="6"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2868840/0fdb2940c0d367a40b2be6433daf12e3634089cf/ss_0fdb2940c0d367a40b2be6433daf12e3634089cf.1920x1080.jpg?t=1776735385" alt="Screenshot"></div>
-<div class="media-thumb" data-index="7"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2868840/18e8bda7bc4cdb37b90e0e2ce546967cbec87076/ss_18e8bda7bc4cdb37b90e0e2ce546967cbec87076.1920x1080.jpg?t=1776735385" alt="Screenshot"></div>
-<div class="media-thumb" data-index="8"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2868840/0aa6bff0eff26e37ccfdb07ad6cab52f8ab1ed4b/ss_0aa6bff0eff26e37ccfdb07ad6cab52f8ab1ed4b.1920x1080.jpg?t=1776735385" alt="Screenshot"></div>
-    </div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257289785/62628f64e43881b4262ff931831322cc7e691881/movie_600x337.jpg?t=1771531786" alt="Video"></div>
+    <div class="media-thumbnails" id="mediaThumbnails">
+      <div class="media-thumb active" data-index="0"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257289785/62628f64e43881b4262ff931831322cc7e691881/movie_600x337.jpg?t=1771531786" alt="Video"></div>
 <div class="media-thumb " data-index="1"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257081846/81696be551162236d10516ebc9c1d21cf75e611d/movie_600x337.jpg?t=1770241819" alt="Video"></div>
 <div class="media-thumb " data-index="2"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257015112/movie.293x165.jpg?t=1712785134" alt="Video"></div>
 <div class="media-thumb " data-index="3"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2868840/1a373a95229aab0cfd97f553ecbe86092364bb9c/ss_1a373a95229aab0cfd97f553ecbe86092364bb9c.1920x1080.jpg?t=1776735385" alt="Screenshot"></div>
@@ -668,7 +581,7 @@ body {
 <section class="content-section">
   <div class="content-block">
     <h2>关于此游戏</h2>
-    <div><h2 class="bb_tag" >高塔苏醒了</h2><p class="about_para" >究极的卡牌肉鸽游戏再度归来！<br><br>一千年来，高塔一直在沉睡。其中的秘密被深埋、恐怖被遗忘。如今，高塔再次开启，比以往更加饥饿与危险，吞噬每一个胆敢前来攀升的人。<br><br>新的危险要求你使用更敏锐的策略、最无情的计算与毫不动摇的决心。克服高塔残酷的考验，发现藏在它顶峰的真相吧。<br><br>你是会独自攀爬，还是征求其他冒险者同伴们的支持呢？</p><p class="about_para" style="text-align: center"></p><h2 class="bb_tag" >不断变化的高塔</h2><p class="about_para" >踏进已经焕然一新的高塔，这里是一个充满奇异与致命敌人的扭曲迷宫。试着熟悉全新的卡牌、遗物与药水，每一样都有可能改变你的整局游戏——或是带来危险的后果。<br><br>和众多新老角色一起爬塔，每位角色都有自己的卡牌、动机和秘密。<br><br>没有哪两次攀登会一模一样。不可预料的挑战与不断进化的策略等待着那些勇敢——或愚昧——的爬塔者们。</p><h2 class="bb_tag" >独自攀登，或与盟友共同进退</h2><p class="about_para" >是独自挑战高塔，还是最多4名玩家一起在全新的合作模式中共同面对高塔，决定在你！发现多人模式专属的卡牌、强大的团队连携、扛起你的队友们（或是被队友们扛着）去获得胜利！<br></p><h2 class="bb_tag" >众多新老角色</h2><p class="about_para" >从五名不同的角色中选择一位踏上爬塔的旅程，有一些角色对老玩家们会相当熟悉，而另两位则是全新登场。在扫清一切拦路敌人的途中，发现每一位角色的独特游玩风格、发挥他们的全部潜力、了解他们秘密的背景故事。</p><h2 class="bb_tag" >发现高塔的故事</h2><p class="about_para" >高塔的历史和其中众多无论敌友的居民，如今你都可以用全新的方式发现和了解他们。解锁高塔神秘时间线中的无数碎片，在你无数次的爬塔旅程中，邂逅其中最为古老的居民们。</p><p class="about_para" style="text-align: center"></p><h2 class="bb_tag" >抢先体验期间还会有更多内容</h2><p class="about_para" >高塔总是不断变化……并且变化的层面多种多样。更多内容——包括卡牌、事件、环境、敌人和更多——都会在抢先体验期间不断添加和调整平衡。来抢先加入这段旅程，成为高塔下一次进化的一部分吧。<br><br><br>那么，为什么要用抢先体验的模式发布呢？你可能会问。因为《杀戮尖塔1》的成功就源于我们的社区！这听起来很俗套，但当初众多玩家们为游戏所付出的额外助力，无论是汇报问题、翻译内容与新闻、发布长篇论文式视频、制作优秀的（哈哈）强度表/排行榜、还是绘制各种精美或搞怪的同人图，这一切都是让我们能够再次制作续作的原因。我们热爱我们的工作！</p></div>
+    <div><h2 class="bb_tag" >高塔苏醒了</h2><p class="bb_paragraph" >究极的卡牌肉鸽游戏再度归来！<br><br>一千年来，高塔一直在沉睡。其中的秘密被深埋、恐怖被遗忘。如今，高塔再次开启，比以往更加饥饿与危险，吞噬每一个胆敢前来攀升的人。<br><br>新的危险要求你使用更敏锐的策略、最无情的计算与毫不动摇的决心。克服高塔残酷的考验，发现藏在它顶峰的真相吧。<br><br>你是会独自攀爬，还是征求其他冒险者同伴们的支持呢？</p><p class="bb_paragraph" ></p><p class="bb_paragraph" style="text-align: center"><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2868840/extras/7cae6b9b4c639e8c6929efa57c856cf7.poster.avif?t=1776735385" width=620 height=178 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2868840/extras/7cae6b9b4c639e8c6929efa57c856cf7.webm?t=1776735385" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2868840/extras/7cae6b9b4c639e8c6929efa57c856cf7.mp4?t=1776735385" type="video/mp4"></video></span></p><h2 class="bb_tag" >不断变化的高塔</h2><p class="bb_paragraph" >踏进已经焕然一新的高塔，这里是一个充满奇异与致命敌人的扭曲迷宫。试着熟悉全新的卡牌、遗物与药水，每一样都有可能改变你的整局游戏——或是带来危险的后果。<br><br>和众多新老角色一起爬塔，每位角色都有自己的卡牌、动机和秘密。<br><br>没有哪两次攀登会一模一样。不可预料的挑战与不断进化的策略等待着那些勇敢——或愚昧——的爬塔者们。</p><p class="bb_paragraph" ></p><p class="bb_paragraph" ><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2868840/extras/27da8333d420707bdc74ec08c60639d7.poster.avif?t=1776735385" width=780 height=430 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2868840/extras/27da8333d420707bdc74ec08c60639d7.webm?t=1776735385" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2868840/extras/27da8333d420707bdc74ec08c60639d7.mp4?t=1776735385" type="video/mp4"></video></span></p><h2 class="bb_tag" >独自攀登，或与盟友共同进退</h2><p class="bb_paragraph" >是独自挑战高塔，还是最多4名玩家一起在全新的合作模式中共同面对高塔，决定在你！发现多人模式专属的卡牌、强大的团队连携、扛起你的队友们（或是被队友们扛着）去获得胜利！<br></p><p class="bb_paragraph" ></p><p class="bb_paragraph" ><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2868840/extras/d99471fefc7334953090a27bd835b9bb.avif?t=1776735385" width=1080 height=557 /></span></p><h2 class="bb_tag" >众多新老角色</h2><p class="bb_paragraph" >从五名不同的角色中选择一位踏上爬塔的旅程，有一些角色对老玩家们会相当熟悉，而另两位则是全新登场。在扫清一切拦路敌人的途中，发现每一位角色的独特游玩风格、发挥他们的全部潜力、了解他们秘密的背景故事。</p><h2 class="bb_tag" >发现高塔的故事</h2><p class="bb_paragraph" >高塔的历史和其中众多无论敌友的居民，如今你都可以用全新的方式发现和了解他们。解锁高塔神秘时间线中的无数碎片，在你无数次的爬塔旅程中，邂逅其中最为古老的居民们。</p><p class="bb_paragraph" ></p><p class="bb_paragraph" style="text-align: center"><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2868840/extras/a011229a5c774d3546ee78a7f7969cc7.poster.avif?t=1776735385" width=600 height=358 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2868840/extras/a011229a5c774d3546ee78a7f7969cc7.webm?t=1776735385" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2868840/extras/a011229a5c774d3546ee78a7f7969cc7.mp4?t=1776735385" type="video/mp4"></video></span></p><h2 class="bb_tag" >抢先体验期间还会有更多内容</h2><p class="bb_paragraph" >高塔总是不断变化……并且变化的层面多种多样。更多内容——包括卡牌、事件、环境、敌人和更多——都会在抢先体验期间不断添加和调整平衡。来抢先加入这段旅程，成为高塔下一次进化的一部分吧。<br><br><br>那么，为什么要用抢先体验的模式发布呢？你可能会问。因为《杀戮尖塔1》的成功就源于我们的社区！这听起来很俗套，但当初众多玩家们为游戏所付出的额外助力，无论是汇报问题、翻译内容与新闻、发布长篇论文式视频、制作优秀的（哈哈）强度表/排行榜、还是绘制各种精美或搞怪的同人图，这一切都是让我们能够再次制作续作的原因。我们热爱我们的工作！</p></div>
   </div>
 </section>
 
@@ -700,51 +613,15 @@ body {
 <script>
 // 媒体数据
 const mediaItems = [
-  {
-    "type": "video",
-    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257289785/movie_max.mp4",
-    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257289785/62628f64e43881b4262ff931831322cc7e691881/movie_600x337.jpg?t=1771531786"
-  },
-  {
-    "type": "video",
-    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257081846/movie_max.mp4",
-    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257081846/81696be551162236d10516ebc9c1d21cf75e611d/movie_600x337.jpg?t=1770241819"
-  },
-  {
-    "type": "video",
-    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257015112/movie_max.mp4",
-    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257015112/movie.293x165.jpg?t=1712785134"
-  },
-  {
-    "type": "image",
-    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2868840/1a373a95229aab0cfd97f553ecbe86092364bb9c/ss_1a373a95229aab0cfd97f553ecbe86092364bb9c.1920x1080.jpg?t=1776735385",
-    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2868840/1a373a95229aab0cfd97f553ecbe86092364bb9c/ss_1a373a95229aab0cfd97f553ecbe86092364bb9c.1920x1080.jpg?t=1776735385"
-  },
-  {
-    "type": "image",
-    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2868840/f3af7cb9693b9c4b6a7555227db3fef943db3992/ss_f3af7cb9693b9c4b6a7555227db3fef943db3992.1920x1080.jpg?t=1776735385",
-    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2868840/f3af7cb9693b9c4b6a7555227db3fef943db3992/ss_f3af7cb9693b9c4b6a7555227db3fef943db3992.1920x1080.jpg?t=1776735385"
-  },
-  {
-    "type": "image",
-    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2868840/c3db69efd984ef012ae85c5b426663720152f0a4/ss_c3db69efd984ef012ae85c5b426663720152f0a4.1920x1080.jpg?t=1776735385",
-    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2868840/c3db69efd984ef012ae85c5b426663720152f0a4/ss_c3db69efd984ef012ae85c5b426663720152f0a4.1920x1080.jpg?t=1776735385"
-  },
-  {
-    "type": "image",
-    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2868840/0fdb2940c0d367a40b2be6433daf12e3634089cf/ss_0fdb2940c0d367a40b2be6433daf12e3634089cf.1920x1080.jpg?t=1776735385",
-    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2868840/0fdb2940c0d367a40b2be6433daf12e3634089cf/ss_0fdb2940c0d367a40b2be6433daf12e3634089cf.1920x1080.jpg?t=1776735385"
-  },
-  {
-    "type": "image",
-    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2868840/18e8bda7bc4cdb37b90e0e2ce546967cbec87076/ss_18e8bda7bc4cdb37b90e0e2ce546967cbec87076.1920x1080.jpg?t=1776735385",
-    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2868840/18e8bda7bc4cdb37b90e0e2ce546967cbec87076/ss_18e8bda7bc4cdb37b90e0e2ce546967cbec87076.1920x1080.jpg?t=1776735385"
-  },
-  {
-    "type": "image",
-    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2868840/0aa6bff0eff26e37ccfdb07ad6cab52f8ab1ed4b/ss_0aa6bff0eff26e37ccfdb07ad6cab52f8ab1ed4b.1920x1080.jpg?t=1776735385",
-    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2868840/0aa6bff0eff26e37ccfdb07ad6cab52f8ab1ed4b/ss_0aa6bff0eff26e37ccfdb07ad6cab52f8ab1ed4b.1920x1080.jpg?t=1776735385"
-  }
+  {"type": "video", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257289785/movie_max.mp4", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257289785/62628f64e43881b4262ff931831322cc7e691881/movie_600x337.jpg?t=1771531786"},
+  {"type": "video", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257081846/movie_max.mp4", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257081846/81696be551162236d10516ebc9c1d21cf75e611d/movie_600x337.jpg?t=1770241819"},
+  {"type": "video", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257015112/movie_max.mp4", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257015112/movie.293x165.jpg?t=1712785134"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2868840/1a373a95229aab0cfd97f553ecbe86092364bb9c/ss_1a373a95229aab0cfd97f553ecbe86092364bb9c.1920x1080.jpg?t=1776735385", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2868840/1a373a95229aab0cfd97f553ecbe86092364bb9c/ss_1a373a95229aab0cfd97f553ecbe86092364bb9c.1920x1080.jpg?t=1776735385"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2868840/f3af7cb9693b9c4b6a7555227db3fef943db3992/ss_f3af7cb9693b9c4b6a7555227db3fef943db3992.1920x1080.jpg?t=1776735385", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2868840/f3af7cb9693b9c4b6a7555227db3fef943db3992/ss_f3af7cb9693b9c4b6a7555227db3fef943db3992.1920x1080.jpg?t=1776735385"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2868840/c3db69efd984ef012ae85c5b426663720152f0a4/ss_c3db69efd984ef012ae85c5b426663720152f0a4.1920x1080.jpg?t=1776735385", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2868840/c3db69efd984ef012ae85c5b426663720152f0a4/ss_c3db69efd984ef012ae85c5b426663720152f0a4.1920x1080.jpg?t=1776735385"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2868840/0fdb2940c0d367a40b2be6433daf12e3634089cf/ss_0fdb2940c0d367a40b2be6433daf12e3634089cf.1920x1080.jpg?t=1776735385", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2868840/0fdb2940c0d367a40b2be6433daf12e3634089cf/ss_0fdb2940c0d367a40b2be6433daf12e3634089cf.1920x1080.jpg?t=1776735385"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2868840/18e8bda7bc4cdb37b90e0e2ce546967cbec87076/ss_18e8bda7bc4cdb37b90e0e2ce546967cbec87076.1920x1080.jpg?t=1776735385", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2868840/18e8bda7bc4cdb37b90e0e2ce546967cbec87076/ss_18e8bda7bc4cdb37b90e0e2ce546967cbec87076.1920x1080.jpg?t=1776735385"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2868840/0aa6bff0eff26e37ccfdb07ad6cab52f8ab1ed4b/ss_0aa6bff0eff26e37ccfdb07ad6cab52f8ab1ed4b.1920x1080.jpg?t=1776735385", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2868840/0aa6bff0eff26e37ccfdb07ad6cab52f8ab1ed4b/ss_0aa6bff0eff26e37ccfdb07ad6cab52f8ab1ed4b.1920x1080.jpg?t=1776735385"}
 ];
 
 let currentIndex = 0;
@@ -800,41 +677,6 @@ document.addEventListener('DOMContentLoaded', () => {
   if (mediaItems.length > 0) {
     switchMedia(0);
   }
-
-  // 缩略图滚动箭头提示
-  const thumbsWrap = document.getElementById('mediaThumbnailsWrap') || document.querySelector('.media-thumbnails-wrap');
-  const bar = document.getElementById('mediaThumbnails');
-  if (bar && thumbsWrap) {
-    const leftArrow = thumbsWrap.querySelector('.media-arrow.left') || (() => {
-      const el = document.createElement('div');
-      el.className = 'media-arrow left';
-      el.innerHTML = '\u2039';
-      thumbsWrap.appendChild(el);
-      return el;
-    })();
-    const rightArrow = thumbsWrap.querySelector('.media-arrow.right') || (() => {
-      const el = document.createElement('div');
-      el.className = 'media-arrow right';
-      el.innerHTML = '\u203A';
-      thumbsWrap.appendChild(el);
-      return el;
-    })();
-    function updateArrows() {
-      const left = bar.scrollLeft;
-      const maxLeft = bar.scrollWidth - bar.clientWidth;
-      if (maxLeft <= 0) {
-        leftArrow.classList.remove('show');
-        rightArrow.classList.remove('show');
-        return;
-      }
-      leftArrow.classList.toggle('show', left > 1);
-      rightArrow.classList.toggle('show', left < maxLeft - 1);
-    }
-    bar.addEventListener('scroll', updateArrows);
-    window.addEventListener('resize', updateArrows);
-    updateArrows();
-  }
-
 });
 </script>
 

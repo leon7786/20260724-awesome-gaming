@@ -219,36 +219,6 @@ body {
 .media-thumb.active {
   box-shadow: 0 0 0 2px rgba(59,130,246,0.25);
 }
-/* 缩略图滚动箭头提示 */
-.media-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  background: rgba(27, 40, 56, 0.78);
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 12px;
-  font-weight: 700;
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity 0.2s ease;
-  z-index: 5;
-}
-.media-arrow.left { left: 4px; }
-.media-arrow.right { right: 4px; }
-.media-thumbnails-wrap {
-  position: relative;
-  overflow: hidden;
-}
-.media-thumbnails-wrap:hover .media-arrow.show {
-  opacity: 1;
-}
-
 
 /* 媒体控制按钮 */
 .media-controls {
@@ -345,7 +315,7 @@ body {
 
 /* 内容区域 */
 .content-section {
-  max-width: 940px; /* Steam 正文宽度 */
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 2rem 2rem;
 }
@@ -539,51 +509,6 @@ body {
     height: 45px;
   }
 }
-
-/* Steam 关于此游戏内容 */
-.content-block .about_para {
-  margin-bottom: 0.9rem;
-  color: var(--text-secondary);
-  font-size: 0.9375rem;
-  line-height: 1.75;
-}
-.content-block .about_media {
-  display: block;
-  max-width: 100%;
-  margin: 1rem 0;
-  overflow: hidden;
-  border-radius: 8px;
-  background: #000;
-}
-.content-block .about_img {
-  max-width: 100% !important;
-  width: 100% !important;
-  height: auto !important;
-  display: block;
-  border-radius: 8px;
-}
-.content-block video.about_img {
-  width: 100% !important;
-  max-height: 480px;
-  object-fit: contain;
-  background: #000;
-}
-.content-block .about_ul {
-  list-style: none;
-  padding-left: 0;
-}
-.content-block .about_ul li {
-  padding-left: 1.25rem;
-  position: relative;
-  margin-bottom: 0.5rem;
-}
-.content-block .about_ul li:before {
-  content: "•";
-  position: absolute;
-  left: 0;
-  color: var(--accent);
-}
-
 </style>
 </head>
 <body>
@@ -598,7 +523,7 @@ body {
 <section class="hero">
   <div class="container">
     <div class="hero-cover">
-      <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/207610/header.jpg" alt="行尸走肉 第一季">
+      <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/207610/library_600x900.jpg" alt="行尸走肉 第一季">
     </div>
     <div class="hero-info">
       <h1>行尸走肉 第一季</h1>
@@ -606,7 +531,7 @@ body {
       
       <div class="meta-tags">
         <span class="meta-tag year">2012</span>
-        <span class="meta-tag score">⭐ 82</span>
+        <span class="meta-tag score">⭐ </span>
       </div>
       
       <div class="info-row">
@@ -632,21 +557,12 @@ body {
   <div class="media-gallery">
     <!-- 主图显示区域 -->
     <div class="media-main" id="mediaMain">
-      <video controls playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/81627/movie.293x165.jpg?t=1447355830" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/81627/movie_max.mp4" style="width:100%;height:100%;object-fit:contain;background:#000"></video>
+      <img src="" alt="Cover">
     </div>
     
     <!-- 缩略图bar -->
-    <div class="media-thumbnails-wrap" id="mediaThumbnailsWrap">
-      <div class="media-thumbnails" id="mediaThumbnails">
-      <div class="media-thumb active" data-index="0"><div class="play-icon">▶</div>      </div>
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/81627/movie.293x165.jpg?t=1447355830" alt="Video"></div>
-<div class="media-thumb" data-index="1"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/81580/movie.293x165.jpg?t=1447355692" alt="Video"></div>
-<div class="media-thumb" data-index="2"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/207610/ss_7a2c18f45ed5c6464ae803ae49c32bf3717ae375.1920x1080.jpg?t=1729702559" alt="Screenshot"></div>
-<div class="media-thumb" data-index="3"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/207610/ss_b8880868558943bf6b8e1aa94fe9ab51ea04472a.1920x1080.jpg?t=1729702559" alt="Screenshot"></div>
-<div class="media-thumb" data-index="4"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/207610/ss_b698433b560c915812b37b2c8c5ef16b71a777e7.1920x1080.jpg?t=1729702559" alt="Screenshot"></div>
-<div class="media-thumb" data-index="5"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/207610/ss_8652e0679f3de9d0382a0164888c60a5edb0b076.1920x1080.jpg?t=1729702559" alt="Screenshot"></div>
-<div class="media-thumb" data-index="6"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/207610/ss_aa4b8942069c3dc4c1352524c703fefa18145b27.1920x1080.jpg?t=1729702559" alt="Screenshot"></div>
-<div class="media-thumb" data-index="7"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/207610/ss_044086628ad6b406be3f75d9bbb9656512d5ff18.1920x1080.jpg?t=1729702559" alt="Screenshot"></div>
+    <div class="media-thumbnails" id="mediaThumbnails">
+      
     </div>
   </div>
 </section>
@@ -655,7 +571,7 @@ body {
 <section class="content-section">
   <div class="content-block">
     <h2>关于此游戏</h2>
-    <div>The Walking Dead is a five-part game series set in the same universe as Robert Kirkman’s award-winning comic book series. Play as Lee Everett, a convicted criminal, who has been given a second chance at life in a world devastated by the undead. With corpses returning to life and survivors stopping at nothing to maintain their own safety, protecting an orphaned girl named Clementine may offer him redemption in a world gone to hell.<br><br><ul class="about_ul"><li> Based on Robert Kirkman’s Eisner-Award winning comic book series, The Walking Dead allows gamers to experience the true horror of the zombie apocalypse.<br></li><li> A tailored game experience: live with the profound and lasting consequences of the decisions that you make in each episode. Your actions and choices will affect how your story plays out across the entire series.<br></li><li> You’ll be forced to make decisions that are not only difficult, but that will require you to make an almost immediate choice. There’s no time to ponder when the undead are pounding the door down!</li></ul></div>
+    <div></div>
   </div>
 </section>
 
@@ -675,46 +591,7 @@ body {
 <script>
 // 媒体数据
 const mediaItems = [
-  {
-    "type": "video",
-    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/81627/movie_max.mp4",
-    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/81627/movie.293x165.jpg?t=1447355830"
-  },
-  {
-    "type": "video",
-    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/81580/movie_max.mp4",
-    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/81580/movie.293x165.jpg?t=1447355692"
-  },
-  {
-    "type": "image",
-    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/207610/ss_7a2c18f45ed5c6464ae803ae49c32bf3717ae375.1920x1080.jpg?t=1729702559",
-    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/207610/ss_7a2c18f45ed5c6464ae803ae49c32bf3717ae375.1920x1080.jpg?t=1729702559"
-  },
-  {
-    "type": "image",
-    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/207610/ss_b8880868558943bf6b8e1aa94fe9ab51ea04472a.1920x1080.jpg?t=1729702559",
-    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/207610/ss_b8880868558943bf6b8e1aa94fe9ab51ea04472a.1920x1080.jpg?t=1729702559"
-  },
-  {
-    "type": "image",
-    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/207610/ss_b698433b560c915812b37b2c8c5ef16b71a777e7.1920x1080.jpg?t=1729702559",
-    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/207610/ss_b698433b560c915812b37b2c8c5ef16b71a777e7.1920x1080.jpg?t=1729702559"
-  },
-  {
-    "type": "image",
-    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/207610/ss_8652e0679f3de9d0382a0164888c60a5edb0b076.1920x1080.jpg?t=1729702559",
-    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/207610/ss_8652e0679f3de9d0382a0164888c60a5edb0b076.1920x1080.jpg?t=1729702559"
-  },
-  {
-    "type": "image",
-    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/207610/ss_aa4b8942069c3dc4c1352524c703fefa18145b27.1920x1080.jpg?t=1729702559",
-    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/207610/ss_aa4b8942069c3dc4c1352524c703fefa18145b27.1920x1080.jpg?t=1729702559"
-  },
-  {
-    "type": "image",
-    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/207610/ss_044086628ad6b406be3f75d9bbb9656512d5ff18.1920x1080.jpg?t=1729702559",
-    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/207610/ss_044086628ad6b406be3f75d9bbb9656512d5ff18.1920x1080.jpg?t=1729702559"
-  }
+  
 ];
 
 let currentIndex = 0;
@@ -770,41 +647,6 @@ document.addEventListener('DOMContentLoaded', () => {
   if (mediaItems.length > 0) {
     switchMedia(0);
   }
-
-  // 缩略图滚动箭头提示
-  const thumbsWrap = document.getElementById('mediaThumbnailsWrap') || document.querySelector('.media-thumbnails-wrap');
-  const bar = document.getElementById('mediaThumbnails');
-  if (bar && thumbsWrap) {
-    const leftArrow = thumbsWrap.querySelector('.media-arrow.left') || (() => {
-      const el = document.createElement('div');
-      el.className = 'media-arrow left';
-      el.innerHTML = '\u2039';
-      thumbsWrap.appendChild(el);
-      return el;
-    })();
-    const rightArrow = thumbsWrap.querySelector('.media-arrow.right') || (() => {
-      const el = document.createElement('div');
-      el.className = 'media-arrow right';
-      el.innerHTML = '\u203A';
-      thumbsWrap.appendChild(el);
-      return el;
-    })();
-    function updateArrows() {
-      const left = bar.scrollLeft;
-      const maxLeft = bar.scrollWidth - bar.clientWidth;
-      if (maxLeft <= 0) {
-        leftArrow.classList.remove('show');
-        rightArrow.classList.remove('show');
-        return;
-      }
-      leftArrow.classList.toggle('show', left > 1);
-      rightArrow.classList.toggle('show', left < maxLeft - 1);
-    }
-    bar.addEventListener('scroll', updateArrows);
-    window.addEventListener('resize', updateArrows);
-    updateArrows();
-  }
-
 });
 </script>
 

@@ -1,5 +1,4 @@
-<!DO      </div>
-CTYPE html>
+<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
@@ -220,36 +219,6 @@ body {
 .media-thumb.active {
   box-shadow: 0 0 0 2px rgba(59,130,246,0.25);
 }
-/* 缩略图滚动箭头提示 */
-.media-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  background: rgba(27, 40, 56, 0.78);
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 12px;
-  font-weight: 700;
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity 0.2s ease;
-  z-index: 5;
-}
-.media-arrow.left { left: 4px; }
-.media-arrow.right { right: 4px; }
-.media-thumbnails-wrap {
-  position: relative;
-  overflow: hidden;
-}
-.media-thumbnails-wrap:hover .media-arrow.show {
-  opacity: 1;
-}
-
 
 /* 媒体控制按钮 */
 .media-controls {
@@ -346,7 +315,7 @@ body {
 
 /* 内容区域 */
 .content-section {
-  max-width: 940px; /* Steam 正文宽度 */
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 2rem 2rem;
 }
@@ -540,51 +509,6 @@ body {
     height: 45px;
   }
 }
-
-/* Steam 关于此游戏内容 */
-.content-block .about_para {
-  margin-bottom: 0.9rem;
-  color: var(--text-secondary);
-  font-size: 0.9375rem;
-  line-height: 1.75;
-}
-.content-block .about_media {
-  display: block;
-  max-width: 100%;
-  margin: 1rem 0;
-  overflow: hidden;
-  border-radius: 8px;
-  background: #000;
-}
-.content-block .about_img {
-  max-width: 100% !important;
-  width: 100% !important;
-  height: auto !important;
-  display: block;
-  border-radius: 8px;
-}
-.content-block video.about_img {
-  width: 100% !important;
-  max-height: 480px;
-  object-fit: contain;
-  background: #000;
-}
-.content-block .about_ul {
-  list-style: none;
-  padding-left: 0;
-}
-.content-block .about_ul li {
-  padding-left: 1.25rem;
-  position: relative;
-  margin-bottom: 0.5rem;
-}
-.content-block .about_ul li:before {
-  content: "•";
-  position: absolute;
-  left: 0;
-  color: var(--accent);
-}
-
 </style>
 </head>
 <body>
@@ -599,7 +523,7 @@ body {
 <section class="hero">
   <div class="container">
     <div class="hero-cover">
-      <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/779340/header.jpg" alt="全面战争：三国">
+      <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/779340/library_600x900.jpg" alt="全面战争：三国">
     </div>
     <div class="hero-info">
       <h1>全面战争：三国</h1>
@@ -634,27 +558,12 @@ body {
   <div class="media-gallery">
     <!-- 主图显示区域 -->
     <div class="media-main" id="mediaMain">
-      <video controls playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256751445/movie.293x165.jpg?t=1558620959" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256751445/movie_max.mp4" style="width:100%;height:100%;object-fit:contain;background:#000"></video>
+      <img src="" alt="Loading">
     </div>
     
     <!-- 缩略图bar -->
-    <div class="media-thumbnails-wrap" id="mediaThumbnailsWrap">
-      <div class="media-thumbnails" id="mediaThumbnails">
-      <div class="media-thumb active" data-index="0"><div class="play-icon">▶</div>      </div>
-<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256751445/movie.293x165.jpg?t=1558620959" alt="Video"></div>
-<div class="media-thumb" data-index="1"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/779340/39751c3e85f8f33d96a7beac2bbd2675708ca7fb/ss_39751c3e85f8f33d96a7beac2bbd2675708ca7fb.1920x1080.jpg?t=1780332718" alt="Screenshot"></div>
-<div class="media-thumb" data-index="2"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/779340/871daa475cc2cdc7fd660219029d3aa6fd4175ba/ss_871daa475cc2cdc7fd660219029d3aa6fd4175ba.1920x1080.jpg?t=1780332718" alt="Screenshot"></div>
-<div class="media-thumb" data-index="3"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/779340/bb129d48e2c64d108b3d32cf8b1d9ba2dc190de1/ss_bb129d48e2c64d108b3d32cf8b1d9ba2dc190de1.1920x1080.jpg?t=1780332718" alt="Screenshot"></div>
-<div class="media-thumb" data-index="4"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/779340/61ed9cf0bfe459294ee86058d2e4927cc3e68ea1/ss_61ed9cf0bfe459294ee86058d2e4927cc3e68ea1.1920x1080.jpg?t=1780332718" alt="Screenshot"></div>
-<div class="media-thumb" data-index="5"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/779340/31c52ddde43e5a55833dd6d57f4fda4dd4cf1c85/ss_31c52ddde43e5a55833dd6d57f4fda4dd4cf1c85.1920x1080.jpg?t=1780332718" alt="Screenshot"></div>
-<div class="media-thumb" data-index="6"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/779340/95fee8e5270434f1296445dedbab7a0b68120691/ss_95fee8e5270434f1296445dedbab7a0b68120691.1920x1080.jpg?t=1780332718" alt="Screenshot"></div>
-<div class="media-thumb" data-index="7"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/779340/bc3db911875fd9250ee5d64bb9bdc7523cae487c/ss_bc3db911875fd9250ee5d64bb9bdc7523cae487c.1920x1080.jpg?t=1780332718" alt="Screenshot"></div>
-<div class="media-thumb" data-index="8"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/779340/ss_fe3108d8affd7a9f7e72959602e49cb5fa105910.1920x1080.jpg?t=1780332718" alt="Screenshot"></div>
-<div class="media-thumb" data-index="9"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/779340/ss_16346541350f29271399420bffda0da34c8d5ea1.1920x1080.jpg?t=1780332718" alt="Screenshot"></div>
-<div class="media-thumb" data-index="10"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/779340/ss_28c87c4d21ad066b22c823484d8d4a4b1ad4baef.1920x1080.jpg?t=1780332718" alt="Screenshot"></div>
-<div class="media-thumb" data-index="11"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/779340/ss_37f12b05302c5d75bd2b0b0aaed635472662a757.1920x1080.jpg?t=1780332718" alt="Screenshot"></div>
-<div class="media-thumb" data-index="12"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/779340/ss_82b431d0e99eff54583fb4abe17bf805d1fa1a03.1920x1080.jpg?t=1780332718" alt="Screenshot"></div>
-    </div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257108153/599558a6965a57deb02ac74f82691247b1eda977/movie_600x337.jpg?t=1740720528" alt="Video"></div>
+    <div class="media-thumbnails" id="mediaThumbnails">
+      <div class="media-thumb active" data-index="0"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257108153/599558a6965a57deb02ac74f82691247b1eda977/movie_600x337.jpg?t=1740720528" alt="Video"></div>
 <div class="media-thumb " data-index="1"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/779340/39751c3e85f8f33d96a7beac2bbd2675708ca7fb/ss_39751c3e85f8f33d96a7beac2bbd2675708ca7fb.1920x1080.jpg?t=1780332718" alt="Screenshot"></div>
 <div class="media-thumb " data-index="2"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/779340/871daa475cc2cdc7fd660219029d3aa6fd4175ba/ss_871daa475cc2cdc7fd660219029d3aa6fd4175ba.1920x1080.jpg?t=1780332718" alt="Screenshot"></div>
 <div class="media-thumb " data-index="3"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/779340/bb129d48e2c64d108b3d32cf8b1d9ba2dc190de1/ss_bb129d48e2c64d108b3d32cf8b1d9ba2dc190de1.1920x1080.jpg?t=1780332718" alt="Screenshot"></div>
@@ -676,7 +585,7 @@ body {
 <section class="content-section">
   <div class="content-block">
     <h2>关于此游戏</h2>
-    <div>《Total War: THREE KINGDOMS》首次在这一获奖无数的策略类游戏系列中重塑中国古代的烽火传奇。在扣人心弦的回合制战役中，可以建设国家，治国理政；在令人叹为观止的即时战斗中，则可以征战沙场，破军杀敌。《Total War: THREE KINGDOMS》将二者巧妙结合，重新定义了那段英雄辈出的传奇历史。<br><br><br><br><strong>公元190年的中国</strong><br><br>欢迎来到传奇征战的新时代。<br><br>江山如画，奈何诸侯裂土称王，此时需有新人君临天下，变更世道。你需要一统天下，再立新朝，建万古之基业。<br><br>从十二位传奇诸侯中做出选择，进而征服天下。征募英雄人物助你完成大业，通过军事、科技、政治和经济手段迫使敌人就范。<br><br>你究竟是会建立牢不可破的兄弟之盟并获取敌人的尊敬？还是会两面三刀，行阴谋诡计，成一代奸雄？<br>传奇等你来书写，但毫无疑问，壮美山河等你征服。<h2 class="bb_tag" ><strong>再塑天下</strong></h2><br><br><br><br>三国时代，江山如画。从南国丛林，到茫茫大漠，再到皑皑雪山，皆可演兵于此。而诸如长城长江等地标奇观更是令人叹为观止。此刻天下兵荒马乱，在平复天下之际，大可访古探今，探索天下。<h2 class="bb_tag" ><strong>天下传奇</strong></h2><br><br><br><br>从传奇巨著《三国演义》中选择十二位诸侯之一君临天下。无论是无双将帅，强力猛士，还是治国奇才，都有自己独特的玩法和目标。你可以选取强大的英雄阵容指挥军队，管理州郡，治国理政，强化自己的统治。人物是本作的核心，天下尽在英雄手中掌握。<h2 class="bb_tag" ><strong>关系机制</strong></h2><br><br><br><br>关系是中国的一种动态联系观念，有基于此，《Total War: THREE KINGDOMS》改编塑造了一批形象的传奇英雄及其关系，他们可以决定天下大势。每个人物都有其独特的性格、动机与好恶。他们相互之间也各有喜恶关系，这决定了你的剧本的走向。<h2 class="bb_tag" ><strong>艺术精粹</strong></h2><br><br><br><br>本作视觉效果绝佳，武术打斗激烈，可谓战争的艺术。再加上用户界面美观，场景令人震撼，还有真实的中国风艺术，本作重塑的古代中国可谓一场视觉盛宴。<h2 class="bb_tag" ><strong>缓急相济</strong></h2><br><br><br><br>《Total War: THREE KINGDOMS》的回合制战役与即时战斗比之前结合得更为流畅。战斗中的表现会产生更大的影响，会影响英雄与你之间的关系，也会影响他们与其他角色之间的敌友关系。如今强援也是制胜关键所在，这也提供了一种全新的取胜元素。</div>
+    <div>《Total War: THREE KINGDOMS》首次在这一获奖无数的策略类游戏系列中重塑中国古代的烽火传奇。在扣人心弦的回合制战役中，可以建设国家，治国理政；在令人叹为观止的即时战斗中，则可以征战沙场，破军杀敌。《Total War: THREE KINGDOMS》将二者巧妙结合，重新定义了那段英雄辈出的传奇历史。<br><br><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/779340/extras/332fd61059251db6fb0e6c9dab859f18.poster.avif?t=1780332718" width=624 height=100 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/779340/extras/332fd61059251db6fb0e6c9dab859f18.webm?t=1780332718" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/779340/extras/332fd61059251db6fb0e6c9dab859f18.mp4?t=1780332718" type="video/mp4"></video></span><br><br><strong>公元190年的中国</strong><br><br>欢迎来到传奇征战的新时代。<br><br>江山如画，奈何诸侯裂土称王，此时需有新人君临天下，变更世道。你需要一统天下，再立新朝，建万古之基业。<br><br>从十二位传奇诸侯中做出选择，进而征服天下。征募英雄人物助你完成大业，通过军事、科技、政治和经济手段迫使敌人就范。<br><br>你究竟是会建立牢不可破的兄弟之盟并获取敌人的尊敬？还是会两面三刀，行阴谋诡计，成一代奸雄？<br>传奇等你来书写，但毫无疑问，壮美山河等你征服。<h2 class="bb_tag" ><strong>再塑天下</strong></h2><br><br><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/779340/extras/341db014a3517625872aa9420e1d58b8.poster.avif?t=1780332718" width=624 height=100 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/779340/extras/341db014a3517625872aa9420e1d58b8.webm?t=1780332718" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/779340/extras/341db014a3517625872aa9420e1d58b8.mp4?t=1780332718" type="video/mp4"></video></span><br><br>三国时代，江山如画。从南国丛林，到茫茫大漠，再到皑皑雪山，皆可演兵于此。而诸如长城长江等地标奇观更是令人叹为观止。此刻天下兵荒马乱，在平复天下之际，大可访古探今，探索天下。<h2 class="bb_tag" ><strong>天下传奇</strong></h2><br><br><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/779340/extras/e2a889a6c8326794e2c86a34f323c412.poster.avif?t=1780332718" width=624 height=100 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/779340/extras/e2a889a6c8326794e2c86a34f323c412.webm?t=1780332718" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/779340/extras/e2a889a6c8326794e2c86a34f323c412.mp4?t=1780332718" type="video/mp4"></video></span><br><br>从传奇巨著《三国演义》中选择十二位诸侯之一君临天下。无论是无双将帅，强力猛士，还是治国奇才，都有自己独特的玩法和目标。你可以选取强大的英雄阵容指挥军队，管理州郡，治国理政，强化自己的统治。人物是本作的核心，天下尽在英雄手中掌握。<h2 class="bb_tag" ><strong>关系机制</strong></h2><br><br><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/779340/extras/8089e5411f5a169dcb6a2cedc3682735.poster.avif?t=1780332718" width=624 height=100 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/779340/extras/8089e5411f5a169dcb6a2cedc3682735.webm?t=1780332718" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/779340/extras/8089e5411f5a169dcb6a2cedc3682735.mp4?t=1780332718" type="video/mp4"></video></span><br><br>关系是中国的一种动态联系观念，有基于此，《Total War: THREE KINGDOMS》改编塑造了一批形象的传奇英雄及其关系，他们可以决定天下大势。每个人物都有其独特的性格、动机与好恶。他们相互之间也各有喜恶关系，这决定了你的剧本的走向。<h2 class="bb_tag" ><strong>艺术精粹</strong></h2><br><br><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/779340/extras/3dae8ae54f646a0fc9334d8efd54b1ae.poster.avif?t=1780332718" width=624 height=100 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/779340/extras/3dae8ae54f646a0fc9334d8efd54b1ae.webm?t=1780332718" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/779340/extras/3dae8ae54f646a0fc9334d8efd54b1ae.mp4?t=1780332718" type="video/mp4"></video></span><br><br>本作视觉效果绝佳，武术打斗激烈，可谓战争的艺术。再加上用户界面美观，场景令人震撼，还有真实的中国风艺术，本作重塑的古代中国可谓一场视觉盛宴。<h2 class="bb_tag" ><strong>缓急相济</strong></h2><br><br><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/779340/extras/f464bc21bf8fd4347149afc77813e145.poster.avif?t=1780332718" width=624 height=100 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/779340/extras/f464bc21bf8fd4347149afc77813e145.webm?t=1780332718" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/779340/extras/f464bc21bf8fd4347149afc77813e145.mp4?t=1780332718" type="video/mp4"></video></span><br><br>《Total War: THREE KINGDOMS》的回合制战役与即时战斗比之前结合得更为流畅。战斗中的表现会产生更大的影响，会影响英雄与你之间的关系，也会影响他们与其他角色之间的敌友关系。如今强援也是制胜关键所在，这也提供了一种全新的取胜元素。</div>
   </div>
 </section>
 
@@ -706,71 +615,19 @@ body {
 <script>
 // 媒体数据
 const mediaItems = [
-  {
-    "type": "video",
-    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256751445/movie_max.mp4",
-    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256751445/movie.293x165.jpg?t=1558620959"
-  },
-  {
-    "type": "image",
-    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/779340/39751c3e85f8f33d96a7beac2bbd2675708ca7fb/ss_39751c3e85f8f33d96a7beac2bbd2675708ca7fb.1920x1080.jpg?t=1780332718",
-    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/779340/39751c3e85f8f33d96a7beac2bbd2675708ca7fb/ss_39751c3e85f8f33d96a7beac2bbd2675708ca7fb.1920x1080.jpg?t=1780332718"
-  },
-  {
-    "type": "image",
-    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/779340/871daa475cc2cdc7fd660219029d3aa6fd4175ba/ss_871daa475cc2cdc7fd660219029d3aa6fd4175ba.1920x1080.jpg?t=1780332718",
-    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/779340/871daa475cc2cdc7fd660219029d3aa6fd4175ba/ss_871daa475cc2cdc7fd660219029d3aa6fd4175ba.1920x1080.jpg?t=1780332718"
-  },
-  {
-    "type": "image",
-    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/779340/bb129d48e2c64d108b3d32cf8b1d9ba2dc190de1/ss_bb129d48e2c64d108b3d32cf8b1d9ba2dc190de1.1920x1080.jpg?t=1780332718",
-    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/779340/bb129d48e2c64d108b3d32cf8b1d9ba2dc190de1/ss_bb129d48e2c64d108b3d32cf8b1d9ba2dc190de1.1920x1080.jpg?t=1780332718"
-  },
-  {
-    "type": "image",
-    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/779340/61ed9cf0bfe459294ee86058d2e4927cc3e68ea1/ss_61ed9cf0bfe459294ee86058d2e4927cc3e68ea1.1920x1080.jpg?t=1780332718",
-    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/779340/61ed9cf0bfe459294ee86058d2e4927cc3e68ea1/ss_61ed9cf0bfe459294ee86058d2e4927cc3e68ea1.1920x1080.jpg?t=1780332718"
-  },
-  {
-    "type": "image",
-    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/779340/31c52ddde43e5a55833dd6d57f4fda4dd4cf1c85/ss_31c52ddde43e5a55833dd6d57f4fda4dd4cf1c85.1920x1080.jpg?t=1780332718",
-    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/779340/31c52ddde43e5a55833dd6d57f4fda4dd4cf1c85/ss_31c52ddde43e5a55833dd6d57f4fda4dd4cf1c85.1920x1080.jpg?t=1780332718"
-  },
-  {
-    "type": "image",
-    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/779340/95fee8e5270434f1296445dedbab7a0b68120691/ss_95fee8e5270434f1296445dedbab7a0b68120691.1920x1080.jpg?t=1780332718",
-    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/779340/95fee8e5270434f1296445dedbab7a0b68120691/ss_95fee8e5270434f1296445dedbab7a0b68120691.1920x1080.jpg?t=1780332718"
-  },
-  {
-    "type": "image",
-    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/779340/bc3db911875fd9250ee5d64bb9bdc7523cae487c/ss_bc3db911875fd9250ee5d64bb9bdc7523cae487c.1920x1080.jpg?t=1780332718",
-    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/779340/bc3db911875fd9250ee5d64bb9bdc7523cae487c/ss_bc3db911875fd9250ee5d64bb9bdc7523cae487c.1920x1080.jpg?t=1780332718"
-  },
-  {
-    "type": "image",
-    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/779340/ss_fe3108d8affd7a9f7e72959602e49cb5fa105910.1920x1080.jpg?t=1780332718",
-    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/779340/ss_fe3108d8affd7a9f7e72959602e49cb5fa105910.1920x1080.jpg?t=1780332718"
-  },
-  {
-    "type": "image",
-    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/779340/ss_16346541350f29271399420bffda0da34c8d5ea1.1920x1080.jpg?t=1780332718",
-    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/779340/ss_16346541350f29271399420bffda0da34c8d5ea1.1920x1080.jpg?t=1780332718"
-  },
-  {
-    "type": "image",
-    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/779340/ss_28c87c4d21ad066b22c823484d8d4a4b1ad4baef.1920x1080.jpg?t=1780332718",
-    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/779340/ss_28c87c4d21ad066b22c823484d8d4a4b1ad4baef.1920x1080.jpg?t=1780332718"
-  },
-  {
-    "type": "image",
-    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/779340/ss_37f12b05302c5d75bd2b0b0aaed635472662a757.1920x1080.jpg?t=1780332718",
-    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/779340/ss_37f12b05302c5d75bd2b0b0aaed635472662a757.1920x1080.jpg?t=1780332718"
-  },
-  {
-    "type": "image",
-    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/779340/ss_82b431d0e99eff54583fb4abe17bf805d1fa1a03.1920x1080.jpg?t=1780332718",
-    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/779340/ss_82b431d0e99eff54583fb4abe17bf805d1fa1a03.1920x1080.jpg?t=1780332718"
-  }
+  {"type": "video", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257108153/movie_max.mp4", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257108153/599558a6965a57deb02ac74f82691247b1eda977/movie_600x337.jpg?t=1740720528"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/779340/39751c3e85f8f33d96a7beac2bbd2675708ca7fb/ss_39751c3e85f8f33d96a7beac2bbd2675708ca7fb.1920x1080.jpg?t=1780332718", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/779340/39751c3e85f8f33d96a7beac2bbd2675708ca7fb/ss_39751c3e85f8f33d96a7beac2bbd2675708ca7fb.1920x1080.jpg?t=1780332718"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/779340/871daa475cc2cdc7fd660219029d3aa6fd4175ba/ss_871daa475cc2cdc7fd660219029d3aa6fd4175ba.1920x1080.jpg?t=1780332718", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/779340/871daa475cc2cdc7fd660219029d3aa6fd4175ba/ss_871daa475cc2cdc7fd660219029d3aa6fd4175ba.1920x1080.jpg?t=1780332718"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/779340/bb129d48e2c64d108b3d32cf8b1d9ba2dc190de1/ss_bb129d48e2c64d108b3d32cf8b1d9ba2dc190de1.1920x1080.jpg?t=1780332718", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/779340/bb129d48e2c64d108b3d32cf8b1d9ba2dc190de1/ss_bb129d48e2c64d108b3d32cf8b1d9ba2dc190de1.1920x1080.jpg?t=1780332718"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/779340/61ed9cf0bfe459294ee86058d2e4927cc3e68ea1/ss_61ed9cf0bfe459294ee86058d2e4927cc3e68ea1.1920x1080.jpg?t=1780332718", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/779340/61ed9cf0bfe459294ee86058d2e4927cc3e68ea1/ss_61ed9cf0bfe459294ee86058d2e4927cc3e68ea1.1920x1080.jpg?t=1780332718"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/779340/31c52ddde43e5a55833dd6d57f4fda4dd4cf1c85/ss_31c52ddde43e5a55833dd6d57f4fda4dd4cf1c85.1920x1080.jpg?t=1780332718", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/779340/31c52ddde43e5a55833dd6d57f4fda4dd4cf1c85/ss_31c52ddde43e5a55833dd6d57f4fda4dd4cf1c85.1920x1080.jpg?t=1780332718"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/779340/95fee8e5270434f1296445dedbab7a0b68120691/ss_95fee8e5270434f1296445dedbab7a0b68120691.1920x1080.jpg?t=1780332718", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/779340/95fee8e5270434f1296445dedbab7a0b68120691/ss_95fee8e5270434f1296445dedbab7a0b68120691.1920x1080.jpg?t=1780332718"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/779340/bc3db911875fd9250ee5d64bb9bdc7523cae487c/ss_bc3db911875fd9250ee5d64bb9bdc7523cae487c.1920x1080.jpg?t=1780332718", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/779340/bc3db911875fd9250ee5d64bb9bdc7523cae487c/ss_bc3db911875fd9250ee5d64bb9bdc7523cae487c.1920x1080.jpg?t=1780332718"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/779340/ss_fe3108d8affd7a9f7e72959602e49cb5fa105910.1920x1080.jpg?t=1780332718", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/779340/ss_fe3108d8affd7a9f7e72959602e49cb5fa105910.1920x1080.jpg?t=1780332718"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/779340/ss_16346541350f29271399420bffda0da34c8d5ea1.1920x1080.jpg?t=1780332718", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/779340/ss_16346541350f29271399420bffda0da34c8d5ea1.1920x1080.jpg?t=1780332718"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/779340/ss_28c87c4d21ad066b22c823484d8d4a4b1ad4baef.1920x1080.jpg?t=1780332718", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/779340/ss_28c87c4d21ad066b22c823484d8d4a4b1ad4baef.1920x1080.jpg?t=1780332718"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/779340/ss_37f12b05302c5d75bd2b0b0aaed635472662a757.1920x1080.jpg?t=1780332718", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/779340/ss_37f12b05302c5d75bd2b0b0aaed635472662a757.1920x1080.jpg?t=1780332718"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/779340/ss_82b431d0e99eff54583fb4abe17bf805d1fa1a03.1920x1080.jpg?t=1780332718", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/779340/ss_82b431d0e99eff54583fb4abe17bf805d1fa1a03.1920x1080.jpg?t=1780332718"}
 ];
 
 let currentIndex = 0;
@@ -826,41 +683,6 @@ document.addEventListener('DOMContentLoaded', () => {
   if (mediaItems.length > 0) {
     switchMedia(0);
   }
-
-  // 缩略图滚动箭头提示
-  const thumbsWrap = document.getElementById('mediaThumbnailsWrap') || document.querySelector('.media-thumbnails-wrap');
-  const bar = document.getElementById('mediaThumbnails');
-  if (bar && thumbsWrap) {
-    const leftArrow = thumbsWrap.querySelector('.media-arrow.left') || (() => {
-      const el = document.createElement('div');
-      el.className = 'media-arrow left';
-      el.innerHTML = '\u2039';
-      thumbsWrap.appendChild(el);
-      return el;
-    })();
-    const rightArrow = thumbsWrap.querySelector('.media-arrow.right') || (() => {
-      const el = document.createElement('div');
-      el.className = 'media-arrow right';
-      el.innerHTML = '\u203A';
-      thumbsWrap.appendChild(el);
-      return el;
-    })();
-    function updateArrows() {
-      const left = bar.scrollLeft;
-      const maxLeft = bar.scrollWidth - bar.clientWidth;
-      if (maxLeft <= 0) {
-        leftArrow.classList.remove('show');
-        rightArrow.classList.remove('show');
-        return;
-      }
-      leftArrow.classList.toggle('show', left > 1);
-      rightArrow.classList.toggle('show', left < maxLeft - 1);
-    }
-    bar.addEventListener('scroll', updateArrows);
-    window.addEventListener('resize', updateArrows);
-    updateArrows();
-  }
-
 });
 </script>
 
