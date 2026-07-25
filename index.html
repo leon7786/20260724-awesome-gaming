@@ -639,51 +639,78 @@ function renderMarkdown(md) {
   return html;
 }
 
+// 渲染单个游戏卡片
+function renderGameCard(game) {
+  const downloads = game.downloads || [];
+  const dlBtns = downloads.slice(0, 2).map(dl => {
+    const type = dl.type || 'detail';
+    const name = dl.name || type;
+    const btnClass = type === 'gamer520' ? 'btn-success' : 
+                    type === 'x6d' ? 'btn-primary' : 
+                    type === 'magnet' ? 'btn-warning' : 'btn-secondary';
+    return `<a href="${dl.url}" class="btn ${btnClass}" target="_blank" onclick="event.stopPropagation()">${name}</a>`;
+  }).join('');
+  
+  const detailBtn = game.detail ? `<a href="${game.detail}" class="btn btn-primary">详情</a>` : '';
+  
+  return `
+    <div class="game-card">
+      <a href="${game.detail || '#'}" style="text-decoration:none;color:inherit;display:block">
+        <div class="game-cover">
+          <img src="${game.cover}" alt="${game.en_name}" loading="lazy" onerror="this.style.display='none'">
+        </div>
+      </a>
+      <div class="game-info">
+        <div class="game-title">${game.cn_name}</div>
+        <div class="game-subtitle">${game.en_name}</div>
+        <div class="game-meta">
+          <span class="tag year">${game.year}</span>
+          ${game.score ? `<span class="tag score">⭐ ${game.score}</span>` : ''}
+        </div>
+        <div class="game-actions">
+          ${dlBtns}
+          ${detailBtn}
+        </div>
+      </div>
+    </div>
+  `;
+}
+
 // 加载游戏数据
 async function loadGames() {
   try {
     const resp = await fetch('games.json');
     const games = await resp.json();
     
+    // 分离Windows和非Windows游戏
+    const windowsGames = games.filter(g => g.is_windows !== false);
+    const nonWindowsGames = games.filter(g => g.is_windows === false);
+    
     // 按年份降序排列
-    games.sort((a, b) => parseInt(b.year) - parseInt(a.year));
+    windowsGames.sort((a, b) => parseInt(b.year) - parseInt(a.year));
+    nonWindowsGames.sort((a, b) => parseInt(b.year) - parseInt(a.year));
     
     const grid = document.getElementById('gamesGrid');
-    grid.innerHTML = games.map(game => {
-      const downloads = game.downloads || [];
-      const dlBtns = downloads.slice(0, 2).map(dl => {
-        const type = dl.type || 'detail';
-        const name = dl.name || type;
-        const btnClass = type === 'gamer520' ? 'btn-success' : 
-                        type === 'x6d' ? 'btn-primary' : 
-                        type === 'magnet' ? 'btn-warning' : 'btn-secondary';
-        return `<a href="${dl.url}" class="btn ${btnClass}" target="_blank" onclick="event.stopPropagation()">${name}</a>`;
-      }).join('');
-      
-      const detailBtn = game.detail ? `<a href="${game.detail}" class="btn btn-primary">详情</a>` : '';
-      
-      return `
-        <div class="game-card">
-          <a href="${game.detail || '#'}" style="text-decoration:none;color:inherit;display:block">
-            <div class="game-cover">
-              <img src="${game.cover}" alt="${game.en_name}" loading="lazy" onerror="this.style.display='none'">
-            </div>
-          </a>
-          <div class="game-info">
-            <div class="game-title">${game.cn_name}</div>
-            <div class="game-subtitle">${game.en_name}</div>
-            <div class="game-meta">
-              <span class="tag year">${game.year}</span>
-              ${game.score ? `<span class="tag score">⭐ ${game.score}</span>` : ''}
-            </div>
-            <div class="game-actions">
-              ${dlBtns}
-              ${detailBtn}
-            </div>
-          </div>
+    
+    // 渲染Windows游戏
+    let html = windowsGames.map(renderGameCard).join('');
+    
+    // 如果有非Windows游戏，添加分组
+    if (nonWindowsGames.length > 0) {
+      html += `
+        <div style="grid-column: 1 / -1; margin-top: 3rem; margin-bottom: 1rem;">
+          <h2 style="font-size: 1.5rem; font-weight: 600; color: var(--text-primary); padding-bottom: 0.75rem; border-bottom: 2px solid var(--border);">
+            🎮 非Windows平台独占
+          </h2>
+          <p style="color: var(--text-secondary); font-size: 0.875rem; margin-top: 0.5rem;">
+            以下游戏为其他平台独占，暂不支持Windows
+          </p>
         </div>
       `;
-    }).join('');
+      html += nonWindowsGames.map(renderGameCard).join('');
+    }
+    
+    grid.innerHTML = html;
   } catch (e) {
     console.error('加载游戏数据失败:', e);
   }
