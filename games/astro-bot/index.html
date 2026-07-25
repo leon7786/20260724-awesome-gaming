@@ -652,12 +652,15 @@ body {
   <div class="media-gallery">
     <!-- 主图显示区域 -->
     <div class="media-main" id="mediaMain">
-      <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2232520/ss_9458dbfb1da60fa6b325a5dea19cfa629fc39003.1920x1080.jpg?t=1750958167" alt="Screenshot">
+      <video controls playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257002484/movie.293x165.jpg?t=1709909727" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257002484/movie_max.mp4" style="width:100%;height:100%;object-fit:contain;background:#000"></video>
     </div>
     
     <!-- 缩略图bar -->
     <div class="media-thumbnails-wrap" id="mediaThumbnailsWrap">
       <div class="media-thumbnails" id="mediaThumbnails">
+      <div class="media-thumb active" data-index="0"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257002484/movie.293x165.jpg?t=1709909727" alt="Media"></div>
+      <div class="media-thumb" data-index="1"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2232520/ss_9458dbfb1da60fa6b325a5dea19cfa629fc39003.1920x1080.jpg?t=1750958167" alt="Media"></div>
+    </div> class="media-thumbnails" id="mediaThumbnails">
       <div class="media-thumb active" data-index="0"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2232520/ss_9458dbfb1da60fa6b325a5dea19cfa629fc39003.1920x1080.jpg?t=1750958167" alt="Screenshot"></div>
 
     </div>
@@ -688,9 +691,7 @@ body {
 
 <script>
 // 媒体数据
-const mediaItems = [
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2232520/ss_9458dbfb1da60fa6b325a5dea19cfa629fc39003.1920x1080.jpg?t=1750958167", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2232520/ss_9458dbfb1da60fa6b325a5dea19cfa629fc39003.1920x1080.jpg?t=1750958167"}
-];
+const mediaItems = [{"type": "video", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257002484/movie_max.mp4", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257002484/movie.293x165.jpg?t=1709909727"}, {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2232520/ss_9458dbfb1da60fa6b325a5dea19cfa629fc39003.1920x1080.jpg?t=1750958167", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2232520/ss_9458dbfb1da60fa6b325a5dea19cfa629fc39003.1920x1080.jpg?t=1750958167"}];
 
 let currentIndex = 0;
 

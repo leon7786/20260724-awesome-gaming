@@ -652,12 +652,19 @@ body {
   <div class="media-gallery">
     <!-- 主图显示区域 -->
     <div class="media-main" id="mediaMain">
-      <img src="" alt="Cover">
+      <video controls playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5085/movie.jpg?t=1447351462" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5085/movie_max.mp4" style="width:100%;height:100%;object-fit:contain;background:#000"></video>
     </div>
     
     <!-- 缩略图bar -->
     <div class="media-thumbnails-wrap" id="mediaThumbnailsWrap">
       <div class="media-thumbnails" id="mediaThumbnails">
+      <div class="media-thumb active" data-index="0"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5085/movie.jpg?t=1447351462" alt="Media"></div>
+      <div class="media-thumb" data-index="1"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/17300/0000005235.1920x1080.jpg?t=1777495390" alt="Media"></div>
+      <div class="media-thumb" data-index="2"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/17300/0000005236.1920x1080.jpg?t=1777495390" alt="Media"></div>
+      <div class="media-thumb" data-index="3"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/17300/0000005237.1920x1080.jpg?t=1777495390" alt="Media"></div>
+      <div class="media-thumb" data-index="4"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/17300/0000005238.1920x1080.jpg?t=1777495390" alt="Media"></div>
+      <div class="media-thumb" data-index="5"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/17300/0000005239.1920x1080.jpg?t=1777495390" alt="Media"></div>
+    </div> class="media-thumbnails" id="mediaThumbnails">
       
     </div>
   </div>
@@ -686,9 +693,7 @@ body {
 
 <script>
 // 媒体数据
-const mediaItems = [
-  
-];
+const mediaItems = [{"type": "video", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5085/movie_max.mp4", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5085/movie.jpg?t=1447351462"}, {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/17300/0000005235.1920x1080.jpg?t=1777495390", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/17300/0000005235.1920x1080.jpg?t=1777495390"}, {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/17300/0000005236.1920x1080.jpg?t=1777495390", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/17300/0000005236.1920x1080.jpg?t=1777495390"}, {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/17300/0000005237.1920x1080.jpg?t=1777495390", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/17300/0000005237.1920x1080.jpg?t=1777495390"}, {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/17300/0000005238.1920x1080.jpg?t=1777495390", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/17300/0000005238.1920x1080.jpg?t=1777495390"}, {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/17300/0000005239.1920x1080.jpg?t=1777495390", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/17300/0000005239.1920x1080.jpg?t=1777495390"}];
 
 let currentIndex = 0;
 
