@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>刺客信条：幻景 - 游戏详情</title>
+<style>
+:root {
+  --bg: #fafbfc;
+  --surface: #ffffff;
+  --border: #e5e7eb;
+  --text-primary: #111827;
+  --text-secondary: #6b7280;
+  --text-muted: #9ca3af;
+  --accent: #3b82f6;
+  --accent-light: #dbeafe;
+  --success: #10b981;
+  --warning: #f59e0b;
+  --radius: 12px;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
+  --shadow: 0 4px 12px rgba(0,0,0,0.06);
+  --shadow-lg: 0 8px 24px rgba(0,0,0,0.08);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text-primary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 顶部导航 */
+.topbar {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 0.75rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.topbar a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: all 0.2s;
+}
+
+.topbar a:hover {
+  background: var(--accent-light);
+  color: var(--accent);
+}
+
+/* 游戏头部 */
+.hero {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 2rem;
+}
+
+.hero .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+.hero-cover {
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  aspect-ratio: 3/4;
+}
+
+.hero-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding-top: 0.5rem;
+}
+
+.hero-info h1 {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.hero-info .en-name {
+  font-size: 1.125rem;
+  color: var(--text-secondary);
+  font-weight: 400;
+}
+
+.meta-tags {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.meta-tag {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  padding: 0.375rem 0.75rem;
+  border-radius: 8px;
+  background: #f3f4f6;
+  color: var(--text-secondary);
+}
+
+.meta-tag.score {
+  background: var(--accent-light);
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.meta-tag.year {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.info-row {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.info-item .label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+}
+
+.info-item .value {
+  font-size: 0.9375rem;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.hero-desc {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+  max-width: 640px;
+}
+
+/* 媒体区域 - Steam风格 */
+.media-section {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 2rem;
+}
+
+.media-gallery {
+  background: var(--surface);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+
+/* 主图显示区域 */
+.media-main {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/9;
+  background: #000;
+  overflow: hidden;
+}
+
+.media-main img,
+.media-main video,
+.media-main iframe {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border: none;
+}
+
+/* 媒体控制按钮 */
+.media-controls {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  display: flex;
+  gap: 0.5rem;
+  z-index: 10;
+}
+
+.media-control-btn {
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  transition: all 0.2s;
+}
+
+.media-control-btn:hover {
+  background: rgba(0, 0, 0, 0.9);
+}
+
+/* 缩略图bar */
+.media-thumbnails {
+  display: flex;
+  gap: 0.5rem;
+  padding: 1rem;
+  overflow-x: auto;
+  background: #f9fafb;
+  border-top: 1px solid var(--border);
+}
+
+.media-thumbnails::-webkit-scrollbar {
+  height: 6px;
+}
+
+.media-thumbnails::-webkit-scrollbar-track {
+  background: #f3f4f6;
+}
+
+.media-thumbnails::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 3px;
+}
+
+.media-thumb {
+  flex-shrink: 0;
+  width: 120px;
+  height: 67.5px;
+  border-radius: 6px;
+  overflow: hidden;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all 0.2s;
+  position: relative;
+}
+
+.media-thumb:hover {
+  border-color: var(--accent);
+  transform: scale(1.05);
+}
+
+.media-thumb.active {
+  border-color: var(--accent);
+}
+
+.media-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.media-thumb .play-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+}
+
+/* 内容区域 */
+.content-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem 2rem;
+}
+
+.content-block {
+  background: var(--surface);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.content-block h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.content-block p {
+  color: var(--text-secondary);
+  font-size: 0.9375rem;
+  line-height: 1.75;
+  margin-bottom: 0.75rem;
+}
+
+.content-block h2.bb_tag {
+  font-size: 1.125rem;
+  color: var(--accent);
+  margin: 1.5rem 0 0.75rem;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+/* Steam 内嵌媒体 */
+.content-block .bb_img_ctn {
+  display: block;
+  max-width: 100%;
+  margin: 1rem 0;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #000;
+}
+
+.content-block .bb_img {
+  max-width: 100% !important;
+  width: 100% !important;
+  height: auto !important;
+  display: block;
+  border-radius: 8px;
+}
+
+.content-block video.bb_img {
+  width: 100% !important;
+  height: auto !important;
+  max-height: 500px;
+  object-fit: contain;
+  background: #000;
+}
+
+/* 下载区域 */
+.download-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem 2rem;
+}
+
+.download-block {
+  background: var(--surface);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  padding: 2rem;
+}
+
+.download-block h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.download-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #fff;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  transition: all 0.2s;
+  box-shadow: var(--shadow-sm);
+}
+
+.download-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+}
+
+.download-btn.gamer520 { background: linear-gradient(135deg, #10b981, #059669); }
+.download-btn.x6d { background: linear-gradient(135deg, #3b82f6, #2563eb); }
+.download-btn.magnet { background: linear-gradient(135deg, #f59e0b, #d97706); }
+.download-btn.fitgirl { background: linear-gradient(135deg, #8b5cf6, #7c3aed); }
+.download-btn.tianyi { background: linear-gradient(135deg, #6366f1, #4f46e5); }
+.download-btn.baidu { background: linear-gradient(135deg, #06b6d4, #0891b2); }
+.download-btn.crotorrents { background: linear-gradient(135deg, #ec4899, #db2777); }
+
+/* 系统需求 */
+.sys-req {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.sys-req-col h4 {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+
+.sys-req-col ul {
+  list-style: none;
+}
+
+.sys-req-col li {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+  padding-left: 1.25rem;
+  position: relative;
+  line-height: 1.6;
+}
+
+.sys-req-col li:before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-weight: bold;
+}
+
+/* 响应式 */
+@media (max-width: 900px) {
+  .hero .container {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .hero-cover {
+    max-width: 280px;
+    margin: 0 auto;
+  }
+  .hero-info h1 {
+    font-size: 1.75rem;
+  }
+  .sys-req {
+    grid-template-columns: 1fr;
+  }
+  .media-thumb {
+    width: 100px;
+    height: 56.25px;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero {
+    padding: 1.5rem 1rem;
+  }
+  .media-section,
+  .content-section,
+  .download-section {
+    padding: 0 1rem 1.5rem;
+  }
+  .content-block,
+  .download-block {
+    padding: 1.5rem;
+  }
+  .media-thumb {
+    width: 80px;
+    height: 45px;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- 顶部导航 -->
+<nav class="topbar">
+  <a href="../../index.html">← 返回游戏榜单</a>
+  <a href="https://store.steampowered.com/app/3035570/" target="_blank">Steam 商店页 →</a>
+</nav>
+
+<!-- 游戏头部 -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-cover">
+      <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3035570/library_600x900.jpg" alt="刺客信条：幻景">
+    </div>
+    <div class="hero-info">
+      <h1>刺客信条：幻景</h1>
+      <div class="en-name">刺客信条：幻景</div>
+      
+      <div class="meta-tags">
+        <span class="meta-tag year">2024 年 10 月 17 日</span>
+        <span class="meta-tag">动作, 冒险</span>
+        <span class="meta-tag score">⭐ 77</span>
+      </div>
+      
+      <div class="info-row">
+        <div class="info-item">
+          <span class="label">开发者</span>
+          <span class="value">Ubisoft Bordeaux</span>
+        </div>
+        <div class="info-item">
+          <span class="label">发行商</span>
+          <span class="value">Ubisoft</span>
+        </div>
+      </div>
+      
+      <div class="hero-desc">
+        在这款动作冒险游戏中，化身致命的刺客大师。以巴辛姆的视角，探索九世纪巴格达的街头巷尾。加入无形者伸张正义，追猎你的目标。
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 媒体区域 -->
+<section class="media-section">
+  <div class="media-gallery">
+    <!-- 主图显示区域 -->
+    <div class="media-main" id="mediaMain">
+      <iframe src="https://store.steampowered.com/app/3035570/" frameborder="0" allowfullscreen allow="autoplay; fullscreen"></iframe>
+    </div>
+    
+    <!-- 缩略图bar -->
+    <div class="media-thumbnails" id="mediaThumbnails">
+      <div class="media-thumb active" data-index="0"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257060902/5867210e25d1e6a389847fa51fea15d4254263de/movie_600x337.jpg?t=1763405438" alt="Video"></div>
+      <div class="media-thumb" data-index="1"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257233422/5e4aabf71c71ddbc69255919c8608a2f47f94346/movie_600x337.jpg?t=1763405440" alt="Video"></div>
+      <div class="media-thumb" data-index="2"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3035570/7333a21ec2f874f5b5a09064b1770852bb269b86/ss_7333a21ec2f874f5b5a09064b1770852bb269b86.600x338.jpg?t=1777476848" alt="Screenshot"></div>
+      <div class="media-thumb" data-index="3"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3035570/c57033e45330656cda1316de6dbd67bec7a8bcdd/ss_c57033e45330656cda1316de6dbd67bec7a8bcdd.600x338.jpg?t=1777476848" alt="Screenshot"></div>
+      <div class="media-thumb" data-index="4"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3035570/94c88c2c51d78930b4f1a9307eb92c3687e2eda8/ss_94c88c2c51d78930b4f1a9307eb92c3687e2eda8.600x338.jpg?t=1777476848" alt="Screenshot"></div>
+      <div class="media-thumb" data-index="5"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3035570/623373b7bfa16381e083cd713c9743f1da8bb5ec/ss_623373b7bfa16381e083cd713c9743f1da8bb5ec.600x338.jpg?t=1777476848" alt="Screenshot"></div>
+      <div class="media-thumb" data-index="6"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3035570/23f5b0f6234283f0f430b9672e1d896ff6d19825/ss_23f5b0f6234283f0f430b9672e1d896ff6d19825.600x338.jpg?t=1777476848" alt="Screenshot"></div>
+      <div class="media-thumb" data-index="7"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3035570/ff4b26a16aaa3cfdb20b267ddd7a235bc91388c0/ss_ff4b26a16aaa3cfdb20b267ddd7a235bc91388c0.600x338.jpg?t=1777476848" alt="Screenshot"></div>
+      <div class="media-thumb" data-index="8"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3035570/90df410e5b13c07af4127eaca50d8da6bfa294ce/ss_90df410e5b13c07af4127eaca50d8da6bfa294ce.600x338.jpg?t=1777476848" alt="Screenshot"></div>
+      <div class="media-thumb" data-index="9"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3035570/ee0a24d38bba4c9a26a34da522952e9e275b1544/ss_ee0a24d38bba4c9a26a34da522952e9e275b1544.600x338.jpg?t=1777476848" alt="Screenshot"></div>
+      <div class="media-thumb" data-index="10"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3035570/e38065007ff279e10e74d0509dc85c3c517211fe/ss_e38065007ff279e10e74d0509dc85c3c517211fe.600x338.jpg?t=1777476848" alt="Screenshot"></div>
+      <div class="media-thumb" data-index="11"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3035570/0c95c59a09d9cedcc4c4c36076d9078900ef7591/ss_0c95c59a09d9cedcc4c4c36076d9078900ef7591.600x338.jpg?t=1777476848" alt="Screenshot"></div>
+    </div>
+  </div>
+</section>
+
+<!-- 关于此游戏 -->
+<section class="content-section">
+  <div class="content-block">
+    <h2>关于此游戏</h2>
+    <div>
+<h2 class="bb_tag" >回忆山谷</h2><br>在免费大型更新《回忆山谷》中享受 6 小时的全新游戏内容，扩展巴辛姆的故事，探索绝美的新地区——埃尔奥拉。完整版游戏也会得到多方面改进。<br><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline crossorigin="anonymous" poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3035570/extras/8f8f81bc61442be7af1427d6bc7f2b97.poster.avif?t=1777476848" width=600 height=344 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3035570/extras/8f8f81bc61442be7af1427d6bc7f2b97.webm?t=1777476848" type="video/webm; codecs=vp9"></video></span><h2 class="bb_tag" >终极刺客</h2><br>成为系列史上最多才多艺、本领高强的刺客。在城市中流畅跑酷，利用各种当时最先进的道具。在刺客据点接受委托并完成升级，收集关键线索，以前所未有的凶猛技艺灭敌于无形。<br><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3035570/extras/86bb4599b7986bdcfcd4866107597dd2.poster.avif?t=1777476848" width=600 height=344 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3035570/extras/86bb4599b7986bdcfcd4866107597dd2.webm?t=1777476848" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3035570/extras/86bb4599b7986bdcfcd4866107597dd2.mp4?t=1777476848" type="video/mp4"></video></span><h2 class="bb_tag" >致敬系列本源</h2><br>系列史上牵动无数玩家的经典玩法与功能，将在本作中再度革新。前往刺客组织传说中的家园——阿拉穆特，追寻信条的本源，向《刺客信条》最初作致敬。<br><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3035570/extras/a72780e14b01f5ea7ce2096e5f9a04b6.poster.avif?t=1777476848" width=600 height=344 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3035570/extras/a72780e14b01f5ea7ce2096e5f9a04b6.webm?t=1777476848" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3035570/extras/a72780e14b01f5ea7ce2096e5f9a04b6.mp4?t=1777476848" type="video/mp4"></video></span><h2 class="bb_tag" >身临其境、感受城市气息</h2><br>在这座生机勃勃的宏伟城市中，每位市民都会对你的一举一动做出反应。从产业蓬勃的卡尔克，到绿意盎然的圆城，揭开四片区域隐藏的独特秘密。探索出人意料的世界事件，与塑造巴格达黄金时代的历史名人亲身交流。<br><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3035570/extras/9f6e7dfac607e6db6ddd25a9dc3d86b1.poster.avif?t=1777476848" width=600 height=344 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3035570/extras/9f6e7dfac607e6db6ddd25a9dc3d86b1.webm?t=1777476848" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3035570/extras/9f6e7dfac607e6db6ddd25a9dc3d86b1.mp4?t=1777476848" type="video/mp4"></video></span><h2 class="bb_tag" >见证震撼的角色蜕变</h2><br>跟随巴辛姆的脚步，踏上一段制作精巧、着重叙事的动作冒险体验。交友、拜师、树敌，看他如何从年轻小贼一步步成长为刺客大师，塑造自己的命运。<br><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline crossorigin="anonymous" poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3035570/extras/5248e1f5b73463d3339ca23bdd0fcb03.poster.avif?t=1777476848" width=600 height=345 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3035570/extras/5248e1f5b73463d3339ca23bdd0fcb03.webm?t=1777476848" type="video/webm; codecs=vp9"></video></span>    </div>
+  </div>
+</section>
+
+<!-- 下载区域 -->
+<section class="download-section">
+  <div class="download-block">
+    <h2>📥 下载链接</h2>
+    <div class="download-buttons">
+      <a href="#" class="download-btn magnet" target="_blank">🧲磁力</a>
+      <a href="#" class="download-btn fitgirl" target="_blank">FitGirl</a>
+      <a href="#" class="download-btn gamer520" target="_blank">gamer520</a>
+      <a href="#" class="download-btn x6d" target="_blank">x6d</a>
+    </div>
+  </div>
+</section>
+
+<!-- 系统需求 -->
+<section class="content-section">
+  <div class="content-block">
+    <h2>系统需求</h2>
+    <div class="sys-req">
+      <div class="sys-req-col"><h4>最低配置</h4><div><strong>最低配置:</strong><br><ul class="bb_ul"><li>需要 64 位处理器和操作系统<br></li><li><strong>操作系统:</strong> Windows 10/11<br></li><li><strong>处理器:</strong> INTEL® Core™ i7-4790K (INTEL® Core™ i5-8400 for Intel® ARC™ with Rebar) / Ryzen™ 5 1600<br></li><li><strong>内存:</strong> 8 GB RAM<br></li><li><strong>显卡:</strong> Intel® Arc™ A380 (6 GB) / NVIDIA® GeForce® GTX 1060 (6 GB) / AMD Radeon™ RX 570 (4 GB)<br></li><li><strong>DirectX 版本:</strong> 12<br></li><li><strong>存储空间:</strong> 需要 40 GB 可用空间<br></li><li><strong>支持 VR:</strong> N/A<br></li><li><strong>附注事项:</strong> Video Preset: Low / Target: 30 fps</li></ul></div></div>
+      <div class="sys-req-col"><h4>推荐配置</h4><div><strong>推荐配置:</strong><br><ul class="bb_ul"><li>需要 64 位处理器和操作系统<br></li><li><strong>操作系统:</strong> Windows 10/11<br></li><li><strong>处理器:</strong> Intel® Core™ i7-8700K / AMD Ryzen™ 5 3600<br></li><li><strong>内存:</strong> 16 GB RAM<br></li><li><strong>显卡:</strong> Intel® Arc™ A750 (8 GB) / NVIDIA® GeForce® GTX 1660 Ti (6 GB) / AMD Radeon™ RX 5600 XT (6 GB)<br></li><li><strong>DirectX 版本:</strong> 12<br></li><li><strong>存储空间:</strong> 需要 40 GB 可用空间<br></li><li><strong>支持 VR:</strong> N/A<br></li><li><strong>附注事项:</strong> Video Preset: High / Target: 60 fps</li></ul></div></div>
+    </div>
+  </div>
+</section>
+
+<script>
+// 媒体数据
+const mediaItems = [
+  {"type": "video", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257060902/5867210e25d1e6a389847fa51fea15d4254263de/movie_600x337.jpg?t=1763405438", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257060902/5867210e25d1e6a389847fa51fea15d4254263de/movie_600x337.jpg?t=1763405438"},
+  {"type": "video", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257233422/5e4aabf71c71ddbc69255919c8608a2f47f94346/movie_600x337.jpg?t=1763405440", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257233422/5e4aabf71c71ddbc69255919c8608a2f47f94346/movie_600x337.jpg?t=1763405440"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3035570/7333a21ec2f874f5b5a09064b1770852bb269b86/ss_7333a21ec2f874f5b5a09064b1770852bb269b86.1920x1080.jpg?t=1777476848", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3035570/7333a21ec2f874f5b5a09064b1770852bb269b86/ss_7333a21ec2f874f5b5a09064b1770852bb269b86.600x338.jpg?t=1777476848"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3035570/c57033e45330656cda1316de6dbd67bec7a8bcdd/ss_c57033e45330656cda1316de6dbd67bec7a8bcdd.1920x1080.jpg?t=1777476848", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3035570/c57033e45330656cda1316de6dbd67bec7a8bcdd/ss_c57033e45330656cda1316de6dbd67bec7a8bcdd.600x338.jpg?t=1777476848"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3035570/94c88c2c51d78930b4f1a9307eb92c3687e2eda8/ss_94c88c2c51d78930b4f1a9307eb92c3687e2eda8.1920x1080.jpg?t=1777476848", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3035570/94c88c2c51d78930b4f1a9307eb92c3687e2eda8/ss_94c88c2c51d78930b4f1a9307eb92c3687e2eda8.600x338.jpg?t=1777476848"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3035570/623373b7bfa16381e083cd713c9743f1da8bb5ec/ss_623373b7bfa16381e083cd713c9743f1da8bb5ec.1920x1080.jpg?t=1777476848", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3035570/623373b7bfa16381e083cd713c9743f1da8bb5ec/ss_623373b7bfa16381e083cd713c9743f1da8bb5ec.600x338.jpg?t=1777476848"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3035570/23f5b0f6234283f0f430b9672e1d896ff6d19825/ss_23f5b0f6234283f0f430b9672e1d896ff6d19825.1920x1080.jpg?t=1777476848", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3035570/23f5b0f6234283f0f430b9672e1d896ff6d19825/ss_23f5b0f6234283f0f430b9672e1d896ff6d19825.600x338.jpg?t=1777476848"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3035570/ff4b26a16aaa3cfdb20b267ddd7a235bc91388c0/ss_ff4b26a16aaa3cfdb20b267ddd7a235bc91388c0.1920x1080.jpg?t=1777476848", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3035570/ff4b26a16aaa3cfdb20b267ddd7a235bc91388c0/ss_ff4b26a16aaa3cfdb20b267ddd7a235bc91388c0.600x338.jpg?t=1777476848"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3035570/90df410e5b13c07af4127eaca50d8da6bfa294ce/ss_90df410e5b13c07af4127eaca50d8da6bfa294ce.1920x1080.jpg?t=1777476848", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3035570/90df410e5b13c07af4127eaca50d8da6bfa294ce/ss_90df410e5b13c07af4127eaca50d8da6bfa294ce.600x338.jpg?t=1777476848"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3035570/ee0a24d38bba4c9a26a34da522952e9e275b1544/ss_ee0a24d38bba4c9a26a34da522952e9e275b1544.1920x1080.jpg?t=1777476848", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3035570/ee0a24d38bba4c9a26a34da522952e9e275b1544/ss_ee0a24d38bba4c9a26a34da522952e9e275b1544.600x338.jpg?t=1777476848"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3035570/e38065007ff279e10e74d0509dc85c3c517211fe/ss_e38065007ff279e10e74d0509dc85c3c517211fe.1920x1080.jpg?t=1777476848", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3035570/e38065007ff279e10e74d0509dc85c3c517211fe/ss_e38065007ff279e10e74d0509dc85c3c517211fe.600x338.jpg?t=1777476848"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3035570/0c95c59a09d9cedcc4c4c36076d9078900ef7591/ss_0c95c59a09d9cedcc4c4c36076d9078900ef7591.1920x1080.jpg?t=1777476848", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3035570/0c95c59a09d9cedcc4c4c36076d9078900ef7591/ss_0c95c59a09d9cedcc4c4c36076d9078900ef7591.600x338.jpg?t=1777476848"}
+];
+
+let currentIndex = 0;
+
+// 切换到指定媒体
+function switchMedia(index) {
+  if (index < 0 || index >= mediaItems.length) return;
+  
+  currentIndex = index;
+  const item = mediaItems[index];
+  const mainEl = document.getElementById('mediaMain');
+  
+  if (item.type === 'video') {
+    // 使用Steam视频嵌入
+    mainEl.innerHTML = `<iframe src="${item.url}" frameborder="0" allowfullscreen allow="autoplay; fullscreen"></iframe>`;
+  } else {
+    mainEl.innerHTML = `<img src="${item.url}" alt="Screenshot">`;
+  }
+  
+  // 更新缩略图active状态
+  document.querySelectorAll('.media-thumb').forEach((thumb, i) => {
+    thumb.classList.toggle('active', i === index);
+  });
+}
+
+// 初始化
+document.addEventListener('DOMContentLoaded', () => {
+  // 绑定缩略图点击事件
+  document.querySelectorAll('.media-thumb').forEach((thumb, index) => {
+    thumb.addEventListener('click', () => switchMedia(index));
+  });
+  
+  // 设置初始状态
+  if (mediaItems.length > 0) {
+    switchMedia(0);
+  }
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>使命召唤：现代战争 2 - 游戏详情</title>
+<style>
+:root {
+  --bg: #fafbfc;
+  --surface: #ffffff;
+  --border: #e5e7eb;
+  --text-primary: #111827;
+  --text-secondary: #6b7280;
+  --text-muted: #9ca3af;
+  --accent: #3b82f6;
+  --accent-light: #dbeafe;
+  --success: #10b981;
+  --warning: #f59e0b;
+  --radius: 12px;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
+  --shadow: 0 4px 12px rgba(0,0,0,0.06);
+  --shadow-lg: 0 8px 24px rgba(0,0,0,0.08);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text-primary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 顶部导航 */
+.topbar {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 0.75rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.topbar a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: all 0.2s;
+}
+
+.topbar a:hover {
+  background: var(--accent-light);
+  color: var(--accent);
+}
+
+/* 游戏头部 */
+.hero {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 2rem;
+}
+
+.hero .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+.hero-cover {
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  aspect-ratio: 3/4;
+}
+
+.hero-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding-top: 0.5rem;
+}
+
+.hero-info h1 {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.hero-info .en-name {
+  font-size: 1.125rem;
+  color: var(--text-secondary);
+  font-weight: 400;
+}
+
+.meta-tags {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.meta-tag {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  padding: 0.375rem 0.75rem;
+  border-radius: 8px;
+  background: #f3f4f6;
+  color: var(--text-secondary);
+}
+
+.meta-tag.score {
+  background: var(--accent-light);
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.meta-tag.year {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.info-row {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.info-item .label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+}
+
+.info-item .value {
+  font-size: 0.9375rem;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.hero-desc {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+  max-width: 640px;
+}
+
+/* 媒体区域 - Steam风格 */
+.media-section {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 2rem;
+}
+
+.media-gallery {
+  background: var(--surface);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+
+/* 主图显示区域 */
+.media-main {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/9;
+  background: #000;
+  overflow: hidden;
+}
+
+.media-main img,
+.media-main video,
+.media-main iframe {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border: none;
+}
+
+/* 媒体控制按钮 */
+.media-controls {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  display: flex;
+  gap: 0.5rem;
+  z-index: 10;
+}
+
+.media-control-btn {
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  transition: all 0.2s;
+}
+
+.media-control-btn:hover {
+  background: rgba(0, 0, 0, 0.9);
+}
+
+/* 缩略图bar */
+.media-thumbnails {
+  display: flex;
+  gap: 0.5rem;
+  padding: 1rem;
+  overflow-x: auto;
+  background: #f9fafb;
+  border-top: 1px solid var(--border);
+}
+
+.media-thumbnails::-webkit-scrollbar {
+  height: 6px;
+}
+
+.media-thumbnails::-webkit-scrollbar-track {
+  background: #f3f4f6;
+}
+
+.media-thumbnails::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 3px;
+}
+
+.media-thumb {
+  flex-shrink: 0;
+  width: 120px;
+  height: 67.5px;
+  border-radius: 6px;
+  overflow: hidden;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all 0.2s;
+  position: relative;
+}
+
+.media-thumb:hover {
+  border-color: var(--accent);
+  transform: scale(1.05);
+}
+
+.media-thumb.active {
+  border-color: var(--accent);
+}
+
+.media-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.media-thumb .play-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+}
+
+/* 内容区域 */
+.content-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem 2rem;
+}
+
+.content-block {
+  background: var(--surface);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.content-block h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.content-block p {
+  color: var(--text-secondary);
+  font-size: 0.9375rem;
+  line-height: 1.75;
+  margin-bottom: 0.75rem;
+}
+
+.content-block h2.bb_tag {
+  font-size: 1.125rem;
+  color: var(--accent);
+  margin: 1.5rem 0 0.75rem;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+/* Steam 内嵌媒体 */
+.content-block .bb_img_ctn {
+  display: block;
+  max-width: 100%;
+  margin: 1rem 0;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #000;
+}
+
+.content-block .bb_img {
+  max-width: 100% !important;
+  width: 100% !important;
+  height: auto !important;
+  display: block;
+  border-radius: 8px;
+}
+
+.content-block video.bb_img {
+  width: 100% !important;
+  height: auto !important;
+  max-height: 500px;
+  object-fit: contain;
+  background: #000;
+}
+
+/* 下载区域 */
+.download-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem 2rem;
+}
+
+.download-block {
+  background: var(--surface);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  padding: 2rem;
+}
+
+.download-block h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.download-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #fff;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  transition: all 0.2s;
+  box-shadow: var(--shadow-sm);
+}
+
+.download-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+}
+
+.download-btn.gamer520 { background: linear-gradient(135deg, #10b981, #059669); }
+.download-btn.x6d { background: linear-gradient(135deg, #3b82f6, #2563eb); }
+.download-btn.magnet { background: linear-gradient(135deg, #f59e0b, #d97706); }
+.download-btn.fitgirl { background: linear-gradient(135deg, #8b5cf6, #7c3aed); }
+.download-btn.tianyi { background: linear-gradient(135deg, #6366f1, #4f46e5); }
+.download-btn.baidu { background: linear-gradient(135deg, #06b6d4, #0891b2); }
+.download-btn.crotorrents { background: linear-gradient(135deg, #ec4899, #db2777); }
+
+/* 系统需求 */
+.sys-req {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.sys-req-col h4 {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+
+.sys-req-col ul {
+  list-style: none;
+}
+
+.sys-req-col li {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+  padding-left: 1.25rem;
+  position: relative;
+  line-height: 1.6;
+}
+
+.sys-req-col li:before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-weight: bold;
+}
+
+/* 响应式 */
+@media (max-width: 900px) {
+  .hero .container {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .hero-cover {
+    max-width: 280px;
+    margin: 0 auto;
+  }
+  .hero-info h1 {
+    font-size: 1.75rem;
+  }
+  .sys-req {
+    grid-template-columns: 1fr;
+  }
+  .media-thumb {
+    width: 100px;
+    height: 56.25px;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero {
+    padding: 1.5rem 1rem;
+  }
+  .media-section,
+  .content-section,
+  .download-section {
+    padding: 0 1rem 1.5rem;
+  }
+  .content-block,
+  .download-block {
+    padding: 1.5rem;
+  }
+  .media-thumb {
+    width: 80px;
+    height: 45px;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- 顶部导航 -->
+<nav class="topbar">
+  <a href="../../index.html">← 返回游戏榜单</a>
+  <a href="https://store.steampowered.com/app/10180/" target="_blank">Steam 商店页 →</a>
+</nav>
+
+<!-- 游戏头部 -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-cover">
+      <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/10180/library_600x900.jpg" alt="使命召唤：现代战争 2">
+    </div>
+    <div class="hero-info">
+      <h1>使命召唤：现代战争 2</h1>
+      <div class="en-name">Call of Duty®: Modern Warfare® 2 (2009)</div>
+      
+      <div class="meta-tags">
+        <span class="meta-tag year">2009 年 11 月 11 日</span>
+<span class="meta-tag">动作</span>
+        <span class="meta-tag score">⭐ 86</span>
+      </div>
+      
+      <div class="info-row">
+        <div class="info-item">
+          <span class="label">开发者</span>
+          <span class="value">Infinity Ward</span>
+        </div>
+        <div class="info-item">
+          <span class="label">发行商</span>
+          <span class="value">Activision</span>
+        </div>
+      </div>
+      
+      <div class="hero-desc">
+        一年之中最期待的游戏，史上最畅销的第一人称动作游戏续作 Modern Warfare 2（现代战争 2 ）延续了扣人心弦的故事情节，并将玩家带领到面临崩溃的世界去战胜新的威胁。 Call of Duty®: Modern Warfare 2（使命召唤：现代战争 2）第一次在视频游戏中请来曾经获得奥斯卡金像奖、金球奖、格莱美音乐大奖以及多项大奖的 Hans Zimmer 为游戏配乐。前作使命召唤 4：现代战争®曾经风靡全球，引起全世界的好评。其中包括：“最多玩家在线的视频游戏”，2009 年吉尼斯世界纪录超过 50 个年度游戏大奖，包括最佳电视游戏奖和年度最佳游戏，2007 年，互动科学艺术学院特别行动全新的游戏模式，让两名玩家共同完成单人战役。
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 媒体区域 -->
+<section class="media-section">
+  <div class="media-gallery">
+    <div class="media-main" id="mediaMain">
+      <iframe src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5470/movie.jpg?t=1447352648" frameborder="0" allowfullscreen allow="autoplay; fullscreen"></iframe>
+    </div>
+    <div class="media-thumbnails" id="mediaThumbnails">
+<div class="media-thumb active" data-index="0"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5470/movie.jpg?t=1447352648" alt="Media"></div>
+<div class="media-thumb " data-index="1"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5410/movie.jpg?t=1447352541" alt="Media"></div>
+<div class="media-thumb " data-index="2"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5411/movie.jpg?t=1447352542" alt="Media"></div>
+<div class="media-thumb " data-index="3"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/10180/ss_51a130e076354ed7aa025fda1ef9ba62c3ed767a.600x338.jpg?t=1780962606" alt="Media"></div>
+<div class="media-thumb " data-index="4"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/10180/ss_9a8893322d2e4718bb3ad762fa2d9deb07a012a6.600x338.jpg?t=1780962606" alt="Media"></div>
+<div class="media-thumb " data-index="5"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/10180/ss_5e5937d034aeec6baad838229c2466165e4e0950.600x338.jpg?t=1780962606" alt="Media"></div>
+<div class="media-thumb " data-index="6"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/10180/ss_6a0b262647f584bf40f91b812a4e6cc8e37ba808.600x338.jpg?t=1780962606" alt="Media"></div>
+<div class="media-thumb " data-index="7"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/10180/ss_d39fd5f8c2a50078eb055e7772cb25885cf688a4.600x338.jpg?t=1780962606" alt="Media"></div>
+<div class="media-thumb " data-index="8"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/10180/ss_7240600b8d19d9eebe7939bcc8d86f44e573db43.600x338.jpg?t=1780962606" alt="Media"></div>
+<div class="media-thumb " data-index="9"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/10180/ss_8d0d8d549e44c3a2819548e569a8e9d5cda43b6c.600x338.jpg?t=1780962606" alt="Media"></div>
+<div class="media-thumb " data-index="10"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/10180/ss_2d00f1abd0b9726fb8965ac0d40242c58bf59b57.600x338.jpg?t=1780962606" alt="Media"></div>
+<div class="media-thumb " data-index="11"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/10180/ss_f338c57fc49f0f4e4d57cf728dcbf9919c02faf1.600x338.jpg?t=1780962606" alt="Media"></div>
+<div class="media-thumb " data-index="12"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/10180/ss_f27706757c00d3a138e3741d2e145fd64704c3a6.600x338.jpg?t=1780962606" alt="Media"></div>
+<div class="media-thumb " data-index="13"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/10180/ss_bd7d7f15de08859292b691e77454ded9e7eb52b8.600x338.jpg?t=1780962606" alt="Media"></div>
+<div class="media-thumb " data-index="14"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/10180/ss_570db4c7592dc959883b9b3ae4ea80991d7cbcd4.600x338.jpg?t=1780962606" alt="Media"></div>
+<div class="media-thumb " data-index="15"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/10180/ss_e0efd331a5acdeaea910faba84cc94f5897ae7e4.600x338.jpg?t=1780962606" alt="Media"></div>
+<div class="media-thumb " data-index="16"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/10180/ss_4d7f8965cc024af7f409884cd996140905081f1a.600x338.jpg?t=1780962606" alt="Media"></div>
+<div class="media-thumb " data-index="17"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/10180/ss_b93815c9b99f50c472def2c8934bc91210e83198.600x338.jpg?t=1780962606" alt="Media"></div>
+
+    </div>
+  </div>
+</section>
+
+<!-- 关于此游戏 -->
+<section class="content-section">
+  <div class="content-block">
+    <h2>关于此游戏</h2>
+    <div>一年之中最期待的游戏，史上最畅销的第一人称动作游戏续作 Modern Warfare 2（现代战争 2 ）延续了扣人心弦的故事情节，并将玩家带领到面临崩溃的世界去战胜新的威胁。 <br>Call of Duty®: Modern Warfare 2（使命召唤：现代战争 2）第一次在视频游戏中请来曾经获得奥斯卡金像奖、金球奖、格莱美音乐大奖以及多项大奖的 Hans Zimmer 为游戏配乐。前作使命召唤 4：现代战争®曾经风靡全球，引起全世界的好评。其中包括：<br><ul class="bb_ul"><li>“最多玩家在线的视频游戏”，2009 年吉尼斯世界纪录<br></li><li>超过 50 个年度游戏大奖，包括最佳电视游戏奖和年度最佳游戏，2007 年，互动科学艺术学院</li></ul><h2 class="bb_tag" >特别行动</h2>全新的游戏模式，让两名玩家共同完成单人战役。<br><ul class="bb_ul"><li>特别行动里在基础任务上添加了计时赛，让玩家去挑战每次任务完成时间。<br></li><li>等级晋升，让玩家在特别行动里解锁一个又一个困难的任务。<br></li><li>任务主要包含了单人战役。粉丝们最爱的使命召唤 4：现代战争里才有的特别任务。</li></ul><h2 class="bb_tag" >多人模式改造</h2>设置一个新的多人游戏大厅，现代战争 2 为您提供了新的功能，定制游戏，游戏状态以及模式。其中包括：<br>兵种设置<br><ul class="bb_ul"><li><strong>次要武器</strong> - Machine 手枪，霰弹枪，猎枪， 榴弹发射器<br></li><li><strong>防暴盾牌</strong><br></li><li><strong>武器</strong> - 飞刀，防爆盾，战术标记<br></li><li><strong>玩家等级</strong><br></li><li><strong>Bling（双持武器）</strong></li></ul><ul class="bb_ul"><li><strong>自定义的连杀奖励</strong> - AC130，步哨枪，捕食者导弹，UAV，急救包<br></li><li><strong>表彰（赛后报告）</strong></li></ul></div>
+  </div>
+</section>
+
+<!-- 下载区域 -->
+<section class="download-section">
+  <div class="download-block">
+    <h2>📥 下载链接</h2>
+    <div class="download-buttons">
+      <a href="https://www.gamer520.com/?s=Call%20of%20Duty%C2%AE%3A%20Modern%20Warfare%C2%AE%202%20%282009%29" class="download-btn gamer520" target="_blank">gamer520</a>
+      <a href="https://www.x6d.com/search/?searchkey=Call%20of%20Duty%C2%AE%3A%20Modern%20Warfare%C2%AE%202%20%282009%29" class="download-btn x6d" target="_blank">x6d</a>
+    </div>
+  </div>
+</section>
+
+<!-- 系统需求 -->
+<section class="content-section">
+  <div class="content-block">
+    <h2>系统需求</h2>
+    <div class="sys-req">
+      <div class="sys-req-col"><h4>最低配置</h4><div><ul class="bb_ul"><li><strong>操作系统：</strong>Microsoft Windows XP 或 Windows Vista（不支持 Windows 95/98/ME/2000）<br></li><li><strong>处理器：</strong>英特尔奔腾 4 3.2 GHz 或 AMD 速龙 64 3200+ 处理器或可支持的更高处理器<br></li><li><strong>内存：</strong>1 GB RAM<br></li><li><strong>显卡：</strong>256 MB 英伟达 GeForce 6600GT 或更高或 ATI Radeon 1600XT 或更高<br></li><li><strong>DirectX®：</strong>Microsoft DirectX(R) 9.0c<br></li><li><strong>硬盘剩余空间：</strong>12GB 可用硬盘空间<br></li><li><strong>声卡：</strong>DirectX 9.0c 100% 兼容声卡<br></li><li><strong>互联网连接：</strong>多人游戏需要宽带连接和服务。激活游戏需要互联网连接。<br></li><li><strong>合作/多人游戏主机：</strong>要建立合作或多人游戏主机，建议使用 2Ghz 多核处理器或更高的处理器。</li></ul></div></div>
+      <div class="sys-req-col"><h4>推荐配置</h4><div></div></div>
+    </div>
+  </div>
+</section>
+
+<script>
+// 媒体数据
+const mediaItems = [
+{"type":"video","url":"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5470/movie.jpg?t=1447352648","thumb":"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5470/movie.jpg?t=1447352648"},
+{"type":"video","url":"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5410/movie.jpg?t=1447352541","thumb":"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5410/movie.jpg?t=1447352541"},
+{"type":"video","url":"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5411/movie.jpg?t=1447352542","thumb":"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5411/movie.jpg?t=1447352542"},
+{"type":"image","url":"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/10180/ss_51a130e076354ed7aa025fda1ef9ba62c3ed767a.1920x1080.jpg?t=1780962606","thumb":"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/10180/ss_51a130e076354ed7aa025fda1ef9ba62c3ed767a.600x338.jpg?t=1780962606"},
+{"type":"image","url":"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/10180/ss_9a8893322d2e4718bb3ad762fa2d9deb07a012a6.1920x1080.jpg?t=1780962606","thumb":"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/10180/ss_9a8893322d2e4718bb3ad762fa2d9deb07a012a6.600x338.jpg?t=1780962606"},
+{"type":"image","url":"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/10180/ss_5e5937d034aeec6baad838229c2466165e4e0950.1920x1080.jpg?t=1780962606","thumb":"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/10180/ss_5e5937d034aeec6baad838229c2466165e4e0950.600x338.jpg?t=1780962606"},
+{"type":"image","url":"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/10180/ss_6a0b262647f584bf40f91b812a4e6cc8e37ba808.1920x1080.jpg?t=1780962606","thumb":"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/10180/ss_6a0b262647f584bf40f91b812a4e6cc8e37ba808.600x338.jpg?t=1780962606"},
+{"type":"image","url":"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/10180/ss_d39fd5f8c2a50078eb055e7772cb25885cf688a4.1920x1080.jpg?t=1780962606","thumb":"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/10180/ss_d39fd5f8c2a50078eb055e7772cb25885cf688a4.600x338.jpg?t=1780962606"},
+{"type":"image","url":"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/10180/ss_7240600b8d19d9eebe7939bcc8d86f44e573db43.1920x1080.jpg?t=1780962606","thumb":"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/10180/ss_7240600b8d19d9eebe7939bcc8d86f44e573db43.600x338.jpg?t=1780962606"},
+{"type":"image","url":"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/10180/ss_8d0d8d549e44c3a2819548e569a8e9d5cda43b6c.1920x1080.jpg?t=1780962606","thumb":"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/10180/ss_8d0d8d549e44c3a2819548e569a8e9d5cda43b6c.600x338.jpg?t=1780962606"},
+{"type":"image","url":"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/10180/ss_2d00f1abd0b9726fb8965ac0d40242c58bf59b57.1920x1080.jpg?t=1780962606","thumb":"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/10180/ss_2d00f1abd0b9726fb8965ac0d40242c58bf59b57.600x338.jpg?t=1780962606"},
+{"type":"image","url":"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/10180/ss_f338c57fc49f0f4e4d57cf728dcbf9919c02faf1.1920x1080.jpg?t=1780962606","thumb":"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/10180/ss_f338c57fc49f0f4e4d57cf728dcbf9919c02faf1.600x338.jpg?t=1780962606"},
+{"type":"image","url":"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/10180/ss_f27706757c00d3a138e3741d2e145fd64704c3a6.1920x1080.jpg?t=1780962606","thumb":"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/10180/ss_f27706757c00d3a138e3741d2e145fd64704c3a6.600x338.jpg?t=1780962606"},
+{"type":"image","url":"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/10180/ss_bd7d7f15de08859292b691e77454ded9e7eb52b8.1920x1080.jpg?t=1780962606","thumb":"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/10180/ss_bd7d7f15de08859292b691e77454ded9e7eb52b8.600x338.jpg?t=1780962606"},
+{"type":"image","url":"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/10180/ss_570db4c7592dc959883b9b3ae4ea80991d7cbcd4.1920x1080.jpg?t=1780962606","thumb":"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/10180/ss_570db4c7592dc959883b9b3ae4ea80991d7cbcd4.600x338.jpg?t=1780962606"},
+{"type":"image","url":"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/10180/ss_e0efd331a5acdeaea910faba84cc94f5897ae7e4.1920x1080.jpg?t=1780962606","thumb":"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/10180/ss_e0efd331a5acdeaea910faba84cc94f5897ae7e4.600x338.jpg?t=1780962606"},
+{"type":"image","url":"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/10180/ss_4d7f8965cc024af7f409884cd996140905081f1a.1920x1080.jpg?t=1780962606","thumb":"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/10180/ss_4d7f8965cc024af7f409884cd996140905081f1a.600x338.jpg?t=1780962606"},
+{"type":"image","url":"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/10180/ss_b93815c9b99f50c472def2c8934bc91210e83198.1920x1080.jpg?t=1780962606","thumb":"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/10180/ss_b93815c9b99f50c472def2c8934bc91210e83198.600x338.jpg?t=1780962606"}
+];
+
+let currentIndex = 0;
+
+function switchMedia(index) {
+  if (index < 0 || index >= mediaItems.length) return;
+  currentIndex = index;
+  const item = mediaItems[index];
+  const mainEl = document.getElementById('mediaMain');
+  
+  if (item.type === 'video') {
+    mainEl.innerHTML = `<iframe src="${item.url}" frameborder="0" allowfullscreen allow="autoplay; fullscreen"></iframe>`;
+  } else {
+    mainEl.innerHTML = `<img src="${item.url}" alt="Screenshot">`;
+  }
+  
+  document.querySelectorAll('.media-thumb').forEach((thumb, i) => {
+    thumb.classList.toggle('active', i === index);
+  });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.media-thumb').forEach((thumb, index) => {
+    thumb.addEventListener('click', () => switchMedia(index));
+  });
+  if (mediaItems.length > 0) {
+    switchMedia(0);
+  }
+});
+</script>
+
+</body>
+</html>

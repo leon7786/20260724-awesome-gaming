@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>星球大战：绝地武士幸存者 - 游戏详情</title>
+<style>
+:root {
+  --bg: #fafbfc;
+  --surface: #ffffff;
+  --border: #e5e7eb;
+  --text-primary: #111827;
+  --text-secondary: #6b7280;
+  --text-muted: #9ca3af;
+  --accent: #3b82f6;
+  --accent-light: #dbeafe;
+  --success: #10b981;
+  --warning: #f59e0b;
+  --radius: 12px;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
+  --shadow: 0 4px 12px rgba(0,0,0,0.06);
+  --shadow-lg: 0 8px 24px rgba(0,0,0,0.08);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text-primary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 顶部导航 */
+.topbar {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 0.75rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.topbar a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: all 0.2s;
+}
+
+.topbar a:hover {
+  background: var(--accent-light);
+  color: var(--accent);
+}
+
+/* 游戏头部 */
+.hero {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 2rem;
+}
+
+.hero .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+.hero-cover {
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  aspect-ratio: 3/4;
+}
+
+.hero-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding-top: 0.5rem;
+}
+
+.hero-info h1 {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.hero-info .en-name {
+  font-size: 1.125rem;
+  color: var(--text-secondary);
+  font-weight: 400;
+}
+
+.meta-tags {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.meta-tag {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  padding: 0.375rem 0.75rem;
+  border-radius: 8px;
+  background: #f3f4f6;
+  color: var(--text-secondary);
+}
+
+.meta-tag.score {
+  background: var(--accent-light);
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.meta-tag.year {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.info-row {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.info-item .label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+}
+
+.info-item .value {
+  font-size: 0.9375rem;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.hero-desc {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+  max-width: 640px;
+}
+
+/* 媒体区域 - Steam风格 */
+.media-section {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 2rem;
+}
+
+.media-gallery {
+  background: var(--surface);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+
+/* 主图显示区域 */
+.media-main {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/9;
+  background: #000;
+  overflow: hidden;
+}
+
+.media-main img,
+.media-main video,
+.media-main iframe {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border: none;
+}
+
+/* 媒体控制按钮 */
+.media-controls {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  display: flex;
+  gap: 0.5rem;
+  z-index: 10;
+}
+
+.media-control-btn {
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  transition: all 0.2s;
+}
+
+.media-control-btn:hover {
+  background: rgba(0, 0, 0, 0.9);
+}
+
+/* 缩略图bar */
+.media-thumbnails {
+  display: flex;
+  gap: 0.5rem;
+  padding: 1rem;
+  overflow-x: auto;
+  background: #f9fafb;
+  border-top: 1px solid var(--border);
+}
+
+.media-thumbnails::-webkit-scrollbar {
+  height: 6px;
+}
+
+.media-thumbnails::-webkit-scrollbar-track {
+  background: #f3f4f6;
+}
+
+.media-thumbnails::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 3px;
+}
+
+.media-thumb {
+  flex-shrink: 0;
+  width: 120px;
+  height: 67.5px;
+  border-radius: 6px;
+  overflow: hidden;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all 0.2s;
+  position: relative;
+}
+
+.media-thumb:hover {
+  border-color: var(--accent);
+  transform: scale(1.05);
+}
+
+.media-thumb.active {
+  border-color: var(--accent);
+}
+
+.media-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.media-thumb .play-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+}
+
+/* 内容区域 */
+.content-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem 2rem;
+}
+
+.content-block {
+  background: var(--surface);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.content-block h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.content-block p {
+  color: var(--text-secondary);
+  font-size: 0.9375rem;
+  line-height: 1.75;
+  margin-bottom: 0.75rem;
+}
+
+.content-block h2.bb_tag {
+  font-size: 1.125rem;
+  color: var(--accent);
+  margin: 1.5rem 0 0.75rem;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+/* Steam 内嵌媒体 */
+.content-block .bb_img_ctn {
+  display: block;
+  max-width: 100%;
+  margin: 1rem 0;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #000;
+}
+
+.content-block .bb_img {
+  max-width: 100% !important;
+  width: 100% !important;
+  height: auto !important;
+  display: block;
+  border-radius: 8px;
+}
+
+.content-block video.bb_img {
+  width: 100% !important;
+  height: auto !important;
+  max-height: 500px;
+  object-fit: contain;
+  background: #000;
+}
+
+/* 下载区域 */
+.download-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem 2rem;
+}
+
+.download-block {
+  background: var(--surface);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  padding: 2rem;
+}
+
+.download-block h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.download-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #fff;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  transition: all 0.2s;
+  box-shadow: var(--shadow-sm);
+}
+
+.download-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+}
+
+.download-btn.gamer520 { background: linear-gradient(135deg, #10b981, #059669); }
+.download-btn.x6d { background: linear-gradient(135deg, #3b82f6, #2563eb); }
+.download-btn.magnet { background: linear-gradient(135deg, #f59e0b, #d97706); }
+.download-btn.fitgirl { background: linear-gradient(135deg, #8b5cf6, #7c3aed); }
+.download-btn.tianyi { background: linear-gradient(135deg, #6366f1, #4f46e5); }
+.download-btn.baidu { background: linear-gradient(135deg, #06b6d4, #0891b2); }
+.download-btn.crotorrents { background: linear-gradient(135deg, #ec4899, #db2777); }
+
+/* 系统需求 */
+.sys-req {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.sys-req-col h4 {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+
+.sys-req-col ul {
+  list-style: none;
+}
+
+.sys-req-col li {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+  padding-left: 1.25rem;
+  position: relative;
+  line-height: 1.6;
+}
+
+.sys-req-col li:before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-weight: bold;
+}
+
+/* 响应式 */
+@media (max-width: 900px) {
+  .hero .container {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .hero-cover {
+    max-width: 280px;
+    margin: 0 auto;
+  }
+  .hero-info h1 {
+    font-size: 1.75rem;
+  }
+  .sys-req {
+    grid-template-columns: 1fr;
+  }
+  .media-thumb {
+    width: 100px;
+    height: 56.25px;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero {
+    padding: 1.5rem 1rem;
+  }
+  .media-section,
+  .content-section,
+  .download-section {
+    padding: 0 1rem 1.5rem;
+  }
+  .content-block,
+  .download-block {
+    padding: 1.5rem;
+  }
+  .media-thumb {
+    width: 80px;
+    height: 45px;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- 顶部导航 -->
+<nav class="topbar">
+  <a href="../../index.html">← 返回游戏榜单</a>
+  <a href="https://store.steampowered.com/app/1774580/" target="_blank">Steam 商店页 →</a>
+</nav>
+
+<!-- 游戏头部 -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-cover">
+      <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1774580/library_600x900.jpg" alt="星球大战：绝地武士幸存者">
+    </div>
+    <div class="hero-info">
+      <h1>星球大战：绝地武士幸存者</h1>
+      <div class="en-name">星球大战 绝地：幸存者™</div>
+      
+      <div class="meta-tags">
+        <span class="meta-tag year">2023 年 4 月 27 日</span>
+        <span class="meta-tag">动作, 冒险</span>
+        <span class="meta-tag score">⭐ 82</span>
+      </div>
+      
+      <div class="info-row">
+        <div class="info-item">
+          <span class="label">开发者</span>
+          <span class="value">Respawn</span>
+        </div>
+        <div class="info-item">
+          <span class="label">发行商</span>
+          <span class="value">Electronic Arts</span>
+        </div>
+      </div>
+      
+      <div class="hero-desc">
+        在《星球大战 绝地：幸存者™》，这款跨银河系第三人称动作冒险游戏中，卡尔·凯斯提斯的故事仍将继续。
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 媒体区域 -->
+<section class="media-section">
+  <div class="media-gallery">
+    <!-- 主图显示区域 -->
+    <div class="media-main" id="mediaMain">
+      <iframe src="https://store.steampowered.com/app/1774580/" frameborder="0" allowfullscreen allow="autoplay; fullscreen"></iframe>
+    </div>
+    
+    <!-- 缩略图bar -->
+    <div class="media-thumbnails" id="mediaThumbnails">
+      <div class="media-thumb active" data-index="0"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256957450/movie.293x165.jpg?t=1689016714" alt="Video"></div>
+      <div class="media-thumb" data-index="1"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256941959/movie.293x165.jpg?t=1682654387" alt="Video"></div>
+      <div class="media-thumb" data-index="2"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256941960/movie.293x165.jpg?t=1682654394" alt="Video"></div>
+      <div class="media-thumb" data-index="3"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256941961/movie.293x165.jpg?t=1682654402" alt="Video"></div>
+      <div class="media-thumb" data-index="4"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1774580/ss_e589d6bb347c13f7226f0b294fd12880ced8d171.600x338.jpg?t=1777391797" alt="Screenshot"></div>
+      <div class="media-thumb" data-index="5"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1774580/ss_6f2e72d773e4280f3a4860c7fb1d62e72932a9b0.600x338.jpg?t=1777391797" alt="Screenshot"></div>
+      <div class="media-thumb" data-index="6"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1774580/ss_f14055548a6c51171036ebb3d00ddf5c97e5bd05.600x338.jpg?t=1777391797" alt="Screenshot"></div>
+      <div class="media-thumb" data-index="7"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1774580/ss_bb84b8cbf9294c6166819c3d3328c4efbdb9d46c.600x338.jpg?t=1777391797" alt="Screenshot"></div>
+      <div class="media-thumb" data-index="8"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1774580/ss_3c8dd0328d9d5944083d1c1da10f316de090c67d.600x338.jpg?t=1777391797" alt="Screenshot"></div>
+      <div class="media-thumb" data-index="9"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1774580/ss_3ed1979b4d57f7819813e1c11462e1f631a83987.600x338.jpg?t=1777391797" alt="Screenshot"></div>
+      <div class="media-thumb" data-index="10"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1774580/ss_72e3265e1983d759d133338b613df2010cf5eb56.600x338.jpg?t=1777391797" alt="Screenshot"></div>
+      <div class="media-thumb" data-index="11"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1774580/ss_0400a734d8f53d0620ce8349aa30f984e794de92.600x338.jpg?t=1777391797" alt="Screenshot"></div>
+      <div class="media-thumb" data-index="12"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1774580/ss_d7033a4716cdc2d13e8c67c3bcd4c471d39e3fc4.600x338.jpg?t=1777391797" alt="Screenshot"></div>
+    </div>
+  </div>
+</section>
+
+<!-- 关于此游戏 -->
+<section class="content-section">
+  <div class="content-block">
+    <h2>关于此游戏</h2>
+    <div>
+在《星球大战 绝地：幸存者™》，这款由 Respawn Entertainment 与 Lucasfilm Games 合作开发的跨银河系第三人称动作冒险游戏中，卡尔·凯斯提斯的故事仍将继续。这是一款以叙事为导向的单人游戏，其故事将于《星球大战 绝地：陨落的武士团™》事件发生五年后展开。紧随卡尔的脚步，在银河系进一步陷入黑暗的同时，与各方敌人展开日益艰难的决斗。在被帝国势力逼到银河系的边缘地带之际，卡尔将发现自己逐渐被新旧威胁势力所包围。作为绝地武士最终幸存者的一员，卡尔不得不在银河系最为黑暗的时期挺身而出——但他愿意付出多大的代价来保护自己和队友，以及绝地武士团的传承呢？<br><br><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1774580/extras/ef920d6d6fa8cad5cb8392aef3d0cd51.avif?t=1777391797" width=610 height=2256 /></span>    </div>
+  </div>
+</section>
+
+<!-- 下载区域 -->
+<section class="download-section">
+  <div class="download-block">
+    <h2>📥 下载链接</h2>
+    <div class="download-buttons">
+      <a href="#" class="download-btn magnet" target="_blank">🧲磁力</a>
+      <a href="#" class="download-btn fitgirl" target="_blank">FitGirl</a>
+      <a href="#" class="download-btn gamer520" target="_blank">gamer520</a>
+      <a href="#" class="download-btn x6d" target="_blank">x6d</a>
+    </div>
+  </div>
+</section>
+
+<!-- 系统需求 -->
+<section class="content-section">
+  <div class="content-block">
+    <h2>系统需求</h2>
+    <div class="sys-req">
+      <div class="sys-req-col"><h4>最低配置</h4><div><strong>最低配置:</strong><br><ul class="bb_ul"><li>需要 64 位处理器和操作系统<br></li><li><strong>操作系统:</strong> Windows 10 64-bit<br></li><li><strong>处理器:</strong> 4 core / 8 threads  | Intel Core i7-7700  | Ryzen 5 1400<br></li><li><strong>内存:</strong> 8 GB RAM<br></li><li><strong>显卡:</strong> 8GB VRAM |  GTX 1070  |  Radeon RX 580<br></li><li><strong>DirectX 版本:</strong> 12<br></li><li><strong>网络:</strong> 宽带互联网连接<br></li><li><strong>存储空间:</strong> 需要 155 GB 可用空间<br></li><li><strong>附注事项:</strong> Internet required for non-optional patching, no online play.</li></ul></div></div>
+      <div class="sys-req-col"><h4>推荐配置</h4><div><strong>推荐配置:</strong><br><ul class="bb_ul"><li>需要 64 位处理器和操作系统<br></li><li><strong>操作系统:</strong> Windows 10 64-bit<br></li><li><strong>处理器:</strong> 4 core / 8 threads  |  Intel Core i5 11600K  |  Ryzen 5 5600X<br></li><li><strong>内存:</strong> 16 GB RAM<br></li><li><strong>显卡:</strong> 8GB VRAM |  RTX2070  |  RX 6700 XT<br></li><li><strong>DirectX 版本:</strong> 12<br></li><li><strong>网络:</strong> 宽带互联网连接<br></li><li><strong>存储空间:</strong> 需要 155 GB 可用空间<br></li><li><strong>附注事项:</strong> Internet required for non-optional patching, no online play.</li></ul></div></div>
+    </div>
+  </div>
+</section>
+
+<script>
+// 媒体数据
+const mediaItems = [
+  {"type": "video", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256957450/movie.293x165.jpg?t=1689016714", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256957450/movie.293x165.jpg?t=1689016714"},
+  {"type": "video", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256941959/movie.293x165.jpg?t=1682654387", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256941959/movie.293x165.jpg?t=1682654387"},
+  {"type": "video", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256941960/movie.293x165.jpg?t=1682654394", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256941960/movie.293x165.jpg?t=1682654394"},
+  {"type": "video", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256941961/movie.293x165.jpg?t=1682654402", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256941961/movie.293x165.jpg?t=1682654402"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1774580/ss_e589d6bb347c13f7226f0b294fd12880ced8d171.1920x1080.jpg?t=1777391797", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1774580/ss_e589d6bb347c13f7226f0b294fd12880ced8d171.600x338.jpg?t=1777391797"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1774580/ss_6f2e72d773e4280f3a4860c7fb1d62e72932a9b0.1920x1080.jpg?t=1777391797", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1774580/ss_6f2e72d773e4280f3a4860c7fb1d62e72932a9b0.600x338.jpg?t=1777391797"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1774580/ss_f14055548a6c51171036ebb3d00ddf5c97e5bd05.1920x1080.jpg?t=1777391797", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1774580/ss_f14055548a6c51171036ebb3d00ddf5c97e5bd05.600x338.jpg?t=1777391797"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1774580/ss_bb84b8cbf9294c6166819c3d3328c4efbdb9d46c.1920x1080.jpg?t=1777391797", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1774580/ss_bb84b8cbf9294c6166819c3d3328c4efbdb9d46c.600x338.jpg?t=1777391797"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1774580/ss_3c8dd0328d9d5944083d1c1da10f316de090c67d.1920x1080.jpg?t=1777391797", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1774580/ss_3c8dd0328d9d5944083d1c1da10f316de090c67d.600x338.jpg?t=1777391797"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1774580/ss_3ed1979b4d57f7819813e1c11462e1f631a83987.1920x1080.jpg?t=1777391797", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1774580/ss_3ed1979b4d57f7819813e1c11462e1f631a83987.600x338.jpg?t=1777391797"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1774580/ss_72e3265e1983d759d133338b613df2010cf5eb56.1920x1080.jpg?t=1777391797", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1774580/ss_72e3265e1983d759d133338b613df2010cf5eb56.600x338.jpg?t=1777391797"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1774580/ss_0400a734d8f53d0620ce8349aa30f984e794de92.1920x1080.jpg?t=1777391797", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1774580/ss_0400a734d8f53d0620ce8349aa30f984e794de92.600x338.jpg?t=1777391797"},
+  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1774580/ss_d7033a4716cdc2d13e8c67c3bcd4c471d39e3fc4.1920x1080.jpg?t=1777391797", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1774580/ss_d7033a4716cdc2d13e8c67c3bcd4c471d39e3fc4.600x338.jpg?t=1777391797"}
+];
+
+let currentIndex = 0;
+
+// 切换到指定媒体
+function switchMedia(index) {
+  if (index < 0 || index >= mediaItems.length) return;
+  
+  currentIndex = index;
+  const item = mediaItems[index];
+  const mainEl = document.getElementById('mediaMain');
+  
+  if (item.type === 'video') {
+    // 使用Steam视频嵌入
+    mainEl.innerHTML = `<iframe src="${item.url}" frameborder="0" allowfullscreen allow="autoplay; fullscreen"></iframe>`;
+  } else {
+    mainEl.innerHTML = `<img src="${item.url}" alt="Screenshot">`;
+  }
+  
+  // 更新缩略图active状态
+  document.querySelectorAll('.media-thumb').forEach((thumb, i) => {
+    thumb.classList.toggle('active', i === index);
+  });
+}
+
+// 初始化
+document.addEventListener('DOMContentLoaded', () => {
+  // 绑定缩略图点击事件
+  document.querySelectorAll('.media-thumb').forEach((thumb, index) => {
+    thumb.addEventListener('click', () => switchMedia(index));
+  });
+  
+  // 设置初始状态
+  if (mediaItems.length > 0) {
+    switchMedia(0);
+  }
+});
+</script>
+
+</body>
+</html>
