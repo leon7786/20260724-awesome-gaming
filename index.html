@@ -1016,16 +1016,17 @@ async function loadGames() {
     }
 
     countEl.textContent = `${matched.length} 项`;
-    const fragment = document.createDocumentFragment();
+    resultList.innerHTML = '';
+    resultList.appendChild(list);
 
     matched.forEach(g => {
       const a = document.createElement('a');
       a.className = 'search-item';
-      const href = g.detail ? (g.detail.endsWith('/') ? g.detail + 'index.html' : g.detail) : '#';
+      const href = g.detail ? (g.detail.endsWith('/') ? g.detail : g.detail + '/') : '#';
       a.href = href;
 
-      let titleText = g.cn_name || g.en_name || '';
-      let metaText = (g.en_name || '') + (g.year ? ' · ' + g.year : '') + (g.size_gb ? ' · ' + g.size_gb + 'GB' : '');
+      const titleText = g.cn_name || g.en_name || '';
+      const metaText = (g.en_name || '') + (g.year ? ' · ' + g.year : '') + (g.size_gb ? ' · ' + g.size_gb + 'GB' : '');
 
       a.innerHTML = `
         <img src="${escapeHtml(g.cover || '')}" alt="" loading="lazy" onerror="this.style.display='none'">
@@ -1034,18 +1035,9 @@ async function loadGames() {
           <div class="search-item-meta">${highlightText(metaText, query)}</div>
         </div>
       `;
-
-      a.addEventListener('click', (e) => {
-        e.preventDefault();
-        window.location.href = href;
-      });
-
-      fragment.appendChild(a);
+      list.appendChild(a);
     });
 
-    resultList.innerHTML = '';
-    resultList.appendChild(list);
-    Array.from(fragment).forEach(el => list.appendChild(el));
     resultsBox.classList.add('open');
   }
 
