@@ -183,7 +183,7 @@ def build_page(g):
     if all_media:
         main_item = all_media[0]
         if main_item["type"] == "video":
-            main_html = '<video id="videoPlayer" controls playsinline muted poster="' + main_item["thumb"] + '" style="width:100%;height:100%;object-fit:contain;background:#000"></video>'
+            main_html = '<video id="videoPlayer" controls playsinline poster="' + main_item["thumb"] + '" style="width:100%;height:100%;object-fit:contain;background:#000" data-volume="0.5"></video>'
         else:
             main_html = f'<img src="{main_item["url"]}" alt="Screenshot">'
 
@@ -394,6 +394,7 @@ function switchMedia(index) {{
     var isHls = item.hls === true;
     mainEl.innerHTML = '<video id="videoPlayer" controls playsinline poster="' + item.thumb + '" src="' + (isHls ? '' : item.url) + '" style="width:100%;height:100%;object-fit:contain;background:#000"></video>';
     var video = mainEl.querySelector('video');
+    video.volume = 0.5;
     if (isHls && typeof Hls !== 'undefined' && Hls.isSupported()) {{
       if (window._hlsInstance) {{ window._hlsInstance.destroy(); }}
       var hls = new Hls({{ enableWorker: false }});
