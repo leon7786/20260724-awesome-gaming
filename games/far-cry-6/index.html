@@ -30,6 +30,7 @@ body {
   color: var(--text-secondary);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  padding-bottom: 50px;
 }
 
 /* 顶部导航 */
@@ -501,7 +502,7 @@ body {
   gap: 0.75rem;
 }
 
-.download-btn {
+.download-pill {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
@@ -515,18 +516,10 @@ body {
   box-shadow: var(--shadow-sm);
 }
 
-.download-btn:hover {
+.download-pill:hover {
   transform: translateY(-2px);
   box-shadow: var(--shadow);
 }
-
-.download-btn.gamer520 { background: linear-gradient(135deg, #10b981, #059669); }
-.download-btn.x6d { background: linear-gradient(135deg, #3b82f6, #2563eb); }
-.download-btn.magnet { background: linear-gradient(135deg, #f59e0b, #d97706); }
-.download-btn.fitgirl { background: linear-gradient(135deg, #8b5cf6, #7c3aed); }
-.download-btn.tianyi { background: linear-gradient(135deg, #6366f1, #4f46e5); }
-.download-btn.baidu { background: linear-gradient(135deg, #06b6d4, #0891b2); }
-.download-btn.crotorrents { background: linear-gradient(135deg, #ec4899, #db2777); }
 
 /* 系统需求 */
 .sys-req {
@@ -603,6 +596,58 @@ body {
     height: 45px;
   }
 }
+
+/* Metacritic 评分徽章 */
+.mc-inline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.3rem 0.65rem;
+  border-radius: 6px;
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  text-decoration: none;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #166534;
+}
+.mc-inline .mc-num {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #15803d;
+}
+.mc-inline .mc-label {
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #166534;
+  opacity: 0.7;
+  border-left: 1px solid #86efac;
+  padding-left: 0.35rem;
+}
+
+
+.download-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.5rem 1.2rem;
+  border-radius: 10px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #111827;
+  text-decoration: none;
+  background: linear-gradient(180deg, #ffffff 0%, #f3f4f6 100%);
+  border: 1px solid #d1d5db;
+  box-shadow:
+    inset 0 1px 0 #fff,
+    0 1px 2px rgba(0,0,0,0.06),
+    0 2px 4px rgba(0,0,0,0.04);
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+
+
 </style>
 </head>
 <body>
@@ -678,10 +723,10 @@ body {
   <div class="download-block">
     <h2>📥 下载链接</h2>
     <div class="download-buttons">
-      <a href="#" class="download-btn magnet" target="_blank">🧲磁力</a>
-      <a href="#" class="download-btn fitgirl" target="_blank">FitGirl</a>
-      <a href="#" class="download-btn gamer520" target="_blank">gamer520</a>
-      <a href="#" class="download-btn x6d" target="_blank">x6d</a>
+      <a href="#" class="download-pill" target="_blank">🧲磁力</a>
+      <a href="#" class="download-pill" target="_blank">FitGirl</a>
+      <a href="#" class="download-pill" target="_blank">gamer520</a>
+      <a href="#" class="download-pill" target="_blank">x6d</a>
     </div>
   </div>
 </section>
