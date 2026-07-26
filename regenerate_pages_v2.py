@@ -34,6 +34,52 @@ for i, appid in enumerate(sorted(all_appids), 1):
     if i % 50 == 0:
         print(f"  fetched {len(steam_data)}/{len(all_appids)}")
 
+# --- Fallback: load missing appids from local steam_api.json ---
+print("Loading fallback from local steam_api.json files...")
+fallback_count = 0
+for g in games:
+    appid = g.get("appid")
+    detail = g.get("detail", "")
+    if not appid or not detail:
+        continue
+    appid = int(appid)
+    if appid in steam_data:
+        continue
+    api_path = os.path.join(ROOT, detail.replace("games/", ""), "steam_api.json")
+    try:
+        with open(api_path) as f:
+            d = json.load(f)
+        steam_data[appid] = d
+        fallback_count += 1
+    except Exception:
+        pass
+print(f"  fallback: {fallback_count} loaded, {len(steam_data)}/{len(all_appids)} total")
+
+# --- Second pass: enrich entries with empty movies from local steam_api.json ---
+# Steam API sometimes returns success=True but movies=[], so we fill from disk
+enrich_count = 0
+for g in games:
+    appid = g.get("appid")
+    detail = g.get("detail", "")
+    if not appid or not detail:
+        continue
+    appid = int(appid)
+    if appid not in steam_data:
+        continue
+    d = steam_data[appid]
+    if d.get("movies") or d.get("about_the_game") or d.get("pc_requirements"):
+        continue  # already has data
+    api_path = os.path.join(ROOT, detail.replace("games/", ""), "steam_api.json")
+    try:
+        with open(api_path) as f:
+            local = json.load(f)
+        merged = {**d, **local}  # overwrite API data with local
+        steam_data[appid] = merged
+        enrich_count += 1
+    except Exception:
+        pass
+print(f"  enriched: {enrich_count} from local steam_api.json, {len(steam_data)} total")
+
 # --- Extract CSS from template ---
 with open(TEMPLATE) as f:
     tpl_full = f.read()
@@ -47,8 +93,29 @@ def get_videos(appid):
     out = []
     for v in d.get("movies", []):
         mp4 = v.get("mp4", {})
-        if mp4.get("movie_max"):
-            out.append({"type": "video", "url": mp4["movie_max"], "thumb": v["thumbnail"]})
+        url = (
+            mp4.get("movie_max")
+            or v.get("hls_h264")
+            or v.get("dash_h264")
+            or mp4.get("movie_480")
+            or mp4.get("movie_480p")
+            or mp4.get("movie_360")
+            or mp4.get("movie_max")
+        )
+        if url:
+            # Steam videos in HLS/DASH — browsers can't play these natively.
+            # Build a direct MP4 URL from the movie's clip id (stored in `id` field).
+            mp4_url = None
+            clip_id = v.get("id")
+            if clip_id:
+                # Standard Steam clip mp4 fallback URL
+                mp4_url = f"https://store.akamai.steamstatic.com/store_trailers/clip/{clip_id}/movie480.mp4"
+            out.append({
+                "type": "video",
+                "url": mp4_url or url,
+                "hls": url if url.endswith(".m3u8") else None,
+                "thumb": v["thumbnail"],
+            })
     return out[:3]
 
 
@@ -298,6 +365,8 @@ def build_page(g):
 
 {media_section}
 
+<script src="../../hls.min.js"></script>
+
 {desc_section}{download_section}
 {sys_section}
 <script>
@@ -313,7 +382,15 @@ function switchMedia(index) {{
   const item = mediaItems[index];
   const mainEl = document.getElementById('mediaMain');
   if (item.type === 'video') {{
-    mainEl.innerHTML = '<video controls autoplay playsinline poster="' + item.thumb + '" src="' + item.url + '" style="width:100%;height:100%;object-fit:contain;background:#000"></video>';
+    var isHls = item.url.indexOf('.m3u8') > -1;
+    mainEl.innerHTML = '<video id="videoPlayer" controls autoplay playsinline poster="' + item.thumb + '" src="' + (isHls ? '' : item.url) + '" style="width:100%;height:100%;object-fit:contain;background:#000"></video>';
+    var video = mainEl.querySelector('video');
+    if (isHls && typeof Hls !== 'undefined' && Hls.isSupported()) {{
+      var hls = new Hls({{ enableWorker: false }});
+      hls.loadSource(item.url);
+      hls.attachMedia(video);
+      hls.on(Hls.Events.MANIFEST_PARSED, function() {{ video.play().catch(function() {{ }}); }});
+    }}
   }} else {{
     mainEl.innerHTML = '<img src="' + item.url + '" alt="Screenshot">';
   }}
