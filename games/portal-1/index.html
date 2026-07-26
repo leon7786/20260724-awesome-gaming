@@ -940,11 +940,7 @@ document.addEventListener('DOMContentLoaded', () => {
       return el;
     })();
     function scrollByOne(dir) {
-      var thumbs = bar.querySelectorAll('.media-thumb');
-      if (!thumbs.length) return;
-      var thumbWidth = thumbs[0].getBoundingClientRect().width;
-      var margin = bar.clientWidth < thumbs[0].offsetWidth ? 8 : 0;
-      var step = thumbWidth + margin;
+      var step = bar.clientWidth * 0.2;
       bar.scrollBy({ left: dir * step, behavior: 'smooth' });
     }
     leftArrow.addEventListener('click', function() { scrollByOne(-1); });
