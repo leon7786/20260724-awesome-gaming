@@ -955,12 +955,16 @@ document.addEventListener('DOMContentLoaded', () => {
       thumbsWrap.appendChild(el);
       return el;
     })();
-    function scrollBy(dir) {
-      var step = bar.clientWidth * 0.75;
+    function scrollByOne(dir) {
+      var thumbs = bar.querySelectorAll('.media-thumb');
+      if (!thumbs.length) return;
+      var thumbWidth = thumbs[0].getBoundingClientRect().width;
+      var margin = bar.clientWidth < thumbs[0].offsetWidth ? 8 : 0;
+      var step = thumbWidth + margin;
       bar.scrollBy({ left: dir * step, behavior: 'smooth' });
     }
-    leftArrow.addEventListener('click', function() { scrollBy(-1); });
-    rightArrow.addEventListener('click', function() { scrollBy(1); });
+    leftArrow.addEventListener('click', function() { scrollByOne(-1); });
+    rightArrow.addEventListener('click', function() { scrollByOne(1); });
     function updateArrows() {
       const maxLeft = Math.max(0, bar.scrollWidth - bar.clientWidth);
       leftArrow.classList.toggle('show', bar.scrollLeft > 1);
