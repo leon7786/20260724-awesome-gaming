@@ -150,7 +150,7 @@ def generate_page(game, data):
     
     # Metacritic
     mc_score = get_metacritic(data)
-    mc_tag = f'<span class="meta-tag score">⭐ {mc_score}</span>' if mc_score else ""
+    # mc_tag = f'<span class="meta-tag score">⭐ {mc_score}</span>' if mc_score else ""  # removed
     
     # Developers / Publishers
     developers = get_developers(data)

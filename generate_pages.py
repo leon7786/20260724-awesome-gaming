@@ -710,7 +710,6 @@ body {{
       <div class="meta-tags">
         <span class="meta-tag year">{release_date_e}</span>
         <span class="meta-tag">{genres_e}</span>
-        <span class="meta-tag score">⭐ {score}</span>
       </div>
       
       <div class="info-row">
