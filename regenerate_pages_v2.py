@@ -183,7 +183,7 @@ def build_page(g):
     if all_media:
         main_item = all_media[0]
         if main_item["type"] == "video":
-            main_html = '<video id="videoPlayer" controls playsinline poster="' + main_item["thumb"] + '" style="width:100%;height:100%;object-fit:contain;background:#000" data-volume="0.5"></video>'
+            main_html = '<video id="videoPlayer" controls autoplay playsinline muted poster="' + main_item["thumb"] + '" style="width:100%;height:100%;object-fit:contain;background:#000" data-volume="0.5"></video>'
         else:
             main_html = f'<img src="{main_item["url"]}" alt="Screenshot">'
 
@@ -392,7 +392,7 @@ function switchMedia(index) {{
   const mainEl = document.getElementById('mediaMain');
   if (item.type === 'video') {{
     var isHls = item.hls === true;
-    mainEl.innerHTML = '<video id="videoPlayer" controls playsinline poster="' + item.thumb + '" src="' + (isHls ? '' : item.url) + '" style="width:100%;height:100%;object-fit:contain;background:#000"></video>';
+    mainEl.innerHTML = '<video id="videoPlayer" controls playsinline muted poster="' + item.thumb + '" src="' + (isHls ? '' : item.url) + '" style="width:100%;height:100%;object-fit:contain;background:#000"></video>';
     var video = mainEl.querySelector('video');
     video.volume = 0.5;
     if (isHls && typeof Hls !== 'undefined' && Hls.isSupported()) {{
@@ -401,9 +401,15 @@ function switchMedia(index) {{
       window._hlsInstance = hls;
       hls.loadSource(item.url);
       hls.attachMedia(video);
-      hls.on(Hls.Events.MANIFEST_PARSED, function() {{ video.play().catch(function() {{ }}); }});
+      hls.on(Hls.Events.MANIFEST_PARSED, function() {{
+        video.play().then(function() {{
+          video.muted = false;
+        }}).catch(function() {{ }});
+      }});
     }} else if (!isHls) {{
-      video.play().catch(function() {{ }});
+      video.play().then(function() {{
+        video.muted = false;
+      }}).catch(function() {{ }});
     }}
   }} else {{
     mainEl.innerHTML = '<img src="' + item.url + '" alt="Screenshot">';
