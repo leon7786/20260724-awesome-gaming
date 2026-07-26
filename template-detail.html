@@ -934,7 +934,7 @@ function switchMedia(index) {
   const item = mediaItems[index];
   const mainEl = document.getElementById('mediaMain');
   if (item.type === 'video') {
-    mainEl.innerHTML = '<video controls autoplay playsinline poster="' + item.thumb + '" src="' + item.url + '" style="width:100%;height:100%;object-fit:contain;background:#000"></video>';
+    mainEl.innerHTML = '<video controls autoplay playsinline muted poster="' + item.thumb + '" src="' + item.url + '" style="width:100%;height:100%;object-fit:contain;background:#000"></video>';
   } else {
     mainEl.innerHTML = '<img src="' + item.url + '" alt="Screenshot">';
   }

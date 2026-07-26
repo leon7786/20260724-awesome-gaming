@@ -183,7 +183,7 @@ def build_page(g):
     if all_media:
         main_item = all_media[0]
         if main_item["type"] == "video":
-            main_html = '<video id="videoPlayer" controls playsinline poster="' + main_item["thumb"] + '" style="width:100%;height:100%;object-fit:contain;background:#000"></video>'
+            main_html = '<video id="videoPlayer" controls playsinline muted poster="' + main_item["thumb"] + '" style="width:100%;height:100%;object-fit:contain;background:#000"></video>'
         else:
             main_html = f'<img src="{main_item["url"]}" alt="Screenshot">'
 
