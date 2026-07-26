@@ -866,6 +866,8 @@ ul.bb_ul li strong {
     <span class="download-label">Download</span>
     <div class="download-pills">
 <a href="https://www.x6d.com/i-wz-17118.html" class="download-pill" target="_blank">x6d</a>
+<a href="magnet:?xt=urn:btih:8276946399158DFA833025A55AEA77E89E2D388C&amp;dn=Grand%20Theft%20Auto%20III%20-%20GTA%203%20Action%20Adventure%202002%20PC-Game" class="download-pill" target="_blank">magnet</a>
+<a href="magnet:?xt=urn:btih:4E94282C8D48298EA0F0C3C2822831F99B644E33&amp;dn=GTA%203%20%28PC%29%20Grand%20Theft%20Auto%20III%20-%20Liberty%20City.zip" class="download-pill" target="_blank">magnet</a>
 <a href="https://fitgirl-repacks.site/grand-theft-auto-the-trilogy-the-definitive-edition/" class="download-pill" target="_blank">fitgirl</a>
     </div>
   </div>
@@ -873,7 +875,7 @@ ul.bb_ul li strong {
 
 <script>
 // 媒体数据
-const mediaItems = [{"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1546970/ss_47413745fbfbe027f1e9f0695caaf242e802d4ea.1920x1080.jpg?t=1781138540", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1546970/ss_47413745fbfbe027f1e9f0695caaf242e802d4ea.1920x1080.jpg?t=1781138540"}, {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1546970/ss_56f78f530f5bfea0395380ba23cc67cbc0fdc0b0.1920x1080.jpg?t=1781138540", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1546970/ss_56f78f530f5bfea0395380ba23cc67cbc0fdc0b0.1920x1080.jpg?t=1781138540"}, {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1546970/ss_6e9a00039b77e086aac76d4a915c274924203ffb.1920x1080.jpg?t=1781138540", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1546970/ss_6e9a00039b77e086aac76d4a915c274924203ffb.1920x1080.jpg?t=1781138540"}, {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1546970/ss_c4a966ca6957a1a73b9aa5e15b6b6d29bab80222.1920x1080.jpg?t=1781138540", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1546970/ss_c4a966ca6957a1a73b9aa5e15b6b6d29bab80222.1920x1080.jpg?t=1781138540"}, {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1546970/ss_b9f06c9611dd13c055fca6d6d0b1d57fe27b2b75.1920x1080.jpg?t=1781138540", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1546970/ss_b9f06c9611dd13c055fca6d6d0b1d57fe27b2b75.1920x1080.jpg?t=1781138540"}];
+const mediaItems = [{"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1546970/ss_47413745fbfbe027f1e9f0695caaf242e802d4ea.1920x1080.jpg?t=1781138540", "hls": false, "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1546970/ss_47413745fbfbe027f1e9f0695caaf242e802d4ea.1920x1080.jpg?t=1781138540"}, {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1546970/ss_56f78f530f5bfea0395380ba23cc67cbc0fdc0b0.1920x1080.jpg?t=1781138540", "hls": false, "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1546970/ss_56f78f530f5bfea0395380ba23cc67cbc0fdc0b0.1920x1080.jpg?t=1781138540"}, {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1546970/ss_6e9a00039b77e086aac76d4a915c274924203ffb.1920x1080.jpg?t=1781138540", "hls": false, "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1546970/ss_6e9a00039b77e086aac76d4a915c274924203ffb.1920x1080.jpg?t=1781138540"}, {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1546970/ss_c4a966ca6957a1a73b9aa5e15b6b6d29bab80222.1920x1080.jpg?t=1781138540", "hls": false, "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1546970/ss_c4a966ca6957a1a73b9aa5e15b6b6d29bab80222.1920x1080.jpg?t=1781138540"}, {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1546970/ss_b9f06c9611dd13c055fca6d6d0b1d57fe27b2b75.1920x1080.jpg?t=1781138540", "hls": false, "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1546970/ss_b9f06c9611dd13c055fca6d6d0b1d57fe27b2b75.1920x1080.jpg?t=1781138540"}];
 
 let currentIndex = 0;
 
@@ -884,14 +886,18 @@ function switchMedia(index) {
   const item = mediaItems[index];
   const mainEl = document.getElementById('mediaMain');
   if (item.type === 'video') {
-    var isHls = item.url.indexOf('.m3u8') > -1;
-    mainEl.innerHTML = '<video id="videoPlayer" controls autoplay playsinline poster="' + item.thumb + '" src="' + (isHls ? '' : item.url) + '" style="width:100%;height:100%;object-fit:contain;background:#000"></video>';
+    var isHls = item.hls === true;
+    mainEl.innerHTML = '<video id="videoPlayer" controls playsinline poster="' + item.thumb + '" src="' + (isHls ? '' : item.url) + '" style="width:100%;height:100%;object-fit:contain;background:#000"></video>';
     var video = mainEl.querySelector('video');
     if (isHls && typeof Hls !== 'undefined' && Hls.isSupported()) {
+      if (window._hlsInstance) { window._hlsInstance.destroy(); }
       var hls = new Hls({ enableWorker: false });
+      window._hlsInstance = hls;
       hls.loadSource(item.url);
       hls.attachMedia(video);
       hls.on(Hls.Events.MANIFEST_PARSED, function() { video.play().catch(function() { }); });
+    } else if (!isHls) {
+      video.play().catch(function() { });
     }
   } else {
     mainEl.innerHTML = '<img src="' + item.url + '" alt="Screenshot">';
@@ -931,6 +937,12 @@ document.addEventListener('DOMContentLoaded', () => {
       thumbsWrap.appendChild(el);
       return el;
     })();
+    function scrollBy(dir) {
+      var step = bar.clientWidth * 0.75;
+      bar.scrollBy({ left: dir * step, behavior: 'smooth' });
+    }
+    leftArrow.addEventListener('click', function() { scrollBy(-1); });
+    rightArrow.addEventListener('click', function() { scrollBy(1); });
     function updateArrows() {
       const maxLeft = Math.max(0, bar.scrollWidth - bar.clientWidth);
       leftArrow.classList.toggle('show', bar.scrollLeft > 1);

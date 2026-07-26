@@ -857,6 +857,14 @@ ul.bb_ul li strong {
     <h2>关于此游戏</h2>
     在被“死亡之雨”摧毁的“边陲之国”，少女莉莉和不死骑士们的故事开始了。这是一款横板动作RPG游戏，在探索悲惨又绝美的世界的同时，重重遇到强敌一丝松懈都可能招来的致命攻击。请与同伴们一起探索这个世界的真相吧。
   </div>
+</section><section class="download-section">
+  <div class="download-block">
+    <span class="download-label">Download</span>
+    <div class="download-pills">
+<a href="magnet:?xt=urn:btih:BBB340F695C0AB731C7814B4C1912BEB4AD9BEEA&amp;dn=Hearthstone%20Heroes%20of%20Warcraft%20v5.0.12574%20mod%20and%20data%20%5Bapkpita%5D" class="download-pill" target="_blank">magnet</a>
+<a href="magnet:?xt=urn:btih:60CADE87E4C54043CD3D5C2FEB437144F9FB886B&amp;dn=Hearthstone%20Heroes%20of%20Warcraft%20Apk%20%2B%20Data%20V4.1.10956" class="download-pill" target="_blank">magnet</a>
+    </div>
+  </div>
 </section>
 
 <script>
@@ -872,14 +880,18 @@ function switchMedia(index) {
   const item = mediaItems[index];
   const mainEl = document.getElementById('mediaMain');
   if (item.type === 'video') {
-    var isHls = item.url.indexOf('.m3u8') > -1;
-    mainEl.innerHTML = '<video id="videoPlayer" controls autoplay playsinline poster="' + item.thumb + '" src="' + (isHls ? '' : item.url) + '" style="width:100%;height:100%;object-fit:contain;background:#000"></video>';
+    var isHls = item.hls === true;
+    mainEl.innerHTML = '<video id="videoPlayer" controls playsinline poster="' + item.thumb + '" src="' + (isHls ? '' : item.url) + '" style="width:100%;height:100%;object-fit:contain;background:#000"></video>';
     var video = mainEl.querySelector('video');
     if (isHls && typeof Hls !== 'undefined' && Hls.isSupported()) {
+      if (window._hlsInstance) { window._hlsInstance.destroy(); }
       var hls = new Hls({ enableWorker: false });
+      window._hlsInstance = hls;
       hls.loadSource(item.url);
       hls.attachMedia(video);
       hls.on(Hls.Events.MANIFEST_PARSED, function() { video.play().catch(function() { }); });
+    } else if (!isHls) {
+      video.play().catch(function() { });
     }
   } else {
     mainEl.innerHTML = '<img src="' + item.url + '" alt="Screenshot">';
@@ -919,6 +931,12 @@ document.addEventListener('DOMContentLoaded', () => {
       thumbsWrap.appendChild(el);
       return el;
     })();
+    function scrollBy(dir) {
+      var step = bar.clientWidth * 0.75;
+      bar.scrollBy({ left: dir * step, behavior: 'smooth' });
+    }
+    leftArrow.addEventListener('click', function() { scrollBy(-1); });
+    rightArrow.addEventListener('click', function() { scrollBy(1); });
     function updateArrows() {
       const maxLeft = Math.max(0, bar.scrollWidth - bar.clientWidth);
       leftArrow.classList.toggle('show', bar.scrollLeft > 1);

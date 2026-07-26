@@ -42,14 +42,14 @@ for g in games:
     detail = g.get("detail", "")
     if not appid or not detail:
         continue
-    appid = int(appid)
-    if appid in steam_data:
+    appid_int = int(appid)
+    if appid_int in steam_data:
         continue
     api_path = os.path.join(ROOT, detail.replace("games/", ""), "steam_api.json")
     try:
         with open(api_path) as f:
             d = json.load(f)
-        steam_data[appid] = d
+        steam_data[appid_int] = d
         fallback_count += 1
     except Exception:
         pass
@@ -67,17 +67,22 @@ for g in games:
     if appid not in steam_data:
         continue
     d = steam_data[appid]
-    if d.get("movies") or d.get("about_the_game") or d.get("pc_requirements"):
-        continue  # already has data
-    api_path = os.path.join(ROOT, detail.replace("games/", ""), "steam_api.json")
-    try:
-        with open(api_path) as f:
-            local = json.load(f)
-        merged = {**d, **local}  # overwrite API data with local
-        steam_data[appid] = merged
-        enrich_count += 1
-    except Exception:
+    # Steam API sometimes returns success=True but movies=[], so merge from disk
+    if d.get("movies"):
+        # already has video data, skip
         pass
+    else:
+        # movies is empty - try to load from local steam_api.json
+        api_path = os.path.join(ROOT, detail.replace("games/", ""), "steam_api.json")
+        try:
+            with open(api_path) as f2:
+                local = json.load(f2)
+            if local.get("movies"):
+                d["movies"] = local["movies"]
+                enrich_count += 1
+        except Exception:
+            pass
+    continue
 print(f"  enriched: {enrich_count} from local steam_api.json, {len(steam_data)} total")
 
 # --- Extract CSS from template ---
@@ -103,17 +108,12 @@ def get_videos(appid):
             or mp4.get("movie_max")
         )
         if url:
-            # Steam videos in HLS/DASH — browsers can't play these natively.
-            # Build a direct MP4 URL from the movie's clip id (stored in `id` field).
-            mp4_url = None
-            clip_id = v.get("id")
-            if clip_id:
-                # Standard Steam clip mp4 fallback URL
-                mp4_url = f"https://store.akamai.steamstatic.com/store_trailers/clip/{clip_id}/movie480.mp4"
+            # Use the real URL from Steam API (HLS/DASH). Don't fabricate .mp4 URLs.
+            is_hls = url.endswith(".m3u8")
             out.append({
                 "type": "video",
-                "url": mp4_url or url,
-                "hls": url if url.endswith(".m3u8") else None,
+                "url": url,
+                "hls": is_hls,
                 "thumb": v["thumbnail"],
             })
     return out[:3]
@@ -175,7 +175,7 @@ def build_page(g):
     if all_media:
         main_item = all_media[0]
         if main_item["type"] == "video":
-            main_html = f'<video controls playsinline poster="{main_item["thumb"]}" src="{main_item["url"]}" style="width:100%;height:100%;object-fit:contain;background:#000"></video>'
+            main_html = '<video id="videoPlayer" controls playsinline poster="' + main_item["thumb"] + '" style="width:100%;height:100%;object-fit:contain;background:#000"></video>'
         else:
             main_html = f'<img src="{main_item["url"]}" alt="Screenshot">'
 
@@ -187,9 +187,10 @@ def build_page(g):
         thumb_html_lines.append(f'<div class="{cls}" {idx}>{icon}<img src="{src}" alt="Media"></div>')
 
     thumb_block = "\n      ".join(thumb_html_lines)
-    media_js = json.dumps([{
-        "type": m["type"],
+    media_js = json.dumps([
+        {"type": m["type"],
         "url": m["url"],
+        "hls": m.get("hls", False),
         "thumb": m["thumb"],
     } for m in all_media], ensure_ascii=False) if all_media else "[]"
 
@@ -211,7 +212,7 @@ def build_page(g):
     dl_pills = ""
     for d in downloads:
         t = d.get("type", "")
-        if t in ("gamer520", "x6d", "fitgirl", "steamzg", "tianyi", "baidu", "crotorrents"):
+        if t in ("gamer520", "x6d", "fitgirl", "steamzg", "tianyi", "baidu", "crotorrents", "magnet"):
             dl_pills += f'<a href="{escape(d["url"])}" class="download-pill" target="_blank">{t}</a>\n'
 
     if dl_pills:
@@ -382,14 +383,18 @@ function switchMedia(index) {{
   const item = mediaItems[index];
   const mainEl = document.getElementById('mediaMain');
   if (item.type === 'video') {{
-    var isHls = item.url.indexOf('.m3u8') > -1;
-    mainEl.innerHTML = '<video id="videoPlayer" controls autoplay playsinline poster="' + item.thumb + '" src="' + (isHls ? '' : item.url) + '" style="width:100%;height:100%;object-fit:contain;background:#000"></video>';
+    var isHls = item.hls === true;
+    mainEl.innerHTML = '<video id="videoPlayer" controls playsinline poster="' + item.thumb + '" src="' + (isHls ? '' : item.url) + '" style="width:100%;height:100%;object-fit:contain;background:#000"></video>';
     var video = mainEl.querySelector('video');
     if (isHls && typeof Hls !== 'undefined' && Hls.isSupported()) {{
+      if (window._hlsInstance) {{ window._hlsInstance.destroy(); }}
       var hls = new Hls({{ enableWorker: false }});
+      window._hlsInstance = hls;
       hls.loadSource(item.url);
       hls.attachMedia(video);
       hls.on(Hls.Events.MANIFEST_PARSED, function() {{ video.play().catch(function() {{ }}); }});
+    }} else if (!isHls) {{
+      video.play().catch(function() {{ }});
     }}
   }} else {{
     mainEl.innerHTML = '<img src="' + item.url + '" alt="Screenshot">';
@@ -429,6 +434,12 @@ document.addEventListener('DOMContentLoaded', () => {{
       thumbsWrap.appendChild(el);
       return el;
     }})();
+    function scrollBy(dir) {{
+      var step = bar.clientWidth * 0.75;
+      bar.scrollBy({{ left: dir * step, behavior: 'smooth' }});
+    }}
+    leftArrow.addEventListener('click', function() {{ scrollBy(-1); }});
+    rightArrow.addEventListener('click', function() {{ scrollBy(1); }});
     function updateArrows() {{
       const maxLeft = Math.max(0, bar.scrollWidth - bar.clientWidth);
       leftArrow.classList.toggle('show', bar.scrollLeft > 1);

@@ -843,7 +843,7 @@ ul.bb_ul li strong {
 <section class="media-section">
   <div class="media-gallery">
     <div class="media-main" id="mediaMain">
-      <video controls playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256672694/movie.293x165.jpg?t=1476736935" src="https://store.akamai.steamstatic.com/store_trailers/clip/256672694/movie480.mp4" style="width:100%;height:100%;object-fit:contain;background:#000"></video>
+      <video id="videoPlayer" controls playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256672694/movie.293x165.jpg?t=1476736935" style="width:100%;height:100%;object-fit:contain;background:#000"></video>
     </div>
     <div class="media-thumbnails-wrap" id="mediaThumbnailsWrap">
       <div class="media-thumbnails" id="mediaThumbnails">
@@ -874,6 +874,8 @@ ul.bb_ul li strong {
     <span class="download-label">Download</span>
     <div class="download-pills">
 <a href="https://www.x6d.com/i-wz-10301.html" class="download-pill" target="_blank">x6d</a>
+<a href="magnet:?xt=urn:btih:8C412D4D12B3DC73BE358AA9D52CEE068BC86DB5&amp;dn=Sid%20Meier%26rsquo%3Bs%20Civilization%20VI%3A%20Anthology%20%5BDODI%20Repack%5D" class="download-pill" target="_blank">magnet</a>
+<a href="magnet:?xt=urn:btih:499E3EE696E93C14280FC92AB9A09FE8CFF26B32&amp;dn=Sid%20Meiers%20Civilization%20VI%20v1.0.12.31%20ALL%20DLC" class="download-pill" target="_blank">magnet</a>
 <a href="https://fitgirl-repacks.site/sid-meiers-civilization-7/" class="download-pill" target="_blank">fitgirl</a>
     </div>
   </div>
@@ -896,7 +898,7 @@ ul.bb_ul li strong {
 </section>
 <script>
 // 媒体数据
-const mediaItems = [{"type": "video", "url": "https://store.akamai.steamstatic.com/store_trailers/clip/256672694/movie480.mp4", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256672694/movie.293x165.jpg?t=1476736935"}, {"type": "video", "url": "https://store.akamai.steamstatic.com/store_trailers/clip/256666316/movie480.mp4", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256666316/movie.293x165.jpg?t=1467410103"}, {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/289070/ss_12cc6e1f4084de5bc0f66bfdbe3aaf3e59388b53.1920x1080.jpg?t=1784651829", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/289070/ss_12cc6e1f4084de5bc0f66bfdbe3aaf3e59388b53.1920x1080.jpg?t=1784651829"}, {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/289070/ss_6c4a3cfb61f1a9677cf2ac549c2816a4e651f741.1920x1080.jpg?t=1784651829", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/289070/ss_6c4a3cfb61f1a9677cf2ac549c2816a4e651f741.1920x1080.jpg?t=1784651829"}, {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/289070/ss_b2bf12299c38214fe520af0f724a6349d17ed330.1920x1080.jpg?t=1784651829", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/289070/ss_b2bf12299c38214fe520af0f724a6349d17ed330.1920x1080.jpg?t=1784651829"}, {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/289070/ss_7f598198526afc260d939a98af4d76d95f5349e4.1920x1080.jpg?t=1784651829", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/289070/ss_7f598198526afc260d939a98af4d76d95f5349e4.1920x1080.jpg?t=1784651829"}, {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/289070/ss_7ca34ff8ae81fb10ddc540187e2e21d1b8e1dfe9.1920x1080.jpg?t=1784651829", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/289070/ss_7ca34ff8ae81fb10ddc540187e2e21d1b8e1dfe9.1920x1080.jpg?t=1784651829"}, {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/289070/ss_36c63ebeb006b246cb740fdafeb41bb20e3b330d.1920x1080.jpg?t=1784651829", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/289070/ss_36c63ebeb006b246cb740fdafeb41bb20e3b330d.1920x1080.jpg?t=1784651829"}, {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/289070/ss_cf53258cb8c4d283e52cf8dce3edf8656f83adc6.1920x1080.jpg?t=1784651829", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/289070/ss_cf53258cb8c4d283e52cf8dce3edf8656f83adc6.1920x1080.jpg?t=1784651829"}, {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/289070/ss_f501156a69223131ee8b12452f3003698334e964.1920x1080.jpg?t=1784651829", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/289070/ss_f501156a69223131ee8b12452f3003698334e964.1920x1080.jpg?t=1784651829"}];
+const mediaItems = [{"type": "video", "url": "https://video.akamai.steamstatic.com/store_trailers/289070/76616/f09b19535e8ceef09ce6548300cd27f949b52678/1750500599/hls_264_master.m3u8?t=1476736935", "hls": false, "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256672694/movie.293x165.jpg?t=1476736935"}, {"type": "video", "url": "https://video.akamai.steamstatic.com/store_trailers/289070/63688/7be06d450decd1a0501dd76f021cf38fdb276da9/1750500589/hls_264_master.m3u8?t=1467410103", "hls": false, "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256666316/movie.293x165.jpg?t=1467410103"}, {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/289070/ss_12cc6e1f4084de5bc0f66bfdbe3aaf3e59388b53.1920x1080.jpg?t=1784651829", "hls": false, "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/289070/ss_12cc6e1f4084de5bc0f66bfdbe3aaf3e59388b53.1920x1080.jpg?t=1784651829"}, {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/289070/ss_6c4a3cfb61f1a9677cf2ac549c2816a4e651f741.1920x1080.jpg?t=1784651829", "hls": false, "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/289070/ss_6c4a3cfb61f1a9677cf2ac549c2816a4e651f741.1920x1080.jpg?t=1784651829"}, {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/289070/ss_b2bf12299c38214fe520af0f724a6349d17ed330.1920x1080.jpg?t=1784651829", "hls": false, "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/289070/ss_b2bf12299c38214fe520af0f724a6349d17ed330.1920x1080.jpg?t=1784651829"}, {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/289070/ss_7f598198526afc260d939a98af4d76d95f5349e4.1920x1080.jpg?t=1784651829", "hls": false, "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/289070/ss_7f598198526afc260d939a98af4d76d95f5349e4.1920x1080.jpg?t=1784651829"}, {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/289070/ss_7ca34ff8ae81fb10ddc540187e2e21d1b8e1dfe9.1920x1080.jpg?t=1784651829", "hls": false, "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/289070/ss_7ca34ff8ae81fb10ddc540187e2e21d1b8e1dfe9.1920x1080.jpg?t=1784651829"}, {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/289070/ss_36c63ebeb006b246cb740fdafeb41bb20e3b330d.1920x1080.jpg?t=1784651829", "hls": false, "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/289070/ss_36c63ebeb006b246cb740fdafeb41bb20e3b330d.1920x1080.jpg?t=1784651829"}, {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/289070/ss_cf53258cb8c4d283e52cf8dce3edf8656f83adc6.1920x1080.jpg?t=1784651829", "hls": false, "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/289070/ss_cf53258cb8c4d283e52cf8dce3edf8656f83adc6.1920x1080.jpg?t=1784651829"}, {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/289070/ss_f501156a69223131ee8b12452f3003698334e964.1920x1080.jpg?t=1784651829", "hls": false, "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/289070/ss_f501156a69223131ee8b12452f3003698334e964.1920x1080.jpg?t=1784651829"}];
 
 let currentIndex = 0;
 
@@ -907,14 +909,18 @@ function switchMedia(index) {
   const item = mediaItems[index];
   const mainEl = document.getElementById('mediaMain');
   if (item.type === 'video') {
-    var isHls = item.url.indexOf('.m3u8') > -1;
-    mainEl.innerHTML = '<video id="videoPlayer" controls autoplay playsinline poster="' + item.thumb + '" src="' + (isHls ? '' : item.url) + '" style="width:100%;height:100%;object-fit:contain;background:#000"></video>';
+    var isHls = item.hls === true;
+    mainEl.innerHTML = '<video id="videoPlayer" controls playsinline poster="' + item.thumb + '" src="' + (isHls ? '' : item.url) + '" style="width:100%;height:100%;object-fit:contain;background:#000"></video>';
     var video = mainEl.querySelector('video');
     if (isHls && typeof Hls !== 'undefined' && Hls.isSupported()) {
+      if (window._hlsInstance) { window._hlsInstance.destroy(); }
       var hls = new Hls({ enableWorker: false });
+      window._hlsInstance = hls;
       hls.loadSource(item.url);
       hls.attachMedia(video);
       hls.on(Hls.Events.MANIFEST_PARSED, function() { video.play().catch(function() { }); });
+    } else if (!isHls) {
+      video.play().catch(function() { });
     }
   } else {
     mainEl.innerHTML = '<img src="' + item.url + '" alt="Screenshot">';
@@ -954,6 +960,12 @@ document.addEventListener('DOMContentLoaded', () => {
       thumbsWrap.appendChild(el);
       return el;
     })();
+    function scrollBy(dir) {
+      var step = bar.clientWidth * 0.75;
+      bar.scrollBy({ left: dir * step, behavior: 'smooth' });
+    }
+    leftArrow.addEventListener('click', function() { scrollBy(-1); });
+    rightArrow.addEventListener('click', function() { scrollBy(1); });
     function updateArrows() {
       const maxLeft = Math.max(0, bar.scrollWidth - bar.clientWidth);
       leftArrow.classList.toggle('show', bar.scrollLeft > 1);

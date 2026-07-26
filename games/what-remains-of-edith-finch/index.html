@@ -843,7 +843,7 @@ ul.bb_ul li strong {
 <section class="media-section">
   <div class="media-gallery">
     <div class="media-main" id="mediaMain">
-      <video controls playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256720203/movie.293x165.jpg?t=1529339369" src="https://store.akamai.steamstatic.com/store_trailers/clip/256720203/movie480.mp4" style="width:100%;height:100%;object-fit:contain;background:#000"></video>
+      <video id="videoPlayer" controls playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256720203/movie.293x165.jpg?t=1529339369" style="width:100%;height:100%;object-fit:contain;background:#000"></video>
     </div>
     <div class="media-thumbnails-wrap" id="mediaThumbnailsWrap">
       <div class="media-thumbnails" id="mediaThumbnails">
@@ -872,6 +872,8 @@ ul.bb_ul li strong {
     <span class="download-label">Download</span>
     <div class="download-pills">
 <a href="https://www.x6d.com/i-wz-14554.html" class="download-pill" target="_blank">x6d</a>
+<a href="magnet:?xt=urn:btih:C0A748F1B6E4772086FE4859518A4587211DA26F&amp;dn=What.Remains.of.Edith.Finch-GOG" class="download-pill" target="_blank">magnet</a>
+<a href="magnet:?xt=urn:btih:FBCC77C34116E0862B633DFE4E8A9A548CBED3CC&amp;dn=What%20Remains%20of%20Edith%20Finch%20%28GOG%29" class="download-pill" target="_blank">magnet</a>
     </div>
   </div>
 </section>
@@ -893,7 +895,7 @@ ul.bb_ul li strong {
 </section>
 <script>
 // 媒体数据
-const mediaItems = [{"type": "video", "url": "https://store.akamai.steamstatic.com/store_trailers/clip/256720203/movie480.mp4", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256720203/movie.293x165.jpg?t=1529339369"}, {"type": "video", "url": "https://store.akamai.steamstatic.com/store_trailers/clip/256688247/movie480.mp4", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256688247/movie.293x165.jpg?t=1498095514"}, {"type": "video", "url": "https://store.akamai.steamstatic.com/store_trailers/clip/256683776/movie480.mp4", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256683776/movie.293x165.jpg?t=1493097409"}, {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/501300/ss_5e17b98cf2effabcb74aedc537ef3d68578b5c66.1920x1080.jpg?t=1751995813", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/501300/ss_5e17b98cf2effabcb74aedc537ef3d68578b5c66.1920x1080.jpg?t=1751995813"}, {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/501300/ss_b33a742463deb8564a382e1744febceaa91a5bab.1920x1080.jpg?t=1751995813", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/501300/ss_b33a742463deb8564a382e1744febceaa91a5bab.1920x1080.jpg?t=1751995813"}, {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/501300/ss_cc50bb10f1858d16a4df684f4dd264bda5d432ba.1920x1080.jpg?t=1751995813", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/501300/ss_cc50bb10f1858d16a4df684f4dd264bda5d432ba.1920x1080.jpg?t=1751995813"}, {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/501300/ss_77ebb61562a25dbcd0c4cc1c5090b76a76a055b2.1920x1080.jpg?t=1751995813", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/501300/ss_77ebb61562a25dbcd0c4cc1c5090b76a76a055b2.1920x1080.jpg?t=1751995813"}, {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/501300/ss_7a68ff5a7b3e6c85ab89f9bbf549a0232281bd19.1920x1080.jpg?t=1751995813", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/501300/ss_7a68ff5a7b3e6c85ab89f9bbf549a0232281bd19.1920x1080.jpg?t=1751995813"}];
+const mediaItems = [{"type": "video", "url": "https://video.akamai.steamstatic.com/store_trailers/501300/168892/bebffcbb8ae25e10ea765bda3f7cd5d119c7d93a/1750538596/hls_264_master.m3u8?t=1529339369", "hls": false, "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256720203/movie.293x165.jpg?t=1529339369"}, {"type": "video", "url": "https://video.akamai.steamstatic.com/store_trailers/501300/109880/295f5039eaa5a8f80451b0562463ec17bffd0aa7/1750538590/hls_264_master.m3u8?t=1498095514", "hls": false, "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256688247/movie.293x165.jpg?t=1498095514"}, {"type": "video", "url": "https://video.akamai.steamstatic.com/store_trailers/501300/99658/cae8add1daffac6475c997d8d8fa07a891602bc6/1750538571/hls_264_master.m3u8?t=1493097409", "hls": false, "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256683776/movie.293x165.jpg?t=1493097409"}, {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/501300/ss_5e17b98cf2effabcb74aedc537ef3d68578b5c66.1920x1080.jpg?t=1751995813", "hls": false, "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/501300/ss_5e17b98cf2effabcb74aedc537ef3d68578b5c66.1920x1080.jpg?t=1751995813"}, {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/501300/ss_b33a742463deb8564a382e1744febceaa91a5bab.1920x1080.jpg?t=1751995813", "hls": false, "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/501300/ss_b33a742463deb8564a382e1744febceaa91a5bab.1920x1080.jpg?t=1751995813"}, {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/501300/ss_cc50bb10f1858d16a4df684f4dd264bda5d432ba.1920x1080.jpg?t=1751995813", "hls": false, "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/501300/ss_cc50bb10f1858d16a4df684f4dd264bda5d432ba.1920x1080.jpg?t=1751995813"}, {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/501300/ss_77ebb61562a25dbcd0c4cc1c5090b76a76a055b2.1920x1080.jpg?t=1751995813", "hls": false, "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/501300/ss_77ebb61562a25dbcd0c4cc1c5090b76a76a055b2.1920x1080.jpg?t=1751995813"}, {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/501300/ss_7a68ff5a7b3e6c85ab89f9bbf549a0232281bd19.1920x1080.jpg?t=1751995813", "hls": false, "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/501300/ss_7a68ff5a7b3e6c85ab89f9bbf549a0232281bd19.1920x1080.jpg?t=1751995813"}];
 
 let currentIndex = 0;
 
@@ -904,14 +906,18 @@ function switchMedia(index) {
   const item = mediaItems[index];
   const mainEl = document.getElementById('mediaMain');
   if (item.type === 'video') {
-    var isHls = item.url.indexOf('.m3u8') > -1;
-    mainEl.innerHTML = '<video id="videoPlayer" controls autoplay playsinline poster="' + item.thumb + '" src="' + (isHls ? '' : item.url) + '" style="width:100%;height:100%;object-fit:contain;background:#000"></video>';
+    var isHls = item.hls === true;
+    mainEl.innerHTML = '<video id="videoPlayer" controls playsinline poster="' + item.thumb + '" src="' + (isHls ? '' : item.url) + '" style="width:100%;height:100%;object-fit:contain;background:#000"></video>';
     var video = mainEl.querySelector('video');
     if (isHls && typeof Hls !== 'undefined' && Hls.isSupported()) {
+      if (window._hlsInstance) { window._hlsInstance.destroy(); }
       var hls = new Hls({ enableWorker: false });
+      window._hlsInstance = hls;
       hls.loadSource(item.url);
       hls.attachMedia(video);
       hls.on(Hls.Events.MANIFEST_PARSED, function() { video.play().catch(function() { }); });
+    } else if (!isHls) {
+      video.play().catch(function() { });
     }
   } else {
     mainEl.innerHTML = '<img src="' + item.url + '" alt="Screenshot">';
@@ -951,6 +957,12 @@ document.addEventListener('DOMContentLoaded', () => {
       thumbsWrap.appendChild(el);
       return el;
     })();
+    function scrollBy(dir) {
+      var step = bar.clientWidth * 0.75;
+      bar.scrollBy({ left: dir * step, behavior: 'smooth' });
+    }
+    leftArrow.addEventListener('click', function() { scrollBy(-1); });
+    rightArrow.addEventListener('click', function() { scrollBy(1); });
     function updateArrows() {
       const maxLeft = Math.max(0, bar.scrollWidth - bar.clientWidth);
       leftArrow.classList.toggle('show', bar.scrollLeft > 1);
