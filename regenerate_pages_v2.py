@@ -23,7 +23,7 @@ steam_data = {}
 for i, appid in enumerate(sorted(all_appids), 1):
     try:
         req = urllib.request.Request(
-            f"https://store.steampowered.com/api/appdetails?appids={appid}",
+            f"https://store.steampowered.com/api/appdetails?appids={appid}&l=schinese",
             headers={"User-Agent": "Mozilla/5.0"},
         )
         data = json.loads(opener.open(req, timeout=15).read())
@@ -84,12 +84,14 @@ def build_page(g):
     screenshots_json = g.get("screenshots", []) or []
     downloads = g.get("downloads", [])
 
-    # Metacritic link
+    # Metacritic link - use metacritic_url from Steam API, fallback to constructed URL
     mc_url = ""
     if meta:
-        sn = g.get("steam_name", "").lower()
-        if sn:
-            mc_url = f"https://www.metacritic.com/game/pc/{sn.replace(' ', '-')}"
+        mc_url = g.get("metacritic_url", "")
+        if not mc_url:
+            sn = g.get("steam_name", "").lower()
+            if sn:
+                mc_url = f"https://www.metacritic.com/game/pc/{sn.replace(' ', '-')}"
 
     videos = get_videos(appid) if appid else []
     screenshots_steam = get_screenshots(appid) if appid else []
@@ -157,11 +159,16 @@ def build_page(g):
         download_section = ""
 
     # --- Description (about this game) ---
-    if desc:
+    # 优先用 Steam API 的 about_the_game（含视频动图），否则用 games.json 的 description
+    steam_about = ""
+    if appid and appid in steam_data:
+        steam_about = steam_data[appid].get("about_the_game", "")
+    desc_html = steam_about if steam_about else escape(desc) if desc else ""
+    if desc_html:
         desc_section = f'''<section class="content-section">
   <div class="content-block">
     <h2>关于此游戏</h2>
-    <p>{escape(desc)}</p>
+    {desc_html}
   </div>
 </section>'''
     else:
