@@ -61,6 +61,283 @@ body {
   color: var(--accent);
 }
 
+/* Metacritic 评分徽章（内嵌到 meta-tags） */
+.mc-inline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.3rem 0.65rem;
+  border-radius: 6px;
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  text-decoration: none;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #166534;
+}
+
+.mc-inline .mc-num {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #15803d;
+}
+
+.mc-inline .mc-label {
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #166534;
+  opacity: 0.7;
+  border-left: 1px solid #86efac;
+  padding-left: 0.35rem;
+}
+
+/* 系统需求 */
+.sys-req-section {
+  max-width: 940px;
+  margin: 1.25rem auto 0.75rem;
+  padding: 0 2rem;
+}
+
+.sys-req-block {
+  background: var(--surface);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+
+.sys-req-block h2 {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+  padding: 0.75rem 1.25rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.sys-req-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+}
+
+.sys-req-col {
+  padding: 0.85rem 1.25rem;
+}
+
+.sys-req-col + .sys-req-col {
+  border-left: 1px solid var(--border);
+}
+
+.sys-req-col h4 {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.sys-req-col.minimum h4 { color: var(--success); }
+.sys-req-col.recommended h4 { color: var(--accent); }
+
+.sys-req-col h4::before {
+  content: "";
+  width: 3px;
+  height: 12px;
+  border-radius: 2px;
+}
+.sys-req-col.minimum h4::before { background: var(--success); }
+.sys-req-col.recommended h4::before { background: var(--accent); }
+
+.sys-req-col ul {
+  list-style: none;
+}
+
+.sys-req-col li {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.2rem;
+  padding-left: 1rem;
+  position: relative;
+  line-height: 1.5;
+}
+
+.sys-req-col li:last-child { margin-bottom: 0; }
+
+.sys-req-col li::before {
+  content: "›";
+  position: absolute;
+  left: 0;
+  color: var(--text-muted);
+  font-weight: 700;
+}
+
+.sys-req-col li strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+/* 下载区域 - 精致小巧 */
+.download-section {
+  max-width: 940px;
+  margin: 2.5rem auto 4rem;
+  padding: 0 2rem;
+}
+
+.download-block {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 0;
+}
+
+.download-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+
+.download-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.download-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.5rem 1.2rem;
+  border-radius: 10px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  text-decoration: none;
+  background: linear-gradient(180deg, #ffffff 0%, #f3f4f6 100%);
+  border: 1px solid #d1d5db;
+  box-shadow:
+    inset 0 1px 0 #fff,
+    0 1px 2px rgba(0,0,0,0.06),
+    0 2px 4px rgba(0,0,0,0.04);
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+
+.download-pill:hover {
+  background: linear-gradient(180deg, #f9fafb 0%, #e5e7eb 100%);
+  border-color: #9ca3af;
+  transform: translateY(-1px);
+  box-shadow:
+    inset 0 1px 0 #fff,
+    0 2px 4px rgba(0,0,0,0.1),
+    0 4px 8px rgba(0,0,0,0.06);
+}
+
+.download-pill:active {
+  transform: translateY(1px);
+  box-shadow:
+    inset 0 1px 3px rgba(0,0,0,0.08),
+    0 1px 2px rgba(0,0,0,0.06);
+}
+
+/* 响应式 */
+@media (max-width: 900px) {
+  .hero .container {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .hero-cover {
+    max-width: 280px;
+    margin: 0 auto;
+  }
+  .hero-info h1 {
+    font-size: 1.75rem;
+  }
+  .sys-req-grid {
+    grid-template-columns: 1fr;
+  }
+  .sys-req-col + .sys-req-col {
+    border-left: none;
+    border-top: 1px solid var(--border);
+  }
+  .media-thumb {
+    width: 100px;
+    height: 56.25px;
+  }
+  .topbar {
+    padding: 0 1rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero {
+    padding: 1.5rem 1rem;
+  }
+  .media-section,
+  .content-section,
+  .download-section,
+  .sys-req-section {
+    padding: 0 1rem;
+  }
+  .content-block,
+  .download-block {
+    padding: 1.25rem;
+  }
+  .media-thumb {
+    width: 80px;
+    height: 45px;
+  }
+  .topbar-left {
+    gap: 0.5rem;
+  }
+  .metacritic-badge .mc-label {
+    display: none;
+  }
+  .download-block {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+  .download-pills {
+    width: 100%;
+  }
+  .download-pill {
+    flex: 1;
+    justify-content: center;
+    min-width: 0;
+  }
+}
+
+/* 系统配置 HTML 样式清洗 */
+ul.bb_ul { list-style: none; }
+ul.bb_ul li {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+  margin-bottom: 0.4rem;
+  padding-left: 1rem;
+  position: relative;
+}
+ul.bb_ul li:last-child { margin-bottom: 0; }
+ul.bb_ul li::before {
+  content: "›";
+  position: absolute;
+  left: 0;
+  color: var(--text-muted);
+  font-weight: 700;
+}
+ul.bb_ul li strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
 /* 游戏头部 */
 .hero {
   background: var(--surface);
@@ -69,7 +346,7 @@ body {
 }
 
 .hero .container {
-  max-width: 1200px;
+  max-width: 940px;
   margin: 0 auto;
   display: grid;
   grid-template-columns: 300px 1fr;
@@ -171,7 +448,7 @@ body {
 
 /* 媒体区域 - Steam风格 */
 .media-section {
-  max-width: 1200px;
+  max-width: 940px;
   margin: 2rem auto;
   padding: 0 2rem;
 }
@@ -318,7 +595,7 @@ body {
   align-items: center;
   justify-content: center;
   font-size: 0.8rem;
-  opacity: 0;
+  opacity: 1;
   transition: opacity .2s ease;
 }
 
@@ -392,25 +669,11 @@ body {
   object-fit: cover;
 }
 
-.media-thumb .play-icon {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: rgba(0, 0, 0, 0.7);
-  color: white;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1rem;
-}
+
 
 /* 内容区域 */
 .content-section {
-  max-width: 1200px;
+  max-width: 940px;
   margin: 0 auto;
   padding: 0 2rem 2rem;
 }
@@ -475,7 +738,7 @@ body {
 
 /* 下载区域 */
 .download-section {
-  max-width: 1200px;
+  max-width: 940px;
   margin: 0 auto;
   padding: 0 2rem 2rem;
 }
@@ -496,32 +759,6 @@ body {
   border-bottom: 1px solid var(--border);
 }
 
-.download-buttons {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-}
-
-.download-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.75rem 1.5rem;
-  border-radius: 10px;
-  text-decoration: none;
-  color: #fff;
-  font-size: 0.9375rem;
-  font-weight: 500;
-  transition: all 0.2s;
-  box-shadow: var(--shadow-sm);
-}
-
-.download-pill:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow);
-}
-
-/* 系统需求 */
 .sys-req {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -555,99 +792,6 @@ body {
   color: var(--accent);
   font-weight: bold;
 }
-
-/* 响应式 */
-@media (max-width: 900px) {
-  .hero .container {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-  .hero-cover {
-    max-width: 280px;
-    margin: 0 auto;
-  }
-  .hero-info h1 {
-    font-size: 1.75rem;
-  }
-  .sys-req {
-    grid-template-columns: 1fr;
-  }
-  .media-thumb {
-    width: 100px;
-    height: 56.25px;
-  }
-}
-
-@media (max-width: 640px) {
-  .hero {
-    padding: 1.5rem 1rem;
-  }
-  .media-section,
-  .content-section,
-  .download-section {
-    padding: 0 1rem 1.5rem;
-  }
-  .content-block,
-  .download-block {
-    padding: 1.5rem;
-  }
-  .media-thumb {
-    width: 80px;
-    height: 45px;
-  }
-}
-
-/* Metacritic 评分徽章 */
-.mc-inline {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  padding: 0.3rem 0.65rem;
-  border-radius: 6px;
-  background: #f0fdf4;
-  border: 1px solid #bbf7d0;
-  text-decoration: none;
-  font-size: 0.75rem;
-  font-weight: 500;
-  color: #166534;
-}
-.mc-inline .mc-num {
-  font-size: 0.95rem;
-  font-weight: 800;
-  color: #15803d;
-}
-.mc-inline .mc-label {
-  font-size: 0.6rem;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: #166534;
-  opacity: 0.7;
-  border-left: 1px solid #86efac;
-  padding-left: 0.35rem;
-}
-
-
-.download-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  padding: 0.5rem 1.2rem;
-  border-radius: 10px;
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: #111827;
-  text-decoration: none;
-  background: linear-gradient(180deg, #ffffff 0%, #f3f4f6 100%);
-  border: 1px solid #d1d5db;
-  box-shadow:
-    inset 0 1px 0 #fff,
-    0 1px 2px rgba(0,0,0,0.06),
-    0 2px 4px rgba(0,0,0,0.04);
-  transition: all 0.15s;
-  white-space: nowrap;
-}
-
-
 </style>
 </head>
 <body>
@@ -670,24 +814,22 @@ body {
       
       <div class="meta-tags">
         <span class="meta-tag year">2020</span>
-
+        <span class="meta-tag">口碑Top</span>
+        
       </div>
+
       
       <div class="info-row">
-        <div class="info-item">
+<div class="info-item">
           <span class="label">开发商</span>
           <span class="value">Square Enix</span>
-        </div>
-        <div class="info-item">
+        </div><div class="info-item">
           <span class="label">发行商</span>
           <span class="value">Square Enix</span>
-        </div>
-        <div class="info-item">
+        </div><div class="info-item">
           <span class="label">存储需求</span>
           <span class="value">约 100 GB</span>
-        </div>
-        </div>
-      </div>
+        </div>      </div>
       
       <div class="hero-desc">
         身背毁灭剑的前神罗战士克劳德踏入魔晄都市米德加。 运用最先进技术制作的画面、融合战略性与直觉式动作操作的战斗系统—— 不朽名作《FINAL FANTASY VII》的世界重生为“全新故事”。
@@ -701,44 +843,49 @@ body {
 <section class="media-section">
   <div class="media-gallery">
     <div class="media-main" id="mediaMain">
-      <video controls playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256878899/movie.293x165.jpg?t=1655416823" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256878899/movie_max.mp4" style="width:100%;height:100%;object-fit:contain;background:#000"></video>
+      <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1462040/ss_20a352a2c20dd4bfb08fa131dc4c2e763510f584.1920x1080.jpg?t=1773895755" alt="Screenshot">
     </div>
     <div class="media-thumbnails-wrap" id="mediaThumbnailsWrap">
       <div class="media-thumbnails" id="mediaThumbnails">
-      <div class="media-thumb active" data-index="0"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256878899/movie.293x165.jpg?t=1655416823" alt="Media"></div>
-      <div class="media-thumb" data-index="1"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1462040/ss_20a352a2c20dd4bfb08fa131dc4c2e763510f584.1920x1080.jpg?t=1773895755" alt="Media"></div>
-      <div class="media-thumb" data-index="2"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1462040/ss_55903e74751601e42fb7f858d5c07ec048386ce2.1920x1080.jpg?t=1773895755" alt="Media"></div>
-      <div class="media-thumb" data-index="3"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1462040/ss_ac55306d00923f2902de20bb5ade7f9cc190e8cf.1920x1080.jpg?t=1773895755" alt="Media"></div>
-      <div class="media-thumb" data-index="4"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1462040/ss_6e30290a5de36f3274a11bd6c78f077c9e489115.1920x1080.jpg?t=1773895755" alt="Media"></div>
-      <div class="media-thumb" data-index="5"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1462040/ss_170c616f08812827d70ac2d9099447a52e114546.1920x1080.jpg?t=1773895755" alt="Media"></div>
+      <div class="media-thumb active data-index="0""><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1462040/ss_20a352a2c20dd4bfb08fa131dc4c2e763510f584.1920x1080.jpg?t=1773895755" alt="Media"></div>
+<div class="media-thumb  data-index="1""><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1462040/ss_55903e74751601e42fb7f858d5c07ec048386ce2.1920x1080.jpg?t=1773895755" alt="Media"></div>
+<div class="media-thumb  data-index="2""><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1462040/ss_ac55306d00923f2902de20bb5ade7f9cc190e8cf.1920x1080.jpg?t=1773895755" alt="Media"></div>
+<div class="media-thumb  data-index="3""><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1462040/ss_6e30290a5de36f3274a11bd6c78f077c9e489115.1920x1080.jpg?t=1773895755" alt="Media"></div>
+<div class="media-thumb  data-index="4""><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1462040/ss_170c616f08812827d70ac2d9099447a52e114546.1920x1080.jpg?t=1773895755" alt="Media"></div>
       </div>
     </div>
   </div>
-</section>
-
-<section class="content-section">
-  <div class="content-block">
-    <h2>关于此游戏</h2>
-    <h3>FINAL FANTASY VII REMAKE &amp; REBIRTH Twin Pack</h3><p>本商品为包含《FINAL FANTASY VII REMAKE INTERGRADE》及《FINAL FANTASY VII REBIRTH》的商品套装。<br/>另有包含了数字内容的《FINAL FANTASY VII REMAKE &amp; REBIRTH Digital Deluxe Twin Pack》。请注意避免重复购买。<br/>※已拥有《FINAL FANTASY VII REMAKE INTERGRADE》或已购买《FINAL FANTASY VII REBIRTH》的玩家也能购买本商品。请注意避免重复购买。<br/>详情请于各商品页面确认。<h2 class="bb_tag" >■Twin Pack内容：</h2><ul class="bb_ul"><li>《FINAL FANTASY VII REMAKE INTERGRADE》<br/></li><li>《FINAL FANTASY VII REBIRTH》<br/></li><li>召唤魔晶石：花俏陆行鸟</li></ul>※《FINAL FANTASY VII REMAKE INTERGRADE》包含以下内容。<br/><ul class="bb_ul"><li>《FINAL FANTASY VII REMAKE》<br/></li><li>《FF7R EPISODE INTERmission》</li></ul></p><br/><h3>FINAL FANTASY VII REMAKE &amp; REBIRTH Digital Deluxe Twin Pack</h3><p>本商品为包含《FINAL FANTASY VII REMAKE INTERGRADE》、《FINAL FANTASY VII REBIRTH》及数字内容的商品套装。<br/>另有销售不含数字内容的《FINAL FANTASY VII REMAKE &amp; REBIRTH Twin Pack》。请注意避免重复购买。<br/>※已拥有《FINAL FANTASY VII REMAKE INTERGRADE》或已购买《FINAL FANTASY VII REBIRTH》的玩家也能购买本商品。请注意避免重复购买。<br/>详情请于各商品页面确认。<h2 class="bb_tag" >■Digital Deluxe Twin Pack内容：</h2><ul class="bb_ul"><li>《FINAL FANTASY VII REMAKE INTERGRADE》<br/></li><li>《FINAL FANTASY VII REBIRTH》<br/></li><li>数字美术画册<br/></li><li>数字迷你原声带<br/></li><li>召唤魔晶石：魔法瓮<br/></li><li>配件：医疗颈链<br/></li><li>防具：兰花手环<br/></li><li>召唤魔晶石：花俏陆行鸟</li></ul>※《FINAL FANTASY VII REMAKE INTERGRADE》包含以下内容。<br/><ul class="bb_ul"><li>《FINAL FANTASY VII REMAKE》<br/></li><li>《FF7R EPISODE INTERmission》</li></ul>※各项数字内容可能于日后贩售。</p><br/><h3>关于游戏</h3>《FINAL FANTASY VII REMAKE》由1997年上市的《FINAL FANTASY VII》主要原班人马精心打造。<br/>因跌宕起伏的剧情与充满魅力的角色，以及运用当时最先进技术制作的画面，而深受众多玩家喜爱的不朽名作，如今将重生为“全新故事”。<br/>指令式战斗融合操作直觉的动作系统，衍生出更丰富的战略性，并运用现代CG技术重现身临其境般的《FINAL FANTASY VII》世界。<br/><br/><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1462040/extras/4465042310caed881656fcae54bc3e4f.avif?t=1773895755" width=616 height=346 /></span><br/><br/>■STORY<br/><br/>抽取自星球的生命能源──魔晄。<br/>在“米德加”这个拥有八座魔晄炉的阶层都市，<br/>凭借魔晄掌握世界的巨型企业“神罗公司”与为了保护星球挺身而出的反神罗组织“雪崩”爆发激烈冲突。<br/>前神罗战士克劳德，以佣兵的身份参加雪崩的“壹号魔晄炉引爆作战”。<br/>魔晄炉爆炸的巨响响彻第捌区。<br/>陷入火海的城镇中，出现那位已故死敌飘渺的幻影。<br/>克劳德追着渴望消除的昔日幻影，最后与她相遇。<br/>卖花女递出一朵黄花，<br/>花语是“重逢”。<br/>刹那间，一团黑影──“命运守望者”将两人包围。<br/>现在，心念将再次于星球流转。<br/><br/>※本作为1997年上市的《FINAL FANTASY VII》之重制版。<br/>以原作中直到逃离米德加的剧情为基础，加入全新原创内容，是预计推出多部系列作的首部作品。<br/><br/><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1462040/extras/7b05c4dd523e17b5ae01d62c9bdf857c.avif?t=1773895755" width=616 height=346 /></span><br/><br/>■“FF7R EPISODE INTERmission”（尤菲的新篇章）<br/><br/>“FF7R EPISODE INTERmission”（尤菲的新篇章）是新角色“尤菲”的故事。<br/>潜入米德加的五台忍者们将与雪崩总会共同策画，挑战从神罗公司盗出究极魔晶石的任务。<br/>※“FF7R EPISODE INTERmission”（尤菲的新篇章）中，能够操作“尤菲”作为游玩角色。<br/><br/><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1462040/extras/ffce09d0945df423366b1d48c14527a4.avif?t=1773895755" width=616 height=346 /></span><br/><br/>■ 本商品包含的内容<br/><br/>《FINAL FANTASY VII REMAKE》包含以下内容：<br/>・《FINAL FANTASY VII REMAKE》游戏本篇<br/>・追加篇章：“FF7R EPISODE INTERmission”（尤菲的新篇章）<br/>・武器：仙人掌手里剑<br/>・防具：米德加手镯<br/>・防具：神罗手镯<br/>・防具：古留根尾手镯<br/>・配件：明星腰带<br/>・配件：魔晄水晶<br/>・配件：自动重生耳环<br/>・召唤魔晶石：卡邦库尔<br/>・召唤魔晶石：小陆行鸟<br/>・召唤魔晶石：仙人掌怪<br/><br/>※武器、防具、配件和召唤魔晶石可以从主菜单内的PRESENT BOX中获得。<br/>※“武器：仙人掌手里剑”只能于“FF7R EPISODE INTERmission”（尤菲的新篇章）内使用。
-  </div>
-</section><!-- 下载区域 -->
-<section class="download-section">
+</section><section class="download-section">
   <div class="download-block">
-    <h2>📥 下载链接</h2>
-    <div class="download-buttons">
-      <a href="https://www.gamer520.com/25591.html" class="download-pill" target="_blank">gamer520</a>
+    <span class="download-label">Download</span>
+    <div class="download-pills">
+<a href="https://www.gamer520.com/25591.html" class="download-pill" target="_blank">gamer520</a>
 <a href="https://www.x6d.com/i-wz-17326.html" class="download-pill" target="_blank">x6d</a>
-
+<a href="https://fitgirl-repacks.site/final-fantasy-7-remake-intergrade/" class="download-pill" target="_blank">fitgirl</a>
     </div>
   </div>
 </section>
 
 <!-- 系统需求 -->
-
+<section class="sys-req-section">
+  <div class="sys-req-block">
+    <h2>💻 系统配置要求</h2>
+    <div class="sys-req-grid">
+      <div class="sys-req-col minimum">
+        <h4>最低配置</h4>
+        &lt;strong&gt;Minimum:&lt;/strong&gt;&lt;br&gt;&lt;ul class=&quot;bb_ul&quot;&gt;&lt;li&gt;Requires a 64-bit processor and operating system&lt;br&gt;&lt;/li&gt;&lt;li&gt;&lt;strong&gt;OS:&lt;/strong&gt; Windows® 10 64-bit (ver. 2004 or later)&lt;br&gt;&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Processor:&lt;/strong&gt; AMD FX-8350 / Intel® Core™ i5-3330&lt;br&gt;&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Memory:&lt;/strong&gt; 8 GB RAM&lt;br&gt;&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Graphics:&lt;/strong&gt; AMD Radeon™ RX 480 / NVIDIA® GeForce® GTX 780 / 3GB VRAM required&lt;br&gt;&lt;/li&gt;&lt;li&gt;&lt;strong&gt;DirectX:&lt;/strong&gt; Version 12&lt;br&gt;&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Storage:&lt;/strong&gt; 100 GB available space&lt;br&gt;&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Additional Notes:&lt;/strong&gt; Assuming a Resolution of 1920 x 1080&lt;/li&gt;&lt;/ul&gt;
+      </div>
+      <div class="sys-req-col recommended">
+        <h4>推荐配置</h4>
+        &lt;strong&gt;Recommended:&lt;/strong&gt;&lt;br&gt;&lt;ul class=&quot;bb_ul&quot;&gt;&lt;li&gt;Requires a 64-bit processor and operating system&lt;br&gt;&lt;/li&gt;&lt;li&gt;&lt;strong&gt;OS:&lt;/strong&gt; Windows® 10 64-bit (ver. 2004 or later)&lt;br&gt;&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Processor:&lt;/strong&gt; AMD Ryzen™ 3 3100 / Intel® Core™ i7-3770&lt;br&gt;&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Memory:&lt;/strong&gt; 12 GB RAM&lt;br&gt;&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Graphics:&lt;/strong&gt; AMD Radeon™ RX 5700 / NVIDIA® GeForce® GTX 1080 / 8GB VRAM required&lt;br&gt;&lt;/li&gt;&lt;li&gt;&lt;strong&gt;DirectX:&lt;/strong&gt; Version 12&lt;br&gt;&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Storage:&lt;/strong&gt; 100 GB available space&lt;br&gt;&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Additional Notes:&lt;/strong&gt; Assuming a Resolution of 2560 x 1440 (This title supports max resolution of 3840 x 2160)&lt;/li&gt;&lt;/ul&gt;
+      </div>
+    </div>
+  </div>
+</section>
 
 <script>
 // 媒体数据
-const mediaItems = [{"type": "video", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256878899/movie_max.mp4", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256878899/movie.293x165.jpg?t=1655416823"}, {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1462040/ss_20a352a2c20dd4bfb08fa131dc4c2e763510f584.1920x1080.jpg?t=1773895755", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1462040/ss_20a352a2c20dd4bfb08fa131dc4c2e763510f584.1920x1080.jpg?t=1773895755"}, {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1462040/ss_55903e74751601e42fb7f858d5c07ec048386ce2.1920x1080.jpg?t=1773895755", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1462040/ss_55903e74751601e42fb7f858d5c07ec048386ce2.1920x1080.jpg?t=1773895755"}, {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1462040/ss_ac55306d00923f2902de20bb5ade7f9cc190e8cf.1920x1080.jpg?t=1773895755", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1462040/ss_ac55306d00923f2902de20bb5ade7f9cc190e8cf.1920x1080.jpg?t=1773895755"}, {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1462040/ss_6e30290a5de36f3274a11bd6c78f077c9e489115.1920x1080.jpg?t=1773895755", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1462040/ss_6e30290a5de36f3274a11bd6c78f077c9e489115.1920x1080.jpg?t=1773895755"}, {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1462040/ss_170c616f08812827d70ac2d9099447a52e114546.1920x1080.jpg?t=1773895755", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1462040/ss_170c616f08812827d70ac2d9099447a52e114546.1920x1080.jpg?t=1773895755"}];
+const mediaItems = [{"type":"image","url":"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1462040/ss_20a352a2c20dd4bfb08fa131dc4c2e763510f584.1920x1080.jpg?t=1773895755","thumb":"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1462040/ss_20a352a2c20dd4bfb08fa131dc4c2e763510f584.1920x1080.jpg?t=1773895755"},{"type":"image","url":"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1462040/ss_55903e74751601e42fb7f858d5c07ec048386ce2.1920x1080.jpg?t=1773895755","thumb":"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1462040/ss_55903e74751601e42fb7f858d5c07ec048386ce2.1920x1080.jpg?t=1773895755"},{"type":"image","url":"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1462040/ss_ac55306d00923f2902de20bb5ade7f9cc190e8cf.1920x1080.jpg?t=1773895755","thumb":"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1462040/ss_ac55306d00923f2902de20bb5ade7f9cc190e8cf.1920x1080.jpg?t=1773895755"},{"type":"image","url":"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1462040/ss_6e30290a5de36f3274a11bd6c78f077c9e489115.1920x1080.jpg?t=1773895755","thumb":"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1462040/ss_6e30290a5de36f3274a11bd6c78f077c9e489115.1920x1080.jpg?t=1773895755"},{"type":"image","url":"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1462040/ss_170c616f08812827d70ac2d9099447a52e114546.1920x1080.jpg?t=1773895755","thumb":"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1462040/ss_170c616f08812827d70ac2d9099447a52e114546.1920x1080.jpg?t=1773895755"},]
 
 let currentIndex = 0;
 

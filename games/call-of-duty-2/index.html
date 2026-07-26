@@ -61,6 +61,283 @@ body {
   color: var(--accent);
 }
 
+/* Metacritic 评分徽章（内嵌到 meta-tags） */
+.mc-inline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.3rem 0.65rem;
+  border-radius: 6px;
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  text-decoration: none;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #166534;
+}
+
+.mc-inline .mc-num {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #15803d;
+}
+
+.mc-inline .mc-label {
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #166534;
+  opacity: 0.7;
+  border-left: 1px solid #86efac;
+  padding-left: 0.35rem;
+}
+
+/* 系统需求 */
+.sys-req-section {
+  max-width: 940px;
+  margin: 1.25rem auto 0.75rem;
+  padding: 0 2rem;
+}
+
+.sys-req-block {
+  background: var(--surface);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+
+.sys-req-block h2 {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+  padding: 0.75rem 1.25rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.sys-req-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+}
+
+.sys-req-col {
+  padding: 0.85rem 1.25rem;
+}
+
+.sys-req-col + .sys-req-col {
+  border-left: 1px solid var(--border);
+}
+
+.sys-req-col h4 {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.sys-req-col.minimum h4 { color: var(--success); }
+.sys-req-col.recommended h4 { color: var(--accent); }
+
+.sys-req-col h4::before {
+  content: "";
+  width: 3px;
+  height: 12px;
+  border-radius: 2px;
+}
+.sys-req-col.minimum h4::before { background: var(--success); }
+.sys-req-col.recommended h4::before { background: var(--accent); }
+
+.sys-req-col ul {
+  list-style: none;
+}
+
+.sys-req-col li {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.2rem;
+  padding-left: 1rem;
+  position: relative;
+  line-height: 1.5;
+}
+
+.sys-req-col li:last-child { margin-bottom: 0; }
+
+.sys-req-col li::before {
+  content: "›";
+  position: absolute;
+  left: 0;
+  color: var(--text-muted);
+  font-weight: 700;
+}
+
+.sys-req-col li strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+/* 下载区域 - 精致小巧 */
+.download-section {
+  max-width: 940px;
+  margin: 2.5rem auto 4rem;
+  padding: 0 2rem;
+}
+
+.download-block {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 0;
+}
+
+.download-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+
+.download-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.download-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.5rem 1.2rem;
+  border-radius: 10px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  text-decoration: none;
+  background: linear-gradient(180deg, #ffffff 0%, #f3f4f6 100%);
+  border: 1px solid #d1d5db;
+  box-shadow:
+    inset 0 1px 0 #fff,
+    0 1px 2px rgba(0,0,0,0.06),
+    0 2px 4px rgba(0,0,0,0.04);
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+
+.download-pill:hover {
+  background: linear-gradient(180deg, #f9fafb 0%, #e5e7eb 100%);
+  border-color: #9ca3af;
+  transform: translateY(-1px);
+  box-shadow:
+    inset 0 1px 0 #fff,
+    0 2px 4px rgba(0,0,0,0.1),
+    0 4px 8px rgba(0,0,0,0.06);
+}
+
+.download-pill:active {
+  transform: translateY(1px);
+  box-shadow:
+    inset 0 1px 3px rgba(0,0,0,0.08),
+    0 1px 2px rgba(0,0,0,0.06);
+}
+
+/* 响应式 */
+@media (max-width: 900px) {
+  .hero .container {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .hero-cover {
+    max-width: 280px;
+    margin: 0 auto;
+  }
+  .hero-info h1 {
+    font-size: 1.75rem;
+  }
+  .sys-req-grid {
+    grid-template-columns: 1fr;
+  }
+  .sys-req-col + .sys-req-col {
+    border-left: none;
+    border-top: 1px solid var(--border);
+  }
+  .media-thumb {
+    width: 100px;
+    height: 56.25px;
+  }
+  .topbar {
+    padding: 0 1rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero {
+    padding: 1.5rem 1rem;
+  }
+  .media-section,
+  .content-section,
+  .download-section,
+  .sys-req-section {
+    padding: 0 1rem;
+  }
+  .content-block,
+  .download-block {
+    padding: 1.25rem;
+  }
+  .media-thumb {
+    width: 80px;
+    height: 45px;
+  }
+  .topbar-left {
+    gap: 0.5rem;
+  }
+  .metacritic-badge .mc-label {
+    display: none;
+  }
+  .download-block {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+  .download-pills {
+    width: 100%;
+  }
+  .download-pill {
+    flex: 1;
+    justify-content: center;
+    min-width: 0;
+  }
+}
+
+/* 系统配置 HTML 样式清洗 */
+ul.bb_ul { list-style: none; }
+ul.bb_ul li {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+  margin-bottom: 0.4rem;
+  padding-left: 1rem;
+  position: relative;
+}
+ul.bb_ul li:last-child { margin-bottom: 0; }
+ul.bb_ul li::before {
+  content: "›";
+  position: absolute;
+  left: 0;
+  color: var(--text-muted);
+  font-weight: 700;
+}
+ul.bb_ul li strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
 /* 游戏头部 */
 .hero {
   background: var(--surface);
@@ -69,7 +346,7 @@ body {
 }
 
 .hero .container {
-  max-width: 1200px;
+  max-width: 940px;
   margin: 0 auto;
   display: grid;
   grid-template-columns: 300px 1fr;
@@ -171,7 +448,7 @@ body {
 
 /* 媒体区域 - Steam风格 */
 .media-section {
-  max-width: 1200px;
+  max-width: 940px;
   margin: 2rem auto;
   padding: 0 2rem;
 }
@@ -318,7 +595,7 @@ body {
   align-items: center;
   justify-content: center;
   font-size: 0.8rem;
-  opacity: 0;
+  opacity: 1;
   transition: opacity .2s ease;
 }
 
@@ -392,25 +669,11 @@ body {
   object-fit: cover;
 }
 
-.media-thumb .play-icon {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: rgba(0, 0, 0, 0.7);
-  color: white;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1rem;
-}
+
 
 /* 内容区域 */
 .content-section {
-  max-width: 1200px;
+  max-width: 940px;
   margin: 0 auto;
   padding: 0 2rem 2rem;
 }
@@ -475,7 +738,7 @@ body {
 
 /* 下载区域 */
 .download-section {
-  max-width: 1200px;
+  max-width: 940px;
   margin: 0 auto;
   padding: 0 2rem 2rem;
 }
@@ -496,32 +759,6 @@ body {
   border-bottom: 1px solid var(--border);
 }
 
-.download-buttons {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-}
-
-.download-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.75rem 1.5rem;
-  border-radius: 10px;
-  text-decoration: none;
-  color: #fff;
-  font-size: 0.9375rem;
-  font-weight: 500;
-  transition: all 0.2s;
-  box-shadow: var(--shadow-sm);
-}
-
-.download-pill:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow);
-}
-
-/* 系统需求 */
 .sys-req {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -555,99 +792,6 @@ body {
   color: var(--accent);
   font-weight: bold;
 }
-
-/* 响应式 */
-@media (max-width: 900px) {
-  .hero .container {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-  .hero-cover {
-    max-width: 280px;
-    margin: 0 auto;
-  }
-  .hero-info h1 {
-    font-size: 1.75rem;
-  }
-  .sys-req {
-    grid-template-columns: 1fr;
-  }
-  .media-thumb {
-    width: 100px;
-    height: 56.25px;
-  }
-}
-
-@media (max-width: 640px) {
-  .hero {
-    padding: 1.5rem 1rem;
-  }
-  .media-section,
-  .content-section,
-  .download-section {
-    padding: 0 1rem 1.5rem;
-  }
-  .content-block,
-  .download-block {
-    padding: 1.5rem;
-  }
-  .media-thumb {
-    width: 80px;
-    height: 45px;
-  }
-}
-
-/* Metacritic 评分徽章 */
-.mc-inline {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  padding: 0.3rem 0.65rem;
-  border-radius: 6px;
-  background: #f0fdf4;
-  border: 1px solid #bbf7d0;
-  text-decoration: none;
-  font-size: 0.75rem;
-  font-weight: 500;
-  color: #166534;
-}
-.mc-inline .mc-num {
-  font-size: 0.95rem;
-  font-weight: 800;
-  color: #15803d;
-}
-.mc-inline .mc-label {
-  font-size: 0.6rem;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: #166534;
-  opacity: 0.7;
-  border-left: 1px solid #86efac;
-  padding-left: 0.35rem;
-}
-
-
-.download-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  padding: 0.5rem 1.2rem;
-  border-radius: 10px;
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: #111827;
-  text-decoration: none;
-  background: linear-gradient(180deg, #ffffff 0%, #f3f4f6 100%);
-  border: 1px solid #d1d5db;
-  box-shadow:
-    inset 0 1px 0 #fff,
-    0 1px 2px rgba(0,0,0,0.06),
-    0 2px 4px rgba(0,0,0,0.04);
-  transition: all 0.15s;
-  white-space: nowrap;
-}
-
-
 </style>
 </head>
 <body>
@@ -666,27 +810,30 @@ body {
     </div>
     <div class="hero-info">
       <h1>使命召唤 2</h1>
-      <div class="en-name">Call of Duty® 2</div>
+      <div class="en-name">Call of Duty 2</div>
       
       <div class="meta-tags">
         <span class="meta-tag year">2005</span>
-<span class="meta-tag">动作</span>
-
+        <span class="meta-tag"></span>
+        
       </div>
+
       
       <div class="info-row">
-        <div class="info-item">
-          <span class="label">开发者</span>
+<div class="info-item">
+          <span class="label">开发商</span>
           <span class="value">Infinity Ward</span>
-        </div>
-        <div class="info-item">
+        </div><div class="info-item">
           <span class="label">发行商</span>
           <span class="value">Activision</span>
-        </div>
-      </div>
+        </div><div class="info-item">
+          <span class="label">存储需求</span>
+          <span class="value">约 4 GB</span>
+        </div>      </div>
       
       <div class="hero-desc">
-        Call of Duty® 2 重新定义了普通士兵在二次世界大战中所见到的战场，不但更有戏剧张力，更重现了战场的混乱。 继 2003 年推出的 Call of Duty 勇夺 80 多项年度最佳游戏奖，现在 Call of Duty 2 采用了 COD™2 引擎，带来比以往更宽广的战场，更有张力，更逼真的战斗。 二次世界大战最佳开发团队再次带来全新惊人体验：获奖作品 Call of Duty 的开发团队 Inifinity Ward 所开发。 前所未见的全新增强效果，从惊人的逼真绘图到完美无缝的游戏内容，革新的 COD2 引擎带来突破性的 AI 与多选择导向游戏创新。 精致绘制的飘雪、雨水、浓雾和硝烟，配合动态打光和阴影，让这款游戏成为至今最具张力的二次世界大战射击游戏。
+        Call of Duty® 2 重新定义了普通士兵在二次世界大战中所见到的战场，不但更有戏剧张力，更重现了战场的混乱。 继 2003 年推出的 Call of Duty 勇夺 80 多项年度最佳游戏奖，现在 Call of Duty 2 采用了 COD™2 引擎，带来比以往更宽广的战场，更有张力，更逼真的战斗。 二次世界大战最佳开发团队再次带来全新惊人体验：获奖作品 Call of Duty 的开
+      </div>
       </div>
     </div>
   </div>
@@ -700,46 +847,43 @@ body {
     </div>
     <div class="media-thumbnails-wrap" id="mediaThumbnailsWrap">
       <div class="media-thumbnails" id="mediaThumbnails">
-      <div class="media-thumb active" data-index="0"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2630/0000000696.1920x1080.jpg?t=1780962161" alt="Media"></div>
-      <div class="media-thumb" data-index="1"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2630/0000000692.1920x1080.jpg?t=1780962161" alt="Media"></div>
-      <div class="media-thumb" data-index="2"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2630/0000000693.1920x1080.jpg?t=1780962161" alt="Media"></div>
-      <div class="media-thumb" data-index="3"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2630/0000000694.1920x1080.jpg?t=1780962161" alt="Media"></div>
-      <div class="media-thumb" data-index="4"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2630/0000000695.1920x1080.jpg?t=1780962161" alt="Media"></div>
+      <div class="media-thumb active data-index="0""><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2630/0000000696.1920x1080.jpg?t=1780962161" alt="Media"></div>
+<div class="media-thumb  data-index="1""><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2630/0000000692.1920x1080.jpg?t=1780962161" alt="Media"></div>
+<div class="media-thumb  data-index="2""><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2630/0000000693.1920x1080.jpg?t=1780962161" alt="Media"></div>
+<div class="media-thumb  data-index="3""><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2630/0000000694.1920x1080.jpg?t=1780962161" alt="Media"></div>
+<div class="media-thumb  data-index="4""><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2630/0000000695.1920x1080.jpg?t=1780962161" alt="Media"></div>
       </div>
     </div>
   </div>
-</section>
-
-<section class="content-section">
-  <div class="content-block">
-    <h2>关于此游戏</h2>
-    Call of Duty® 2 重新定义了普通士兵在二次世界大战中所见到的战场，不但更有戏剧张力，更重现了战场的混乱。 继 2003 年推出的 Call of Duty 勇夺 80 多项年度最佳游戏奖，现在 Call of Duty 2 采用了 COD™2 引擎，带来比以往更宽广的战场，更有张力，更逼真的战斗。<br/>			<ul class="bb_ul"><li>二次世界大战最佳开发团队再次带来全新惊人体验：获奖作品 Call of Duty 的开发团队 Inifinity Ward 所开发。 前所未见的全新增强效果，从惊人的逼真绘图到完美无缝的游戏内容，革新的 COD2 引擎带来突破性的 AI 与多选择导向游戏创新。 精致绘制的飘雪、雨水、浓雾和硝烟，配合动态打光和阴影，让这款游戏成为至今最具张力的二次世界大战射击游戏。<br/>			</li><li>全新冲突与全新敌人： Call of Duty 2 带给您更大规模的战斗，屏幕上有更多坦克，部队，更多爆炸效果与更宽广的视野，并且带来欧洲大陆战场上更多样的地点和环境。 在炙热的北非沙漠与“沙漠之狐”对抗，见证一波波的坦克火线冲击。 用火箭推动的钩爪，跟您的陆军游骑兵小队一同突袭奥克角断崖，阻挡毫不放松的德军反击；扮演反坦克部队，在战乱中的苏联都市行军。 <br/>			</li><li>小队支持更加精采：您四周的许多盟军士兵都能够查觉身旁状况的变化，用全新设计的环境感知战斗通讯系统让您掌握战况。 他们不但会诱敌、掩护、利用散兵坑和坦克推进作掩护，还会警告您来袭敌军与敌方火力。<br/>			</li><li>多选择导向游戏：按照个人偏好选择任务顺序。 您想要先扮演狙击手还是坦克指挥官？ 一切由您决定。 开放结局的战场让您发挥个人战术，选择战斗目标完成顺序。 <br/>			</li><li>多人游戏大混战：上线参加紧凑的轴心国对抗盟军战斗， 以极受欢迎的 Call of Duty 多人游戏模式为基础所延伸设计的多人团队式游戏。<br/>			</li></ul><br/>© 2006 Activision Publishing, Inc.  Activision 和 Call of Duty 是 Activision Publishing, Inc. 的注册商标。保留所有权利。  所有其它商标和商品名均为各自所有者的财产。
-  </div>
-</section><!-- 下载区域 -->
-<section class="download-section">
+</section><section class="download-section">
   <div class="download-block">
-    <h2>📥 下载链接</h2>
-    <div class="download-buttons">
-      <a href="https://www.gamer520.com/?s=Call%20of%20Duty%C2%AE%202" class="download-pill" target="_blank">gamer520</a>
-      <a href="https://www.x6d.com/search/?searchkey=Call%20of%20Duty%C2%AE%202" class="download-pill" target="_blank">x6d</a>
+    <span class="download-label">Download</span>
+    <div class="download-pills">
+<a href="https://fitgirl-repacks.site/call-of-duty-modern-warfare-iii/" class="download-pill" target="_blank">fitgirl</a>
     </div>
   </div>
 </section>
 
 <!-- 系统需求 -->
-<section class="content-section">
-  <div class="content-block">
-    <h2>系统需求</h2>
-    <div class="sys-req">
-      <div class="sys-req-col"><h4>最低配置</h4><div><strong>最低配置：</strong>必须带有 3D 硬件加速卡 - 100% DirectX 9.0c 兼容 64MB 硬件加速显示卡和最新驱动程序*，英文版 Microsoft Windows 2000/XP，Pentium IV 1.4GHz 或 AMD Athlon XP 1700+ 处理器或更高等级，256MB 内存（建议 512MB 内存），100% DirectX 9.0c 兼容 16 位声卡和最新驱动程序，100% Windows 2000/XP 兼容鼠标、键盘和最新驱动程序，4.0GB 未压缩可用硬盘空间（另需 600MB 供 Windows 2000/XP 用于交换文件）<br>		多人游戏要求：<br>			<ul class="bb_ul"><li>支持 Internet (TCP/IP) 和局域网络 (LAN TCP/IP) 游戏<br>				</li><li>Internet 游戏需要宽带连接和最新驱动程序<br>				</li><li>LAN 游戏需要网卡和最新驱动程序<br>			</li></ul>重要：*部份 3D 加速卡虽然使用此处列出的芯片组，但不一定与 Call of Duty 所使用的 3D 加速功能兼容。 请向硬件制造商咨询是否完全兼容 DirectX 9.0c。<br>			支持芯片组<br>			<ul class="bb_ul"><li>ATI Radeon 8500<br>				</li><li>ATI Radeon 9000<br>				</li><li>ATI Radeon 9200<br>				</li><li>ATI Radeon 9500<br>				</li><li>ATI Radeon 9600<br>				</li><li>ATI Radeon 9700<br>				</li><li>ATI Radeon 9800<br>				</li><li>ATI Radeon X300<br>				</li><li>ATI Radeon X550<br>				</li><li>ATI Radeon X600<br>				</li><li>ATI Radeon X700<br>				</li><li>ATI Radeon X800<br>				</li><li>ATI Radeon X850<br>				</li><li>nVidia GeForce 2 Ultra<br>				</li><li>nVidia GeForce 3/Ti 系列<br>				</li><li>nVidia GeForce 4/Ti 系列<br>				</li><li>nVidia GeForce FX 系列<br>				</li><li>nVidia GeForce 6 系列<br>				</li><li>建议使用 nVidia GeForce 7 系列或更高等级<br>			</li></ul></div></div>
-      <div class="sys-req-col"><h4>推荐配置</h4><div></div></div>
+<section class="sys-req-section">
+  <div class="sys-req-block">
+    <h2>💻 系统配置要求</h2>
+    <div class="sys-req-grid">
+      <div class="sys-req-col minimum">
+        <h4>最低配置</h4>
+        &lt;strong&gt;Minimum:&lt;/strong&gt; 3D hardware accelerator card required - 100% DirectX 9.0c compatible 64MB hardware accelerator video card and the latest drivers*, Microsoft Windows 2000/XP, Pentium IV 1.4GHz or AMD Athlon XP 1700+ processor or higher, 256MB RAM (512MB RAM recommended), 100% DirectX 9.0c compatible 16-bit sound card and latest drivers, 100% Windows 2000/XP compatible mouse, keyboard and latest drivers, 4.0GB of uncompressed free hard disk space (plus 600MB for Windows 2000/XP swap file)&lt;br&gt;					Multi-player Requirements:&lt;br&gt;					&lt;ul class=&quot;bb_ul&quot;&gt;&lt;li&gt;Internet (TCP/IP) and LAN (TCP/IP) play supported&lt;br&gt;					&lt;/li&gt;&lt;li&gt;Internet play requires broadband connection and latest drivers&lt;br&gt;					&lt;/li&gt;&lt;li&gt;LAN play requires network interface card and latest drivers&lt;/li&gt;&lt;/ul&gt;Important Notice: *Some 3D accelerator cards with the chipset listed here may not be compatible with the 3D acceleration features utilized by Call of Duty. Please refer to your hardware manufacturer for 100% DirectX 9.0c compatibility.&lt;br&gt;					Supported Chipsets&lt;br&gt;					&lt;ul class=&quot;bb_ul&quot;&gt;&lt;li&gt;ATI Radeon 8500&lt;br&gt;					&lt;/li&gt;&lt;li&gt;ATI Radeon 9000&lt;br&gt;					&lt;/li&gt;&lt;li&gt;ATI Radeon 9200&lt;br&gt;					&lt;/li&gt;&lt;li&gt;ATI Radeon 9500&lt;br&gt;					&lt;/li&gt;&lt;li&gt;ATI Radeon 9600&lt;br&gt;					&lt;/li&gt;&lt;li&gt;ATI Radeon 9700&lt;br&gt;					&lt;/li&gt;&lt;li&gt;ATI Radeon 9800&lt;br&gt;					&lt;/li&gt;&lt;li&gt;ATI Radeon X300&lt;br&gt;					&lt;/li&gt;&lt;li&gt;ATI Radeon X550&lt;br&gt;					&lt;/li&gt;&lt;li&gt;ATI Radeon X600&lt;br&gt;					&lt;/li&gt;&lt;li&gt;ATI Radeon X700&lt;br&gt;					&lt;/li&gt;&lt;li&gt;ATI Radeon X800&lt;br&gt;					&lt;/li&gt;&lt;li&gt;ATI Radeon X850&lt;br&gt;					&lt;/li&gt;&lt;li&gt;nVidia GeForce 2 Ultra&lt;br&gt;					&lt;/li&gt;&lt;li&gt;All nVidia GeForce 3/Ti Series&lt;br&gt;					&lt;/li&gt;&lt;li&gt;All nVidia GeForce 4/Ti Series&lt;br&gt;					&lt;/li&gt;&lt;li&gt;All nVidia GeForce FX Series&lt;br&gt;					&lt;/li&gt;&lt;li&gt;All nVidia GeForce 6 Series&lt;br&gt;					&lt;/li&gt;&lt;li&gt;Recommend nVidia GeForce 7 Series or higher&lt;/li&gt;&lt;/ul&gt;
+      </div>
+      <div class="sys-req-col recommended">
+        <h4>推荐配置</h4>
+        无数据
+      </div>
     </div>
   </div>
 </section>
 
 <script>
 // 媒体数据
-const mediaItems = [{"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2630/0000000696.1920x1080.jpg?t=1780962161", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2630/0000000696.1920x1080.jpg?t=1780962161"}, {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2630/0000000692.1920x1080.jpg?t=1780962161", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2630/0000000692.1920x1080.jpg?t=1780962161"}, {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2630/0000000693.1920x1080.jpg?t=1780962161", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2630/0000000693.1920x1080.jpg?t=1780962161"}, {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2630/0000000694.1920x1080.jpg?t=1780962161", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2630/0000000694.1920x1080.jpg?t=1780962161"}, {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2630/0000000695.1920x1080.jpg?t=1780962161", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2630/0000000695.1920x1080.jpg?t=1780962161"}];
+const mediaItems = [{"type":"image","url":"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2630/0000000696.1920x1080.jpg?t=1780962161","thumb":"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2630/0000000696.1920x1080.jpg?t=1780962161"},{"type":"image","url":"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2630/0000000692.1920x1080.jpg?t=1780962161","thumb":"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2630/0000000692.1920x1080.jpg?t=1780962161"},{"type":"image","url":"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2630/0000000693.1920x1080.jpg?t=1780962161","thumb":"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2630/0000000693.1920x1080.jpg?t=1780962161"},{"type":"image","url":"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2630/0000000694.1920x1080.jpg?t=1780962161","thumb":"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2630/0000000694.1920x1080.jpg?t=1780962161"},{"type":"image","url":"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2630/0000000695.1920x1080.jpg?t=1780962161","thumb":"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2630/0000000695.1920x1080.jpg?t=1780962161"},]
 
 let currentIndex = 0;
 
