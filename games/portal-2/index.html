@@ -25,12 +25,15 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Microsoft YaHei', 'Noto Sans SC', 'Source Han Sans SC', sans-serif;
   background: var(--bg);
   color: var(--text-secondary);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
   padding-bottom: 50px;
+  font-feature-settings: "palt" 1, "kern" 1;
 }
 
 /* 顶部导航 */
@@ -883,7 +886,7 @@ ul.bb_ul li strong {
     <div class="sys-req-grid">
       <div class="sys-req-col minimum">
         <h4>最低配置</h4>
-        <strong>Minimum:</strong><br><ul class="bb_ul"><li><strong>OS *:</strong> Windows 7 / Vista / XP<br></li><li><strong>Processor:</strong> 3.0 GHz P4, Dual Core 2.0 (or higher) or AMD64X2 (or higher)<br></li><li><strong>Memory:</strong> 2 GB RAM<br></li><li><strong>Graphics:</strong> Video card must be 128 MB or more and with support for Pixel Shader 2.0b (ATI Radeon X800 or higher / NVIDIA GeForce 7600 or higher / Intel HD Graphics 2000 or higher).<br></li><li><strong>DirectX:</strong> Version 9.0c<br></li><li><strong>Storage:</strong> 8 GB available space<br></li><li><strong>Sound Card:</strong> DirectX 9.0c compatible</li></ul>
+        <strong>最低配置:</strong><br><ul class="bb_ul"><li><strong>OS *:</strong> Windows 7 / Vista / XP<br></li><li><strong>处理器:</strong> 3.0 GHz P4, Dual Core 2.0 (or higher) or AMD64X2 (or higher)<br></li><li><strong>内存:</strong> 2 GB RAM<br></li><li><strong>显卡:</strong> Video card must be 128 MB or more and with support for Pixel Shader 2.0b (ATI Radeon X800 or higher / NVIDIA GeForce 7600 or higher / Intel HD Graphics 2000 or higher).<br></li><li><strong>DirectX 版本:</strong> Version 9.0c<br></li><li><strong>存储空间:</strong> 8 GB 可用空间<br></li><li><strong>声卡:</strong> DirectX 9.0c compatible</li></ul>
       </div>
       <div class="sys-req-col recommended">
         <h4>推荐配置</h4>

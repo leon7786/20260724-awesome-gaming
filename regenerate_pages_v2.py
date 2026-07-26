@@ -167,11 +167,35 @@ def build_page(g):
     else:
         desc_section = ""
 
-    # --- System requirements ---
+    # --- System requirements (translate Steam English labels to Chinese) ---
+    SYS_LABEL_MAP = {
+        "Minimum:": "最低配置:",
+        "Recommended:": "推荐配置:",
+        "OS:": "操作系统:",
+        "Processor:": "处理器:",
+        "Memory:": "内存:",
+        "Graphics:": "显卡:",
+        "DirectX:": "DirectX 版本:",
+        "DirectX Version:": "DirectX 版本:",
+        "Storage:": "存储空间:",
+        "Sound Card:": "声卡:",
+        "Additional Notes:": "备注:",
+        "Requires a 64-bit processor and operating system": "需要 64 位处理器和操作系统",
+        "available space": "可用空间",
+    }
+    def translate_sys(html):
+        for en, zh in SYS_LABEL_MAP.items():
+            # match both "<strong>Label:</strong>" and inline text
+            html = html.replace(f"<strong>{en}</strong>", f"<strong>{zh}</strong>")
+        # Inline replacements for non-tag text
+        for en, zh in SYS_LABEL_MAP.items():
+            if en.startswith(("Requires", "available")):
+                html = html.replace(en, zh)
+        return html
+
     if appid:
         sr = get_sysreq(appid)
         if sr:
-            # Steam API 返回的是 HTML，直接用，不要嵌套在 ul/li 里
             sys_section = f'''<!-- 系统需求 -->
 <section class="sys-req-section">
   <div class="sys-req-block">
@@ -179,11 +203,11 @@ def build_page(g):
     <div class="sys-req-grid">
       <div class="sys-req-col minimum">
         <h4>最低配置</h4>
-        {sr[0]}
+        {translate_sys(sr[0])}
       </div>
       <div class="sys-req-col recommended">
         <h4>推荐配置</h4>
-        {sr[1]}
+        {translate_sys(sr[1])}
       </div>
     </div>
   </div>
