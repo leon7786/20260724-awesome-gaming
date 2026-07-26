@@ -3,10 +3,15 @@
 import json, os, urllib.request
 from html import escape
 
-PROXY = "http://admin12:Dd--2131801@127.0.0.1:2022"
-ph = urllib.request.ProxyHandler({"http": PROXY, "https": PROXY})
-opener = urllib.request.build_opener(ph)
-urllib.request.install_opener(opener)
+PROXY_A = "http://admin12:Dd--2131801@127.0.0.1:2022"
+PROXY_B = "http://admin12:Dd--2131801@127.0.0.1:2023"
+proxies = [PROXY_A, PROXY_B]
+
+def make_opener(p):
+    ph = urllib.request.ProxyHandler({"http": p, "https": p})
+    opener = urllib.request.build_opener(ph)
+    opener.addheaders = [("User-Agent", "Mozilla/5.0")]
+    return opener
 
 ROOT = "/root/Projects/20260724-awesome-gaming"
 TEMPLATE = os.path.join(ROOT, "template-detail.html")
@@ -20,13 +25,16 @@ for x in games:
         all_appids.add(int(x["appid"]))
 print(f"Fetching Steam details for {len(all_appids)} appids...")
 steam_data = {}
+proxy_idx = 0
 for i, appid in enumerate(sorted(all_appids), 1):
     try:
         req = urllib.request.Request(
             f"https://store.steampowered.com/api/appdetails?appids={appid}&l=schinese",
             headers={"User-Agent": "Mozilla/5.0"},
         )
-        data = json.loads(opener.open(req, timeout=15).read())
+        cur_opener = make_opener(proxies[proxy_idx])
+        proxy_idx = (proxy_idx + 1) % len(proxies)
+        data = json.loads(cur_opener.open(req, timeout=15).read())
         if data.get(str(appid), {}).get("success"):
             steam_data[appid] = data[str(appid)]["data"]
     except Exception:
@@ -109,7 +117,7 @@ def get_videos(appid):
         )
         if url:
             # Use the real URL from Steam API (HLS/DASH). Don't fabricate .mp4 URLs.
-            is_hls = url.endswith(".m3u8")
+            is_hls = ".m3u8" in url
             out.append({
                 "type": "video",
                 "url": url,
