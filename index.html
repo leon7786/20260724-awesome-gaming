@@ -745,6 +745,14 @@ body {
   display: inline-block;
 }
 
+
+.tag.rep {
+  background: #ffedd5;
+  color: #c2410c;
+  font-weight: 600;
+  border: 1px solid #fed7aa;
+}
+
 </style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1002,10 +1010,10 @@ function renderGameCard(game) {
     sizeTag = `<span class="tag ${sizeClass}">${game.size_gb}GB</span>`;
   }
   
-  // 口碑 / 销量 极简徽章
+  // 口碑 / 销量 统一微型色块标签 (与 2022 / 60GB 规范对齐)
   let repTag = '';
   if (game.reputation) {
-    repTag = `<div class="game-reputation" title="${game.reputation}"><span class="rep-badge">${game.reputation}</span></div>`;
+    repTag = `<span class="tag rep" title="${game.reputation}">${game.reputation}</span>`;
   }
   
   return `
@@ -1022,8 +1030,8 @@ function renderGameCard(game) {
         <div class="game-meta">
           <span class="tag year">${game.year}</span>
           ${sizeTag}
+          ${repTag}
         </div>
-        ${repTag}
         <div class="game-actions">
           ${dlBtns}
         </div>
