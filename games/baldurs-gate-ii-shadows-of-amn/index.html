@@ -25,7 +25,7 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Microsoft YaHei', 'Noto Sans SC', 'Source Han Sans SC', sans-serif;
+  font-family: 'Inter', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Hiragino Sans GB', sans-serif;
   background: var(--bg);
   color: var(--text-secondary);
   line-height: 1.6;
@@ -796,6 +796,9 @@ ul.bb_ul li strong {
   font-weight: bold;
 }
 </style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -844,13 +847,14 @@ ul.bb_ul li strong {
     </div>
     <div class="media-thumbnails-wrap" id="mediaThumbnailsWrap">
       <div class="media-thumbnails" id="mediaThumbnails">
-      <div class="media-thumb active" data-index="0"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/382580/ss_4adc0fa7a7c48a85658bf1b37e66bdb5dee8e942.1920x1080.jpg?t=1584648599" alt="Media"></div>
-      <div class="media-thumb " data-index="1"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/382580/ss_34e02eed907a0137424d92e1138647d46571c8c5.1920x1080.jpg?t=1584648599" alt="Media"></div>
-      <div class="media-thumb " data-index="2"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/382580/ss_1edde2d350e34b0973ae6a87c98cfac8ec1b081c.1920x1080.jpg?t=1584648599" alt="Media"></div>
-      <div class="media-thumb " data-index="3"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/382580/ss_4a49d70e52790bb74f33ed4ddff4c2da59ee341e.1920x1080.jpg?t=1584648599" alt="Media"></div>
-      <div class="media-thumb " data-index="4"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/382580/ss_5722c990138ad13d086b53a0e4b370610f3d4e3e.1920x1080.jpg?t=1584648599" alt="Media"></div>
-      <div class="media-thumb " data-index="5"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/382580/ss_9042f9b33102a6e7bec9968c588379a99488e26f.1920x1080.jpg?t=1584648599" alt="Media"></div>
-      </div>
+<div class="media-thumb active" data-index="0"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2034645/movie.293x165.jpg?t=1447363829" alt="Video"></div>
+<div class="media-thumb" data-index="1"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/382580/ss_4adc0fa7a7c48a85658bf1b37e66bdb5dee8e942.1920x1080.jpg?t=1584648599" alt="Screenshot"></div>
+<div class="media-thumb" data-index="2"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/382580/ss_34e02eed907a0137424d92e1138647d46571c8c5.1920x1080.jpg?t=1584648599" alt="Screenshot"></div>
+<div class="media-thumb" data-index="3"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/382580/ss_1edde2d350e34b0973ae6a87c98cfac8ec1b081c.1920x1080.jpg?t=1584648599" alt="Screenshot"></div>
+<div class="media-thumb" data-index="4"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/382580/ss_4a49d70e52790bb74f33ed4ddff4c2da59ee341e.1920x1080.jpg?t=1584648599" alt="Screenshot"></div>
+<div class="media-thumb" data-index="5"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/382580/ss_5722c990138ad13d086b53a0e4b370610f3d4e3e.1920x1080.jpg?t=1584648599" alt="Screenshot"></div>
+<div class="media-thumb" data-index="6"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/382580/ss_9042f9b33102a6e7bec9968c588379a99488e26f.1920x1080.jpg?t=1584648599" alt="Screenshot"></div>
+    </div>
     </div>
   </div>
 </section>
@@ -881,7 +885,7 @@ ul.bb_ul li strong {
 </section>
 <script>
 // 媒体数据
-const mediaItems = [{"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/382580/ss_4adc0fa7a7c48a85658bf1b37e66bdb5dee8e942.1920x1080.jpg?t=1584648599", "hls": false, "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/382580/ss_4adc0fa7a7c48a85658bf1b37e66bdb5dee8e942.1920x1080.jpg?t=1584648599"}, {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/382580/ss_34e02eed907a0137424d92e1138647d46571c8c5.1920x1080.jpg?t=1584648599", "hls": false, "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/382580/ss_34e02eed907a0137424d92e1138647d46571c8c5.1920x1080.jpg?t=1584648599"}, {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/382580/ss_1edde2d350e34b0973ae6a87c98cfac8ec1b081c.1920x1080.jpg?t=1584648599", "hls": false, "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/382580/ss_1edde2d350e34b0973ae6a87c98cfac8ec1b081c.1920x1080.jpg?t=1584648599"}, {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/382580/ss_4a49d70e52790bb74f33ed4ddff4c2da59ee341e.1920x1080.jpg?t=1584648599", "hls": false, "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/382580/ss_4a49d70e52790bb74f33ed4ddff4c2da59ee341e.1920x1080.jpg?t=1584648599"}, {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/382580/ss_5722c990138ad13d086b53a0e4b370610f3d4e3e.1920x1080.jpg?t=1584648599", "hls": false, "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/382580/ss_5722c990138ad13d086b53a0e4b370610f3d4e3e.1920x1080.jpg?t=1584648599"}, {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/382580/ss_9042f9b33102a6e7bec9968c588379a99488e26f.1920x1080.jpg?t=1584648599", "hls": false, "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/382580/ss_9042f9b33102a6e7bec9968c588379a99488e26f.1920x1080.jpg?t=1584648599"}];
+const mediaItems = [{"type": "video", "url": "https://video.akamai.steamstatic.com/store_trailers/228280/25521/80076622c821cbd99956d77a6a5d87a980b3684a/1750493806/hls_264_master.m3u8?t=1447363829", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2034645/movie.293x165.jpg?t=1447363829", "poster": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2034645/movie.293x165.jpg?t=1447363829", "name": "Baldur's Gate: Enhanced Edition Patch 1.3 Trailer"}, {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/382580/ss_4adc0fa7a7c48a85658bf1b37e66bdb5dee8e942.1920x1080.jpg?t=1584648599", "hls": false, "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/382580/ss_4adc0fa7a7c48a85658bf1b37e66bdb5dee8e942.1920x1080.jpg?t=1584648599"}, {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/382580/ss_34e02eed907a0137424d92e1138647d46571c8c5.1920x1080.jpg?t=1584648599", "hls": false, "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/382580/ss_34e02eed907a0137424d92e1138647d46571c8c5.1920x1080.jpg?t=1584648599"}, {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/382580/ss_1edde2d350e34b0973ae6a87c98cfac8ec1b081c.1920x1080.jpg?t=1584648599", "hls": false, "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/382580/ss_1edde2d350e34b0973ae6a87c98cfac8ec1b081c.1920x1080.jpg?t=1584648599"}, {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/382580/ss_4a49d70e52790bb74f33ed4ddff4c2da59ee341e.1920x1080.jpg?t=1584648599", "hls": false, "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/382580/ss_4a49d70e52790bb74f33ed4ddff4c2da59ee341e.1920x1080.jpg?t=1584648599"}, {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/382580/ss_5722c990138ad13d086b53a0e4b370610f3d4e3e.1920x1080.jpg?t=1584648599", "hls": false, "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/382580/ss_5722c990138ad13d086b53a0e4b370610f3d4e3e.1920x1080.jpg?t=1584648599"}, {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/382580/ss_9042f9b33102a6e7bec9968c588379a99488e26f.1920x1080.jpg?t=1584648599", "hls": false, "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/382580/ss_9042f9b33102a6e7bec9968c588379a99488e26f.1920x1080.jpg?t=1584648599"}];
 
 
 

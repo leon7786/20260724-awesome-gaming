@@ -89,7 +89,7 @@ def gen_page(game, steam_data):
 <title>{cn} - {en} - 游戏详情</title>
 <style>
 *{{margin:0;padding:0;box-sizing:border-box}}
-body{{font-family:'Segoe UI','Microsoft YaHei',sans-serif;background:#f5f5f7;color:#1a1a2e;line-height:1.6}}
+body{{font-family:'Segoe UI',sans-serif;background:#f5f5f7;color:#1a1a2e;line-height:1.6}}
 .topbar{{background:#ffffff;border-bottom:1px solid #e0e0e4;padding:12px 0;position:sticky;top:0;z-index:100}}
 .topbar .container{{display:flex;align-items:center;gap:16px}}
 .container{{max-width:1200px;margin:0 auto;padding:0 20px}}

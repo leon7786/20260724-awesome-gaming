@@ -488,6 +488,9 @@ body {
   }
 }
 </style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -552,14 +555,14 @@ body {
     
     <!-- 缩略图bar -->
     <div class="media-thumbnails" id="mediaThumbnails">
-      <div class="media-thumb active" data-index="0"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256768279/movie.184x123.jpg?t=1574881436" alt="Video"></div>
-<div class="media-thumb " data-index="1"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256768278/movie.184x123.jpg?t=1574881447" alt="Video"></div>
-<div class="media-thumb " data-index="2"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1174180/ss_66b553f4c209476d3e4ce25fa4714002cc914c4f.1920x1080.jpg?t=1759502961" alt="Screenshot"></div>
-<div class="media-thumb " data-index="3"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1174180/ss_bac60bacbf5da8945103648c08d27d5e202444ca.1920x1080.jpg?t=1759502961" alt="Screenshot"></div>
-<div class="media-thumb " data-index="4"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1174180/ss_668dafe477743f8b50b818d5bbfcec669e9ba93e.1920x1080.jpg?t=1759502961" alt="Screenshot"></div>
-<div class="media-thumb " data-index="5"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1174180/ss_4ce07ae360b166f0f650e9a895a3b4b7bf15e34f.1920x1080.jpg?t=1759502961" alt="Screenshot"></div>
-<div class="media-thumb " data-index="6"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1174180/ss_d1a8f5a69155c3186c65d1da90491fcfd43663d9.1920x1080.jpg?t=1759502961" alt="Screenshot"></div>
-
+<div class="media-thumb active" data-index="0"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256768371/movie.293x165.jpg?t=1574881352" alt="Video"></div>
+<div class="media-thumb" data-index="1"><div class="play-icon">▶</div><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256768370/movie.293x165.jpg?t=1574881363" alt="Video"></div>
+<div class="media-thumb" data-index="2"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1174180/ss_66b553f4c209476d3e4ce25fa4714002cc914c4f.1920x1080.jpg?t=1759502961" alt="Screenshot"></div>
+<div class="media-thumb" data-index="3"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1174180/ss_bac60bacbf5da8945103648c08d27d5e202444ca.1920x1080.jpg?t=1759502961" alt="Screenshot"></div>
+<div class="media-thumb" data-index="4"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1174180/ss_668dafe477743f8b50b818d5bbfcec669e9ba93e.1920x1080.jpg?t=1759502961" alt="Screenshot"></div>
+<div class="media-thumb" data-index="5"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1174180/ss_4ce07ae360b166f0f650e9a895a3b4b7bf15e34f.1920x1080.jpg?t=1759502961" alt="Screenshot"></div>
+<div class="media-thumb" data-index="6"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1174180/ss_d1a8f5a69155c3186c65d1da90491fcfd43663d9.1920x1080.jpg?t=1759502961" alt="Screenshot"></div>
+    </div>
     </div>
   </div>
 </section>
@@ -607,15 +610,7 @@ Red Dead Redemption 2 还包含 Red Dead 在线模式，一款以 Red Dead Redem
 
 <script>
 // 媒体数据
-const mediaItems = [
-  {"type": "video", "url": "https://video.akamai.steamstatic.com/store_trailers/1174180/254610/5fa4feff593bce4b7551cf06b1d08f3c9f4762c6/1750634169/hls_264_master.m3u8?t=1574881436", "poster": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256768279/movie.293x165.jpg?t=1574881436", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256768279/movie.184x123.jpg?t=1574881436"},
-  {"type": "video", "url": "https://video.akamai.steamstatic.com/store_trailers/1174180/254609/81fe571affb6de25affa606e393c79d6a253ee2e/1750634168/hls_264_master.m3u8?t=1574881447", "poster": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256768278/movie.293x165.jpg?t=1574881447", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256768278/movie.184x123.jpg?t=1574881447"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1174180/ss_66b553f4c209476d3e4ce25fa4714002cc914c4f.1920x1080.jpg?t=1759502961", "poster": "", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1174180/ss_66b553f4c209476d3e4ce25fa4714002cc914c4f.1920x1080.jpg?t=1759502961"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1174180/ss_bac60bacbf5da8945103648c08d27d5e202444ca.1920x1080.jpg?t=1759502961", "poster": "", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1174180/ss_bac60bacbf5da8945103648c08d27d5e202444ca.1920x1080.jpg?t=1759502961"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1174180/ss_668dafe477743f8b50b818d5bbfcec669e9ba93e.1920x1080.jpg?t=1759502961", "poster": "", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1174180/ss_668dafe477743f8b50b818d5bbfcec669e9ba93e.1920x1080.jpg?t=1759502961"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1174180/ss_4ce07ae360b166f0f650e9a895a3b4b7bf15e34f.1920x1080.jpg?t=1759502961", "poster": "", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1174180/ss_4ce07ae360b166f0f650e9a895a3b4b7bf15e34f.1920x1080.jpg?t=1759502961"},
-  {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1174180/ss_d1a8f5a69155c3186c65d1da90491fcfd43663d9.1920x1080.jpg?t=1759502961", "poster": "", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1174180/ss_d1a8f5a69155c3186c65d1da90491fcfd43663d9.1920x1080.jpg?t=1759502961"}
-];
+const mediaItems = [{"type": "video", "url": "https://video.akamai.steamstatic.com/store_trailers/1174180/254764/7a9619def1d2b41fbb7aeab0ebd6a2b4ada81f0d/1750634248/hls_264_master.m3u8?t=1574881352", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256768371/movie.293x165.jpg?t=1574881352", "poster": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256768371/movie.293x165.jpg?t=1574881352", "name": "RDR2 60 FPS Trailer (INT)"}, {"type": "video", "url": "https://video.akamai.steamstatic.com/store_trailers/1174180/254763/b5d4c79496d88d3e08c5968d7bd18b20db5efaa1/1750634245/hls_264_master.m3u8?t=1574881363", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256768370/movie.293x165.jpg?t=1574881363", "poster": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256768370/movie.293x165.jpg?t=1574881363", "name": "RDR2 Launch Trailer (INT)"}, {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1174180/ss_66b553f4c209476d3e4ce25fa4714002cc914c4f.1920x1080.jpg?t=1759502961", "poster": "", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1174180/ss_66b553f4c209476d3e4ce25fa4714002cc914c4f.1920x1080.jpg?t=1759502961"}, {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1174180/ss_bac60bacbf5da8945103648c08d27d5e202444ca.1920x1080.jpg?t=1759502961", "poster": "", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1174180/ss_bac60bacbf5da8945103648c08d27d5e202444ca.1920x1080.jpg?t=1759502961"}, {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1174180/ss_668dafe477743f8b50b818d5bbfcec669e9ba93e.1920x1080.jpg?t=1759502961", "poster": "", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1174180/ss_668dafe477743f8b50b818d5bbfcec669e9ba93e.1920x1080.jpg?t=1759502961"}, {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1174180/ss_4ce07ae360b166f0f650e9a895a3b4b7bf15e34f.1920x1080.jpg?t=1759502961", "poster": "", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1174180/ss_4ce07ae360b166f0f650e9a895a3b4b7bf15e34f.1920x1080.jpg?t=1759502961"}, {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1174180/ss_d1a8f5a69155c3186c65d1da90491fcfd43663d9.1920x1080.jpg?t=1759502961", "poster": "", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1174180/ss_d1a8f5a69155c3186c65d1da90491fcfd43663d9.1920x1080.jpg?t=1759502961"}];
 
 
 
