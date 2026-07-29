@@ -184,12 +184,94 @@ body {
   font-weight: 600;
 }
 
-/* 下载区域 - 精致小巧 */
+/* 重新设计的全彩微视效下载区域 */
+/* 重新设计的全彩微视效下载区域 */
 .download-section {
   max-width: 940px;
-  margin: 2.5rem auto 4rem;
+  margin: 2rem auto 3rem;
   padding: 0 2rem;
 }
+
+.download-block {
+  background: var(--surface);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  padding: 1.25rem 1.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+}
+
+.download-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.download-header h3 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0;
+}
+
+.download-header .download-tip {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+.download-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  align-items: center;
+}
+
+.download-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.55rem 1.25rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #ffffff !important;
+  text-decoration: none;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+  border: none;
+  cursor: pointer;
+}
+
+.download-pill:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 14px rgba(0,0,0,0.15);
+  filter: brightness(1.06);
+}
+
+.download-pill.magnet { background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); }
+.download-pill.fitgirl { background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%); }
+.download-pill.gamer520 { background: linear-gradient(135deg, #10b981 0%, #059669 100%); }
+.download-pill.x6d { background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); }
+.download-pill.steamzg { background: linear-gradient(135deg, #ec4899 0%, #db2777 100%); }
+.download-pill.baidu { background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%); }
+.download-pill.tianyi { background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%); }
+.download-pill.default { background: linear-gradient(135deg, #4b5563 0%, #374151 100%); }
+
+.download-pill.magnet { background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); }
+.download-pill.fitgirl { background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%); }
+.download-pill.gamer520 { background: linear-gradient(135deg, #10b981 0%, #059669 100%); }
+.download-pill.x6d { background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); }
+.download-pill.steamzg { background: linear-gradient(135deg, #ec4899 0%, #db2777 100%); }
+.download-pill.baidu { background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%); }
+.download-pill.tianyi { background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%); }
+.download-pill.default { background: linear-gradient(135deg, #4b5563 0%, #374151 100%); }
 
 .download-block {
   display: flex;
@@ -739,12 +821,94 @@ ul.bb_ul li strong {
   background: #000;
 }
 
-/* 下载区域 */
+/* 重新设计的全彩微视效下载区域 */
+/* 重新设计的全彩微视效下载区域 */
 .download-section {
   max-width: 940px;
-  margin: 0 auto;
-  padding: 0 2rem 2rem;
+  margin: 2rem auto 3rem;
+  padding: 0 2rem;
 }
+
+.download-block {
+  background: var(--surface);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  padding: 1.25rem 1.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+}
+
+.download-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.download-header h3 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0;
+}
+
+.download-header .download-tip {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+.download-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  align-items: center;
+}
+
+.download-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.55rem 1.25rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #ffffff !important;
+  text-decoration: none;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+  border: none;
+  cursor: pointer;
+}
+
+.download-pill:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 14px rgba(0,0,0,0.15);
+  filter: brightness(1.06);
+}
+
+.download-pill.magnet { background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); }
+.download-pill.fitgirl { background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%); }
+.download-pill.gamer520 { background: linear-gradient(135deg, #10b981 0%, #059669 100%); }
+.download-pill.x6d { background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); }
+.download-pill.steamzg { background: linear-gradient(135deg, #ec4899 0%, #db2777 100%); }
+.download-pill.baidu { background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%); }
+.download-pill.tianyi { background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%); }
+.download-pill.default { background: linear-gradient(135deg, #4b5563 0%, #374151 100%); }
+
+.download-pill.magnet { background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); }
+.download-pill.fitgirl { background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%); }
+.download-pill.gamer520 { background: linear-gradient(135deg, #10b981 0%, #059669 100%); }
+.download-pill.x6d { background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); }
+.download-pill.steamzg { background: linear-gradient(135deg, #ec4899 0%, #db2777 100%); }
+.download-pill.baidu { background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%); }
+.download-pill.tianyi { background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%); }
+.download-pill.default { background: linear-gradient(135deg, #4b5563 0%, #374151 100%); }
 
 .download-block {
   background: var(--surface);
@@ -882,14 +1046,19 @@ Discover the most diverse Far Cry world ever created. With terrain spanning from
 • CO-OP: BRING A FRIEND<br />
 Not every journey should be taken alone. Far Cry 4 allows for a second player to drop in and drop out at any point, re-imagining the cooperative experience in the true spirit of Far Cry for the next generation. You’ll now be able to discover and explore the living open world of Kyrat together.
   </div>
-</section><section class="download-section">
+</section>
+<!-- 系统需求 -->
+<section class="download-section">
   <div class="download-block">
-    <span class="download-label">Download</span>
+    <div class="download-header">
+      <h3>📥 游戏下载资源</h3>
+      <span class="download-tip">全量磁力与高速资源通道</span>
+    </div>
     <div class="download-pills">
-<a href="magnet:?xt=urn:btih:7A7D23D3544071D2519A51B073E2CCB8528ABD57&dn=Far%20Cry%205%3A%20Gold%20Edition%20%5BP%5D%20%5BRUS%20%2B%20ENG%20/%20RUS%20%2B%20ENG%5D%20%282018%29%20%281.01" class="download-btn magnet" target="_blank">🧲磁力</a>
-<a href="magnet:?xt=urn:btih:B4799835B2B370395A15DBB5D95FF21EB7ED15B8&dn=Far%20Cry%202%20Fortunes%20Edition%20%5BGOG%5D" class="download-btn magnet" target="_blank">🧲磁力</a>
-<a href="https://fitgirl-repacks.site/far-cry-new-dawn/" class="download-btn fitgirl" target="_blank">FitGirl</a>
-<a href="https://www.gamer520.com/61621.html" class="download-btn gamer520" target="_blank">G520</a>
+<a href="magnet:?xt=urn:btih:357437EF8B0841CE918E0639A9990BB62B3200E5&dn=Far%20Cry%203-RELOADED" class="download-pill magnet" target="_blank">🧲磁力</a>
+<a href="magnet:?xt=urn:btih:B4799835B2B370395A15DBB5D95FF21EB7ED15B8&dn=Far%20Cry%202%20Fortunes%20Edition%20%5BGOG%5D" class="download-pill magnet" target="_blank">🧲磁力</a>
+<a href="https://fitgirl-repacks.site/far-cry-new-dawn/" class="download-pill fitgirl" target="_blank">FitGirl</a>
+<a href="https://www.gamer520.com/61621.html" class="download-pill gamer520" target="_blank">G520</a>
     </div>
   </div>
 </section>

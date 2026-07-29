@@ -356,12 +356,94 @@ body {
   background: #000;
 }
 
-/* 下载区域 */
+/* 重新设计的全彩微视效下载区域 */
+/* 重新设计的全彩微视效下载区域 */
 .download-section {
   max-width: 940px;
-  margin: 0 auto;
-  padding: 0 2rem 2rem;
+  margin: 2rem auto 3rem;
+  padding: 0 2rem;
 }
+
+.download-block {
+  background: var(--surface);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  padding: 1.25rem 1.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+}
+
+.download-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.download-header h3 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0;
+}
+
+.download-header .download-tip {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+.download-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  align-items: center;
+}
+
+.download-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.55rem 1.25rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #ffffff !important;
+  text-decoration: none;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+  border: none;
+  cursor: pointer;
+}
+
+.download-pill:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 14px rgba(0,0,0,0.15);
+  filter: brightness(1.06);
+}
+
+.download-pill.magnet { background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); }
+.download-pill.fitgirl { background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%); }
+.download-pill.gamer520 { background: linear-gradient(135deg, #10b981 0%, #059669 100%); }
+.download-pill.x6d { background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); }
+.download-pill.steamzg { background: linear-gradient(135deg, #ec4899 0%, #db2777 100%); }
+.download-pill.baidu { background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%); }
+.download-pill.tianyi { background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%); }
+.download-pill.default { background: linear-gradient(135deg, #4b5563 0%, #374151 100%); }
+
+.download-pill.magnet { background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); }
+.download-pill.fitgirl { background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%); }
+.download-pill.gamer520 { background: linear-gradient(135deg, #10b981 0%, #059669 100%); }
+.download-pill.x6d { background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); }
+.download-pill.steamzg { background: linear-gradient(135deg, #ec4899 0%, #db2777 100%); }
+.download-pill.baidu { background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%); }
+.download-pill.tianyi { background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%); }
+.download-pill.default { background: linear-gradient(135deg, #4b5563 0%, #374151 100%); }
 
 .download-block {
   background: var(--surface);
@@ -544,7 +626,23 @@ body {
                 poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256768279/movie.293x165.jpg?t=1574881436" 
                 src="https://video.akamai.steamstatic.com/store_trailers/1174180/254610/5fa4feff593bce4b7551cf06b1d08f3c9f4762c6/1750634169/hls_264_master.m3u8?t=1574881436"></video>
             <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
-            <script>
+            <section class="download-section">
+  <div class="download-block">
+    <div class="download-header">
+      <h3>📥 游戏下载资源</h3>
+      <span class="download-tip">全量磁力与高速资源通道</span>
+    </div>
+    <div class="download-pills">
+<a href="magnet:?xt=urn:btih:18A89755E51616C9E8E904FF360E364DEB4B0922&dn=Red%20Dead%20Redemption%202%3A%20Ultimate%20Edition%20%28Build%201491%2050%20UE%20Unlocker%2C%20MULTi13%29%20%5BFi.." class="download-pill magnet" target="_blank">🧲磁力</a>
+<a href="magnet:?xt=urn:btih:592fd25e7a3ef0db9a9612baf71a9a732bfd782a&dn=Red%20Dead%20Redemption%202" class="download-pill magnet" target="_blank">🧲磁力</a>
+<a href="https://www.gamer520.com/15831.html" class="download-pill gamer520" target="_blank">G520</a>
+<a href="https://www.x6d.com/i-wz-32167.html" class="download-pill x6d" target="_blank">X6D</a>
+<a href="https://crotorrents.com/7-red-dead-redemption-2-torrent-download" class="download-pill default" target="_blank">CroTorrents</a>
+<a href="https://fitgirl-repacks.site/red-dead-redemption-2/" class="download-pill fitgirl" target="_blank">FitGirl</a>
+    </div>
+  </div>
+</section>
+<script>
                 var video = document.getElementById('mainVideo');
                 if(Hls.isSupported()) {
                     var hls = new Hls();
@@ -581,19 +679,7 @@ Red Dead Redemption 2 还包含 Red Dead 在线模式，一款以 Red Dead Redem
 </section>
 
 <!-- 下载区域 -->
-<section class="download-section">
-  <div class="download-block">
-    <h2>📥 下载链接</h2>
-    <div class="download-buttons">
-<a href="magnet:?xt=urn:btih:18A89755E51616C9E8E904FF360E364DEB4B0922&dn=Red%20Dead%20Redemption%202%3A%20Ultimate%20Edition%20%28Build%201491%2050%20UE%20Unlocker%2C%20MULTi13%29%20%5BFi.." class="download-btn magnet" target="_blank">🧲磁力</a>
-<a href="magnet:?xt=urn:btih:592fd25e7a3ef0db9a9612baf71a9a732bfd782a&dn=Red%20Dead%20Redemption%202" class="download-btn magnet" target="_blank">🧲磁力</a>
-<a href="https://www.gamer520.com/15831.html" class="download-btn gamer520" target="_blank">G520</a>
-<a href="https://www.x6d.com/i-wz-32167.html" class="download-btn x6d" target="_blank">X6D</a>
-<a href="https://crotorrents.com/7-red-dead-redemption-2-torrent-download" class="download-btn default" target="_blank">CroTorrents</a>
-<a href="https://fitgirl-repacks.site/red-dead-redemption-2/" class="download-btn fitgirl" target="_blank">FitGirl</a>
-    </div>
-  </div>
-</section>
+
 
 <!-- 系统需求 -->
 

@@ -184,12 +184,94 @@ body {
   font-weight: 600;
 }
 
-/* 下载区域 - 精致小巧 */
+/* 重新设计的全彩微视效下载区域 */
+/* 重新设计的全彩微视效下载区域 */
 .download-section {
   max-width: 940px;
-  margin: 2.5rem auto 4rem;
+  margin: 2rem auto 3rem;
   padding: 0 2rem;
 }
+
+.download-block {
+  background: var(--surface);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  padding: 1.25rem 1.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+}
+
+.download-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.download-header h3 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0;
+}
+
+.download-header .download-tip {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+.download-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  align-items: center;
+}
+
+.download-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.55rem 1.25rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #ffffff !important;
+  text-decoration: none;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+  border: none;
+  cursor: pointer;
+}
+
+.download-pill:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 14px rgba(0,0,0,0.15);
+  filter: brightness(1.06);
+}
+
+.download-pill.magnet { background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); }
+.download-pill.fitgirl { background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%); }
+.download-pill.gamer520 { background: linear-gradient(135deg, #10b981 0%, #059669 100%); }
+.download-pill.x6d { background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); }
+.download-pill.steamzg { background: linear-gradient(135deg, #ec4899 0%, #db2777 100%); }
+.download-pill.baidu { background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%); }
+.download-pill.tianyi { background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%); }
+.download-pill.default { background: linear-gradient(135deg, #4b5563 0%, #374151 100%); }
+
+.download-pill.magnet { background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); }
+.download-pill.fitgirl { background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%); }
+.download-pill.gamer520 { background: linear-gradient(135deg, #10b981 0%, #059669 100%); }
+.download-pill.x6d { background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); }
+.download-pill.steamzg { background: linear-gradient(135deg, #ec4899 0%, #db2777 100%); }
+.download-pill.baidu { background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%); }
+.download-pill.tianyi { background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%); }
+.download-pill.default { background: linear-gradient(135deg, #4b5563 0%, #374151 100%); }
 
 .download-block {
   display: flex;
@@ -739,12 +821,94 @@ ul.bb_ul li strong {
   background: #000;
 }
 
-/* 下载区域 */
+/* 重新设计的全彩微视效下载区域 */
+/* 重新设计的全彩微视效下载区域 */
 .download-section {
   max-width: 940px;
-  margin: 0 auto;
-  padding: 0 2rem 2rem;
+  margin: 2rem auto 3rem;
+  padding: 0 2rem;
 }
+
+.download-block {
+  background: var(--surface);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  padding: 1.25rem 1.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+}
+
+.download-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.download-header h3 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0;
+}
+
+.download-header .download-tip {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+.download-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  align-items: center;
+}
+
+.download-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.55rem 1.25rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #ffffff !important;
+  text-decoration: none;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+  border: none;
+  cursor: pointer;
+}
+
+.download-pill:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 14px rgba(0,0,0,0.15);
+  filter: brightness(1.06);
+}
+
+.download-pill.magnet { background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); }
+.download-pill.fitgirl { background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%); }
+.download-pill.gamer520 { background: linear-gradient(135deg, #10b981 0%, #059669 100%); }
+.download-pill.x6d { background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); }
+.download-pill.steamzg { background: linear-gradient(135deg, #ec4899 0%, #db2777 100%); }
+.download-pill.baidu { background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%); }
+.download-pill.tianyi { background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%); }
+.download-pill.default { background: linear-gradient(135deg, #4b5563 0%, #374151 100%); }
+
+.download-pill.magnet { background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); }
+.download-pill.fitgirl { background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%); }
+.download-pill.gamer520 { background: linear-gradient(135deg, #10b981 0%, #059669 100%); }
+.download-pill.x6d { background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); }
+.download-pill.steamzg { background: linear-gradient(135deg, #ec4899 0%, #db2777 100%); }
+.download-pill.baidu { background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%); }
+.download-pill.tianyi { background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%); }
+.download-pill.default { background: linear-gradient(135deg, #4b5563 0%, #374151 100%); }
 
 .download-block {
   background: var(--surface);
@@ -861,18 +1025,22 @@ ul.bb_ul li strong {
     <h2>关于此游戏</h2>
     在被“死亡之雨”摧毁的“边陲之国”，少女莉莉和不死骑士们的故事开始了。这是一款横板动作RPG游戏，在探索悲惨又绝美的世界的同时，重重遇到强敌一丝松懈都可能招来的致命攻击。请与同伴们一起探索这个世界的真相吧。
   </div>
-</section><section class="download-section">
+</section>
+
+<section class="download-section">
   <div class="download-block">
-    <span class="download-label">Download</span>
+    <div class="download-header">
+      <h3>📥 游戏下载资源</h3>
+      <span class="download-tip">全量磁力与高速资源通道</span>
+    </div>
     <div class="download-pills">
-<a href="magnet:?xt=urn:btih:EDD420E9DBEF8C94D51A30EFA921EAB7BC9FDCA3&dn=Diablo%20II%20Lord%20Of%20Destruction" class="download-btn magnet" target="_blank">🧲磁力</a>
-<a href="magnet:?xt=urn:btih:4C88F5CC44576D225995D3BC53D595CD21B7B8BD&dn=Diablo%20II%20%2B%20Lord%20of%20Destruction%20%5BPC%5D%20%5BENGLISH%5D%20%5BISO%5D" class="download-btn magnet" target="_blank">🧲磁力</a>
-<a href="https://fitgirl-repacks.site/diablo-ii-resurrected-pc/" class="download-btn fitgirl" target="_blank">FitGirl</a>
-<a href="https://www.gamer520.com/22679.html" class="download-btn gamer520" target="_blank">G520</a>
+<a href="magnet:?xt=urn:btih:3D2FCCC5ACD81DF594984E1DC4B2A345D7732125&dn=Diablo%20II%3A%20Lord%20of%20Destruction%20%282001%29%20PC%20%20%20RePack%20by%20R%20G%20mechanics&tr=udp%3A//tracker.opentrackr.org%3A1337/announce&tr=udp%3A//open.stealth.si%3A80/announce&tr=udp%3A//tracker.torrent.eu.org%3A451/announce&tr=udp%3A//tracker.bittorrent.eu.org%3A451/announce&tr=udp%3A//explodie.org%3A6969/announce&tr=udp%3A//uploads.gamebase.info%3A6969/announce" class="download-pill magnet" target="_blank">🧲磁力</a>
+<a href="magnet:?xt=urn:btih:EDD420E9DBEF8C94D51A30EFA921EAB7BC9FDCA3&dn=Diablo%20II%20Lord%20Of%20Destruction" class="download-pill magnet" target="_blank">🧲磁力</a>
+<a href="https://fitgirl-repacks.site/diablo-ii-resurrected-pc/" class="download-pill fitgirl" target="_blank">FitGirl</a>
+<a href="https://www.gamer520.com/22679.html" class="download-pill gamer520" target="_blank">G520</a>
     </div>
   </div>
 </section>
-
 <script>
 // 媒体数据
 const mediaItems = [];

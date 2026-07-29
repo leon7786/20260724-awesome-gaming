@@ -184,12 +184,94 @@ body {
   font-weight: 600;
 }
 
-/* 下载区域 - 精致小巧 */
+/* 重新设计的全彩微视效下载区域 */
+/* 重新设计的全彩微视效下载区域 */
 .download-section {
   max-width: 940px;
-  margin: 2.5rem auto 4rem;
+  margin: 2rem auto 3rem;
   padding: 0 2rem;
 }
+
+.download-block {
+  background: var(--surface);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  padding: 1.25rem 1.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+}
+
+.download-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.download-header h3 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0;
+}
+
+.download-header .download-tip {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+.download-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  align-items: center;
+}
+
+.download-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.55rem 1.25rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #ffffff !important;
+  text-decoration: none;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+  border: none;
+  cursor: pointer;
+}
+
+.download-pill:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 14px rgba(0,0,0,0.15);
+  filter: brightness(1.06);
+}
+
+.download-pill.magnet { background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); }
+.download-pill.fitgirl { background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%); }
+.download-pill.gamer520 { background: linear-gradient(135deg, #10b981 0%, #059669 100%); }
+.download-pill.x6d { background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); }
+.download-pill.steamzg { background: linear-gradient(135deg, #ec4899 0%, #db2777 100%); }
+.download-pill.baidu { background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%); }
+.download-pill.tianyi { background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%); }
+.download-pill.default { background: linear-gradient(135deg, #4b5563 0%, #374151 100%); }
+
+.download-pill.magnet { background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); }
+.download-pill.fitgirl { background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%); }
+.download-pill.gamer520 { background: linear-gradient(135deg, #10b981 0%, #059669 100%); }
+.download-pill.x6d { background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); }
+.download-pill.steamzg { background: linear-gradient(135deg, #ec4899 0%, #db2777 100%); }
+.download-pill.baidu { background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%); }
+.download-pill.tianyi { background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%); }
+.download-pill.default { background: linear-gradient(135deg, #4b5563 0%, #374151 100%); }
 
 .download-block {
   display: flex;
@@ -739,12 +821,94 @@ ul.bb_ul li strong {
   background: #000;
 }
 
-/* 下载区域 */
+/* 重新设计的全彩微视效下载区域 */
+/* 重新设计的全彩微视效下载区域 */
 .download-section {
   max-width: 940px;
-  margin: 0 auto;
-  padding: 0 2rem 2rem;
+  margin: 2rem auto 3rem;
+  padding: 0 2rem;
 }
+
+.download-block {
+  background: var(--surface);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  padding: 1.25rem 1.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+}
+
+.download-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.download-header h3 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0;
+}
+
+.download-header .download-tip {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+.download-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  align-items: center;
+}
+
+.download-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.55rem 1.25rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #ffffff !important;
+  text-decoration: none;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+  border: none;
+  cursor: pointer;
+}
+
+.download-pill:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 14px rgba(0,0,0,0.15);
+  filter: brightness(1.06);
+}
+
+.download-pill.magnet { background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); }
+.download-pill.fitgirl { background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%); }
+.download-pill.gamer520 { background: linear-gradient(135deg, #10b981 0%, #059669 100%); }
+.download-pill.x6d { background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); }
+.download-pill.steamzg { background: linear-gradient(135deg, #ec4899 0%, #db2777 100%); }
+.download-pill.baidu { background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%); }
+.download-pill.tianyi { background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%); }
+.download-pill.default { background: linear-gradient(135deg, #4b5563 0%, #374151 100%); }
+
+.download-pill.magnet { background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); }
+.download-pill.fitgirl { background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%); }
+.download-pill.gamer520 { background: linear-gradient(135deg, #10b981 0%, #059669 100%); }
+.download-pill.x6d { background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); }
+.download-pill.steamzg { background: linear-gradient(135deg, #ec4899 0%, #db2777 100%); }
+.download-pill.baidu { background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%); }
+.download-pill.tianyi { background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%); }
+.download-pill.default { background: linear-gradient(135deg, #4b5563 0%, #374151 100%); }
 
 .download-block {
   background: var(--surface);
@@ -871,12 +1035,17 @@ ul.bb_ul li strong {
     <h2>关于此游戏</h2>
     蓬勃跃动的狩猎本能！<br>为狩猎掀起全新风潮、无拘无束尽情跃动的动作；可随心所欲四下驰骋的全新原野；以及能带来未知的兴奋与惊喜的全新怪物。<br>前所未有的狩猎体验正在《MONSTER HUNTER RISE》中等候各位猎人的到来！<br><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1446780/extras/c41217c5e723ba16429bc93e1d077469.poster.avif?t=1768870444" width=616 height=180 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1446780/extras/c41217c5e723ba16429bc93e1d077469.webm?t=1768870444" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1446780/extras/c41217c5e723ba16429bc93e1d077469.mp4?t=1768870444" type="video/mp4"></video></span><br><br><strong>・掀起全新风潮的“翔虫”动作</strong><br>“翔虫”会飞向猎人指示的方向，并使用特殊的“铁虫丝”将猎人拉近，让狩猎实现进一步的进化，配合各武器种类充满特色的攻击，诞生全新的狩猎动作！<br><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1446780/extras/522768c21f965276d6d29c24c6f7d296.poster.avif?t=1768870444" width=616 height=180 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1446780/extras/522768c21f965276d6d29c24c6f7d296.webm?t=1768870444" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1446780/extras/522768c21f965276d6d29c24c6f7d296.mp4?t=1768870444" type="video/mp4"></video></span><br><br><strong>・操纵怪物的豪迈动作“御龙”</strong><br>操纵失控的怪物，使出豪迈的动作！<br><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1446780/extras/e52bdb1223e8550db0c024fb1d45a6b4.poster.avif?t=1768870444" width=616 height=180 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1446780/extras/e52bdb1223e8550db0c024fb1d45a6b4.webm?t=1768870444" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1446780/extras/e52bdb1223e8550db0c024fb1d45a6b4.mp4?t=1768870444" type="video/mp4"></video></span><br><br><strong>・为狩猎提供帮助的随从</strong><br>除了老搭档“随从艾露猫”，还有全新的可靠同伴“随从牙猎犬”登场！<br><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1446780/extras/6189ed6e6acfe13613891fe325f66a09.poster.avif?t=1768870444" width=616 height=180 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1446780/extras/6189ed6e6acfe13613891fe325f66a09.webm?t=1768870444" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1446780/extras/6189ed6e6acfe13613891fe325f66a09.mp4?t=1768870444" type="video/mp4"></video></span><br><br><strong>・炎火村的故事</strong><br>由于时隔50年的灾祸“百龙夜行”临近，炎火村陷入困境。<br>主角需以成为顶尖猎人为目标，同时与村庄中的同伴团结一致，共同克服这场可怕的灾祸。<br><br><strong>・大量怪物大举侵袭的“百龙夜行”</strong><br>百龙夜行，指由多只怪物与统领它们的首领组成“怪物群”向村庄发起的袭击。<br>整个地图到处都是大型怪物的身影……<br><strong><br>・拥有独特生态的怪物</strong><br>除象征本作的怪物“怨虎龙”外，还有拥有独特生态的未知怪物与系列怪物相继登场！
   </div>
-</section><section class="download-section">
+</section>
+<!-- 系统需求 -->
+<section class="download-section">
   <div class="download-block">
-    <span class="download-label">Download</span>
+    <div class="download-header">
+      <h3>📥 游戏下载资源</h3>
+      <span class="download-tip">全量磁力与高速资源通道</span>
+    </div>
     <div class="download-pills">
-<a href="magnet:?xt=urn:btih:8FA5E2CB96BAD4D77675FE46041A661E20F29BEF&dn=Monster%20Hunter%20Rise%3A%20Sunbreak%20-%20Deluxe%20Edition%20%28223%20DLCs%29%20%5BDODI%20Repack%5D" class="download-btn magnet" target="_blank">🧲磁力</a>
-<a href="magnet:?xt=urn:btih:2A326CA6CC0CF13C708631736F5F3FAF05EF9249&dn=Monster%20Hunter%20Rise%20-%20Deluxe%20Edition%20%28253%20DLC%20%2B%20Sunbreak%20%2B%20252%20More%29-ElAmigos" class="download-btn magnet" target="_blank">🧲磁力</a>
+<a href="magnet:?xt=urn:btih:8FA5E2CB96BAD4D77675FE46041A661E20F29BEF&dn=Monster%20Hunter%20Rise%3A%20Sunbreak%20-%20Deluxe%20Edition%20%28223%20DLCs%29%20%5BDODI%20Repack%5D" class="download-pill magnet" target="_blank">🧲磁力</a>
+<a href="magnet:?xt=urn:btih:79370272F5F815931F16EF1E97573A06796D635E&dn=Monster%20Hunter%20Rise%20Sunbreak%20Deluxe%20%28v16%200%202%200%20Denuvoless%20253%20DLCs%20Multiplayer%2C%20..&tr=udp%3A//tracker.opentrackr.org%3A1337/announce&tr=udp%3A//open.stealth.si%3A80/announce&tr=udp%3A//tracker.torrent.eu.org%3A451/announce&tr=udp%3A//tracker.bittorrent.eu.org%3A451/announce&tr=udp%3A//explodie.org%3A6969/announce&tr=udp%3A//uploads.gamebase.info%3A6969/announce" class="download-pill magnet" target="_blank">🧲磁力</a>
     </div>
   </div>
 </section>

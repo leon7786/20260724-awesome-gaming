@@ -184,12 +184,94 @@ body {
   font-weight: 600;
 }
 
-/* 下载区域 - 精致小巧 */
+/* 重新设计的全彩微视效下载区域 */
+/* 重新设计的全彩微视效下载区域 */
 .download-section {
   max-width: 940px;
-  margin: 2.5rem auto 4rem;
+  margin: 2rem auto 3rem;
   padding: 0 2rem;
 }
+
+.download-block {
+  background: var(--surface);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  padding: 1.25rem 1.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+}
+
+.download-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.download-header h3 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0;
+}
+
+.download-header .download-tip {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+.download-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  align-items: center;
+}
+
+.download-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.55rem 1.25rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #ffffff !important;
+  text-decoration: none;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+  border: none;
+  cursor: pointer;
+}
+
+.download-pill:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 14px rgba(0,0,0,0.15);
+  filter: brightness(1.06);
+}
+
+.download-pill.magnet { background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); }
+.download-pill.fitgirl { background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%); }
+.download-pill.gamer520 { background: linear-gradient(135deg, #10b981 0%, #059669 100%); }
+.download-pill.x6d { background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); }
+.download-pill.steamzg { background: linear-gradient(135deg, #ec4899 0%, #db2777 100%); }
+.download-pill.baidu { background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%); }
+.download-pill.tianyi { background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%); }
+.download-pill.default { background: linear-gradient(135deg, #4b5563 0%, #374151 100%); }
+
+.download-pill.magnet { background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); }
+.download-pill.fitgirl { background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%); }
+.download-pill.gamer520 { background: linear-gradient(135deg, #10b981 0%, #059669 100%); }
+.download-pill.x6d { background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); }
+.download-pill.steamzg { background: linear-gradient(135deg, #ec4899 0%, #db2777 100%); }
+.download-pill.baidu { background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%); }
+.download-pill.tianyi { background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%); }
+.download-pill.default { background: linear-gradient(135deg, #4b5563 0%, #374151 100%); }
 
 .download-block {
   display: flex;
@@ -739,12 +821,94 @@ ul.bb_ul li strong {
   background: #000;
 }
 
-/* 下载区域 */
+/* 重新设计的全彩微视效下载区域 */
+/* 重新设计的全彩微视效下载区域 */
 .download-section {
   max-width: 940px;
-  margin: 0 auto;
-  padding: 0 2rem 2rem;
+  margin: 2rem auto 3rem;
+  padding: 0 2rem;
 }
+
+.download-block {
+  background: var(--surface);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  padding: 1.25rem 1.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+}
+
+.download-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.download-header h3 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0;
+}
+
+.download-header .download-tip {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+.download-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  align-items: center;
+}
+
+.download-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.55rem 1.25rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #ffffff !important;
+  text-decoration: none;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+  border: none;
+  cursor: pointer;
+}
+
+.download-pill:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 14px rgba(0,0,0,0.15);
+  filter: brightness(1.06);
+}
+
+.download-pill.magnet { background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); }
+.download-pill.fitgirl { background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%); }
+.download-pill.gamer520 { background: linear-gradient(135deg, #10b981 0%, #059669 100%); }
+.download-pill.x6d { background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); }
+.download-pill.steamzg { background: linear-gradient(135deg, #ec4899 0%, #db2777 100%); }
+.download-pill.baidu { background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%); }
+.download-pill.tianyi { background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%); }
+.download-pill.default { background: linear-gradient(135deg, #4b5563 0%, #374151 100%); }
+
+.download-pill.magnet { background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); }
+.download-pill.fitgirl { background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%); }
+.download-pill.gamer520 { background: linear-gradient(135deg, #10b981 0%, #059669 100%); }
+.download-pill.x6d { background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); }
+.download-pill.steamzg { background: linear-gradient(135deg, #ec4899 0%, #db2777 100%); }
+.download-pill.baidu { background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%); }
+.download-pill.tianyi { background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%); }
+.download-pill.default { background: linear-gradient(135deg, #4b5563 0%, #374151 100%); }
 
 .download-block {
   background: var(--surface);
@@ -886,15 +1050,20 @@ ul.bb_ul li strong {
     <h2>关于此游戏</h2>
     <p class="bb_paragraph" ><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/227300/extras/d4d0c77d1e9f17cdda16a8c375e14c59.poster.avif?t=1784269455" width=616 height=176 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/227300/extras/d4d0c77d1e9f17cdda16a8c375e14c59.webm?t=1784269455" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/227300/extras/d4d0c77d1e9f17cdda16a8c375e14c59.mp4?t=1784269455" type="video/mp4"></video></span></p><p class="bb_paragraph" >像公路之王一样在欧洲穿行， 将价值不菲的货物完美送抵远方！往返于英国，比利时，德国，意大利，荷兰，波兰等众多城市；您的耐力，技巧，速度都被您发挥到了极致！想知道如何成为一名卡车运输界的行家里手，用您的车轮来证明吧！</p><p class="bb_paragraph" ></p><h2 class="bb_tag" >主要特色：</h2><ul class="bb_ul"><li><p class="bb_paragraph" >在超过60个欧洲城市中运送大量货物</p></li><li><p class="bb_paragraph" >运送货物,经营公司,逐渐发展</p></li><li><p class="bb_paragraph" >建立自己的卡车团队,购买自己的车库，雇佣司机，管理公司以赚取最大利润</p></li><li><p class="bb_paragraph" >对卡车进行全方位定义，从性能到外观</p></li><li><p class="bb_paragraph" >真实卡车配件系统，保险杠，喇叭，灯光，排气管等等</p></li><li><p class="bb_paragraph" >上万公里的真实路段以及数百处著名地标建筑等。</p></li></ul><p class="bb_paragraph" ></p><h2 class="bb_tag" >World of Trucks（卡车世界）</h2><p class="bb_paragraph" ></p><p class="bb_paragraph" >World of Trucks 线上社区汇集了大量虚拟卡车司机，这些卡车司机来自全球各地，而且对《Euro Truck Simulator 2》以及 SCS Software 未来推出的卡车模拟游戏颇感兴趣，赶快加入 World of Trucks，体验《Euro Truck Simulator 2》的其他特色功能。</p><p class="bb_paragraph" ></p><ul class="bb_ul"><li><p class="bb_paragraph" >使用游戏中的“拍照模式”捕捉精彩瞬间并与成千上万的卡车爱好者分享你的照片。</p></li><li><p class="bb_paragraph" >为您最喜爱的图片点赞，方便今后随时回来看看。</p></li><li><p class="bb_paragraph" >与 World of Trucks 中的其他玩家一同讨论截图。</p></li><li><p class="bb_paragraph" >“编者精选”几乎每日更新，您可在此查看游戏创作人员精挑细选的最佳图片。试着让您的屏幕截图登上此精选列表！</p></li><li><p class="bb_paragraph" >上传并在游戏中使用自定义卡车和牌照。</p></li><li><p class="bb_paragraph" >更多特色功能，敬请期待！</p></li></ul><p class="bb_paragraph" ></p><p class="bb_paragraph" >只需在加入页面上用您的 Steam 帐户进行注册，即可进入我们的 World of Trucks！</p><p class="bb_paragraph" ></p><p class="bb_paragraph" ><strong>World of Trucks 为可选服务，您无需进行注册也可游玩游戏。</strong></p>
   </div>
-</section><section class="download-section">
+</section>
+<!-- 系统需求 -->
+<section class="download-section">
   <div class="download-block">
-    <span class="download-label">Download</span>
+    <div class="download-header">
+      <h3>📥 游戏下载资源</h3>
+      <span class="download-tip">全量磁力与高速资源通道</span>
+    </div>
     <div class="download-pills">
-<a href="magnet:?xt=urn:btih:FFEFEC66792EC423CC01804E289BC6E69E6E0300&dn=Euro%20Truck%20Simulator%202%20FULL-P2P" class="download-btn magnet" target="_blank">🧲磁力</a>
-<a href="magnet:?xt=urn:btih:3D5B5C2D0AEDD730FB4463DF79491463BB1FEB4C&dn=Euro%20Truck%20Simulator%202%20FULLP2P&tr=udp%3A//tracker.opentrackr.org%3A1337/announce&tr=udp%3A//open.stealth.si%3A80/announce&tr=udp%3A//tracker.torrent.eu.org%3A451/announce&tr=udp%3A//tracker.bittorrent.eu.org%3A451/announce&tr=udp%3A//explodie.org%3A6969/announce&tr=udp%3A//uploads.gamebase.info%3A6969/announce" class="download-btn magnet" target="_blank">🧲磁力</a>
-<a href="https://www.gamer520.com/66421.html" class="download-btn gamer520" target="_blank">G520</a>
-<a href="https://www.x6d.com/i-wz-12572.html" class="download-btn x6d" target="_blank">X6D</a>
-<a href="https://fitgirl-repacks.site/euro-truck-simulator-2/" class="download-btn fitgirl" target="_blank">FitGirl</a>
+<a href="magnet:?xt=urn:btih:FFEFEC66792EC423CC01804E289BC6E69E6E0300&dn=Euro%20Truck%20Simulator%202%20FULL-P2P" class="download-pill magnet" target="_blank">🧲磁力</a>
+<a href="magnet:?xt=urn:btih:3D5B5C2D0AEDD730FB4463DF79491463BB1FEB4C&dn=Euro%20Truck%20Simulator%202%20FULLP2P&tr=udp%3A//tracker.opentrackr.org%3A1337/announce&tr=udp%3A//open.stealth.si%3A80/announce&tr=udp%3A//tracker.torrent.eu.org%3A451/announce&tr=udp%3A//tracker.bittorrent.eu.org%3A451/announce&tr=udp%3A//explodie.org%3A6969/announce&tr=udp%3A//uploads.gamebase.info%3A6969/announce" class="download-pill magnet" target="_blank">🧲磁力</a>
+<a href="https://www.gamer520.com/66421.html" class="download-pill gamer520" target="_blank">G520</a>
+<a href="https://www.x6d.com/i-wz-12572.html" class="download-pill x6d" target="_blank">X6D</a>
+<a href="https://fitgirl-repacks.site/euro-truck-simulator-2/" class="download-pill fitgirl" target="_blank">FitGirl</a>
     </div>
   </div>
 </section>

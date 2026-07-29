@@ -184,12 +184,94 @@ body {
   font-weight: 600;
 }
 
-/* 下载区域 - 精致小巧 */
+/* 重新设计的全彩微视效下载区域 */
+/* 重新设计的全彩微视效下载区域 */
 .download-section {
   max-width: 940px;
-  margin: 2.5rem auto 4rem;
+  margin: 2rem auto 3rem;
   padding: 0 2rem;
 }
+
+.download-block {
+  background: var(--surface);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  padding: 1.25rem 1.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+}
+
+.download-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.download-header h3 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0;
+}
+
+.download-header .download-tip {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+.download-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  align-items: center;
+}
+
+.download-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.55rem 1.25rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #ffffff !important;
+  text-decoration: none;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+  border: none;
+  cursor: pointer;
+}
+
+.download-pill:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 14px rgba(0,0,0,0.15);
+  filter: brightness(1.06);
+}
+
+.download-pill.magnet { background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); }
+.download-pill.fitgirl { background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%); }
+.download-pill.gamer520 { background: linear-gradient(135deg, #10b981 0%, #059669 100%); }
+.download-pill.x6d { background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); }
+.download-pill.steamzg { background: linear-gradient(135deg, #ec4899 0%, #db2777 100%); }
+.download-pill.baidu { background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%); }
+.download-pill.tianyi { background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%); }
+.download-pill.default { background: linear-gradient(135deg, #4b5563 0%, #374151 100%); }
+
+.download-pill.magnet { background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); }
+.download-pill.fitgirl { background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%); }
+.download-pill.gamer520 { background: linear-gradient(135deg, #10b981 0%, #059669 100%); }
+.download-pill.x6d { background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); }
+.download-pill.steamzg { background: linear-gradient(135deg, #ec4899 0%, #db2777 100%); }
+.download-pill.baidu { background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%); }
+.download-pill.tianyi { background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%); }
+.download-pill.default { background: linear-gradient(135deg, #4b5563 0%, #374151 100%); }
 
 .download-block {
   display: flex;
@@ -739,12 +821,94 @@ ul.bb_ul li strong {
   background: #000;
 }
 
-/* 下载区域 */
+/* 重新设计的全彩微视效下载区域 */
+/* 重新设计的全彩微视效下载区域 */
 .download-section {
   max-width: 940px;
-  margin: 0 auto;
-  padding: 0 2rem 2rem;
+  margin: 2rem auto 3rem;
+  padding: 0 2rem;
 }
+
+.download-block {
+  background: var(--surface);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  padding: 1.25rem 1.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+}
+
+.download-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.download-header h3 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0;
+}
+
+.download-header .download-tip {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+.download-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  align-items: center;
+}
+
+.download-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.55rem 1.25rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #ffffff !important;
+  text-decoration: none;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+  border: none;
+  cursor: pointer;
+}
+
+.download-pill:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 14px rgba(0,0,0,0.15);
+  filter: brightness(1.06);
+}
+
+.download-pill.magnet { background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); }
+.download-pill.fitgirl { background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%); }
+.download-pill.gamer520 { background: linear-gradient(135deg, #10b981 0%, #059669 100%); }
+.download-pill.x6d { background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); }
+.download-pill.steamzg { background: linear-gradient(135deg, #ec4899 0%, #db2777 100%); }
+.download-pill.baidu { background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%); }
+.download-pill.tianyi { background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%); }
+.download-pill.default { background: linear-gradient(135deg, #4b5563 0%, #374151 100%); }
+
+.download-pill.magnet { background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); }
+.download-pill.fitgirl { background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%); }
+.download-pill.gamer520 { background: linear-gradient(135deg, #10b981 0%, #059669 100%); }
+.download-pill.x6d { background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); }
+.download-pill.steamzg { background: linear-gradient(135deg, #ec4899 0%, #db2777 100%); }
+.download-pill.baidu { background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%); }
+.download-pill.tianyi { background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%); }
+.download-pill.default { background: linear-gradient(135deg, #4b5563 0%, #374151 100%); }
 
 .download-block {
   background: var(--surface);
@@ -876,15 +1040,20 @@ ul.bb_ul li strong {
     <h2>关于此游戏</h2>
     <p class="bb_paragraph" ><strong>CONTROL Ultimate Edition</strong> </p><p class="bb_paragraph" ></p><p class="bb_paragraph" >CONTROL Ultimate Edition把主游戏和所有之前发布的扩展包（“基础”和“异世界事件”）都收录在一个超值礼包中。  </p><p class="bb_paragraph" ></p><p class="bb_paragraph" >某种腐败的存在侵入了联邦控制局……只有你有能力阻止它。现在，世界就是你的武器，助你穿越深不可测的环境，歼灭邪恶的敌人，进行史诗般的战斗。收容失败，人类面临着生死关头。你能重新控制局面吗?</p><p class="bb_paragraph" ></p><p class="bb_paragraph" >《CONTROL》赢得超过80项大奖，游戏画面如同精彩的视觉盛宴，踏上节奏紧张刺激的第三人称动作冒险旅程，让你每一秒都无法松懈。 CONTROL将开放式环境与著名开发团队Remedy Entertainment的标志性世界构建和故事讲述方式相结合，为玩家提供广阔而有强烈满足感的游戏体验。 </p><p class="bb_paragraph" ></p><p class="bb_paragraph" ></p><p class="bb_paragraph" ><strong>主要特色</strong></p><p class="bb_paragraph" ></p><p class="bb_paragraph" ><strong>揭开神秘的面纱</strong></p><p class="bb_paragraph" >你能处理好控制局黑暗的秘密吗？展开史诗级的超自然探险，</p><p class="bb_paragraph" >充满了意想不到的角色和怪异的事件，</p><p class="bb_paragraph" >寻找你失踪的弟弟，发现你被带到这里</p><p class="bb_paragraph" >的原因。</p><p class="bb_paragraph" ></p><p class="bb_paragraph" ><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/870780/extras/36cbfb7f49080265daff21b98c7ecd2e.poster.avif?t=1781607969" width=628 height=182 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/870780/extras/36cbfb7f49080265daff21b98c7ecd2e.webm?t=1781607969" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/870780/extras/36cbfb7f49080265daff21b98c7ecd2e.mp4?t=1781607969" type="video/mp4"></video></span></p><p class="bb_paragraph" ><strong>一切都能成为你的武器。</strong></p><p class="bb_paragraph" >通过改变武器装备和心灵传动能力来释放</p><p class="bb_paragraph" >破坏力。利用强大的能力将周围的一切变成致命武器，</p><p class="bb_paragraph" >探索消灭敌人的新方法。</p><p class="bb_paragraph" ></p><p class="bb_paragraph" ><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/870780/extras/a8a6c674e9a4f4b5bb15e28b9345e4bb.poster.avif?t=1781607969" width=628 height=182 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/870780/extras/a8a6c674e9a4f4b5bb15e28b9345e4bb.webm?t=1781607969" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/870780/extras/a8a6c674e9a4f4b5bb15e28b9345e4bb.mp4?t=1781607969" type="video/mp4"></video></span></p><p class="bb_paragraph" ><strong>探索隐藏的世界。</strong></p><p class="bb_paragraph" >深入秘密政府机构的邪恶</p><p class="bb_paragraph" >空间。探索控制局里变幻莫测的环境，</p><p class="bb_paragraph" >结果却发现表象之下总有更多看不到的。</p><p class="bb_paragraph" ></p><p class="bb_paragraph" ></p><p class="bb_paragraph" ><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/870780/extras/bc4c87d49d6c5d4a6cea7f5d8599910a.poster.avif?t=1781607969" width=628 height=182 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/870780/extras/bc4c87d49d6c5d4a6cea7f5d8599910a.webm?t=1781607969" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/870780/extras/bc4c87d49d6c5d4a6cea7f5d8599910a.mp4?t=1781607969" type="video/mp4"></video></span></p><p class="bb_paragraph" ><strong>为了控制而战。</strong></p><p class="bb_paragraph" >完成刺激的任务和具有挑战性的头目战与无情的敌人作战，</p><p class="bb_paragraph" >获得强大的升级，最大程度地发挥各项能力，</p><p class="bb_paragraph" >定制你的武器。</p><p class="bb_paragraph" ></p><p class="bb_paragraph" ><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/870780/extras/39ceaa8145ebd2569b7d24d2a0c80f85.poster.avif?t=1781607969" width=628 height=182 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/870780/extras/39ceaa8145ebd2569b7d24d2a0c80f85.webm?t=1781607969" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/870780/extras/39ceaa8145ebd2569b7d24d2a0c80f85.mp4?t=1781607969" type="video/mp4"></video></span></p>
   </div>
-</section><section class="download-section">
+</section>
+<!-- 系统需求 -->
+<section class="download-section">
   <div class="download-block">
-    <span class="download-label">Download</span>
+    <div class="download-header">
+      <h3>📥 游戏下载资源</h3>
+      <span class="download-tip">全量磁力与高速资源通道</span>
+    </div>
     <div class="download-pills">
-<a href="magnet:?xt=urn:btih:5F2B428D4E4D2625914F31289CC5A443640908D7&dn=Revenge%20Season%203%20Episode%2005%20Control%20HDTV%20XviD%20FQM&tr=udp%3A//tracker.opentrackr.org%3A1337/announce&tr=udp%3A//open.stealth.si%3A80/announce&tr=udp%3A//tracker.torrent.eu.org%3A451/announce&tr=udp%3A//tracker.bittorrent.eu.org%3A451/announce&tr=udp%3A//explodie.org%3A6969/announce&tr=udp%3A//uploads.gamebase.info%3A6969/announce" class="download-btn magnet" target="_blank">🧲磁力</a>
-<a href="magnet:?xt=urn:btih:C8ECB66CB773458B03F7DAF406F29FD3CFD8D47B&dn=DameWare%20Mini%20Remote%20Control%2012.3.4.11%2B%20Crack%20%5Bmoderator%5D&tr=udp%3A//tracker.opentrackr.org%3A1337/announce&tr=udp%3A//open.stealth.si%3A80/announce&tr=udp%3A//tracker.torrent.eu.org%3A451/announce&tr=udp%3A//tracker.bittorrent.eu.org%3A451/announce&tr=udp%3A//explodie.org%3A6969/announce&tr=udp%3A//uploads.gamebase.info%3A6969/announce" class="download-btn magnet" target="_blank">🧲磁力</a>
-<a href="https://www.gamer520.com/85227.html" class="download-btn gamer520" target="_blank">G520</a>
-<a href="https://www.x6d.com/i-wz-9951.html" class="download-btn x6d" target="_blank">X6D</a>
-<a href="https://fitgirl-repacks.site/control/" class="download-btn fitgirl" target="_blank">FitGirl</a>
+<a href="magnet:?xt=urn:btih:5F2B428D4E4D2625914F31289CC5A443640908D7&dn=Revenge%20Season%203%20Episode%2005%20Control%20HDTV%20XviD%20FQM&tr=udp%3A//tracker.opentrackr.org%3A1337/announce&tr=udp%3A//open.stealth.si%3A80/announce&tr=udp%3A//tracker.torrent.eu.org%3A451/announce&tr=udp%3A//tracker.bittorrent.eu.org%3A451/announce&tr=udp%3A//explodie.org%3A6969/announce&tr=udp%3A//uploads.gamebase.info%3A6969/announce" class="download-pill magnet" target="_blank">🧲磁力</a>
+<a href="magnet:?xt=urn:btih:C8ECB66CB773458B03F7DAF406F29FD3CFD8D47B&dn=DameWare%20Mini%20Remote%20Control%2012.3.4.11%2B%20Crack%20%5Bmoderator%5D&tr=udp%3A//tracker.opentrackr.org%3A1337/announce&tr=udp%3A//open.stealth.si%3A80/announce&tr=udp%3A//tracker.torrent.eu.org%3A451/announce&tr=udp%3A//tracker.bittorrent.eu.org%3A451/announce&tr=udp%3A//explodie.org%3A6969/announce&tr=udp%3A//uploads.gamebase.info%3A6969/announce" class="download-pill magnet" target="_blank">🧲磁力</a>
+<a href="https://www.gamer520.com/85227.html" class="download-pill gamer520" target="_blank">G520</a>
+<a href="https://www.x6d.com/i-wz-9951.html" class="download-pill x6d" target="_blank">X6D</a>
+<a href="https://fitgirl-repacks.site/control/" class="download-pill fitgirl" target="_blank">FitGirl</a>
     </div>
   </div>
 </section>

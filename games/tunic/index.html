@@ -184,12 +184,94 @@ body {
   font-weight: 600;
 }
 
-/* 下载区域 - 精致小巧 */
+/* 重新设计的全彩微视效下载区域 */
+/* 重新设计的全彩微视效下载区域 */
 .download-section {
   max-width: 940px;
-  margin: 2.5rem auto 4rem;
+  margin: 2rem auto 3rem;
   padding: 0 2rem;
 }
+
+.download-block {
+  background: var(--surface);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  padding: 1.25rem 1.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+}
+
+.download-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.download-header h3 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0;
+}
+
+.download-header .download-tip {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+.download-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  align-items: center;
+}
+
+.download-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.55rem 1.25rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #ffffff !important;
+  text-decoration: none;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+  border: none;
+  cursor: pointer;
+}
+
+.download-pill:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 14px rgba(0,0,0,0.15);
+  filter: brightness(1.06);
+}
+
+.download-pill.magnet { background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); }
+.download-pill.fitgirl { background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%); }
+.download-pill.gamer520 { background: linear-gradient(135deg, #10b981 0%, #059669 100%); }
+.download-pill.x6d { background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); }
+.download-pill.steamzg { background: linear-gradient(135deg, #ec4899 0%, #db2777 100%); }
+.download-pill.baidu { background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%); }
+.download-pill.tianyi { background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%); }
+.download-pill.default { background: linear-gradient(135deg, #4b5563 0%, #374151 100%); }
+
+.download-pill.magnet { background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); }
+.download-pill.fitgirl { background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%); }
+.download-pill.gamer520 { background: linear-gradient(135deg, #10b981 0%, #059669 100%); }
+.download-pill.x6d { background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); }
+.download-pill.steamzg { background: linear-gradient(135deg, #ec4899 0%, #db2777 100%); }
+.download-pill.baidu { background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%); }
+.download-pill.tianyi { background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%); }
+.download-pill.default { background: linear-gradient(135deg, #4b5563 0%, #374151 100%); }
 
 .download-block {
   display: flex;
@@ -739,12 +821,94 @@ ul.bb_ul li strong {
   background: #000;
 }
 
-/* 下载区域 */
+/* 重新设计的全彩微视效下载区域 */
+/* 重新设计的全彩微视效下载区域 */
 .download-section {
   max-width: 940px;
-  margin: 0 auto;
-  padding: 0 2rem 2rem;
+  margin: 2rem auto 3rem;
+  padding: 0 2rem;
 }
+
+.download-block {
+  background: var(--surface);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  padding: 1.25rem 1.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+}
+
+.download-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.download-header h3 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0;
+}
+
+.download-header .download-tip {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+.download-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  align-items: center;
+}
+
+.download-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.55rem 1.25rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #ffffff !important;
+  text-decoration: none;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+  border: none;
+  cursor: pointer;
+}
+
+.download-pill:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 14px rgba(0,0,0,0.15);
+  filter: brightness(1.06);
+}
+
+.download-pill.magnet { background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); }
+.download-pill.fitgirl { background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%); }
+.download-pill.gamer520 { background: linear-gradient(135deg, #10b981 0%, #059669 100%); }
+.download-pill.x6d { background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); }
+.download-pill.steamzg { background: linear-gradient(135deg, #ec4899 0%, #db2777 100%); }
+.download-pill.baidu { background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%); }
+.download-pill.tianyi { background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%); }
+.download-pill.default { background: linear-gradient(135deg, #4b5563 0%, #374151 100%); }
+
+.download-pill.magnet { background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); }
+.download-pill.fitgirl { background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%); }
+.download-pill.gamer520 { background: linear-gradient(135deg, #10b981 0%, #059669 100%); }
+.download-pill.x6d { background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); }
+.download-pill.steamzg { background: linear-gradient(135deg, #ec4899 0%, #db2777 100%); }
+.download-pill.baidu { background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%); }
+.download-pill.tianyi { background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%); }
+.download-pill.default { background: linear-gradient(135deg, #4b5563 0%, #374151 100%); }
 
 .download-block {
   background: var(--surface);
@@ -877,14 +1041,19 @@ ul.bb_ul li strong {
     <h2>关于此游戏</h2>
     <p class="bb_paragraph" >在TUNIC中探索一个失落的传说、古老的力量和凶猛的怪物的土地，这是一个关于小狐狸大冒险的无透视三维动作游戏。滞留在一片废墟上，仅凭自己的好奇心，你将面对巨大的野兽，收集奇怪而强大的物品，并揭开尘封已久的秘密。</p><p class="bb_paragraph" ><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/553420/extras/04821a4473259f8a94a6d6e93ed44f49.poster.avif?t=1783359656" width=600 height=150 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/553420/extras/04821a4473259f8a94a6d6e93ed44f49.webm?t=1783359656" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/553420/extras/04821a4473259f8a94a6d6e93ed44f49.mp4?t=1783359656" type="video/mp4"></video></span></p><p class="bb_paragraph" ><strong>成为一个传奇</strong></p><p class="bb_paragraph" >传说这片土地上蕴藏着丰富的宝藏。也许就藏在那扇金门的后面？或者在地下深处的某个地方？有些故事讲述了云中有一座宫殿，古代的生物拥有不可思议的力量。你会有什么发现？</p><p class="bb_paragraph" ><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/553420/extras/63fdef87161ea5bd5286bf35501a1a46.poster.avif?t=1783359656" width=600 height=150 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/553420/extras/63fdef87161ea5bd5286bf35501a1a46.webm?t=1783359656" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/553420/extras/63fdef87161ea5bd5286bf35501a1a46.mp4?t=1783359656" type="video/mp4"></video></span></p><p class="bb_paragraph" ><strong>重修圣书</strong></p><p class="bb_paragraph" >在你的旅行过程中，你将重构游戏的指导手册。你将逐页揭开地图、小提示、特殊技巧和最深的秘密。如果你找到了所有这些，也许会有好事发生……</p><p class="bb_paragraph" ><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/553420/extras/b34886275bbf598febcffdecf03bd210.poster.avif?t=1783359656" width=600 height=150 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/553420/extras/b34886275bbf598febcffdecf03bd210.webm?t=1783359656" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/553420/extras/b34886275bbf598febcffdecf03bd210.mp4?t=1783359656" type="video/mp4"></video></span></p><p class="bb_paragraph" ><strong>鼓起勇气，小家伙！</strong></p><p class="bb_paragraph" >全情投入到各种各样的技巧战斗中。闪避，格挡，招架和攻击！学习如何征服各种大大小小怪物，并发现有用的新物品助你前行。</p><ul class="bb_ul"><li><p class="bb_paragraph" >探索一个危机四伏和错综复杂的世界，有阴暗的森林，蔓生的废墟，迷宫般的地下墓穴</p></li><li><p class="bb_paragraph" >在地底深处，云端之上，和陌生的地方与强大的BOSS战斗</p></li><li><p class="bb_paragraph" >收集缺失的手册书页，充满各种小提示及原始的全彩插图</p></li><li><p class="bb_paragraph" >寻找隐藏的宝藏助你前行</p></li><li><p class="bb_paragraph" >发掘秘密文物、秘密技术、秘密拼图，还有……听着，这儿有很多秘密！</p></li><li><p class="bb_paragraph" >由Power Up Audio提供音效设计支持</p></li><li><p class="bb_paragraph" >由Lifeformed (Terence Lee + Janice Kwan)提供原声带</p></li></ul><p class="bb_paragraph" ></p><p class="bb_paragraph" >勇敢点，小狐狸</p>
   </div>
-</section><section class="download-section">
+</section>
+<!-- 系统需求 -->
+<section class="download-section">
   <div class="download-block">
-    <span class="download-label">Download</span>
+    <div class="download-header">
+      <h3>📥 游戏下载资源</h3>
+      <span class="download-tip">全量磁力与高速资源通道</span>
+    </div>
     <div class="download-pills">
-<a href="magnet:?xt=urn:btih:603DF6026776B2B67D74E6512D5F6195B1A6C4D0&dn=TUNIC%20%5BDODI%20Repack%5D" class="download-btn magnet" target="_blank">🧲磁力</a>
-<a href="magnet:?xt=urn:btih:DFCC0ABB635DBD7A21F716593F2A9136D4CE7AAC&dn=TUNIC%20%28v20220422%20Bonus%20Soundtrack%2C%20MULTi27%29%20%5BFitGirl%20Repack%2C%20Selective%20Download%20..&tr=udp%3A//tracker.opentrackr.org%3A1337/announce&tr=udp%3A//open.stealth.si%3A80/announce&tr=udp%3A//tracker.torrent.eu.org%3A451/announce&tr=udp%3A//tracker.bittorrent.eu.org%3A451/announce&tr=udp%3A//explodie.org%3A6969/announce&tr=udp%3A//uploads.gamebase.info%3A6969/announce" class="download-btn magnet" target="_blank">🧲磁力</a>
-<a href="https://www.gamer520.com/42199.html" class="download-btn gamer520" target="_blank">G520</a>
-<a href="https://fitgirl-repacks.site/tunic/" class="download-btn fitgirl" target="_blank">FitGirl</a>
+<a href="magnet:?xt=urn:btih:603DF6026776B2B67D74E6512D5F6195B1A6C4D0&dn=TUNIC%20%5BDODI%20Repack%5D" class="download-pill magnet" target="_blank">🧲磁力</a>
+<a href="magnet:?xt=urn:btih:DFCC0ABB635DBD7A21F716593F2A9136D4CE7AAC&dn=TUNIC%20%28v20220422%20Bonus%20Soundtrack%2C%20MULTi27%29%20%5BFitGirl%20Repack%2C%20Selective%20Download%20..&tr=udp%3A//tracker.opentrackr.org%3A1337/announce&tr=udp%3A//open.stealth.si%3A80/announce&tr=udp%3A//tracker.torrent.eu.org%3A451/announce&tr=udp%3A//tracker.bittorrent.eu.org%3A451/announce&tr=udp%3A//explodie.org%3A6969/announce&tr=udp%3A//uploads.gamebase.info%3A6969/announce" class="download-pill magnet" target="_blank">🧲磁力</a>
+<a href="https://www.gamer520.com/42199.html" class="download-pill gamer520" target="_blank">G520</a>
+<a href="https://fitgirl-repacks.site/tunic/" class="download-pill fitgirl" target="_blank">FitGirl</a>
     </div>
   </div>
 </section>

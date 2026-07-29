@@ -184,12 +184,94 @@ body {
   font-weight: 600;
 }
 
-/* 下载区域 - 精致小巧 */
+/* 重新设计的全彩微视效下载区域 */
+/* 重新设计的全彩微视效下载区域 */
 .download-section {
   max-width: 940px;
-  margin: 2.5rem auto 4rem;
+  margin: 2rem auto 3rem;
   padding: 0 2rem;
 }
+
+.download-block {
+  background: var(--surface);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  padding: 1.25rem 1.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+}
+
+.download-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.download-header h3 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0;
+}
+
+.download-header .download-tip {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+.download-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  align-items: center;
+}
+
+.download-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.55rem 1.25rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #ffffff !important;
+  text-decoration: none;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+  border: none;
+  cursor: pointer;
+}
+
+.download-pill:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 14px rgba(0,0,0,0.15);
+  filter: brightness(1.06);
+}
+
+.download-pill.magnet { background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); }
+.download-pill.fitgirl { background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%); }
+.download-pill.gamer520 { background: linear-gradient(135deg, #10b981 0%, #059669 100%); }
+.download-pill.x6d { background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); }
+.download-pill.steamzg { background: linear-gradient(135deg, #ec4899 0%, #db2777 100%); }
+.download-pill.baidu { background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%); }
+.download-pill.tianyi { background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%); }
+.download-pill.default { background: linear-gradient(135deg, #4b5563 0%, #374151 100%); }
+
+.download-pill.magnet { background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); }
+.download-pill.fitgirl { background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%); }
+.download-pill.gamer520 { background: linear-gradient(135deg, #10b981 0%, #059669 100%); }
+.download-pill.x6d { background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); }
+.download-pill.steamzg { background: linear-gradient(135deg, #ec4899 0%, #db2777 100%); }
+.download-pill.baidu { background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%); }
+.download-pill.tianyi { background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%); }
+.download-pill.default { background: linear-gradient(135deg, #4b5563 0%, #374151 100%); }
 
 .download-block {
   display: flex;
@@ -739,12 +821,94 @@ ul.bb_ul li strong {
   background: #000;
 }
 
-/* 下载区域 */
+/* 重新设计的全彩微视效下载区域 */
+/* 重新设计的全彩微视效下载区域 */
 .download-section {
   max-width: 940px;
-  margin: 0 auto;
-  padding: 0 2rem 2rem;
+  margin: 2rem auto 3rem;
+  padding: 0 2rem;
 }
+
+.download-block {
+  background: var(--surface);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  padding: 1.25rem 1.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+}
+
+.download-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.download-header h3 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0;
+}
+
+.download-header .download-tip {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+.download-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  align-items: center;
+}
+
+.download-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.55rem 1.25rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #ffffff !important;
+  text-decoration: none;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+  border: none;
+  cursor: pointer;
+}
+
+.download-pill:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 14px rgba(0,0,0,0.15);
+  filter: brightness(1.06);
+}
+
+.download-pill.magnet { background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); }
+.download-pill.fitgirl { background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%); }
+.download-pill.gamer520 { background: linear-gradient(135deg, #10b981 0%, #059669 100%); }
+.download-pill.x6d { background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); }
+.download-pill.steamzg { background: linear-gradient(135deg, #ec4899 0%, #db2777 100%); }
+.download-pill.baidu { background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%); }
+.download-pill.tianyi { background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%); }
+.download-pill.default { background: linear-gradient(135deg, #4b5563 0%, #374151 100%); }
+
+.download-pill.magnet { background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); }
+.download-pill.fitgirl { background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%); }
+.download-pill.gamer520 { background: linear-gradient(135deg, #10b981 0%, #059669 100%); }
+.download-pill.x6d { background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); }
+.download-pill.steamzg { background: linear-gradient(135deg, #ec4899 0%, #db2777 100%); }
+.download-pill.baidu { background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%); }
+.download-pill.tianyi { background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%); }
+.download-pill.default { background: linear-gradient(135deg, #4b5563 0%, #374151 100%); }
 
 .download-block {
   background: var(--surface);
@@ -875,14 +1039,19 @@ ul.bb_ul li strong {
     <h2>关于此游戏</h2>
     <strong>踏入北欧国度</strong><br>奎托斯复仇奥林匹斯众神的往事已尘封多年，他现在以凡人的身份生活在北欧众神和怪物环伺的领土中。在这片极寒荒芜的土地上，唯有战斗方能生存……他如是教育其子。 <br><br><strong>再握机遇 </strong><br>奎托斯再为人父。他与儿子阿特柔斯流落在外，身处险地。他是儿子的良师，亦是护卫，阿特柔斯也立志要获得他的尊重。尽管奎托斯一直怒火中烧，却不得不学会处理情绪，控制怒气。 <br><br><strong>探访恐怖生物的暗黑本质世界</strong><br>从奥林匹斯华丽的大理石雕与石柱，到北欧前维京时代的森林、山脉与洞穴，这是一片全新的大陆，拥有独特的生物、怪物与众神。 <br><br><strong>身临其境的狂野肉搏 </strong><br>本作采用过肩视角，带给玩家前所未有的临场体验。在《战神™》中，奎托斯将面对庞大威猛、凶狠狡诈的北欧生物，并与之战斗。全新主武器与新型技能与《战神》系列的精神内核一脉相承，但独特的战斗视角在系列中属首开先河。<h2 class="bb_tag" >PC 特色功能</h2><br><strong>高保真画面</strong><br>PC 画质大幅提升。在支持相关功能的设备上 [MU1] 您可尊享真 4K 分辨率与无锁帧率带来的巅峰表现。通过丰富的画面预设和选项进行设置，包括更高分辨率的阴影、改进的屏幕空间反射，新增的 GTAO 与 SSDO 及其他设置。<br><br><strong>支持 NVIDIA® DLSS 与 Reflex</strong><br>质量与性能相匹配。利用 NVIDIA 深度学习超级采样 (DLSS) 的 AI 功能提高帧率，通过特定 Nvidia GPU 呈现精美清晰的画面。NVIDIA Reflex 低延迟技术，让您可更快地做出反应，完成更加困难的连招，通过 GeForce GPU 尽享酣畅淋漓的游戏体验。<br><br><strong>自定义操作方式</strong><br>随心畅玩。本游戏支持 DUALSHOCK®4 无线控制器 与 DualSense™ 无线控制器以及其他各类控制器，玩家可以完全自定义鼠标与键盘设置，微调每个动作，玩出个人特色。<br><br><strong>超宽幅画面支持</strong><br>前所未有的沉浸式体验。北欧之旅中，夺人心魂的峡谷风光在全景宽屏中徐徐展开。《战神™》支持 21:9 超宽屏幕，进一步增强原高清画质，带来影院级视觉体验。
   </div>
-</section><section class="download-section">
+</section>
+<!-- 系统需求 -->
+<section class="download-section">
   <div class="download-block">
-    <span class="download-label">Download</span>
+    <div class="download-header">
+      <h3>📥 游戏下载资源</h3>
+      <span class="download-tip">全量磁力与高速资源通道</span>
+    </div>
     <div class="download-pills">
-<a href="magnet:?xt=urn:btih:8D1458D169CB766DD709FC14BD748CD77B712482&dn=God%20of%20War%20Ragnarok-RUNE" class="download-btn magnet" target="_blank">🧲磁力</a>
-<a href="magnet:?xt=urn:btih:E3968ECC9A2195D29ED0E9B80401BF117284C5C3&dn=God%20of%20War%201%20%26%202%20%2B%20Bonus%20Disc%20%28DVD5%20NTSC%20-%20Working%29%20PS2%20" class="download-btn magnet" target="_blank">🧲磁力</a>
-<a href="https://www.x6d.com/i-wz-27398.html" class="download-btn x6d" target="_blank">X6D</a>
-<a href="https://fitgirl-repacks.site/god-of-war/" class="download-btn fitgirl" target="_blank">FitGirl</a>
+<a href="magnet:?xt=urn:btih:58D19E934400CDAB66F5DD36148E2380A922879A&dn=God%20of%20War" class="download-pill magnet" target="_blank">🧲磁力</a>
+<a href="magnet:?xt=urn:btih:049A8FA63C3A6BF00C474857C02810A649003E02&dn=God%20of%20War%20%28v1%200%2012%20Bonus%20OST%20Windows%207%20Fix%2C%20MULTi18%29%20%5BFitGirl%20Repack%2C%20Selective..&tr=udp%3A//tracker.opentrackr.org%3A1337/announce&tr=udp%3A//open.stealth.si%3A80/announce&tr=udp%3A//tracker.torrent.eu.org%3A451/announce&tr=udp%3A//tracker.bittorrent.eu.org%3A451/announce&tr=udp%3A//explodie.org%3A6969/announce&tr=udp%3A//uploads.gamebase.info%3A6969/announce" class="download-pill magnet" target="_blank">🧲磁力</a>
+<a href="https://www.x6d.com/i-wz-27398.html" class="download-pill x6d" target="_blank">X6D</a>
+<a href="https://fitgirl-repacks.site/god-of-war/" class="download-pill fitgirl" target="_blank">FitGirl</a>
     </div>
   </div>
 </section>

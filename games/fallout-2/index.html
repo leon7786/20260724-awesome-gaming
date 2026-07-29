@@ -184,12 +184,94 @@ body {
   font-weight: 600;
 }
 
-/* 下载区域 - 精致小巧 */
+/* 重新设计的全彩微视效下载区域 */
+/* 重新设计的全彩微视效下载区域 */
 .download-section {
   max-width: 940px;
-  margin: 2.5rem auto 4rem;
+  margin: 2rem auto 3rem;
   padding: 0 2rem;
 }
+
+.download-block {
+  background: var(--surface);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  padding: 1.25rem 1.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+}
+
+.download-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.download-header h3 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0;
+}
+
+.download-header .download-tip {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+.download-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  align-items: center;
+}
+
+.download-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.55rem 1.25rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #ffffff !important;
+  text-decoration: none;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+  border: none;
+  cursor: pointer;
+}
+
+.download-pill:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 14px rgba(0,0,0,0.15);
+  filter: brightness(1.06);
+}
+
+.download-pill.magnet { background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); }
+.download-pill.fitgirl { background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%); }
+.download-pill.gamer520 { background: linear-gradient(135deg, #10b981 0%, #059669 100%); }
+.download-pill.x6d { background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); }
+.download-pill.steamzg { background: linear-gradient(135deg, #ec4899 0%, #db2777 100%); }
+.download-pill.baidu { background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%); }
+.download-pill.tianyi { background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%); }
+.download-pill.default { background: linear-gradient(135deg, #4b5563 0%, #374151 100%); }
+
+.download-pill.magnet { background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); }
+.download-pill.fitgirl { background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%); }
+.download-pill.gamer520 { background: linear-gradient(135deg, #10b981 0%, #059669 100%); }
+.download-pill.x6d { background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); }
+.download-pill.steamzg { background: linear-gradient(135deg, #ec4899 0%, #db2777 100%); }
+.download-pill.baidu { background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%); }
+.download-pill.tianyi { background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%); }
+.download-pill.default { background: linear-gradient(135deg, #4b5563 0%, #374151 100%); }
 
 .download-block {
   display: flex;
@@ -739,12 +821,94 @@ ul.bb_ul li strong {
   background: #000;
 }
 
-/* 下载区域 */
+/* 重新设计的全彩微视效下载区域 */
+/* 重新设计的全彩微视效下载区域 */
 .download-section {
   max-width: 940px;
-  margin: 0 auto;
-  padding: 0 2rem 2rem;
+  margin: 2rem auto 3rem;
+  padding: 0 2rem;
 }
+
+.download-block {
+  background: var(--surface);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  padding: 1.25rem 1.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+}
+
+.download-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.download-header h3 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0;
+}
+
+.download-header .download-tip {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+.download-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  align-items: center;
+}
+
+.download-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.55rem 1.25rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #ffffff !important;
+  text-decoration: none;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+  border: none;
+  cursor: pointer;
+}
+
+.download-pill:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 14px rgba(0,0,0,0.15);
+  filter: brightness(1.06);
+}
+
+.download-pill.magnet { background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); }
+.download-pill.fitgirl { background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%); }
+.download-pill.gamer520 { background: linear-gradient(135deg, #10b981 0%, #059669 100%); }
+.download-pill.x6d { background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); }
+.download-pill.steamzg { background: linear-gradient(135deg, #ec4899 0%, #db2777 100%); }
+.download-pill.baidu { background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%); }
+.download-pill.tianyi { background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%); }
+.download-pill.default { background: linear-gradient(135deg, #4b5563 0%, #374151 100%); }
+
+.download-pill.magnet { background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); }
+.download-pill.fitgirl { background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%); }
+.download-pill.gamer520 { background: linear-gradient(135deg, #10b981 0%, #059669 100%); }
+.download-pill.x6d { background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); }
+.download-pill.steamzg { background: linear-gradient(135deg, #ec4899 0%, #db2777 100%); }
+.download-pill.baidu { background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%); }
+.download-pill.tianyi { background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%); }
+.download-pill.default { background: linear-gradient(135deg, #4b5563 0%, #374151 100%); }
 
 .download-block {
   background: var(--surface);
@@ -866,18 +1030,22 @@ ul.bb_ul li strong {
     <h2>关于此游戏</h2>
     欢迎来到危机四伏的核污染海域，这里的一切生物都在悄然发生异变。你将化身为一条普通的小鱼，在这片被核污染侵袭的海域中艰难求生。通过不断进化和适应环境，成长为一只强大的海洋巨兽，最终成为这片海洋唯一的霸主！
   </div>
-</section><section class="download-section">
+</section>
+
+<section class="download-section">
   <div class="download-block">
-    <span class="download-label">Download</span>
+    <div class="download-header">
+      <h3>📥 游戏下载资源</h3>
+      <span class="download-tip">全量磁力与高速资源通道</span>
+    </div>
     <div class="download-pills">
-<a href="magnet:?xt=urn:btih:3ACE983989E5F6288A9792C8CDDA9BA725B6E4C8&dn=Fallout%3A%20New%20Vegas%20Ultimate%20Edition%20v1.4.0.52-GOG" class="download-btn magnet" target="_blank">🧲磁力</a>
-<a href="magnet:?xt=urn:btih:F6736CEDF6D3F8F7439A51F2C24B03A54CBCEEAC&dn=ManyVids%20-%20Sweetie%20Fox%20-%20New%20Fallout%20Cosplay%20Porn%20Sweetie%20Fox%20" class="download-btn magnet" target="_blank">🧲磁力</a>
-<a href="https://www.x6d.com/i-wz-26877.html" class="download-btn x6d" target="_blank">X6D</a>
-<a href="https://fitgirl-repacks.site/fallout-london/" class="download-btn fitgirl" target="_blank">FitGirl</a>
+<a href="magnet:?xt=urn:btih:F6E27E3776907BB89F257C3F496B3AABFACF04B0&dn=Fallout%20New%20Vegas%20SKIDROW&tr=udp%3A//tracker.opentrackr.org%3A1337/announce&tr=udp%3A//open.stealth.si%3A80/announce&tr=udp%3A//tracker.torrent.eu.org%3A451/announce&tr=udp%3A//tracker.bittorrent.eu.org%3A451/announce&tr=udp%3A//explodie.org%3A6969/announce&tr=udp%3A//uploads.gamebase.info%3A6969/announce" class="download-pill magnet" target="_blank">🧲磁力</a>
+<a href="magnet:?xt=urn:btih:4A96B3481819BF188BD677FE25B4C1FB0C5FFA35&dn=Fallout%20New%20Vegas%20Ultimate%20Edition%20v%201%204%200%20525%20%2B%209%20DLC%20%5BLossless%20Repack%5D-%20R%20G%20Ca..&tr=udp%3A//tracker.opentrackr.org%3A1337/announce&tr=udp%3A//open.stealth.si%3A80/announce&tr=udp%3A//tracker.torrent.eu.org%3A451/announce&tr=udp%3A//tracker.bittorrent.eu.org%3A451/announce&tr=udp%3A//explodie.org%3A6969/announce&tr=udp%3A//uploads.gamebase.info%3A6969/announce" class="download-pill magnet" target="_blank">🧲磁力</a>
+<a href="https://www.x6d.com/i-wz-26877.html" class="download-pill x6d" target="_blank">X6D</a>
+<a href="https://fitgirl-repacks.site/fallout-london/" class="download-pill fitgirl" target="_blank">FitGirl</a>
     </div>
   </div>
 </section>
-
 <script>
 // 媒体数据
 const mediaItems = [{"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3191720/ss_582417cc750de276275cc793e69d6440ac67b69f.1920x1080.jpg?t=1756453742", "hls": false, "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3191720/ss_582417cc750de276275cc793e69d6440ac67b69f.1920x1080.jpg?t=1756453742"}, {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3191720/ss_561bd81d9016cc873ff3017f1bbf820c324fb768.1920x1080.jpg?t=1756453742", "hls": false, "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3191720/ss_561bd81d9016cc873ff3017f1bbf820c324fb768.1920x1080.jpg?t=1756453742"}, {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3191720/ss_f2d8bd8afeb58df04cf45c6ca79761d38422835e.1920x1080.jpg?t=1756453742", "hls": false, "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3191720/ss_f2d8bd8afeb58df04cf45c6ca79761d38422835e.1920x1080.jpg?t=1756453742"}, {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3191720/ss_477a76d1800ce5e5ac28f340114ead31574054a9.1920x1080.jpg?t=1756453742", "hls": false, "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3191720/ss_477a76d1800ce5e5ac28f340114ead31574054a9.1920x1080.jpg?t=1756453742"}, {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3191720/ss_89e54c9a0261e80a93c3d6637529afa7f59f12bc.1920x1080.jpg?t=1756453742", "hls": false, "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3191720/ss_89e54c9a0261e80a93c3d6637529afa7f59f12bc.1920x1080.jpg?t=1756453742"}, {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3191720/ss_0dedf0a20f5318d5b186516feb3039b36b409373.1920x1080.jpg?t=1756453742", "hls": false, "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3191720/ss_0dedf0a20f5318d5b186516feb3039b36b409373.1920x1080.jpg?t=1756453742"}];

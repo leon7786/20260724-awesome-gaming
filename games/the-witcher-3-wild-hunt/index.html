@@ -356,12 +356,94 @@ body {
   background: #000;
 }
 
-/* 下载区域 */
+/* 重新设计的全彩微视效下载区域 */
+/* 重新设计的全彩微视效下载区域 */
 .download-section {
   max-width: 940px;
-  margin: 0 auto;
-  padding: 0 2rem 2rem;
+  margin: 2rem auto 3rem;
+  padding: 0 2rem;
 }
+
+.download-block {
+  background: var(--surface);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  padding: 1.25rem 1.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+}
+
+.download-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.download-header h3 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0;
+}
+
+.download-header .download-tip {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+.download-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  align-items: center;
+}
+
+.download-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.55rem 1.25rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #ffffff !important;
+  text-decoration: none;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+  border: none;
+  cursor: pointer;
+}
+
+.download-pill:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 14px rgba(0,0,0,0.15);
+  filter: brightness(1.06);
+}
+
+.download-pill.magnet { background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); }
+.download-pill.fitgirl { background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%); }
+.download-pill.gamer520 { background: linear-gradient(135deg, #10b981 0%, #059669 100%); }
+.download-pill.x6d { background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); }
+.download-pill.steamzg { background: linear-gradient(135deg, #ec4899 0%, #db2777 100%); }
+.download-pill.baidu { background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%); }
+.download-pill.tianyi { background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%); }
+.download-pill.default { background: linear-gradient(135deg, #4b5563 0%, #374151 100%); }
+
+.download-pill.magnet { background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); }
+.download-pill.fitgirl { background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%); }
+.download-pill.gamer520 { background: linear-gradient(135deg, #10b981 0%, #059669 100%); }
+.download-pill.x6d { background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); }
+.download-pill.steamzg { background: linear-gradient(135deg, #ec4899 0%, #db2777 100%); }
+.download-pill.baidu { background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%); }
+.download-pill.tianyi { background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%); }
+.download-pill.default { background: linear-gradient(135deg, #4b5563 0%, #374151 100%); }
 
 .download-block {
   background: var(--surface);
@@ -580,19 +662,7 @@ body {
 </section>
 
 <!-- 下载区域 -->
-<section class="download-section">
-  <div class="download-block">
-    <h2>📥 下载链接</h2>
-    <div class="download-buttons">
-<a href="magnet:?xt=urn:btih:3507BC52F6C7263DC1D417A038BDDC81158A845E&dn=The.Witcher.3.Wild.Hunt.Complete.Edition.v4.04.H3.REPACK-KaOs" class="download-btn magnet" target="_blank">🧲磁力</a>
-<a href="magnet:?xt=urn:btih:F6921CF841C1D8A6B1233EAC6034303E6F40F4B5&dn=The%20Witcher%203%20Wild%20Hunt%20Game%20of%20the%20Year%20Edition%20PROPER-GOG" class="download-btn magnet" target="_blank">🧲磁力</a>
-<a href="https://www.gamer520.com/47649.html" class="download-btn gamer520" target="_blank">G520</a>
-<a href="https://www.x6d.com/i-wz-10131.html" class="download-btn x6d" target="_blank">X6D</a>
-<a href="https://steamzg.com/24239" class="download-btn steamzg" target="_blank">steamzg</a>
-<a href="https://fitgirl-repacks.site/the-witcher-3-wild-hunt-complete-edition/" class="download-btn fitgirl" target="_blank">FitGirl</a>
-    </div>
-  </div>
-</section>
+
 
 <!-- 系统需求 -->
 
@@ -608,6 +678,22 @@ body {
   </div>
 </section>
 
+<section class="download-section">
+  <div class="download-block">
+    <div class="download-header">
+      <h3>📥 游戏下载资源</h3>
+      <span class="download-tip">全量磁力与高速资源通道</span>
+    </div>
+    <div class="download-pills">
+<a href="magnet:?xt=urn:btih:3507BC52F6C7263DC1D417A038BDDC81158A845E&dn=The.Witcher.3.Wild.Hunt.Complete.Edition.v4.04.H3.REPACK-KaOs" class="download-pill magnet" target="_blank">🧲磁力</a>
+<a href="magnet:?xt=urn:btih:F6921CF841C1D8A6B1233EAC6034303E6F40F4B5&dn=The%20Witcher%203%20Wild%20Hunt%20Game%20of%20the%20Year%20Edition%20PROPER-GOG" class="download-pill magnet" target="_blank">🧲磁力</a>
+<a href="https://www.gamer520.com/47649.html" class="download-pill gamer520" target="_blank">G520</a>
+<a href="https://www.x6d.com/i-wz-10131.html" class="download-pill x6d" target="_blank">X6D</a>
+<a href="https://steamzg.com/24239" class="download-pill steamzg" target="_blank">steamzg</a>
+<a href="https://fitgirl-repacks.site/the-witcher-3-wild-hunt-complete-edition/" class="download-pill fitgirl" target="_blank">FitGirl</a>
+    </div>
+  </div>
+</section>
 <script>
 // 媒体数据
 const mediaItems = [{"type": "video", "url": "https://video.akamai.steamstatic.com/store_trailers/292030/533363/f3f32404cd2382da7d05b8b64d3e6e261afca6d3/1750502468/hls_264_master.m3u8?t=1674829926", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256927226/movie.293x165.jpg?t=1674829926", "poster": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256927226/movie.293x165.jpg?t=1674829926", "name": "W3NG PEGI The Witcher 3: Wild Hunt - Geralt and Ciri"}, {"type": "video", "url": "https://video.akamai.steamstatic.com/store_trailers/292030/521325/8f43129e98908d4e3086109338563334d728c743/1750502259/hls_264_master.m3u8?t=1670976368", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256920685/movie.293x165.jpg?t=1670976368", "poster": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256920685/movie.293x165.jpg?t=1670976368", "name": "W3NG PEGI The Witcher 3: Wild Hunt - Reveal"}, {"type": "video", "url": "https://video.akamai.steamstatic.com/store_trailers/292030/36174/94b7acf6e7aeba94d9c7d05de1897ecafb97d1c0/1750502205/hls_264_master.m3u8?t=1528288460", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2039386/movie.293x165.jpg?t=1528288460", "poster": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2039386/movie.293x165.jpg?t=1528288460", "name": "PEGI The Witcher 3: Wild Hunt - Launch Cinematic"}, {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/292030/ss_5710298af2318afd9aa72449ef29ac4a2ef64d8e.1920x1080.jpg?t=1768303991", "poster": "", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/292030/ss_5710298af2318afd9aa72449ef29ac4a2ef64d8e.1920x1080.jpg?t=1768303991"}, {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/292030/ss_0901e64e9d4b8ebaea8348c194e7a3644d2d832d.1920x1080.jpg?t=1768303991", "poster": "", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/292030/ss_0901e64e9d4b8ebaea8348c194e7a3644d2d832d.1920x1080.jpg?t=1768303991"}, {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/292030/ss_112b1e176c1bd271d8a565eacb6feaf90f240bb2.1920x1080.jpg?t=1768303991", "poster": "", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/292030/ss_112b1e176c1bd271d8a565eacb6feaf90f240bb2.1920x1080.jpg?t=1768303991"}, {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/292030/ss_d1b73b18cbcd5e9e412c7a1dead3c5cd7303d2ad.1920x1080.jpg?t=1768303991", "poster": "", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/292030/ss_d1b73b18cbcd5e9e412c7a1dead3c5cd7303d2ad.1920x1080.jpg?t=1768303991"}, {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/292030/ss_107600c1337accc09104f7a8aa7f275f23cad096.1920x1080.jpg?t=1768303991", "poster": "", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/292030/ss_107600c1337accc09104f7a8aa7f275f23cad096.1920x1080.jpg?t=1768303991"}, {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/292030/ss_64eb760f9a2b67f6731a71cce3a8fb684b9af267.1920x1080.jpg?t=1768303991", "poster": "", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/292030/ss_64eb760f9a2b67f6731a71cce3a8fb684b9af267.1920x1080.jpg?t=1768303991"}, {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/292030/ss_eda99e7f705a113d04ab2a7a36068f3e7b343d17.1920x1080.jpg?t=1768303991", "poster": "", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/292030/ss_eda99e7f705a113d04ab2a7a36068f3e7b343d17.1920x1080.jpg?t=1768303991"}, {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/292030/ss_d5b80eb63c12a6484f26796f3e34410651bba068.1920x1080.jpg?t=1768303991", "poster": "", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/292030/ss_d5b80eb63c12a6484f26796f3e34410651bba068.1920x1080.jpg?t=1768303991"}, {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/292030/ss_b74d60ee215337d765e4d20c8ca6710ae2362cc2.1920x1080.jpg?t=1768303991", "poster": "", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/292030/ss_b74d60ee215337d765e4d20c8ca6710ae2362cc2.1920x1080.jpg?t=1768303991"}, {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/292030/ss_dc55eeb409d6e187456a8e159018e8da098fa468.1920x1080.jpg?t=1768303991", "poster": "", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/292030/ss_dc55eeb409d6e187456a8e159018e8da098fa468.1920x1080.jpg?t=1768303991"}, {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/292030/ss_849ec8dcc6f8df1c0b2c509584c9fc9e51f88cfa.1920x1080.jpg?t=1768303991", "poster": "", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/292030/ss_849ec8dcc6f8df1c0b2c509584c9fc9e51f88cfa.1920x1080.jpg?t=1768303991"}, {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/292030/ss_90a33d7764a2d23306091bfcb52265c3506b4fdb.1920x1080.jpg?t=1768303991", "poster": "", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/292030/ss_90a33d7764a2d23306091bfcb52265c3506b4fdb.1920x1080.jpg?t=1768303991"}, {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/292030/ss_07812c174bb6b96c29895ddc27404143df7aba6d.1920x1080.jpg?t=1768303991", "poster": "", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/292030/ss_07812c174bb6b96c29895ddc27404143df7aba6d.1920x1080.jpg?t=1768303991"}, {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/292030/ss_ed23139c916fdb9f6dd23b2a6a01d0fbd2dd1a4f.1920x1080.jpg?t=1768303991", "poster": "", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/292030/ss_ed23139c916fdb9f6dd23b2a6a01d0fbd2dd1a4f.1920x1080.jpg?t=1768303991"}, {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/292030/ss_dc33eb233555c13fce939ccaac667bc54e3c4a27.1920x1080.jpg?t=1768303991", "poster": "", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/292030/ss_dc33eb233555c13fce939ccaac667bc54e3c4a27.1920x1080.jpg?t=1768303991"}, {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/292030/ss_908485cbb1401b1ebf42e3d21a860ddc53517b08.1920x1080.jpg?t=1768303991", "poster": "", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/292030/ss_908485cbb1401b1ebf42e3d21a860ddc53517b08.1920x1080.jpg?t=1768303991"}, {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/292030/ss_608af6cfe0eab3f37265550b391732a3e88d1a4f.1920x1080.jpg?t=1768303991", "poster": "", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/292030/ss_608af6cfe0eab3f37265550b391732a3e88d1a4f.1920x1080.jpg?t=1768303991"}, {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/292030/ss_8ac1dc847388e59b1be1c5ea5ca592d5861756cc.1920x1080.jpg?t=1768303991", "poster": "", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/292030/ss_8ac1dc847388e59b1be1c5ea5ca592d5861756cc.1920x1080.jpg?t=1768303991"}];

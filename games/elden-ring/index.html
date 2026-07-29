@@ -356,12 +356,94 @@ body {
   background: #000;
 }
 
-/* 下载区域 */
+/* 重新设计的全彩微视效下载区域 */
+/* 重新设计的全彩微视效下载区域 */
 .download-section {
   max-width: 940px;
-  margin: 0 auto;
-  padding: 0 2rem 2rem;
+  margin: 2rem auto 3rem;
+  padding: 0 2rem;
 }
+
+.download-block {
+  background: var(--surface);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  padding: 1.25rem 1.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+}
+
+.download-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.download-header h3 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0;
+}
+
+.download-header .download-tip {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+.download-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  align-items: center;
+}
+
+.download-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.55rem 1.25rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #ffffff !important;
+  text-decoration: none;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+  border: none;
+  cursor: pointer;
+}
+
+.download-pill:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 14px rgba(0,0,0,0.15);
+  filter: brightness(1.06);
+}
+
+.download-pill.magnet { background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); }
+.download-pill.fitgirl { background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%); }
+.download-pill.gamer520 { background: linear-gradient(135deg, #10b981 0%, #059669 100%); }
+.download-pill.x6d { background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); }
+.download-pill.steamzg { background: linear-gradient(135deg, #ec4899 0%, #db2777 100%); }
+.download-pill.baidu { background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%); }
+.download-pill.tianyi { background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%); }
+.download-pill.default { background: linear-gradient(135deg, #4b5563 0%, #374151 100%); }
+
+.download-pill.magnet { background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); }
+.download-pill.fitgirl { background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%); }
+.download-pill.gamer520 { background: linear-gradient(135deg, #10b981 0%, #059669 100%); }
+.download-pill.x6d { background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); }
+.download-pill.steamzg { background: linear-gradient(135deg, #ec4899 0%, #db2777 100%); }
+.download-pill.baidu { background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%); }
+.download-pill.tianyi { background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%); }
+.download-pill.default { background: linear-gradient(135deg, #4b5563 0%, #374151 100%); }
 
 .download-block {
   background: var(--surface);
@@ -544,7 +626,23 @@ body {
                 poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256889456/movie.293x165.jpg?t=1654109241" 
                 src="https://video.akamai.steamstatic.com/store_trailers/1245620/468149/7d588828f80907ca97efdcb1e6ef72b4ce2b1d0d/1750650511/hls_264_master.m3u8?t=1654109241"></video>
             <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
-            <script>
+            <section class="download-section">
+  <div class="download-block">
+    <div class="download-header">
+      <h3>📥 游戏下载资源</h3>
+      <span class="download-tip">全量磁力与高速资源通道</span>
+    </div>
+    <div class="download-pills">
+<a href="magnet:?xt=urn:btih:4CC8E331E699748269F6AC1B98B802684F5AC97A&dn=ELDEN%20RING%3A%20Shadow%20of%20the%20Erdtree%20Deluxe%20Edition%20%28v1%2012%20v1%2012%201%209%20DLCs%20Bonuses%20W..&tr=udp%3A//tracker.opentrackr.org%3A1337/announce&tr=udp%3A//open.stealth.si%3A80/announce" class="download-pill magnet" target="_blank">🧲磁力</a>
+<a href="magnet:?xt=urn:btih:6601D0DC9AE9FEA8582AC703F92553B717747C42&dn=ELDEN%20RING%20Shadow%20of%20the%20Erdtree-RUNE" class="download-pill magnet" target="_blank">🧲磁力</a>
+<a href="https://fitgirl-repacks.site/elden-ring/" class="download-pill fitgirl" target="_blank">FitGirl</a>
+<a href="https://www.gamer520.com/98041.html" class="download-pill gamer520" target="_blank">G520</a>
+<a href="https://www.x6d.com/i-wz-18242.html" class="download-pill x6d" target="_blank">X6D</a>
+<a href="https://steamzg.com/15351" class="download-pill steamzg" target="_blank">steamzg</a>
+    </div>
+  </div>
+</section>
+<script>
                 var video = document.getElementById('mainVideo');
                 if(Hls.isSupported()) {
                     var hls = new Hls();
@@ -588,19 +686,7 @@ body {
 </section>
 
 <!-- 下载区域 -->
-<section class="download-section">
-  <div class="download-block">
-    <h2>📥 下载链接</h2>
-    <div class="download-buttons">
-<a href="magnet:?xt=urn:btih:4CC8E331E699748269F6AC1B98B802684F5AC97A&dn=ELDEN%20RING%3A%20Shadow%20of%20the%20Erdtree%20Deluxe%20Edition%20%28v1%2012%20v1%2012%201%209%20DLCs%20Bonuses%20W..&tr=udp%3A//tracker.opentrackr.org%3A1337/announce&tr=udp%3A//open.stealth.si%3A80/announce" class="download-btn magnet" target="_blank">🧲磁力</a>
-<a href="magnet:?xt=urn:btih:6601D0DC9AE9FEA8582AC703F92553B717747C42&dn=ELDEN%20RING%20Shadow%20of%20the%20Erdtree-RUNE" class="download-btn magnet" target="_blank">🧲磁力</a>
-<a href="https://fitgirl-repacks.site/elden-ring/" class="download-btn fitgirl" target="_blank">FitGirl</a>
-<a href="https://www.gamer520.com/98041.html" class="download-btn gamer520" target="_blank">G520</a>
-<a href="https://www.x6d.com/i-wz-18242.html" class="download-btn x6d" target="_blank">X6D</a>
-<a href="https://steamzg.com/15351" class="download-btn steamzg" target="_blank">steamzg</a>
-    </div>
-  </div>
-</section>
+
 
 <!-- 系统需求 -->
 

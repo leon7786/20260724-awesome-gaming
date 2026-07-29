@@ -184,12 +184,94 @@ body {
   font-weight: 600;
 }
 
-/* 下载区域 - 精致小巧 */
+/* 重新设计的全彩微视效下载区域 */
+/* 重新设计的全彩微视效下载区域 */
 .download-section {
   max-width: 940px;
-  margin: 2.5rem auto 4rem;
+  margin: 2rem auto 3rem;
   padding: 0 2rem;
 }
+
+.download-block {
+  background: var(--surface);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  padding: 1.25rem 1.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+}
+
+.download-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.download-header h3 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0;
+}
+
+.download-header .download-tip {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+.download-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  align-items: center;
+}
+
+.download-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.55rem 1.25rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #ffffff !important;
+  text-decoration: none;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+  border: none;
+  cursor: pointer;
+}
+
+.download-pill:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 14px rgba(0,0,0,0.15);
+  filter: brightness(1.06);
+}
+
+.download-pill.magnet { background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); }
+.download-pill.fitgirl { background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%); }
+.download-pill.gamer520 { background: linear-gradient(135deg, #10b981 0%, #059669 100%); }
+.download-pill.x6d { background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); }
+.download-pill.steamzg { background: linear-gradient(135deg, #ec4899 0%, #db2777 100%); }
+.download-pill.baidu { background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%); }
+.download-pill.tianyi { background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%); }
+.download-pill.default { background: linear-gradient(135deg, #4b5563 0%, #374151 100%); }
+
+.download-pill.magnet { background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); }
+.download-pill.fitgirl { background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%); }
+.download-pill.gamer520 { background: linear-gradient(135deg, #10b981 0%, #059669 100%); }
+.download-pill.x6d { background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); }
+.download-pill.steamzg { background: linear-gradient(135deg, #ec4899 0%, #db2777 100%); }
+.download-pill.baidu { background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%); }
+.download-pill.tianyi { background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%); }
+.download-pill.default { background: linear-gradient(135deg, #4b5563 0%, #374151 100%); }
 
 .download-block {
   display: flex;
@@ -739,12 +821,94 @@ ul.bb_ul li strong {
   background: #000;
 }
 
-/* 下载区域 */
+/* 重新设计的全彩微视效下载区域 */
+/* 重新设计的全彩微视效下载区域 */
 .download-section {
   max-width: 940px;
-  margin: 0 auto;
-  padding: 0 2rem 2rem;
+  margin: 2rem auto 3rem;
+  padding: 0 2rem;
 }
+
+.download-block {
+  background: var(--surface);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  padding: 1.25rem 1.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+}
+
+.download-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.download-header h3 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0;
+}
+
+.download-header .download-tip {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+.download-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  align-items: center;
+}
+
+.download-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.55rem 1.25rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #ffffff !important;
+  text-decoration: none;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+  border: none;
+  cursor: pointer;
+}
+
+.download-pill:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 14px rgba(0,0,0,0.15);
+  filter: brightness(1.06);
+}
+
+.download-pill.magnet { background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); }
+.download-pill.fitgirl { background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%); }
+.download-pill.gamer520 { background: linear-gradient(135deg, #10b981 0%, #059669 100%); }
+.download-pill.x6d { background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); }
+.download-pill.steamzg { background: linear-gradient(135deg, #ec4899 0%, #db2777 100%); }
+.download-pill.baidu { background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%); }
+.download-pill.tianyi { background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%); }
+.download-pill.default { background: linear-gradient(135deg, #4b5563 0%, #374151 100%); }
+
+.download-pill.magnet { background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); }
+.download-pill.fitgirl { background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%); }
+.download-pill.gamer520 { background: linear-gradient(135deg, #10b981 0%, #059669 100%); }
+.download-pill.x6d { background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); }
+.download-pill.steamzg { background: linear-gradient(135deg, #ec4899 0%, #db2777 100%); }
+.download-pill.baidu { background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%); }
+.download-pill.tianyi { background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%); }
+.download-pill.default { background: linear-gradient(135deg, #4b5563 0%, #374151 100%); }
 
 .download-block {
   background: var(--surface);
@@ -866,18 +1030,22 @@ ul.bb_ul li strong {
     <h2>关于此游戏</h2>
     通过提升画面表现、增加丰富新功能的《Pac-Man World 2》，再度和大家见面！ 冒险的舞台是“PAC-LAND”。为了拿回被幽灵们抢走的黄金水果，PAC-MAN的冒险即将启程。
   </div>
-</section><section class="download-section">
+</section>
+
+<section class="download-section">
   <div class="download-block">
-    <span class="download-label">Download</span>
+    <div class="download-header">
+      <h3>📥 游戏下载资源</h3>
+      <span class="download-tip">全量磁力与高速资源通道</span>
+    </div>
     <div class="download-pills">
-<a href="magnet:?xt=urn:btih:B2DC55D39CB56D53AC299BC8B3E02F501CCF0180&dn=PAC-MAN%20WORLD%202%20Re-PAC-RUNE" class="download-btn magnet" target="_blank">🧲磁力</a>
-<a href="magnet:?xt=urn:btih:D390A0BDA13584CB2B557606469FAC4438DB6FA5&dn=PAC-MAN%20WORLD%202%20Re-PAC%20Update%20v20260522-RUNE" class="download-btn magnet" target="_blank">🧲磁力</a>
-<a href="https://www.x6d.com/i-wz-31894.html" class="download-btn x6d" target="_blank">X6D</a>
-<a href="https://fitgirl-repacks.site/pac-man-world-2-re-pac/" class="download-btn fitgirl" target="_blank">FitGirl</a>
+<a href="magnet:?xt=urn:btih:30E1E77757EC260B7843202C970EDF079B135F16&dn=Pac-Man%20and%20The%20Ghostly%20Adventures-RELOADED" class="download-pill magnet" target="_blank">🧲磁力</a>
+<a href="magnet:?xt=urn:btih:7A420BB2B18D219D55DFAA526F100AF459340EAF&dn=PC%20PAC-MAN%20and%20the%20Ghostly%20Adventures%20Multi-7%20Full-Rip%20-TPTB&tr=udp%3A//tracker.opentrackr.org%3A1337/announce&tr=udp%3A//open.stealth.si%3A80/announce&tr=udp%3A//tracker.torrent.eu.org%3A451/announce&tr=udp%3A//tracker.bittorrent.eu.org%3A451/announce&tr=udp%3A//explodie.org%3A6969/announce&tr=udp%3A//uploads.gamebase.info%3A6969/announce" class="download-pill magnet" target="_blank">🧲磁力</a>
+<a href="https://www.x6d.com/i-wz-31894.html" class="download-pill x6d" target="_blank">X6D</a>
+<a href="https://fitgirl-repacks.site/pac-man-world-2-re-pac/" class="download-pill fitgirl" target="_blank">FitGirl</a>
     </div>
   </div>
 </section>
-
 <script>
 // 媒体数据
 const mediaItems = [{"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2324290/d60d87e59709d136efeb928728928d0d94031506/ss_d60d87e59709d136efeb928728928d0d94031506.1920x1080.jpg?t=1782111604", "hls": false, "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2324290/d60d87e59709d136efeb928728928d0d94031506/ss_d60d87e59709d136efeb928728928d0d94031506.1920x1080.jpg?t=1782111604"}, {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2324290/d039a95c43a1afc5ca616bf55214bb5e30e0c5cf/ss_d039a95c43a1afc5ca616bf55214bb5e30e0c5cf.1920x1080.jpg?t=1782111604", "hls": false, "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2324290/d039a95c43a1afc5ca616bf55214bb5e30e0c5cf/ss_d039a95c43a1afc5ca616bf55214bb5e30e0c5cf.1920x1080.jpg?t=1782111604"}, {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2324290/9c7b24ee63a6a3a302c3a75c2356ef7e3e21e7cd/ss_9c7b24ee63a6a3a302c3a75c2356ef7e3e21e7cd.1920x1080.jpg?t=1782111604", "hls": false, "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2324290/9c7b24ee63a6a3a302c3a75c2356ef7e3e21e7cd/ss_9c7b24ee63a6a3a302c3a75c2356ef7e3e21e7cd.1920x1080.jpg?t=1782111604"}, {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2324290/a9fa622b33238062a9a4a3a41e792f1056656560/ss_a9fa622b33238062a9a4a3a41e792f1056656560.1920x1080.jpg?t=1782111604", "hls": false, "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2324290/a9fa622b33238062a9a4a3a41e792f1056656560/ss_a9fa622b33238062a9a4a3a41e792f1056656560.1920x1080.jpg?t=1782111604"}, {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2324290/c86f47b6e64ec43a4676239792ad9a3033d8785e/ss_c86f47b6e64ec43a4676239792ad9a3033d8785e.1920x1080.jpg?t=1782111604", "hls": false, "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2324290/c86f47b6e64ec43a4676239792ad9a3033d8785e/ss_c86f47b6e64ec43a4676239792ad9a3033d8785e.1920x1080.jpg?t=1782111604"}, {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2324290/b7c3386b0c623ec24ddb5943b58fbbcab4333ab4/ss_b7c3386b0c623ec24ddb5943b58fbbcab4333ab4.1920x1080.jpg?t=1782111604", "hls": false, "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2324290/b7c3386b0c623ec24ddb5943b58fbbcab4333ab4/ss_b7c3386b0c623ec24ddb5943b58fbbcab4333ab4.1920x1080.jpg?t=1782111604"}];
