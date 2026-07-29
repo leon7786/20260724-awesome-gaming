@@ -859,12 +859,11 @@ function renderGameCard(game) {
     return `<a href="${dl.url}" class="btn ${dl.cls}" target="_blank" onclick="event.stopPropagation()">${dl.name}</a>`;
   }).join('');
   
-  // 一行 4-5 个微型色块 (年份, 容量, 销量, 口碑, 评分)
+  // 一行微型色块 (年份, 容量, 销量, 口碑) —— 评分留在海报右上角不重复
   let yearTag = game.year ? `<span class="tag year">${game.year}</span>` : '';
   let sizeTag = game.size_gb ? `<span class="tag size">${game.size_gb}GB</span>` : '';
   let salesTag = game.tag_sales ? `<span class="tag sales">${game.tag_sales}</span>` : '';
   let awardTag = game.tag_award ? `<span class="tag award">${game.tag_award}</span>` : '';
-  let scoreTag = game.score ? `<span class="tag score">⭐ ${game.score}</span>` : '';
   
   return `
     <div class="game-card">
@@ -882,7 +881,6 @@ function renderGameCard(game) {
           ${sizeTag}
           ${salesTag}
           ${awardTag}
-          ${scoreTag}
         </div>
         <div class="game-actions">
           ${dlBtns}
