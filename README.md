@@ -4,6 +4,9 @@
 > 下载链接搜索: gamer520.com, x6d.com, steamzg.com, fitgirl-repacks.site, 磁力链
 > 搜索覆盖: 80+ 款游戏，含 gamer520 60+ 页面、x6d 120+ 页面、磁力链 30+ 条
 
+## 🔄 Git & GitHub 自动同步规范
+- **版本控制与推送**：本项目的所有更新（游戏数据去重、AppID 修复、封面图补充及页面生成）均会**同步提交到 Git 并自动推送（push）至 GitHub 远程仓库** (`https://github.com/leon7786/20260724-awesome-gaming`)。
+
 ---
 
 ## 📥 磁力链/BT种子推荐站
