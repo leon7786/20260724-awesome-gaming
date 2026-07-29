@@ -906,10 +906,11 @@ ul.bb_ul li strong {
 const mediaItems = [{"type": "video", "url": "https://video.akamai.steamstatic.com/store_trailers/403640/77527/742d9071b812781ceb251d2731d09d4684a362e1/1750526206/hls_264_master.m3u8?t=1477332671", "hls": true, "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256673169/movie.293x165.jpg?t=1477332671"}, {"type": "video", "url": "https://video.akamai.steamstatic.com/store_trailers/403640/69802/d48763036271c32d83b0f46ec86651241afaf6dd/1750526158/hls_264_master.m3u8?t=1478793513", "hls": true, "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256669327/movie.293x165.jpg?t=1478793513"}, {"type": "video", "url": "https://video.akamai.steamstatic.com/store_trailers/403640/79863/0fd632a3690cd96987c5ca31ffc3751a00d708a0/1750526209/hls_264_master.m3u8?t=1478755197", "hls": true, "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256674360/movie.293x165.jpg?t=1478755197"}, {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/403640/ss_f2206b92cfde7e2c63a106e35ddc847700a2f7d8.1920x1080.jpg?t=1750785918", "hls": false, "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/403640/ss_f2206b92cfde7e2c63a106e35ddc847700a2f7d8.1920x1080.jpg?t=1750785918"}, {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/403640/ss_29982f240a3bca5bcf7f4a2150b88ea7de240df0.1920x1080.jpg?t=1750785918", "hls": false, "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/403640/ss_29982f240a3bca5bcf7f4a2150b88ea7de240df0.1920x1080.jpg?t=1750785918"}, {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/403640/ss_4095dc87c8e6f8a3f6a12134e1e0f3bb3e9aa808.1920x1080.jpg?t=1750785918", "hls": false, "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/403640/ss_4095dc87c8e6f8a3f6a12134e1e0f3bb3e9aa808.1920x1080.jpg?t=1750785918"}, {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/403640/ss_09a97431ef9a96276d20628e1539e2ea3259c74d.1920x1080.jpg?t=1750785918", "hls": false, "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/403640/ss_09a97431ef9a96276d20628e1539e2ea3259c74d.1920x1080.jpg?t=1750785918"}, {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/403640/ss_9d8023036ba415f2515d6d9d8cfc05c7b18e2382.1920x1080.jpg?t=1750785918", "hls": false, "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/403640/ss_9d8023036ba415f2515d6d9d8cfc05c7b18e2382.1920x1080.jpg?t=1750785918"}, {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/403640/ss_f1d900f18408c0451ee9b343dbe1fc7b8f2b373e.1920x1080.jpg?t=1750785918", "hls": false, "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/403640/ss_f1d900f18408c0451ee9b343dbe1fc7b8f2b373e.1920x1080.jpg?t=1750785918"}, {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/403640/ss_2fd48ef1fe2c2287933fec1311d9cf47e57a546b.1920x1080.jpg?t=1750785918", "hls": false, "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/403640/ss_2fd48ef1fe2c2287933fec1311d9cf47e57a546b.1920x1080.jpg?t=1750785918"}, {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/403640/ss_2273a618cac598f3ed315df06d1678291062da7a.1920x1080.jpg?t=1750785918", "hls": false, "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/403640/ss_2273a618cac598f3ed315df06d1678291062da7a.1920x1080.jpg?t=1750785918"}];
 
 
+
 let currentIndex = 0;
 let currentHls = null;
 
-// 切换到指定媒体 (完美支持 m3u8, 绝不触发浏览器弹窗下载)
+// 切换媒体 (进入页面自动静音播放视频，绝不触发 m3u8 浏览器弹窗下载)
 function switchMedia(index) {
   if (index < 0 || index >= mediaItems.length) return;
   currentIndex = index;
@@ -923,20 +924,23 @@ function switchMedia(index) {
 
   if (item.type === 'video') {
     const isM3u8 = item.url.indexOf('.m3u8') !== -1;
-    mainEl.innerHTML = '<video id="mainVideoPlayer" controls playsinline poster="' + (item.poster || item.thumb || '') + '" style="width:100%;height:100%;object-fit:contain;background:#000"></video>';
+    const posterAttr = item.thumb ? ` poster="${item.thumb}"` : '';
+    mainEl.innerHTML = `<video id="mainVideoPlayer" controls autoplay muted playsinline${posterAttr} style="width:100%;height:100%;object-fit:contain;background:#000"></video>`;
     const videoEl = document.getElementById('mainVideoPlayer');
 
     if (isM3u8 && typeof Hls !== 'undefined' && Hls.isSupported()) {
       currentHls = new Hls();
       currentHls.loadSource(item.url);
       currentHls.attachMedia(videoEl);
-    } else if (isM3u8 && videoEl.canPlayType('application/vnd.apple.mpegurl')) {
-      videoEl.src = item.url;
+      currentHls.on(Hls.Events.MANIFEST_PARSED, function() {
+        videoEl.play().catch(function(){});
+      });
     } else {
       videoEl.src = item.url;
+      videoEl.play().catch(function(){});
     }
   } else {
-    mainEl.innerHTML = '<img src="' + item.url + '" alt="Screenshot">';
+    mainEl.innerHTML = `<img src="${item.url}" alt="Screenshot">`;
   }
 
   document.querySelectorAll('.media-thumb').forEach((thumb, i) => {
@@ -955,17 +959,9 @@ document.addEventListener('DOMContentLoaded', () => {
     thumb.addEventListener('click', () => switchMedia(index));
   });
   
-  // 默认显示第一个图片截图，避免页面一打开就自动加载视频流
-  let initialIndex = 0;
-  for (let i = 0; i < mediaItems.length; i++) {
-    if (mediaItems[i].type === 'image') {
-      initialIndex = i;
-      break;
-    }
-  }
-  
+  // 页面加载默认选中第 0 项 (如果为视频则自动播放)
   if (mediaItems.length > 0) {
-    switchMedia(initialIndex);
+    switchMedia(0);
   }
   
   const thumbsWrap = document.getElementById('mediaThumbnailsWrap');
