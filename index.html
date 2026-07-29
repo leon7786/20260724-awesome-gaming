@@ -883,9 +883,9 @@ function renderMarkdown(md) {
 function renderGameCard(game) {
   const downloads = game.downloads || [];
   const filtered = [];
-  let magnetCount = 0;
   
-  // 1. 优先提取最多 2 个磁力链 (归一化按钮文本为 🧲磁力)
+  // 1. 最多 2 个 🧲磁力
+  let magnetCount = 0;
   for (const dl of downloads) {
     const url = dl.url || '';
     const name = dl.name || '';
@@ -897,49 +897,77 @@ function renderGameCard(game) {
     }
   }
   
-  // 2. 依次提取 FitGirl / G520 / X6D / steamzg 等精选下载源
+  // 2. 优先提取 FitGirl
   for (const dl of downloads) {
-    const url = dl.url || '';
-    const name = dl.name || '';
-    const urlLower = url.toLowerCase();
-    const nameLower = name.toLowerCase();
-    
-    if (url.startsWith('magnet:') || name.includes('磁力') || dl.type === 'magnet') continue;
-    
-    let btnName = '';
-    let btnCls = 'default';
-    
-    if (urlLower.includes('fitgirl') || nameLower.includes('fitgirl')) {
-      btnName = 'FitGirl';
-      btnCls = 'fitgirl';
-    } else if (urlLower.includes('gamer520') || nameLower.includes('g520') || nameLower.includes('gamer520')) {
-      btnName = 'G520';
-      btnCls = 'gamer520';
-    } else if (urlLower.includes('x6d') || nameLower.includes('x6d')) {
-      btnName = 'X6D';
-      btnCls = 'x6d';
-    } else if (urlLower.includes('steamzg') || nameLower.includes('steamzg')) {
-      btnName = 'steamzg';
-      btnCls = 'steamzg';
-    } else if (urlLower.includes('baidu') || nameLower.includes('百度')) {
-      btnName = '百度';
-      btnCls = 'baidu';
-    } else if (urlLower.includes('189') || urlLower.includes('tianyi') || nameLower.includes('天翼')) {
-      btnName = '天翼';
-      btnCls = 'tianyi';
-    } else {
-      btnName = name.length > 8 ? name.substring(0, 6) + '..' : (name || '下载');
-      btnCls = 'default';
+    const url = (dl.url || '').toLowerCase();
+    const name = (dl.name || '').toLowerCase();
+    if (url.includes('fitgirl') || name.includes('fitgirl')) {
+      if (!filtered.some(f => f.url === dl.url)) {
+        filtered.push({ url: dl.url, name: 'FitGirl', cls: 'fitgirl' });
+        break;
+      }
     }
-    
-    if (!filtered.some(f => f.url === url)) {
-      filtered.push({ url: url, name: btnName, cls: btnCls });
-    }
-    
-    if (filtered.length >= 6) break;
   }
 
-  const dlBtns = filtered.map(dl => {
+  // 3. 优先提取 G520
+  for (const dl of downloads) {
+    const url = (dl.url || '').toLowerCase();
+    const name = (dl.name || '').toLowerCase();
+    if (url.includes('gamer520') || name.includes('g520') || name.includes('gamer520')) {
+      if (!filtered.some(f => f.url === dl.url)) {
+        filtered.push({ url: dl.url, name: 'G520', cls: 'gamer520' });
+        break;
+      }
+    }
+  }
+
+  // 4. 优先提取 X6D
+  for (const dl of downloads) {
+    const url = (dl.url || '').toLowerCase();
+    const name = (dl.name || '').toLowerCase();
+    if (url.includes('x6d') || name.includes('x6d')) {
+      if (!filtered.some(f => f.url === dl.url)) {
+        filtered.push({ url: dl.url, name: 'X6D', cls: 'x6d' });
+        break;
+      }
+    }
+  }
+
+  // 5. 不足 5 个时补充其他源 (steamzg, 百度, 天翼等)
+  if (filtered.length < 5) {
+    for (const dl of downloads) {
+      const url = dl.url || '';
+      const name = dl.name || '';
+      const urlLower = url.toLowerCase();
+      const nameLower = name.toLowerCase();
+
+      if (url.startsWith('magnet:') || name.includes('磁力') || dl.type === 'magnet') continue;
+      if (filtered.some(f => f.url === url)) continue;
+
+      let btnName = '';
+      let btnCls = 'default';
+      if (urlLower.includes('steamzg') || nameLower.includes('steamzg')) {
+        btnName = 'steamzg';
+        btnCls = 'steamzg';
+      } else if (urlLower.includes('baidu') || nameLower.includes('百度')) {
+        btnName = '百度';
+        btnCls = 'baidu';
+      } else if (urlLower.includes('189') || urlLower.includes('tianyi') || nameLower.includes('天翼')) {
+        btnName = '天翼';
+        btnCls = 'tianyi';
+      } else {
+        btnName = name.length > 8 ? name.substring(0, 6) + '..' : (name || '下载');
+        btnCls = 'default';
+      }
+
+      filtered.push({ url: url, name: btnName, cls: btnCls });
+      if (filtered.length >= 5) break;
+    }
+  }
+
+  const finalFiltered = filtered.slice(0, 5);
+
+  const dlBtns = finalFiltered.map(dl => {
     return `<a href="${dl.url}" class="btn ${dl.cls}" target="_blank" onclick="event.stopPropagation()">${dl.name}</a>`;
   }).join('');
   
