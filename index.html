@@ -513,21 +513,22 @@ body {
 }
 
 
-/* 主页卡片底部 4 个超紧凑微型胶囊按钮组 */
+/* 主页卡片底部 5 个自平衡自适应胶囊按钮组 */
 .game-actions {
   display: flex;
-  gap: 0.25rem;
+  gap: 0.18rem;
   flex-wrap: nowrap;
   justify-content: space-between;
   margin-top: auto;
   padding-top: 0.4rem;
   align-items: center;
+  width: 100%;
 }
 
 .btn {
-  font-size: 0.68rem;
+  font-size: 0.63rem;
   font-weight: 600;
-  padding: 0.25rem 0.45rem;
+  padding: 0.25rem 0.15rem;
   border-radius: 5px;
   text-decoration: none;
   transition: all 0.18s ease;
@@ -536,12 +537,14 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.15rem;
+  gap: 0.08rem;
   white-space: nowrap;
   background: #f9fafb;
   color: #374151;
   flex: 1;
+  min-width: 0;
   text-align: center;
+  overflow: hidden;
 }
 
 .btn:hover {
@@ -774,13 +777,13 @@ function renderGameCard(game) {
   const downloads = game.downloads || [];
   const filtered = [];
   
-  // 1. 提取最多 1 个 🧲磁力 (卡片紧凑排布)
+  // 1. 最多 2 个 🧲磁力
   let magnetCount = 0;
   for (const dl of downloads) {
     const url = dl.url || '';
     const name = dl.name || '';
     if (url.startsWith('magnet:') || name.includes('磁力') || dl.type === 'magnet') {
-      if (magnetCount < 1) {
+      if (magnetCount < 2) {
         magnetCount++;
         filtered.push({ url: url, name: '🧲磁力', cls: 'magnet' });
       }
@@ -823,8 +826,8 @@ function renderGameCard(game) {
     }
   }
 
-  // 5. 不足 4 个时补充其他源 (steamzg, 百度, 天翼等)
-  if (filtered.length < 4) {
+  // 5. 不足 5 个时补充其他源 (steamzg, 百度, 天翼等)
+  if (filtered.length < 5) {
     for (const dl of downloads) {
       const url = dl.url || '';
       const name = dl.name || '';
@@ -846,16 +849,16 @@ function renderGameCard(game) {
         btnName = '天翼';
         btnCls = 'tianyi';
       } else {
-        btnName = name.length > 8 ? name.substring(0, 6) + '..' : (name || '下载');
+        btnName = name.length > 8 ? name.substring(0, 5) + '..' : (name || '下载');
         btnCls = 'default';
       }
 
       filtered.push({ url: url, name: btnName, cls: btnCls });
-      if (filtered.length >= 4) break;
+      if (filtered.length >= 5) break;
     }
   }
 
-  const finalFiltered = filtered.slice(0, 4);
+  const finalFiltered = filtered.slice(0, 5);
 
   const dlBtns = finalFiltered.map(dl => {
     return `<a href="${dl.url}" class="btn ${dl.cls}" target="_blank" onclick="event.stopPropagation()">${dl.name}</a>`;
