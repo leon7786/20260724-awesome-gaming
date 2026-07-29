@@ -712,6 +712,15 @@ body {
     font-size: 1.5rem;
   }
 }
+
+.btn.magnet { background: linear-gradient(135deg, #f59e0b, #d97706); color: #fff; border: none; }
+.btn.fitgirl { background: linear-gradient(135deg, #8b5cf6, #7c3aed); color: #fff; border: none; }
+.btn.gamer520 { background: linear-gradient(135deg, #10b981, #059669); color: #fff; border: none; }
+.btn.x6d { background: linear-gradient(135deg, #3b82f6, #2563eb); color: #fff; border: none; }
+.btn.steamzg { background: linear-gradient(135deg, #ec4899, #db2777); color: #fff; border: none; }
+.btn.baidu { background: linear-gradient(135deg, #06b6d4, #0891b2); color: #fff; border: none; }
+.btn.tianyi { background: linear-gradient(135deg, #6366f1, #4f46e5); color: #fff; border: none; }
+
 </style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -873,28 +882,65 @@ function renderMarkdown(md) {
 // 渲染单个游戏卡片
 function renderGameCard(game) {
   const downloads = game.downloads || [];
-  // 最多5个: 2磁力 → FitGirl → G520 → X6D (固定顺序)
   const filtered = [];
   let magnetCount = 0;
+  
+  // 1. 优先提取最多 2 个磁力链 (归一化按钮文本为 🧲磁力)
   for (const dl of downloads) {
-    const type = dl.type || 'detail';
-    if (type === 'magnet') {
-      if (magnetCount >= 2) continue;
-      magnetCount++;
-      filtered.push(dl);
+    const url = dl.url || '';
+    const name = dl.name || '';
+    if (url.startsWith('magnet:') || name.includes('磁力') || dl.type === 'magnet') {
+      if (magnetCount < 2) {
+        magnetCount++;
+        filtered.push({ url: url, name: '🧲磁力', cls: 'magnet' });
+      }
     }
   }
+  
+  // 2. 依次提取 FitGirl / G520 / X6D / steamzg 等精选下载源
   for (const dl of downloads) {
-    const type = dl.type || 'detail';
-    if (type === 'fitgirl') filtered.push(dl);
-    else if (type === 'gamer520') filtered.push(dl);
-    else if (type === 'x6d') filtered.push(dl);
-    if (filtered.length >= 5) break;
+    const url = dl.url || '';
+    const name = dl.name || '';
+    const urlLower = url.toLowerCase();
+    const nameLower = name.toLowerCase();
+    
+    if (url.startsWith('magnet:') || name.includes('磁力') || dl.type === 'magnet') continue;
+    
+    let btnName = '';
+    let btnCls = 'default';
+    
+    if (urlLower.includes('fitgirl') || nameLower.includes('fitgirl')) {
+      btnName = 'FitGirl';
+      btnCls = 'fitgirl';
+    } else if (urlLower.includes('gamer520') || nameLower.includes('g520') || nameLower.includes('gamer520')) {
+      btnName = 'G520';
+      btnCls = 'gamer520';
+    } else if (urlLower.includes('x6d') || nameLower.includes('x6d')) {
+      btnName = 'X6D';
+      btnCls = 'x6d';
+    } else if (urlLower.includes('steamzg') || nameLower.includes('steamzg')) {
+      btnName = 'steamzg';
+      btnCls = 'steamzg';
+    } else if (urlLower.includes('baidu') || nameLower.includes('百度')) {
+      btnName = '百度';
+      btnCls = 'baidu';
+    } else if (urlLower.includes('189') || urlLower.includes('tianyi') || nameLower.includes('天翼')) {
+      btnName = '天翼';
+      btnCls = 'tianyi';
+    } else {
+      btnName = name.length > 8 ? name.substring(0, 6) + '..' : (name || '下载');
+      btnCls = 'default';
+    }
+    
+    if (!filtered.some(f => f.url === url)) {
+      filtered.push({ url: url, name: btnName, cls: btnCls });
+    }
+    
+    if (filtered.length >= 6) break;
   }
+
   const dlBtns = filtered.map(dl => {
-    const type = dl.type || 'detail';
-    const name = dl.name || type;
-    return `<a href="${dl.url}" class="btn" target="_blank" onclick="event.stopPropagation()">${name}</a>`;
+    return `<a href="${dl.url}" class="btn ${dl.cls}" target="_blank" onclick="event.stopPropagation()">${dl.name}</a>`;
   }).join('');
   
   // 存储大小标签
