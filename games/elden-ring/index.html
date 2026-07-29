@@ -588,13 +588,12 @@ body {
   <div class="download-block">
     <h2>📥 下载链接</h2>
     <div class="download-buttons">
-      <a href="magnet:?xt=urn:btih:2FC64B9E1D470CF434D98674AC39ADAD67CD858F" class="download-btn magnet" target="_blank">🧲磁力</a>
+<a href="magnet:?xt=urn:btih:4CC8E331E699748269F6AC1B98B802684F5AC97A&dn=ELDEN%20RING%3A%20Shadow%20of%20the%20Erdtree%20Deluxe%20Edition%20%28v1%2012%20v1%2012%201%209%20DLCs%20Bonuses%20W..&tr=udp%3A//tracker.opentrackr.org%3A1337/announce&tr=udp%3A//open.stealth.si%3A80/announce" class="download-btn magnet" target="_blank">🧲磁力</a>
+<a href="magnet:?xt=urn:btih:6601D0DC9AE9FEA8582AC703F92553B717747C42&dn=ELDEN%20RING%20Shadow%20of%20the%20Erdtree-RUNE" class="download-btn magnet" target="_blank">🧲磁力</a>
 <a href="https://fitgirl-repacks.site/elden-ring/" class="download-btn fitgirl" target="_blank">FitGirl</a>
 <a href="https://www.gamer520.com/98041.html" class="download-btn gamer520" target="_blank">G520</a>
 <a href="https://www.x6d.com/i-wz-18242.html" class="download-btn x6d" target="_blank">X6D</a>
 <a href="https://steamzg.com/15351" class="download-btn steamzg" target="_blank">steamzg</a>
-<a href="magnet:?xt=urn:btih:6601D0DC9AE9FEA8582AC703F92553B717747C42&dn=ELDEN%20RING%20Shadow%20of%20the%20Erdtree-RUNE" class="download-btn magnet" target="_blank">🧲磁力</a>
-
     </div>
   </div>
 </section>
@@ -636,41 +635,97 @@ const mediaItems = [
   {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1245620/ss_c2baf8aada6140beee79d701d14043899e91af47.1920x1080.jpg?t=1784684281", "poster": "", "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1245620/ss_c2baf8aada6140beee79d701d14043899e91af47.1920x1080.jpg?t=1784684281"}
 ];
 
-let currentIndex = 0;
 
-// 切换到指定媒体
+let currentIndex = 0;
+let currentHls = null;
+
+// 切换到指定媒体 (完美支持 m3u8, 绝不触发浏览器弹窗下载)
 function switchMedia(index) {
   if (index < 0 || index >= mediaItems.length) return;
-  
   currentIndex = index;
   const item = mediaItems[index];
   const mainEl = document.getElementById('mediaMain');
   
-  if (item.type === 'video') {
-    // 使用Steam视频嵌入
-    mainEl.innerHTML = `<iframe src="${item.url}" frameborder="0" allowfullscreen allow="autoplay; fullscreen"></iframe>`;
-  } else {
-    mainEl.innerHTML = `<img src="${item.url}" alt="Screenshot">`;
+  if (currentHls) {
+    currentHls.destroy();
+    currentHls = null;
   }
-  
-  // 更新缩略图active状态
+
+  if (item.type === 'video') {
+    const isM3u8 = item.url.indexOf('.m3u8') !== -1;
+    mainEl.innerHTML = '<video id="mainVideoPlayer" controls playsinline poster="' + (item.poster || item.thumb || '') + '" style="width:100%;height:100%;object-fit:contain;background:#000"></video>';
+    const videoEl = document.getElementById('mainVideoPlayer');
+
+    if (isM3u8 && typeof Hls !== 'undefined' && Hls.isSupported()) {
+      currentHls = new Hls();
+      currentHls.loadSource(item.url);
+      currentHls.attachMedia(videoEl);
+    } else if (isM3u8 && videoEl.canPlayType('application/vnd.apple.mpegurl')) {
+      videoEl.src = item.url;
+    } else {
+      videoEl.src = item.url;
+    }
+  } else {
+    mainEl.innerHTML = '<img src="' + item.url + '" alt="Screenshot">';
+  }
+
   document.querySelectorAll('.media-thumb').forEach((thumb, i) => {
     thumb.classList.toggle('active', i === index);
   });
+  
+  const bar = document.getElementById('mediaThumbnails');
+  const active = document.querySelector('.media-thumb[data-index="'+index+'"]');
+  if (bar && active) {
+    active.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+  }
 }
 
-// 初始化
 document.addEventListener('DOMContentLoaded', () => {
-  // 绑定缩略图点击事件
   document.querySelectorAll('.media-thumb').forEach((thumb, index) => {
     thumb.addEventListener('click', () => switchMedia(index));
   });
   
-  // 设置初始状态
+  // 默认显示第一个图片截图，避免页面一打开就自动加载视频流
+  let initialIndex = 0;
+  for (let i = 0; i < mediaItems.length; i++) {
+    if (mediaItems[i].type === 'image') {
+      initialIndex = i;
+      break;
+    }
+  }
+  
   if (mediaItems.length > 0) {
-    switchMedia(0);
+    switchMedia(initialIndex);
+  }
+  
+  const thumbsWrap = document.getElementById('mediaThumbnailsWrap');
+  const bar = document.getElementById('mediaThumbnails');
+  if (bar && thumbsWrap) {
+    const leftArrow = thumbsWrap.querySelector('.media-arrow.left') || (() => {
+      const el = document.createElement('div');
+      el.className = 'media-arrow left';
+      el.innerHTML = '&#8249;';
+      thumbsWrap.appendChild(el);
+      return el;
+    })();
+    const rightArrow = thumbsWrap.querySelector('.media-arrow.right') || (() => {
+      const el = document.createElement('div');
+      el.className = 'media-arrow right';
+      el.innerHTML = '&#8250;';
+      thumbsWrap.appendChild(el);
+      return el;
+    })();
+    function updateArrows() {
+      const maxLeft = Math.max(0, bar.scrollWidth - bar.clientWidth);
+      leftArrow.classList.toggle('show', bar.scrollLeft > 1);
+      rightArrow.classList.toggle('show', bar.scrollLeft < maxLeft - 1);
+    }
+    bar.addEventListener('scroll', updateArrows);
+    window.addEventListener('resize', updateArrows);
+    updateArrows();
   }
 });
+
 </script>
 
 </body>

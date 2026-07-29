@@ -872,11 +872,11 @@ ul.bb_ul li strong {
   <div class="download-block">
     <span class="download-label">Download</span>
     <div class="download-pills">
-<a href="https://www.gamer520.com/24491.html" class="download-pill" target="_blank">gamer520</a>
-<a href="https://www.x6d.com/i-wz-17124.html" class="download-pill" target="_blank">x6d</a>
-<a href="magnet:?xt=urn:btih:D34CC71135489DE9CAC2ED537E94DA1309F4287A&amp;dn=Grand%20Theft%20Auto%20Vice%20City%20%5BPC-Game%5D" class="download-pill" target="_blank">magnet</a>
-<a href="magnet:?xt=urn:btih:844A0127014D4D0D26DC73E759271899F3B66DEB&amp;dn=Grand%20Theft%20Auto%20%28GTA%203%2C%20Vice%20City%2C%20San%20Andreas%29%20%5BUpdated%20Classi" class="download-pill" target="_blank">magnet</a>
-<a href="https://fitgirl-repacks.site/grand-theft-auto-the-trilogy-the-definitive-edition/" class="download-pill" target="_blank">fitgirl</a>
+<a href="magnet:?xt=urn:btih:D34CC71135489DE9CAC2ED537E94DA1309F4287A&dn=Grand%20Theft%20Auto%20Vice%20City%20%5BPC-Game%5D" class="download-btn magnet" target="_blank">🧲磁力</a>
+<a href="magnet:?xt=urn:btih:844A0127014D4D0D26DC73E759271899F3B66DEB&dn=Grand%20Theft%20Auto%20%28GTA%203%2C%20Vice%20City%2C%20San%20Andreas%29%20%5BUpdated%20Classi" class="download-btn magnet" target="_blank">🧲磁力</a>
+<a href="https://www.gamer520.com/24491.html" class="download-btn gamer520" target="_blank">G520</a>
+<a href="https://www.x6d.com/i-wz-17124.html" class="download-btn x6d" target="_blank">X6D</a>
+<a href="https://fitgirl-repacks.site/grand-theft-auto-the-trilogy-the-definitive-edition/" class="download-btn fitgirl" target="_blank">FitGirl</a>
     </div>
   </div>
 </section>
@@ -900,41 +900,44 @@ ul.bb_ul li strong {
 // 媒体数据
 const mediaItems = [{"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1546990/ss_778d72865d6f09ba99b43f10c2b29e0537781a85.1920x1080.jpg?t=1781138647", "hls": false, "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1546990/ss_778d72865d6f09ba99b43f10c2b29e0537781a85.1920x1080.jpg?t=1781138647"}, {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1546990/ss_df005e43791b1be1d3949b1e4ef3cafb29b6850a.1920x1080.jpg?t=1781138647", "hls": false, "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1546990/ss_df005e43791b1be1d3949b1e4ef3cafb29b6850a.1920x1080.jpg?t=1781138647"}, {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1546990/ss_1159c693feda20830480e5d2ee578d72ad4beee9.1920x1080.jpg?t=1781138647", "hls": false, "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1546990/ss_1159c693feda20830480e5d2ee578d72ad4beee9.1920x1080.jpg?t=1781138647"}, {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1546990/ss_7c88685239031c35df4b6cde7f7163ba0e9ba41b.1920x1080.jpg?t=1781138647", "hls": false, "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1546990/ss_7c88685239031c35df4b6cde7f7163ba0e9ba41b.1920x1080.jpg?t=1781138647"}, {"type": "image", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1546990/ss_1dd957711cfdf03d40ea715a1fa191a976424ec7.1920x1080.jpg?t=1781138647", "hls": false, "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1546990/ss_1dd957711cfdf03d40ea715a1fa191a976424ec7.1920x1080.jpg?t=1781138647"}];
 
-let currentIndex = 0;
 
-// 切换到指定媒体
+let currentIndex = 0;
+let currentHls = null;
+
+// 切换到指定媒体 (完美支持 m3u8, 绝不触发浏览器弹窗下载)
 function switchMedia(index) {
   if (index < 0 || index >= mediaItems.length) return;
   currentIndex = index;
   const item = mediaItems[index];
   const mainEl = document.getElementById('mediaMain');
+  
+  if (currentHls) {
+    currentHls.destroy();
+    currentHls = null;
+  }
+
   if (item.type === 'video') {
-    var isHls = item.hls === true;
-    mainEl.innerHTML = '<video id="videoPlayer" controls playsinline muted poster="' + item.thumb + '" src="' + (isHls ? '' : item.url) + '" style="width:100%;height:100%;object-fit:contain;background:#000"></video>';
-    var video = mainEl.querySelector('video');
-    video.volume = 0.5;
-    if (isHls && typeof Hls !== 'undefined' && Hls.isSupported()) {
-      if (window._hlsInstance) { window._hlsInstance.destroy(); }
-      var hls = new Hls({ enableWorker: false });
-      window._hlsInstance = hls;
-      hls.loadSource(item.url);
-      hls.attachMedia(video);
-      hls.on(Hls.Events.MANIFEST_PARSED, function() {
-        video.play().then(function() {
-          video.muted = false;
-        }).catch(function() { });
-      });
-    } else if (!isHls) {
-      video.play().then(function() {
-        video.muted = false;
-      }).catch(function() { });
+    const isM3u8 = item.url.indexOf('.m3u8') !== -1;
+    mainEl.innerHTML = '<video id="mainVideoPlayer" controls playsinline poster="' + (item.poster || item.thumb || '') + '" style="width:100%;height:100%;object-fit:contain;background:#000"></video>';
+    const videoEl = document.getElementById('mainVideoPlayer');
+
+    if (isM3u8 && typeof Hls !== 'undefined' && Hls.isSupported()) {
+      currentHls = new Hls();
+      currentHls.loadSource(item.url);
+      currentHls.attachMedia(videoEl);
+    } else if (isM3u8 && videoEl.canPlayType('application/vnd.apple.mpegurl')) {
+      videoEl.src = item.url;
+    } else {
+      videoEl.src = item.url;
     }
   } else {
     mainEl.innerHTML = '<img src="' + item.url + '" alt="Screenshot">';
   }
+
   document.querySelectorAll('.media-thumb').forEach((thumb, i) => {
     thumb.classList.toggle('active', i === index);
   });
+  
   const bar = document.getElementById('mediaThumbnails');
   const active = document.querySelector('.media-thumb[data-index="'+index+'"]');
   if (bar && active) {
@@ -946,33 +949,37 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.media-thumb').forEach((thumb, index) => {
     thumb.addEventListener('click', () => switchMedia(index));
   });
-  if (mediaItems.length > 0) {
-    switchMedia(0);
+  
+  // 默认显示第一个图片截图，避免页面一打开就自动加载视频流
+  let initialIndex = 0;
+  for (let i = 0; i < mediaItems.length; i++) {
+    if (mediaItems[i].type === 'image') {
+      initialIndex = i;
+      break;
+    }
   }
-  // 滚动箭头
+  
+  if (mediaItems.length > 0) {
+    switchMedia(initialIndex);
+  }
+  
   const thumbsWrap = document.getElementById('mediaThumbnailsWrap');
   const bar = document.getElementById('mediaThumbnails');
   if (bar && thumbsWrap) {
     const leftArrow = thumbsWrap.querySelector('.media-arrow.left') || (() => {
       const el = document.createElement('div');
       el.className = 'media-arrow left';
-      el.innerHTML = '\u2039';
+      el.innerHTML = '&#8249;';
       thumbsWrap.appendChild(el);
       return el;
     })();
     const rightArrow = thumbsWrap.querySelector('.media-arrow.right') || (() => {
       const el = document.createElement('div');
       el.className = 'media-arrow right';
-      el.innerHTML = '\u203A';
+      el.innerHTML = '&#8250;';
       thumbsWrap.appendChild(el);
       return el;
     })();
-    function scrollByOne(dir) {
-      var step = bar.clientWidth * 0.2;
-      bar.scrollBy({ left: dir * step, behavior: 'smooth' });
-    }
-    leftArrow.addEventListener('click', function() { scrollByOne(-1); });
-    rightArrow.addEventListener('click', function() { scrollByOne(1); });
     function updateArrows() {
       const maxLeft = Math.max(0, bar.scrollWidth - bar.clientWidth);
       leftArrow.classList.toggle('show', bar.scrollLeft > 1);
@@ -983,6 +990,7 @@ document.addEventListener('DOMContentLoaded', () => {
     updateArrows();
   }
 });
+
 </script>
 
 </body>
